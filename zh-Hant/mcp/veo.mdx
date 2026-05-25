@@ -1,0 +1,142 @@
+---
+title: "Veo MCP 對接指南"
+description: "veo MCP 服务器集成"
+---
+
+[MCP（Model Context Protocol）](https://modelcontextprotocol.io) 是由 Anthropic 推出的模型上下文協議，允許 AI 模型（如 Claude、GPT 等）透過標準化介面調用外部工具。透過 AceData Cloud 提供的 Veo MCP Server，你可以在 Claude Desktop、VS Code、Cursor 等 AI 用戶端中直接使用 Google Veo 生成 AI 影片。
+
+## 功能概覽
+
+Veo MCP Server 提供以下核心功能：
+
+- **文本生成影片** — 透過文本提示詞生成高品質影片
+- **圖片生成影片** — 以圖片為基礎生成影片
+- **多模型支援** — 支援 veo3、veo2、veo31-fast-ingredients 等模型
+- **多種解析度** — 支援 4K、1080p、GIF 等輸出格式
+- **多種畫面比例** — 支援 16:9、9:16 等比例
+- **1080p 升級** — 將已生成影片升級到 1080p
+- **任務查詢** — 監控生成進度並取得結果
+
+## 前置準備
+
+使用前，你需要取得 AceData Cloud API Token：
+
+1. 註冊或登入 [AceData Cloud 平台](https://platform.acedata.cloud)
+2. 前往 [Veo Videos API](https://platform.acedata.cloud/documents/veo-videos) 頁面
+3. 點擊「Acquire」取得 API Token（首次申請贈送免費額度）
+
+## 安裝配置
+
+### 方式一：pip 安裝（推薦）
+
+```bash
+pip install mcp-veo
+```
+
+### 方式二：原始碼安裝
+
+```bash
+git clone https://github.com/AceDataCloud/VeoMCP.git
+cd VeoMCP
+pip install -e .
+```
+
+安裝完成後，即可使用 `mcp-veo` 指令啟動服務。
+
+## 在 Claude Desktop 中使用
+
+編輯 Claude Desktop 配置檔：
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+新增以下配置：
+
+```json
+{
+  "mcpServers": {
+    "veo": {
+      "command": "mcp-veo",
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+      }
+    }
+  }
+}
+```
+
+如果使用 `uvx`（無需提前安裝套件）：
+
+```json
+{
+  "mcpServers": {
+    "veo": {
+      "command": "uvx",
+      "args": ["mcp-veo"],
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+      }
+    }
+  }
+}
+```
+
+儲存配置後重新啟動 Claude Desktop，即可在對話中使用 Veo 相關工具。
+
+## 在 VS Code / Cursor 中使用
+
+在專案根目錄建立 `.vscode/mcp.json`：
+
+```json
+{
+  "servers": {
+    "veo": {
+      "command": "mcp-veo",
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+      }
+    }
+  }
+}
+```
+
+或者使用 `uvx`：
+
+```json
+{
+  "servers": {
+    "veo": {
+      "command": "uvx",
+      "args": ["mcp-veo"],
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+      }
+    }
+  }
+}
+```
+
+## 可用工具列表
+
+| 工具名 | 說明 |
+|--------|------|
+| `veo_text_to_video` | 透過文本提示詞生成影片 |
+| `veo_image_to_video` | 以圖片為基礎生成影片 |
+| `veo_get_1080p` | 將影片升級到 1080p |
+| `veo_get_task` | 查詢單個任務狀態 |
+| `veo_get_tasks_batch` | 批量查詢任務狀態 |
+
+## 使用範例
+
+配置完成後，你可以在 AI 用戶端中直接用自然語言調用這些功能，例如：
+
+- 「幫我用 Veo 生成一段星空延時攝影影片」
+- 「用這張風景照生成一段 4K 影片」
+- 「生成一段直式 9:16 的短影片」
+- 「把這個影片升級到 1080p」
+
+## 更多資訊
+
+- GitHub 倉庫：[AceDataCloud/VeoMCP](https://github.com/AceDataCloud/VeoMCP)
+- PyPI 套件：[mcp-veo](https://pypi.org/project/mcp-veo/)
+- API 文件：[Veo 影片生成 API](https://platform.acedata.cloud/documents/veo)

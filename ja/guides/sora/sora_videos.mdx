@@ -1,0 +1,428 @@
+---
+title: "Sora Videos Generation API 接続説明"
+description: "Sora Video Generation 集成指南 - Ace Data Cloud"
+---
+
+本稿では、Sora Videos Generation API の接続方法について説明します。この API を使用すると、カスタムパラメータを入力して Sora 公式の動画を生成できます。本 API は以下の2つのバージョンモードをサポートしています：
+
+- **Version 1（クラシックモード）**：`duration`（10/15/25秒）、`orientation`（横向き/縦向き）、`size`（small/large 解像度）、参照画像 `image_urls`、キャラクター**###** `character_url` などのパラメータをサポート。
+- **Version 2（パートナーモード）**：`seconds`（4/8/12秒）、ピクセル単位の解像度 `size`（例：1280x720）、参照画像 `input_reference` などのパラメータをサポート。
+
+## 申請手順
+
+API を使用するには、まず [Sora Videos Generation API](https://platform.acedata.cloud/documents/99a24421-2e22-4028-8201-e19cb834b67e) の該当ページでサービスを申請してください。ページにアクセス後、「Acquire」ボタンをクリックします。以下の画像のように表示されます：
+
+![](https://cdn.acedata.cloud/q6ytrc.png)
+
+未ログインまたは未登録の場合は、自動的にログインページにリダイレクトされ、登録・ログイン後に元のページに戻ります。
+
+初回申請時には無料枠が付与され、この API を無料で利用可能です。
+
+## 基本的な使い方（Version 1）
+
+まず、Version 1 の基本的な使い方を理解しましょう。`prompt`（プロンプト）、参照画像リンク配列 `image_urls`、モデル `model` を入力することで処理結果が得られます。具体的な内容は以下の通りです：
+
+<p><img src="https://cdn.acedata.cloud/h8dyz3.png" width="500" className="m-auto" /></p>
+
+ここではリクエストヘッダーを設定しています：
+
+- `accept`：受け取りたいレスポンス形式。ここでは `application/json`（JSON形式）を指定。
+- `authorization`：API 呼び出し用のキー。申請後にプルダウンから選択可能。
+
+また、リクエストボディには以下を設定します：
+
+- `model`：動画生成モデル。`sora-2`（標準モード）と `sora-2-pro`（高画質モード）をサポート。`sora-2-pro` は 25秒の動画をサポートし、`sora-2` は 10秒または15秒のみ対応。
+- `size`：動画解像度。`small` は標準解像度、`large` は HD 解像度（Version 1 のみ）。
+- `duration`：動画長さ。10、15、25秒をサポート。25秒は `sora-2-pro` のみ対応（Version 1 のみ）。
+- `orientation`：画面方向。`landscape`（横向き）、`portrait`（縦向き）（Version 1 のみ）。
+- `image_urls`：参照画像リンク配列。画像から動画生成に使用（Version 1 のみ）。
+- `character_url`：キャラクター**###**リンク。動画内に実写人物が含まれてはいけません（Version 1 のみ）。
+- `character_start`/`character_end`：キャラクターの表示開始・終了秒数。範囲は1～3秒（Version 1 のみ）。
+- `prompt`：プロンプト（必須）。
+- `callback_url`：非同期コールバック用 URL。
+- `version`：API バージョン。`"1.0"`（デフォルト）または `"2.0"`。
+
+選択すると、右側に対応するコードが生成されます。以下の画像のように表示されます：
+
+<p><img src="https://cdn.acedata.cloud/g04qjz.png" width="500" className="m-auto" /></p>
+
+「Try」ボタンをクリックするとテストが可能です。上記の例では以下のような結果が得られました：
+
+```json
+{
+  "success": true,
+  "task_id": "6bf7fb83-5814-4e3e-a4ad-bfa0c26c0b33",
+  "trace_id": "96166698-4b66-478d-a26b-77a7269c9e01",
+  "data": [
+    {
+      "id": "sora-2:task_01k7770rgsevxsmtpbn7xnm5gh",
+      "video_url": "https://filesystem.site/gptimage/vg-assets/assets%2Ftask_01k7770rgsevxsmtpbn7xnm5gh%2Ftask_01k7770rgsevxsmtpbn7xnm5gh_genid_0bf958d3-cae7-4298-b7b6-99ae439a1ea6_25_10_10_14_06_975715%2Fvideos%2F00000%2Fsrc.mp4?st=2025-10-10T12%3A30%3A38Z&se=2025-10-16T13%3A30%3A38Z&sks=b&skt=2025-10-10T12%3A30%3A38Z&ske=2025-10-16T13%3A30%3A38Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=8ebb0df1-a278-4e2e-9c20-f2d373479b3a&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=jigY6Z5qp8%2BTXYobaW0EAJ4%2Fbx6G7t6V1P0iyDeUq48%3D&az=oaivgprodscus",
+      "state": "succeeded"
+    }
+  ]
+}
+```
+
+返却結果には複数のフィールドがあります：
+
+- `success`：動画生成タスクの状態。
+- `task_id`：動画生成タスクのID。
+- `trace_id`：動画生成トレースID。
+- `data`：動画生成タスクの結果リスト。
+  - `id`：動画生成タスクの動画ID。
+  - `video_url`：動画生成タスクの動画リンク。
+  - `state`：動画生成タスクの状態。
+
+満足のいく動画情報が得られたら、`data` 内の動画リンクから生成された Sora 動画を取得してください。
+
+また、対応する接続コードを生成してコピー可能です。例えば CURL コードは以下の通りです：
+
+```shell
+curl -X POST 'https://api.acedata.cloud/sora/videos' \
+-H 'accept: application/json' \
+-H 'authorization: Bearer {token}' \
+-H 'content-type: application/json' \
+-d '{
+  "size": "large",
+  "duration": 15,
+  "orientation": "landscape",
+  "prompt": "cat running on the river",
+  "model": "sora-2"
+}'
+```
+
+## 画像から動画生成タスク（Version 1）
+
+画像から動画生成タスクを行う場合、パラメータ `image_urls` に参照画像リンクを渡す必要があります。以下の内容を指定できます：
+
+- `image_urls`：画像から動画生成に使用する参照画像リンク配列。実際の人物の顔写真などは渡さないでください。タスク失敗の原因となります。
+
+入力例は以下の通りです：
+
+<p><img src="https://cdn.acedata.cloud/ch7x3t.png" width="500" className="m-auto" /></p>
+
+入力後、自動で以下のコードが生成されます：
+
+<p><img src="https://cdn.acedata.cloud/z1ud8l.png" width="500" className="m-auto" /></p>
+
+対応コード：
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/sora/videos"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "size": "large",
+    "duration": 15,
+    "orientation": "landscape",
+    "prompt": "cat running on the river",
+    "model": "sora-2",
+    "image_urls": ["https://cdn.acedata.cloud/11wfp4.png"]
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+実行すると即座に以下の結果が得られます：
+
+```
+{
+  "success": true,
+  "task_id": "dd392ff0-dcb7-4c7a-afd0-9bd4f65c803a",
+  "trace_id": "04fd151c-e942-4c1c-a6ab-9a1b1fe54172",
+  "data": [
+    {
+      "id": "sora-2:task_01k777af4hfmg9g7yfvwsc6zws",
+      "video_url": "https://filesystem.site/gptimage/vg-assets/assets%2Ftask_01k777af4hfmg9g7yfvwsc6zws%2Ftask_01k777af4hfmg9g7yfvwsc6zws_genid_92bae0c5-1703-4a5f-9d9f-c9ed2f9e7176_25_10_10_14_12_924695%2Fvideos%2F00000%2Fsrc.mp4?st=2025-10-10T12%3A37%3A32Z&se=2025-10-16T13%3A37%3A32Z&sks=b&skt=2025-10-10T12%3A37%3A32Z&ske=2025-10-16T13%3A37%3A32Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=aa5ddad1-c91a-4f0a-9aca-e20682cc8969&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=5j4dibeaSsDmEka5c%2B9CKHZhRPdqfClQ0tIh03TWXsM%3D&az=oaivgprodscus",
+      "state": "succeeded"
+    }
+  ]
+}
+```
+
+生成結果は画像から動画生成したものとなり、前述の結果と類似しています。
+
+## キャラクター生成動画タスク（Version 1）
+
+キャラクター生成動画タスクを行う場合、パラメータ `character_url` にキャラクター作成用の動画リンクを渡す必要があります。動画内に実写人物が含まれていると失敗するため注意してください。以下の内容を指定できます：
+
+- `character_url`：キャラクター作成用の動画リンク。動画内に実写人物が含まれていると失敗します。
+
+入力例は以下の通りです：
+
+<p><img src="https://cdn.acedata.cloud/2nhdr2.png" width="500" className="m-auto" /></p>
+
+入力後、自動で以下のコードが生成されます：
+
+<p><img src="https://cdn.acedata.cloud/xp8scl.png" width="500" className="m-auto" /></p>
+
+対応コード：
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/sora/videos"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "size": "small",
+    "duration": 10,
+    "orientation": "landscape",
+    "prompt": "cat running on the river",
+    "character_url": "https://cdn.acedata.cloud/pdidf5.mp4",
+    "model": "sora-2",
+    "character_end": 3,
+    "character_start": 1
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+実行すると即座に以下の結果が得られます：
+
+```
+{
+  "success": true,
+  "task_id": "d9bf5461-29b5-47fd-be90-1fe9197df259",
+  "trace_id": "b7992643-9207-40d6-956b-7577728acc67",
+  "data": [
+    {
+      "id": "sora-2:task_01k8ykrztefavaypw6xanw305b",
+      "video_url": "https://filesystem.site/cdn/20251101/bee4eeeb4c4660b46dac4548a1ffbc.mp4",
+      "state": "succeeded"
+    }
+  ]
+}
+```
+
+生成結果はキャラクター生成動画であり、前述の結果と類似しています。
+
+## Version 2.0 モード
+
+前述の Version 1.0 モードに加え、本 API は Version 2.0 モードもサポートしています。`version` パラメータを `"2.0"` に設定することで有効化されます。Version 2.0 モードはより短い動画長さとピクセル単位の解像度制御をサポートします。
+
+### Version 2.0 パラメータ説明
+
+| パラメータ | 型 | 必須 | 説明 |
+|------------|----|------|------|
+| `version` | string | 必須 | `"2.0"` に設定 |
+| `prompt` | string | 必須 | 動画生成のプロンプト |
+| `model` | string | 任意 | `sora-2`（デフォルト）または `sora-2-pro` |
+| `duration` | integer | 任意 | 動画長さ：`4`（デフォルト）、`8`、`12`秒 |
+| `size` | string | 任意 | 解像度：`720x1280`（デフォルト）、`1280x720`、`1024x1792`、`1792x1024` |
+| `image_urls` | array | 任意 | 参照画像 URL 配列。最初の1枚のみ使用。画像サイズは `size` と一致させる必要あり |
+| `callback_url` | string | 任意 | 非同期コールバック URL |
+
+### 基本例
+
+```shell
+curl -X POST 'https://api.acedata.cloud/sora/videos' \
+-H 'accept: application/json' \
+-H 'authorization: Bearer {token}' \
+-H 'content-type: application/json' \
+-d '{
+  "version": "2.0",
+  "prompt": "cat running on the river",
+  "model": "sora-2",
+  "duration": 8,
+  "size": "1280x720"
+}'
+```
+
+対応する Python コード：
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/sora/videos"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "version": "2.0",
+    "prompt": "cat running on the river",
+    "model": "sora-2",
+    "seconds": 8,
+    "size": "1280x720"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+対応する JavaScript コード：
+
+```javascript
+const response = await fetch('https://api.acedata.cloud/sora/videos', {
+  method: 'POST',
+  headers: {
+    'accept': 'application/json',
+    'authorization': 'Bearer {token}',
+    'content-type': 'application/json'
+  },
+  body: JSON.stringify({
+    version: '2.0',
+    prompt: 'cat running on the river',
+    model: 'sora-2',
+    seconds: 8,
+    size: '1280x720'
+  })
+});
+const data = await response.json();
+console.log(data);
+```
+
+返却結果の形式は Version 1 と同様です：
+
+```json
+{
+  "success": true,
+  "task_id": "6bf7fb83-5814-4e3e-a4ad-bfa0c26c0b33",
+  "trace_id": "96166698-4b66-478d-a26b-77a7269c9e01",
+  "data": [
+    {
+      "id": "c0cc8dad-0954-421f-be8d-02eb063b3263",
+      "video_url": "https://platform.cdn.acedata.cloud/sora/xxxxx.mp4",
+      "state": "succeeded"
+    }
+  ]
+}
+```
+
+### 参照画像の使用（Version 2.0）
+
+Version 2.0 モードでは、`image_urls` パラメータで参照画像を渡して動画生成を誘導できます（最初の1枚のみ使用）：
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/sora/videos"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "version": "2.0",
+    "prompt": "a person walking through a beautiful garden",
+    "model": "sora-2",
+    "duration": 4,
+    "size": "1280x720",
+    "image_urls": ["https://cdn.acedata.cloud/11wfp4.png"]
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+> **注意**：参照画像のサイズは `size` パラメータと一致させる必要があります。例えば `size` が `1280x720` の場合、参照画像のサイズは 1280×720 である必要があります。
+
+### Version 1.0 と Version 2.0 のパラメータ比較
+
+| パラメータ | Version 1.0 | Version 2.0 |
+|------------|-------------|-------------|
+| `version` | 1.0（デフォルト） | 2.0 |
+| `prompt` | ✅ | ✅ |
+| `model` | ✅ sora-2 / sora-2-pro | ✅ sora-2 / sora-2-pro |
+| `duration` | ✅ 10/15/25秒 | ✅ 4/8/12秒 |
+| `orientation` | ✅ landscape/portrait | ❌ |
+| `size` | ✅ small/large | ✅ 720x1280/1280x720/1024x1792/1792x1024 |
+| `image_urls` | ✅ 複数参照画像 | ✅ 最初の1枚のみ |
+| `character_url` | ✅ | ❌ |
+| `callback_url` | ✅ | ✅ |
+
+## 非同期コールバック
+
+Sora Videos Generation API の動画生成には約1～2分かかるため、API が長時間応答しない場合、HTTP リクエストが接続を保持し続け、システムリソースの無駄遣いとなります。そのため、本 API は非同期コールバックもサポートしています。
+
+全体の流れは以下の通りです：クライアントがリクエスト時に `callback_url` フィールドを指定します。API はリクエストを受けるとすぐに `task_id` を含む結果を返します。タスク完了後、生成された動画結果が POST の JSON 形式でクライアント指定の `callback_url` に送信されます。`task_id` も含まれているため、タスク結果を ID で紐付け可能です。
+
+以下の例で具体的な操作方法を説明します。
+
+まず、Webhook コールバックは HTTP リクエストを受け取れるサービスであり、開発者は自身で構築した HTTP サーバーの URL に置き換えてください。ここではデモ用に公開 Webhook サイト https://webhook.site/ を使用します。このサイトを開くと Webhook URL が取得できます。以下の画像のように表示されます：
+
+![](https://cdn.acedata.cloud/cjjfly.png)
+
+この URL をコピーし、Webhook として使用します。例として `https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa` を使用します。
+
+次に、`callback_url` フィールドに上記 Webhook URL を設定し、他のパラメータも入力します。内容は以下の画像の通りです：
+
+<p><img src="https://cdn.acedata.cloud/v1m05g.png" width="500" className="m-auto" /></p>
+
+実行すると即座に以下の結果が得られます：
+
+```
+{
+  "task_id": "b8976e18-32dc-4718-9ed8-1ea090fcb6ea"
+}
+```
+
+少し待つと、`https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa` で生成動画の結果を確認できます。以下の画像のように表示されます：
+
+![](https://cdn.acedata.cloud/0j7nra.png)
+
+内容は以下の通りです：
+
+```json
+{
+    "success": true,
+    "task_id": "b8976e18-32dc-4718-9ed8-1ea090fcb6ea",
+    "trace_id": "fb751e1e-4705-49ea-9fd4-5024b7865ea2",
+    "data": [
+        {
+            "id": "sora-2:task_01k777hjrbfrgs2060q5zvf2a5",
+            "video_url": "https://filesystem.site/gptimage/vg-assets/assets%2Ftask_01k777hjrbfrgs2060q5zvf2a5%2Ftask_01k777hjrbfrgs2060q5zvf2a5_genid_b8e2e5d1-a579-49ca-a21c-cb3869685cce_25_10_10_14_15_147334%2Fvideos%2F00000%2Fsrc.mp4?st=2025-10-10T12%3A38%3A49Z&se=2025-10-16T13%3A38%3A49Z&sks=b&skt=2025-10-10T12%3A38%3A49Z&ske=2025-10-16T13%3A38%3A49Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=aa5ddad1-c91a-4f0a-9aca-e20682cc8969&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=p4aMqXqkP%2FI1IhOVGCB9JL8vUUvfNBBF12ESpKhKXOk%3D&az=oaivgprodscus",
+            "state": "succeeded"
+        }
+    ]
+}
+```
+
+結果には `task_id` フィールドが含まれており、他のフィールドは前述のものと同様です。このフィールドを使ってタスクを関連付けられます。
+
+## エラー処理
+
+API 呼び出し時にエラーが発生した場合、API は対応するエラーコードとメッセージを返します。例：
+
+- `400 token_mismatched`：不正なリクエスト。パラメータの不足や不正の可能性あり。
+- `400 api_not_implemented`：不正なリクエスト。パラメータの不足や不正の可能性あり。
+- `401 invalid_token`：認証エラー。無効または欠落したトークン。
+- `429 too_many_requests`：リクエスト過多。レート制限超過。
+- `500 api_error`：サーバー内部エラー。
+
+### エラー応答例
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "api_error",
+    "message": "fetch failed"
+  },
+  "trace_id": "2cf86e86-22a4-46e1-ac2f-032c0f2a4e89"
+}
+```
+
+## 結論
+
+本ドキュメントを通じて、Sora Videos Generation API の使い方、プロンプトや参照画像を入力して動画を生成する方法をご理解いただけました。API の接続や利用に役立てていただければ幸いです。ご不明点があれば、いつでも技術サポートチームまでお問い合わせください。

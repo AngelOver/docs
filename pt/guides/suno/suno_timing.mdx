@@ -1,0 +1,92 @@
+---
+title: "Instruções para Integração da API Suno Timing"
+description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+---
+
+A SUNO permite que façamos uma recriação das músicas geradas, obtendo as letras e a linha do tempo do áudio. Este documento explica o método de integração da API relacionada.
+
+Esta API possui apenas um parâmetro de entrada, que é o `audio_id`, o qual é o ID oficial da música gerada.
+
+Aqui, o `audio_id` que usamos como entrada é `ec13e502-d043-4eb2-92ee-e900c6da69d1`.
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/suno/timing"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "audio_id": "ec13e502-d043-4eb2-92ee-e900c6da69d1"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Trecho do resultado:
+
+```
+{
+  "success": true,
+  "task_id": "ccf72cca-1c82-4580-8575-bb141c7e8e48",
+  "trace_id": "d8e0b7c3-6d24-4ed9-98ac-ffe683576a75",
+  "data": {
+    "aligned_words": [
+      {
+        "word": "[Verse]\nSnowflakes ",
+        "success": true,
+        "start_s": 2.63,
+        "end_s": 3.43,
+        "p_align": 0.531
+      },
+      {
+        "word": "dance ",
+        "success": true,
+        "start_s": 3.43,
+        "end_s": 3.91,
+        "p_align": 0.911
+      },
+      {
+        "word": "on ",
+        "success": true,
+        "start_s": 3.91,
+        "end_s": 4.35,
+        "p_align": 0.937
+      },
+      {
+        "word": "rooftops ",
+        "success": true,
+        "start_s": 4.35,
+        "end_s": 5.11,
+        "p_align": 0.366
+      },
+      {
+        "word": "high\n",
+        "success": true,
+        "start_s": 5.11,
+        "end_s": 6.25,
+        "p_align": 0.969
+      },
+      ...
+    ],
+    "waveform_data": [0.02138, 0.02193, 0.01806, 0.16597, 0.15168, 0.14243, ...],
+    "hoot_cer": 0.35013262599469497,
+    "is_streamed": false
+  }
+}
+```
+
+### Explicação do campo aligned_words
+
+Como pode ser visto, `data.aligned_words` é um array de objetos, cada um representando uma palavra ou frase com informações temporais.
+
+- `word`: a palavra ou frase real na letra
+- `success`: valor booleano que indica se o alinhamento dessa palavra foi bem-sucedido
+- `start_s`: tempo de início da palavra
+- `end_s`: tempo de término da palavra
+- `p_align`: probabilidade ou score de confiança do alinhamento, variando de 0 a 1

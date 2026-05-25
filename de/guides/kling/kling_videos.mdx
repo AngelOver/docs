@@ -1,0 +1,256 @@
+---
+title: "Kling Videos Generation API Integrationsanleitung"
+description: "Kling video generation 集成指南 - Ace Data Cloud"
+---
+
+Dieser Artikel stellt eine Anleitung zur Integration der Kling Videos Generation API vor, mit der offizielle Kling-Videos durch Eingabe benutzerdefinierter Parameter generiert werden können.
+
+## Antragsprozess
+
+Um die API zu nutzen, müssen Sie zunächst den entsprechenden Dienst auf der [Kling Videos Generation API](https://platform.acedata.cloud/documents/3b921a16-a411-4557-8335-53f21d3f9e46) Seite beantragen. Nach dem Aufruf der Seite klicken Sie auf die Schaltfläche „Acquire“, wie im Bild gezeigt:
+
+![](https://cdn.acedata.cloud/q6ytrc.png)
+
+Falls Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur Anmeldeseite weitergeleitet, um sich zu registrieren und anzumelden. Nach der Anmeldung kehren Sie automatisch zur aktuellen Seite zurück.
+
+Bei der ersten Beantragung erhalten Sie ein kostenloses Kontingent, mit dem Sie die API kostenlos nutzen können.
+
+## Grundlegende Nutzung
+
+Zunächst lernen wir die grundlegende Nutzung kennen: Durch Eingabe des Prompt `prompt`, der Generierungsaktion `action`, der Startbild-Referenz-URL `start_image_url` sowie des Modells `model` erhalten Sie das verarbeitete Ergebnis. Zunächst muss ein Feld `action` mit dem Wert `text2video` übergeben werden. Es gibt hauptsächlich drei Aktionen: Text-zu-Video (`text2video`), Bild-zu-Video (`image2video`) und Video-Erweiterung (`extend`). Außerdem muss das Modell `model` angegeben werden. Aktuell stehen folgende Modelle zur Verfügung: `kling-v1`, `kling-v1-6`, `kling-v2-master`, `kling-v2-1-master`, `kling-v2-5-turbo`, `kling-v2-6`, `kling-v3`, `kling-v3-omni`, `kling-video-o1`. Details siehe unten:
+
+<p><img src="https://cdn.acedata.cloud/ke1bok.png" width="500" className="m-auto" /></p>
+
+Hier sehen wir die Request Headers, die wie folgt gesetzt werden:
+
+- `accept`: Das gewünschte Antwortformat, hier `application/json` für JSON.
+- `authorization`: Der API-Schlüssel, der nach Beantragung direkt aus einer Dropdown-Liste ausgewählt werden kann.
+
+Im Request Body werden folgende Parameter gesetzt:
+
+- `model`: Das Modell zur Videoerzeugung, hauptsächlich `kling-v1`, `kling-v1-6`, `kling-v2-master`, `kling-v2-1-master`, `kling-v2-5-turbo`, `kling-v2-6`, `kling-v3`, `kling-v3-omni`, `kling-video-o1`.
+- `mode`: Der Modus der Videoerzeugung, wählbar zwischen Standardmodus `std`, Schnellmodus `pro` und nativer 4K-Modus `4k`. Der `4k`-Modus wird nur von `kling-v3` und `kling-v3-omni` unterstützt und ist nicht kompatibel mit `camera_control` (Kamerasteuerung).
+- `action`: Die Aktion der Videoerzeugung, drei Typen: Text-zu-Video (`text2video`), Bild-zu-Video (`image2video`), Erweiterung (`extend`).
+- `start_image_url`: Bei Auswahl der Bild-zu-Video-Aktion `image2video` ist dieser Parameter für die Startbild-Referenz erforderlich.
+- `end_image_url`: Optional bei Bild-zu-Video, definiert das Endbild.
+- `duration`: Videolänge in Sekunden. Für `kling-v3` und `kling-v3-omni` sind flexible Längen von 3 bis 15 Sekunden (Ganzzahlen) möglich, andere Modelle unterstützen 5 oder 10 Sekunden.
+- `generate_audio`: Optional, ob synchron Audio generiert werden soll, boolescher Wert. Unterstützt von `kling-v3`, `kling-v3-omni` und `kling-v2-6` (nur im pro-Modus). Standard ist `false`.
+- `aspect_ratio`: Seitenverhältnis des Videos, optional, unterstützt `16:9`, `9:16`, `1:1`, Standard ist `16:9`.
+- `cfg_scale`: Stärke der Relevanz, Bereich [0,1], je höher desto näher am Prompt.
+- `camera_control`: Optional, Steuerung der Kamerabewegung, unterstützt Typ/Simple-Presets sowie horizontal, vertical, pan, tilt, roll, zoom.
+- `negative_prompt`: Optional, unerwünschte negative Stichwörter, maximal 200 Zeichen.
+- `element_list`: Hauptreferenzliste, nur für Modell `kling-video-o1` anwendbar, Details siehe [offizielle Dokumentation](https://docs.qingque.cn/d/home/eZQAyImcbaS0fz-8ANjXvU5ed?identityId=1oEG9JKKMFv#section=h.5t7wme23nn6z).
+- `video_list`: Referenzvideos per URL, nur für Modell `kling-video-o1` anwendbar, Details siehe [offizielle Dokumentation](https://docs.qingque.cn/d/home/eZQAyImcbaS0fz-8ANjXvU5ed?identityId=1oEG9JKKMFv#section=h.5t7wme23nn6z).
+- `prompt`: Der Eingabe-Prompt.
+- `callback_url`: URL für Rückruf der Ergebnisse.
+
+Nach Auswahl wird auf der rechten Seite der entsprechende Code generiert, wie im Bild gezeigt:
+
+<p><img src="https://cdn.acedata.cloud/3yjql0.png" width="500" className="m-auto" /></p>
+
+Mit Klick auf „Try“ kann der Test durchgeführt werden. Das Ergebnis sieht wie folgt aus:
+
+```json
+{
+  "success": true,
+  "video_id": "af9a1af0-9aa0-4638-81c1-d41d6143c508",
+  "video_url": "https://cdn.klingai.com/bs2/upload-kling-api/7485378259/text2video/Cjil4mfBfs0AAAAAAKbMQQ-0_raw_video_1.mp4",
+  "duration": "5.1",
+  "state": "succeed",
+  "task_id": "e3a575aa-a4bd-49c8-9b12-cde38d5462e0"
+}
+```
+
+Die Rückgabe enthält mehrere Felder, die wie folgt erklärt werden:
+
+- `success`: Status der Videoerzeugungsaufgabe.
+- `task_id`: ID der Videoerzeugungsaufgabe.
+- `video_id`: Video-ID der Aufgabe.
+- `video_url`: URL zum generierten Video.
+- `duration`: Länge des Videos.
+- `state`: Status der Aufgabe.
+
+Sie erhalten somit die Video-Informationen und können das generierte Kling-Video über die URL im `data`-Feld abrufen.
+
+Möchten Sie den Integrationscode generieren, können Sie diesen direkt kopieren, z.B. CURL-Code:
+
+```shell
+curl -X POST 'https://api.acedata.cloud/kling/videos' \
+-H 'accept: application/json' \
+-H 'authorization: Bearer {token}' \
+-H 'content-type: application/json' \
+-d '{
+  "action": "text2video",
+  "model": "kling-v1",
+  "prompt": "White ceramic coffee mug on glossy marble countertop with morning window light. Camera slowly rotates 360 degrees around the mug, pausing briefly at the handle."
+}'
+```
+
+## Modellfähigkeiten-Matrix
+
+Die Unterstützung der Parameter variiert stark je nach Modell. Die folgende Matrix basiert auf der [Kling offiziellen video models Dokumentation](https://app.klingai.com/global/dev/document-api/apiReference/model/videoModels). Bitte prüfen Sie vor dem Aufruf, ob die Kombination aus `model` / `mode` / `duration` Ihre Anforderungen unterstützt, andernfalls erhalten Sie Fehler wie `model/mode/duration(...) is not supported with image_tail`.
+
+| Modell             | Modus           | `end_image_url` (Start/Endbild) | `generate_audio` (Audio) | `camera_control` (Kamerasteuerung) | Bemerkung                                         |
+|--------------------|-----------------|---------------------------------|-------------------------|------------------------------------|--------------------------------------------------|
+| `kling-v1`         | std / pro       | ✅ nur bei `duration=5`          | ❌                      | ✅ nur bei `duration=5`             | `extend` unterstützt kein `negative_prompt` und `cfg_scale` |
+| `kling-v1-6`       | std             | ❌                              | ❌                      | ❌                                | Multi-Bild-zu-Video und `extend` in allen Modi verfügbar |
+| `kling-v1-6`       | pro             | ✅                              | ❌                      | ❌                                |                                                  |
+| `kling-v2-master`  | —               | ❌                              | ❌                      | ❌                                | Einziger Modus, nur `duration=5/10`               |
+| `kling-v2-1-master`| —               | ❌                              | ❌                      | ❌                                | Einziger Modus, nur `duration=5/10`               |
+| `kling-v2-5-turbo` | std             | ❌                              | ❌                      | ❌                                |                                                  |
+| `kling-v2-5-turbo` | pro             | ✅                              | ❌                      | ❌                                |                                                  |
+| `kling-v2-6`       | std             | ❌                              | ❌                      | ❌                                |                                                  |
+| `kling-v2-6`       | pro             | ✅                              | ✅                      | ❌                                | Einziges Nicht-v3-Modell mit Audio-Unterstützung |
+| `kling-v3`         | std / pro       | ✅                              | ✅                      | ✅                                | `duration` 3–15 Sekunden                           |
+| `kling-v3`         | 4k              | ✅                              | ✅                      | ❌                                | 4K-Modus nicht kompatibel mit Kamerasteuerung    |
+| `kling-v3-omni`    | std / pro / 4k  | ✅                              | ✅                      | ❌                                |                                                  |
+| `kling-video-o1`   | std / pro       | ✅                              | ❌                      | ❌                                | Nur `duration=5/10` unterstützt                   |
+
+Wichtige Hinweise:
+
+- `mode=4k` wird nur von `kling-v3` und `kling-v3-omni` unterstützt und ist mit `camera_control` inkompatibel.
+- `end_image_url` darf nur zusammen mit `start_image_url` bei `action=image2video` verwendet werden. Nur `end_image_url` ohne `start_image_url` wird abgelehnt.
+- `kling-v3` / `kling-v3-omni` akzeptieren beliebige ganzzahlige `duration` zwischen 3 und 15 Sekunden; andere Modelle nur 5 oder 10 Sekunden.
+- `generate_audio` ist standardmäßig `false`. Unterstützt nur `kling-v3`, `kling-v3-omni` und `kling-v2-6` (pro-Modus).
+
+## Erweiterungsfunktion für Videos
+
+Möchten Sie ein bereits generiertes Kling-Video weiter generieren, setzen Sie den Parameter `action` auf `extend` und geben die Video-ID des zu erweiternden Videos an. Die Video-ID erhalten Sie wie in der Grundnutzung beschrieben, siehe Abbildung:
+
+<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+
+Die Video-ID lautet hier:
+
+```
+"video_id": "030bb06d-98d4-4044-9042-0aa0822e8c8c"
+```
+
+> Hinweis: Die `video_id` ist die ID des generierten Videos. Falls Sie nicht wissen, wie man ein Video generiert, siehe Grundnutzung oben.
+
+Anschließend müssen Sie den Prompt für die Erweiterung eingeben, um das Video weiter zu generieren. Folgende Parameter sind relevant:
+
+- `model`: Modell zur Videoerzeugung, hauptsächlich `kling-v1`, `kling-v1-5` und `kling-v1-6`.
+- `mode`: Modus der Videoerzeugung, wählbar zwischen Standard `std`, Schnell `pro` und nativer 4K `4k` (nur `kling-v3` und `kling-v3-omni` unterstützen 4K, nicht kompatibel mit Kamerasteuerung).
+- `duration`: Länge des zu erzeugenden Videos, hauptsächlich 5 oder 10 Sekunden.
+- `start_image_url`: Bei `image2video` Pflicht, Startbild-Referenz-URL.
+- `prompt`: Eingabe-Prompt.
+
+Beispiel:
+
+<p><img src="https://cdn.acedata.cloud/ejimqy.png" width="500" className="m-auto" /></p>
+
+Nach Eingabe wird folgender Code automatisch generiert:
+
+<p><img src="https://cdn.acedata.cloud/52x4u5.png" width="500" className="m-auto" /></p>
+
+Python-Beispielcode:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/kling/videos"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "action": "extend",
+    "model": "kling-v1",
+    "video_id": "030bb06d-98d4-4044-9042-0aa0822e8c8c",
+    "prompt": "White ceramic coffee mug on glossy marble countertop with morning window light. Camera slowly rotates 360 degrees around the mug, pausing briefly at the handle.",
+    "duration": 10
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Nach Ausführung erhalten Sie ein Ergebnis wie:
+
+```json
+{
+  "success": true,
+  "video_id": "bbc3b105-ac72-4de2-8390-0cb37dc7d41e",
+  "video_url": "https://cdn.klingai.com/bs2/upload-kling-api/7822108635/extendVideo/Cjil4mfBfs0AAAAAAKhr6A-0_raw_video_1.mp4",
+  "duration": "9.6",
+  "state": "succeed",
+  "task_id": "3ece87e6-3ee3-4f5e-bd70-5ae5eca89a23"
+}
+```
+
+Das Ergebnis entspricht dem vorherigen Format und ermöglicht die Erweiterung von Videos.
+
+## Asynchrone Callback-Funktion
+
+Da die Erzeugung von Kling Videos relativ lange dauert (ca. 1–2 Minuten), kann bei langanhaltender Nicht-Antwort die HTTP-Verbindung offen bleiben und Systemressourcen belasten. Daher unterstützt die API auch asynchrone Callbacks.
+
+Der Ablauf ist: Der Client sendet die Anfrage mit einem zusätzlichen Feld `callback_url`. Die API gibt sofort eine Antwort mit einem `task_id` zurück, die die aktuelle Aufgabe identifiziert. Nach Abschluss der Aufgabe wird das Ergebnis per POST-JSON an die angegebene `callback_url` gesendet, inklusive `task_id`, um die Aufgabe zuordnen zu können.
+
+Beispiel:
+
+Ein Webhook-Callback ist ein HTTP-Server, der Anfragen empfangen kann. Entwickler sollten hier ihre eigene Server-URL verwenden. Für die Demo wird die öffentliche Webhook-Seite https://webhook.site/ genutzt. Nach Aufruf erhalten Sie eine Webhook-URL, z.B.:
+
+![](https://cdn.acedata.cloud/tbcnai.png)
+
+Diese URL kopieren Sie und verwenden sie als `callback_url`, z.B. `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`.
+
+Dann setzen Sie im Request `callback_url` auf diese Webhook-URL und füllen die anderen Parameter aus, siehe Bild:
+
+<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+
+Nach Ausführung erhalten Sie sofort:
+
+```
+{
+  "task_id": "20068983-0cc9-4c6a-aeb6-9c6a3c668be0"
+}
+```
+
+Nach kurzer Wartezeit sehen Sie auf `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3` das Ergebnis:
+
+![](https://cdn.acedata.cloud/zv5u2q.png)
+
+Inhalt:
+
+```json
+{
+    "success": true,
+    "video_id": "030bb06d-98d4-4044-9042-0aa0822e8c8c",
+    "video_url": "https://cdn.klingai.com/bs2/upload-kling-api/7822108635/text2video/CjJzzGfBfqcAAAAAAKdVMQ-0_raw_video_1.mp4",
+    "duration": "5.1",
+    "state": "succeed",
+    "task_id": "20068983-0cc9-4c6a-aeb6-9c6a3c668be0"
+}
+```
+
+Das Feld `task_id` ermöglicht die Zuordnung der Aufgabe, andere Felder entsprechen den vorherigen Ergebnissen.
+
+## Fehlerbehandlung
+
+Bei Fehlern gibt die API entsprechende Fehlercodes und Meldungen zurück, z.B.:
+
+- `400 token_mismatched`: Ungültige Anfrage, evtl. fehlende oder ungültige Parameter.
+- `400 api_not_implemented`: Ungültige Anfrage, evtl. fehlende oder ungültige Parameter.
+- `401 invalid_token`: Nicht autorisiert, ungültiger oder fehlender Token.
+- `429 too_many_requests`: Zu viele Anfragen, Rate-Limit überschritten.
+- `500 api_error`: Interner Serverfehler.
+
+### Beispiel für Fehlerantwort
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "api_error",
+    "message": "fetch failed"
+  },
+  "trace_id": "2cf86e86-22a4-46e1-ac2f-032c0f2a4e89"
+}
+```
+
+## Fazit
+
+Mit diesem Dokument haben Sie gelernt, wie Sie die Kling Videos Generation API nutzen können, um Videos durch Eingabe von Prompts und Startbild-Referenzen zu generieren. Wir hoffen, dass diese Anleitung Ihnen bei der Integration und Nutzung der API hilft. Bei Fragen wenden Sie sich bitte jederzeit an unser technisches Support-Team.

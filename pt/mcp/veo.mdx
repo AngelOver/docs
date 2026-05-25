@@ -1,0 +1,142 @@
+---
+title: "Guia de Integração Veo MCP"
+description: "veo MCP 服务器集成"
+---
+
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) é um protocolo de contexto de modelo lançado pela Anthropic, que permite que modelos de IA (como Claude, GPT, etc.) chamem ferramentas externas por meio de uma interface padronizada. Com o Veo MCP Server fornecido pela AceData Cloud, você pode usar diretamente o Google Veo para gerar vídeos de IA em clientes de IA como Claude Desktop, VS Code, Cursor, entre outros.
+
+## Visão Geral das Funcionalidades
+
+O Veo MCP Server oferece as seguintes funcionalidades principais:
+
+- **Geração de vídeo a partir de texto** — gera vídeos de alta qualidade a partir de prompts de texto
+- **Geração de vídeo a partir de imagem** — gera vídeos baseados em imagens
+- **Suporte a múltiplos modelos** — suporta modelos como veo3, veo2, veo31-fast-ingredients, etc.
+- **Diversas resoluções** — suporta formatos de saída como 4K, 1080p, GIF, entre outros
+- **Diversas proporções de tela** — suporta proporções como 16:9, 9:16, etc.
+- **Upgrade para 1080p** — atualiza vídeos já gerados para 1080p
+- **Consulta de tarefas** — monitora o progresso da geração e obtém resultados
+
+## Pré-requisitos
+
+Antes de usar, você precisa obter o Token da API da AceData Cloud:
+
+1. Registre-se ou faça login na [plataforma AceData Cloud](https://platform.acedata.cloud)
+2. Acesse a página [Veo Videos API](https://platform.acedata.cloud/documents/veo-videos)
+3. Clique em "Acquire" para obter o Token da API (a primeira solicitação concede uma cota gratuita)
+
+## Instalação e Configuração
+
+### Método 1: Instalação via pip (recomendado)
+
+```bash
+pip install mcp-veo
+```
+
+### Método 2: Instalação via código-fonte
+
+```bash
+git clone https://github.com/AceDataCloud/VeoMCP.git
+cd VeoMCP
+pip install -e .
+```
+
+Após a instalação, você pode iniciar o serviço com o comando `mcp-veo`.
+
+## Uso no Claude Desktop
+
+Edite o arquivo de configuração do Claude Desktop:
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+Adicione a seguinte configuração:
+
+```json
+{
+  "mcpServers": {
+    "veo": {
+      "command": "mcp-veo",
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "seu API Token"
+      }
+    }
+  }
+}
+```
+
+Se usar `uvx` (sem necessidade de instalar pacotes previamente):
+
+```json
+{
+  "mcpServers": {
+    "veo": {
+      "command": "uvx",
+      "args": ["mcp-veo"],
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "seu API Token"
+      }
+    }
+  }
+}
+```
+
+Após salvar a configuração, reinicie o Claude Desktop para usar as ferramentas Veo nas conversas.
+
+## Uso no VS Code / Cursor
+
+Crie o arquivo `.vscode/mcp.json` na raiz do projeto:
+
+```json
+{
+  "servers": {
+    "veo": {
+      "command": "mcp-veo",
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "seu API Token"
+      }
+    }
+  }
+}
+```
+
+Ou use `uvx`:
+
+```json
+{
+  "servers": {
+    "veo": {
+      "command": "uvx",
+      "args": ["mcp-veo"],
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "seu API Token"
+      }
+    }
+  }
+}
+```
+
+## Lista de Ferramentas Disponíveis
+
+| Nome da Ferramenta       | Descrição                          |
+|--------------------------|----------------------------------|
+| `veo_text_to_video`      | Gera vídeo a partir de prompt de texto |
+| `veo_image_to_video`     | Gera vídeo baseado em imagem      |
+| `veo_get_1080p`          | Atualiza vídeo para 1080p          |
+| `veo_get_task`           | Consulta o status de uma tarefa    |
+| `veo_get_tasks_batch`    | Consulta status de múltiplas tarefas |
+
+## Exemplos de Uso
+
+Após a configuração, você pode chamar essas funcionalidades diretamente em clientes de IA usando linguagem natural, por exemplo:
+
+- "Ajude-me a gerar um vídeo time-lapse do céu estrelado com Veo"
+- "Use esta foto de paisagem para gerar um vídeo 4K"
+- "Gere um vídeo curto em formato vertical 9:16"
+- "Atualize este vídeo para 1080p"
+
+## Mais Informações
+
+- Repositório GitHub: [AceDataCloud/VeoMCP](https://github.com/AceDataCloud/VeoMCP)
+- Pacote PyPI: [mcp-veo](https://pypi.org/project/mcp-veo/)
+- Documentação da API: [Veo Vídeo API](https://platform.acedata.cloud/documents/veo)

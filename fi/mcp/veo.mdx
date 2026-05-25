@@ -1,0 +1,142 @@
+---
+title: "Veo MCP Integrointiohjeet"
+description: "veo MCP 服务器集成"
+---
+
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) on Anthropicin kehittämä mallin kontekstiprotokolla, joka mahdollistaa AI-mallien, kuten Clauden ja GPT:n, kutsua ulkoisia työkaluja standardoidun rajapinnan kautta. AceData Cloudin tarjoaman Veo MCP Serverin avulla voit käyttää Google Veo -pohjaista AI-videon generointia suoraan Claude Desktopissa, VS Codessa, Cursorissa ja muissa AI-asiakasohjelmissa.
+
+## Toimintojen yleiskatsaus
+
+Veo MCP Server tarjoaa seuraavat keskeiset toiminnot:
+
+- **Tekstistä videoon** — korkealaatuisten videoiden generointi tekstipohjaisten ohjeiden avulla
+- **Kuvasta videoon** — videoiden generointi kuvan pohjalta
+- **Monimallituen** — tuki malleille kuten veo3, veo2, veo31-fast-ingredients jne.
+- **Moniresoluutioisuus** — tuki 4K, 1080p, GIF ja muille formaateille
+- **Monisuhteisuus** — tuki kuvasuhteille kuten 16:9, 9:16 jne.
+- **1080p-päivitys** — valmiiden videoiden päivittäminen 1080p-laatuun
+- **Tehtävien seuranta** — generointiprosessin valvonta ja tulosten hakeminen
+
+## Ennen käyttöä
+
+Ennen käyttöä sinun tulee hankkia AceData Cloud API Token:
+
+1. Rekisteröidy tai kirjaudu sisään [AceData Cloud -alustalle](https://platform.acedata.cloud)
+2. Siirry [Veo Videos API](https://platform.acedata.cloud/documents/veo-videos) -sivulle
+3. Klikkaa "Acquire" saadaksesi API Tokenin (ensihakemuksella saat ilmaisen käyttöoikeuden)
+
+## Asennus ja konfigurointi
+
+### Vaihtoehto 1: pip-asennus (suositeltu)
+
+```bash
+pip install mcp-veo
+```
+
+### Vaihtoehto 2: Lähdekoodin asennus
+
+```bash
+git clone https://github.com/AceDataCloud/VeoMCP.git
+cd VeoMCP
+pip install -e .
+```
+
+Asennuksen jälkeen voit käynnistää palvelun komennolla `mcp-veo`.
+
+## Käyttö Claude Desktopissa
+
+Muokkaa Claude Desktopin konfiguraatiotiedostoa:
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+Lisää seuraava konfiguraatio:
+
+```json
+{
+  "mcpServers": {
+    "veo": {
+      "command": "mcp-veo",
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "sinun API Token"
+      }
+    }
+  }
+}
+```
+
+Jos käytät `uvx`-komentoa (ei tarvitse asentaa paketteja etukäteen):
+
+```json
+{
+  "mcpServers": {
+    "veo": {
+      "command": "uvx",
+      "args": ["mcp-veo"],
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "sinun API Token"
+      }
+    }
+  }
+}
+```
+
+Tallenna asetukset ja käynnistä Claude Desktop uudelleen, niin voit käyttää Veo-työkaluja keskusteluissa.
+
+## Käyttö VS Codessa / Cursorissa
+
+Luo projektin juurikansioon tiedosto `.vscode/mcp.json`:
+
+```json
+{
+  "servers": {
+    "veo": {
+      "command": "mcp-veo",
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "sinun API Token"
+      }
+    }
+  }
+}
+```
+
+Tai käytä `uvx`:
+
+```json
+{
+  "servers": {
+    "veo": {
+      "command": "uvx",
+      "args": ["mcp-veo"],
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "sinun API Token"
+      }
+    }
+  }
+}
+```
+
+## Saatavilla olevat työkalut
+
+| Työkalun nimi          | Kuvaus                          |
+|-----------------------|--------------------------------|
+| `veo_text_to_video`    | Videon generointi tekstipohjaisilla ohjeilla |
+| `veo_image_to_video`   | Videon generointi kuvan pohjalta |
+| `veo_get_1080p`        | Videon päivittäminen 1080p-laatuun |
+| `veo_get_task`         | Yksittäisen tehtävän tilan kysely |
+| `veo_get_tasks_batch`  | Useiden tehtävien tilojen kysely |
+
+## Käyttöesimerkkejä
+
+Konfiguroinnin jälkeen voit kutsua toimintoja luonnollisella kielellä AI-asiakasohjelmassa, esimerkiksi:
+
+- "Luo minulle Veolla tähtitaivaan time-lapse-video"
+- "Luo tästä maisemakuvasta 4K-video"
+- "Luo pystysuuntainen 9:16 lyhyt video"
+- "Päivitä tämä video 1080p-laatuun"
+
+## Lisätietoja
+
+- GitHub-repositorio: [AceDataCloud/VeoMCP](https://github.com/AceDataCloud/VeoMCP)
+- PyPI-paketti: [mcp-veo](https://pypi.org/project/mcp-veo/)
+- API-dokumentaatio: [Veo videon generointi API](https://platform.acedata.cloud/documents/veo)

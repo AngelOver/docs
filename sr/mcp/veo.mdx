@@ -1,0 +1,142 @@
+---
+title: "Veo MCP Vodič za integraciju"
+description: "veo MCP 服务器集成"
+---
+
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) je protokol za kontekst modela koji je razvio Anthropic, omogućavajući AI modelima (kao što su Claude, GPT i drugi) da pozivaju spoljne alate putem standardizovanog interfejsa. Korišćenjem Veo MCP Server-a koji pruža AceData Cloud, možete direktno koristiti Google Veo za generisanje AI video zapisa u AI klijentima kao što su Claude Desktop, VS Code, Cursor i drugi.
+
+## Pregled funkcionalnosti
+
+Veo MCP Server pruža sledeće ključne funkcije:
+
+- **Generisanje videa iz teksta** — kreiranje visokokvalitetnih video zapisa na osnovu tekstualnih upita
+- **Generisanje videa iz slika** — kreiranje video zapisa na osnovu slika
+- **Podrška za više modela** — podržava modele kao što su veo3, veo2, veo31-fast-ingredients i drugi
+- **Više rezolucija** — podržava izlaze u 4K, 1080p, GIF i drugim formatima
+- **Više odnosa stranica** — podržava odnose 16:9, 9:16 i druge
+- **Nadogradnja na 1080p** — nadogradnja već generisanih video zapisa na 1080p rezoluciju
+- **Praćenje zadataka** — nadzor napretka generisanja i dobijanje rezultata
+
+## Preduslovi
+
+Pre upotrebe potrebno je da dobijete AceData Cloud API Token:
+
+1. Registrujte se ili prijavite na [AceData Cloud platformu](https://platform.acedata.cloud)
+2. Posetite stranicu [Veo Videos API](https://platform.acedata.cloud/documents/veo-videos)
+3. Kliknite na „Acquire“ da biste dobili API Token (prvi zahtev donosi besplatni kredit)
+
+## Instalacija i konfiguracija
+
+### Metod 1: Instalacija preko pip-a (preporučeno)
+
+```bash
+pip install mcp-veo
+```
+
+### Metod 2: Instalacija iz izvornog koda
+
+```bash
+git clone https://github.com/AceDataCloud/VeoMCP.git
+cd VeoMCP
+pip install -e .
+```
+
+Nakon instalacije, možete pokrenuti servis komandom `mcp-veo`.
+
+## Korišćenje u Claude Desktop-u
+
+Izmenite konfiguracioni fajl Claude Desktop-a:
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+Dodajte sledeću konfiguraciju:
+
+```json
+{
+  "mcpServers": {
+    "veo": {
+      "command": "mcp-veo",
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+      }
+    }
+  }
+}
+```
+
+Ako koristite `uvx` (nije potrebno prethodno instalirati pakete):
+
+```json
+{
+  "mcpServers": {
+    "veo": {
+      "command": "uvx",
+      "args": ["mcp-veo"],
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+      }
+    }
+  }
+}
+```
+
+Sačuvajte konfiguraciju i restartujte Claude Desktop da biste koristili Veo alate u razgovoru.
+
+## Korišćenje u VS Code / Cursor
+
+U korenskom direktorijumu projekta kreirajte `.vscode/mcp.json` fajl:
+
+```json
+{
+  "servers": {
+    "veo": {
+      "command": "mcp-veo",
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+      }
+    }
+  }
+}
+```
+
+Ili koristite `uvx`:
+
+```json
+{
+  "servers": {
+    "veo": {
+      "command": "uvx",
+      "args": ["mcp-veo"],
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+      }
+    }
+  }
+}
+```
+
+## Lista dostupnih alata
+
+| Naziv alata          | Opis                             |
+|----------------------|---------------------------------|
+| `veo_text_to_video`   | Generisanje videa iz tekstualnih upita |
+| `veo_image_to_video`  | Generisanje videa na osnovu slike |
+| `veo_get_1080p`       | Nadogradnja videa na 1080p       |
+| `veo_get_task`        | Provera statusa pojedinačnog zadatka |
+| `veo_get_tasks_batch` | Grupna provera statusa zadataka  |
+
+## Primer upotrebe
+
+Nakon konfiguracije, možete direktno koristiti ove funkcije u AI klijentima prirodnim jezikom, na primer:
+
+- „Napravite mi video timelapse zvezdanog neba koristeći Veo“
+- „Napravite 4K video od ove pejzažne fotografije“
+- „Generiši kratki video u vertikalnom formatu 9:16“
+- „Nadogradi ovaj video na 1080p“
+
+## Više informacija
+
+- GitHub repozitorijum: [AceDataCloud/VeoMCP](https://github.com/AceDataCloud/VeoMCP)
+- PyPI paket: [mcp-veo](https://pypi.org/project/mcp-veo/)
+- API dokumentacija: [Veo Video Generisanje API](https://platform.acedata.cloud/documents/veo)

@@ -1,0 +1,92 @@
+---
+title: "Uputstvo za integraciju Suno Timing API-ja"
+description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+---
+
+SUNO nam omogućava sekundarnu obradu generisane muzike, dobijanje tekstova pesama i vremenske linije audio zapisa. Ovaj dokument objašnjava kako se integrišu povezani API-ji.
+
+Ovaj API ima samo jedan ulazni parametar, a to je `audio_id`, koji predstavlja ID pesme generisane od strane zvaničnog sistema.
+
+Ovde unosimo `audio_id` vrednost `ec13e502-d043-4eb2-92ee-e900c6da69d1`.
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/suno/timing"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "audio_id": "ec13e502-d043-4eb2-92ee-e900c6da69d1"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Izvod rezultata je sledeći:
+
+```
+{
+  "success": true,
+  "task_id": "ccf72cca-1c82-4580-8575-bb141c7e8e48",
+  "trace_id": "d8e0b7c3-6d24-4ed9-98ac-ffe683576a75",
+  "data": {
+    "aligned_words": [
+      {
+        "word": "[Verse]\nSnowflakes ",
+        "success": true,
+        "start_s": 2.63,
+        "end_s": 3.43,
+        "p_align": 0.531
+      },
+      {
+        "word": "dance ",
+        "success": true,
+        "start_s": 3.43,
+        "end_s": 3.91,
+        "p_align": 0.911
+      },
+      {
+        "word": "on ",
+        "success": true,
+        "start_s": 3.91,
+        "end_s": 4.35,
+        "p_align": 0.937
+      },
+      {
+        "word": "rooftops ",
+        "success": true,
+        "start_s": 4.35,
+        "end_s": 5.11,
+        "p_align": 0.366
+      },
+      {
+        "word": "high\n",
+        "success": true,
+        "start_s": 5.11,
+        "end_s": 6.25,
+        "p_align": 0.969
+      },
+      ...
+    ],
+    "waveform_data": [0.02138, 0.02193, 0.01806, 0.16597, 0.15168, 0.14243, ...],
+    "hoot_cer": 0.35013262599469497,
+    "is_streamed": false
+  }
+}
+```
+
+### Objašnjenje polja aligned_words
+
+Vidimo da je `data.aligned_words` niz objekata, gde svaki objekat predstavlja reč ili frazu sa vremenskim informacijama.
+
+- `word`: stvarna reč ili fraza iz teksta pesme
+- `success`: boolean vrednost koja označava da li je usklađivanje te reči bilo uspešno
+- `start_s`: vreme početka reči u sekundama
+- `end_s`: vreme završetka reči u sekundama
+- `p_align`: verovatnoća ili skor poverenja za usklađivanje, u opsegu od 0 do 1

@@ -1,0 +1,428 @@
+---
+title: "Sora Videos Generation API Integrationsanvisningar"
+description: "Sora Video Generation 集成指南 - Ace Data Cloud"
+---
+
+Den här artikeln introducerar integrationsanvisningarna för Sora Videos Generation API. Med detta API kan du generera officiella Sora-videor genom att mata in anpassade parametrar. API:et stöder två versionslägen:
+
+- **Version 1 (klassiskt läge)**: Stöder parametrarna `duration` (10/15/25 sekunder), `orientation` (landskap/porträtt), `size` (small/large upplösning), referensbilder `image_urls`, karaktärs-**###** `character_url` med flera.
+- **Version 2 (partnerläge)**: Stöder `seconds` (4/8/12 sekunder), pixelupplösning `size` (t.ex. 1280x720), referensbild `input_reference` med flera.
+
+## Ansökningsprocess
+
+För att använda API:et måste du först ansöka om tjänsten på [Sora Videos Generation API](https://platform.acedata.cloud/documents/99a24421-2e22-4028-8201-e19cb834b67e). När du kommer till sidan klickar du på knappen "Acquire", som visas nedan:
+
+![](https://cdn.acedata.cloud/q6ytrc.png)
+
+Om du inte är inloggad eller registrerad omdirigeras du automatiskt till inloggningssidan för att registrera och logga in. Efter inloggning återvänder du automatiskt till den aktuella sidan.
+
+Vid första ansökan får du en gratis kvot som gör att du kan använda API:et kostnadsfritt.
+
+## Grundläggande användning (Version 1)
+
+Först bör du förstå grundläggande användning av Version 1, där du matar in prompt `prompt`, en array med referensbildlänkar `image_urls` samt modellen `model` för att få ett bearbetat resultat. Detaljer visas nedan:
+
+<p><img src="https://cdn.acedata.cloud/h8dyz3.png" width="500" className="m-auto" /></p>
+
+Här ser vi att vi ställt in Request Headers, inklusive:
+
+- `accept`: önskat format för svar, här `application/json` (JSON-format).
+- `authorization`: API-nyckeln för anrop, som kan väljas direkt efter ansökan.
+
+Dessutom har vi Request Body med:
+
+- `model`: modellen för videoproduktion, stöder `sora-2` (standardläge) och `sora-2-pro` (HD-läge). `sora-2-pro` stödjer `duration` på 25 sekunder, medan `sora-2` endast stödjer 10 och 15 sekunder (endast Version 1).
+- `size`: videoupplösning, `small` för standard och `large` för HD (endast Version 1).
+- `duration`: videolängd, stöder 10, 15 och 25 sekunder, där 25 sekunder endast stöds av `sora-2-pro` (endast Version 1).
+- `orientation`: bildformat, stöder `landscape` (landskap) och `portrait` (porträtt) (endast Version 1).
+- `image_urls`: array med referensbildlänkar för bild-till-video (endast Version 1).
+- `character_url`: karaktärs-**###**-länk, videon får inte innehålla verkliga personer (endast Version 1).
+- `character_start`/`character_end`: start- och stopptid för karaktärens närvaro i sekunder, skillnad 1-3 sekunder (endast Version 1).
+- `prompt`: prompttext (obligatorisk).
+- `callback_url`: URL för asynkron callback.
+- `version`: API-version, `"1.0"` (standard) eller `"2.0"`.
+
+När du valt detta genereras motsvarande kod till höger, som visas nedan:
+
+<p><img src="https://cdn.acedata.cloud/g04qjz.png" width="500" className="m-auto" /></p>
+
+Klicka på knappen "Try" för att testa. Som i exemplet ovan får vi följande resultat:
+
+```json
+{
+  "success": true,
+  "task_id": "6bf7fb83-5814-4e3e-a4ad-bfa0c26c0b33",
+  "trace_id": "96166698-4b66-478d-a26b-77a7269c9e01",
+  "data": [
+    {
+      "id": "sora-2:task_01k7770rgsevxsmtpbn7xnm5gh",
+      "video_url": "https://filesystem.site/gptimage/vg-assets/assets%2Ftask_01k7770rgsevxsmtpbn7xnm5gh%2Ftask_01k7770rgsevxsmtpbn7xnm5gh_genid_0bf958d3-cae7-4298-b7b6-99ae439a1ea6_25_10_10_14_06_975715%2Fvideos%2F00000%2Fsrc.mp4?st=2025-10-10T12%3A30%3A38Z&se=2025-10-16T13%3A30%3A38Z&sks=b&skt=2025-10-10T12%3A30%3A38Z&ske=2025-10-16T13%3A30%3A38Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=8ebb0df1-a278-4e2e-9c20-f2d373479b3a&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=jigY6Z5qp8%2BTXYobaW0EAJ4%2Fbx6G7t6V1P0iyDeUq48%3D&az=oaivgprodscus",
+      "state": "succeeded"
+    }
+  ]
+}
+```
+
+Resultatet innehåller flera fält, beskrivna nedan:
+
+- `success`: status för videoproduktionsuppgiften.
+- `task_id`: ID för videoproduktionsuppgiften.
+- `trace_id`: spårnings-ID för uppgiften.
+- `data`: lista med resultat för videoproduktionsuppgiften.
+	- `id`: video-ID för uppgiften.
+	- `video_url`: videolänk för uppgiften.
+	- `state`: status för uppgiften.
+
+Vi har fått en tillfredsställande videoinformation och kan använda videolänken i `data` för att hämta den genererade Sora-videon.
+
+Om du vill generera motsvarande integrationskod kan du kopiera den som genereras, till exempel CURL-koden nedan:
+
+```shell
+curl -X POST 'https://api.acedata.cloud/sora/videos' \
+-H 'accept: application/json' \
+-H 'authorization: Bearer {token}' \
+-H 'content-type: application/json' \
+-d '{
+  "size": "large",
+  "duration": 15,
+  "orientation": "landscape",
+  "prompt": "cat running on the river",
+  "model": "sora-2"
+}'
+```
+
+## Bild-till-video-uppgifter (Version 1)
+
+För att utföra bild-till-video-uppgifter måste parametern `image_urls` innehålla referensbildlänkar, vilket specificerar följande:
+
+- `image_urls`: array med referensbildlänkar som används för bild-till-video-uppgiften. Observera att verkliga porträttbilder inte får användas, då detta kan leda till att uppgiften misslyckas.
+
+Exempel på ifyllnad:
+
+<p><img src="https://cdn.acedata.cloud/ch7x3t.png" width="500" className="m-auto" /></p>
+
+Efter ifyllnad genereras koden automatiskt som nedan:
+
+<p><img src="https://cdn.acedata.cloud/z1ud8l.png" width="500" className="m-auto" /></p>
+
+Motsvarande kod:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/sora/videos"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "size": "large",
+    "duration": 15,
+    "orientation": "landscape",
+    "prompt": "cat running on the river",
+    "model": "sora-2",
+    "image_urls": ["https://cdn.acedata.cloud/11wfp4.png"]
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Kör du detta får du omedelbart ett resultat som nedan:
+
+```
+{
+  "success": true,
+  "task_id": "dd392ff0-dcb7-4c7a-afd0-9bd4f65c803a",
+  "trace_id": "04fd151c-e942-4c1c-a6ab-9a1b1fe54172",
+  "data": [
+    {
+      "id": "sora-2:task_01k777af4hfmg9g7yfvwsc6zws",
+      "video_url": "https://filesystem.site/gptimage/vg-assets/assets%2Ftask_01k777af4hfmg9g7yfvwsc6zws%2Ftask_01k777af4hfmg9g7yfvwsc6zws_genid_92bae0c5-1703-4a5f-9d9f-c9ed2f9e7176_25_10_10_14_12_924695%2Fvideos%2F00000%2Fsrc.mp4?st=2025-10-10T12%3A37%3A32Z&se=2025-10-16T13%3A37%3A32Z&sks=b&skt=2025-10-10T12%3A37%3A32Z&ske=2025-10-16T13%3A37%3A32Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=aa5ddad1-c91a-4f0a-9aca-e20682cc8969&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=5j4dibeaSsDmEka5c%2B9CKHZhRPdqfClQ0tIh03TWXsM%3D&az=oaivgprodscus",
+      "state": "succeeded"
+    }
+  ]
+}
+```
+
+Resultatet visar att videon genererats från bilden, med liknande resultat som ovan.
+
+## Karaktärsgenererad video (Version 1)
+
+För att skapa karaktärsgenererad video måste parametern `character_url` innehålla en videolänk som används för att skapa karaktären. Observera att videon inte får innehålla verkliga personer, annars misslyckas uppgiften. Följande gäller:
+
+- `character_url`: videolänk för karaktärsskapande, videon får inte innehålla verkliga personer för att undvika fel.
+
+Exempel på ifyllnad:
+
+<p><img src="https://cdn.acedata.cloud/2nhdr2.png" width="500" className="m-auto" /></p>
+
+Efter ifyllnad genereras koden automatiskt som nedan:
+
+<p><img src="https://cdn.acedata.cloud/xp8scl.png" width="500" className="m-auto" /></p>
+
+Motsvarande kod:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/sora/videos"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "size": "small",
+    "duration": 10,
+    "orientation": "landscape",
+    "prompt": "cat running on the river",
+    "character_url": "https://cdn.acedata.cloud/pdidf5.mp4",
+    "model": "sora-2",
+    "character_end": 3,
+    "character_start": 1
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Kör du detta får du omedelbart ett resultat som nedan:
+
+```
+{
+  "success": true,
+  "task_id": "d9bf5461-29b5-47fd-be90-1fe9197df259",
+  "trace_id": "b7992643-9207-40d6-956b-7577728acc67",
+  "data": [
+    {
+      "id": "sora-2:task_01k8ykrztefavaypw6xanw305b",
+      "video_url": "https://filesystem.site/cdn/20251101/bee4eeeb4c4660b46dac4548a1ffbc.mp4",
+      "state": "succeeded"
+    }
+  ]
+}
+```
+
+Resultatet visar att videon genererats med karaktär, med liknande resultat som ovan.
+
+## Version 2.0-läge
+
+Utöver Version 1.0-läget stöder API:et även Version 2.0-läget, som aktiveras genom att sätta parametern `version` till `"2.0"`. Version 2.0 stöder kortare videolängder och pixelnivåupplösningskontroll.
+
+### Version 2.0 parameterbeskrivning
+
+| Parameter       | Typ    | Obligatorisk | Beskrivning                          |
+|-----------------|--------|--------------|------------------------------------|
+| `version`       | string | Ja           | Sätt till `"2.0"`                  |
+| `prompt`        | string | Ja           | Prompt för videoproduktion         |
+| `model`         | string | Nej          | `sora-2` (standard) eller `sora-2-pro` |
+| `duration`      | integer| Nej          | Videolängd: `4` (standard), `8`, `12` sekunder |
+| `size`          | string | Nej          | Upplösning: `720x1280` (standard), `1280x720`, `1024x1792`, `1792x1024` |
+| `image_urls`    | array  | Nej          | Array med referensbild-URL: endast första bilden används, bildstorlek måste matcha `size` |
+| `callback_url`  | string | Nej          | URL för asynkron callback          |
+
+### Grundläggande exempel
+
+```shell
+curl -X POST 'https://api.acedata.cloud/sora/videos' \
+-H 'accept: application/json' \
+-H 'authorization: Bearer {token}' \
+-H 'content-type: application/json' \
+-d '{
+  "version": "2.0",
+  "prompt": "cat running on the river",
+  "model": "sora-2",
+  "duration": 8,
+  "size": "1280x720"
+}'
+```
+
+Motsvarande Python-kod:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/sora/videos"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "version": "2.0",
+    "prompt": "cat running on the river",
+    "model": "sora-2",
+    "seconds": 8,
+    "size": "1280x720"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Motsvarande JavaScript-kod:
+
+```javascript
+const response = await fetch('https://api.acedata.cloud/sora/videos', {
+  method: 'POST',
+  headers: {
+    'accept': 'application/json',
+    'authorization': 'Bearer {token}',
+    'content-type': 'application/json'
+  },
+  body: JSON.stringify({
+    version: '2.0',
+    prompt: 'cat running on the river',
+    model: 'sora-2',
+    seconds: 8,
+    size: '1280x720'
+  })
+});
+const data = await response.json();
+console.log(data);
+```
+
+Resultatformatet är samma som Version 1:
+
+```json
+{
+  "success": true,
+  "task_id": "6bf7fb83-5814-4e3e-a4ad-bfa0c26c0b33",
+  "trace_id": "96166698-4b66-478d-a26b-77a7269c9e01",
+  "data": [
+    {
+      "id": "c0cc8dad-0954-421f-be8d-02eb063b3263",
+      "video_url": "https://platform.cdn.acedata.cloud/sora/xxxxx.mp4",
+      "state": "succeeded"
+    }
+  ]
+}
+```
+
+### Använda referensbilder (Version 2.0)
+
+I Version 2.0 kan du använda parametern `image_urls` för att skicka in referensbilder som styr videoproduktionen (endast första bilden används):
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/sora/videos"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "version": "2.0",
+    "prompt": "a person walking through a beautiful garden",
+    "model": "sora-2",
+    "duration": 4,
+    "size": "1280x720",
+    "image_urls": ["https://cdn.acedata.cloud/11wfp4.png"]
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+> **Observera**: Referensbildens storlek bör matcha `size`-parametern, t.ex. om `size` är `1280x720` bör referensbilden vara 1280×720 pixlar.
+
+### Jämförelse av parametrar mellan Version 1.0 och Version 2.0
+
+| Parameter       | Version 1.0            | Version 2.0                                  |
+|-----------------|-----------------------|----------------------------------------------|
+| `version`       | 1.0 (standard)         | 2.0                                          |
+| `prompt`        | ✅                     | ✅                                            |
+| `model`         | ✅ sora-2 / sora-2-pro | ✅ sora-2 / sora-2-pro                        |
+| `duration`      | ✅ 10/15/25 sekunder   | ✅ 4/8/12 sekunder                            |
+| `orientation`   | ✅ landscape/portrait  | ❌                                            |
+| `size`          | ✅ small/large         | ✅ 720x1280/1280x720/1024x1792/1792x1024    |
+| `image_urls`    | ✅ flera referensbilder | ✅ endast första används                       |
+| `character_url` | ✅                     | ❌                                            |
+| `callback_url`  | ✅                     | ✅                                            |
+
+## Asynkron callback
+
+Eftersom Sora Videos Generation API kan ta 1-2 minuter att generera video, och långa HTTP-förfrågningar kan belasta systemresurser, stöder API:et asynkron callback.
+
+Processen är: klienten skickar en förfrågan med `callback_url`-fältet. API:et svarar omedelbart med ett resultat som innehåller `task_id`. När uppgiften är klar skickas resultatet via POST JSON till klientens angivna `callback_url`, inklusive `task_id` för att koppla ihop uppgiften.
+
+Nedan visas ett exempel på hur detta fungerar.
+
+Webhook-callback är en tjänst som kan ta emot HTTP-förfrågningar. Utvecklare bör ersätta med sin egen HTTP-server-URL. För demonstration används den publika webhook-sidan https://webhook.site/, där du får en webhook-URL som visas nedan:
+
+![](https://cdn.acedata.cloud/cjjfly.png)
+
+Kopiera denna URL, t.ex. `https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa`, och använd som webhook.
+
+Sätt sedan `callback_url` till denna webhook-URL och fyll i övriga parametrar, enligt nedan:
+
+<p><img src="https://cdn.acedata.cloud/v1m05g.png" width="500" className="m-auto" /></p>
+
+Kör du detta får du omedelbart ett svar som nedan:
+
+```
+{
+  "task_id": "b8976e18-32dc-4718-9ed8-1ea090fcb6ea"
+}
+```
+
+Efter en stund kan du se resultatet på `https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa`, enligt nedan:
+
+![](https://cdn.acedata.cloud/0j7nra.png)
+
+Innehållet är:
+
+```json
+{
+    "success": true,
+    "task_id": "b8976e18-32dc-4718-9ed8-1ea090fcb6ea",
+    "trace_id": "fb751e1e-4705-49ea-9fd4-5024b7865ea2",
+    "data": [
+        {
+            "id": "sora-2:task_01k777hjrbfrgs2060q5zvf2a5",
+            "video_url": "https://filesystem.site/gptimage/vg-assets/assets%2Ftask_01k777hjrbfrgs2060q5zvf2a5%2Ftask_01k777hjrbfrgs2060q5zvf2a5_genid_b8e2e5d1-a579-49ca-a21c-cb3869685cce_25_10_10_14_15_147334%2Fvideos%2F00000%2Fsrc.mp4?st=2025-10-10T12%3A38%3A49Z&se=2025-10-16T13%3A38%3A49Z&sks=b&skt=2025-10-10T12%3A38%3A49Z&ske=2025-10-16T13%3A38%3A49Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=aa5ddad1-c91a-4f0a-9aca-e20682cc8969&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=p4aMqXqkP%2FI1IhOVGCB9JL8vUUvfNBBF12ESpKhKXOk%3D&az=oaivgprodscus",
+            "state": "succeeded"
+        }
+    ]
+}
+```
+
+Resultatet innehåller `task_id` och övriga fält som ovan, vilket möjliggör koppling av uppgiften via ID.
+
+## Felhantering
+
+Vid API-anrop som resulterar i fel returnerar API:et motsvarande felkod och meddelande, exempelvis:
+
+- `400 token_mismatched`: Felaktig förfrågan, troligen saknade eller ogiltiga parametrar.
+- `400 api_not_implemented`: Felaktig förfrågan, troligen saknade eller ogiltiga parametrar.
+- `401 invalid_token`: Obefogad, ogiltig eller saknad auktoriseringstoken.
+- `429 too_many_requests`: För många förfrågningar, du har överskridit gränsen.
+- `500 api_error`: Intern serverfel, något gick fel på servern.
+
+### Exempel på felrespons
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "api_error",
+    "message": "fetch failed"
+  },
+  "trace_id": "2cf86e86-22a4-46e1-ac2f-032c0f2a4e89"
+}
+```
+
+## Slutsats
+
+Med denna dokumentation har du lärt dig hur du använder Sora Videos Generation API för att generera videor genom att mata in prompt och referensbilder. Vi hoppas att dokumentationen hjälper dig att integrera och använda API:et på bästa sätt. Vid frågor, kontakta gärna vårt tekniska supportteam.

@@ -1,0 +1,142 @@
+---
+title: "Przewodnik integracji Veo MCP"
+description: "veo MCP 服务器集成"
+---
+
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) to protokół kontekstowy modelu opracowany przez Anthropic, który pozwala modelom AI (takim jak Claude, GPT itp.) na wywoływanie zewnętrznych narzędzi za pomocą ustandaryzowanego interfejsu. Dzięki Veo MCP Server udostępnianemu przez AceData Cloud możesz bezpośrednio korzystać z Google Veo do generowania AI wideo w klientach AI takich jak Claude Desktop, VS Code, Cursor i innych.
+
+## Przegląd funkcji
+
+Veo MCP Server oferuje następujące kluczowe funkcje:
+
+- **Generowanie wideo z tekstu** — tworzenie wysokiej jakości wideo na podstawie tekstowych promptów
+- **Generowanie wideo z obrazu** — tworzenie wideo bazując na obrazie
+- **Wsparcie wielu modeli** — obsługa modeli veo3, veo2, veo31-fast-ingredients i innych
+- **Różne rozdzielczości** — wsparcie formatów wyjściowych 4K, 1080p, GIF itp.
+- **Różne proporcje obrazu** — wsparcie proporcji 16:9, 9:16 i innych
+- **Ulepszenie do 1080p** — podniesienie jakości wygenerowanego wideo do 1080p
+- **Zapytania o zadania** — monitorowanie postępu generowania i pobieranie wyników
+
+## Wymagania wstępne
+
+Przed użyciem musisz uzyskać token API AceData Cloud:
+
+1. Zarejestruj się lub zaloguj na [platformie AceData Cloud](https://platform.acedata.cloud)
+2. Przejdź do strony [Veo Videos API](https://platform.acedata.cloud/documents/veo-videos)
+3. Kliknij „Acquire”, aby uzyskać token API (przy pierwszym wniosku otrzymujesz darmowy limit)
+
+## Instalacja i konfiguracja
+
+### Metoda 1: instalacja przez pip (zalecane)
+
+```bash
+pip install mcp-veo
+```
+
+### Metoda 2: instalacja ze źródła
+
+```bash
+git clone https://github.com/AceDataCloud/VeoMCP.git
+cd VeoMCP
+pip install -e .
+```
+
+Po instalacji możesz uruchomić serwer poleceniem `mcp-veo`.
+
+## Użycie w Claude Desktop
+
+Edytuj plik konfiguracyjny Claude Desktop:
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+Dodaj następującą konfigurację:
+
+```json
+{
+  "mcpServers": {
+    "veo": {
+      "command": "mcp-veo",
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "Twój token API"
+      }
+    }
+  }
+}
+```
+
+Jeśli używasz `uvx` (bez konieczności wcześniejszej instalacji pakietów):
+
+```json
+{
+  "mcpServers": {
+    "veo": {
+      "command": "uvx",
+      "args": ["mcp-veo"],
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "Twój token API"
+      }
+    }
+  }
+}
+```
+
+Po zapisaniu konfiguracji i ponownym uruchomieniu Claude Desktop możesz korzystać z narzędzi Veo w rozmowach.
+
+## Użycie w VS Code / Cursor
+
+Utwórz plik `.vscode/mcp.json` w katalogu głównym projektu:
+
+```json
+{
+  "servers": {
+    "veo": {
+      "command": "mcp-veo",
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "Twój token API"
+      }
+    }
+  }
+}
+```
+
+Lub użyj `uvx`:
+
+```json
+{
+  "servers": {
+    "veo": {
+      "command": "uvx",
+      "args": ["mcp-veo"],
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "Twój token API"
+      }
+    }
+  }
+}
+```
+
+## Lista dostępnych narzędzi
+
+| Nazwa narzędzia       | Opis                             |
+|-----------------------|---------------------------------|
+| `veo_text_to_video`    | Generowanie wideo z tekstu       |
+| `veo_image_to_video`   | Generowanie wideo z obrazu       |
+| `veo_get_1080p`        | Ulepszenie wideo do 1080p        |
+| `veo_get_task`         | Zapytanie o status pojedynczego zadania |
+| `veo_get_tasks_batch`  | Masowe zapytania o status zadań  |
+
+## Przykłady użycia
+
+Po konfiguracji możesz bezpośrednio w kliencie AI wywoływać te funkcje w naturalnym języku, na przykład:
+
+- „Pomóż mi wygenerować timelapse nocnego nieba za pomocą Veo”
+- „Wygeneruj 4K wideo na podstawie tego zdjęcia krajobrazu”
+- „Stwórz krótkie wideo w pionowym formacie 9:16”
+- „Ulepsz to wideo do 1080p”
+
+## Więcej informacji
+
+- Repozytorium GitHub: [AceDataCloud/VeoMCP](https://github.com/AceDataCloud/VeoMCP)
+- Pakiet PyPI: [mcp-veo](https://pypi.org/project/mcp-veo/)
+- Dokumentacja API: [Veo Video Generation API](https://platform.acedata.cloud/documents/veo)

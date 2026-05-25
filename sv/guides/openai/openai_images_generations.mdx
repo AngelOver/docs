@@ -1,0 +1,651 @@
+---
+title: "OpenAI Images Generations API Ansökan och Användning"
+description: "OpenAI generation 集成指南 - Ace Data Cloud"
+---
+
+OpenAI Images Generations API stödjer för närvarande flera bildgenereringsmodeller, inklusive den klassiska `dall-e-3`, den textrenderande `gpt-image-1` med starkare förmåga, den senaste generationen **`gpt-image-2`**, samt modeller i **`nano-banana` / `nano-banana-2` / `nano-banana-pro`** serien som nås via samma gränssnitt. Alla kan generera högkvalitativa bilder baserat på textbeskrivningar.
+
+Detta dokument beskriver huvudsakligen användningsprocessen för OpenAI Images Generations API, med vilket vi enkelt kan använda OpenAI-seriens bildgenereringsfunktioner.
+
+## Ansökningsprocess
+
+För att använda OpenAI Images Generations API kan du först gå till sidan [OpenAI Images Generations API](https://platform.acedata.cloud/documents/fd932485-90c7-45d6-8394-1e14b6f07b2b) och klicka på knappen "Acquire" för att få de nödvändiga autentiseringsuppgifterna:
+
+![](https://cdn.acedata.cloud/nyq0xz.png)
+
+Om du inte är inloggad eller registrerad, omdirigeras du automatiskt till inloggningssidan där du kan registrera dig och logga in. Efter inloggning återvänder du automatiskt till den aktuella sidan.
+
+Vid första ansökan får du en gratis kvot som gör att du kan använda API:et kostnadsfritt.
+
+## GPT-Image-2 Modell
+
+`gpt-image-2` är OpenAIs nya generation av bildgenereringsmodell, som jämfört med `dall-e-3` och `gpt-image-1` har tydliga förbättringar i följande avseenden:
+
+- **Starkare instruktionstolkning**: Kan exakt förstå komplexa kompositioner, räkning, positionsrelationer och andra strukturerade instruktioner.
+- **Klarare textrendering**: Engelska och siffror i affischer, menyer, infografik, logotyper med mera visas nästan helt utan fel.
+- **Rikare stiluttryck**: Stödjer ursprungligen flera stilar såsom filmiska porträtt, retroaffischer, barnillustrationer, produktfotografi och infografik.
+- **Inbyggt stöd för flera proportioner + hög upplösning**: Täcker 5 proportioner (1:1, 4:3, 3:4, 16:9, 9:16) med 3 upplösningsnivåer (1K / 2K / 4K).
+
+Anropssättet är helt identiskt med andra modeller, du behöver bara sätta fältet `model` till `gpt-image-2`. I returvärdet är `url` en permanent länk till bilden hostad på `platform.cdn.acedata.cloud`, som kan öppnas direkt i webbläsare eller bäddas in på webbsidor.
+
+### Stödda värden för `size` och prisnivåer
+
+`gpt-image-2` kontrollerar endast formatet på `size`. Så länge det inte är `auto` eller tomt, måste det matcha `WIDTHxHEIGHT` (t.ex. `1024x1024`, `2048x1152`, `800x600`); andra format ger 400-fel. Prissättningen delas in i två nivåer:
+
+- **1K standardpris**: Inmatning är någon av 1K-rekommenderade storlekar i tabellen nedan eller vanliga 1K alias från upstream (`1254x1254`, `1672x941`, `941x1672` — dessa är faktiska storlekar som upstream returnerar för 1K, och om de skickas tillbaka räknas de fortfarande som 1K).
+- **Andra nivåer (1,5×)**: Alla storlekar utanför ovanstående 1K-mängd, inklusive rekommenderade 2K / 4K förinställningar samt valfria `WIDTHxHEIGHT` som du skickar in.
+
+Upstream har hårda begränsningar för anpassade storlekar: bredd och höjd måste vara multiplar av 16, längsta sidan ≤ 3840, total pixelantal ≤ 8 294 400. Överskrids detta nekas förfrågan med 4xx-fel.
+
+| Proportion | 1K (standardpris) | 2K rekommenderad (×1.5) | 4K rekommenderad (×1.5) |
+| --- | --- | --- | --- |
+| 1:1 | `1024x1024` | `2048x2048` | `2880x2880` |
+| 4:3 | `1536x1024` | `2048x1536` | `3264x2448` |
+| 3:4 | `1024x1536` | `1536x2048` | `2448x3264` |
+| 16:9 | `1792x1024` | `2048x1152` | `3840x2160` |
+| 9:16 | `1024x1792` | `1152x2048` | `2160x3840` |
+
+> Du kan även skicka `size: "auto"` eller **utelämna `size`-fältet**, då väljer modellen själv standardstorlek och debiteras som 1K.
+>
+> Upstream garanterar inte strikt pixeljustering för 1K — om du skickar `1024x1024` kan du få `1254x1254`, proportionen är dock densamma. Om du skickar tillbaka den som `size` räknas det fortfarande som 1K.
+>
+> 4K-anrop tar vanligtvis 4–8 minuter, det rekommenderas att använda `callback_url` för asynkron återkoppling (se nedan).
+
+> **Om `n`-parametern**
+>
+> `gpt-image-2` stödjer för närvarande **inte `n > 1`**: parametern ignoreras tyst, oavsett om du skickar `n=1` eller `n=10` returneras endast 1 bild per anrop och debiteras som 1 bild. Om du vill ha flera kandidater samtidigt, gör flera parallella anrop (helst med olika `prompt` eller `seed` för variation). Samma begränsning gäller för `gpt-image-1` / `gpt-image-1.5` och `nano-banana` / `nano-banana-2` / `nano-banana-pro`. `dall-e-2` är för närvarande den enda modellen som nativt stödjer `n > 1`; `dall-e-3` stödjer endast `n = 1`.
+
+Nedan visas några verkliga exempel som illustrerar `gpt-image-2` kapacitet.
+
+### Scenario 1: Filmiska porträtt
+
+I prompten kan du använda filmtermer (35mm film, grund skärpedjup, neonljus etc.) för att exakt styra atmosfär och känsla.
+
+Python-exempel:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/openai/images/generations"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "model": "gpt-image-2",
+    "prompt": "A cinematic portrait of a young woman standing in a convenience store at night, illuminated by soft pink and cyan neon signs through the window. Shot on 35mm film, shallow depth of field, slight grain, melancholic mood.",
+    "size": "1024x1536"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Svarsexempel:
+
+```json
+{
+  "success": true,
+  "task_id": "ab58a5df-6f46-4874-bff6-93169e2849a3",
+  "created": 1777048800,
+  "data": [
+    {
+      "revised_prompt": "A cinematic portrait of a young woman standing in a convenience store at night, illuminated by soft pink and cyan neon signs through the window. Shot on 35mm film, shallow depth of field, slight grain, melancholic mood.",
+      "url": "https://platform.cdn.acedata.cloud/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png"
+    }
+  ]
+}
+```
+
+Genererad bild:
+
+<p><img src="https://platform.cdn.acedata.cloud/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png" width="500" className="m-auto" /></p>
+
+### Scenario 2: Retro reseaffisch (med textrendering)
+
+`gpt-image-2` är stabil i typografi och layout, lämplig för affischer, menyer, gratulationskort med text.
+
+```python
+payload = {
+    "model": "gpt-image-2",
+    "prompt": "A vintage travel poster of the Amalfi Coast, Italy. Stylized art-deco illustration of cliffside lemon-yellow houses cascading down to a turquoise sea, with a small white sailboat in the harbor. Bold typography at the top reads AMALFI and at the bottom ITALIA 1958. Limited color palette: cream, sea-blue, lemon yellow, terracotta. Slight paper-grain texture.",
+    "size": "1024x1536"
+}
+```
+
+Bild från `url` i svaret:
+
+<p><img src="https://platform.cdn.acedata.cloud/gpt-image/c6061f92-3fae-498e-af8e-688e7f415ba3_0.png" width="500" className="m-auto" /></p>
+
+Modellen återger Art Deco-stilen och texten `AMALFI` och `ITALIA 1958` tydligt och korrekt.
+
+### Scenario 3: Komplex komposition och räkning
+
+Prompten testar modellens förmåga att följa strukturerade instruktioner om antal och placering.
+
+```python
+payload = {
+    "model": "gpt-image-2",
+    "prompt": "A wooden bookshelf consisting of three shelves: On the top shelf, there should be one book. On the second shelf, there should be three books. On the bottom shelf, there should be seven books. Soft warm lighting, photorealistic, cozy library atmosphere.",
+    "size": "1024x1024"
+}
+```
+
+Genererad bild:
+
+<p><img src="https://platform.cdn.acedata.cloud/gpt-image/64a3b932-a082-4cad-9f85-9d30474b104d_0.png" width="500" className="m-auto" /></p>
+
+Antalet böcker (1 / 3 / 7) på hyllorna stämmer exakt med prompten, något som var svårt att uppnå stabilt med `dall-e-3`.
+
+### Scenario 4: Illustrationsstil (landskap)
+
+Genom att ange konstnärliga medier och stämningsord kan modellen styras att skapa stiliserade illustrationer.
+
+```python
+payload = {
+    "model": "gpt-image-2",
+    "prompt": "A soft, poetic children's book illustration of a small fox reading a book under a glowing mushroom in a moonlit forest. Watercolor and pencil texture, gentle pastel colors, dreamy atmosphere, hand-drawn feel.",
+    "size": "1536x1024"
+}
+```
+
+Genererad liggande illustration:
+
+![](https://platform.cdn.acedata.cloud/gpt-image/6cd57e69-d237-4cc1-a666-759a93964a08_0.png)
+
+### Asynkron och callback
+
+`gpt-image-2` tar vanligtvis 60–90 sekunder per anrop. Om du inte vill hålla en lång anslutning öppen kan du använda `callback_url` för asynkron återkoppling, anropsflödet är identiskt med andra modeller.
+
+## Nano Banana-serien
+
+`nano-banana` serien är Gemini-baserade bildgenereringsmodeller som nås via samma `/openai/images/generations` endpoint, du behöver bara ändra `model` till någon i tabellen nedan.
+
+| Modell | Kostnad (Credits / anrop) | Användningsområde |
+| --- | --- | --- |
+| `nano-banana` | 0.14 | Vanlig bildgenerering, snabbast och billigast |
+| `nano-banana-2` | 0.28 | Märkbart bättre kvalitet och detaljer |
+| `nano-banana-pro` | 0.35 | Flaggskepp, bäst komposition, detaljer och text |
+
+> **Viktigt: stödda parametrar**
+>
+> Nano Banana använder en adapter för OpenAI-protokollet och stödjer endast parametrarna: `model`, `prompt`, `size`.
+>
+> - `size` mappas enligt tabellen nedan till intern `aspect_ratio`; ej listade storlekar faller tillbaka till `1:1`:
+>   - `1024x1024` / `512x512` / `256x256` → `1:1`
+>   - `1792x1024` → `16:9`
+>   - `1024x1792` → `9:16`
+> - Stöder inte `n`, `quality`, `style`, `response_format`, `background`, `output_format` etc.; dessa ignoreras.
+> - Returnerar OpenAI-format (`data[].url`), men `created` är alltid `0`, ingen `b64_json`, och `revised_prompt` är alltid samma som originalprompt.
+
+### Grundläggande anrop
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/openai/images/generations"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "model": "nano-banana",
+    "prompt": "a small red apple on a white table, photoreal",
+    "size": "1024x1024"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Svar:
+
+```json
+{
+  "created": 0,
+  "data": [
+    {
+      "url": "https://platform.cdn.acedata.cloud/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png",
+      "revised_prompt": "a small red apple on a white table, photoreal"
+    }
+  ]
+}
+```
+
+Bilden nås direkt via `url`:
+
+<p><img src="https://platform.cdn.acedata.cloud/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png" width="500" className="m-auto" /></p>
+
+### Uppgradera till flaggskeppsmodellen `nano-banana-pro`
+
+Byt bara `model` till `nano-banana-pro`, övriga parametrar är desamma:
+
+```python
+payload = {
+    "model": "nano-banana-pro",
+    "prompt": "abstract painting",
+    "size": "1024x1024"
+}
+```
+
+Svarsexempel:
+
+```json
+{
+  "created": 0,
+  "data": [
+    {
+      "url": "https://platform.cdn.acedata.cloud/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png",
+      "revised_prompt": "abstract painting"
+    }
+  ]
+}
+```
+
+<p><img src="https://platform.cdn.acedata.cloud/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png" width="500" className="m-auto" /></p>
+
+### Asynkron callback
+
+`callback_url` fungerar även för nano-banana, anropsflödet är identiskt med andra modeller, se avsnittet [Asynkron callback](#asynkron-callback).
+
+## Grundläggande användning
+
+Du kan fylla i motsvarande fält i gränssnittet som visas nedan:
+
+<p><img src="https://cdn.acedata.cloud/zv58ug.png" width="500" className="m-auto" /></p>
+
+Vid första användningen behöver du minst fylla i tre saker: `authorization` som väljs från dropdown, `model` där du väljer OpenAI DALL-E modell (här finns huvudsakligen en modell, se våra modeller), och `prompt` där du skriver in texten för bildgenerering.
+
+Till höger visas motsvarande genererade anropkod som du kan kopiera och köra direkt eller klicka på "Try" för att testa.
+
+<p><img src="https://cdn.acedata.cloud/pbss4f.png" width="500" className="m-auto" /></p>
+
+Python-exempel:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/openai/images/generations"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "model": "dall-e-3",
+    "prompt": "A cute baby sea otter"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Svar:
+
+```json
+{
+  "created": 1721626477,
+  "data": [
+    {
+      "revised_prompt": "A delightful image showcasing a young sea otter, who is born brown, with wide charming eyes. It is delightfully lying on its back, paddling in the calm sea waters. Its dense, velvety fur appears wet and shimmering, capturing the essence of its habitat. The small creature curiously plays with a sea shell with its small paws, looking absolutely innocent and charming in its natural environment.",
+      "url": "https://dalleprodsec.blob.core.windows.net/private/images/5d98aa7c-80c6-4523-b571-fc606ad455b9/generated_00.png?se=2024-07-23T05%3A34%3A48Z&sig=GAz%2Bi3%2BkHOQwAMhxcv22tBM%2FaexrxPgT9V0DbNrL4ik%3D&ske=2024-07-23T08%3A41%3A10Z&skoid=e52d5ed7-0657-4f62-bc12-7e5dbb260a96&sks=b&skt=2024-07-16T08%3A41%3A10Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02"
+    }
+  ]
+}
+```
+
+Resultatet innehåller flera fält:
+
+- `created`: ID för denna bildgenerering, unikt för uppgiften.
+- `data`: innehåller bildgenereringsresultatet.
+
+I `data` finns detaljer om genererad bild, där `url` är länken till bilden.
+
+<p><img src="https://cdn.acedata.cloud/dz7u0x.png" width="500" className="m-auto" /></p>
+
+## Bildkvalitetsparameter `quality`
+
+Du kan ange bildkvalitet med två alternativ: `standard` för standardbild och `hd` för bild med finare detaljer och högre konsistens.
+
+Exempel på inställning till `standard`:
+
+<p><img src="https://cdn.acedata.cloud/1q303w.png" width="500" className="m-auto" /></p>
+
+Till höger visas motsvarande anropkod som kan kopieras eller testas direkt.
+
+<p><img src="https://cdn.acedata.cloud/c0ps6i.png" width="500" className="m-auto" /></p>
+
+Python-exempel:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/openai/images/generations"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "model": "dall-e-3",
+    "prompt": "A cute baby sea otter",
+    "quality": "standard"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Svar:
+
+```json
+{
+  "created": 1721636023,
+  "data": [
+    {
+      "revised_prompt": "A cute baby sea otter is lying playfully on its back in the water, with its fur looking glossy and soft. One of its tiny paws is reaching out curiously, and it has an expression of pure joy and warmth on its face as it looks up to the sky. Its body is surrounded by bubbles from its playful twirling in the water. A gentle breeze is playing with its fur making it look more charming. The scene portrays the tranquility and charm of marine life.",
+      "url": "https://dalleprodsec.blob.core.windows.net/private/images/a93ee5e7-3abd-4923-8d79-dc9ef126da46/generated_00.png?se=2024-07-23T08%3A13%3A55Z&sig=wTXGYvUOwUIkaB2CxjK9ww%2FHjS8OwYUWcYInXYKwcAM%3D&ske=2024-07-23T11%3A32%3A05Z&skoid=e52d5ed7-0657-4f62-bc12-7e5dbb260a96&sks=b&skt=2024-07-16T11%3A32%3A05Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02"
+    }
+  ]
+}
+```
+
+Bild med `standard` kvalitet:
+
+<p><img src="https://cdn.acedata.cloud/j5v15b.png" width="500" className="m-auto" /></p>
+
+Med samma anrop men `quality` satt till `hd` får du:
+
+<p><img src="https://cdn.acedata.cloud/vjpbqr.png" width="500" className="m-auto" /></p>
+
+`hd` ger mer detaljerad och konsekvent bild än `standard`.
+
+## Bildstorleksparameter `size`
+
+Du kan även ange bildens storlek.
+
+Exempel med `1024x1024`:
+
+<p><img src="https://cdn.acedata.cloud/dx5rwh.png" width="500" className="m-auto" /></p>
+
+Till höger visas anropkod som kan kopieras eller testas.
+
+<p><img src="https://cdn.acedata.cloud/0sbybl.png" width="500" className="m-auto" /></p>
+
+Python-exempel:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/openai/images/generations"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "model": "dall-e-3",
+    "prompt": "A cute baby sea otter",
+    "size": "1024x1024"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Svar:
+
+```json
+{
+  "created": 1721636652,
+  "data": [
+    {
+      "revised_prompt": "A delightful depiction of a baby sea otter. The small mammal is captured in its natural habitat in the ocean, floating on its back. It has thick brown fur that is sleek and wet from the sea water. Its eyes are closed as if it is enjoying a moment of deep relaxation. The water around it is calm, reflecting the peacefulness of the scene. The background should hint at a diverse marine ecosystem, with visible strands of kelp floating on the surface, suggesting the baby otter's preferred environment.",
+      "url": "https://dalleprodsec.blob.core.windows.net/private/images/9d625ac6-fd2b-42a9-84a6-8c99eb357ccf/generated_00.png?se=2024-07-23T08%3A24%3A24Z&sig=AXtYXowEakGxfRp8LhC2DwqL%2F07LhEDW40oCP%2BdTO8s%3D&ske=2024-07-23T18%3A00%3A45Z&skoid=e52d5ed7-0657-4f62-bc12-7e5dbb260a96&sks=b&skt=2024-07-16T18%3A00%3A45Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02"
+    }
+  ]
+}
+```
+
+Bild med storlek `1024x1024`:
+
+<p><img src="https://cdn.acedata.cloud/o4pvvx.png" width="500" className="m-auto" /></p>
+
+Med storlek `1792x1024`:
+
+![](https://cdn.acedata.cloud/4pilae.png)
+
+Storleken är tydligt annorlunda. Fler storlekar finns i vår officiella dokumentation.
+
+## Bildstilparameter `style`
+
+`style` har två alternativ: `vivid` för mer levande bilder och `natural` för mer naturliga bilder.
+
+Exempel med `vivid`:
+
+<p><img src="https://cdn.acedata.cloud/609l9i.png" width="500" className="m-auto" /></p>
+
+Till höger visas anropkod som kan kopieras eller testas.
+
+<p><img src="https://cdn.acedata.cloud/ee3u9o.png" width="500" className="m-auto" /></p>
+
+Python-exempel:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/openai/images/generations"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "model": "dall-e-3",
+    "prompt": "A cute baby sea otter",
+    "style": "vivid"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Svar:
+
+```json
+{
+  "created": 1721637086,
+  "data": [
+    {
+      "revised_prompt": "A baby sea otter with soft, shiny fur and sparkling eyes floating playfully on calm ocean waters. This adorable creature is trippingly frolicking amidst small, gentle waves under a bright, clear, sunny sky. The tranquility of the sea contrasts subtly with the delightful energy of this young otter. The critter gamely clings to a tiny piece of driftwood, its small paws adorably enveloping the floating object.",
+      "url": "https://dalleprodsec.blob.core.windows.net/private/images/6e48f701-7fd3-4356-839e-a2f6f0fe82d9/generated_00.png?se=2024-07-23T08%3A31%3A37Z&sig=4percxqTbUR1j3BQmkhvj%2FAhHzInKI%2FqiTo1MP69coI%3D&ske=2024-07-27T10%3A39%3A55Z&skoid=e52d5ed7-0657-4f62-bc12-7e5dbb260a96&sks=b&skt=2024-07-20T10%3A39%3A55Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02"
+    }
+  ]
+}
+```
+
+Bild med `vivid` stil:
+
+<p><img src="https://cdn.acedata.cloud/e0rpc3.png" width="500" className="m-auto" /></p>
+
+Med `natural` stil:
+
+<p><img src="https://cdn.acedata.cloud/q9tqwu.png" width="500" className="m-auto" /></p>
+
+`vivid` ger mer levande och realistisk bild än `natural`.
+
+## Bildlänkens formatparameter `response_format`
+
+`response_format` har två alternativ: `b64_json` som kodar bilden i Base64, och `url` som är en vanlig bildlänk.
+
+Exempel med `url`:
+
+<p><img src="https://cdn.acedata.cloud/2zbgrg.png" width="500" className="m-auto" /></p>
+
+Till höger visas anropkod som kan kopieras eller testas.
+
+<p><img src="https://cdn.acedata.cloud/a9exmp.png" width="500" className="m-auto" /></p>
+
+Python-exempel:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/openai/images/generations"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "model": "dall-e-3",
+    "prompt": "A cute baby sea otter",
+    "response_format": "url"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Svar:
+
+```json
+{
+  "created": 1721637575,
+  "data": [
+    {
+      "revised_prompt": "A charming depiction of a baby sea otter. The otter is seen resting serenely on its back amidst the gentle, blue ocean waves. The baby otter's fur is an endearing mix of soft greyish brown shades, glinting subtly in the muted sunlight. Its small paws are touching, lifted slightly towards the sky as if playing with an unseen object. Its round, expressive eyes are wide in curiosity, sparking with life and innocence. Use a realistic style to evoke the otter's natural habitat and its adorably fluffy exterior.",
+      "url": "https://dalleprodsec.blob.core.windows.net/private/images/87792c5f-8b6d-412e-81dd-f1a1baa19bd2/generated_00.png?se=2024-07-23T08%3A39%3A47Z&sig=zzRAn30TqIKHdLVqZPUUuSJdjCYpoJdaGU6BeoA76Jo%3D&ske=2024-07-23T13%3A32%3A13Z&skoid=e52d5ed7-0657-4f62-bc12-7e5dbb260a96&sks=b&skt=2024-07-16T13%3A32%3A13Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02"
+    }
+  ]
+}
+```
+
+Länk till bilden (kan öppnas direkt): [Bild URL](https://dalleprodsec.blob.core.windows.net/private/images/87792c5f-8b6d-412e-81dd-f1a1baa19bd2/generated_00.png?se=2024-07-23T08%3A39%3A47Z&sig=zzRAn30TqIKHdLVqZPUUuSJdjCYpoJdaGU6BeoA76Jo%3D&ske=2024-07-23T13%3A32%3A13Z&skoid=e52d5ed7-0657-4f62-bc12-7e5dbb260a96&sks=b&skt=2024-07-16T13%3A32%3A13Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02)
+
+Bild:
+
+<p><img src="https://cdn.acedata.cloud/33hs4z.png" width="500" className="m-auto" /></p>
+
+Med `b64_json` får du Base64-kodad bild i svaret:
+
+```json
+{
+  "created": 1721638071,
+  "data": [
+    {
+      "b64_json": "iVBORw0..............v//AQEAAP4AAAD+AAADAQAAAwEEA/4D//8Q/Pbw64mKbVTFoQAAAABJRU5ErkJggg==",
+      "revised_prompt": "A charming image of a young baby sea otter. The otter is gently floating on a calm blue sea, basking in the warm, golden rays of sunlight streaming down from a clear sky above. The otter's fur is a rich chocolate brown, and it looks incredibly soft and fluffy. The otter's eyes are bright and expressive, filled with childlike curiosity and joy. It has small, pricked ears and a button-like nose which adds to its overall cuteness. In the sea around it, twinkling droplets of water can be seen, pepped up by the sunlight, the sight is certainly a delightful one."
+    }
+  ]
+}
+```
+
+## Asynkron callback
+
+Eftersom bildgenerering kan ta tid och HTTP-förfrågan annars håller anslutningen öppen och belastar systemresurser, stödjer API:et asynkron callback.
+
+Flödet är: klienten skickar med ett `callback_url` i förfrågan. API returnerar omedelbart ett svar med `task_id` som identifierar uppgiften. När uppgiften är klar skickar API en POST med JSON till `callback_url` inklusive `task_id` och resultat.
+
+Exempel:
+
+Webhook är en HTTP-server som kan ta emot förfrågningar. För demonstration används https://webhook.site/ som genererar en unik URL:
+
+![](https://cdn.acedata.cloud/cjjfly.png)
+
+Kopiera URL, t.ex. `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`.
+
+Skicka anrop med `callback_url`:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/openai/images/generations"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "model": "dall-e-3",
+    "prompt": "A cute baby sea otter",
+    "callback_url": "https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Svar:
+
+```json
+{
+  "task_id": "6a97bf49-df50-4129-9e46-119aa9fca73c"
+}
+```
+
+Efter en stund kan du se resultatet på webhook-sidan:
+
+```json
+{
+  "success": true,
+  "task_id": "6a97bf49-df50-4129-9e46-119aa9fca73c",
+  "trace_id": "9b4b1ff3-90f2-470f-b082-1061ec2948cc",
+  "data": {
+    "created": 1721626477,
+    "data": [
+      {
+        "revised_prompt": "A delightful image showcasing a young sea otter...",
+        "url": "https://dalleprodsec.blob.core.windows.net/private/images/..."
+      }
+    ]
+  }
+}
+```
+
+Resultatet innehåller `task_id` och `data` med samma bildresultat som synkront anrop, vilket möjliggör koppling via ID.
+
+## Felhantering
+
+Vid fel returnerar API lämpliga felkoder och meddelanden, t.ex.:
+
+- `400 token_mismatched`: Felaktig förfrågan, saknade eller ogiltiga parametrar.
+- `400 api_not_implemented`: Felaktig förfrågan, saknade eller ogiltiga parametrar.
+- `401 invalid_token`: Obefogad, ogiltig eller saknad autentiseringstoken.
+- `429 too_many_requests`: För många förfrågningar, överskriden gräns.
+- `500 api_error`: Intern serverfel.
+
+### Felrespons-exempel
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "api_error",
+    "message": "fetch failed"
+  },
+  "trace_id": "2cf86e86-22a4-46e1-ac2f-032c0f2a4e89"
+}
+```
+
+## Slutsats
+
+Med detta dokument har du fått en förståelse för hur du använder OpenAI Images Generations API för att enkelt använda officiella OpenAI DALL-E bildgenereringsfunktioner. Vi hoppas detta hjälper dig att integrera och använda API:et bättre. Vid frågor, kontakta gärna vårt tekniska supportteam.

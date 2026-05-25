@@ -1,0 +1,427 @@
+---
+title: "Руководство по интеграции Sora Videos Generation API"
+description: "Sora Video Generation 集成指南 - Ace Data Cloud"
+---
+
+В этой статье описывается процесс интеграции Sora Videos Generation API, с помощью которого можно создавать официальные видео Sora, вводя пользовательские параметры. Этот API поддерживает два режима:
+
+- **Версия 1 (классический режим)**: поддерживает параметры `duration` (10/15/25 секунд), `orientation` (горизонтальная/вертикальная ориентация), `size` (small/large разрешение), ссылку на референсное изображение `image_urls`, ссылку на персонажа `character_url` и др.
+- **Версия 2 (режим для партнёров)**: поддерживает параметры `seconds` (4/8/12 секунд), разрешение в пикселях `size` (например, 1280x720), ссылку на референсное изображение `input_reference` и др.
+
+## Процесс подачи заявки
+
+Для использования API необходимо подать заявку на соответствующем [Sora Videos Generation API](https://platform.acedata.cloud/documents/99a24421-2e22-4028-8201-e19cb834b67e) сайте. После перехода нажмите кнопку «Acquire», как показано на рисунке:
+
+![](https://cdn.acedata.cloud/q6ytrc.png)
+
+Если вы не вошли в систему или не зарегистрированы, вас автоматически перенаправит на страницу входа/регистрации. После входа вы автоматически вернётесь на текущую страницу.
+
+При первой заявке предоставляется бесплатный лимит для использования API.
+
+## Основное использование (Версия 1)
+
+Для начала рассмотрим базовый способ использования Версии 1: вводим подсказку `prompt`, массив ссылок на референсные изображения `image_urls` и модель `model`, после чего получаем результат. Пример:
+
+<p><img src="https://cdn.acedata.cloud/h8dyz3.png" width="500" className="m-auto" /></p>
+
+Здесь мы задаём заголовки запроса:
+
+- `accept`: формат ответа, здесь `application/json` (JSON).
+- `authorization`: ключ доступа к API, который можно выбрать после подачи заявки.
+
+Также задаются параметры тела запроса:
+
+- `model`: модель для генерации видео, поддерживается `sora-2` (стандартный режим) и `sora-2-pro` (HD режим). Модель `sora-2-pro` поддерживает длительность видео 25 секунд, `sora-2` — только 10 и 15 секунд.
+- `size`: разрешение видео, `small` — стандартное, `large` — HD (только для Версии 1).
+- `duration`: длительность видео, поддерживаются 10, 15, 25 секунд (25 секунд только для `sora-2-pro`).
+- `orientation`: ориентация кадра, поддерживается `landscape` (горизонтальная) и `portrait` (вертикальная) (только для Версии 1).
+- `image_urls`: массив ссылок на референсные изображения для генерации видео (только для Версии 1).
+- `character_url`: ссылка на персонажа, в видео не должно быть реальных людей (только для Версии 1).
+- `character_start`/`character_end`: время появления персонажа в секундах, диапазон 1-3 секунды (только для Версии 1).
+- `prompt`: подсказка (обязательный параметр).
+- `callback_url`: URL для асинхронного получения результата.
+- `version`: версия API, `"1.0"` (по умолчанию) или `"2.0"`.
+
+После выбора параметров справа автоматически генерируется соответствующий код, как показано на рисунке:
+
+<p><img src="https://cdn.acedata.cloud/g04qjz.png" width="500" className="m-auto" /></p>
+
+Нажмите кнопку «Try» для тестирования. В результате получаем:
+
+```json
+{
+  "success": true,
+  "task_id": "6bf7fb83-5814-4e3e-a4ad-bfa0c26c0b33",
+  "trace_id": "96166698-4b66-478d-a26b-77a7269c9e01",
+  "data": [
+    {
+      "id": "sora-2:task_01k7770rgsevxsmtpbn7xnm5gh",
+      "video_url": "https://filesystem.site/gptimage/vg-assets/assets%2Ftask_01k7770rgsevxsmtpbn7xnm5gh%2Ftask_01k7770rgsevxsmtpbn7xnm5gh_genid_0bf958d3-cae7-4298-b7b6-99ae439a1ea6_25_10_10_14_06_975715%2Fvideos%2F00000%2Fsrc.mp4?st=2025-10-10T12%3A30%3A38Z&se=2025-10-16T13%3A30%3A38Z&sks=b&skt=2025-10-10T12%3A30%3A38Z&ske=2025-10-16T13%3A30%3A38Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=8ebb0df1-a278-4e2e-9c20-f2d373479b3a&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=jigY6Z5qp8%2BTXYobaW0EAJ4%2Fbx6G7t6V1P0iyDeUq48%3D&az=oaivgprodscus",
+      "state": "succeeded"
+    }
+  ]
+}
+```
+
+Пояснения к полям ответа:
+
+- `success`: статус задачи генерации видео.
+- `task_id`: ID задачи генерации видео.
+- `trace_id`: ID трассировки запроса.
+- `data`: список результатов задачи генерации видео.
+  - `id`: ID сгенерированного видео.
+  - `video_url`: ссылка на сгенерированное видео.
+  - `state`: состояние задачи.
+
+Вы получили ссылку на сгенерированное видео из поля `data`.
+
+Если хотите получить код для интеграции, можно скопировать автоматически сгенерированный, например CURL:
+
+```shell
+curl -X POST 'https://api.acedata.cloud/sora/videos' \
+-H 'accept: application/json' \
+-H 'authorization: Bearer {token}' \
+-H 'content-type: application/json' \
+-d '{
+  "size": "large",
+  "duration": 15,
+  "orientation": "landscape",
+  "prompt": "cat running on the river",
+  "model": "sora-2"
+}'
+```
+
+## Задача генерации видео по изображению (Версия 1)
+
+Для генерации видео по изображению необходимо передать параметр `image_urls` с массивом ссылок на референсные изображения. Важно: нельзя использовать реальные фотографии с лицами, иначе задача может завершиться с ошибкой.
+
+Пример заполнения:
+
+<p><img src="https://cdn.acedata.cloud/ch7x3t.png" width="500" className="m-auto" /></p>
+
+Автоматически сгенерированный код:
+
+<p><img src="https://cdn.acedata.cloud/z1ud8l.png" width="500" className="m-auto" /></p>
+
+Пример кода на Python:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/sora/videos"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "size": "large",
+    "duration": 15,
+    "orientation": "landscape",
+    "prompt": "cat running on the river",
+    "model": "sora-2",
+    "image_urls": ["https://cdn.acedata.cloud/11wfp4.png"]
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+После запуска вы сразу получите ответ:
+
+```
+{
+  "success": true,
+  "task_id": "dd392ff0-dcb7-4c7a-afd0-9bd4f65c803a",
+  "trace_id": "04fd151c-e942-4c1c-a6ab-9a1b1fe54172",
+  "data": [
+    {
+      "id": "sora-2:task_01k777af4hfmg9g7yfvwsc6zws",
+      "video_url": "https://filesystem.site/gptimage/vg-assets/assets%2Ftask_01k777af4hfmg9g7yfvwsc6zws%2Ftask_01k777af4hfmg9g7yfvwsc6zws_genid_92bae0c5-1703-4a5f-9d9f-c9ed2f9e7176_25_10_10_14_12_924695%2Fvideos%2F00000%2Fsrc.mp4?st=2025-10-10T12%3A37%3A32Z&se=2025-10-16T13%3A37%3A32Z&sks=b&skt=2025-10-10T12%3A37%3A32Z&ske=2025-10-16T13%3A37%3A32Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=aa5ddad1-c91a-4f0a-9aca-e20682cc8969&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=5j4dibeaSsDmEka5c%2B9CKHZhRPdqfClQ0tIh03TWXsM%3D&az=oaivgprodscus",
+      "state": "succeeded"
+    }
+  ]
+}
+```
+
+Результат соответствует генерации видео по изображению.
+
+## Задача генерации видео с персонажем (Версия 1)
+
+Для генерации видео с персонажем необходимо передать параметр `character_url` с ссылкой на видео для создания персонажа. Важно: в видео не должно быть реальных людей, иначе задача завершится с ошибкой.
+
+Пример заполнения:
+
+<p><img src="https://cdn.acedata.cloud/2nhdr2.png" width="500" className="m-auto" /></p>
+
+Автоматически сгенерированный код:
+
+<p><img src="https://cdn.acedata.cloud/xp8scl.png" width="500" className="m-auto" /></p>
+
+Пример кода на Python:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/sora/videos"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "size": "small",
+    "duration": 10,
+    "orientation": "landscape",
+    "prompt": "cat running on the river",
+    "character_url": "https://cdn.acedata.cloud/pdidf5.mp4",
+    "model": "sora-2",
+    "character_end": 3,
+    "character_start": 1
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+После запуска вы получите ответ:
+
+```
+{
+  "success": true,
+  "task_id": "d9bf5461-29b5-47fd-be90-1fe9197df259",
+  "trace_id": "b7992643-9207-40d6-956b-7577728acc67",
+  "data": [
+    {
+      "id": "sora-2:task_01k8ykrztefavaypw6xanw305b",
+      "video_url": "https://filesystem.site/cdn/20251101/bee4eeeb4c4660b46dac4548a1ffbc.mp4",
+      "state": "succeeded"
+    }
+  ]
+}
+```
+
+Результат соответствует генерации видео с персонажем.
+
+## Режим Version 2.0
+
+Кроме Version 1.0, API поддерживает режим Version 2.0, который активируется установкой параметра `version` в значение `"2.0"`. В этом режиме поддерживается более короткая длительность видео и управление разрешением на уровне пикселей.
+
+### Пояснение параметров Version 2.0
+
+| Параметр       | Тип    | Обязательный | Описание                              |
+|----------------|--------|--------------|-------------------------------------|
+| `version`      | string | Да           | Установить значение `"2.0"`          |
+| `prompt`       | string | Да           | Подсказка для генерации видео       |
+| `model`        | string | Нет          | `sora-2` (по умолчанию) или `sora-2-pro` |
+| `duration`     | integer| Нет          | Длительность видео: 4 (по умолчанию), 8, 12 секунд |
+| `size`         | string | Нет          | Разрешение: `720x1280` (по умолчанию), `1280x720`, `1024x1792`, `1792x1024` |
+| `image_urls`   | array  | Нет          | Массив URL референсных изображений, используется только первое изображение, размер должен совпадать с `size` |
+| `callback_url` | string | Нет          | URL для асинхронного получения результата |
+
+### Пример запроса
+
+```shell
+curl -X POST 'https://api.acedata.cloud/sora/videos' \
+-H 'accept: application/json' \
+-H 'authorization: Bearer {token}' \
+-H 'content-type: application/json' \
+-d '{
+  "version": "2.0",
+  "prompt": "cat running on the river",
+  "model": "sora-2",
+  "duration": 8,
+  "size": "1280x720"
+}'
+```
+
+Пример кода на Python:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/sora/videos"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "version": "2.0",
+    "prompt": "cat running on the river",
+    "model": "sora-2",
+    "seconds": 8,
+    "size": "1280x720"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Пример кода на JavaScript:
+
+```javascript
+const response = await fetch('https://api.acedata.cloud/sora/videos', {
+  method: 'POST',
+  headers: {
+    'accept': 'application/json',
+    'authorization': 'Bearer {token}',
+    'content-type': 'application/json'
+  },
+  body: JSON.stringify({
+    version: '2.0',
+    prompt: 'cat running on the river',
+    model: 'sora-2',
+    seconds: 8,
+    size: '1280x720'
+  })
+});
+const data = await response.json();
+console.log(data);
+```
+
+Формат ответа аналогичен Version 1:
+
+```json
+{
+  "success": true,
+  "task_id": "6bf7fb83-5814-4e3e-a4ad-bfa0c26c0b33",
+  "trace_id": "96166698-4b66-478d-a26b-77a7269c9e01",
+  "data": [
+    {
+      "id": "c0cc8dad-0954-421f-be8d-02eb063b3263",
+      "video_url": "https://platform.cdn.acedata.cloud/sora/xxxxx.mp4",
+      "state": "succeeded"
+    }
+  ]
+}
+```
+
+### Использование референсных изображений (Version 2.0)
+
+В режиме Version 2.0 можно передавать параметр `image_urls` с референсным изображением для управления генерацией (используется только первое изображение):
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/sora/videos"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "version": "2.0",
+    "prompt": "a person walking through a beautiful garden",
+    "model": "sora-2",
+    "duration": 4,
+    "size": "1280x720",
+    "image_urls": ["https://cdn.acedata.cloud/11wfp4.png"]
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+> **Важно**: размер референсного изображения должен совпадать с параметром `size`, например, при `size` равном `1280x720` изображение должно иметь размер 1280×720 пикселей.
+
+### Сравнение параметров Version 1.0 и Version 2.0
+
+| Параметр       | Version 1.0           | Version 2.0                                   |
+|----------------|----------------------|-----------------------------------------------|
+| `version`      | 1.0 (по умолчанию)   | 2.0                                           |
+| `prompt`       | ✅                   | ✅                                            |
+| `model`        | ✅ sora-2 / sora-2-pro| ✅ sora-2 / sora-2-pro                         |
+| `duration`     | ✅ 10/15/25 секунд    | ✅ 4/8/12 секунд                               |
+| `orientation`  | ✅ landscape/portrait | ❌                                            |
+| `size`         | ✅ small/large        | ✅ 720x1280/1280x720/1024x1792/1792x1024      |
+| `image_urls`   | ✅ несколько изображений | ✅ используется только первое изображение    |
+| `character_url`| ✅                   | ❌                                            |
+| `callback_url` | ✅                   | ✅                                            |
+
+## Асинхронный callback
+
+Поскольку генерация видео занимает около 1-2 минут, длительное ожидание ответа API может привести к излишнему потреблению системных ресурсов. Поэтому API поддерживает асинхронный callback.
+
+Процесс:
+
+- Клиент при отправке запроса указывает параметр `callback_url`.
+- API сразу возвращает ответ с полем `task_id`.
+- После завершения задачи API отправляет POST-запрос с JSON-данными на указанный `callback_url`, включая `task_id`.
+- Клиент может сопоставить результаты с задачей по `task_id`.
+
+Пример настройки webhook:
+
+Для демонстрации используем публичный сервис https://webhook.site/, где можно получить URL webhook, например:
+
+`https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa`
+
+Указываем этот URL в поле `callback_url` и заполняем остальные параметры, как показано:
+
+<p><img src="https://cdn.acedata.cloud/v1m05g.png" width="500" className="m-auto" /></p>
+
+После запуска получаем ответ:
+
+```
+{
+  "task_id": "b8976e18-32dc-4718-9ed8-1ea090fcb6ea"
+}
+```
+
+Через некоторое время на странице webhook.site можно увидеть результат генерации видео:
+
+![](https://cdn.acedata.cloud/0j7nra.png)
+
+Пример содержимого callback:
+
+```json
+{
+    "success": true,
+    "task_id": "b8976e18-32dc-4718-9ed8-1ea090fcb6ea",
+    "trace_id": "fb751e1e-4705-49ea-9fd4-5024b7865ea2",
+    "data": [
+        {
+            "id": "sora-2:task_01k777hjrbfrgs2060q5zvf2a5",
+            "video_url": "https://filesystem.site/gptimage/vg-assets/assets%2Ftask_01k777hjrbfrgs2060q5zvf2a5%2Ftask_01k777hjrbfrgs2060q5zvf2a5_genid_b8e2e5d1-a579-49ca-a21c-cb3869685cce_25_10_10_14_15_147334%2Fvideos%2F00000%2Fsrc.mp4?st=2025-10-10T12%3A38%3A49Z&se=2025-10-16T13%3A38%3A49Z&sks=b&skt=2025-10-10T12%3A38%3A49Z&ske=2025-10-16T13%3A38%3A49Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=aa5ddad1-c91a-4f0a-9aca-e20682cc8969&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=p4aMqXqkP%2FI1IhOVGCB9JL8vUUvfNBBF12ESpKhKXOk%3D&az=oaivgprodscus",
+            "state": "succeeded"
+        }
+    ]
+}
+```
+
+Таким образом, поле `task_id` позволяет связать запрос и результат.
+
+## Обработка ошибок
+
+При ошибках API возвращает соответствующий код и сообщение. Примеры:
+
+- `400 token_mismatched`: неверный запрос, возможно, отсутствуют или некорректны параметры.
+- `400 api_not_implemented`: неверный запрос, возможно, отсутствуют или некорректны параметры.
+- `401 invalid_token`: неавторизован, неверный или отсутствующий токен.
+- `429 too_many_requests`: превышен лимит запросов.
+- `500 api_error`: внутренняя ошибка сервера.
+
+### Пример ответа с ошибкой
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "api_error",
+    "message": "fetch failed"
+  },
+  "trace_id": "2cf86e86-22a4-46e1-ac2f-032c0f2a4e89"
+}
+```
+
+## Заключение
+
+В этом руководстве вы узнали, как использовать Sora Videos Generation API для генерации видео с помощью подсказок и референсных изображений. Надеемся, что данная документация поможет вам успешно интегрировать и использовать API. Если у вас возникнут вопросы, пожалуйста, обращайтесь в нашу техническую поддержку.

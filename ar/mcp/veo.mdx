@@ -1,0 +1,142 @@
+---
+title: "دليل دمج Veo MCP"
+description: "veo MCP 服务器集成"
+---
+
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) هو بروتوكول سياق النموذج الذي أطلقته Anthropic، والذي يسمح لنماذج الذكاء الاصطناعي مثل Claude وGPT وغيرها باستدعاء أدوات خارجية عبر واجهة موحدة. من خلال خادم Veo MCP الذي توفره AceData Cloud، يمكنك استخدام Google Veo لإنشاء فيديوهات AI مباشرة في عملاء الذكاء الاصطناعي مثل Claude Desktop وVS Code وCursor.
+
+## نظرة عامة على الوظائف
+
+يقدم خادم Veo MCP الوظائف الأساسية التالية:
+
+- **تحويل النص إلى فيديو** — إنشاء فيديو عالي الجودة باستخدام نصوص وصفية
+- **تحويل الصور إلى فيديو** — إنشاء فيديو بناءً على صورة
+- **دعم نماذج متعددة** — يدعم نماذج veo3 و veo2 و veo31-fast-ingredients وغيرها
+- **دقة متعددة** — يدعم إخراج 4K و1080p وGIF وغيرها من الصيغ
+- **نسب أبعاد متعددة** — يدعم نسب 16:9 و9:16 وغيرها
+- **ترقية 1080p** — ترقية الفيديوهات المُنشأة إلى دقة 1080p
+- **استعلام المهام** — مراقبة تقدم الإنشاء والحصول على النتائج
+
+## المتطلبات المسبقة
+
+قبل الاستخدام، تحتاج إلى الحصول على رمز API من AceData Cloud:
+
+1. قم بالتسجيل أو تسجيل الدخول إلى [منصة AceData Cloud](https://platform.acedata.cloud)
+2. انتقل إلى صفحة [Veo Videos API](https://platform.acedata.cloud/documents/veo-videos)
+3. اضغط على "Acquire" للحصول على رمز API (يحصل المستخدمون الجدد على رصيد مجاني عند الطلب الأول)
+
+## التثبيت والإعداد
+
+### الطريقة الأولى: التثبيت عبر pip (موصى به)
+
+```bash
+pip install mcp-veo
+```
+
+### الطريقة الثانية: التثبيت من المصدر
+
+```bash
+git clone https://github.com/AceDataCloud/VeoMCP.git
+cd VeoMCP
+pip install -e .
+```
+
+بعد التثبيت، يمكنك تشغيل الخدمة باستخدام الأمر `mcp-veo`.
+
+## الاستخدام في Claude Desktop
+
+قم بتحرير ملف إعدادات Claude Desktop:
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+أضف الإعداد التالي:
+
+```json
+{
+  "mcpServers": {
+    "veo": {
+      "command": "mcp-veo",
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "رمز API الخاص بك"
+      }
+    }
+  }
+}
+```
+
+إذا كنت تستخدم `uvx` (لا حاجة لتثبيت الحزم مسبقًا):
+
+```json
+{
+  "mcpServers": {
+    "veo": {
+      "command": "uvx",
+      "args": ["mcp-veo"],
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "رمز API الخاص بك"
+      }
+    }
+  }
+}
+```
+
+بعد حفظ الإعدادات وإعادة تشغيل Claude Desktop، يمكنك استخدام أدوات Veo في المحادثات.
+
+## الاستخدام في VS Code / Cursor
+
+في جذر المشروع، أنشئ ملف `.vscode/mcp.json`:
+
+```json
+{
+  "servers": {
+    "veo": {
+      "command": "mcp-veo",
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "رمز API الخاص بك"
+      }
+    }
+  }
+}
+```
+
+أو باستخدام `uvx`:
+
+```json
+{
+  "servers": {
+    "veo": {
+      "command": "uvx",
+      "args": ["mcp-veo"],
+      "env": {
+        "ACEDATACLOUD_API_TOKEN": "رمز API الخاص بك"
+      }
+    }
+  }
+}
+```
+
+## قائمة الأدوات المتاحة
+
+| اسم الأداة            | الوصف                      |
+|-----------------------|----------------------------|
+| `veo_text_to_video`   | إنشاء فيديو من نص وصفي    |
+| `veo_image_to_video`  | إنشاء فيديو بناءً على صورة |
+| `veo_get_1080p`       | ترقية الفيديو إلى 1080p    |
+| `veo_get_task`        | استعلام حالة مهمة واحدة    |
+| `veo_get_tasks_batch` | استعلام حالة مهام متعددة   |
+
+## أمثلة على الاستخدام
+
+بعد الإعداد، يمكنك استدعاء هذه الوظائف باستخدام اللغة الطبيعية في عملاء الذكاء الاصطناعي، مثل:
+
+- "ساعدني في إنشاء فيديو تايم لابس لسماء النجوم باستخدام Veo"
+- "أنشئ فيديو 4K باستخدام هذه الصورة الطبيعية"
+- "أنشئ فيديو قصير بنسبة عرض إلى ارتفاع 9:16"
+- "قم بترقية هذا الفيديو إلى دقة 1080p"
+
+## مزيد من المعلومات
+
+- مستودع GitHub: [AceDataCloud/VeoMCP](https://github.com/AceDataCloud/VeoMCP)
+- حزمة PyPI: [mcp-veo](https://pypi.org/project/mcp-veo/)
+- وثائق API: [Veo فيديوهات API](https://platform.acedata.cloud/documents/veo)

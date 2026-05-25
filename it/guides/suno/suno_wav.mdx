@@ -1,0 +1,53 @@
+---
+title: "Istruzioni per l'integrazione con Suno Wav API"
+description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+---
+
+SUNO ci permette di ottenere file musicali in formato wav. Questo documento spiega il metodo di integrazione con l'API corrispondente.
+
+Il parametro di input principale di questa API è `audio_id`, che è l'ID della canzone generato ufficialmente; opzionalmente supporta anche `callback_url` per il callback asincrono.
+
+Qui il valore di `audio_id` che inseriamo è `4e43116a-bf09-472c-8e1c-655eabf02682`.
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/suno/wav"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer aa287fa4cc54401087a9fab3f99630af",
+    "content-type": "application/json"
+}
+
+payload = {
+    "audio_id": "4e43116a-bf09-472c-8e1c-655eabf02682"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Il risultato è il seguente:
+
+```json
+{
+  "success": true,
+  "task_id": "6a5a2099-d6d3-4930-9709-a30ac5dc7de5",
+  "trace_id": "3fa70e81-6bb7-4ca8-b718-dd16a4eda7e8",
+  "data": [
+    {
+      "file_url": "https://platform.cdn.acedata.cloud/suno/6a5a2099-d6d3-4930-9709-a30ac5dc7de5.wav"
+    }
+  ]
+}
+```
+
+Si può notare che il campo `file_url` dentro `data` è il file musicale in formato wav ottenuto, ed è un indirizzo CDN accessibile pubblicamente.
+
+> **Riguardo alla persistenza e validità del link WAV**
+>
+> Il file WAV sul CDN upstream di Suno (`https://cdn1.suno.ai/{audio_id}.wav`) viene mantenuto solo per pochi giorni, dopodiché viene rimosso e l’accesso restituisce 403.
+> Per evitare che il link scada, questa API prima di restituire effettua automaticamente una copia del file WAV upstream sul nostro CDN (`https://platform.cdn.acedata.cloud/suno/{task_id}.wav`), e il `file_url` restituito è l’indirizzo stabile della copia, che non scadrà immediatamente a causa dell’expiry del CDN upstream.
+> **La validità del link copiato è di 30 giorni**, dopo i quali il file sarà periodicamente rimosso; si consiglia di scaricarlo il prima possibile e conservarlo nel proprio storage.
+> In caso di fallimento della copia (molto raro), si ritorna all’URL originale upstream, mantenendo il comportamento storico.

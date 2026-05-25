@@ -1,0 +1,92 @@
+---
+title: "Suno Timing API 연동 설명"
+description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+---
+
+SUNO는 생성된 음악에 대해 2차 창작을 할 수 있도록 음악의 가사, 오디오 타임라인을 가져오는 API를 제공합니다. 본 문서에서는 관련 API 연동 방법을 설명합니다.
+
+이 API는 입력 파라미터가 하나뿐이며, 공식에서 생성된 곡 ID인 `audio_id`를 받습니다.
+
+여기서 입력하는 `audio_id`는 `ec13e502-d043-4eb2-92ee-e900c6da69d1`입니다.
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/suno/timing"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "audio_id": "ec13e502-d043-4eb2-92ee-e900c6da69d1"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+결과 일부는 다음과 같습니다:
+
+```
+{
+  "success": true,
+  "task_id": "ccf72cca-1c82-4580-8575-bb141c7e8e48",
+  "trace_id": "d8e0b7c3-6d24-4ed9-98ac-ffe683576a75",
+  "data": {
+    "aligned_words": [
+      {
+        "word": "[Verse]\nSnowflakes ",
+        "success": true,
+        "start_s": 2.63,
+        "end_s": 3.43,
+        "p_align": 0.531
+      },
+      {
+        "word": "dance ",
+        "success": true,
+        "start_s": 3.43,
+        "end_s": 3.91,
+        "p_align": 0.911
+      },
+      {
+        "word": "on ",
+        "success": true,
+        "start_s": 3.91,
+        "end_s": 4.35,
+        "p_align": 0.937
+      },
+      {
+        "word": "rooftops ",
+        "success": true,
+        "start_s": 4.35,
+        "end_s": 5.11,
+        "p_align": 0.366
+      },
+      {
+        "word": "high\n",
+        "success": true,
+        "start_s": 5.11,
+        "end_s": 6.25,
+        "p_align": 0.969
+      },
+      ...
+    ],
+    "waveform_data": [0.02138, 0.02193, 0.01806, 0.16597, 0.15168, 0.14243, ...],
+    "hoot_cer": 0.35013262599469497,
+    "is_streamed": false
+  }
+}
+```
+
+### aligned_words 필드 설명
+
+`data.aligned_words`는 객체 배열이며, 각 객체는 시간 정보가 포함된 단어나 구를 나타냅니다.
+
+- `word`: 가사 내 실제 단어나 구
+- `success`: 불리언 값으로, 해당 단어의 정렬 성공 여부
+- `start_s`: 단어 시작 시간 (초)
+- `end_s`: 단어 종료 시간 (초)
+- `p_align`: 정렬 확률 또는 신뢰도 점수, 0에서 1 사이의 값

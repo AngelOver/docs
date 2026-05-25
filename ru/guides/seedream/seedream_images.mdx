@@ -1,0 +1,166 @@
+---
+title: "Руководство по интеграции API генерации изображений SeeDream"
+description: "ByteDance Seedream Image Generation 集成指南 - Ace Data Cloud"
+---
+
+В этой документации представлено описание процесса интеграции API генерации изображений SeeDream, который позволяет с помощью пользовательских параметров создавать изображения официального сайта SeeDream.
+
+## Процесс подачи заявки
+
+Для использования API необходимо сначала подать заявку на соответствующую услугу на странице [SeeDream Images Generation API](https://platform.acedata.cloud/documents/seedream-images). После перехода на страницу нажмите кнопку «Acquire», как показано на рисунке:
+
+![](https://cdn.acedata.cloud/q6ytrc.png)
+
+Если вы не вошли в систему или не зарегистрированы, произойдет автоматический переход к странице входа с приглашением зарегистрироваться и войти. После входа или регистрации вы будете возвращены на текущую страницу.
+
+При первой подаче заявки предоставляется бесплатный лимит, позволяющий бесплатно использовать этот API.
+
+## Основное использование
+
+Для начала ознакомьтесь с базовым способом использования: нужно передать вводной текст `prompt`, действие генерации `action`, размер изображения `size`, после чего вы получите результат. Для этого достаточно передать поле `action` со значением `generate`, а также текстовое описание `prompt`. Конкретный пример следующий:
+
+<p><img src="https://cdn.acedata.cloud/seedream_request_body.png" width="500" className="m-auto" /></p>
+
+Здесь в заголовках запроса указаны следующие параметры:
+
+- `accept`: формат ожидаемого ответа. Здесь установлено в `application/json` (JSON).
+- `authorization`: API-ключ, который можно выбрать из выпадающего меню после подачи заявки.
+
+Также в теле запроса (`Request Body`) задаются:
+
+- `prompt`: текстовое описание идеи для изображения.
+- `model`: модель генерации, по умолчанию `doubao-seedream-5.0-lite`. Поддерживаются модели: `doubao-seedream-5.0-lite` (последняя версия), `doubao-seedream-4.5`, `doubao-seedream-4.0`, `doubao-seedream-3.0-t2i`, `doubao-seededit-3.0-i2i`.
+- `image`: информация о входных изображениях, поддерживаются URL или Base64. Для моделей `doubao-seedream-5.0-lite`, `4.5`, `4.0` допускается как одиночное, так и множественное изображение; `doubao-seededit-3.0-i2i` — только одно изображение; модель `doubao-seedream-3.0-t2i` не использует этот параметр.
+- `size`: задает размер создаваемого изображения двумя способами, несовместимыми друг с другом. Способ 1 | Задание разрешения и описание в `prompt`Natural Language для соотношения сторон изображения. **Поддержка предустановок различается по моделям**: `doubao-seedream-5.0-lite` — `2K`/`3K`/`4K`; `doubao-seedream-4.5` — только `2K`/`4K`; `doubao-seedream-4.0` — `1K`/`2K`/`4K`; `doubao-seedream-3.0-t2i` и `doubao-seededit-3.0-i2i` — только способ 2. Способ 2 | Задание ширины и высоты в пикселях, например `2048x2048`. Минимальный размер зависит от модели (например, для 5.0 / 4.5 — 3 686 400 пикселей, для 4.0 — 921 600, для 3.0-t2i / seededit-3.0-i2i — диапазон `[512x512, 2048x2048]`).
+- `seed`: число-семя для контроля случайности вышеуровневой генерации. В диапазоне [-1, 2147483647]. **Поддерживается только модель `doubao-seedream-3.0-t2i`**.
+- `sequential_image_generation`: набор связанных изображений на базе введенного текста. `doubao-seedream-5.0-lite`, `4.5`, `4.0` — поддерживают, по умолчанию `disabled`.
+- `stream`: включение потоковой выдачи. `doubao-seedream-5.0-lite`, `4.5`, `4.0` — поддерживают, по умолчанию `false`.
+- `guidance_scale`: степень соответствия результата prompt, чем больше — тем ближе. Диапазон `[1, 10]`. Значения по умолчанию: `2.5` для `doubao-seedream-3.0-t2i`, `5.5` для `doubao-seededit-3.0-i2i`. Не поддерживается другими моделями.
+- `response_format`: желаемый формат возвращаемого изображения. По умолчанию `url`, поддерживаются также `b64_json`.
+- `watermark`: добавлять водяной знак на изображение. По умолчанию `true`.
+- `output_format`: формат файла изображения (`jpeg` — по умолчанию, или `png`). Поддерживается только `doubao-seedream-5.0-lite`.
+- `tools`: инструменты, вызываемые моделью (например, `web_search` для онлайн-поиска). Только для `doubao-seedream-5.0-lite`.
+- `callback_url`: URL для получения асинхронного результата.
+
+После выбора параметров на правой стороне автоматически сгенерируется код, например, для CURL:
+
+```shell
+curl -X POST 'https://api.acedata.cloud/seedream/images' \
+-H 'accept: application/json' \
+-H 'authorization: Bearer ${token}' \
+-H 'content-type: application/json' \
+-d '{
+  "action": "generate",
+  "model": "doubao-seedream-4-0-250828",
+  "prompt": "a white siamese cat"
+}'
+```
+
+## Задачи редактирования изображений
+
+Если необходимо редактировать существующее изображение, параметр `image` должен содержать ссылку на исходное изображение.
+
+- `model`: модель для редактирования (`doubao-seedream-5.0-lite`, `4.5`, `4.0`) — поддерживают одно или несколько изображений; `doubao-seededit-3.0-i2i` — только одно изображение.
+- `image`: одно или несколько изображений для редактирования.
+
+Пример заполнения:
+
+<p><img src="https://cdn.acedata.cloud/seedream_edit.png" width="500" className="m-auto" /></p>
+
+Соответствующий код (на Python):
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/flux/images"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "model": "doubao-seedream-4-0-250828",
+    "prompt": "Keep the model pose and the liquid garment flowing shape unchanged. Change the clothing material from silver metal to completely transparent water (or glass). Through the liquid flow, the details of the model skin are visible. The light and shadow effect shifts from reflection to refraction.",
+    "image": ["https://ark-project.tos-cn-beijing.volces.com/doc_image/seedream4_5_imageToimage.png"],
+    "size": "2K",
+    "watermark": False
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+После выполнения можно получить ответ, например:
+
+```json
+{
+    "success": true,
+    "task_id": "c9aaffa2-b8ac-40ff-8468-43e77cb9ddde",
+    "trace_id": "131a40c3-2eaf-44c9-af28-c9b408577286",
+    "data": [
+        {
+            "prompt": "Keep the model pose and the liquid garment flowing shape unchanged. Change the clothing material from silver metal to completely transparent water (or glass). Through the liquid flow, the details of the model skin are visible. The light and shadow effect shifts from reflection to refraction.",
+            "size": "2048x2048",
+            "image_url": "https://platform.cdn.acedata.cloud/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
+        }
+    ]
+}
+```
+
+## Асинхронные обратные вызовы
+
+Поскольку генерация изображений занимает примерно 1–2 минуты, API поддерживает асинхронный режим с обратным вызовом. В запросе можно указать `callback_url`. После получения быстрого ответа с `task_id`, когда изображение будет готово, результат придет POST-запросом на указанный `callback_url`, включающий также `task_id` для связи.
+
+Пример вызова:
+
+```json
+{
+  "task_id": "c9aaffa2-b8ac-40ff-8468-43e77cb9ddde"
+}
+```
+
+На что API ответит:
+
+```json
+{
+    "success": true,
+    "task_id": "c9aaffa2-b8ac-40ff-8468-43e77cb9ddde",
+    "trace_id": "131a40c3-2eaf-44c9-af28-c9b408577286",
+    "data": [
+        {
+            "prompt": "Keep the model pose and the liquid garment flowing shape unchanged. Change the clothing material from silver metal to completely transparent water (or glass). Through the liquid flow, the details of the model skin are visible. The light and shadow effect shifts from reflection to refraction.",
+            "size": "2048x2048",
+            "image_url": "https://platform.cdn.acedata.cloud/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
+        }
+    ]
+}
+```
+
+## Ошибки и их обработка
+
+При ошибках API возвращает код и сообщение. Примеры:
+
+- `400 token_mismatched`: ошибка запроса, возможно, неверные параметры.
+- `400 api_not_implemented`: функция не реализована.
+- `401 invalid_token`: неверный или отсутствующий токен авторизации.
+- `429 too_many_requests`: превышен лимит запросов.
+- `500 api_error`: внутренняя ошибка сервера.
+
+Пример ответа при ошибке:
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "api_error",
+    "message": "fetch failed"
+  },
+  "trace_id": "2cf86e86-22a4-46e1-ac2f-032c0f2a4e89"
+}
+```
+
+## Итоги
+
+Данной документацией вы ознакомились с возможностями генерации изображений через SeeDream API с помощью текстовых подсказок. Ожидается, что она поможет вам эффективно интегрировать и использовать API. При возникновении вопросов — обращайтесь в нашу техническую поддержку.

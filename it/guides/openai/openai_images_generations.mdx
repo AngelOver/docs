@@ -1,0 +1,647 @@
+---
+title: "OpenAI Images Generations API Richiesta e Utilizzo"
+description: "OpenAI generation 集成指南 - Ace Data Cloud"
+---
+
+OpenAI Images Generations API supporta attualmente diversi modelli di generazione di immagini, inclusi il classico `dall-e-3`, il modello con capacità di rendering del testo più avanzata `gpt-image-1`, la nuova generazione **`gpt-image-2`**, e la serie di modelli **`nano-banana` / `nano-banana-2` / `nano-banana-pro`** accessibili tramite la stessa interfaccia. Tutti questi modelli possono generare immagini di alta qualità basate su descrizioni testuali.
+
+Questo documento descrive principalmente il flusso di utilizzo dell’API OpenAI Images Generations, che permette di utilizzare facilmente le funzionalità di generazione immagini della serie OpenAI.
+
+## Procedura di Richiesta
+
+Per utilizzare OpenAI Images Generations API, è possibile visitare la pagina [OpenAI Images Generations API](https://platform.acedata.cloud/documents/fd932485-90c7-45d6-8394-1e14b6f07b2b) e cliccare sul pulsante "Acquire" per ottenere le credenziali necessarie per le richieste:
+
+![](https://cdn.acedata.cloud/nyq0xz.png)
+
+Se non si è ancora effettuato l’accesso o la registrazione, si verrà automaticamente reindirizzati alla pagina di login per registrarsi e accedere; dopo il login, si tornerà automaticamente alla pagina corrente.
+
+Alla prima richiesta viene offerto un credito gratuito per utilizzare l’API senza costi.
+
+## Modello GPT-Image-2
+
+`gpt-image-2` è il modello di generazione immagini di nuova generazione di OpenAI, che presenta miglioramenti evidenti rispetto a `dall-e-3` e `gpt-image-1` nei seguenti aspetti:
+
+- **Maggiore capacità di seguire istruzioni**: comprende accuratamente istruzioni strutturate complesse come composizione, conteggio e relazioni spaziali.
+- **Rendering del testo più nitido**: in scenari come poster, menu, infografiche, loghi, il testo in inglese e i numeri sono quasi privi di errori.
+- **Espressione stilistica più ricca**: supporta nativamente stili come ritratti cinematografici, poster vintage, illustrazioni per bambini, fotografia di prodotto, infografiche, ecc.
+- **Supporto nativo per più proporzioni + alta risoluzione**: copre 5 proporzioni (1:1, 4:3, 3:4, 16:9, 9:16) con 3 livelli di risoluzione (1K / 2K / 4K).
+
+Il metodo di chiamata è identico agli altri modelli, basta impostare il campo `model` su `gpt-image-2`. L’URL restituito è un link permanente dell’immagine ospitata su `platform.cdn.acedata.cloud`, apribile direttamente nel browser o incorporabile in pagine web.
+
+### Valori supportati per `size` e livelli di tariffazione
+
+`gpt-image-2` verifica solo il formato di `size`: se non è `auto` o stringa vuota, deve corrispondere a `WIDTHxHEIGHT` (es. `1024x1024`, `2048x1152`, `800x600`); qualsiasi altro formato restituisce 400. La tariffazione è divisa in due livelli:
+
+- **Prezzo standard 1K**: input corrispondente a una delle dimensioni 1K consigliate nella tabella sottostante, o alias comuni 1K upstream (`1254x1254`, `1672x941`, `941x1672` — queste sono dimensioni effettive restituite upstream per 1K, riutilizzandole non si cambia tariffa).
+- **Altri livelli (1.5×)**: qualsiasi dimensione non inclusa nel set 1K sopra, comprese le preimpostazioni 2K / 4K nella tabella e qualsiasi `WIDTHxHEIGHT` personalizzato.
+
+Vincoli rigidi upstream per dimensioni personalizzate: larghezza e altezza devono essere multipli di 16, lato lungo ≤ 3840, pixel totali ≤ 8.294.400. Dimensioni fuori da questi limiti saranno rifiutate con errore 4xx.
+
+| Proporzione | 1K (Prezzo standard) | 2K consigliato (×1.5) | 4K consigliato (×1.5) |
+| --- | --- | --- | --- |
+| 1:1 | `1024x1024` | `2048x2048` | `2880x2880` |
+| 4:3 | `1536x1024` | `2048x1536` | `3264x2448` |
+| 3:4 | `1024x1536` | `1536x2048` | `2448x3264` |
+| 16:9 | `1792x1024` | `2048x1152` | `3840x2160` |
+| 9:16 | `1024x1792` | `1152x2048` | `2160x3840` |
+
+> Puoi anche passare `size: "auto"` o **omettere il campo `size`**, in tal caso il modello sceglierà la dimensione predefinita e verrà applicato il prezzo standard 1K.
+>
+> Per il livello 1K, l’output upstream non garantisce un allineamento preciso dei pixel — ad esempio, passando `1024x1024` potresti ricevere `1254x1254`, mantenendo la proporzione. Se la dimensione ricevuta viene riutilizzata come `size`, sarà comunque tariffata come 1K.
+>
+> Le chiamate 4K richiedono solitamente 4–8 minuti; si consiglia di usare il meccanismo di callback asincrono `callback_url` descritto più avanti.
+
+> **Riguardo al parametro `n`**
+>
+> `gpt-image-2` **non supporta `n > 1`**: questo parametro viene ignorato silenziosamente; indipendentemente dal valore di `n`, ogni richiesta restituisce una sola immagine e viene fatturata come una sola. Per ottenere più immagini contemporaneamente, è necessario effettuare più richieste concorrenti (si consiglia di variare `prompt` o `seed` per evitare immagini troppo simili). Questa limitazione vale anche per `gpt-image-1` / `gpt-image-1.5` e la serie `nano-banana`. Solo `dall-e-2` supporta nativamente `n > 1`; `dall-e-3` supporta solo `n = 1`.
+
+Di seguito alcuni esempi reali per mostrare le capacità di `gpt-image-2`.
+
+### Scenario 1: Ritratto cinematografico
+
+Nel prompt si possono usare termini cinematografici (pellicola 35mm, profondità di campo ridotta, luci al neon, ecc.) per controllare atmosfera e texture.
+
+Esempio di codice Python:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/openai/images/generations"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "model": "gpt-image-2",
+    "prompt": "A cinematic portrait of a young woman standing in a convenience store at night, illuminated by soft pink and cyan neon signs through the window. Shot on 35mm film, shallow depth of field, slight grain, melancholic mood.",
+    "size": "1024x1536"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Risultato restituito:
+
+```json
+{
+  "success": true,
+  "task_id": "ab58a5df-6f46-4874-bff6-93169e2849a3",
+  "created": 1777048800,
+  "data": [
+    {
+      "revised_prompt": "A cinematic portrait of a young woman standing in a convenience store at night, illuminated by soft pink and cyan neon signs through the window. Shot on 35mm film, shallow depth of field, slight grain, melancholic mood.",
+      "url": "https://platform.cdn.acedata.cloud/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png"
+    }
+  ]
+}
+```
+
+Immagine generata:
+
+<p><img src="https://platform.cdn.acedata.cloud/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png" width="500" className="m-auto" /></p>
+
+### Scenario 2: Poster vintage da viaggio (con rendering del testo)
+
+`gpt-image-2` è stabile nel layout e nel rendering dei font, ideale per poster, menu, biglietti con testo.
+
+```python
+payload = {
+    "model": "gpt-image-2",
+    "prompt": "A vintage travel poster of the Amalfi Coast, Italy. Stylized art-deco illustration of cliffside lemon-yellow houses cascading down to a turquoise sea, with a small white sailboat in the harbor. Bold typography at the top reads AMALFI and at the bottom ITALIA 1958. Limited color palette: cream, sea-blue, lemon yellow, terracotta. Slight paper-grain texture.",
+    "size": "1024x1536"
+}
+```
+
+Immagine corrispondente al campo `url`:
+
+<p><img src="https://platform.cdn.acedata.cloud/gpt-image/c6061f92-3fae-498e-af8e-688e7f415ba3_0.png" width="500" className="m-auto" /></p>
+
+Il modello riproduce fedelmente lo stile Art Deco e il testo `AMALFI` e `ITALIA 1958` è chiaro e corretto.
+
+### Scenario 3: Composizione complessa e conteggio
+
+Questo prompt verifica la capacità del modello di seguire istruzioni strutturate su quantità e posizione.
+
+```python
+payload = {
+    "model": "gpt-image-2",
+    "prompt": "A wooden bookshelf consisting of three shelves: On the top shelf, there should be one book. On the second shelf, there should be three books. On the bottom shelf, there should be seven books. Soft warm lighting, photorealistic, cozy library atmosphere.",
+    "size": "1024x1024"
+}
+```
+
+Immagine generata:
+
+<p><img src="https://platform.cdn.acedata.cloud/gpt-image/64a3b932-a082-4cad-9f85-9d30474b104d_0.png" width="500" className="m-auto" /></p>
+
+Il numero di libri (1 / 3 / 7) corrisponde esattamente al prompt, cosa difficile da ottenere stabilmente con `dall-e-3`.
+
+### Scenario 4: Stile illustrazione (orizzontale)
+
+Specificando media artistici e parole chiave emotive, si può guidare il modello verso illustrazioni stilizzate.
+
+```python
+payload = {
+    "model": "gpt-image-2",
+    "prompt": "A soft, poetic children's book illustration of a small fox reading a book under a glowing mushroom in a moonlit forest. Watercolor and pencil texture, gentle pastel colors, dreamy atmosphere, hand-drawn feel.",
+    "size": "1536x1024"
+}
+```
+
+Illustrazione orizzontale generata:
+
+![](https://platform.cdn.acedata.cloud/gpt-image/6cd57e69-d237-4cc1-a666-759a93964a08_0.png)
+
+### Asincrono e Callback
+
+`gpt-image-2` richiede solitamente 60–90 secondi per chiamata. Se non si vuole mantenere la connessione aperta, si può usare il meccanismo di callback asincrono `callback_url` descritto più avanti; il flusso è identico agli altri modelli.
+
+## Serie di modelli Nano Banana
+
+La serie `nano-banana` è basata sul modello Gemini e integrata tramite la stessa interfaccia `/openai/images/generations`, senza necessità di cambiare endpoint, basta impostare `model` su uno dei valori seguenti.
+
+| Modello | Costo (Crediti / chiamata) | Scenario d’uso |
+| --- | --- | --- |
+| `nano-banana` | 0.14 | Generazione immagini ordinaria, più veloce e a costo più basso |
+| `nano-banana-2` | 0.28 | Qualità e dettagli migliorati |
+| `nano-banana-pro` | 0.35 | Modello top di gamma, migliore composizione, dettagli e testo |
+
+> **Importante: ambito dei parametri supportati**
+>
+> Nano Banana è adattato al protocollo OpenAI e supporta solo i parametri: `model`, `prompt`, `size`.
+>
+> - `size` viene mappato internamente in `aspect_ratio` secondo la tabella:
+>   - `1024x1024` / `512x512` / `256x256` → `1:1`
+>   - `1792x1024` → `16:9`
+>   - `1024x1792` → `9:16`
+> - Non supporta `n`, `quality`, `style`, `response_format`, `background`, `output_format`; se forniti, saranno ignorati.
+> - La struttura di risposta segue il formato OpenAI (`data[].url`), ma `created` è sempre `0`, non viene restituito `b64_json` e `revised_prompt` è sempre uguale al prompt originale.
+
+### Chiamata base
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/openai/images/generations"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "model": "nano-banana",
+    "prompt": "a small red apple on a white table, photoreal",
+    "size": "1024x1024"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Risultato:
+
+```json
+{
+  "created": 0,
+  "data": [
+    {
+      "url": "https://platform.cdn.acedata.cloud/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png",
+      "revised_prompt": "a small red apple on a white table, photoreal"
+    }
+  ]
+}
+```
+
+L’immagine generata è accessibile direttamente tramite il campo `url`:
+
+<p><img src="https://platform.cdn.acedata.cloud/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png" width="500" className="m-auto" /></p>
+
+### Aggiornamento al modello flagship `nano-banana-pro`
+
+Basta cambiare `model` in `nano-banana-pro`, gli altri parametri restano uguali:
+
+```python
+payload = {
+    "model": "nano-banana-pro",
+    "prompt": "abstract painting",
+    "size": "1024x1024"
+}
+```
+
+Esempio di risposta:
+
+```json
+{
+  "created": 0,
+  "data": [
+    {
+      "url": "https://platform.cdn.acedata.cloud/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png",
+      "revised_prompt": "abstract painting"
+    }
+  ]
+}
+```
+
+<p><img src="https://platform.cdn.acedata.cloud/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png" width="500" className="m-auto" /></p>
+
+### Callback asincrono
+
+Il meccanismo `callback_url` è valido anche per nano-banana, il flusso è identico agli altri modelli, vedi la sezione [Callback asincrono](#asincrono-e-callback).
+
+## Uso base
+
+Successivamente si può compilare l’interfaccia con i contenuti corrispondenti, come mostrato:
+
+<p><img src="https://cdn.acedata.cloud/zv58ug.png" width="500" className="m-auto" /></p>
+
+Alla prima chiamata è necessario compilare almeno tre campi: `authorization`, selezionabile dal menu a tendina; `model`, che indica il modello OpenAI DALL-E da usare (principalmente uno, dettagli nei modelli forniti); e `prompt`, la descrizione testuale per generare l’immagine.
+
+Sulla destra si vede il codice di chiamata generato, che si può copiare ed eseguire direttamente o testare cliccando su "Try".
+
+<p><img src="https://cdn.acedata.cloud/pbss4f.png" width="500" className="m-auto" /></p>
+
+Esempio di codice Python:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/openai/images/generations"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "model": "dall-e-3",
+    "prompt": "A cute baby sea otter"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Risultato:
+
+```json
+{
+  "created": 1721626477,
+  "data": [
+    {
+      "revised_prompt": "A delightful image showcasing a young sea otter, who is born brown, with wide charming eyes. It is delightfully lying on its back, paddling in the calm sea waters. Its dense, velvety fur appears wet and shimmering, capturing the essence of its habitat. The small creature curiously plays with a sea shell with its small paws, looking absolutely innocent and charming in its natural environment.",
+      "url": "https://dalleprodsec.blob.core.windows.net/private/images/5d98aa7c-80c6-4523-b571-fc606ad455b9/generated_00.png?se=2024-07-23T05%3A34%3A48Z&sig=GAz%2Bi3%2BkHOQwAMhxcv22tBM%2FaexrxPgT9V0DbNrL4ik%3D&ske=2024-07-23T08%3A41%3A10Z&skoid=e52d5ed7-0657-4f62-bc12-7e5dbb260a96&sks=b&skt=2024-07-16T08%3A41%3A10Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02"
+    }
+  ]
+}
+```
+
+Il risultato contiene vari campi:
+
+- `created`: ID univoco della generazione immagine.
+- `data`: informazioni sul risultato della generazione.
+
+Il campo `data` contiene i dettagli dell’immagine generata; il campo `url` è il link all’immagine, come mostrato:
+
+<p><img src="https://cdn.acedata.cloud/dz7u0x.png" width="500" className="m-auto" /></p>
+
+## Parametro qualità immagine `quality`
+
+Si può impostare la qualità dell’immagine generata, con due opzioni: `standard` per immagini standard, `hd` per immagini con dettagli più fini e maggiore coerenza.
+
+Esempio di impostazione `quality` a `standard`:
+
+<p><img src="https://cdn.acedata.cloud/1q303w.png" width="500" className="m-auto" /></p>
+
+Anche qui è disponibile il codice generato a destra, copiabile o testabile con "Try".
+
+<p><img src="https://cdn.acedata.cloud/c0ps6i.png" width="500" className="m-auto" /></p>
+
+Codice Python di esempio:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/openai/images/generations"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "model": "dall-e-3",
+    "prompt": "A cute baby sea otter",
+    "quality": "standard"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Risultato:
+
+```json
+{
+  "created": 1721636023,
+  "data": [
+    {
+      "revised_prompt": "A cute baby sea otter is lying playfully on its back in the water, with its fur looking glossy and soft. One of its tiny paws is reaching out curiously, and it has an expression of pure joy and warmth on its face as it looks up to the sky. Its body is surrounded by bubbles from its playful twirling in the water. A gentle breeze is playing with its fur making it look more charming. The scene portrays the tranquility and charm of marine life.",
+      "url": "https://dalleprodsec.blob.core.windows.net/private/images/a93ee5e7-3abd-4923-8d79-dc9ef126da46/generated_00.png?se=2024-07-23T08%3A13%3A55Z&sig=wTXGYvUOwUIkaB2CxjK9ww%2FHjS8OwYUWcYInXYKwcAM%3D&ske=2024-07-23T11%3A32%3A05Z&skoid=e52d5ed7-0657-4f62-bc12-7e5dbb260a96&sks=b&skt=2024-07-16T11%3A32%3A05Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02"
+    }
+  ]
+}
+```
+
+L’immagine generata con `quality` impostato a `standard` è la seguente:
+
+<p><img src="https://cdn.acedata.cloud/j5v15b.png" width="500" className="m-auto" /></p>
+
+Con la stessa procedura, impostando `quality` a `hd`, si ottiene un’immagine con dettagli più fini e maggiore coerenza:
+
+<p><img src="https://cdn.acedata.cloud/vjpbqr.png" width="500" className="m-auto" /></p>
+
+## Parametro dimensione immagine `size`
+
+È possibile impostare la dimensione dell’immagine generata.
+
+Esempio con dimensione `1024x1024`:
+
+<p><img src="https://cdn.acedata.cloud/dx5rwh.png" width="500" className="m-auto" /></p>
+
+Codice generato a destra disponibile per copia o test:
+
+<p><img src="https://cdn.acedata.cloud/0sbybl.png" width="500" className="m-auto" /></p>
+
+Codice Python:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/openai/images/generations"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "model": "dall-e-3",
+    "prompt": "A cute baby sea otter",
+    "size": "1024x1024"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Risultato:
+
+```json
+{
+  "created": 1721636652,
+  "data": [
+    {
+      "revised_prompt": "A delightful depiction of a baby sea otter. The small mammal is captured in its natural habitat in the ocean, floating on its back. It has thick brown fur that is sleek and wet from the sea water. Its eyes are closed as if it is enjoying a moment of deep relaxation. The water around it is calm, reflecting the peacefulness of the scene. The background should hint at a diverse marine ecosystem, with visible strands of kelp floating on the surface, suggesting the baby otter's preferred environment.",
+      "url": "https://dalleprodsec.blob.core.windows.net/private/images/9d625ac6-fd2b-42a9-84a6-8c99eb357ccf/generated_00.png?se=2024-07-23T08%3A24%3A24Z&sig=AXtYXowEakGxfRp8LhC2DwqL%2F07LhEDW40oCP%2BdTO8s%3D&ske=2024-07-23T18%3A00%3A45Z&skoid=e52d5ed7-0657-4f62-bc12-7e5dbb260a96&sks=b&skt=2024-07-16T18%3A00%3A45Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02"
+    }
+  ]
+}
+```
+
+Immagine generata con dimensione `1024x1024`:
+
+<p><img src="https://cdn.acedata.cloud/o4pvvx.png" width="500" className="m-auto" /></p>
+
+Con dimensione `1792x1024` si ottiene:
+
+![](https://cdn.acedata.cloud/4pilae.png)
+
+La differenza di dimensioni è evidente. Sono disponibili altre dimensioni, consultare la documentazione ufficiale per dettagli.
+
+## Parametro stile immagine `style`
+
+Il parametro stile ha due opzioni: `vivid` per immagini più vivide, `natural` per immagini più naturali.
+
+Esempio con `style` impostato a `vivid`:
+
+<p><img src="https://cdn.acedata.cloud/609l9i.png" width="500" className="m-auto" /></p>
+
+Codice generato a destra:
+
+<p><img src="https://cdn.acedata.cloud/ee3u9o.png" width="500" className="m-auto" /></p>
+
+Codice Python:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/openai/images/generations"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "model": "dall-e-3",
+    "prompt": "A cute baby sea otter",
+    "style": "vivid"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Risultato:
+
+```json
+{
+  "created": 1721637086,
+  "data": [
+    {
+      "revised_prompt": "A baby sea otter with soft, shiny fur and sparkling eyes floating playfully on calm ocean waters. This adorable creature is trippingly frolicking amidst small, gentle waves under a bright, clear, sunny sky. The tranquility of the sea contrasts subtly with the delightful energy of this young otter. The critter gamely clings to a tiny piece of driftwood, its small paws adorably enveloping the floating object.",
+      "url": "https://dalleprodsec.blob.core.windows.net/private/images/6e48f701-7fd3-4356-839e-a2f6f0fe82d9/generated_00.png?se=2024-07-23T08%3A31%3A37Z&sig=4percxqTbUR1j3BQmkhvj%2FAhHzInKI%2FqiTo1MP69coI%3D&ske=2024-07-27T10%3A39%3A55Z&skoid=e52d5ed7-0657-4f62-bc12-7e5dbb260a96&sks=b&skt=2024-07-20T10%3A39%3A55Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02"
+    }
+  ]
+}
+```
+
+Immagine generata con stile `vivid`:
+
+<p><img src="https://cdn.acedata.cloud/e0rpc3.png" width="500" className="m-auto" /></p>
+
+Con stile `natural`:
+
+<p><img src="https://cdn.acedata.cloud/q9tqwu.png" width="500" className="m-auto" /></p>
+
+`vivid` produce immagini più vivide e realistiche rispetto a `natural`.
+
+## Parametro formato link immagine `response_format`
+
+Il parametro `response_format` ha due opzioni: `b64_json` per codifica Base64 del link immagine, `url` per link immagine normale visualizzabile direttamente.
+
+Esempio con `response_format` impostato a `url`:
+
+<p><img src="https://cdn.acedata.cloud/2zbgrg.png" width="500" className="m-auto" /></p>
+
+Codice generato a destra:
+
+<p><img src="https://cdn.acedata.cloud/a9exmp.png" width="500" className="m-auto" /></p>
+
+Codice Python:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/openai/images/generations"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "model": "dall-e-3",
+    "prompt": "A cute baby sea otter",
+    "response_format": "url"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Risultato:
+
+```json
+{
+  "created": 1721637575,
+  "data": [
+    {
+      "revised_prompt": "A charming depiction of a baby sea otter. The otter is seen resting serenely on its back amidst the gentle, blue ocean waves. The baby otter's fur is an endearing mix of soft greyish brown shades, glinting subtly in the muted sunlight. Its small paws are touching, lifted slightly towards the sky as if playing with an unseen object. Its round, expressive eyes are wide in curiosity, sparking with life and innocence. Use a realistic style to evoke the otter's natural habitat and its adorably fluffy exterior.",
+      "url": "https://dalleprodsec.blob.core.windows.net/private/images/87792c5f-8b6d-412e-81dd-f1a1baa19bd2/generated_00.png?se=2024-07-23T08%3A39%3A47Z&sig=zzRAn30TqIKHdLVqZPUUuSJdjCYpoJdaGU6BeoA76Jo%3D&ske=2024-07-23T13%3A32%3A13Z&skoid=e52d5ed7-0657-4f62-bc12-7e5dbb260a96&sks=b&skt=2024-07-16T13%3A32%3A13Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02"
+    }
+  ]
+}
+```
+
+Il link immagine è [immagine URL](https://dalleprodsec.blob.core.windows.net/private/images/87792c5f-8b6d-412e-81dd-f1a1baa19bd2/generated_00.png?se=2024-07-23T08%3A39%3A47Z&sig=zzRAn30TqIKHdLVqZPUUuSJdjCYpoJdaGU6BeoA76Jo%3D&ske=2024-07-23T13%3A32%3A13Z&skoid=e52d5ed7-0657-4f62-bc12-7e5dbb260a96&sks=b&skt=2024-07-16T13%3A32%3A13Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02) e l’immagine è:
+
+<p><img src="https://cdn.acedata.cloud/33hs4z.png" width="500" className="m-auto" /></p>
+
+Con `response_format` impostato a `b64_json` si ottiene la codifica Base64 dell’immagine:
+
+```json
+{
+  "created": 1721638071,
+  "data": [
+    {
+      "b64_json": "iVBORw0..............v//AQEAAP4AAAD+AAADAQAAAwEEA/4D//8Q/Pbw64mKbVTFoQAAAABJRU5ErkJggg==",
+      "revised_prompt": "A charming image of a young baby sea otter. The otter is gently floating on a calm blue sea, basking in the warm, golden rays of sunlight streaming down from a clear sky above. The otter's fur is a rich chocolate brown, and it looks incredibly soft and fluffy. The otter's eyes are bright and expressive, filled with childlike curiosity and joy. It has small, pricked ears and a button-like nose which adds to its overall cuteness. In the sea around it, twinkling droplets of water can be seen, pepped up by the sunlight, the sight is certainly a delightful one."
+    }
+  ]
+}
+```
+
+## Callback asincrono
+
+Poiché la generazione immagini può richiedere tempo, mantenere la connessione HTTP aperta può consumare risorse. Per questo l’API supporta callback asincroni.
+
+Il flusso è: il client invia la richiesta specificando un campo `callback_url`; l’API risponde immediatamente con un `task_id` che identifica il task. Quando il task è completato, il risultato viene inviato in POST JSON all’URL specificato, includendo il `task_id` per correlare i risultati.
+
+Esempio pratico:
+
+Un webhook è un servizio HTTP che riceve richieste; sostituire con il proprio URL server. Per demo si usa https://webhook.site/, che fornisce un URL pubblico come:
+
+![](https://cdn.acedata.cloud/cjjfly.png)
+
+Ad esempio `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`.
+
+Si imposta `callback_url` a questo URL nel payload:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/openai/images/generations"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "model": "dall-e-3",
+    "prompt": "A cute baby sea otter",
+    "callback_url": "https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Risposta immediata:
+
+```json
+{
+  "task_id": "6a97bf49-df50-4129-9e46-119aa9fca73c"
+}
+```
+
+Dopo qualche istante, il webhook riceverà il risultato:
+
+```json
+{
+  "success": true,
+  "task_id": "6a97bf49-df50-4129-9e46-119aa9fca73c",
+  "trace_id": "9b4b1ff3-90f2-470f-b082-1061ec2948cc",
+  "data": {
+    "created": 1721626477,
+    "data": [
+      {
+        "revised_prompt": "A delightful image showcasing a young sea otter...",
+        "url": "https://dalleprodsec.blob.core.windows.net/private/images/..."
+      }
+    ]
+  }
+}
+```
+
+Il campo `task_id` permette di correlare il risultato con la richiesta.
+
+## Gestione errori
+
+In caso di errore, l’API restituisce codici e messaggi di errore, ad esempio:
+
+- `400 token_mismatched`: richiesta errata, parametri mancanti o non validi.
+- `400 api_not_implemented`: richiesta errata, parametri mancanti o non validi.
+- `401 invalid_token`: non autorizzato, token di autorizzazione mancante o non valido.
+- `429 too_many_requests`: troppe richieste, superato limite di velocità.
+- `500 api_error`: errore interno del server.
+
+### Esempio di risposta errore
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "api_error",
+    "message": "fetch failed"
+  },
+  "trace_id": "2cf86e86-22a4-46e1-ac2f-032c0f2a4e89"
+}
+```
+
+## Conclusione
+
+Con questo documento hai appreso come utilizzare OpenAI Images Generations API per sfruttare facilmente la generazione immagini ufficiale OpenAI DALL-E. Speriamo che questa guida ti aiuti a integrare e utilizzare al meglio l’API. Per qualsiasi domanda, contatta il nostro team di supporto tecnico.

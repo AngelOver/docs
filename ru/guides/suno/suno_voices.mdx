@@ -1,0 +1,85 @@
+---
+title: "Руководство по интеграции API клонирования голоса Suno"
+description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+---
+
+SUNO позволяет создавать пользовательские голосовые персонажи на основе любых аудиофайлов, реализуя клонирование голоса для генерации музыки. В отличие от существующего Persona API (использующего `audio_id`, сгенерированный Suno), этот API принимает общедоступный `audio_url` — вашу собственную запись голоса. В этом документе описывается метод интеграции API клонирования голоса.
+
+## Шаг 1: Создание голосового персонажа
+
+API принимает три входных параметра: `audio_url` (обязательный) — URL общедоступного аудиофайла в формате MP3 или WAV с чистым голосом одного человека; `name` и `description` (необязательные) — имя и описание голосового персонажа.
+
+**Требования к аудиофайлу:**
+- Формат: MP3 или WAV
+- Длительность: не менее 10 секунд
+- Содержание: чистый голос одного человека, минимальный уровень фонового шума или музыки
+
+```bash
+curl -X POST 'https://api.acedata.cloud/suno/voices' \
+-H 'accept: application/json' \
+-H 'authorization: Bearer {token}' \
+-H 'content-type: application/json' \
+-d '{
+  "audio_url": "http://cos.aitutu.cc/mp4/ru-user-voice.mp3",
+  "name": "RU User Voice Test",
+  "description": "用户语音录音示例"
+}'
+```
+
+Результат:
+
+```json
+{
+  "success": true,
+  "task_id": "b9150e51-d87c-4556-a55e-100947a63bdf",
+  "data": {
+    "persona_id": "e95013f8-eaee-4741-a42f-1d559a9d0b2b",
+    "name": "RU User Voice Test",
+    "is_public": false
+  }
+}
+```
+
+Как видно, поле `persona_id` в `data` — это ID созданного голосового персонажа. Поле `is_public` всегда `false`, так как голосовые персонажи, созданные загрузкой аудио, являются приватными.
+
+## Шаг 2: Генерация музыки с использованием голосового персонажа
+
+После получения ID голосового персонажа можно использовать [Suno Audios Generation API](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) для генерации музыки. Установите `action` в `generate`, а `persona_id` — в ID созданного голосового персонажа. Сгенерированная песня будет исполнена клонированным голосом.
+
+> **Внимание:** Клонирование голоса поддерживается только моделями `chirp-v4-5` и выше (например, `chirp-v4-5`, `chirp-v5`, `chirp-v5-5`), не поддерживается моделью `chirp-v4`.
+
+```bash
+curl -X POST 'https://api.acedata.cloud/suno/audios' \
+-H 'accept: application/json' \
+-H 'authorization: Bearer {token}' \
+-H 'content-type: application/json' \
+-d '{
+  "action": "generate",
+  "model": "chirp-v5-5",
+  "prompt": "A warm synth-pop song about city nights",
+  "persona_id": "e95013f8-eaee-4741-a42f-1d559a9d0b2b"
+}'
+```
+
+Результат:
+
+```json
+{
+  "success": true,
+  "task_id": "53d8a334-a972-43c5-895e-60c4454e88d5",
+  "data": [
+    {
+      "id": "16463960-077c-4700-bbb3-3c7897b943d3",
+      "title": "Soft Neon on My Skin",
+      "audio_url": "https://cdn1.suno.ai/16463960-077c-4700-bbb3-3c7897b943d3.mp3",
+      "image_url": "https://cdn2.suno.ai/image_16463960-077c-4700-bbb3-3c7897b943d3.jpeg",
+      "model": "chirp-v5-5",
+      "state": "succeeded",
+      "prompt": "A warm synth-pop song about city nights",
+      "duration": 156.28
+    }
+  ]
+}
+```
+
+Как видно, сгенерированная песня исполнена клонированным голосом. `persona_id` также можно использовать с действием `cover` для исполнения каверов существующих песен клонированным голосом.

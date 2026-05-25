@@ -1,0 +1,256 @@
+---
+title: "تعليمات دمج واجهة برمجة تطبيقات توليد فيديوهات Kling"
+description: "Kling video generation 集成指南 - Ace Data Cloud"
+---
+
+تقدم هذه الوثيقة شرحًا لكيفية دمج واجهة برمجة تطبيقات توليد فيديوهات Kling، والتي تتيح إنشاء فيديوهات رسمية من Kling عبر إدخال معلمات مخصصة.
+
+## عملية التقديم
+
+لاستخدام API، يجب أولاً التقدم للحصول على الخدمة المناسبة من خلال صفحة [Kling Videos Generation API](https://platform.acedata.cloud/documents/3b921a16-a411-4557-8335-53f21d3f9e46). بعد الدخول إلى الصفحة، اضغط على زر "Acquire" كما هو موضح في الصورة:
+
+![](https://cdn.acedata.cloud/q6ytrc.png)
+
+إذا لم تكن مسجلاً أو مسجلاً دخولك، سيتم توجيهك تلقائيًا إلى صفحة تسجيل الدخول للتسجيل أو الدخول، وبعدها ستعود تلقائيًا إلى الصفحة الحالية.
+
+عند التقديم لأول مرة، ستحصل على رصيد مجاني لاستخدام API مجانًا.
+
+## الاستخدام الأساسي
+
+أولاً، لفهم طريقة الاستخدام الأساسية، تحتاج إلى إدخال كلمة التوجيه `prompt`، وسلوك التوليد `action`، ورابط صورة الإطار الأول المرجعية `start_image_url`، بالإضافة إلى النموذج `model` للحصول على النتيجة المعالجة. يجب تمرير حقل `action` بقيمة `text2video`، والذي يحتوي على ثلاثة سلوكيات رئيسية: توليد فيديو من نص (`text2video`)، توليد فيديو من صورة (`image2video`)، وتوسيع الفيديو (`extend`). ثم نحتاج إلى إدخال النموذج `model`، حاليًا النماذج الرئيسية هي `kling-v1`, `kling-v1-6`, `kling-v2-master`, `kling-v2-1-master`, `kling-v2-5-turbo`, `kling-v2-6`, `kling-v3`, `kling-v3-omni`, و `kling-video-o1`، كما هو موضح أدناه:
+
+<p><img src="https://cdn.acedata.cloud/ke1bok.png" width="500" className="m-auto" /></p>
+
+يمكن ملاحظة أننا قمنا بتعيين رؤوس الطلب (Request Headers)، والتي تشمل:
+
+- `accept`: نوع التنسيق المرغوب لاستقبال الرد، هنا يتم تعيينه إلى `application/json` أي تنسيق JSON.
+- `authorization`: مفتاح استدعاء API، يمكن اختياره مباشرة بعد التقديم.
+
+كما تم تعيين جسم الطلب (Request Body)، والذي يشمل:
+
+- `model`: نموذج توليد الفيديو، من النماذج المذكورة أعلاه.
+- `mode`: وضع توليد الفيديو، القيم الممكنة هي الوضع القياسي `std`، الوضع السريع `pro`، ووضع 4K الأصلي `4k`. يدعم وضع `4k` فقط نماذج `kling-v3` و `kling-v3-omni`، ولا يتوافق مع `camera_control` (تحكم الكاميرا).
+- `action`: سلوك مهمة توليد الفيديو، يشمل ثلاثة أنواع: توليد فيديو من نص (`text2video`)، توليد فيديو من صورة (`image2video`)، وتوسيع الفيديو (`extend`).
+- `start_image_url`: عند اختيار سلوك توليد فيديو من صورة `image2video`، يجب رفع رابط صورة الإطار الأول المرجعية.
+- `end_image_url`: اختياري في توليد فيديو من صورة، لتحديد الإطار النهائي.
+- `duration`: مدة الفيديو بالثواني. تدعم نماذج `kling-v3` و `kling-v3-omni` مدة مرنة من 3 إلى 15 ثانية (أعداد صحيحة)، بينما تدعم النماذج الأخرى 5 أو 10 ثوانٍ فقط.
+- `generate_audio`: خيار لتوليد الصوت متزامنًا، قيمة منطقية اختيارية. مدعوم في `kling-v3`، `kling-v3-omni`، و `kling-v2-6` (وضع pro فقط). القيمة الافتراضية `false`.
+- `aspect_ratio`: نسبة عرض إلى ارتفاع الفيديو، اختيارية، تدعم `16:9`، `9:16`، و `1:1`، القيمة الافتراضية `16:9`.
+- `cfg_scale`: شدة الترابط، نطاق [0,1]، كلما زادت القيمة كان الفيديو أكثر توافقًا مع كلمة التوجيه.
+- `camera_control`: اختياري، معلمات تحكم حركة الكاميرا، يدعم إعدادات type/simple بالإضافة إلى horizontal، vertical، pan، tilt، roll، zoom وغيرها.
+- `negative_prompt`: اختياري، كلمات توجيه عكسية لا ترغب في ظهورها، بحد أقصى 200 حرف.
+- `element_list`: قائمة المراجع الرئيسية، مخصصة فقط لنموذج `kling-video-o1`، طريقة الاستخدام مفصلة في [الوثائق الرسمية](https://docs.qingque.cn/d/home/eZQAyImcbaS0fz-8ANjXvU5ed?identityId=1oEG9JKKMFv#section=h.5t7wme23nn6z).
+- `video_list`: فيديوهات مرجعية عبر روابط URL، مخصصة فقط لنموذج `kling-video-o1`، طريقة الاستخدام مفصلة في [الوثائق الرسمية](https://docs.qingque.cn/d/home/eZQAyImcbaS0fz-8ANjXvU5ed?identityId=1oEG9JKKMFv#section=h.5t7wme23nn6z).
+- `prompt`: كلمة التوجيه.
+- `callback_url`: عنوان URL لاستقبال ردود الاستدعاء.
+
+بعد الاختيار، ستلاحظ أن الكود المقابل تم إنشاؤه على الجانب الأيمن، كما هو موضح:
+
+<p><img src="https://cdn.acedata.cloud/3yjql0.png" width="500" className="m-auto" /></p>
+
+اضغط على زر "Try" لاختبار الطلب، كما في الصورة السابقة، وستحصل على النتيجة التالية:
+
+```json
+{
+  "success": true,
+  "video_id": "af9a1af0-9aa0-4638-81c1-d41d6143c508",
+  "video_url": "https://cdn.klingai.com/bs2/upload-kling-api/7485378259/text2video/Cjil4mfBfs0AAAAAAKbMQQ-0_raw_video_1.mp4",
+  "duration": "5.1",
+  "state": "succeed",
+  "task_id": "e3a575aa-a4bd-49c8-9b12-cde38d5462e0"
+}
+```
+
+تتضمن النتيجة عدة حقول، وهي:
+
+- `success`: حالة مهمة توليد الفيديو.
+- `task_id`: معرف مهمة توليد الفيديو.
+- `video_id`: معرف الفيديو الناتج.
+- `video_url`: رابط الفيديو الناتج.
+- `duration`: مدة الفيديو الناتج.
+- `state`: حالة مهمة توليد الفيديو.
+
+يمكنك الحصول على فيديو Kling الناتج من خلال رابط الفيديو الموجود في البيانات.
+
+إذا رغبت في توليد كود دمج، يمكنك نسخه مباشرة، مثل كود CURL التالي:
+
+```shell
+curl -X POST 'https://api.acedata.cloud/kling/videos' \
+-H 'accept: application/json' \
+-H 'authorization: Bearer {token}' \
+-H 'content-type: application/json' \
+-d '{
+  "action": "text2video",
+  "model": "kling-v1",
+  "prompt": "White ceramic coffee mug on glossy marble countertop with morning window light. Camera slowly rotates 360 degrees around the mug, pausing briefly at the handle."
+}'
+```
+
+## مصفوفة قدرات النماذج
+
+تختلف دعم النماذج للمعلمات بشكل كبير. تم تجميع المصفوفة التالية من [وثائق نماذج فيديو Kling الرسمية](https://app.klingai.com/global/dev/document-api/apiReference/model/videoModels). يرجى التحقق من دعم تركيبة `model` / `mode` / `duration` للوظائف المطلوبة قبل الاستدعاء، وإلا قد تتلقى أخطاء مثل `model/mode/duration(...) is not supported with image_tail`.
+
+| النموذج | الوضع | `end_image_url` (الإطار النهائي) | `generate_audio` (الصوت) | `camera_control` (تحكم الكاميرا) | ملاحظات |
+|---|---|---|---|---|---|
+| `kling-v1` | std / pro | ✅ فقط `duration=5` | ❌ | ✅ فقط `duration=5` | `extend` لا يدعم `negative_prompt` و `cfg_scale` |
+| `kling-v1-6` | std | ❌ | ❌ | ❌ | يدعم فيديوهات متعددة الصور و `extend` في جميع الأوضاع |
+| `kling-v1-6` | pro | ✅ | ❌ | ❌ | |
+| `kling-v2-master` | — | ❌ | ❌ | ❌ | وضع واحد فقط، يدعم `duration=5/10` فقط |
+| `kling-v2-1-master` | — | ❌ | ❌ | ❌ | وضع واحد فقط، يدعم `duration=5/10` فقط |
+| `kling-v2-5-turbo` | std | ❌ | ❌ | ❌ | |
+| `kling-v2-5-turbo` | pro | ✅ | ❌ | ❌ | |
+| `kling-v2-6` | std | ❌ | ❌ | ❌ | |
+| `kling-v2-6` | pro | ✅ | ✅ | ❌ | النموذج الوحيد غير v3 الذي يدعم الصوت |
+| `kling-v3` | std / pro | ✅ | ✅ | ✅ | مدة من 3 إلى 15 ثانية |
+| `kling-v3` | 4k | ✅ | ✅ | ❌ | وضع 4K لا يتوافق مع تحكم الكاميرا |
+| `kling-v3-omni` | std / pro / 4k | ✅ | ✅ | ❌ | |
+| `kling-video-o1` | std / pro | ✅ | ❌ | ❌ | يدعم فقط `duration=5/10` |
+
+ملاحظات:
+
+- `mode=4k` مدعوم فقط في `kling-v3` و `kling-v3-omni`، ويتعارض مع `camera_control`.
+- `end_image_url` يستخدم فقط مع `action=image2video` مع وجود `start_image_url`. إرسال `end_image_url` فقط بدون `start_image_url` مرفوض.
+- `kling-v3` و `kling-v3-omni` يقبلان مدة صحيحة بين 3 و15 ثانية، بينما النماذج الأخرى تقبل 5 أو 10 ثوانٍ فقط.
+- `generate_audio` افتراضيًا `false`، ويدعمه فقط `kling-v3`، `kling-v3-omni`، و `kling-v2-6` (وضع pro).
+
+## وظيفة توسيع الفيديو
+
+إذا أردت متابعة توليد فيديو Kling موجود، يمكنك تعيين `action` إلى `extend` وإدخال معرف الفيديو الذي تريد توسيعه. يتم الحصول على معرف الفيديو من الاستخدام الأساسي كما في الصورة:
+
+<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+
+يمكنك رؤية معرف الفيديو:
+
+```
+"video_id": "030bb06d-98d4-4044-9042-0aa0822e8c8c"
+```
+
+> ملاحظة: معرف الفيديو `video_id` هو معرف الفيديو الناتج، إذا لم تكن تعرف كيفية توليد الفيديو، يمكنك الرجوع إلى قسم الاستخدام الأساسي.
+
+بعد ذلك، يجب إدخال كلمة توجيه جديدة لتخصيص توليد الفيديو، مع تحديد:
+
+- `model`: نموذج توليد الفيديو، مثل `kling-v1`، `kling-v1-5`، و `kling-v1-6`.
+- `mode`: وضع توليد الفيديو، القيم الممكنة هي `std`، `pro`، و `4k` (يدعم فقط `kling-v3` و `kling-v3-omni`، ولا يتوافق مع تحكم الكاميرا).
+- `duration`: مدة الفيديو، عادة 5 أو 10 ثوانٍ.
+- `start_image_url`: عند اختيار `image2video` يجب رفع رابط صورة الإطار الأول.
+- `prompt`: كلمة التوجيه.
+
+مثال تعبئة:
+
+<p><img src="https://cdn.acedata.cloud/ejimqy.png" width="500" className="m-auto" /></p>
+
+بعد التعبئة، يتم إنشاء الكود تلقائيًا كما يلي:
+
+<p><img src="https://cdn.acedata.cloud/52x4u5.png" width="500" className="m-auto" /></p>
+
+كود Python المقابل:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/kling/videos"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "action": "extend",
+    "model": "kling-v1",
+    "video_id": "030bb06d-98d4-4044-9042-0aa0822e8c8c",
+    "prompt": "White ceramic coffee mug on glossy marble countertop with morning window light. Camera slowly rotates 360 degrees around the mug, pausing briefly at the handle.",
+    "duration": 10
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+بعد التشغيل، ستحصل على نتيجة مثل:
+
+```json
+{
+  "success": true,
+  "video_id": "bbc3b105-ac72-4de2-8390-0cb37dc7d41e",
+  "video_url": "https://cdn.klingai.com/bs2/upload-kling-api/7822108635/extendVideo/Cjil4mfBfs0AAAAAAKhr6A-0_raw_video_1.mp4",
+  "duration": "9.6",
+  "state": "succeed",
+  "task_id": "3ece87e6-3ee3-4f5e-bd70-5ae5eca89a23"
+}
+```
+
+النتيجة مماثلة للسابقة، مما يحقق وظيفة توسيع الفيديو.
+
+## الاستدعاء غير المتزامن (Callback)
+
+نظرًا لأن توليد فيديوهات Kling يستغرق وقتًا نسبيًا طويلًا (حوالي 1-2 دقيقة)، وإذا لم يستجب API لفترة طويلة، سيظل اتصال HTTP مفتوحًا مما يستهلك موارد النظام. لذلك، توفر هذه API دعم الاستدعاء غير المتزامن.
+
+العملية كالتالي: عند إرسال الطلب، يتم تحديد حقل `callback_url`، ويرجع API فورًا نتيجة تحتوي على `task_id` لتمثيل معرف المهمة. عند اكتمال المهمة، يتم إرسال نتيجة الفيديو عبر POST بصيغة JSON إلى `callback_url` المحدد، متضمنًا `task_id` لربط النتائج بالمهمة.
+
+فيما يلي مثال توضيحي.
+
+أولاً، استدعاء Webhook هو خدمة تستقبل طلبات HTTP، ويجب على المطور استبدالها بعنوان URL لخادم HTTP خاص به. للعرض، نستخدم موقع Webhook عام https://webhook.site/، حيث يمكنك الحصول على عنوان URL، كما في الصورة:
+
+![](https://cdn.acedata.cloud/tbcnai.png)
+
+انسخ هذا العنوان لاستخدامه كـ Webhook، في المثال هو `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`.
+
+بعدها، قم بتعيين `callback_url` إلى عنوان Webhook هذا، وأدخل المعلمات المطلوبة، كما في الصورة:
+
+<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+
+بعد الضغط على تشغيل، ستحصل فورًا على نتيجة:
+
+```
+{
+  "task_id": "20068983-0cc9-4c6a-aeb6-9c6a3c668be0"
+}
+```
+
+بعد فترة قصيرة، يمكنك مشاهدة نتيجة الفيديو في `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`، كما في الصورة:
+
+![](https://cdn.acedata.cloud/zv5u2q.png)
+
+المحتوى:
+
+```json
+{
+    "success": true,
+    "video_id": "030bb06d-98d4-4044-9042-0aa0822e8c8c",
+    "video_url": "https://cdn.klingai.com/bs2/upload-kling-api/7822108635/text2video/CjJzzGfBfqcAAAAAAKdVMQ-0_raw_video_1.mp4",
+    "duration": "5.1",
+    "state": "succeed",
+    "task_id": "20068983-0cc9-4c6a-aeb6-9c6a3c668be0"
+}
+```
+
+تلاحظ وجود حقل `task_id`، وباقي الحقول مماثلة لما سبق، مما يتيح ربط النتائج بالمهمة.
+
+## معالجة الأخطاء
+
+عند استدعاء API، إذا حدث خطأ، سترجع API رمز الخطأ والمعلومات المناسبة، مثل:
+
+- `400 token_mismatched`: طلب غير صحيح، ربما بسبب معلمات مفقودة أو غير صالحة.
+- `400 api_not_implemented`: طلب غير صحيح، ربما بسبب معلمات مفقودة أو غير صالحة.
+- `401 invalid_token`: غير مصرح، رمز التفويض مفقود أو غير صالح.
+- `429 too_many_requests`: عدد الطلبات كبير جدًا، تجاوزت الحد المسموح.
+- `500 api_error`: خطأ داخلي في الخادم.
+
+### مثال على رد الخطأ
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "api_error",
+    "message": "fetch failed"
+  },
+  "trace_id": "2cf86e86-22a4-46e1-ac2f-032c0f2a4e89"
+}
+```
+
+## الخلاصة
+
+من خلال هذه الوثيقة، أصبحت تعرف كيفية استخدام واجهة برمجة تطبيقات توليد فيديوهات Kling لإنشاء فيديوهات عبر إدخال كلمات توجيه وصورة إطار أول مرجعية. نأمل أن تساعدك هذه الوثيقة في دمج واستخدام API بشكل أفضل. لأي استفسارات، لا تتردد في التواصل مع فريق الدعم الفني لدينا.

@@ -1,0 +1,53 @@
+---
+title: "Suno Wav API 接続説明"
+description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+---
+
+SUNO は音楽の wav 形式ファイルを取得することを可能にします。本ドキュメントでは関連 API の接続方法について説明します。
+
+この API の主要な入力パラメータは `audio_id` で、これは公式が生成した楽曲IDです。オプションで `callback_url` の非同期コールバックアドレスもサポートしています。
+
+ここで入力する `audio_id` は `4e43116a-bf09-472c-8e1c-655eabf02682` です。
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/suno/wav"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer aa287fa4cc54401087a9fab3f99630af",
+    "content-type": "application/json"
+}
+
+payload = {
+    "audio_id": "4e43116a-bf09-472c-8e1c-655eabf02682"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+結果は以下の通りです：
+
+```json
+{
+  "success": true,
+  "task_id": "6a5a2099-d6d3-4930-9709-a30ac5dc7de5",
+  "trace_id": "3fa70e81-6bb7-4ca8-b718-dd16a4eda7e8",
+  "data": [
+    {
+      "file_url": "https://platform.cdn.acedata.cloud/suno/6a5a2099-d6d3-4930-9709-a30ac5dc7de5.wav"
+    }
+  ]
+}
+```
+
+ご覧の通り、`data` の `file_url` フィールドは取得した音楽の wav 形式ファイルの URL であり、公開アクセス可能な CDN アドレスです。
+
+> **WAV リンクの永続化と有効期限について**
+>
+> 上流の Suno CDN 上の WAV ファイル（`https://cdn1.suno.ai/{audio_id}.wav`）は数日間のみ保持され、その後回収されアクセス時に 403 が返されます。
+> リンク切れを防ぐため、本 API は返却前に上流の WAV ファイルを自動的に自社 CDN（`https://platform.cdn.acedata.cloud/suno/{task_id}.wav`）へ転送保存し、返却される `file_url` は転送後の安定したアドレスとなっており、上流 CDN の期限切れによる即時無効化はありません。
+> **転送後のリンク有効期限は 30 日間**であり、30 日を超えるとファイルは定期的に削除されます。なるべく早めにダウンロードし、ご自身のストレージに適切に保存することを推奨します。
+> 転送失敗時（非常に稀）は元の上流 URL にフォールバックし、従来の挙動と同様になります。

@@ -1,0 +1,145 @@
+---
+title: "快速开始"
+description: "5 分钟跑通你的第一个 XHuoAPI 请求 — 兼容 OpenAI 格式，一行代码切换。"
+---
+
+本文以 **Chat Completion（对话补全）** 为例，演示注册 → 获取 Key → 调 API 的全流程。XHuoAPI 完全兼容 OpenAI 接口格式。
+
+## 1. 注册账号并获取 API Key
+
+1. 打开 [api.xhuoapi.ai/register](https://api.xhuoapi.ai/register) 注册
+2. 登录后在「令牌」页面创建 API Key
+3. 复制 Key（以 `sk-` 开头）
+
+<Warning>
+  API Key 是密钥级别的字符串，**不要**贴到前端 / 移动端代码或公开仓库——请用环境变量或密钥管理服务。
+</Warning>
+
+## 2. 发起请求
+
+把 Key 设到环境变量：
+
+```bash
+export XHUOAPI_API_KEY="sk-your-key-here"
+```
+
+调一次 Chat Completion：
+
+<CodeGroup>
+
+```bash cURL
+curl https://api.xhuoapi.ai/v1/chat/completions \
+  -X POST \
+  -H "Authorization: Bearer $XHUOAPI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "gpt-4o",
+    "messages": [{"role": "user", "content": "Hello!"}],
+    "stream": true
+  }'
+```
+
+```python Python
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://api.xhuoapi.ai/v1",
+    api_key="sk-your-key-here",
+)
+
+response = client.chat.completions.create(
+    model="gpt-4o",
+    messages=[{"role": "user", "content": "Hello!"}],
+    stream=True,
+)
+for chunk in response:
+    print(chunk.choices[0].delta.content or "", end="")
+```
+
+```javascript Node.js
+import OpenAI from "openai";
+
+const client = new OpenAI({
+  baseURL: "https://api.xhuoapi.ai/v1",
+  apiKey: "sk-your-key-here",
+});
+
+const stream = await client.chat.completions.create({
+  model: "gpt-4o",
+  messages: [{ role: "user", content: "Hello!" }],
+  stream: true,
+});
+for await (const chunk of stream) {
+  process.stdout.write(chunk.choices[0]?.delta?.content || "");
+}
+```
+
+</CodeGroup>
+
+## 3. 读取响应
+
+标准 OpenAI 格式响应：
+
+```json
+{
+  "id": "chatcmpl-abc123",
+  "object": "chat.completion",
+  "model": "gpt-4o",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Hello! How can I help you today?"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 9,
+    "completion_tokens": 12,
+    "total_tokens": 21
+  }
+}
+```
+
+如果请求失败：
+
+```json
+{
+  "error": {
+    "message": "Invalid API key provided.",
+    "type": "invalid_request_error",
+    "code": "invalid_api_key"
+  }
+}
+```
+
+## 4. 从 OpenAI 迁移
+
+只需修改两行代码：
+
+```python
+client = OpenAI(
+    base_url="https://api.xhuoapi.ai/v1",  # 改这里
+    api_key="sk-your-xhuoapi-key",          # 改这里
+)
+# 其余代码完全不变！
+```
+
+## 5. 后续
+
+<CardGroup cols={2}>
+  <Card title="网关与认证" icon="key" href="/authentication">
+    API 地址、认证方式、错误码
+  </Card>
+  <Card title="模型列表" icon="list" href="https://api.xhuoapi.ai/pricing">
+    查看全部 500+ 可用模型及价格
+  </Card>
+  <Card title="图像生成" icon="image" href="/guides/midjourney/midjourney_imagine">
+    GPT-Image、Midjourney 等文生图
+  </Card>
+  <Card title="视频生成" icon="video" href="/guides/sora/sora_videos">
+    Sora、Veo 等文生视频
+  </Card>
+</CardGroup>

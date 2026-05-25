@@ -1,0 +1,35 @@
+---
+title: "Todennus"
+description: "Kuinka käyttää Ace Data Cloud API:ta todennukseen"
+---
+
+Kaikki Ace Data Cloud API:t käyttävät **Bearer Token** -todennusta.
+
+## Tokenin hankkiminen
+
+1. Rekisteröidy osoitteessa [platform.acedata.cloud](https://platform.acedata.cloud)
+2. Tilaa tarvittavat palvelut
+3. Luo jokaiselle palvelulle tunnisteet (API Token)
+
+## Tokenin käyttäminen
+
+Sisällytä Token jokaisen pyynnön `Authorization`-otsikkoon:
+
+```bash
+Authorization: Bearer YOUR_API_TOKEN
+```
+
+<Note title="Vinkki">
+  Jokainen Token on sidottu tiettyyn palvelutilaukseen. Eri palvelut käyttävät eri Tokeneita, tai voit luoda **globaalin** tunnisteen palveluiden väliseen käyttöön.
+</Note>
+
+## Nopeusrajoitukset
+
+Nopeusrajoitukset vaihtelevat palvelun ja tilausluokan mukaan. Rajoituksen ylittäessä API palauttaa `429 Too Many Requests` -vastauksen.
+
+## Turvallisuuden parhaat käytännöt
+
+- Älä paljasta API Tokenia asiakaskoodissa
+- Tallenna Token ympäristömuuttujiin
+- Kierrätä Tokenia säännöllisesti
+- Käytä eri Tokeneita kehitys- ja tuotantoympäristöissä

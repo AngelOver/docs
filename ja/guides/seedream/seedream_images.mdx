@@ -1,0 +1,209 @@
+---
+title: "SeeDream Images Generation API 連携説明"
+description: "ByteDance Seedream Image Generation 集成指南 - Ace Data Cloud"
+---
+
+本稿では、SeeDream Images Generation API の連携方法について紹介します。これはカスタムパラメータを入力することで SeeDream 公式の画像を生成できる API です。
+
+## 申請手順
+
+API を利用するには、まず [SeeDream Images Generation API](https://platform.acedata.cloud/documents/seedream-images) のページで対応するサービスを申請する必要があります。ページにアクセスしたら、「Acquire」ボタンをクリックします。以下の図のように表示されます：
+
+![](https://cdn.acedata.cloud/q6ytrc.png)
+
+まだログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録・ログインを促されます。ログイン・登録後は自動的に現在のページに戻ります。
+
+初回申請時には無料クレジットが付与され、この API を無料で利用できます。
+
+## 基本的な使い方
+
+まず基本的な使い方を理解しましょう。入力するのはプロンプト `prompt`、生成動作 `action`、画像サイズ `size` の3つで、これにより処理結果を得られます。まず `action` フィールドに `generate` を指定し、さらにプロンプトを入力します。具体的な内容は以下の通りです：
+
+<p><img src="https://cdn.acedata.cloud/seedream_request_body.png" width="500" className="m-auto" /></p>
+
+ここではリクエストヘッダーを設定しています：
+
+- `accept`：受け取りたいレスポンスの形式。ここでは `application/json`（JSON形式）を指定。
+- `authorization`：API 呼び出し用のキー。申請後にプルダウンから選択可能。
+
+また、リクエストボディには以下を設定します：
+
+- `prompt`：プロンプト（入力文）。
+- `model`：生成モデル。デフォルトは `doubao-seedream-5.0-lite`。対応モデルは `doubao-seedream-5.0-lite`（最新）、`doubao-seedream-4.5`、`doubao-seedream-4.0`、`doubao-seedream-3.0-t2i`、`doubao-seededit-3.0-i2i`。
+- `image`：入力画像情報。URL または Base64 エンコードをサポート。`doubao-seedream-5.0-lite`、`doubao-seedream-4.5`、`doubao-seedream-4.0` は単一または複数画像入力に対応。`doubao-seededit-3.0-i2i` は単一画像のみ対応。`doubao-seedream-3.0-t2i` は非対応。
+- `size`：生成画像のサイズ指定。以下の2方式があり、混用不可。  
+  方式1 | 生成画像の解像度を指定し、プロンプト内で自然言語により画像のアスペクト比を記述。**モデルごとにプリセット対応が異なる**：`doubao-seedream-5.0-lite` は `2K`/`3K`/`4K`、`doubao-seedream-4.5` は `2K`/`4K`、`doubao-seedream-4.0` は `1K`/`2K`/`4K`、`doubao-seedream-3.0-t2i` と `doubao-seededit-3.0-i2i` はプリセット非対応で方式2のみ対応。  
+  方式2 | 生成画像の幅と高さのピクセル値を指定。デフォルトは `2048x2048`。総ピクセル数とアスペクト比の範囲はモデルにより異なる（例：5.0 / 4.5 は下限 3,686,400、4.0 は下限 921,600、3.0-t2i / seededit-3.0-i2i は [512x512, 2048x2048] の範囲）。
+- `seed`：乱数シード。モデル生成のランダム性を制御。範囲は [-1, 2147483647]。**`doubao-seedream-3.0-t2i` のみ対応**。
+- `sequential_image_generation`：連続画像生成。入力内容に基づき関連する複数画像を生成。`doubao-seedream-5.0-lite`、`doubao-seedream-4.5`、`doubao-seedream-4.0` が対応。デフォルトは `disabled`。
+- `stream`：ストリーミング出力モードの有効化制御。`doubao-seedream-5.0-lite`、`doubao-seedream-4.5`、`doubao-seedream-4.0` が対応。デフォルトは `false`。
+- `guidance_scale`：モデル出力結果とプロンプトの一致度。値が大きいほど関連性が強い。範囲は [1, 10]。`doubao-seedream-3.0-t2i` のデフォルトは 2.5、`doubao-seededit-3.0-i2i` は 5.5、他モデルは非対応。
+- `response_format`：生成画像の返却形式指定。デフォルトは `url`。`b64_json` も対応。
+- `watermark`：生成画像にウォーターマークを付与するか。デフォルトは `true`。
+- `output_format`：生成画像のファイル形式指定。`jpeg`（デフォルト）と `png` に対応。`doubao-seedream-5.0-lite` のみ対応。
+- `tools`：モデルが呼び出すツール設定。現在は `web_search`（ネット検索）のみ対応。`doubao-seedream-5.0-lite` のみ対応。
+- `callback_url`：結果コールバック用 URL。
+
+選択後、右側に対応コードが生成されます。以下の図のように表示されます：
+
+<p><img src="https://cdn.acedata.cloud/seedream_image.png" width="500" className="m-auto" /></p>
+
+「Try」ボタンをクリックするとテストが可能です。上図のように、以下の結果が得られました：
+
+```json
+{
+  "success": true,
+  "task_id": "25027ba3-0430-4a1b-91c8-d2297f19ba73",
+  "trace_id": "8043a9e9-692f-43b0-82f7-5890f798be38",
+  "data": [
+    {
+      "prompt": "a white siamese cat",
+      "size": "2048x2048",
+      "image_url": "https://platform.cdn.acedata.cloud/seedream/3c060029-69b1-406f-a957-fcd55ddc9386.jpg"
+    }
+  ]
+}
+```
+
+返却結果には複数のフィールドがあります。説明は以下の通りです：
+
+- `success`：画像生成タスクの状態。
+- `task_id`：画像生成タスクの ID。
+- `trace_id`：画像生成トレース ID。
+- `data`：画像生成タスクの結果リスト。
+  - `image_url`：生成画像の URL。
+  - `prompt`：プロンプト。
+  - `size`：生成画像のピクセルサイズ。
+
+満足できる画像情報が得られたため、`data` 内の画像リンクから生成された SeeDream 画像を取得すれば良いです。
+
+また、対応する連携コードを生成したい場合は直接コピー可能です。例えば CURL のコードは以下の通りです：
+
+```shell
+curl -X POST 'https://api.acedata.cloud/seedream/images' \
+-H 'accept: application/json' \
+-H 'authorization: Bearer ${token}' \
+-H 'content-type: application/json' \
+-d '{
+  "action": "generate",
+  "model": "doubao-seedream-4-0-250828",
+  "prompt": "a white siamese cat"
+}'
+```
+
+## 画像編集タスク
+
+特定の画像を編集したい場合、まずパラメータ `image` に編集対象の画像リンクを渡す必要があります。
+
+- model：今回の編集画像タスクに使用するモデル。`doubao-seedream-5.0-lite`、`doubao-seedream-4.5`、`doubao-seedream-4.0` は単一または複数画像入力対応。`doubao-seededit-3.0-i2i` は単一画像のみ対応。
+- image：編集対象の画像をアップロード。1枚または複数枚。
+
+記入例は以下の通りです：
+
+<p><img src="https://cdn.acedata.cloud/seedream_edit.png" width="500" className="m-auto" /></p>
+
+対応するコード例：
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/flux/images"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "model": "doubao-seedream-4-0-250828",
+  "prompt": "Keep the model pose and the liquid garment flowing shape unchanged. Change the clothing material from silver metal to completely transparent water (or glass). Through the liquid flow, the details of the model skin are visible. The light and shadow effect shifts from reflection to refraction.",
+  "image": ["https://ark-project.tos-cn-beijing.volces.com/doc_image/seedream4_5_imageToimage.png"],
+  "size": "2K",
+  "watermark": False
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+実行するとすぐに以下の結果が得られます：
+
+```json
+{
+    "success": true,
+    "task_id": "c9aaffa2-b8ac-40ff-8468-43e77cb9ddde",
+    "trace_id": "131a40c3-2eaf-44c9-af28-c9b408577286",
+    "data": [
+        {
+            "prompt": "Keep the model pose and the liquid garment flowing shape unchanged. Change the clothing material from silver metal to completely transparent water (or glass). Through the liquid flow, the details of the model skin are visible. The light and shadow effect shifts from reflection to refraction.",
+            "size": "2048x2048",
+            "image_url": "https://platform.cdn.acedata.cloud/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
+        }
+    ]
+}
+```
+
+生成結果は元画像を編集した効果であり、前述と同様の形式です。
+
+## 非同期コールバック
+
+SeeDream Images Generation API は生成に約1～2分かかるため、API の応答が長時間ない場合、HTTP リクエストが接続を保持し続け、システムリソースを消費します。そのため、本 API は非同期コールバックもサポートしています。
+
+全体の流れは：クライアントがリクエスト時に追加で `callback_url` フィールドを指定し、API リクエスト後、API は即座に `task_id` を含む結果を返します。タスク完了後、生成画像結果が POST JSON 形式でクライアントの指定した `callback_url` に送信されます。ここにも `task_id` が含まれ、タスク結果を ID で紐付け可能です。
+
+以下の例で具体的な操作を説明します。
+
+実行するとすぐに以下の結果が得られます：
+
+```
+{
+  "task_id": "c9aaffa2-b8ac-40ff-8468-43e77cb9ddde"
+}
+```
+
+内容は以下の通りです：
+
+```json
+{
+    "success": true,
+    "task_id": "c9aaffa2-b8ac-40ff-8468-43e77cb9ddde",
+    "trace_id": "131a40c3-2eaf-44c9-af28-c9b408577286",
+    "data": [
+        {
+            "prompt": "Keep the model pose and the liquid garment flowing shape unchanged. Change the clothing material from silver metal to completely transparent water (or glass). Through the liquid flow, the details of the model skin are visible. The light and shadow effect shifts from reflection to refraction.",
+            "size": "2048x2048",
+            "image_url": "https://platform.cdn.acedata.cloud/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
+        }
+    ]
+}
+```
+
+結果には `task_id` フィールドがあり、他のフィールドは前述と同様です。このフィールドによりタスクの紐付けが可能です。
+
+## エラー処理
+
+API 呼び出し時にエラーが発生した場合、API は対応するエラーコードとメッセージを返します。例：
+
+- `400 token_mismatched`：不正なリクエスト。パラメータ不足や無効の可能性。
+- `400 api_not_implemented`：不正なリクエスト。パラメータ不足や無効の可能性。
+- `401 invalid_token`：認証エラー。無効または欠落したトークン。
+- `429 too_many_requests`：リクエスト過多。レート制限超過。
+- `500 api_error`：サーバ内部エラー。
+
+### エラー応答例
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "api_error",
+    "message": "fetch failed"
+  },
+  "trace_id": "2cf86e86-22a4-46e1-ac2f-032c0f2a4e89"
+}
+```
+
+## まとめ
+
+本ドキュメントを通じて、SeeDream Images Generation API の使い方、プロンプト入力による画像生成方法を理解いただけました。より良い連携と利用の助けになれば幸いです。ご不明点があれば、いつでも技術サポートチームまでご連絡ください。

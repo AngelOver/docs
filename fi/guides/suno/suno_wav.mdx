@@ -1,0 +1,53 @@
+---
+title: "Suno Wav API -liitäntäohjeet"
+description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+---
+
+SUNO mahdollistaa musiikin wav-muotoisten tiedostojen hakemisen. Tässä dokumentissa selitetään kyseisen API:n liitäntätapa.
+
+Tämän API:n keskeinen syöteparametri on `audio_id`, joka on virallisesti luotu kappaleen tunniste; valinnaisesti tuetaan myös `callback_url` asynkronista takaisinsoitto-osoitetta.
+
+Tässä syötämme `audio_id` arvoksi `4e43116a-bf09-472c-8e1c-655eabf02682`.
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/suno/wav"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer aa287fa4cc54401087a9fab3f99630af",
+    "content-type": "application/json"
+}
+
+payload = {
+    "audio_id": "4e43116a-bf09-472c-8e1c-655eabf02682"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Tulos on seuraava:
+
+```json
+{
+  "success": true,
+  "task_id": "6a5a2099-d6d3-4930-9709-a30ac5dc7de5",
+  "trace_id": "3fa70e81-6bb7-4ca8-b718-dd16a4eda7e8",
+  "data": [
+    {
+      "file_url": "https://platform.cdn.acedata.cloud/suno/6a5a2099-d6d3-4930-9709-a30ac5dc7de5.wav"
+    }
+  ]
+}
+```
+
+Kuten nähdään, `data`-kohdan `file_url`-kenttä sisältää haetun musiikin wav-muotoisen tiedoston osoitteen, joka on julkisesti saavutettavissa oleva CDN-osoite.
+
+> **WAV-linkin pysyvyydestä ja voimassaoloajasta**
+>
+> Ylävirran Suno CDN:ssä olevat WAV-tiedostot (`https://cdn1.suno.ai/{audio_id}.wav`) säilytetään vain muutaman päivän ajan, minkä jälkeen ne poistetaan ja niiden hakuyritys palauttaa 403-virheen.
+> Linkin vanhentumisen välttämiseksi tämä rajapinta tallentaa ylävirran WAV-tiedoston automaattisesti omaan CDN:äämme (`https://platform.cdn.acedata.cloud/suno/{task_id}.wav`) ennen palautusta. Palautettu `file_url` on siis siirretty vakaa osoite, joka ei vanhene heti ylävirran CDN:n vanhentuessa.
+> **Siirretyn linkin voimassaoloaika on 30 päivää**, jonka jälkeen tiedosto poistetaan säännöllisesti. Suosittelemme lataamaan tiedoston mahdollisimman pian ja säilyttämään sen omassa tallennustilassa.
+> Siirto epäonnistuu harvoin, mutta tällöin palautetaan alkuperäinen ylävirran URL, jolloin toiminta vastaa aiempaa käytäntöä.

@@ -1,0 +1,209 @@
+---
+title: "Οδηγίες Ενσωμάτωσης του SeeDream Images Generation API"
+description: "ByteDance Seedream Image Generation 集成指南 - Ace Data Cloud"
+---
+
+Αυτό το έγγραφο παρουσιάζει έναν οδηγό ενσωμάτωσης για το SeeDream Images Generation API, το οποίο επιτρέπει τη δημιουργία εικόνων από την επίσημη πλατφόρμα SeeDream μέσω εισαγωγής προσαρμοσμένων παραμέτρων.
+
+## Διαδικασία Αίτησης
+
+Για να χρησιμοποιήσετε το API, πρέπει πρώτα να κάνετε αίτηση για την αντίστοιχη υπηρεσία στη σελίδα [SeeDream Images Generation API](https://platform.acedata.cloud/documents/seedream-images). Αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
+
+![](https://cdn.acedata.cloud/q6ytrc.png)
+
+Αν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη σελίδα σύνδεσης για να εγγραφείτε ή να συνδεθείτε. Μετά τη σύνδεση, θα επιστρέψετε αυτόματα στην τρέχουσα σελίδα.
+
+Κατά την πρώτη αίτηση, παρέχεται δωρεάν όριο χρήσης, ώστε να μπορείτε να χρησιμοποιήσετε το API χωρίς κόστος.
+
+## Βασική Χρήση
+
+Πρώτα, ας κατανοήσουμε τον βασικό τρόπο χρήσης: εισάγετε το πεδίο `prompt` (προτροπή), τη δράση `action` και το μέγεθος εικόνας `size` για να λάβετε το επεξεργασμένο αποτέλεσμα. Πρέπει να περάσετε απλά το πεδίο `action` με τιμή `generate` και στη συνέχεια να εισάγετε την προτροπή. Αναλυτικά:
+
+<p><img src="https://cdn.acedata.cloud/seedream_request_body.png" width="500" className="m-auto" /></p>
+
+Εδώ ορίζουμε τα Request Headers, που περιλαμβάνουν:
+
+- `accept`: τον τύπο της απάντησης που επιθυμούμε, εδώ `application/json` για μορφή JSON.
+- `authorization`: το κλειδί πρόσβασης στο API, που επιλέγεται μετά την αίτηση.
+
+Επιπλέον, στο Request Body ορίζουμε:
+
+- `prompt`: την προτροπή.
+- `model`: το μοντέλο δημιουργίας, προεπιλεγμένο `doubao-seedream-5.0-lite`. Υποστηρίζονται τα `doubao-seedream-5.0-lite` (νεότερο), `doubao-seedream-4.5`, `doubao-seedream-4.0`, `doubao-seedream-3.0-t2i`, `doubao-seededit-3.0-i2i`.
+- `image`: πληροφορίες εικόνας εισόδου, υποστηρίζονται URL ή κωδικοποίηση Base64. Τα `doubao-seedream-5.0-lite`, `doubao-seedream-4.5`, `doubao-seedream-4.0` υποστηρίζουν μία ή πολλές εικόνες, το `doubao-seededit-3.0-i2i` μόνο μία, και το `doubao-seedream-3.0-t2i` δεν υποστηρίζει αυτή την παράμετρο.
+- `size`: καθορίζει το μέγεθος της παραγόμενης εικόνας με δύο τρόπους, που δεν μπορούν να συνδυαστούν:
+  - Τρόπος 1: καθορισμός ανάλυσης με περιγραφή λόγου διαστάσεων στην προτροπή. Υποστηρίζονται διαφορετικές προεπιλογές ανά μοντέλο: `doubao-seedream-5.0-lite` υποστηρίζει `2K`/`3K`/`4K`, `doubao-seedream-4.5` μόνο `2K`/`4K`, `doubao-seedream-4.0` υποστηρίζει `1K`/`2K`/`4K`, ενώ τα `doubao-seedream-3.0-t2i` και `doubao-seededit-3.0-i2i` δεν υποστηρίζουν προεπιλογές και δέχονται μόνο τον Τρόπο 2.
+  - Τρόπος 2: καθορισμός διαστάσεων σε pixels, προεπιλεγμένο `2048x2048`. Το συνολικό πλήθος pixels και ο λόγος διαστάσεων εξαρτώνται από το μοντέλο (π.χ. για 5.0 / 4.5 το ελάχιστο είναι 3.686.400 pixels, για 4.0 είναι 921.600, και για 3.0-t2i / seededit-3.0-i2i το εύρος είναι [512x512, 2048x2048]).
+- `seed`: σπόρος τυχαίων αριθμών για έλεγχο της τυχαιότητας στην παραγωγή. Εύρος τιμών [-1, 2147483647]. Υποστηρίζεται μόνο από `doubao-seedream-3.0-t2i`.
+- `sequential_image_generation`: δημιουργία ομάδας εικόνων σχετικών μεταξύ τους βάσει της εισόδου. Υποστηρίζεται από `doubao-seedream-5.0-lite`, `doubao-seedream-4.5`, `doubao-seedream-4.0`, προεπιλογή `disabled`.
+- `stream`: ενεργοποίηση λειτουργίας ροής εξόδου. Υποστηρίζεται από τα ίδια μοντέλα όπως παραπάνω, προεπιλογή `false`.
+- `guidance_scale`: βαθμός συμφωνίας αποτελέσματος με την προτροπή, μεγαλύτερη τιμή σημαίνει μεγαλύτερη συσχέτιση. Εύρος [1, 10]. Προεπιλογές: `doubao-seedream-3.0-t2i` 2.5, `doubao-seededit-3.0-i2i` 5.5, άλλα μοντέλα δεν το υποστηρίζουν.
+- `response_format`: μορφή επιστροφής της εικόνας, προεπιλογή `url`, υποστηρίζεται και `b64_json`.
+- `watermark`: αν θα προστεθεί υδατογράφημα στην εικόνα, προεπιλογή `true`.
+- `output_format`: μορφή αρχείου εικόνας, υποστηρίζονται `jpeg` (προεπιλογή) και `png`. Υποστηρίζεται μόνο από `doubao-seedream-5.0-lite`.
+- `tools`: εργαλεία που θα χρησιμοποιήσει το μοντέλο, προς το παρόν υποστηρίζεται μόνο `web_search` (αναζήτηση στο διαδίκτυο). Υποστηρίζεται μόνο από `doubao-seedream-5.0-lite`.
+- `callback_url`: URL για callback αποτελεσμάτων.
+
+Αφού επιλέξετε τις παραμέτρους, στα δεξιά δημιουργείται ο αντίστοιχος κώδικας, όπως στην εικόνα:
+
+<p><img src="https://cdn.acedata.cloud/seedream_image.png" width="500" className="m-auto" /></p>
+
+Πατώντας το κουμπί «Try» μπορείτε να δοκιμάσετε το αίτημα. Το αποτέλεσμα που λαμβάνουμε είναι το εξής:
+
+```json
+{
+  "success": true,
+  "task_id": "25027ba3-0430-4a1b-91c8-d2297f19ba73",
+  "trace_id": "8043a9e9-692f-43b0-82f7-5890f798be38",
+  "data": [
+    {
+      "prompt": "a white siamese cat",
+      "size": "2048x2048",
+      "image_url": "https://platform.cdn.acedata.cloud/seedream/3c060029-69b1-406f-a957-fcd55ddc9386.jpg"
+    }
+  ]
+}
+```
+
+Τα πεδία της απάντησης είναι:
+
+- `success`: κατάσταση της εργασίας δημιουργίας εικόνας.
+- `task_id`: αναγνωριστικό εργασίας.
+- `trace_id`: αναγνωριστικό παρακολούθησης.
+- `data`: λίστα αποτελεσμάτων της εργασίας δημιουργίας εικόνας.
+  - `image_url`: σύνδεσμος προς την παραγόμενη εικόνα.
+  - `prompt`: η προτροπή.
+  - `size`: διαστάσεις της εικόνας σε pixels.
+
+Έχουμε λάβει την επιθυμητή εικόνα και μπορούμε να την κατεβάσουμε μέσω του συνδέσμου στο `data`.
+
+Επιπλέον, αν θέλετε να δημιουργήσετε τον αντίστοιχο κώδικα ενσωμάτωσης, μπορείτε να τον αντιγράψετε απευθείας. Για παράδειγμα, ο κώδικας CURL είναι:
+
+```shell
+curl -X POST 'https://api.acedata.cloud/seedream/images' \
+-H 'accept: application/json' \
+-H 'authorization: Bearer ${token}' \
+-H 'content-type: application/json' \
+-d '{
+  "action": "generate",
+  "model": "doubao-seedream-4-0-250828",
+  "prompt": "a white siamese cat"
+}'
+```
+
+## Εργασία Επεξεργασίας Εικόνας
+
+Αν θέλετε να επεξεργαστείτε μια υπάρχουσα εικόνα, πρέπει να περάσετε το πεδίο `image` με το σύνδεσμο της εικόνας που θέλετε να επεξεργαστείτε.
+
+- `model`: το μοντέλο που θα χρησιμοποιηθεί για την επεξεργασία. Τα `doubao-seedream-5.0-lite`, `doubao-seedream-4.5`, `doubao-seedream-4.0` υποστηρίζουν μία ή πολλές εικόνες, ενώ το `doubao-seededit-3.0-i2i` μόνο μία.
+- `image`: η εικόνα ή οι εικόνες που θα επεξεργαστούν.
+
+Παράδειγμα συμπλήρωσης:
+
+<p><img src="https://cdn.acedata.cloud/seedream_edit.png" width="500" className="m-auto" /></p>
+
+Αντίστοιχος κώδικας:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/flux/images"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "model": "doubao-seedream-4-0-250828",
+  "prompt": "Keep the model pose and the liquid garment flowing shape unchanged. Change the clothing material from silver metal to completely transparent water (or glass). Through the liquid flow, the details of the model skin are visible. The light and shadow effect shifts from reflection to refraction.",
+  "image": ["https://ark-project.tos-cn-beijing.volces.com/doc_image/seedream4_5_imageToimage.png"],
+  "size": "2K",
+  "watermark": False
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Μετά την εκτέλεση, λαμβάνουμε άμεσα το αποτέλεσμα:
+
+```json
+{
+    "success": true,
+    "task_id": "c9aaffa2-b8ac-40ff-8468-43e77cb9ddde",
+    "trace_id": "131a40c3-2eaf-44c9-af28-c9b408577286",
+    "data": [
+        {
+            "prompt": "Keep the model pose and the liquid garment flowing shape unchanged. Change the clothing material from silver metal to completely transparent water (or glass). Through the liquid flow, the details of the model skin are visible. The light and shadow effect shifts from reflection to refraction.",
+            "size": "2048x2048",
+            "image_url": "https://platform.cdn.acedata.cloud/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
+        }
+    ]
+}
+```
+
+Το αποτέλεσμα δείχνει την επεξεργασμένη εικόνα, παρόμοια με το προηγούμενο παράδειγμα.
+
+## Ασύγχρονο Callback
+
+Επειδή η δημιουργία εικόνων μέσω του SeeDream Images Generation API μπορεί να διαρκέσει 1-2 λεπτά, αν το API δεν απαντήσει άμεσα, η HTTP σύνδεση παραμένει ανοιχτή, προκαλώντας επιπλέον κατανάλωση πόρων. Για αυτό, το API υποστηρίζει ασύγχρονο callback.
+
+Η διαδικασία είναι: ο πελάτης στέλνει το αίτημα με επιπλέον πεδίο `callback_url`. Το API επιστρέφει άμεσα ένα αποτέλεσμα που περιέχει το `task_id` της εργασίας. Όταν ολοκληρωθεί η εργασία, το αποτέλεσμα αποστέλλεται μέσω POST JSON στο `callback_url` που έχει οριστεί, περιλαμβάνοντας επίσης το `task_id` για συσχέτιση.
+
+Παράδειγμα:
+
+Μετά την εκτέλεση, λαμβάνουμε:
+
+```
+{
+  "task_id": "c9aaffa2-b8ac-40ff-8468-43e77cb9ddde"
+}
+```
+
+Το περιεχόμενο του callback είναι:
+
+```json
+{
+    "success": true,
+    "task_id": "c9aaffa2-b8ac-40ff-8468-43e77cb9ddde",
+    "trace_id": "131a40c3-2eaf-44c9-af28-c9b408577286",
+    "data": [
+        {
+            "prompt": "Keep the model pose and the liquid garment flowing shape unchanged. Change the clothing material from silver metal to completely transparent water (or glass). Through the liquid flow, the details of the model skin are visible. The light and shadow effect shifts from reflection to refraction.",
+            "size": "2048x2048",
+            "image_url": "https://platform.cdn.acedata.cloud/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
+        }
+    ]
+}
+```
+
+Το πεδίο `task_id` επιτρέπει τη συσχέτιση των αποτελεσμάτων με την εργασία.
+
+## Διαχείριση Σφαλμάτων
+
+Κατά την κλήση του API, αν προκύψει σφάλμα, το API επιστρέφει τον αντίστοιχο κωδικό και μήνυμα σφάλματος, όπως:
+
+- `400 token_mismatched`: Λανθασμένο αίτημα, πιθανόν λόγω ελλιπών ή μη έγκυρων παραμέτρων.
+- `400 api_not_implemented`: Λανθασμένο αίτημα, πιθανόν λόγω ελλιπών ή μη έγκυρων παραμέτρων.
+- `401 invalid_token`: Μη εξουσιοδοτημένη πρόσβαση, μη έγκυρο ή ελλιπές token.
+- `429 too_many_requests`: Πολύ συχνά αιτήματα, έχετε υπερβεί το όριο ρυθμού.
+- `500 api_error`: Εσωτερικό σφάλμα διακομιστή.
+
+### Παράδειγμα Απάντησης Σφάλματος
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "api_error",
+    "message": "fetch failed"
+  },
+  "trace_id": "2cf86e86-22a4-46e1-ac2f-032c0f2a4e89"
+}
+```
+
+## Συμπέρασμα
+
+Μέσω αυτού του εγγράφου, έχετε μάθει πώς να χρησιμοποιείτε το SeeDream Images Generation API για να δημιουργείτε εικόνες μέσω προτροπών. Ελπίζουμε ότι αυτός ο οδηγός θα σας βοηθήσει να ενσωματώσετε και να χρησιμοποιήσετε το API αποτελεσματικά. Για οποιεσδήποτε απορίες, παρακαλούμε επικοινωνήστε με την ομάδα τεχνικής υποστήριξης.

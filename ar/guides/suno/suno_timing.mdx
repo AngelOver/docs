@@ -1,0 +1,92 @@
+---
+title: "تعليمات تكامل واجهة برمجة تطبيقات توقيت Suno"
+description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+---
+
+تسمح لنا SUNO بإعادة إنشاء الموسيقى التي تم إنشاؤها، والحصول على كلمات الأغاني وخط الزمن الصوتي. توضح هذه الوثيقة طريقة تكامل واجهة برمجة التطبيقات ذات الصلة.
+
+هذه الواجهة تحتوي على معلمة إدخال واحدة فقط، وهي `audio_id`، وهو معرف الأغنية الذي تم إنشاؤه رسميًا.
+
+هنا نستخدم `audio_id` التالي: `ec13e502-d043-4eb2-92ee-e900c6da69d1`.
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/suno/timing"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "audio_id": "ec13e502-d043-4eb2-92ee-e900c6da69d1"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+مقتطف من النتيجة كما يلي:
+
+```
+{
+  "success": true,
+  "task_id": "ccf72cca-1c82-4580-8575-bb141c7e8e48",
+  "trace_id": "d8e0b7c3-6d24-4ed9-98ac-ffe683576a75",
+  "data": {
+    "aligned_words": [
+      {
+        "word": "[Verse]\nSnowflakes ",
+        "success": true,
+        "start_s": 2.63,
+        "end_s": 3.43,
+        "p_align": 0.531
+      },
+      {
+        "word": "dance ",
+        "success": true,
+        "start_s": 3.43,
+        "end_s": 3.91,
+        "p_align": 0.911
+      },
+      {
+        "word": "on ",
+        "success": true,
+        "start_s": 3.91,
+        "end_s": 4.35,
+        "p_align": 0.937
+      },
+      {
+        "word": "rooftops ",
+        "success": true,
+        "start_s": 4.35,
+        "end_s": 5.11,
+        "p_align": 0.366
+      },
+      {
+        "word": "high\n",
+        "success": true,
+        "start_s": 5.11,
+        "end_s": 6.25,
+        "p_align": 0.969
+      },
+      ...
+    ],
+    "waveform_data": [0.02138, 0.02193, 0.01806, 0.16597, 0.15168, 0.14243, ...],
+    "hoot_cer": 0.35013262599469497,
+    "is_streamed": false
+  }
+}
+```
+
+### شرح حقل aligned_words
+
+كما نرى، `data.aligned_words` هو مصفوفة من الكائنات، كل كائن يمثل كلمة أو عبارة مع معلومات زمنية.
+
+- `word`: الكلمة أو العبارة الفعلية في كلمات الأغنية
+- `success`: قيمة منطقية تشير إلى ما إذا تم محاذاة هذه الكلمة بنجاح
+- `start_s`: وقت بدء الكلمة
+- `end_s`: وقت انتهاء الكلمة
+- `p_align`: احتمال المحاذاة أو درجة الثقة، يتراوح بين 0 و 1
