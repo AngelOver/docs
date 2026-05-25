@@ -32,20 +32,6 @@
     }
   },
   "navigation": {
-    "global": {
-      "anchors": [
-        {
-          "anchor": "控制台",
-          "href": "https://api.xhuoapi.ai",
-          "icon": "browser"
-        },
-        {
-          "anchor": "模型价格",
-          "href": "https://api.xhuoapi.ai/pricing",
-          "icon": "dollar-sign"
-        }
-      ]
-    },
     "languages": [
       {
         "language": "zh-Hans",
@@ -413,6 +399,18 @@
               }
             ]
           }
+        ],
+        "anchors": [
+          {
+            "anchor": "控制台",
+            "href": "https://api.xhuoapi.ai",
+            "icon": "browser"
+          },
+          {
+            "anchor": "模型价格",
+            "href": "https://api.xhuoapi.ai/pricing",
+            "icon": "dollar-sign"
+          }
         ]
       },
       {
@@ -769,6 +767,18 @@
               }
             ]
           }
+        ],
+        "anchors": [
+          {
+            "anchor": "Console",
+            "href": "https://api.xhuoapi.ai",
+            "icon": "browser"
+          },
+          {
+            "anchor": "Pricing",
+            "href": "https://api.xhuoapi.ai/pricing",
+            "icon": "dollar-sign"
+          }
         ]
       },
       {
@@ -1093,6 +1103,18 @@
                 ]
               }
             ]
+          }
+        ],
+        "anchors": [
+          {
+            "anchor": "控制台",
+            "href": "https://api.xhuoapi.ai",
+            "icon": "browser"
+          },
+          {
+            "anchor": "模型價格",
+            "href": "https://api.xhuoapi.ai/pricing",
+            "icon": "dollar-sign"
           }
         ]
       },
@@ -1419,6 +1441,18 @@
               }
             ]
           }
+        ],
+        "anchors": [
+          {
+            "anchor": "コンソール",
+            "href": "https://api.xhuoapi.ai",
+            "icon": "browser"
+          },
+          {
+            "anchor": "料金",
+            "href": "https://api.xhuoapi.ai/pricing",
+            "icon": "dollar-sign"
+          }
         ]
       },
       {
@@ -1743,6 +1777,18 @@
                 ]
               }
             ]
+          }
+        ],
+        "anchors": [
+          {
+            "anchor": "콘솔",
+            "href": "https://api.xhuoapi.ai",
+            "icon": "browser"
+          },
+          {
+            "anchor": "요금",
+            "href": "https://api.xhuoapi.ai/pricing",
+            "icon": "dollar-sign"
           }
         ]
       },
@@ -2069,6 +2115,18 @@
               }
             ]
           }
+        ],
+        "anchors": [
+          {
+            "anchor": "Consola",
+            "href": "https://api.xhuoapi.ai",
+            "icon": "browser"
+          },
+          {
+            "anchor": "Precios",
+            "href": "https://api.xhuoapi.ai/pricing",
+            "icon": "dollar-sign"
+          }
         ]
       },
       {
@@ -2393,6 +2451,18 @@
                 ]
               }
             ]
+          }
+        ],
+        "anchors": [
+          {
+            "anchor": "Console",
+            "href": "https://api.xhuoapi.ai",
+            "icon": "browser"
+          },
+          {
+            "anchor": "Tarifs",
+            "href": "https://api.xhuoapi.ai/pricing",
+            "icon": "dollar-sign"
           }
         ]
       },
@@ -2719,6 +2789,18 @@
               }
             ]
           }
+        ],
+        "anchors": [
+          {
+            "anchor": "Konsole",
+            "href": "https://api.xhuoapi.ai",
+            "icon": "browser"
+          },
+          {
+            "anchor": "Preise",
+            "href": "https://api.xhuoapi.ai/pricing",
+            "icon": "dollar-sign"
+          }
         ]
       },
       {
@@ -3043,6 +3125,18 @@
                 ]
               }
             ]
+          }
+        ],
+        "anchors": [
+          {
+            "anchor": "Console",
+            "href": "https://api.xhuoapi.ai",
+            "icon": "browser"
+          },
+          {
+            "anchor": "Preços",
+            "href": "https://api.xhuoapi.ai/pricing",
+            "icon": "dollar-sign"
           }
         ]
       },
@@ -3369,6 +3463,18 @@
               }
             ]
           }
+        ],
+        "anchors": [
+          {
+            "anchor": "Консоль",
+            "href": "https://api.xhuoapi.ai",
+            "icon": "browser"
+          },
+          {
+            "anchor": "Цены",
+            "href": "https://api.xhuoapi.ai/pricing",
+            "icon": "dollar-sign"
+          }
         ]
       },
       {
@@ -3693,6 +3799,18 @@
                 ]
               }
             ]
+          }
+        ],
+        "anchors": [
+          {
+            "anchor": "لوحة التحكم",
+            "href": "https://api.xhuoapi.ai",
+            "icon": "browser"
+          },
+          {
+            "anchor": "الأسعار",
+            "href": "https://api.xhuoapi.ai/pricing",
+            "icon": "dollar-sign"
           }
         ]
       },
@@ -4019,6 +4137,18 @@
               }
             ]
           }
+        ],
+        "anchors": [
+          {
+            "anchor": "Console",
+            "href": "https://api.xhuoapi.ai",
+            "icon": "browser"
+          },
+          {
+            "anchor": "Prezzi",
+            "href": "https://api.xhuoapi.ai/pricing",
+            "icon": "dollar-sign"
+          }
         ]
       },
       {
@@ -4343,6 +4473,18 @@
                 ]
               }
             ]
+          }
+        ],
+        "anchors": [
+          {
+            "anchor": "Konsol",
+            "href": "https://api.xhuoapi.ai",
+            "icon": "browser"
+          },
+          {
+            "anchor": "Priser",
+            "href": "https://api.xhuoapi.ai/pricing",
+            "icon": "dollar-sign"
           }
         ]
       },
@@ -4669,6 +4811,18 @@
               }
             ]
           }
+        ],
+        "anchors": [
+          {
+            "anchor": "Консоль",
+            "href": "https://api.xhuoapi.ai",
+            "icon": "browser"
+          },
+          {
+            "anchor": "Ціни",
+            "href": "https://api.xhuoapi.ai/pricing",
+            "icon": "dollar-sign"
+          }
         ]
       },
       {
@@ -4993,6 +5147,18 @@
                 ]
               }
             ]
+          }
+        ],
+        "anchors": [
+          {
+            "anchor": "Konsola",
+            "href": "https://api.xhuoapi.ai",
+            "icon": "browser"
+          },
+          {
+            "anchor": "Cennik",
+            "href": "https://api.xhuoapi.ai/pricing",
+            "icon": "dollar-sign"
           }
         ]
       }
