@@ -1,15 +1,15 @@
 ---
 title: "Documentazione per l'integrazione dell'API di verifica dello stato del numero di telefono"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Questo documento introduce un'API di verifica dello stato del numero di telefono, che può essere utilizzata per convalidare lo stato di un numero di telefono, è possibile inserire il numero di telefono per effettuare la verifica.
 
 ## Procedura di richiesta
 
-Per utilizzare l'API, è necessario prima andare alla pagina corrispondente dell'[API di verifica dello stato del numero di telefono](https://platform.acedata.cloud/documents/037e2b5b-d0c0-425c-9e13-955ac64d1e07) per richiedere il servizio corrispondente, una volta entrati nella pagina, fare clic sul pulsante "Acquire", come mostrato nell'immagine:
+Per utilizzare l'API, è necessario prima andare alla pagina corrispondente dell'[API di verifica dello stato del numero di telefono](https://api.xhuoapi.ai/documents/037e2b5b-d0c0-425c-9e13-955ac64d1e07) per richiedere il servizio corrispondente, una volta entrati nella pagina, fare clic sul pulsante "Acquire", come mostrato nell'immagine:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Se non si è ancora effettuato il login o la registrazione, si verrà automaticamente reindirizzati alla pagina di login che invita a registrarsi e accedere, dopo aver effettuato il login o la registrazione si tornerà automaticamente alla pagina corrente.
 
@@ -19,7 +19,7 @@ Alla prima richiesta, verrà fornito un credito gratuito, che consente di utiliz
 
 Per prima cosa, è necessario comprendere il modo di utilizzo di base, ovvero inserire il numero di telefono per ottenere il risultato elaborato, è necessario semplicemente passare un campo `mobile`. Possiamo quindi compilare il contenuto corrispondente nell'interfaccia, come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/r17llo.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/r17llo.png" width="500" className="m-auto" /></p>
 
 Si può notare che qui abbiamo impostato le intestazioni della richiesta, tra cui:
 
@@ -33,7 +33,7 @@ Inoltre, abbiamo impostato il corpo della richiesta, tra cui:
 
 Dopo aver effettuato la selezione, si può notare che a destra è stato generato il codice corrispondente, come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/dpun55.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dpun55.png" width="500" className="m-auto" /></p>
 
 Cliccando sul pulsante "Try" è possibile effettuare un test, come mostrato nell'immagine sopra, qui abbiamo ottenuto il seguente risultato:
 
@@ -68,7 +68,7 @@ Si può notare che lo stato di questo numero di telefono è stato già verificat
 Inoltre, se si desidera generare il codice di integrazione corrispondente, è possibile copiarlo direttamente, ad esempio il codice CURL è il seguente:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/phone/check-1e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/phone/check-1e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -82,7 +82,7 @@ Il codice di integrazione in Python è il seguente:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/phone/check-1e"
+url = "https://api.xhuoapi.ai/v1/identity/phone/check-1e"
 
 headers = {
     "accept": "application/json",

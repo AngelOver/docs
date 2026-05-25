@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Chat Completion 4o Image API Application and Usage"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI ChatGPT is a very powerful AI dialogue system that can generate smooth and natural responses in just a few seconds by inputting prompts. ChatGPT stands out in the industry with its excellent language understanding and generation capabilities, and today, ChatGPT has been widely applied in various industries and fields, with its influence becoming increasingly significant. Whether for daily conversations, creative writing, or professional consulting and coding, ChatGPT can provide astonishing intelligent assistance, greatly enhancing human work efficiency and creativity.
@@ -9,9 +9,9 @@ This document mainly introduces the usage process of the OpenAI Chat Completion 
 
 ## Application Process
 
-To use the OpenAI Chat Completion 4o Image API, you can first visit the [OpenAI Chat Completion 4o Image API](https://platform.acedata.cloud/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) page and click the "Acquire" button to obtain the credentials needed for the request:
+To use the OpenAI Chat Completion 4o Image API, you can first visit the [OpenAI Chat Completion 4o Image API](https://api.xhuoapi.ai/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) page and click the "Acquire" button to obtain the credentials needed for the request:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
@@ -23,7 +23,7 @@ There is a free quota available for first-time applicants, allowing you to use t
 
 Below is an example of generating a custom style image based on a reference image. First, let’s look at the input image, as shown below:
 
-![](https://cdn.acedata.cloud/qzx2z1.png)
+![](https://cdn.xhuoapi.ai/qzx2z1.png)
 
 The reference image is a real person's picture, and we can change its style, for example, transforming it into an anime-style image. The specific request example is as follows:
 
@@ -41,7 +41,7 @@ The reference image is a real person's picture, and we can change its style, for
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]
@@ -79,7 +79,7 @@ Sample result:
 
 In which the `choices` inside the `message` is the complete dialogue result, and the image result is also included in the dialogue result. It can be seen that the generated image is indeed in anime style, as shown in the following image:
 
-<p><img src="https://cdn.acedata.cloud/qmr391.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qmr391.jpg" width="400" className="m-auto" /></p>
 
 ### Pure Text Image Generation
 
@@ -99,7 +99,7 @@ We can generate an image through a prompt and return it to us in a conversationa
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]
@@ -137,15 +137,15 @@ Sample result:
 
 It can be seen that the result meets the prompt, as shown below:
 
-<p><img src="https://cdn.acedata.cloud/q502uk.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q502uk.jpg" width="400" className="m-auto" /></p>
 
 ### Generate One Image from Multiple Images
 
 We can also use multiple reference images to generate one image. For example, using an image of a handsome man and a coffee image, we can generate an image of a handsome man drinking coffee. Below are the specific reference images:
 
-<p><img src="https://cdn.acedata.cloud/pqquv3.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pqquv3.jpg" width="400" className="m-auto" /></p>
 
-<p><img src="https://cdn.acedata.cloud/h8j2i0.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/h8j2i0.jpg" width="400" className="m-auto" /></p>
 Below we take `generate a boy holding a coffee and about to drink it` as an example, here are the specific examples:
 
 ```json
@@ -162,13 +162,13 @@ Below we take `generate a boy holding a coffee and about to drink it` as an exam
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/pqquv3.jpg"
+            "url": "https://cdn.xhuoapi.ai/pqquv3.jpg"
           }
         },
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/h8j2i0.jpg"
+            "url": "https://cdn.xhuoapi.ai/h8j2i0.jpg"
           }
         }
       ]
@@ -206,7 +206,7 @@ Sample result:
 
 As you can see, the generated result is indeed a combination of the two images, here is the specific result:
 
-<p><img src="https://cdn.acedata.cloud/89vnpx.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/89vnpx.jpg" width="400" className="m-auto" /></p>
 
 ## Error Handling
 

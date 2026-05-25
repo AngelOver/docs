@@ -1,15 +1,15 @@
 ---
 title: "Verificación de dos factores del número de teléfono API Instrucciones de integración"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Este documento presentará una verificación de dos factores del número de teléfono API, que se puede utilizar para verificar la autenticidad y consistencia del número de teléfono y el nombre.
 
 ## Proceso de solicitud
 
-Para utilizar la API, primero debe ir a la página correspondiente de [Verificación de dos factores del número de teléfono API](https://platform.acedata.cloud/documents/1f39c948-6d9b-48f5-83fb-0719da4f6ab0) para solicitar el servicio correspondiente. Una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
+Para utilizar la API, primero debe ir a la página correspondiente de [Verificación de dos factores del número de teléfono API](https://api.xhuoapi.ai/documents/1f39c948-6d9b-48f5-83fb-0719da4f6ab0) para solicitar el servicio correspondiente. Una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Si aún no ha iniciado sesión o registrado, será redirigido automáticamente a la página de inicio de sesión que le invita a registrarse e iniciar sesión. Después de iniciar sesión o registrarse, volverá automáticamente a la página actual.
 
@@ -19,7 +19,7 @@ En la primera solicitud, se le otorgará un límite gratuito que le permitirá u
 
 Primero, comprenda la forma básica de uso, que consiste en ingresar el número de teléfono para obtener el resultado procesado. Primero, necesita pasar un campo `mobile`. A continuación, podemos completar el contenido correspondiente en la interfaz, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/v6k96j.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/v6k96j.png" width="500" className="m-auto" /></p>
 
 Aquí podemos ver que hemos configurado los encabezados de la solicitud, que incluyen:
 
@@ -34,7 +34,7 @@ Además, se configuró el cuerpo de la solicitud, que incluye:
 
 Después de seleccionar, puede notar que también se generó el código correspondiente a la derecha, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/lq800o.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lq800o.png" width="500" className="m-auto" /></p>
 
 Haga clic en el botón "Try" para realizar la prueba, como se muestra en la imagen anterior, aquí obtuvimos el siguiente resultado:
 
@@ -65,7 +65,7 @@ Se puede ver que la autenticidad y consistencia del número de teléfono y el no
 Además, si desea generar el código de integración correspondiente, puede copiarlo directamente, por ejemplo, el código de CURL es el siguiente:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/phone/check-2e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/phone/check-2e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -80,7 +80,7 @@ El código de integración en Python es el siguiente:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/phone/check-2e"
+url = "https://api.xhuoapi.ai/v1/identity/phone/check-2e"
 
 headers = {
     "accept": "application/json",

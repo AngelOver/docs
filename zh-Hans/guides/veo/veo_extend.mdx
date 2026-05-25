@@ -1,6 +1,6 @@
 ---
 title: "Veo Extend API 对接说明"
-description: "Veo Video Generation 集成指南 - Ace Data Cloud"
+description: "Veo Video Generation 集成指南 - XHuoAPI"
 ---
 
 本文将介绍 Veo Extend API 的对接说明。该接口用于对一段已经生成的 Veo 视频进行**时长延展**，AI 会自动续写后续画面。
@@ -20,7 +20,7 @@ description: "Veo Video Generation 集成指南 - Ace Data Cloud"
 请求示例：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/veo/extend' \
+curl -X POST 'https://api.xhuoapi.ai/v1/veo/extend' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -40,7 +40,7 @@ curl -X POST 'https://api.acedata.cloud/veo/extend' \
   "data": [
     {
       "id": "9b6f3b6b9c45419fbf2e3fe2f10b2b3a",
-      "video_url": "https://platform.cdn.acedata.cloud/veo/5fa2d9a6.mp4",
+      "video_url": "https://platform.cdn.xhuoapi.ai/veo/5fa2d9a6.mp4",
       "created_at": "2025-07-25 16:07:43",
       "complete_at": "2025-07-25 16:10:28",
       "state": "succeeded"

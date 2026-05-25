@@ -1,17 +1,17 @@
 ---
 title: "Tutorial de Uso do Claude Code GitHub Actions"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code é uma ferramenta de **Programação Agentic** lançada pela Anthropic, também conhecida como um dos agentes de programação mais poderosos do mundo. O Claude Code GitHub Actions pode integrar a capacidade de programação da IA ao seu fluxo de trabalho do GitHub; basta mencionar `@claude` em um PR ou Issue para que o Claude analise automaticamente o código, crie PRs, implemente funcionalidades e corrija bugs.
 
-Este documento descreve principalmente como configurar e usar o Claude Code GitHub Actions através do serviço de proxy da AceData Cloud.
+Este documento descreve principalmente como configurar e usar o Claude Code GitHub Actions através do serviço de proxy da XHuoAPI.
 
 ## Processo de Solicitação
 
-Para usar o Claude Code, primeiro você pode acessar a [página de serviços do Claude Messages](https://platform.acedata.cloud/documents/claude-messages) e clicar no botão "Acquire" para obter as credenciais necessárias para a solicitação:
+Para usar o Claude Code, primeiro você pode acessar a [página de serviços do Claude Messages](https://api.xhuoapi.ai/documents/claude-messages) e clicar no botão "Acquire" para obter as credenciais necessárias para a solicitação:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Se você ainda não estiver logado ou registrado, será redirecionado automaticamente para a página de login, convidando-o a se registrar e fazer login; após o registro e login, você será retornado à página atual.
 
@@ -30,7 +30,7 @@ Na primeira solicitação, haverá um crédito gratuito disponível para que voc
 
 Acesse [https://github.com/apps/claude](https://github.com/apps/claude) e instale o App do Claude no seu repositório.
 
-![Página de Instalação do App do GitHub Claude](https://cdn.acedata.cloud/ba4b8df66d.png)
+![Página de Instalação do App do GitHub Claude](https://cdn.xhuoapi.ai/ba4b8df66d.png)
 
 Este App requer as seguintes permissões do repositório:
 
@@ -42,14 +42,14 @@ Este App requer as seguintes permissões do repositório:
 
 ### Passo Dois: Adicionar a Chave da API
 
-Adicione a chave da API da AceData Cloud como um Secret do repositório:
+Adicione a chave da API da XHuoAPI como um Secret do repositório:
 
 1. Acesse **Settings** do repositório → **Secrets and variables** → **Actions**
 2. Clique em **New repository secret**
-3. No campo Name, preencha `ANTHROPIC_API_KEY`, e no campo Value, insira o token da API que você obteve na AceData Cloud
+3. No campo Name, preencha `ANTHROPIC_API_KEY`, e no campo Value, insira o token da API que você obteve na XHuoAPI
 4. Clique em **Add secret** para salvar
 
-> **Dica**: O token da API pode ser visualizado no [console da AceData Cloud](https://platform.acedata.cloud/console).
+> **Dica**: O token da API pode ser visualizado no [console da XHuoAPI](https://api.xhuoapi.ai/console).
 
 ### Passo Três: Criar o Arquivo de Workflow
 
@@ -76,7 +76,7 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 ```
 
-Se precisar usar o endpoint da API de proxy da AceData Cloud, também será necessário definir a variável de ambiente no Workflow:
+Se precisar usar o endpoint da API de proxy da XHuoAPI, também será necessário definir a variável de ambiente no Workflow:
 
 ```yaml
 name: Claude Code
@@ -94,7 +94,7 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
         env:
-          ANTHROPIC_BASE_URL: "https://api.acedata.cloud"
+          ANTHROPIC_BASE_URL: "https://api.xhuoapi.ai/v1"
 ```
 
 ## Modo de Uso
@@ -130,7 +130,7 @@ jobs:
           prompt: "/review"
           claude_args: "--max-turns 5"
         env:
-          ANTHROPIC_BASE_URL: "https://api.acedata.cloud"
+          ANTHROPIC_BASE_URL: "https://api.xhuoapi.ai/v1"
 ```
 
 ### Automação de Tarefas Agendadas
@@ -152,7 +152,7 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: "Gerar um resumo dos commits de ontem e um relatório dos Issues não fechados"
         env:
-          ANTHROPIC_BASE_URL: "https://api.acedata.cloud"
+          ANTHROPIC_BASE_URL: "https://api.xhuoapi.ai/v1"
 ```
 
 ## Descrição dos Parâmetros da Action
@@ -215,12 +215,12 @@ Crie um arquivo `CLAUDE.md` no diretório raiz do repositório, definindo diretr
 
 ### Como verificar o saldo restante?
 
-Faça login no [Painel de Controle AceData Cloud](https://platform.acedata.cloud/console) para visualizar o saldo restante e o uso atual da conta.
+Faça login no [Painel de Controle XHuoAPI](https://api.xhuoapi.ai/console) para visualizar o saldo restante e o uso atual da conta.
 
 ## Saiba mais
 
 - 📖 [Documentação oficial do Claude Code GitHub Actions](https://code.claude.com/docs/en/github-actions)
 - 📂 [Repositório claude-code-action](https://github.com/anthropics/claude-code-action)
 - 📋 [Exemplo de Workflow](https://github.com/anthropics/claude-code-action/tree/main/examples)
-- 🔧 [Serviço Claude Code da AceData Cloud](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [Serviço Claude Code da XHuoAPI](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 Se tiver alguma dúvida, sinta-se à vontade para entrar em contato conosco através do suporte da plataforma

@@ -3,7 +3,7 @@ title: "Midjourney MCP Integrationsanleitung"
 description: "midjourney MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) ist ein von Anthropic eingeführtes Modellkontextprotokoll, das es KI-Modellen (wie Claude, GPT usw.) ermöglicht, externe Werkzeuge über standardisierte Schnittstellen aufzurufen. Über den von AceData Cloud bereitgestellten Midjourney MCP Server kannst du direkt in KI-Clients wie Claude Desktop, VS Code, Cursor usw. KI-Bilder generieren und bearbeiten.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) ist ein von Anthropic eingeführtes Modellkontextprotokoll, das es KI-Modellen (wie Claude, GPT usw.) ermöglicht, externe Werkzeuge über standardisierte Schnittstellen aufzurufen. Über den von XHuoAPI bereitgestellten Midjourney MCP Server kannst du direkt in KI-Clients wie Claude Desktop, VS Code, Cursor usw. KI-Bilder generieren und bearbeiten.
 
 ## Funktionsübersicht
 
@@ -22,10 +22,10 @@ Der Midjourney MCP Server bietet folgende Kernfunktionen:
 
 ## Vorbereitungen
 
-Vor der Nutzung musst du ein AceData Cloud API Token erhalten:
+Vor der Nutzung musst du ein XHuoAPI API Token erhalten:
 
-1. Registriere dich oder melde dich bei der [AceData Cloud Plattform](https://platform.acedata.cloud) an
-2. Gehe zur [Midjourney Imagine API](https://platform.acedata.cloud/documents/midjourney-imagine) Seite
+1. Registriere dich oder melde dich bei der [XHuoAPI Plattform](https://api.xhuoapi.ai) an
+2. Gehe zur [Midjourney Imagine API](https://api.xhuoapi.ai/documents/midjourney-imagine) Seite
 3. Klicke auf „Acquire“, um ein API Token zu erhalten (bei der ersten Anfrage gibt es ein kostenloses Kontingent)
 
 ## Installation und Konfiguration
@@ -39,7 +39,7 @@ pip install mcp-midjourney
 ### Methode 2: Quellcode-Installation
 
 ```bash
-git clone https://github.com/AceDataCloud/MidjourneyMCP.git
+git clone https://github.com/XHuoAPI/MidjourneyMCP.git
 cd MidjourneyMCP
 pip install -e .
 ```
@@ -61,7 +61,7 @@ Füge die folgende Konfiguration hinzu:
     "midjourney": {
       "command": "mcp-midjourney",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "dein API Token"
+        "XHuoAPI_API_TOKEN": "dein API Token"
       }
     }
   }
@@ -77,7 +77,7 @@ Wenn du `uvx` verwendest (keine vorherige Installation erforderlich):
       "command": "uvx",
       "args": ["mcp-midjourney"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "dein API Token"
+        "XHuoAPI_API_TOKEN": "dein API Token"
       }
     }
   }
@@ -96,7 +96,7 @@ Erstelle im Stammverzeichnis des Projekts die Datei `.vscode/mcp.json`:
     "midjourney": {
       "command": "mcp-midjourney",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "dein API Token"
+        "XHuoAPI_API_TOKEN": "dein API Token"
       }
     }
   }
@@ -112,7 +112,7 @@ Oder verwende `uvx`:
       "command": "uvx",
       "args": ["mcp-midjourney"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "dein API Token"
+        "XHuoAPI_API_TOKEN": "dein API Token"
       }
     }
   }
@@ -149,6 +149,6 @@ Nach der Konfiguration kannst du diese Funktionen direkt in KI-Clients mit natü
 
 ## Weitere Informationen
 
-- GitHub Repository: [AceDataCloud/MidjourneyMCP](https://github.com/AceDataCloud/MidjourneyMCP)
+- GitHub Repository: [XHuoAPI/MidjourneyMCP](https://github.com/XHuoAPI/MidjourneyMCP)
 - PyPI Paket: [mcp-midjourney](https://pypi.org/project/mcp-midjourney/)
-- API Dokumentation: [Midjourney Generierungs-API](https://platform.acedata.cloud/documents/midjourney)
+- API Dokumentation: [Midjourney Generierungs-API](https://api.xhuoapi.ai/documents/midjourney)

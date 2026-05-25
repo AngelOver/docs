@@ -1,26 +1,26 @@
 ---
 title: "Claude Code – szybki start w 5 minut"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
-Celem tego dokumentu jest jedno: pozwolić Ci **w ciągu 5 minut** uruchomić pierwsze polecenie Claude Code za pomocą proxy AceData Cloud. Pełne tutoriale znajdziesz w poddokumentach dla poszczególnych IDE ([VS Code](https://platform.acedata.cloud/documents/claude-code-vscode-integrations) / [Cursor](https://platform.acedata.cloud/documents/claude-code-cursor-integration) / [JetBrains](https://platform.acedata.cloud/documents/claude-code-jetbrains-integrations)); tutaj skupiamy się tylko na najszybszej ścieżce „**CLI w terminalu** + **rozszerzenie VS Code**”.
+Celem tego dokumentu jest jedno: pozwolić Ci **w ciągu 5 minut** uruchomić pierwsze polecenie Claude Code za pomocą proxy XHuoAPI. Pełne tutoriale znajdziesz w poddokumentach dla poszczególnych IDE ([VS Code](https://api.xhuoapi.ai/documents/claude-code-vscode-integrations) / [Cursor](https://api.xhuoapi.ai/documents/claude-code-cursor-integration) / [JetBrains](https://api.xhuoapi.ai/documents/claude-code-jetbrains-integrations)); tutaj skupiamy się tylko na najszybszej ścieżce „**CLI w terminalu** + **rozszerzenie VS Code**”.
 
-> **Dlaczego używać proxy AceData Cloud dla Claude Code**:
+> **Dlaczego używać proxy XHuoAPI dla Claude Code**:
 > - Bezpośrednie połączenie w Chinach, bez potrzeby VPN
 > - Niższe ceny niż oficjalne (rozliczanie według tokenów platformy)
 > - Jeden klucz obsługuje jednocześnie Claude Messages API oraz protokół Claude Code Token
 
 ## Minuta 1: Uzyskanie poświadczeń
 
-Otwórz [stronę usługi Claude Messages](https://platform.acedata.cloud/documents/claude-messages) i kliknij przycisk „**Acquire**”:
+Otwórz [stronę usługi Claude Messages](https://api.xhuoapi.ai/documents/claude-messages) i kliknij przycisk „**Acquire**”:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Platforma automatycznie utworzy dla Ciebie aplikację i przyzna darmowy limit. Zapisz sobie **Base URL** oraz **API Token** z strony szczegółów — będą potrzebne w kolejnych 5 krokach.
 
 | Pole | Wartość | Zastosowanie |
 |------|---------|--------------|
-| `BASE_URL` | `https://api.acedata.cloud` | Punkt wejścia kompatybilny z Claude Messages |
+| `BASE_URL` | `https://api.xhuoapi.ai/v1` | Punkt wejścia kompatybilny z Claude Messages |
 | `API_TOKEN` | `sk-...` (kopiowalne ze strony) | Nagłówek autoryzacji kompatybilny z Anthropic |
 
 ## Minuta 2: Instalacja Claude Code
@@ -45,14 +45,14 @@ claude --version
 
 > Jeśli zobaczysz numer wersji, oznacza to sukces. Claude Code zawiera własne środowisko Node.js, nie zależy od wersji Node na Twoim komputerze.
 
-## Minuta 3: Skierowanie zmiennych środowiskowych na AceData Cloud
+## Minuta 3: Skierowanie zmiennych środowiskowych na XHuoAPI
 
 Nie korzystaj z oficjalnego procesu `claude login`, zamiast tego nadpisz zmienne środowiskowe. Wybierz jedną z dwóch metod:
 
 **Metoda A: Tymczasowa (tylko bieżąca sesja Shell)**
 
 ```bash
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 export ANTHROPIC_AUTH_TOKEN="sk-Twój-Token"
 ```
 
@@ -87,39 +87,39 @@ Powinieneś zobaczyć, jak Claude korzysta z narzędzi `read_file` / `glob` / `g
 
 > **Wskazówka**: rozszerzenie VS Code i CLI korzystają z tego samego pliku `~/.claude/settings.json`, więc nie musisz konfigurować go osobno w VS Code. Jeśli chcesz nadpisać konfigurację na poziomie projektu, utwórz w katalogu głównym repozytorium plik `.claude/settings.local.json` (jest ignorowany przez git).
 
-Po poprawnym skonfigurowaniu możesz przeciągać pliki do panelu, zadawać pytania i używać `@-mention`, aby odnosić się do plików i proponować zmiany. Wszystkie opłaty są rozliczane przez AceData Cloud.
+Po poprawnym skonfigurowaniu możesz przeciągać pliki do panelu, zadawać pytania i używać `@-mention`, aby odnosić się do plików i proponować zmiany. Wszystkie opłaty są rozliczane przez XHuoAPI.
 
 ## Sprawdź, czy faktycznie korzystasz z proxy
 
-Uruchom raz z trybem debugowania, aby potwierdzić, że żądania trafiają do AceData Cloud:
+Uruchom raz z trybem debugowania, aby potwierdzić, że żądania trafiają do XHuoAPI:
 
 ```bash
-claude --debug -p "say hi" 2>&1 | grep -iE 'base.?url|api\.acedata|anthropic\.com' | head
+claude --debug -p "say hi" 2>&1 | grep -iE 'base.?url|api\.XHuoAPI|anthropic\.com' | head
 ```
 
-Jeśli zobaczysz `https://api.acedata.cloud`, oznacza to, że proxy działa; jeśli pojawi się `api.anthropic.com` lub błąd 401, wróć do minuty 3 i sprawdź nazwę zmiennej środowiskowej (musi być `ANTHROPIC_AUTH_TOKEN`, nie `ANTHROPIC_API_KEY`) oraz upewnij się, że plik `~/.claude/.credentials.json` nie zawiera oficjalnego tokena (usuń ten plik, jeśli istnieje).
+Jeśli zobaczysz `https://api.xhuoapi.ai/v1`, oznacza to, że proxy działa; jeśli pojawi się `api.anthropic.com` lub błąd 401, wróć do minuty 3 i sprawdź nazwę zmiennej środowiskowej (musi być `ANTHROPIC_AUTH_TOKEN`, nie `ANTHROPIC_API_KEY`) oraz upewnij się, że plik `~/.claude/.credentials.json` nie zawiera oficjalnego tokena (usuń ten plik, jeśli istnieje).
 
 ## 5 najczęściej zadawanych pytań
 
-**P: Po wykonaniu `claude login` i zmianie zmiennych środowiskowych na AceData, dlaczego to nie działa?**  
+**P: Po wykonaniu `claude login` i zmianie zmiennych środowiskowych na XHuoAPI, dlaczego to nie działa?**  
 O: `claude login` zapisuje oficjalny token w `~/.claude/.credentials.json`, który ma wyższy priorytet niż zmienne środowiskowe. Usuń ten plik i wykonaj `source ~/.zshrc`.
 
 **P: Czy mogę używać modeli takich jak `--model claude-opus-4-7`?**  
-O: Tak. Proxy AceData Cloud przekazuje pole `model` bez zmian, więc obsługiwane są wszystkie publiczne modele Anthropic oraz rozszerzenia takie jak `claude-opus-4-7`, `claude-haiku-4-5`, `claude-sonnet-4-5`.
+O: Tak. Proxy XHuoAPI przekazuje pole `model` bez zmian, więc obsługiwane są wszystkie publiczne modele Anthropic oraz rozszerzenia takie jak `claude-opus-4-7`, `claude-haiku-4-5`, `claude-sonnet-4-5`.
 
 **P: Czy można skonfigurować wiele profili (np. prywatny i firmowy)?**  
 O: Tak. Claude Code wspiera wiele profili w `~/.claude/settings.json`; najprościej jest też stworzyć dwa skrypty powłoki `claude_personal` i `claude_work`, które eksportują różne wartości `ANTHROPIC_AUTH_TOKEN` i wywołują `claude $@`.
 
 **P: Czy można uruchomić Claude Code w GitHub Actions?**  
-O: Tak. Szczegóły znajdziesz w [Claude Code GitHub Actions integration](https://platform.acedata.cloud/documents/claude-code-github-actions-integration).
+O: Tak. Szczegóły znajdziesz w [Claude Code GitHub Actions integration](https://api.xhuoapi.ai/documents/claude-code-github-actions-integration).
 
 **P: Co po wykorzystaniu darmowego limitu?**  
-O: Przejdź do [zarządzania aplikacją](https://platform.acedata.cloud/applications) → wybierz aplikację Claude → doładuj konto (opłaty według zużycia tokenów) lub przełącz się na subskrypcję punktową.
+O: Przejdź do [zarządzania aplikacją](https://api.xhuoapi.ai/applications) → wybierz aplikację Claude → doładuj konto (opłaty według zużycia tokenów) lub przełącz się na subskrypcję punktową.
 
 ## Co dalej
 
-- [Pełny tutorial terminalowy Claude Code](https://platform.acedata.cloud/documents/claude-code-terminal-integration)  
-- [Tutorial integracji z VS Code](https://platform.acedata.cloud/documents/claude-code-vscode-integrations)  
-- [Tutorial integracji z Cursor](https://platform.acedata.cloud/documents/claude-code-cursor-integration)  
-- [Tutorial integracji z JetBrains IDE](https://platform.acedata.cloud/documents/claude-code-jetbrains-integrations)  
-- [Tutorial integracji z GitHub Actions](https://platform.acedata.cloud/documents/claude-code-github-actions-integration)
+- [Pełny tutorial terminalowy Claude Code](https://api.xhuoapi.ai/documents/claude-code-terminal-integration)  
+- [Tutorial integracji z VS Code](https://api.xhuoapi.ai/documents/claude-code-vscode-integrations)  
+- [Tutorial integracji z Cursor](https://api.xhuoapi.ai/documents/claude-code-cursor-integration)  
+- [Tutorial integracji z JetBrains IDE](https://api.xhuoapi.ai/documents/claude-code-jetbrains-integrations)  
+- [Tutorial integracji z GitHub Actions](https://api.xhuoapi.ai/documents/claude-code-github-actions-integration)

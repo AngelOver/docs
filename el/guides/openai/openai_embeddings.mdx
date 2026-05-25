@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Embeddings API Αίτηση και Χρήση"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 Η υπηρεσία λέξεων OpenAI χρησιμοποιείται για τη δημιουργία λέξεων που αντιπροσωπεύουν τα αποτελέσματα του εισαγόμενου κειμένου.
@@ -9,9 +9,9 @@ description: "OpenAI generation 集成指南 - Ace Data Cloud"
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το OpenAI Embeddings API, μπορείτε πρώτα να επισκεφθείτε τη σελίδα [OpenAI Embeddings API](https://platform.acedata.cloud/documents/0f2e63fa-5890-4bdd-84f0-1706b5c9a387) και να κάνετε κλικ στο κουμπί «Acquire» για να αποκτήσετε τα απαραίτητα διαπιστευτήρια:
+Για να χρησιμοποιήσετε το OpenAI Embeddings API, μπορείτε πρώτα να επισκεφθείτε τη σελίδα [OpenAI Embeddings API](https://api.xhuoapi.ai/documents/0f2e63fa-5890-4bdd-84f0-1706b5c9a387) και να κάνετε κλικ στο κουμπί «Acquire» για να αποκτήσετε τα απαραίτητα διαπιστευτήρια:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη σελίδα σύνδεσης που σας προσκαλεί να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη σελίδα.
 
@@ -21,7 +21,7 @@ description: "OpenAI generation 集成指南 - Ace Data Cloud"
 
 Στη συνέχεια, μπορείτε να συμπληρώσετε τα αντίστοιχα περιεχόμενα στην οθόνη, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/4qtbvr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4qtbvr.png" width="500" className="m-auto" /></p>
 
 Κατά την πρώτη χρήση αυτού του API, πρέπει τουλάχιστον να συμπληρώσετε τρία περιεχόμενα: το ένα είναι το `authorization`, το οποίο μπορείτε να επιλέξετε απευθείας από τη λίστα. Ένα άλλο παράμετρο είναι το `model`, το οποίο είναι η κατηγορία μοντέλου που επιλέγουμε να χρησιμοποιήσουμε από την επίσημη ιστοσελίδα του OpenAI. Εδώ έχουμε κυρίως 3 μοντέλα, λεπτομέρειες μπορείτε να δείτε στα μοντέλα που παρέχουμε. Η τελευταία παράμετρος είναι το `input`, το οποίο είναι το κείμενο που θέλουμε να μετατρέψουμε σε λέξεις.
 
@@ -32,14 +32,14 @@ description: "OpenAI generation 集成指南 - Ace Data Cloud"
 - `dimensions`: Κόβει τις διαστάσεις του διανύσματος, η προεπιλεγμένη έξοδος είναι η πλήρης διάσταση.
 - `encoding_format`: Μορφή επιστροφής, επιλέξιμο `float` ή `base64`.
 
-<p><img src="https://cdn.acedata.cloud/gqulm9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gqulm9.png" width="500" className="m-auto" /></p>
 
 Παράδειγμα κώδικα κλήσης Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/embeddings"
+url = "https://api.xhuoapi.ai/v1/openai/embeddings"
 
 headers = {
     "accept": "application/json",

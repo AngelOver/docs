@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Images Edits API Beantragung und Nutzung"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 Der OpenAI Bildbearbeitungsdienst ermöglicht das Hochladen beliebig vieler Bilder und Anweisungen und gibt die bearbeiteten Bilder aus. Die Schnittstelle unterstützt derzeit gleichzeitig `dall-e-2`, `gpt-image-1`, das neueste **`gpt-image-2`** sowie über dieselbe Schnittstelle angebundene Modelle der **`nano-banana` / `nano-banana-2` / `nano-banana-pro`** Serie.
@@ -9,9 +9,9 @@ Dieses Dokument beschreibt hauptsächlich den Nutzungsprozess der OpenAI Images 
 
 ## Beantragungsprozess
 
-Um die OpenAI Images Edits API zu nutzen, können Sie zunächst auf der Seite [OpenAI Images Edits API](https://platform.acedata.cloud/documents/251f1efa-aaa6-462e-8af4-66854b1bc94d) den Button „Acquire“ anklicken, um die für Anfragen benötigten Zugangsdaten zu erhalten:
+Um die OpenAI Images Edits API zu nutzen, können Sie zunächst auf der Seite [OpenAI Images Edits API](https://api.xhuoapi.ai/documents/251f1efa-aaa6-462e-8af4-66854b1bc94d) den Button „Acquire“ anklicken, um die für Anfragen benötigten Zugangsdaten zu erhalten:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Wenn Sie noch nicht eingeloggt oder registriert sind, werden Sie automatisch zur Login-Seite weitergeleitet, um sich zu registrieren und anzumelden. Nach der Anmeldung kehren Sie automatisch auf diese Seite zurück.
 
@@ -57,17 +57,17 @@ Senden Sie die Anfrage direkt als `application/json` mit dem Feld `image`, das e
 
 Zum Beispiel ist das folgende Originalbild eine mit `gpt-image-2` generierte Infografik:
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/5c9fa635-8794-4c6d-88f8-584d7f4716c6_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/5c9fa635-8794-4c6d-88f8-584d7f4716c6_0.png" width="500" className="m-auto" /></p>
 
 Wir möchten es in einen „Nachtmodus“-Farbstil ändern. Der Aufruf sieht so aus:
 
 ```shell
-curl -X POST "https://api.acedata.cloud/openai/images/edits" \
+curl -X POST "https://api.xhuoapi.ai/v1/openai/images/edits" \
   -H "Authorization: Bearer {token}" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "gpt-image-2",
-    "image": "https://platform.cdn.acedata.cloud/gpt-image/5c9fa635-8794-4c6d-88f8-584d7f4716c6_0.png",
+    "image": "https://platform.cdn.xhuoapi.ai/gpt-image/5c9fa635-8794-4c6d-88f8-584d7f4716c6_0.png",
     "prompt": "Convert this infographic to dark mode: dark navy background, light cream text, deep gray rounded module cards with soft shadows. Keep all layout, structure, and module arrangement identical — only invert the color scheme.",
     "size": "1024x1536"
   }'
@@ -78,7 +78,7 @@ Oder mit Python:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/edits"
+url = "https://api.xhuoapi.ai/v1/openai/images/edits"
 
 headers = {
     "accept": "application/json",
@@ -88,7 +88,7 @@ headers = {
 
 payload = {
     "model": "gpt-image-2",
-    "image": "https://platform.cdn.acedata.cloud/gpt-image/5c9fa635-8794-4c6d-88f8-584d7f4716c6_0.png",
+    "image": "https://platform.cdn.xhuoapi.ai/gpt-image/5c9fa635-8794-4c6d-88f8-584d7f4716c6_0.png",
     "prompt": "Convert this infographic to dark mode: dark navy background, light cream text, deep gray rounded module cards with soft shadows. Keep all layout, structure, and module arrangement identical — only invert the color scheme.",
     "size": "1024x1536"
 }
@@ -108,7 +108,7 @@ Die Rückgabe sieht folgendermaßen aus:
   "data": [
     {
       "revised_prompt": "Convert this infographic to dark mode: dark navy background, light cream text, deep gray rounded module cards with soft shadows. Keep all layout, structure, and module arrangement identical — only invert the color scheme.",
-      "url": "https://platform.cdn.acedata.cloud/gpt-image/cb104e35-af1f-45be-9fac-b62e2b256753_0.png"
+      "url": "https://platform.cdn.xhuoapi.ai/gpt-image/cb104e35-af1f-45be-9fac-b62e2b256753_0.png"
     }
   ],
   "elapsed": 83.859
@@ -117,7 +117,7 @@ Die Rückgabe sieht folgendermaßen aus:
 
 Das bearbeitete Bild sieht so aus:
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/cb104e35-af1f-45be-9fac-b62e2b256753_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/cb104e35-af1f-45be-9fac-b62e2b256753_0.png" width="500" className="m-auto" /></p>
 
 Man sieht, dass Modulstruktur, Informationsbereiche und Schriftbild strikt erhalten bleiben, nur die Farbgebung wurde in ein dunkles Thema invertiert.
 
@@ -146,14 +146,14 @@ Hier ein weiteres Beispiel, bei dem ein hölzernes Bücherregal durch ein modern
 
 Originalbild (mit `gpt-image-2` generiertes hölzernes Regal):
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/141970f0-65fb-4ec8-ab7d-9be173641350_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/141970f0-65fb-4ec8-ab7d-9be173641350_0.png" width="500" className="m-auto" /></p>
 
 Aufruf:
 
 ```python
 payload = {
     "model": "gpt-image-2",
-    "image": "https://platform.cdn.acedata.cloud/gpt-image/141970f0-65fb-4ec8-ab7d-9be173641350_0.png",
+    "image": "https://platform.cdn.xhuoapi.ai/gpt-image/141970f0-65fb-4ec8-ab7d-9be173641350_0.png",
     "prompt": "Replace the wooden bookshelf with a sleek modern white floating shelf mounted on a pastel blue wall. Keep the exact same arrangement of books (1 book on top, 3 in middle, 7 on bottom). Add a small potted succulent on the top shelf next to the book. Bright airy daylight from the left.",
     "size": "1024x1024"
 }
@@ -161,7 +161,7 @@ payload = {
 
 Bearbeitungsergebnis (`task_id`: `e9544dba-727e-44a2-81e1-223d49869380`):
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/e9544dba-727e-44a2-81e1-223d49869380_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/e9544dba-727e-44a2-81e1-223d49869380_0.png" width="500" className="m-auto" /></p>
 
 Man sieht, dass Stil und Umgebung gemäß dem Prompt vollständig ersetzt wurden, aber die Buchanzahl pro Ebene (1 / 3 / 7) strikt erhalten blieb und zusätzlich eine kleine Sukkulente auf dem oberen Regal hinzugefügt wurde.
 
@@ -186,10 +186,10 @@ with open("edited.png", "wb") as f:
     f.write(image_bytes)
 ```
 
-Beim Einsatz des SDK müssen zwei Umgebungsvariablen gesetzt werden: `OPENAI_BASE_URL` auf `https://api.acedata.cloud/openai` und `OPENAI_API_KEY` auf das beantragte Token:
+Beim Einsatz des SDK müssen zwei Umgebungsvariablen gesetzt werden: `OPENAI_BASE_URL` auf `https://api.xhuoapi.ai/v1/openai` und `OPENAI_API_KEY` auf das beantragte Token:
 
 ```shell
-export OPENAI_BASE_URL=https://api.acedata.cloud/openai
+export OPENAI_BASE_URL=https://api.xhuoapi.ai/v1/openai
 export OPENAI_API_KEY={token}
 ```
 
@@ -214,11 +214,11 @@ Die `nano-banana` Serie ist ebenfalls über `/openai/images/edits` angebunden, �
 ### Aufruf per Formular + Bild-URL
 
 ```shell
-curl -X POST "https://api.acedata.cloud/openai/images/edits" \
+curl -X POST "https://api.xhuoapi.ai/v1/openai/images/edits" \
   -H "Authorization: Bearer {token}" \
   -F "model=nano-banana" \
   -F "prompt=add a green leaf on top of the apple" \
-  -F "image=https://platform.cdn.acedata.cloud/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png"
+  -F "image=https://platform.cdn.xhuoapi.ai/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png"
 ```
 
 Die Antwort:
@@ -228,7 +228,7 @@ Die Antwort:
   "created": 0,
   "data": [
     {
-      "url": "https://platform.cdn.acedata.cloud/nanobanana/311e95b6-5eb1-4c4a-8ee6-0cb03ee44f61.jpeg",
+      "url": "https://platform.cdn.xhuoapi.ai/nanobanana/311e95b6-5eb1-4c4a-8ee6-0cb03ee44f61.jpeg",
       "revised_prompt": "add a green leaf on top of the apple"
     }
   ]
@@ -237,14 +237,14 @@ Die Antwort:
 
 Das bearbeitete Bild:
 
-<p><img src="https://platform.cdn.acedata.cloud/nanobanana/311e95b6-5eb1-4c4a-8ee6-0cb03ee44f61.jpeg" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/nanobanana/311e95b6-5eb1-4c4a-8ee6-0cb03ee44f61.jpeg" width="500" className="m-auto" /></p>
 
 ### Aufruf per Formular + lokale Datei
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/edits"
+url = "https://api.xhuoapi.ai/v1/openai/images/edits"
 
 headers = {
     "authorization": "Bearer {token}"
@@ -273,7 +273,7 @@ Nun können Sie die API per Code aufrufen, hier ein Beispiel mit CURL:
 ```curl
 curl -s -D >(grep -i x-request-id >&2) \
   -o >(jq -r '.data[0].b64_json' | base64 --decode > gift-basket.png) \
-  -X POST "https://api.acedata.cloud/v1/images/edits" \
+  -X POST "https://api.xhuoapi.ai/v1/v1/images/edits" \
   -H "Authorization: Bearer {token}" \
   -F "model=gpt-image-1" \
   -F "image[]=@test.png" \
@@ -282,7 +282,7 @@ curl -s -D >(grep -i x-request-id >&2) \
 
 Beim ersten Gebrauch der Schnittstelle müssen mindestens vier Angaben gemacht werden: `authorization` (kann aus Dropdown ausgewählt werden), `model` (Modelltyp, siehe unsere Modellübersicht), `prompt` (Textbeschreibung für die Bildgenerierung) und `image` (Pfad zum zu bearbeitenden Bild). Das Beispielbild sieht so aus:
 
-<p><img src="https://cdn.acedata.cloud/jw9iwu.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jw9iwu.png" width="500" className="m-auto" /></p>
 
 Das äquivalente Python-Beispiel:
 
@@ -313,16 +313,16 @@ with open("gift-basket.png", "wb") as f:
     f.write(image_bytes)
 ```
 
-Für die Python-Nutzung müssen zwei Umgebungsvariablen gesetzt werden: `OPENAI_BASE_URL` auf `https://api.acedata.cloud/openai` und `OPENAI_API_KEY` auf das erhaltene Token. Unter Mac OS:
+Für die Python-Nutzung müssen zwei Umgebungsvariablen gesetzt werden: `OPENAI_BASE_URL` auf `https://api.xhuoapi.ai/v1/openai` und `OPENAI_API_KEY` auf das erhaltene Token. Unter Mac OS:
 
 ```shell
-export OPENAI_BASE_URL=https://api.acedata.cloud/openai
+export OPENAI_BASE_URL=https://api.xhuoapi.ai/v1/openai
 export OPENAI_API_KEY={token} 
 ```
 
 Nach dem Aufruf wird im aktuellen Verzeichnis eine Datei `gift-basket.png` erzeugt, das Ergebnis sieht so aus:
 
-<p><img src="https://cdn.acedata.cloud/574s8h.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/574s8h.png" width="500" className="m-auto" /></p>
 
 Damit haben Sie die Bildbearbeitung erfolgreich durchgeführt. Die Edits-Schnittstelle unterstützt derzeit drei Modelle: `dall-e-2`, `gpt-image-1` und `gpt-image-2`. Das empfohlene Modell ist `gpt-image-2`, siehe Abschnitt [GPT-Image-2 Modell](#gpt-image-2-modell).
 
@@ -336,14 +336,14 @@ Ein Beispiel:
 
 Zunächst ist der Webhook ein HTTP-Endpunkt, den Sie selbst bereitstellen sollten. Zur Demonstration verwenden wir die öffentliche Webhook-Seite https://webhook.site/, wo Sie eine URL erhalten, z. B.:
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 Diese URL kopieren Sie und verwenden sie als `callback_url`, z. B. `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`.
 
 Dann senden Sie die Anfrage mit `callback_url`:
 
 ```shell
-curl -X POST "https://api.acedata.cloud/v1/images/edits" \
+curl -X POST "https://api.xhuoapi.ai/v1/v1/images/edits" \
   -H "Authorization: Bearer {token}" \
   -F "model=gpt-image-1" \
   -F "image[]=@test.png" \

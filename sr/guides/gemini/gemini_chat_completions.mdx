@@ -1,6 +1,6 @@
 ---
 title: "Gemini Chat Completion API申请及使用"
-description: "Gemini AI 集成指南 - Ace Data Cloud"
+description: "Gemini AI 集成指南 - XHuoAPI"
 ---
 
 Google Gemini је веома моћан AI систем за разговор, који може генерисати текуће и природне одговоре у року од неколико секунди само уношењем упитника. Gemini пружа импресивну интелигентну помоћ, значајно повећавајући продуктивност и креативност људи.
@@ -9,9 +9,9 @@ Google Gemini је веома моћан AI систем за разговор, 
 
 ## Процес пријаве
 
-Да бисте користили Gemini Chat Completion API, прво можете отићи на [Gemini Chat Completion API](https://platform.acedata.cloud/documents/ae54bf9b-af41-4072-b969-3756b6d66834) страницу и кликнути на „Acquire“ дугме да бисте добили акредитиве потребне за захтев:
+Да бисте користили Gemini Chat Completion API, прво можете отићи на [Gemini Chat Completion API](https://api.xhuoapi.ai/documents/ae54bf9b-af41-4072-b969-3756b6d66834) страницу и кликнути на „Acquire“ дугме да бисте добили акредитиве потребне за захтев:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Ако се још нисте пријавили или регистровали, аутоматски ћете бити преусмерени на страницу за пријаву која вас позива да се региструјете и пријавите, а након пријаве и регистрације аутоматски ћете се вратити на тренутну страницу.
 
@@ -21,13 +21,13 @@ Google Gemini је веома моћан AI систем за разговор, 
 
 Након тога можете попунити одговарајуће садржаје на интерфејсу, као што је приказано на слици:
 
-<p><img src="https://cdn.acedata.cloud/f6ksts.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/f6ksts.png" width="400" className="m-auto" /></p>
 
 Када први пут користите овај интерфејс, морамо попунити најмање три садржаја, један је `authorization`, који можете директно изабрати из падајућег менија. Други параметар је `model`, `model` је категорија модела коју одаберемо да користимо са Gemini званичне странице, овде имамо 6 различитих модела, детаље можете видети у моделима које пружамо. Последњи параметар је `messages`, `messages` је низ упитника који уносимо, то је низ који представља могућност истовременог слања више упитника, сваки упитник садржи `role` и `content`, где `role` представља улогу питаоца, а ми пружамо три идентификације: `user`, `assistant`, `system`. Други `content` је конкретан садржај нашег питања.
 
 Такође можете приметити да се на десној страни генерише одговарајући код за позив, можете копирати код и директно га покренути, или можете директно кликнути на „Try“ дугме за тестирање.
 
-<p><img src="https://cdn.acedata.cloud/a3mdgy.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a3mdgy.png" width="400" className="m-auto" /></p>
 
 Након позива, приметили смо да је повратни резултат следећи:
 
@@ -81,7 +81,7 @@ Google Gemini је веома моћан AI систем за разговор, 
 
 У томе `choices` садржи информације о одговору Gemini, а унутар `choices` су конкретне информације о одговору Gemini, што можете видети на слици.
 
-<p><img src="https://cdn.acedata.cloud/v4z6e0.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/v4z6e0.png" width="400" className="m-auto" /></p>
 
 Можете видети да `content` поље унутар `choices` садржи конкретан садржај Gemini одговора.
 
@@ -93,7 +93,7 @@ Google Gemini је веома моћан AI систем за разговор, 
 
 Промена је приказана на слици, али код позива треба да има одговарајуће измене да би подржао стриминг одговор.
 
-<p><img src="https://cdn.acedata.cloud/o2blmi.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/o2blmi.png" width="400" className="m-auto" /></p>
 
 Након промене `stream` на `true`, API ће редом враћати одговарајуће JSON податке, а на кодном нивоу морамо направити одговарајуће измене да бисмо добили редне резултате.
 
@@ -102,7 +102,7 @@ Python пример кода за позив:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/gemini/chat/completions"
+url = "https://api.xhuoapi.ai/v1/gemini/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -162,7 +162,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/gemini/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/gemini/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -178,7 +178,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/gemini/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/gemini/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -196,14 +196,14 @@ Ostale jezike možete prilagoditi prema sopstvenim potrebama, princip je isti.
 
 Ako želite da implementirate funkcionalnost višekratnog dijaloga, potrebno je da u `messages` polje pošaljete više upita, a primeri višekratnih upita su prikazani na sledećoj slici:
 
-<p><img src="https://cdn.acedata.cloud/qvzu06.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qvzu06.png" width="400" className="m-auto" /></p>
 
 Python uzorak poziva:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/gemini/chat/completions"
+url = "https://api.xhuoapi.ai/v1/gemini/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -282,7 +282,7 @@ Primer zahteva:
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]
@@ -350,7 +350,7 @@ Naravno, možete takođe poslati linkove za video, konkretan unos je sledeći:
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/58yioe.mp4"
+            "url": "https://cdn.xhuoapi.ai/58yioe.mp4"
           }
         }
       ]
@@ -423,7 +423,7 @@ Gemini 3.1 Pro је надограђена верзија Gemini 3.0 Pro, осн
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]
@@ -449,7 +449,7 @@ Gemini 3.1 Pro такође подржава разумевање видео з�
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/58yioe.mp4"
+            "url": "https://cdn.xhuoapi.ai/58yioe.mp4"
           }
         }
       ]

@@ -1,15 +1,15 @@
 ---
 title: "ID Card Portrait Photo Verification API Integration Instructions"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 This document will introduce an ID card portrait photo verification API integration instruction, which can be used to input the portrait photo of an ID card, recognize the information on the ID card photo, and compare the name, ID number, and portrait photo with the authoritative database to determine if they belong to the same person, thereby verifying the authenticity of the ID card information.
 
 ## Application Process
 
-To use the API, you need to first apply for the corresponding service on the [ID Card Portrait Photo Verification API](https://platform.acedata.cloud/documents/7a3f14f7-f1eb-41c2-816c-9f18caca6883) page. After entering the page, click the "Acquire" button, as shown in the figure:
+To use the API, you need to first apply for the corresponding service on the [ID Card Portrait Photo Verification API](https://api.xhuoapi.ai/documents/7a3f14f7-f1eb-41c2-816c-9f18caca6883) page. After entering the page, click the "Acquire" button, as shown in the figure:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
@@ -19,7 +19,7 @@ There will be a free quota granted for the first application, allowing you to us
 
 First, understand the basic usage method, which is to input the ID card image link to obtain the processed verification result. You need to simply pass a `image_url` field, and we can then fill in the corresponding content on the interface, as shown in the figure:
 
-<p><img src="https://cdn.acedata.cloud/zjxg3k.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zjxg3k.png" width="500" className="m-auto" /></p>
 
 Here we can see that we have set the Request Headers, including:
 
@@ -33,7 +33,7 @@ Additionally, the Request Body is set, including:
 
 After selection, you can find that the corresponding code is also generated on the right side, as shown in the figure:
 
-<p><img src="https://cdn.acedata.cloud/4yh23p.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4yh23p.png" width="500" className="m-auto" /></p>
 
 Click the "Try" button to conduct a test, as shown in the above figure, and we obtained the following result:
 
@@ -76,7 +76,7 @@ It can be seen that the ID card information has a high degree of authenticity.
 Additionally, if you want to generate the corresponding integration code, you can directly copy it, for example, the CURL code is as follows:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/idcard/check-1e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/idcard/check-1e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -90,7 +90,7 @@ The Python integration code is as follows:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/idcard/check-1e"
+url = "https://api.xhuoapi.ai/v1/identity/idcard/check-1e"
 
 headers = {
     "accept": "application/json",

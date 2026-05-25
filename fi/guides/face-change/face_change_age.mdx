@@ -1,15 +1,15 @@
 ---
 title: "Kasvokuvan ikämuutos API -integraatio-ohje"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 Tässä artikkelissa esitellään kasvokuvan ikämuutos API -integraatio-ohje, joka voi muuttaa kuvan kasvokuvan ikää syöttämällä kuvan ja iän. Peruskäyttö on, että käyttäjä lataa kasvokuvan, ja kasvojen muokkaus- ja generointialgoritmin avulla saadaan ulos kuva, jossa kasvot näyttävät vanhemmilta tai nuoremmilta, tukien eri ikämuutoksia.
 
 ## Hakuprosessi
 
-API:n käyttämiseksi sinun on ensin mentävä [kasvokuvan ikämuutos API](https://platform.acedata.cloud/documents/0c5b4165-25ba-4dc2-8f02-e3cd74ab4238) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire" -painiketta, kuten kuvassa on esitetty:
+API:n käyttämiseksi sinun on ensin mentävä [kasvokuvan ikämuutos API](https://api.xhuoapi.ai/documents/0c5b4165-25ba-4dc2-8f02-e3cd74ab4238) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire" -painiketta, kuten kuvassa on esitetty:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa voit rekisteröityä ja kirjautua sisään. Kirjautumisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -19,11 +19,11 @@ Ensimmäisellä hakemiskerralla saat ilmaisia käyttöoikeuksia, ja voit käytt�
 
 Ensinnäkin on hyvä ymmärtää peruskäyttötapa, eli syöttämällä kuvalinkki ja ikätiedot, saat käsitellyn tuloskuvan. Ensinnäkin sinun on yksinkertaisesti välitettävä `image_url` -kenttä, kasvokuva on esitetty alla olevassa kuvassa:
 
-<p><img src="https://cdn.acedata.cloud/f5687u.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/f5687u.png" width="500" className="m-auto" /></p>
 
 Sitten meidän on myös ladattava kasvokuvan ikätietoparametri `age_infos`, joka on taulukko, johon voimme syöttää useita tietoja. Voimme seuraavaksi täyttää vastaavat tiedot käyttöliittymässä, kuten kuvassa on esitetty:
 
-<p><img src="https://cdn.acedata.cloud/cn95e8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/cn95e8.png" width="500" className="m-auto" /></p>
 
 Voimme nähdä, että olemme asettaneet pyyntöotsikot, mukaan lukien:
 
@@ -37,7 +37,7 @@ Lisäksi on asetettu pyyntökeho, joka sisältää:
 
 Valinnan jälkeen voimme huomata, että oikealla puolella on myös luotu vastaava koodi, kuten kuvassa on esitetty:
 
-<p><img src="https://cdn.acedata.cloud/zk8qkl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zk8qkl.png" width="500" className="m-auto" /></p>
 
 Napsauta "Try" -painiketta testataksesi, kuten yllä olevassa kuvassa on esitetty, ja saamme seuraavanlaisen tuloksen:
 
@@ -49,20 +49,20 @@ Napsauta "Try" -painiketta testataksesi, kuten yllä olevassa kuvassa on esitett
 
 Voimme nähdä, että palautetussa tuloksessa on `image_url` -kenttä, joka on kasvokuvan kuva syötetyn iän muutoksen jälkeen. Muutettu kasvotiedot on esitetty alla olevassa kuvassa:
 
-<p><img src="https://cdn.acedata.cloud/01rmiv.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/01rmiv.png" width="500" className="m-auto" /></p>
 
 Voimme nähdä, että kuvassa kasvot ovat muuttuneet syötetyn iän mukaan.
 
 Jos haluat luoda vastaavan integraatiokoodin, voit kopioida sen suoraan, esimerkiksi CURL-koodi on seuraava:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/change-age' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/change-age' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "age_infos": [{"age":60}],
-  "image_url": "https://cdn.acedata.cloud/f5687u.png"
+  "image_url": "https://cdn.xhuoapi.ai/f5687u.png"
 }'
 ```
 
@@ -71,7 +71,7 @@ Pythonin integraatiokoodi on seuraava:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/change-age"
+url = "https://api.xhuoapi.ai/v1/face/change-age"
 
 headers = {
     "accept": "application/json",
@@ -81,7 +81,7 @@ headers = {
 
 payload = {
     "age_infos": [{"age":60}],
-    "image_url": "https://cdn.acedata.cloud/f5687u.png"
+    "image_url": "https://cdn.xhuoapi.ai/f5687u.png"
 }
 
 response = requests.post(url, json=payload, headers=headers)

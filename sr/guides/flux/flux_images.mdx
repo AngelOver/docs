@@ -1,15 +1,15 @@
 ---
 title: "Flux Images Generation API интеграција"
-description: "Flux Image Generation 集成指南 - Ace Data Cloud"
+description: "Flux Image Generation 集成指南 - XHuoAPI"
 ---
 
 Овај документ ће представити упутство за интеграцију Flux Images Generation API, који може генерисати слике Flux-а уношењем прилагођених параметара.
 
 ## Процес пријаве
 
-Да бисте користили API, прво морате да одете на [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) страницу и затражите одговарајућу услугу. Када уђете на страницу, кликните на дугме „Acquire“, као што је приказано на слици:
+Да бисте користили API, прво морате да одете на [Flux Images Generation API](https://api.xhuoapi.ai/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) страницу и затражите одговарајућу услугу. Када уђете на страницу, кликните на дугме „Acquire“, као што је приказано на слици:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Ако се још нисте пријавили или регистровали, аутоматски ћете бити преусмерени на страницу за пријаву која вас позива да се региструјете и пријавите. Након пријаве или регистрације, аутоматски ћете се вратити на тренутну страницу.
 
@@ -19,7 +19,7 @@ description: "Flux Image Generation 集成指南 - Ace Data Cloud"
 
 Прво, потребно је разумети основни начин коришћења, а то је унос кључне речи `prompt`, акције `action`, и величине слике `size`, како бисте добили обрађени резултат. Прво, потребно је једноставно проследити поље `action`, чија вредност је `generate`, а затим треба унети кључну реч, конкретно садржај је следећи:
 
-<p><img src="https://cdn.acedata.cloud/wz85jt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wz85jt.png" width="500" className="m-auto" /></p>
 
 Можете видети да смо подесили Request Headers, укључујући:
 
@@ -52,7 +52,7 @@ description: "Flux Image Generation 集成指南 - Ace Data Cloud"
 
 Након избора, можете видети да је десно генерисан одговарајући код, као што је приказано на слици:
 
-<p><img src="https://cdn.acedata.cloud/8q7aux.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8q7aux.png" width="500" className="m-auto" /></p>
 
 Кликните на дугме „Try“ да бисте тестирали, као што је приказано на горњој слици, добили смо следећи резултат:
 
@@ -90,7 +90,7 @@ description: "Flux Image Generation 集成指南 - Ace Data Cloud"
 Ако желите да генеришете одговарајући код за интеграцију, можете га директно копирати, на пример, CURL код је следећи:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/flux/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/images' \
 -H 'authorization: Bearer {token}' \
 -H 'accept: application/json' \
 -H 'content-type: application/json' \
@@ -111,18 +111,18 @@ curl -X POST 'https://api.acedata.cloud/flux/images' \
 
 Пример попуњавања је следећи:
 
-<p><img src="https://cdn.acedata.cloud/jn9da5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jn9da5.png" width="500" className="m-auto" /></p>
 
 Након попуњавања, аутоматски је генерисан код као што је приказано:
 
-<p><img src="https://cdn.acedata.cloud/6cwxb8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/6cwxb8.png" width="500" className="m-auto" /></p>
 
 Одговарајући код:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/images"
+url = "https://api.xhuoapi.ai/v1/flux/images"
 
 headers = {
     "accept": "application/json",
@@ -134,7 +134,7 @@ payload = {
     "action": "edit",
     "prompt": "a white siamese cat",
     "model": "flux-kontext-pro",
-    "image_url": "https://cdn.acedata.cloud/ytj2qy.png"
+    "image_url": "https://cdn.xhuoapi.ai/ytj2qy.png"
 }
 
 response = requests.post(url, json=payload, headers=headers)
@@ -169,13 +169,13 @@ U nastavku ćemo kroz primer razumeti kako konkretno postupiti.
 
 Prvo, Webhook povratni poziv je usluga koja može primati HTTP zahteve, programeri bi trebali zameniti URL-om HTTP servera koji su sami postavili. Ovde, radi lakšeg prikaza, koristi se javni Webhook uzorak sa sajta https://webhook.site/, otvaranjem tog sajta dobijate Webhook URL, kao što je prikazano na slici:
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 Kopirajte ovaj URL, i možete ga koristiti kao Webhook, ovde je uzorak `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`.
 
 Zatim, možemo postaviti polje `callback_url` na navedeni Webhook URL, dok istovremeno popunjavamo odgovarajuće parametre, konkretni sadržaj je prikazan na slici:
 
-<p><img src="https://cdn.acedata.cloud/wm6caw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wm6caw.png" width="500" className="m-auto" /></p>
 
 Klikom na pokretanje, može se primetiti da odmah dobijamo rezultat, kao što je prikazano:
 
@@ -187,7 +187,7 @@ Klikom na pokretanje, može se primetiti da odmah dobijamo rezultat, kao što je
 
 Nakon kratkog čekanja, možemo na `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab` posmatrati rezultat generisanja slika, kao što je prikazano:
 
-![](https://cdn.acedata.cloud/v23lot.png)
+![](https://cdn.xhuoapi.ai/v23lot.png)
 
 Sadržaj je sledeći:
 

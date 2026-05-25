@@ -1,15 +1,15 @@
 ---
 title: "AI 증명사진 제작 API 연동 설명"
-description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
+description: "AI ID Photo Production 集成指南 - XHuoAPI"
 ---
 
 본 문서에서는 AI 증명사진 제작 API 연동 설명을 소개합니다. 이는 인물 사진 URL과 선호하는 템플릿을 입력하여 다양한 스타일의 증명사진을 제작할 수 있습니다.
 
 ## 신청 절차
 
-API를 사용하려면 먼저 [AI 증명사진 제작 API](https://platform.acedata.cloud/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) 해당 페이지에서 서비스를 신청해야 합니다. 페이지에 들어가면 "Acquire" 버튼을 클릭합니다. 아래 그림과 같습니다:
+API를 사용하려면 먼저 [AI 증명사진 제작 API](https://api.xhuoapi.ai/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) 해당 페이지에서 서비스를 신청해야 합니다. 페이지에 들어가면 "Acquire" 버튼을 클릭합니다. 아래 그림과 같습니다:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 로그인이나 등록이 되어 있지 않으면 자동으로 로그인 페이지로 이동하여 등록 및 로그인을 요청합니다. 로그인 및 등록 후에는 자동으로 현재 페이지로 돌아옵니다.
 
@@ -38,7 +38,7 @@ API를 사용하려면 먼저 [AI 증명사진 제작 API](https://platform.aced
 
 그 후, 생성 속도 매개변수 `mode`를 지정할 수 있습니다. 일반적으로 두 가지로 나뉘며, 느린 속도 `relax`와 빠른 속도 `fast`가 있습니다. 구체적인 내용은 아래와 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/73xbla.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/73xbla.png" width="500" className="m-auto" /></p>
 
 여기서 요청 헤더를 설정할 수 있습니다. 포함된 내용은 다음과 같습니다:
 
@@ -54,7 +54,7 @@ API를 사용하려면 먼저 [AI 증명사진 제작 API](https://platform.aced
 
 선택 후, 오른쪽에 해당 코드가 생성된 것을 확인할 수 있습니다. 아래 그림과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/yp49hc.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yp49hc.png" width="500" className="m-auto" /></p>
 
 "Try" 버튼을 클릭하면 테스트를 진행할 수 있습니다. 위 그림과 같이 다음과 같은 결과를 얻을 수 있습니다:
 
@@ -65,12 +65,12 @@ API를 사용하려면 먼저 [AI 증명사진 제작 API](https://platform.aced
   "data": [
     {
       "id": "202411031951124776",
-      "image_url": "https://platform.cdn.acedata.cloud/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
+      "image_url": "https://platform.cdn.xhuoapi.ai/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
       "template": "남성 이미지 사진"
     },
     {
       "id": "202411031951128490",
-      "image_url": "https://platform.cdn.acedata.cloud/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
+      "image_url": "https://platform.cdn.xhuoapi.ai/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
       "template": "남성 이미지 사진"
     }
   ]
@@ -91,7 +91,7 @@ API를 사용하려면 먼저 [AI 증명사진 제작 API](https://platform.aced
 또한, 해당 연동 코드를 생성하고 싶다면 직접 복사하여 사용할 수 있습니다. 예를 들어 CURL의 코드는 다음과 같습니다:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/headshots/generate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/generate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -112,13 +112,13 @@ AI 증명사진 생성 시간은 상대적으로 길어 약 1-2분이 소요됩�
 
 먼저, Webhook 콜백은 HTTP 요청을 수신할 수 있는 서비스로, 개발자는 자신이 구축한 HTTP 서버의 URL로 교체해야 합니다. 편리한 시연을 위해 공개 Webhook 샘플 사이트인 https://webhook.site/를 사용합니다. 해당 사이트를 열면 Webhook URL을 얻을 수 있습니다. 아래 그림과 같습니다:
 
-![](https://cdn.acedata.cloud/sb4p3v.png)
+![](https://cdn.xhuoapi.ai/sb4p3v.png)
 
 이 URL을 복사하여 Webhook으로 사용할 수 있습니다. 여기 샘플은 `https://webhook.site/00f38b26-4289-4899-83d6-0cea7308850a`입니다.
 
 그 다음, `callback_url` 필드를 위의 Webhook URL로 설정하고, 인물 사진 링크와 템플릿을 입력합니다. 본문에서는 매개변수 `mode`가 `relax`일 때 비동기 콜백을 사용하는 것을 추천합니다. 구체적인 내용은 아래 그림과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/opt326.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/opt326.png" width="500" className="m-auto" /></p>
 
 실행 버튼을 클릭하면 즉시 결과를 얻을 수 있습니다. 결과는 다음과 같습니다:
 
@@ -129,7 +129,7 @@ AI 증명사진 생성 시간은 상대적으로 길어 약 1-2분이 소요됩�
 ```
 
 잠시 후, `https://webhook.site/00f38b26-4289-4899-83d6-0cea7308850a`에서 생성된 결과를 확인할 수 있습니다. 아래 그림과 같습니다:
-![](https://cdn.acedata.cloud/ym6fw1.png)
+![](https://cdn.xhuoapi.ai/ym6fw1.png)
 
 내용如下：
 
@@ -140,12 +140,12 @@ AI 증명사진 생성 시간은 상대적으로 길어 약 1-2분이 소요됩�
     "data": [
         {
             "id": "202411032010131366",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
             "template": "남성 이미지 사진"
         },
         {
             "id": "202411032010132420",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
             "template": "남성 이미지 사진"
         }
     ]

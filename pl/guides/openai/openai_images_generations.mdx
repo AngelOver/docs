@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Images Generations API – Wniosek i użytkowanie"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI Images Generations API obecnie obsługuje różne modele generowania obrazów, w tym klasyczny `dall-e-3`, model o silniejszych zdolnościach renderowania tekstu `gpt-image-1`, najnowszą generację **`gpt-image-2`**, a także modele z serii **`nano-banana` / `nano-banana-2` / `nano-banana-pro`**, dostępne przez ten sam interfejs. Wszystkie potrafią generować wysokiej jakości obrazy na podstawie opisu tekstowego.
@@ -9,9 +9,9 @@ Niniejsza dokumentacja opisuje głównie proces korzystania z OpenAI Images Gene
 
 ## Proces wnioskowania
 
-Aby korzystać z OpenAI Images Generations API, najpierw można przejść na stronę [OpenAI Images Generations API](https://platform.acedata.cloud/documents/fd932485-90c7-45d6-8394-1e14b6f07b2b) i kliknąć przycisk „Acquire”, aby uzyskać wymagane poświadczenia do żądań:
+Aby korzystać z OpenAI Images Generations API, najpierw można przejść na stronę [OpenAI Images Generations API](https://api.xhuoapi.ai/documents/fd932485-90c7-45d6-8394-1e14b6f07b2b) i kliknąć przycisk „Acquire”, aby uzyskać wymagane poświadczenia do żądań:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Jeśli nie jesteś jeszcze zalogowany lub zarejestrowany, zostaniesz automatycznie przekierowany do strony logowania, gdzie możesz się zarejestrować i zalogować. Po zalogowaniu zostaniesz automatycznie przeniesiony z powrotem na tę stronę.
 
@@ -26,7 +26,7 @@ Przy pierwszym wniosku otrzymasz darmowy limit, który pozwala na bezpłatne kor
 - **Bogatsze wyrażanie stylu**: natywne wsparcie dla różnych stylów, takich jak portrety filmowe, plakaty retro, ilustracje dla dzieci, fotografia produktowa, infografiki itp.
 - **Natywne wsparcie wielu proporcji i wysokiej rozdzielczości**: obsługuje 5 proporcji (1:1, 4:3, 3:4, 16:9, 9:16) i 3 poziomy rozdzielczości (1K / 2K / 4K).
 
-Sposób wywołania jest identyczny jak w przypadku innych modeli – wystarczy ustawić pole `model` na `gpt-image-2`. W zwracanym wyniku pole `url` to trwały link do obrazu hostowany na `platform.cdn.acedata.cloud`, który można otworzyć bezpośrednio w przeglądarce lub osadzić na stronie.
+Sposób wywołania jest identyczny jak w przypadku innych modeli – wystarczy ustawić pole `model` na `gpt-image-2`. W zwracanym wyniku pole `url` to trwały link do obrazu hostowany na `platform.cdn.xhuoapi.ai`, który można otworzyć bezpośrednio w przeglądarce lub osadzić na stronie.
 
 ### Obsługiwane wartości `size` i poziomy rozliczeń
 
@@ -66,7 +66,7 @@ Przykładowy kod w Python:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -94,7 +94,7 @@ Przykładowa odpowiedź:
   "data": [
     {
       "revised_prompt": "A cinematic portrait of a young woman standing in a convenience store at night, illuminated by soft pink and cyan neon signs through the window. Shot on 35mm film, shallow depth of field, slight grain, melancholic mood.",
-      "url": "https://platform.cdn.acedata.cloud/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png"
+      "url": "https://platform.cdn.xhuoapi.ai/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png"
     }
   ]
 }
@@ -102,7 +102,7 @@ Przykładowa odpowiedź:
 
 Wygenerowany obraz:
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png" width="500" className="m-auto" /></p>
 
 ### Scenariusz 2: Retro plakat podróżniczy (z renderowaniem tekstu)
 
@@ -118,7 +118,7 @@ payload = {
 
 Obraz z pola `url`:
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/c6061f92-3fae-498e-af8e-688e7f415ba3_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/c6061f92-3fae-498e-af8e-688e7f415ba3_0.png" width="500" className="m-auto" /></p>
 
 Model dokładnie odwzorował styl Art Deco, a napisy `AMALFI` i `ITALIA 1958` są czytelne i poprawne.
 
@@ -136,7 +136,7 @@ payload = {
 
 Wygenerowany obraz:
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/64a3b932-a082-4cad-9f85-9d30474b104d_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/64a3b932-a082-4cad-9f85-9d30474b104d_0.png" width="500" className="m-auto" /></p>
 
 Liczba książek na półkach (1 / 3 / 7) dokładnie odpowiada promptowi, co było trudne do osiągnięcia w erze `dall-e-3`.
 
@@ -154,7 +154,7 @@ payload = {
 
 Wygenerowana ilustracja pozioma:
 
-![](https://platform.cdn.acedata.cloud/gpt-image/6cd57e69-d237-4cc1-a666-759a93964a08_0.png)
+![](https://platform.cdn.xhuoapi.ai/gpt-image/6cd57e69-d237-4cc1-a666-759a93964a08_0.png)
 
 ### Asynchroniczność i callback
 
@@ -186,7 +186,7 @@ Seria `nano-banana` to modele generowania obrazów oparte na Gemini, dostępne p
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -211,7 +211,7 @@ Przykładowa odpowiedź:
   "created": 0,
   "data": [
     {
-      "url": "https://platform.cdn.acedata.cloud/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png",
+      "url": "https://platform.cdn.xhuoapi.ai/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png",
       "revised_prompt": "a small red apple on a white table, photoreal"
     }
   ]
@@ -220,7 +220,7 @@ Przykładowa odpowiedź:
 
 Wygenerowany obraz można bezpośrednio otworzyć pod linkiem z pola `url`:
 
-<p><img src="https://platform.cdn.acedata.cloud/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png" width="500" className="m-auto" /></p>
 
 ### Aktualizacja do flagowego modelu `nano-banana-pro`
 
@@ -241,14 +241,14 @@ Przykładowa odpowiedź:
   "created": 0,
   "data": [
     {
-      "url": "https://platform.cdn.acedata.cloud/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png",
+      "url": "https://platform.cdn.xhuoapi.ai/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png",
       "revised_prompt": "abstract painting"
     }
   ]
 }
 ```
 
-<p><img src="https://platform.cdn.acedata.cloud/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png" width="500" className="m-auto" /></p>
 
 ### Asynchroniczny callback
 
@@ -258,20 +258,20 @@ Mechanizm `callback_url` działa również dla nano-banana, proces wywołania je
 
 Następnie można w interfejsie wypełnić odpowiednie pola, jak na poniższym obrazku:
 
-<p><img src="https://cdn.acedata.cloud/zv58ug.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zv58ug.png" width="500" className="m-auto" /></p>
 
 Przy pierwszym użyciu tego interfejsu należy wypełnić co najmniej trzy pola: `authorization` – wybierane z listy rozwijanej, `model` – wybór modelu OpenAI DALL-E, szczegóły dostępnych modeli znajdują się w naszej dokumentacji, oraz `prompt` – tekstowy opis obrazu do wygenerowania.
 
 Po prawej stronie pojawia się wygenerowany kod wywołania, który można skopiować i uruchomić, lub kliknąć przycisk „Try” do testu.
 
-<p><img src="https://cdn.acedata.cloud/pbss4f.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pbss4f.png" width="500" className="m-auto" /></p>
 
 Przykładowy kod w Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -309,7 +309,7 @@ Wynik zawiera kilka pól:
 
 W polu `data` znajduje się szczegółowy link do wygenerowanego obrazu w `url`, jak pokazano poniżej:
 
-<p><img src="https://cdn.acedata.cloud/dz7u0x.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dz7u0x.png" width="500" className="m-auto" /></p>
 
 ## Parametr jakości obrazu `quality`
 
@@ -317,18 +317,18 @@ Możemy ustawić szczegółowe parametry generowania obrazu, w tym jakość. Par
 
 Przykład ustawienia `quality` na `standard`:
 
-<p><img src="https://cdn.acedata.cloud/1q303w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1q303w.png" width="500" className="m-auto" /></p>
 
 Po prawej stronie pojawia się wygenerowany kod do skopiowania lub przycisk „Try” do testu.
 
-<p><img src="https://cdn.acedata.cloud/c0ps6i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/c0ps6i.png" width="500" className="m-auto" /></p>
 
 Przykładowy kod:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -362,11 +362,11 @@ Przykładowa odpowiedź:
 
 Obraz wygenerowany z parametrem `quality` ustawionym na `standard`:
 
-<p><img src="https://cdn.acedata.cloud/j5v15b.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/j5v15b.png" width="500" className="m-auto" /></p>
 
 Analogicznie, ustawiając `quality` na `hd`, otrzymamy obraz z większą szczegółowością i spójnością:
 
-<p><img src="https://cdn.acedata.cloud/vjpbqr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vjpbqr.png" width="500" className="m-auto" /></p>
 
 ## Parametr rozmiaru obrazu `size`
 
@@ -374,18 +374,18 @@ Możemy ustawić rozmiar generowanego obrazu.
 
 Przykład ustawienia rozmiaru na `1024x1024`:
 
-<p><img src="https://cdn.acedata.cloud/dx5rwh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dx5rwh.png" width="500" className="m-auto" /></p>
 
 Po prawej stronie pojawia się wygenerowany kod lub przycisk „Try” do testu.
 
-<p><img src="https://cdn.acedata.cloud/0sbybl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0sbybl.png" width="500" className="m-auto" /></p>
 
 Przykładowy kod:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -419,11 +419,11 @@ Przykładowa odpowiedź:
 
 Obraz o rozmiarze `1024x1024`:
 
-<p><img src="https://cdn.acedata.cloud/o4pvvx.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/o4pvvx.png" width="500" className="m-auto" /></p>
 
 Analogicznie, ustawiając rozmiar na `1792x1024`, otrzymamy obraz o innym rozmiarze:
 
-![](https://cdn.acedata.cloud/4pilae.png)
+![](https://cdn.xhuoapi.ai/4pilae.png)
 
 Można ustawić także inne rozmiary – szczegóły dostępne w dokumentacji na stronie.
 
@@ -433,18 +433,18 @@ Parametr `style` ma dwie wartości: `vivid` – obraz bardziej żywy, oraz `natu
 
 Przykład ustawienia `style` na `vivid`:
 
-<p><img src="https://cdn.acedata.cloud/609l9i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/609l9i.png" width="500" className="m-auto" /></p>
 
 Po prawej stronie wygenerowany kod lub przycisk „Try”:
 
-<p><img src="https://cdn.acedata.cloud/ee3u9o.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ee3u9o.png" width="500" className="m-auto" /></p>
 
 Przykładowy kod:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -478,11 +478,11 @@ Przykładowa odpowiedź:
 
 Obraz wygenerowany z parametrem `style` ustawionym na `vivid`:
 
-<p><img src="https://cdn.acedata.cloud/e0rpc3.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/e0rpc3.png" width="500" className="m-auto" /></p>
 
 Analogicznie, ustawiając `style` na `natural`, otrzymamy obraz bardziej naturalny:
 
-<p><img src="https://cdn.acedata.cloud/q9tqwu.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q9tqwu.png" width="500" className="m-auto" /></p>
 
 Obrazy z `vivid` są bardziej żywe i realistyczne niż z `natural`.
 
@@ -492,18 +492,18 @@ Parametr `response_format` ma dwie wartości: `b64_json` – link do obrazu zako
 
 Przykład ustawienia `response_format` na `url`:
 
-<p><img src="https://cdn.acedata.cloud/2zbgrg.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2zbgrg.png" width="500" className="m-auto" /></p>
 
 Po prawej stronie wygenerowany kod lub przycisk „Try”:
 
-<p><img src="https://cdn.acedata.cloud/a9exmp.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a9exmp.png" width="500" className="m-auto" /></p>
 
 Przykładowy kod:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -537,7 +537,7 @@ Przykładowa odpowiedź:
 
 Link do obrazu z parametrem `url` można bezpośrednio otworzyć, obraz wygląda tak:
 
-<p><img src="https://cdn.acedata.cloud/33hs4z.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/33hs4z.png" width="500" className="m-auto" /></p>
 
 Analogicznie, ustawiając `response_format` na `b64_json`, otrzymamy zakodowany w Base64 obraz:
 
@@ -563,7 +563,7 @@ Przykład:
 
 Webhook callback to usługa HTTP, którą programista powinien zastąpić własnym serwerem HTTP. Dla demonstracji można użyć publicznego serwisu https://webhook.site/, gdzie po wejściu na stronę otrzymujemy unikalny URL webhooka, np.:
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 Skopiuj ten URL, np. `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`.
 
@@ -572,7 +572,7 @@ Następnie ustaw pole `callback_url` na ten URL i wyślij żądanie:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",

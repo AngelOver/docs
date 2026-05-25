@@ -1,6 +1,6 @@
 ---
 title: "شرح تكامل واجهة برمجة تطبيقات نموذج Fish"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 تقدم هذه الوثيقة شرحًا لتكامل واجهة برمجة تطبيقات نموذج Fish، والتي تتوافق تمامًا مع [واجهة برمجة تطبيقات Fish Audio الرسمية المفتوحة](https://docs.fish.audio/resources/api-reference/model)، وتشمل:
@@ -10,7 +10,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 
 ## عملية التقديم
 
-لاستخدام API، يجب أولاً التقديم للحصول على الخدمة المناسبة عبر صفحة [Fish Model API](https://platform.acedata.cloud/services/caf99abc-ddcf-4714-b2a5-862d9b469509)، وعند الدخول إلى الصفحة، اضغط على زر "Acquire".
+لاستخدام API، يجب أولاً التقديم للحصول على الخدمة المناسبة عبر صفحة [Fish Model API](https://api.xhuoapi.ai/services/caf99abc-ddcf-4714-b2a5-862d9b469509)، وعند الدخول إلى الصفحة، اضغط على زر "Acquire".
 
 إذا لم تكن مسجلاً أو مسجلاً دخولك، سيتم توجيهك تلقائيًا إلى صفحة تسجيل الدخول أو التسجيل، وبعد التسجيل أو تسجيل الدخول، ستعود تلقائيًا إلى الصفحة الحالية.
 
@@ -27,7 +27,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 الحد الأدنى للطلب يتطلب حقلي `title` و `voices`. حيث `voices` هو قائمة روابط URL للعينات الصوتية، يُنصح بأن يكون كل ملف أكثر من 30 ثانية بمعدل عينة 16k أو أعلى.
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/model' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/model' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -77,7 +77,7 @@ curl -X POST 'https://api.acedata.cloud/fish/model' \
 ## استعلام قائمة النماذج الصوتية (GET /fish/model)
 
 ```shell
-curl -G 'https://api.acedata.cloud/fish/model' \
+curl -G 'https://api.xhuoapi.ai/v1/fish/model' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   --data-urlencode 'page_size=10' \
@@ -146,4 +146,4 @@ curl -G 'https://api.acedata.cloud/fish/model' \
 
 ## الخلاصة
 
-واجهة برمجة تطبيقات نموذج Fish متوافقة تمامًا مع واجهة ModelEntity الرسمية لـ Fish Audio، مما يتيح نقل كود إدارة النماذج الصوتية المستنسخة الحالي بدون تعديل. يمكن استخدام معرف النموذج الصوتي `_id` الناتج مباشرة كقيمة لحقل `reference_id` في [واجهة برمجة تطبيقات Fish TTS](https://platform.acedata.cloud/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) لإجراء التوليد الصوتي.
+واجهة برمجة تطبيقات نموذج Fish متوافقة تمامًا مع واجهة ModelEntity الرسمية لـ Fish Audio، مما يتيح نقل كود إدارة النماذج الصوتية المستنسخة الحالي بدون تعديل. يمكن استخدام معرف النموذج الصوتي `_id` الناتج مباشرة كقيمة لحقل `reference_id` في [واجهة برمجة تطبيقات Fish TTS](https://api.xhuoapi.ai/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) لإجراء التوليد الصوتي.

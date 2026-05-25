@@ -1,15 +1,15 @@
 ---
 title: "Mobile Number Two-Factor Verification API Integration Instructions"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 This article will introduce a Mobile Number Two-Factor Verification API integration guide, which can be used to verify the authenticity and consistency of mobile numbers and names.
 
 ## Application Process
 
-To use the API, you need to first apply for the corresponding service on the [Mobile Number Two-Factor Verification API](https://platform.acedata.cloud/documents/1f39c948-6d9b-48f5-83fb-0719da4f6ab0) page. After entering the page, click the "Acquire" button, as shown in the image:
+To use the API, you need to first apply for the corresponding service on the [Mobile Number Two-Factor Verification API](https://api.xhuoapi.ai/documents/1f39c948-6d9b-48f5-83fb-0719da4f6ab0) page. After entering the page, click the "Acquire" button, as shown in the image:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will automatically return to the current page.
 
@@ -19,7 +19,7 @@ There will be a free quota granted upon your first application, allowing you to 
 
 First, understand the basic usage method, which is to input the mobile number to obtain the processed result. You need to simply pass a `mobile` field. We can then fill in the corresponding content on the interface, as shown in the image:
 
-<p><img src="https://cdn.acedata.cloud/v6k96j.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/v6k96j.png" width="500" className="m-auto" /></p>
 
 Here, we can see that we have set the Request Headers, including:
 
@@ -34,7 +34,7 @@ Additionally, we set the Request Body, including:
 
 After selection, you can find that the corresponding code is also generated on the right side, as shown in the image:
 
-<p><img src="https://cdn.acedata.cloud/lq800o.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lq800o.png" width="500" className="m-auto" /></p>
 
 Click the "Try" button to conduct a test, as shown in the image above, and we obtained the following result:
 
@@ -65,7 +65,7 @@ It can be seen that the authenticity and consistency of the mobile number and na
 Additionally, if you want to generate the corresponding integration code, you can directly copy it, for example, the CURL code is as follows:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/phone/check-2e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/phone/check-2e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -80,7 +80,7 @@ The Python integration code is as follows:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/phone/check-2e"
+url = "https://api.xhuoapi.ai/v1/identity/phone/check-2e"
 
 headers = {
     "accept": "application/json",

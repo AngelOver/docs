@@ -3,7 +3,7 @@ title: "Керівництво з інтеграції Veo MCP"
 description: "veo MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) — це протокол контексту моделі, розроблений компанією Anthropic, який дозволяє AI-моделям (таким як Claude, GPT тощо) викликати зовнішні інструменти через стандартизований інтерфейс. За допомогою Veo MCP Server від AceData Cloud ви можете безпосередньо використовувати Google Veo для створення AI-відео в клієнтах AI, таких як Claude Desktop, VS Code, Cursor тощо.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) — це протокол контексту моделі, розроблений компанією Anthropic, який дозволяє AI-моделям (таким як Claude, GPT тощо) викликати зовнішні інструменти через стандартизований інтерфейс. За допомогою Veo MCP Server від XHuoAPI ви можете безпосередньо використовувати Google Veo для створення AI-відео в клієнтах AI, таких як Claude Desktop, VS Code, Cursor тощо.
 
 ## Огляд функцій
 
@@ -19,10 +19,10 @@ Veo MCP Server надає такі основні функції:
 
 ## Попередні вимоги
 
-Перед використанням вам потрібно отримати API Token AceData Cloud:
+Перед використанням вам потрібно отримати API Token XHuoAPI:
 
-1. Зареєструйтесь або увійдіть на [AceData Cloud платформу](https://platform.acedata.cloud)
-2. Перейдіть на сторінку [Veo Videos API](https://platform.acedata.cloud/documents/veo-videos)
+1. Зареєструйтесь або увійдіть на [XHuoAPI платформу](https://api.xhuoapi.ai)
+2. Перейдіть на сторінку [Veo Videos API](https://api.xhuoapi.ai/documents/veo-videos)
 3. Натисніть «Acquire» для отримання API Token (перший запит надає безкоштовний ліміт)
 
 ## Встановлення та налаштування
@@ -36,7 +36,7 @@ pip install mcp-veo
 ### Варіант 2: встановлення з вихідного коду
 
 ```bash
-git clone https://github.com/AceDataCloud/VeoMCP.git
+git clone https://github.com/XHuoAPI/VeoMCP.git
 cd VeoMCP
 pip install -e .
 ```
@@ -58,7 +58,7 @@ pip install -e .
     "veo": {
       "command": "mcp-veo",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API Token"
+        "XHuoAPI_API_TOKEN": "ваш API Token"
       }
     }
   }
@@ -74,7 +74,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-veo"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API Token"
+        "XHuoAPI_API_TOKEN": "ваш API Token"
       }
     }
   }
@@ -93,7 +93,7 @@ pip install -e .
     "veo": {
       "command": "mcp-veo",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API Token"
+        "XHuoAPI_API_TOKEN": "ваш API Token"
       }
     }
   }
@@ -109,7 +109,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-veo"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API Token"
+        "XHuoAPI_API_TOKEN": "ваш API Token"
       }
     }
   }
@@ -137,6 +137,6 @@ pip install -e .
 
 ## Додаткова інформація
 
-- Репозиторій GitHub: [AceDataCloud/VeoMCP](https://github.com/AceDataCloud/VeoMCP)
+- Репозиторій GitHub: [XHuoAPI/VeoMCP](https://github.com/XHuoAPI/VeoMCP)
 - Пакет PyPI: [mcp-veo](https://pypi.org/project/mcp-veo/)
-- API документація: [Veo відео генерація API](https://platform.acedata.cloud/documents/veo)
+- API документація: [Veo відео генерація API](https://api.xhuoapi.ai/documents/veo)

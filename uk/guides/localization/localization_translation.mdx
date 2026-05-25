@@ -1,6 +1,6 @@
 ---
 title: "Інтеграція та використання Localization Translate API"
-description: "Localization translation 集成指南 - Ace Data Cloud"
+description: "Localization translation 集成指南 - XHuoAPI"
 ---
 
 Основна функція Localization Translate API полягає в отриманні перекладеного тексту шляхом введення тексту, що потребує перекладу, при цьому мову перекладу можна налаштувати, а результати перекладу можуть бути виведені у двох основних форматах: `json` та `markdown`.
@@ -9,11 +9,11 @@ description: "Localization translation 集成指南 - Ace Data Cloud"
 
 ## Процес подачі заявки
 
-Щоб використовувати Localization Translate API, спочатку потрібно перейти на сторінку подачі заявки [Localization Translate API](https://platform.acedata.cloud/documents/6dcc60d0-a973-4ad2-92d8-11f4d3775532) для отримання відповідної послуги. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
+Щоб використовувати Localization Translate API, спочатку потрібно перейти на сторінку подачі заявки [Localization Translate API](https://api.xhuoapi.ai/documents/6dcc60d0-a973-4ad2-92d8-11f4d3775532) для отримання відповідної послуги. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
 
-![Сторінка подачі заявки](https://cdn.acedata.cloud/rci31i.png)
+![Сторінка подачі заявки](https://cdn.xhuoapi.ai/rci31i.png)
 
-Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на [сторінку входу](https://platform.acedata.cloud), щоб запросити реєстрацію та вхід. Після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
+Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на [сторінку входу](https://api.xhuoapi.ai), щоб запросити реєстрацію та вхід. Після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
 
 При першій подачі заявки вам буде надано безкоштовний ліміт, який дозволяє безкоштовно використовувати цей API.
 
@@ -37,20 +37,20 @@ description: "Localization translation 集成指南 - Ace Data Cloud"
 
 Налаштування виглядає так, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/d4uqst.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d4uqst.png" width="500" className="m-auto" /></p>
 
 ### Приклад коду
 
 Можна помітити, що на правій стороні сторінки автоматично згенеровано код на різних мовах, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/tn5nno.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tn5nno.png" width="500" className="m-auto" /></p>
 
 Деякі приклади коду наведені нижче:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/localization/translate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/localization/translate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -66,7 +66,7 @@ curl -X POST 'https://api.acedata.cloud/localization/translate' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/localization/translate"
+url = "https://api.xhuoapi.ai/v1/localization/translate"
 
 headers = {
     "accept": "application/json",

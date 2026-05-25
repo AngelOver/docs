@@ -1,6 +1,6 @@
 ---
 title: "Producer Генерация текстов песен API Инструкция по интеграции"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 Producer позволяет нам генерировать тексты песен с помощью подсказок, данный документ объясняет методы интеграции соответствующего API.
@@ -10,7 +10,7 @@ Producer позволяет нам генерировать тексты пес�
 Здесь мы вводим `prompt` как `Песня о зиме`, это подсказка для генерации текста песни.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/lyrics' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/lyrics' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

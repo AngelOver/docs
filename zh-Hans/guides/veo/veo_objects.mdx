@@ -1,6 +1,6 @@
 ---
 title: "Veo Objects API 对接说明"
-description: "Veo Video Generation 集成指南 - Ace Data Cloud"
+description: "Veo Video Generation 集成指南 - XHuoAPI"
 ---
 
 本文将介绍 Veo Objects API 的对接说明。该接口用于对一段已经生成的 Veo 视频进行**物体增加或删除**操作（基于蒙版的局部重绘）。
@@ -29,7 +29,7 @@ description: "Veo Video Generation 集成指南 - Ace Data Cloud"
 请求示例（插入物体，不传蒙版，让 AI 自动定位）：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/veo/objects' \
+curl -X POST 'https://api.xhuoapi.ai/v1/veo/objects' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -43,7 +43,7 @@ curl -X POST 'https://api.acedata.cloud/veo/objects' \
 请求示例（按蒙版移除物体）：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/veo/objects' \
+curl -X POST 'https://api.xhuoapi.ai/v1/veo/objects' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \

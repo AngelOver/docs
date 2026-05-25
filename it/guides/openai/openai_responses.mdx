@@ -1,6 +1,6 @@
 ---
 title: "Richiesta e utilizzo dell'API OpenAI Responses"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI ha recentemente fornito un'interfaccia per la creazione di risposte dei modelli. Fornisci input di testo o immagine per generare output di testo o immagine. Consenti al modello di chiamare il tuo codice personalizzato o di utilizzare strumenti integrati, come la ricerca web o la ricerca di file, per utilizzare i tuoi dati come input per le risposte del modello.
@@ -9,9 +9,9 @@ Questo documento descrive principalmente il processo di utilizzo dell'API OpenAI
 
 ## Processo di richiesta
 
-Per utilizzare l'API OpenAI Responses, puoi prima andare alla pagina [OpenAI Responses API](https://platform.acedata.cloud/documents/81e285a6-d010-4a2d-a3a8-ca113d4ef82a) e fare clic sul pulsante "Acquire" per ottenere le credenziali necessarie per la richiesta:
+Per utilizzare l'API OpenAI Responses, puoi prima andare alla pagina [OpenAI Responses API](https://api.xhuoapi.ai/documents/81e285a6-d010-4a2d-a3a8-ca113d4ef82a) e fare clic sul pulsante "Acquire" per ottenere le credenziali necessarie per la richiesta:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Se non hai ancora effettuato il login o la registrazione, verrai automaticamente reindirizzato alla pagina di accesso che ti invita a registrarti e accedere; dopo aver effettuato il login o la registrazione, verrai automaticamente riportato alla pagina corrente.
 
@@ -21,7 +21,7 @@ Alla prima richiesta, verrà fornito un credito gratuito, che ti consente di uti
 
 Successivamente, puoi compilare i contenuti corrispondenti nell'interfaccia, come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/8lu8di.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8lu8di.png" width="400" className="m-auto" /></p>
 
 Quando utilizzi per la prima volta questa interfaccia, è necessario compilare almeno tre contenuti: uno è `authorization`, che puoi semplicemente selezionare dal menu a discesa. Un altro parametro è `model`, `model` è la categoria del modello di OpenAI ChatGPT che scegli di utilizzare; qui abbiamo principalmente 20 modelli, i dettagli possono essere consultati nei modelli forniti. L'ultimo parametro è `input`, `input` è un array di domande che inseriamo, rappresenta un array che consente di caricare più domande contemporaneamente, ogni domanda contiene `role` e `content`, dove `role` indica il ruolo del richiedente; abbiamo fornito tre identità: `user`, `assistant`, `system`. L'altro `content` è il contenuto specifico della nostra domanda.
 
@@ -36,7 +36,7 @@ Parametri opzionali comuni:
 - `tools`: definizione delle chiamate a funzioni/strumenti.
 - `background`: se eseguire in modo asincrono in background.
 
-<p><img src="https://cdn.acedata.cloud/rsw47a.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/rsw47a.png" width="400" className="m-auto" /></p>
 
 Dopo la chiamata, scopriamo che il risultato restituito è il seguente:
 
@@ -114,7 +114,7 @@ Il risultato restituito ha diversi campi, descritti come segue:
 
 Tra cui `output` contiene le informazioni di risposta di ChatGPT, dove `output` è ChatGPT, come mostrato nell'immagine.
 
-<p><img src="https://cdn.acedata.cloud/mald8o.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mald8o.png" width="400" className="m-auto" /></p>
 
 Si può vedere che il campo `content` all'interno di `output` contiene il contenuto specifico della risposta di ChatGPT.
 
@@ -126,7 +126,7 @@ Se desideri restituire una risposta in streaming, puoi modificare il parametro `
 
 Modifica come mostrato nell'immagine, ma il codice di chiamata deve avere le modifiche corrispondenti per supportare le risposte in streaming.
 
-<p><img src="https://cdn.acedata.cloud/xidnao.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xidnao.png" width="400" className="m-auto" /></p>
 
 Dopo aver modificato `stream` in `true`, l'API restituirà i dati JSON riga per riga; a livello di codice, dobbiamo apportare le modifiche necessarie per ottenere i risultati riga per riga.
 
@@ -135,7 +135,7 @@ Esempio di codice di chiamata in Python:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/responses"
+url = "https://api.xhuoapi.ai/v1/openai/responses"
 
 headers = {
     "accept": "application/json",
@@ -219,7 +219,7 @@ const options = {
   }),
 };
 
-fetch("https://api.acedata.cloud/openai/responses", options)
+fetch("https://api.xhuoapi.ai/v1/openai/responses", options)
   .then((response) => response.json())
   .then((response) => console.log(response))
   .catch((err) => console.error(err));
@@ -235,7 +235,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/openai/responses")
+  .url("https://api.xhuoapi.ai/v1/openai/responses")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer b82d32f570bc434d9ba9923aa0e7dce0")
@@ -253,14 +253,14 @@ Altri linguaggi possono essere riscritti separatamente, il principio è lo stess
 
 Se desideri integrare la funzionalità di conversazione multipla, devi caricare più domande nel campo `input`, un esempio specifico di più domande è mostrato nell'immagine sottostante:
 
-<p><img src="https://cdn.acedata.cloud/1jqwnf.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1jqwnf.png" width="400" className="m-auto" /></p>
 
 Esempio di codice Python per la chiamata:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/responses"
+url = "https://api.xhuoapi.ai/v1/openai/responses"
 
 headers = {
     "accept": "application/json",
@@ -357,7 +357,7 @@ L'uso della capacità di elaborazione delle immagini del modello gpt-4o avviene 
 - Metodo Curl
 
 ```
-curl -X POST 'https://api.acedata.cloud/openai/responses' \
+curl -X POST 'https://api.xhuoapi.ai/v1/openai/responses' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -383,7 +383,7 @@ curl -X POST 'https://api.acedata.cloud/openai/responses' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",

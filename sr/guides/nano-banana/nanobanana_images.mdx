@@ -1,17 +1,17 @@
 ---
 title: "Nano Banana Images API интеграција"
-description: "Nano Banana Image Generation 集成指南 - Ace Data Cloud"
+description: "Nano Banana Image Generation 集成指南 - XHuoAPI"
 ---
 
 Овај документ описује интеграцију и коришћење Nano Banana Images API. Овај интерфејс подржава две функције: **генерација слика (generate)** и **уређивање слика (edit)**.
 
 ## Процес пријаве
 
-Пре коришћења, молимо вас да уђете на [Nano Banana Images API](https://platform.acedata.cloud/documents/23985a11-d713-41d1-ad84-24b021805b3d) на Ace Data Cloud платформи и кликнете на Acquire да бисте затражили активацију. При првом захтеву обично ће бити доступан бесплатан кредит. Након активације, можете добити Bearer Token за позивање API-а.
+Пре коришћења, молимо вас да уђете на [Nano Banana Images API](https://api.xhuoapi.ai/documents/23985a11-d713-41d1-ad84-24b021805b3d) на XHuoAPI платформи и кликнете на Acquire да бисте затражили активацију. При првом захтеву обично ће бити доступан бесплатан кредит. Након активације, можете добити Bearer Token за позивање API-а.
 
 ## Преглед интерфејса
 
-- **Base URL**: `https://api.acedata.cloud`
+- **Base URL**: `https://api.xhuoapi.ai/v1`
 - **Endpoint**: `POST /nano-banana/images`
 - **Метод аутентификације**: HTTP Header садржи `authorization: Bearer {token}`
 - **Захтевни хедери**:
@@ -34,7 +34,7 @@ description: "Nano Banana Image Generation 集成指南 - Ace Data Cloud"
 ### Пример захтева (cURL)
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/images' \
   -H 'authorization: Bearer {token}' \
   -H 'accept: application/json' \
   -H 'content-type: application/json' \
@@ -50,7 +50,7 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/nano-banana/images"
+url = "https://api.xhuoapi.ai/v1/nano-banana/images"
 headers = {
     "authorization": "Bearer {token}",
     "accept": "application/json",
@@ -83,7 +83,7 @@ print(resp.json())
   "data": [
     {
       "prompt": "Фотореалистичан крупан портрет старијег јапанског керамичара са дубоким, сунчевим борењем и топлим, знајућим осмехом. Пажљиво прегледа свеже глазирани чајник. Постављен је у његов рустични, сунцем осветљени радионици. Сцена је осветљена меком, златном светлошћу која пролази кроз прозор, истичући фину текстуру глине. Снимљено са 85mm портретним објективом, што резултира меком, замућеном позадином (боке). Укупно расположење је мирно и мајсторско. Вертикална портретна оријентација.",
-      "image_url": "https://platform.cdn.acedata.cloud/nanobanana/69790adb-c85d-4362-ad9e-0c9ba4352cf4.png"
+      "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/69790adb-c85d-4362-ad9e-0c9ba4352cf4.png"
     }
   ]
 }
@@ -109,7 +109,7 @@ print(resp.json())
 ### Пример захтева (cURL)
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/images' \
   -H 'authorization: Bearer {token}' \
   -H 'accept: application/json' \
   -H 'content-type: application/json' \
@@ -117,8 +117,8 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
     "action": "edit",
     "prompt": "нека овај човек носи ову мајицу",
     "image_urls": [
-      "https://cdn.acedata.cloud/v8073y.png",
-      "https://cdn.acedata.cloud/44xlah.png"
+      "https://cdn.xhuoapi.ai/v8073y.png",
+      "https://cdn.xhuoapi.ai/44xlah.png"
     ],
     "count": 1
   }'
@@ -129,7 +129,7 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/nano-banana/images"
+url = "https://api.xhuoapi.ai/v1/nano-banana/images"
 headers = {
     "authorization": "Bearer {token}",
     "accept": "application/json",
@@ -139,8 +139,8 @@ payload = {
     "action": "edit",
     "prompt": "нека овај човек носи ову мајицу",
     "image_urls": [
-        "https://cdn.acedata.cloud/v8073y.png",
-        "https://cdn.acedata.cloud/44xlah.png"
+        "https://cdn.xhuoapi.ai/v8073y.png",
+        "https://cdn.xhuoapi.ai/44xlah.png"
     ],
     "count": 1
 }
@@ -158,7 +158,7 @@ print(resp.json())
   "data": [
     {
       "prompt": "нека овај човек носи ову мајицу",
-      "image_url": "https://platform.cdn.acedata.cloud/nanobanana/8e9e0253-26f4-45b9-b3f8-ac1aed1c284b.png"
+      "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/8e9e0253-26f4-45b9-b3f8-ac1aed1c284b.png"
     }
   ]
 }
@@ -188,7 +188,7 @@ Generisanje ili uređivanje može potrajati određeno vreme. Da biste izbegli du
   "data": [
     {
       "prompt": "bela sijamska mačka",
-      "image_url": "https://platform.cdn.acedata.cloud/nanobanana/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.png"
+      "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.png"
     }
   ]
 }

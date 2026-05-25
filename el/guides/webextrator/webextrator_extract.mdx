@@ -1,9 +1,9 @@
 ---
 title: "Οδηγός Ενσωμάτωσης API Έξυπνης Εξαγωγής WebExtrator"
-description: "WebExtrator Web Render & Extract 集成指南 - Ace Data Cloud"
+description: "WebExtrator Web Render & Extract 集成指南 - XHuoAPI"
 ---
 
-`POST https://api.acedata.cloud/webextrator/extract`
+`POST https://api.xhuoapi.ai/v1/webextrator/extract`
 
 Εξαγωγή περιεχομένου βασισμένη στο `/webextrator/render`. Εκτός από όλες τις παραμέτρους του render endpoint, υποστηρίζονται επιπλέον:
 
@@ -41,7 +41,7 @@ description: "WebExtrator Web Render & Extract 集成指南 - Ace Data Cloud"
 ## Παράδειγμα: Εξαγωγή Κειμένου Άρθρου (με ενεργοποίηση LLM)
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -54,7 +54,7 @@ curl -X POST https://api.acedata.cloud/webextrator/extract \
 ## Παράδειγμα: Ασύγχρονη Λειτουργία + Προσαρμοσμένη Δομημένη Εξαγωγή
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

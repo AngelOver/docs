@@ -1,9 +1,9 @@
 ---
 title: "统一响应格式"
-description: "Ace Data Cloud 同步响应与 Webhook 回调的响应结构、错误码、HTTP 状态。"
+description: "XHuoAPI 同步响应与 Webhook 回调的响应结构、错误码、HTTP 状态。"
 ---
 
-Ace Data Cloud 的响应结构因**调用类型**而异，主要分两类：
+XHuoAPI 的响应结构因**调用类型**而异，主要分两类：
 
 1. **同步 HTTP 响应** ——`POST /xxx` 请求的直接返回
 2. **Webhook 回调主体** ——异步任务完成后，POST 给你的 `callback_url`
@@ -21,7 +21,7 @@ Ace Data Cloud 的响应结构因**调用类型**而异，主要分两类：
   "success": true,
   "task_id": "27a1128f-14b5-440e-a82d-510c81e6fcd4",
   "image_id": "1211290228438868029",
-  "image_url": "https://midjourney.cdn.acedata.cloud/.../image.png",
+  "image_url": "https://midjourney.cdn.xhuoapi.ai/.../image.png",
   "image_width": 1024,
   "image_height": 1024,
   "actions": ["upscale1", "upscale2", "variation1", "variation2", ...]
@@ -126,4 +126,4 @@ Ace Data Cloud 的响应结构因**调用类型**而异，主要分两类：
 2. 请求 URL、Headers（去掉 Token 后半段）、Body
 3. 响应 Status + Body
 
-入口：[platform.acedata.cloud](https://platform.acedata.cloud) 工单 / `support@acedata.cloud` / [状态页](https://status.acedata.cloud)。
+入口：[platform.xhuoapi.ai](https://api.xhuoapi.ai) 工单 / `support@xhuoapi.ai` / [状态页](https://xhuoapi.ai)。

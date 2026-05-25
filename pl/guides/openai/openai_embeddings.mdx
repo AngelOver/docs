@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Embeddings API 申请及使用"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI usługa wektorów słów, służąca do generowania wektorów słów reprezentujących wprowadzone teksty.
@@ -9,9 +9,9 @@ Dokument ten głównie opisuje proces korzystania z OpenAI Embeddings API, dzię
 
 ## 申请流程
 
-Aby korzystać z OpenAI Embeddings API, najpierw można przejść na stronę [OpenAI Embeddings API](https://platform.acedata.cloud/documents/0f2e63fa-5890-4bdd-84f0-1706b5c9a387) i kliknąć przycisk „Acquire”, aby uzyskać potrzebne poświadczenia:
+Aby korzystać z OpenAI Embeddings API, najpierw można przejść na stronę [OpenAI Embeddings API](https://api.xhuoapi.ai/documents/0f2e63fa-5890-4bdd-84f0-1706b5c9a387) i kliknąć przycisk „Acquire”, aby uzyskać potrzebne poświadczenia:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Jeśli nie jesteś zalogowany lub zarejestrowany, automatycznie zostaniesz przekierowany na stronę logowania, aby zarejestrować się i zalogować, a po zalogowaniu zostaniesz automatycznie przekierowany z powrotem na bieżącą stronę.
 
@@ -21,7 +21,7 @@ Podczas pierwszej aplikacji otrzymasz darmowy limit, który pozwala na bezpłatn
 
 Następnie możesz wypełnić odpowiednie pola na interfejsie, jak pokazano na obrazku:
 
-<p><img src="https://cdn.acedata.cloud/4qtbvr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4qtbvr.png" width="500" className="m-auto" /></p>
 
 Podczas pierwszego korzystania z tego interfejsu musimy wypełnić przynajmniej trzy pola: jedno to `authorization`, które można wybrać bezpośrednio z rozwijanej listy. Drugim parametrem jest `model`, `model` to kategoria modelu, którą wybieramy z oficjalnej strony OpenAI, mamy tutaj głównie 3 rodzaje modeli, szczegóły można znaleźć w dostarczonych modelach. Ostatnim parametrem jest `input`, `input` to tekst, który chcemy przekształcić w wektor słów.
 
@@ -32,14 +32,14 @@ Opcjonalne parametry:
 - `dimensions`: przycinanie wymiarów wektora, domyślnie zwraca pełne wymiary.
 - `encoding_format`: format zwracany, opcjonalnie `float` lub `base64`.
 
-<p><img src="https://cdn.acedata.cloud/gqulm9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gqulm9.png" width="500" className="m-auto" /></p>
 
 Przykładowy kod wywołania w Pythonie:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/embeddings"
+url = "https://api.xhuoapi.ai/v1/openai/embeddings"
 
 headers = {
     "accept": "application/json",

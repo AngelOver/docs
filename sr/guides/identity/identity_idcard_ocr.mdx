@@ -1,15 +1,15 @@
 ---
 title: "Uputstvo za integraciju API za prepoznavanje lične karte i verifikaciju informacija"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Ovaj dokument će predstaviti način integracije API za prepoznavanje lične karte i verifikaciju informacija, koji može proveriti autentičnost i usklađenost imena i broja lične karte putem unosa slike lične karte ili imena i broja lične karte. Ovaj interfejs se koristi za proveru autentičnosti i usklađenosti imena i broja lične karte, možete uneti ime i broj lične karte ili poslati sliku lica sa lične karte da biste pružili potrebne informacije za verifikaciju.
 
 ## Proces prijave
 
-Da biste koristili API, prvo idite na [API za prepoznavanje lične karte i verifikaciju informacija](https://platform.acedata.cloud/documents/67f96afa-60b8-4cbb-a4bf-0cbfcf139a23) i zatražite odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
+Da biste koristili API, prvo idite na [API za prepoznavanje lične karte i verifikaciju informacija](https://api.xhuoapi.ai/documents/67f96afa-60b8-4cbb-a4bf-0cbfcf139a23) i zatražite odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Ako još niste prijavljeni ili registrovani, automatski ćete biti preusmereni na stranicu za prijavu koja vas poziva da se registrujete i prijavite. Nakon prijave ili registracije, automatski ćete se vratiti na trenutnu stranicu.
 
@@ -19,7 +19,7 @@ Prilikom prve prijave dobićete besplatnu kvotu koja vam omogućava besplatno ko
 
 Prvo, upoznajte se sa osnovnim načinom korišćenja, što podrazumeva unos linka slike lične karte kako biste dobili obrađene rezultate verifikacije. Prvo je potrebno jednostavno proslediti polje `image_url`, a zatim možemo popuniti odgovarajuće sadržaje na interfejsu, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/qxy9rh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qxy9rh.png" width="500" className="m-auto" /></p>
 
 Možete videti da smo postavili Request Headers, uključujući:
 
@@ -33,7 +33,7 @@ Takođe je postavljen Request Body, uključujući:
 
 Nakon izbora, možete primetiti da je sa desne strane generisan odgovarajući kod, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/uw90il.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/uw90il.png" width="500" className="m-auto" /></p>
 
 Kliknite na dugme „Try“ da biste izvršili testiranje, kao što je prikazano na slici, i dobićemo sledeći rezultat:
 
@@ -76,7 +76,7 @@ Može se primetiti da su informacije o imenu i broju lične karte usklađene i v
 Takođe, ako želite da generišete odgovarajući kod za integraciju, možete ga direktno kopirati, na primer, CURL kod je sledeći:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/idcard/ocr' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/idcard/ocr' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -90,7 +90,7 @@ Python kod za integraciju je sledeći:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/idcard/ocr"
+url = "https://api.xhuoapi.ai/v1/identity/idcard/ocr"
 
 headers = {
     "accept": "application/json",
@@ -110,7 +110,7 @@ print(response.text)
 
 Takođe pružamo način verifikacije koji ne otkriva informacije o slici lične karte, možete samo uneti ime `name` i broj lične karte `id_card` da biste proverili autentičnost i usklađenost imena i broja lične karte. Evo konkretnih informacija koje su unete:
 
-<p><img src="https://cdn.acedata.cloud/mc5bbw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mc5bbw.png" width="500" className="m-auto" /></p>
 
 Klikom na pokretanje dobijamo sledeći rezultat:
 

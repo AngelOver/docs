@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Chat Completion 4o Image API 申请及使用"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI ChatGPT 是一款非常强大的 AI 对话系统，只要输入提示词，就能在短短几秒内生成流畅自然的回复。ChatGPT 以其出色的语言理解和生成能力在业界独树一帜，如今，ChatGPT 早已在各个行业和领域广泛应用，其影响力愈发显著。无论是日常对话、创意写作，还是专业咨询、代码编程，ChatGPT 都能提供令人惊叹的智能协助，极大地提高了人类的工作效率和创造力。
@@ -9,9 +9,9 @@ OpenAI ChatGPT 是一款非常强大的 AI 对话系统，只要输入提示词�
 
 ## 申请流程
 
-要使用 OpenAI Chat Completion 4o Image API，首先可以到 [OpenAI Chat Completion 4o Image API](https://platform.acedata.cloud/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) 页面点击「Acquire」按钮，获取请求所需要的凭证：
+要使用 OpenAI Chat Completion 4o Image API，首先可以到 [OpenAI Chat Completion 4o Image API](https://api.xhuoapi.ai/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) 页面点击「Acquire」按钮，获取请求所需要的凭证：
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 如果你尚未登录或注册，会自动跳转到登录页面邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
@@ -23,7 +23,7 @@ OpenAI ChatGPT 是一款非常强大的 AI 对话系统，只要输入提示词�
 
 下面是根据一个图片生成自定义风格的图片的示例，首先让我们看一下我们输入的图片，如下图所示：
 
-![](https://cdn.acedata.cloud/qzx2z1.png)
+![](https://cdn.xhuoapi.ai/qzx2z1.png)
 
 可以看到参考图是一个真人的图片，我们可以让它变化一种风格，比如让它变成动漫风格的图像，具体的请求样例：
 
@@ -41,7 +41,7 @@ OpenAI ChatGPT 是一款非常强大的 AI 对话系统，只要输入提示词�
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]
@@ -79,7 +79,7 @@ OpenAI ChatGPT 是一款非常强大的 AI 对话系统，只要输入提示词�
 
 其中`choices`里面的`message`就是生成完整的对话结果，图片结果也包含在对话结果里面，可以看出生成的图片确实是动漫风格的，具体的如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/qmr391.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qmr391.jpg" width="400" className="m-auto" /></p>
 
 ### 纯文字生图
 
@@ -99,7 +99,7 @@ OpenAI ChatGPT 是一款非常强大的 AI 对话系统，只要输入提示词�
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]
@@ -137,15 +137,15 @@ OpenAI ChatGPT 是一款非常强大的 AI 对话系统，只要输入提示词�
 
 可以看到结果是符合提示词的，具体的如下所示：
 
-<p><img src="https://cdn.acedata.cloud/q502uk.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q502uk.jpg" width="400" className="m-auto" /></p>
 
 ### 多图生一图
 
 我们还可以使用使用多张参考图来生成一张图，比如使用一张帅哥和咖啡图，利用这俩张图可以生成一张帅哥喝咖啡的图，下面是具体的参考图：
 
-<p><img src="https://cdn.acedata.cloud/pqquv3.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pqquv3.jpg" width="400" className="m-auto" /></p>
 
-<p><img src="https://cdn.acedata.cloud/h8j2i0.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/h8j2i0.jpg" width="400" className="m-auto" /></p>
 
 下面我们以`生成男生举着咖啡，并且马上要喝的样子`为示例，下面具体的示例：
 
@@ -163,13 +163,13 @@ OpenAI ChatGPT 是一款非常强大的 AI 对话系统，只要输入提示词�
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/pqquv3.jpg"
+            "url": "https://cdn.xhuoapi.ai/pqquv3.jpg"
           }
         },
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/h8j2i0.jpg"
+            "url": "https://cdn.xhuoapi.ai/h8j2i0.jpg"
           }
         }
       ]
@@ -207,7 +207,7 @@ OpenAI ChatGPT 是一款非常强大的 AI 对话系统，只要输入提示词�
 
 可以看到，生成的结果确实是结合了俩张图来生成的，下面是具体的结果：
 
-<p><img src="https://cdn.acedata.cloud/89vnpx.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/89vnpx.jpg" width="400" className="m-auto" /></p>
 
 ## 错误处理
 

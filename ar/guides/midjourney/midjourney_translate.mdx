@@ -1,6 +1,6 @@
 ---
 title: "واجهة برمجة تطبيقات Midjourney Translate والتكامل والاستخدام"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 الوظيفة الرئيسية لواجهة برمجة تطبيقات Midjourney Translate هي الحصول على وصف باللغة الإنجليزية من خلال إدخال وصف باللغة الصينية.
@@ -9,11 +9,11 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 ## عملية التقديم
 
-لاستخدام واجهة برمجة تطبيقات Midjourney Translate، تحتاج أولاً إلى زيارة صفحة التقديم [Midjourney Translate API](https://platform.acedata.cloud/documents/e067d19b-7a66-4458-a45f-0fe88c1d5d34) لتقديم الطلب للخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire" كما هو موضح في الصورة:
+لاستخدام واجهة برمجة تطبيقات Midjourney Translate، تحتاج أولاً إلى زيارة صفحة التقديم [Midjourney Translate API](https://api.xhuoapi.ai/documents/e067d19b-7a66-4458-a45f-0fe88c1d5d34) لتقديم الطلب للخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire" كما هو موضح في الصورة:
 
-![صفحة التقديم](https://cdn.acedata.cloud/rci31i.png)
+![صفحة التقديم](https://cdn.xhuoapi.ai/rci31i.png)
 
-إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، سيتم تحويلك تلقائيًا إلى [صفحة تسجيل الدخول](https://platform.acedata.cloud) لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول أو التسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
+إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، سيتم تحويلك تلقائيًا إلى [صفحة تسجيل الدخول](https://api.xhuoapi.ai) لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول أو التسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
 عند التقديم لأول مرة، سيكون هناك حد مجاني متاح، يمكنك استخدام هذه الواجهة مجانًا.
 
@@ -36,20 +36,20 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 الإعداد كما هو موضح في الصورة أدناه:
 
-![](https://cdn.acedata.cloud/db8lrn.png)
+![](https://cdn.xhuoapi.ai/db8lrn.png)
 
 ### مثال على الكود
 
 يمكنك أن تلاحظ أنه تم توليد أكواد بلغات مختلفة تلقائيًا على الجانب الأيمن، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/oj1cck.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/oj1cck.png" width="500" className="m-auto" /></p>
 
 بعض أمثلة الكود كما يلي:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/translate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/translate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -63,7 +63,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/translate' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/translate"
+url = "https://api.xhuoapi.ai/v1/midjourney/translate"
 
 headers = {
     "accept": "application/json",

@@ -1,17 +1,17 @@
 ---
 title: "Tutorial de Uso do Terminal (CLI) do Claude Code"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code é uma ferramenta de **Codificação Agente** lançada pela Anthropic, também conhecida como um dos agentes de programação mais poderosos do mundo. O terminal CLI é a experiência central do Claude Code, onde você pode executar o comando `claude` em qualquer terminal e colaborar em programação com a IA usando linguagem natural.
 
-Este documento apresenta como instalar, configurar e usar o Claude Code CLI através do serviço de proxy da AceData Cloud no terminal.
+Este documento apresenta como instalar, configurar e usar o Claude Code CLI através do serviço de proxy da XHuoAPI no terminal.
 
 ## Processo de Solicitação
 
-Para usar o Claude Code, primeiro você pode acessar a [página de serviços Claude Messages](https://platform.acedata.cloud/documents/claude-messages) e clicar no botão "Acquire" para obter as credenciais necessárias para a solicitação:
+Para usar o Claude Code, primeiro você pode acessar a [página de serviços Claude Messages](https://api.xhuoapi.ai/documents/claude-messages) e clicar no botão "Acquire" para obter as credenciais necessárias para a solicitação:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Se você ainda não estiver logado ou registrado, será redirecionado automaticamente para a página de login, convidando-o a se registrar e logar. Após o registro e login, você será redirecionado de volta para a página atual.
 
@@ -62,9 +62,9 @@ winget install Claude.ClaudeCode
 
 A instalação nativa atualizará automaticamente em segundo plano, mantendo sempre a versão mais recente.
 
-## Configuração da API da AceData Cloud
+## Configuração da API da XHuoAPI
 
-Após a instalação, você será solicitado a fazer login na conta oficial da Anthropic. Podemos usar variáveis de ambiente para configurar a API de proxy da AceData Cloud, **sem necessidade de assinatura oficial**.
+Após a instalação, você será solicitado a fazer login na conta oficial da Anthropic. Podemos usar variáveis de ambiente para configurar a API de proxy da XHuoAPI, **sem necessidade de assinatura oficial**.
 
 ### Configuração de Variáveis de Ambiente
 
@@ -72,12 +72,12 @@ Existem duas maneiras de configurar variáveis de ambiente, escolha uma delas.
 
 **Método 1: Configurar no arquivo de configuração do Shell (Recomendado)**
 
-Adicione o seguinte conteúdo ao seu arquivo de configuração do Shell (`~/.zshrc`, `~/.bashrc` ou `~/.bash_profile`), substituindo `{token}` pelo token da API que você obteve no console da AceData Cloud:
+Adicione o seguinte conteúdo ao seu arquivo de configuração do Shell (`~/.zshrc`, `~/.bashrc` ou `~/.bash_profile`), substituindo `{token}` pelo token da API que você obteve no console da XHuoAPI:
 
 ```bash
-# AceData Cloud - Configuração do Proxy do Claude Code
+# XHuoAPI - Configuração do Proxy do Claude Code
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 Após a modificação, execute o seguinte comando para aplicar a configuração:
@@ -94,14 +94,14 @@ Edite `~/.claude/settings.json` (crie se não existir) e adicione a configuraç�
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
 A vantagem desse método é que as variáveis de ambiente só afetam o Claude Code, sem impactar outros programas.
 
-> **Dica**: O token da API pode ser visualizado no [console da AceData Cloud](https://platform.acedata.cloud/console). O valor de `ANTHROPIC_AUTH_TOKEN` será automaticamente precedido pelo prefixo `Bearer` ao ser enviado ao servidor.
+> **Dica**: O token da API pode ser visualizado no [console da XHuoAPI](https://api.xhuoapi.ai/console). O valor de `ANTHROPIC_AUTH_TOKEN` será automaticamente precedido pelo prefixo `Bearer` ao ser enviado ao servidor.
 
 ## Começando a Usar
 
@@ -217,7 +217,7 @@ Este é um projeto full-stack Django + Vue.js.
    echo $ANTHROPIC_AUTH_TOKEN
    echo $ANTHROPIC_BASE_URL
    ```
-3. Confirme se o token da API é válido (pode ser verificado no [console](https://platform.acedata.cloud/console))
+3. Confirme se o token da API é válido (pode ser verificado no [console](https://api.xhuoapi.ai/console))
 4. Tente reiniciar o terminal
 
 ### comando não encontrado: claude
@@ -230,11 +230,11 @@ Se, após a instalação, aparecer a mensagem `command not found`, tente:
 
 ### Como verificar o saldo restante?
 
-Faça login no [console da AceData Cloud](https://platform.acedata.cloud/console) para ver o saldo restante e o uso atual da conta.
+Faça login no [console da XHuoAPI](https://api.xhuoapi.ai/console) para ver o saldo restante e o uso atual da conta.
 
 ## Saiba mais
 
 - 📖 [Documentação oficial do Claude Code CLI](https://code.claude.com/docs/en/quickstart)
 - 📋 [Referência de comandos CLI](https://code.claude.com/docs/en/cli-reference)
-- 🔧 [Serviço Claude Code da AceData Cloud](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [Serviço Claude Code da XHuoAPI](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 Se tiver alguma dúvida, sinta-se à vontade para entrar em contato conosco através do suporte da plataforma

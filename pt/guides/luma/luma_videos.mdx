@@ -1,19 +1,19 @@
 ---
 title: "Luma API de Geração de Vídeo - Instruções de Integração"
-description: "Luma Video Generation 集成指南 - Ace Data Cloud"
+description: "Luma Video Generation 集成指南 - XHuoAPI"
 ---
 
 Com a ampliação do uso da IA, diversos programas de IA têm se tornado cada vez mais comuns. A IA tem se infiltrado em todos os aspectos da vida e do trabalho das pessoas. E os setores envolvidos com a IA estão se expandindo, desde a escrita inicial, passando pela educação médica, até agora, com vídeos.
 
 Luma é uma plataforma profissional de geração de vídeos de alta qualidade, onde os usuários podem simplesmente fazer o upload de materiais e gerar automaticamente vídeos de alta qualidade com base em diferentes estilos e efeitos. Este gerador de vídeo AI foi desenvolvido por membros de uma equipe de uma conhecida empresa de tecnologia, com o objetivo de permitir que todos possam facilmente criar vídeos impressionantes, sem a necessidade de ferramentas de edição complexas.
 
-No entanto, a Luma não fornece uma API oficial, e a AceDataCloud oferece um conjunto de APIs da Luma, simulando a integração com a oficial da Suno, permitindo gerar vídeos desejados de forma rápida e conveniente.
+No entanto, a Luma não fornece uma API oficial, e a XHuoAPI oferece um conjunto de APIs da Luma, simulando a integração com a oficial da Suno, permitindo gerar vídeos desejados de forma rápida e conveniente.
 
 ## Solicitação e Uso
 
-Para usar a API de Vídeos da Luma, primeiro você pode acessar a página [Luma Videos Generation API](https://platform.acedata.cloud/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) e clicar no botão "Acquire" para obter as credenciais necessárias para a solicitação:
+Para usar a API de Vídeos da Luma, primeiro você pode acessar a página [Luma Videos Generation API](https://api.xhuoapi.ai/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) e clicar no botão "Acquire" para obter as credenciais necessárias para a solicitação:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Se você ainda não estiver logado ou registrado, será redirecionado automaticamente para a página de login, convidando-o a se registrar e fazer login. Após o registro e login, você será redirecionado de volta para a página atual.
 
@@ -23,11 +23,11 @@ Na primeira solicitação, haverá um crédito gratuito disponível, permitindo 
 
 Para gerar um vídeo, você pode inserir qualquer texto, por exemplo, se eu quiser gerar um vídeo sobre astronautas se deslocando entre o espaço e um vulcão, posso inserir `Astronauts shuttle from space to volcano`, como mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/yub02j.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yub02j.png" width="500" className="m-auto" /></p>
 
 O código gerado é o seguinte:
 
-<p><img src="https://cdn.acedata.cloud/ieq7yn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ieq7yn.png" width="500" className="m-auto" /></p>
 
 Principais parâmetros de solicitação:
 
@@ -51,7 +51,7 @@ Você pode clicar no botão "Try" para testar a API diretamente, aguarde 1-2 min
   "video_height": 752,
   "video_width": 1360,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/e4018a99-1522-4f24-9330-62c2a9b50b59.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/e4018a99-1522-4f24-9330-62c2a9b50b59.jpg",
   "thumbnail_width": 1360,
   "thumbnail_height": 752
 }
@@ -79,7 +79,7 @@ Se você deseja gerar um vídeo através de quadros personalizados, pode inserir
 
 Neste caso, o campo `start_image_url` pode receber a seguinte imagem como o quadro inicial do vídeo:
 
-![Quadro Inicial](https://cdn.acedata.cloud/r9vsv9.png)
+![Quadro Inicial](https://cdn.xhuoapi.ai/r9vsv9.png)
 
 Em seguida, para personalizar a geração do vídeo com base nos quadros inicial e final, você pode especificar o seguinte conteúdo:
 
@@ -90,18 +90,18 @@ Em seguida, para personalizar a geração do vídeo com base nos quadros inicial
 
 Um exemplo de preenchimento é o seguinte:
 
-<p><img src="https://cdn.acedata.cloud/zvzydx.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zvzydx.png" width="500" className="m-auto" /></p>
 
 Após o preenchimento, o código gerado é o seguinte:
 
-<p><img src="https://cdn.acedata.cloud/tx80pu.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tx80pu.png" width="500" className="m-auto" /></p>
 
 O código correspondente:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/luma/videos"
+url = "https://api.xhuoapi.ai/v1/luma/videos"
 
 headers = {
     "accept": "application/json",
@@ -110,7 +110,7 @@ headers = {
 }
 
 payload = {
-    "start_image_url": "https://cdn.acedata.cloud/r9vsv9.png",
+    "start_image_url": "https://cdn.xhuoapi.ai/r9vsv9.png",
     "action": "generate",
     "prompt": "Astronauts shuttle from space to volcano"
 }
@@ -127,11 +127,11 @@ O resultado obtido é o seguinte:
   "task_id": "12a18694-fd4b-47e7-9c50-34f30862cff6",
   "video_id": "0105c090-03a5-425a-8026-523341cd575b",
   "prompt": "Astronauts shuttle from space to volcano",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -139,11 +139,11 @@ O resultado obtido é o seguinte:
 
 O resultado final é semelhante ao anterior, o quadro inicial do vídeo gerado contém a imagem que fornecemos. Claro, também é possível fornecer links de imagens para os quadros inicial e final para gerar o vídeo, basta adicionar uma imagem de quadro final ao que foi mencionado anteriormente, as informações da imagem do quadro final são as seguintes:
 
-![Quadro Final](https://cdn.acedata.cloud/0iad3k.png)
+![Quadro Final](https://cdn.xhuoapi.ai/0iad3k.png)
 
 Um exemplo de preenchimento é o seguinte:
 
-<p><img src="https://cdn.acedata.cloud/20igwi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/20igwi.png" width="500" className="m-auto" /></p>
 
 O resultado final será o seguinte:
 ```json
@@ -152,11 +152,11 @@ O resultado final será o seguinte:
   "task_id": "d1cb723a-e554-4775-94a4-bb6ae8c7ea67",
   "video_id": "6bebd0d2-f793-472e-9326-38528a9273bb",
   "prompt": "Astronautas se deslocam do espaço para o vulcão",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completo",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -168,13 +168,13 @@ Os resultados são semelhantes ao texto acima, o vídeo gerado contém simultane
 
 Se você deseja continuar gerando o vídeo criado, pode definir o parâmetro `action` como `extend` e inserir o ID do vídeo ou o link do vídeo que precisa ser continuado. O ID do vídeo e o link do vídeo podem ser obtidos com base no uso básico, conforme mostrado na imagem abaixo:
 
-<p><img src="https://cdn.acedata.cloud/fwknj4.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fwknj4.png" width="500" className="m-auto" /></p>
 
 Neste momento, você pode ver que o ID do vídeo é:
 
 ```
 "video_id": "0105c090-03a5-425a-8026-523341cd575b",
-"video_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4"
+"video_url": "https://platform.cdn.xhuoapi.ai/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4"
 ```
 
 > Nota: Aqui, o `video_id` e o `video_url` do vídeo são o ID e o link do vídeo gerado. Se você não souber como gerar um vídeo, pode consultar o uso básico mencionado acima.
@@ -189,18 +189,18 @@ Para continuar gerando o vídeo, é necessário enviar o link do vídeo ou o ID 
 
 Um exemplo de preenchimento é mostrado abaixo:
 
-<p><img src="https://cdn.acedata.cloud/vv0rxk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vv0rxk.png" width="500" className="m-auto" /></p>
 
 Após o preenchimento, o código gerado automaticamente é o seguinte:
 
-<p><img src="https://cdn.acedata.cloud/woapxi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/woapxi.png" width="500" className="m-auto" /></p>
 
 Código correspondente em Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/luma/videos"
+url = "https://api.xhuoapi.ai/v1/luma/videos"
 
 headers = {
     "accept": "application/json",
@@ -226,11 +226,11 @@ Ao clicar em executar, você pode notar que um resultado é obtido, conforme aba
   "task_id": "c6e529d1-a06d-4c12-91b2-c855135131c3",
   "video_id": "36908c49-c2bb-4a11-bd5a-b8512b004818",
   "prompt": "Astronautas se deslocam do espaço para o vulcão",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completo",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -240,7 +240,7 @@ Pode-se observar que o vídeo foi estendido com base no vídeo que precisava ser
 
 Claro, também podemos especificar o link do vídeo para realizar a extensão, preenchendo as informações a seguir:
 
-<p><img src="https://cdn.acedata.cloud/0cv0hg.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0cv0hg.png" width="500" className="m-auto" /></p>
 
 Após a execução, obtemos o seguinte resultado:
 
@@ -250,11 +250,11 @@ Após a execução, obtemos o seguinte resultado:
   "task_id": "1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca",
   "video_id": "f0187dc2-339f-4a08-a435-c3a3341f620a",
   "prompt": "Astronautas se deslocam do espaço para o vulcão",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completo",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -264,11 +264,11 @@ Com base no resultado, pode-se observar que a funcionalidade de extensão do ví
 
 Por fim, também podemos especificar uma imagem do último quadro no vídeo estendido para realizar a extensão. Abaixo estão as informações da imagem do último quadro:
 
-![Último Quadro](https://cdn.acedata.cloud/0iad3k.png)
+![Último Quadro](https://cdn.xhuoapi.ai/0iad3k.png)
 
 Em seguida, adicionamos as informações da imagem do último quadro com base no que foi mencionado acima, conforme mostrado abaixo:
 
-<p><img src="https://cdn.acedata.cloud/9p1vrj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/9p1vrj.png" width="500" className="m-auto" /></p>
 
 Ao clicar em executar, obtemos as seguintes informações:
 
@@ -278,11 +278,11 @@ Ao clicar em executar, obtemos as seguintes informações:
   "task_id": "b816b2b4-c345-4673-9e19-83e91f91b643",
   "video_id": "c5400053-63e6-4206-8082-31cf9dd1e7ed",
   "prompt": "Astronautas se deslocam do espaço para o vulcão",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/b816b2b4-c345-4673-9e19-83e91f91b643.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/b816b2b4-c345-4673-9e19-83e91f91b643.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completo",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/b816b2b4-c345-4673-9e19-83e91f91b643.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/b816b2b4-c345-4673-9e19-83e91f91b643.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -299,13 +299,13 @@ Abaixo, vamos entender como operar isso através de um exemplo.
 
 Primeiro, o callback Webhook é um serviço que pode receber solicitações HTTP, e os desenvolvedores devem substituí-lo pela URL do servidor HTTP que construíram. Aqui, para facilitar a demonstração, usamos um site de exemplo de Webhook público https://webhook.site/, ao abrir este site, você obterá uma URL de Webhook, como mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/q78okf.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q78okf.png" width="500" className="m-auto" /></p>
 
 Copie esta URL e você pode usá-la como Webhook, o exemplo aqui é https://webhook.site/0c87ca0e-cd74-4577-8d68-f2b80fbf8a13.
 
 Em seguida, podemos definir o campo `callback_url` para a URL do Webhook acima, enquanto preenchemos `prompt`, como mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/n2fjvi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/n2fjvi.png" width="500" className="m-auto" /></p>
 
 Clique em executar, e você verá que receberá imediatamente um resultado, como abaixo:
 
@@ -317,7 +317,7 @@ Clique em executar, e você verá que receberá imediatamente um resultado, como
 
 Após alguns instantes, podemos observar o resultado da música gerada em https://webhook.site/0c87ca0e-cd74-4577-8d68-f2b80fbf8a13, como mostrado na imagem:
 
-![](https://cdn.acedata.cloud/1hwm5m.png)
+![](https://cdn.xhuoapi.ai/1hwm5m.png)
 
 O conteúdo é o seguinte:
 
@@ -327,11 +327,11 @@ O conteúdo é o seguinte:
     "task_id": "732f8282-7cf8-401c-95f2-42c33aa079a6",
     "video_id": "4d8013c3-5de0-41aa-966e-0b1a51d1c633",
     "prompt": "Astronautas se deslocam do espaço para o vulcão",
-    "video_url": "https://platform.cdn.acedata.cloud/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.mp4",
+    "video_url": "https://platform.cdn.xhuoapi.ai/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.mp4",
     "video_height": 752,
     "video_width": 1360,
     "state": "completed",
-    "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.jpg",
+    "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.jpg",
     "thumbnail_width": 1360,
     "thumbnail_height": 752
 }

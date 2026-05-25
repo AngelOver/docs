@@ -1,15 +1,15 @@
 ---
 title: "AI izrada ličnih dokumenata API integracija"
-description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
+description: "AI ID Photo Production 集成指南 - XHuoAPI"
 ---
 
 Ovaj dokument će predstaviti uputstvo za integraciju AI izrade ličnih dokumenata API, koji omogućava izradu različitih stilova ličnih dokumenata putem unosa URL-a fotografije i odabranog šablona.
 
 ## Proces prijave
 
-Da biste koristili API, prvo treba da odete na [AI izrada ličnih dokumenata API](https://platform.acedata.cloud/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) stranicu i zatražite odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
+Da biste koristili API, prvo treba da odete na [AI izrada ličnih dokumenata API](https://api.xhuoapi.ai/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) stranicu i zatražite odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Ako niste prijavljeni ili registrovani, automatski ćete biti preusmereni na stranicu za prijavu koja vas poziva da se registrujete i prijavite. Nakon prijave ili registracije, automatski ćete se vratiti na trenutnu stranicu.
 
@@ -38,7 +38,7 @@ Zatim, potrebno je uneti i odabrani šablon. Ovaj dokument nudi osam popularnih 
 
 Nakon toga, možemo odrediti parametar brzine generisanja `mode`, koji se obično deli na dva tipa: spor `relax` i brz `fast`, a konkretni sadržaj je prikazan u nastavku:
 
-<p><img src="https://cdn.acedata.cloud/73xbla.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/73xbla.png" width="500" className="m-auto" /></p>
 
 Možemo videti da smo ovde postavili Request Headers, uključujući:
 
@@ -54,7 +54,7 @@ Takođe, postavili smo Request Body, uključujući:
 
 Nakon izbora, možete primetiti da je sa desne strane generisan odgovarajući kod, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/yp49hc.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yp49hc.png" width="500" className="m-auto" /></p>
 
 Kliknite na dugme „Try“ da biste izvršili test, kao što je prikazano na gornjoj slici, i dobićemo sledeći rezultat:
 
@@ -65,12 +65,12 @@ Kliknite na dugme „Try“ da biste izvršili test, kao što je prikazano na go
   "data": [
     {
       "id": "202411031951124776",
-      "image_url": "https://platform.cdn.acedata.cloud/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
+      "image_url": "https://platform.cdn.xhuoapi.ai/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
       "template": "Muška slika"
     },
     {
       "id": "202411031951128490",
-      "image_url": "https://platform.cdn.acedata.cloud/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
+      "image_url": "https://platform.cdn.xhuoapi.ai/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
       "template": "Muška slika"
     }
   ]
@@ -91,7 +91,7 @@ Možemo primetiti da smo dobili zadovoljavajuće informacije o ličnim dokumenti
 Takođe, ako želite da generišete odgovarajući kod za integraciju, možete ga direktno kopirati, na primer, CURL kod je sledeći:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/headshots/generate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/generate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -112,13 +112,13 @@ U nastavku ćemo kroz primer objasniti kako to konkretno funkcioniše.
 
 Prvo, Webhook povratni poziv je usluga koja može primati HTTP zahteve, a programeri bi trebali zameniti URL svoje HTTP servera. Ovde, radi lakšeg prikazivanja, koristićemo javni Webhook sajt https://webhook.site/, otvaranjem ovog sajta dobićete Webhook URL, kao što je prikazano na slici:
 
-![](https://cdn.acedata.cloud/sb4p3v.png)
+![](https://cdn.xhuoapi.ai/sb4p3v.png)
 
 Kopirajte ovaj URL i možete ga koristiti kao Webhook, a primer ovde je `https://webhook.site/00f38b26-4289-4899-83d6-0cea7308850a`.
 
 Nakon toga, možemo postaviti polje `callback_url` na navedeni Webhook URL, kao i uneti link do slike i šablon. Ovaj dokument preporučuje korišćenje asinhronog povratnog poziva kada je parametar `mode` postavljen na `relax`, a konkretni sadržaj je prikazan na slici:
 
-<p><img src="https://cdn.acedata.cloud/opt326.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/opt326.png" width="500" className="m-auto" /></p>
 
 Kliknite na pokretanje, i odmah ćete dobiti rezultat, kao što je prikazano:
 
@@ -129,7 +129,7 @@ Kliknite na pokretanje, i odmah ćete dobiti rezultat, kao što je prikazano:
 ```
 
 Nakon nekoliko trenutaka, možemo na `https://webhook.site/00f38b26-4289-4899-83d6-0cea7308850a` posmatrati rezultate generisanja, kao što je prikazano na slici:
-![](https://cdn.acedata.cloud/ym6fw1.png)
+![](https://cdn.xhuoapi.ai/ym6fw1.png)
 
 Sadržaj je sledeći:
 
@@ -140,12 +140,12 @@ Sadržaj je sledeći:
     "data": [
         {
             "id": "202411032010131366",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
             "template": "Muška slika"
         },
         {
             "id": "202411032010132420",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
             "template": "Muška slika"
         }
     ]

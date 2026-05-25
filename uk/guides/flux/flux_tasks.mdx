@@ -1,6 +1,6 @@
 ---
 title: "Інтеграція та використання Flux Tasks API"
-description: "Flux Image Generation 集成指南 - Ace Data Cloud"
+description: "Flux Image Generation 集成指南 - XHuoAPI"
 ---
 
 Основна функція Flux Tasks API полягає в тому, щоб за допомогою введеного ID завдання, згенерованого Flux Images Generation API, перевіряти стан виконання цього завдання.
@@ -9,27 +9,27 @@ description: "Flux Image Generation 集成指南 - Ace Data Cloud"
 
 ## Процес подачі заявки
 
-Щоб використовувати Flux Tasks API, спочатку потрібно перейти на сторінку подачі заявки [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) для отримання відповідної послуги, а потім скопіювати ID завдання Flux Images Generation API, як показано на малюнку:
+Щоб використовувати Flux Tasks API, спочатку потрібно перейти на сторінку подачі заявки [Flux Images Generation API](https://api.xhuoapi.ai/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) для отримання відповідної послуги, а потім скопіювати ID завдання Flux Images Generation API, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/7furhb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7furhb.png" width="500" className="m-auto" /></p>
 
-Нарешті, перейдіть на сторінку Flux Tasks API [Flux Tasks API](https://platform.acedata.cloud/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b) для отримання відповідної послуги, після входу на сторінку натисніть кнопку «Acquire», як показано на малюнку
+Нарешті, перейдіть на сторінку Flux Tasks API [Flux Tasks API](https://api.xhuoapi.ai/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b) для отримання відповідної послуги, після входу на сторінку натисніть кнопку «Acquire», як показано на малюнку
 
-![Сторінка подачі заявки](https://cdn.acedata.cloud/rci31i.png)
+![Сторінка подачі заявки](https://cdn.xhuoapi.ai/rci31i.png)
 
-Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на [сторінку входу](https://platform.acedata.cloud), запрошуючи вас зареєструватися та увійти. Після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
+Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на [сторінку входу](https://api.xhuoapi.ai), запрошуючи вас зареєструватися та увійти. Після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
 
 При першій подачі заявки вам буде надано безкоштовний ліміт, який дозволяє безкоштовно використовувати цей API.
 
 ## Приклад запиту
 
-Flux Tasks API можна використовувати для перевірки результатів Flux Images Generation API. Щоб дізнатися, як використовувати Flux Images Generation API, будь ласка, зверніться до документа [Flux Images Generation API](https://platform.acedata.cloud/documents/flux-images-integration).
+Flux Tasks API можна використовувати для перевірки результатів Flux Images Generation API. Щоб дізнатися, як використовувати Flux Images Generation API, будь ласка, зверніться до документа [Flux Images Generation API](https://api.xhuoapi.ai/documents/flux-images-integration).
 
 Візьмемо за приклад ID завдання, повернутого сервісом Flux Images Generation API, і продемонструємо, як використовувати цей API. Припустимо, у нас є ID завдання: 2db0168c-2373-4367-8d9a-9dc778802e8a, далі продемонструємо, як передати цей ID завдання.
 
 ### Приклад завдання
 
-<p><img src="https://cdn.acedata.cloud/7furhb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7furhb.png" width="500" className="m-auto" /></p>
 
 ### Налаштування заголовків запиту та тіла запиту
 
@@ -45,20 +45,20 @@ Flux Tasks API можна використовувати для перевірк
 
 Налаштування, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/fiasxz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fiasxz.png" width="500" className="m-auto" /></p>
 
 ### Приклад коду
 
 Можна помітити, що на правій стороні сторінки вже автоматично згенеровано код на різних мовах, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/j6gn86.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/j6gn86.png" width="500" className="m-auto" /></p>
 
 Деякі приклади коду наведені нижче:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/flux/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/flux/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/tasks"
+url = "https://api.xhuoapi.ai/v1/flux/tasks"
 
 headers = {
     "accept": "application/json",
@@ -144,13 +144,13 @@ print(response.text)
 
 Налаштування, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/k3i9ns.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/k3i9ns.png" width="500" className="m-auto" /></p>
 
 ### Приклад коду
 
 Можна помітити, що на правій стороні сторінки вже автоматично згенеровано код на різних мовах, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/pt5fww.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pt5fww.png" width="500" className="m-auto" /></p>
 
 Деякі приклади коду наведені нижче:
 
@@ -228,7 +228,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/flux/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -243,7 +243,7 @@ curl -X POST 'https://api.acedata.cloud/flux/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/tasks"
+url = "https://api.xhuoapi.ai/v1/flux/tasks"
 
 headers = {
     "accept": "application/json",

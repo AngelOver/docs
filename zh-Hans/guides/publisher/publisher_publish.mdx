@@ -1,11 +1,11 @@
 ---
 title: "Publisher Publish"
-description: "Publisher Cross-Platform Automatic Publishing 集成指南 - Ace Data Cloud"
+description: "Publisher Cross-Platform Automatic Publishing 集成指南 - XHuoAPI"
 ---
 
 ## 介绍
 
-Publisher Publish API 是 Ace Data Cloud 提供的自动化内容发布接口。通过该 API，您可以将文章一键发布到多个平台，包括知乎、CSDN、Medium、Dev.to、Reddit、微博、小红书等 13 个主流内容平台。
+Publisher Publish API 是 XHuoAPI 提供的自动化内容发布接口。通过该 API，您可以将文章一键发布到多个平台，包括知乎、CSDN、Medium、Dev.to、Reddit、微博、小红书等 13 个主流内容平台。
 
 ## 功能特点
 
@@ -20,7 +20,7 @@ Publisher Publish API 是 Ace Data Cloud 提供的自动化内容发布接口。
 ### 发布到多个平台
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/publisher/publish' \
+curl -X POST 'https://api.xhuoapi.ai/v1/publisher/publish' \
   -H 'Authorization: Bearer YOUR_TOKEN' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -56,7 +56,7 @@ curl -X POST 'https://api.acedata.cloud/publisher/publish' \
 ### 启用 AI 内容优化
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/publisher/publish' \
+curl -X POST 'https://api.xhuoapi.ai/v1/publisher/publish' \
   -H 'Authorization: Bearer YOUR_TOKEN' \
   -H 'Content-Type: application/json' \
   -d '{

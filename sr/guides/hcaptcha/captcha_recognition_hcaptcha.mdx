@@ -1,15 +1,15 @@
 ---
 title: "hCaptcha API za prepoznavanje slika - Uputstvo za integraciju"
-description: "hCaptcha verification code recognition service 集成指南 - Ace Data Cloud"
+description: "hCaptcha verification code recognition service 集成指南 - XHuoAPI"
 ---
 
 Ovaj dokument će predstaviti uputstvo za integraciju hCaptcha API za prepoznavanje slika, koji može da prepozna sadržaj koji korisnik unese i hCaptcha CAPTCHA sliku, a zatim vrati koordinate malih slika koje treba kliknuti kako bi se završila verifikacija.
 
 ## Proces prijave
 
-Da biste koristili API, prvo idite na [hCaptcha API za prepoznavanje slika](https://platform.acedata.cloud/documents/c9a5cc2f-e410-425f-857a-f8700205da6c) i zatražite odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
+Da biste koristili API, prvo idite na [hCaptcha API za prepoznavanje slika](https://api.xhuoapi.ai/documents/c9a5cc2f-e410-425f-857a-f8700205da6c) i zatražite odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Ako još niste prijavljeni ili registrovani, automatski ćete biti preusmereni na stranicu za prijavu koja vas poziva da se registrujete i prijavite. Nakon prijave ili registracije, automatski ćete se vratiti na trenutnu stranicu.
 
@@ -19,15 +19,15 @@ Prilikom prve prijave dobićete besplatnu kvotu koja vam omogućava besplatno ko
 
 Prvo, potrebno je razumeti osnovni način korišćenja, a to je unos hCaptcha CAPTCHA slike koja treba da se obradi, kako biste dobili obrađeni rezultat. Prvo je potrebno jednostavno proslediti polje `queries`, što je konkretna hCaptcha CAPTCHA slika. Moramo da snimimo ovu CAPTCHA sliku sa sajta koji ima hCaptcha CAPTCHA, primer sajta je: `https://democaptcha.com/demo-form-eng/hcaptcha.html`, kliknite na okvir za potvrdu da biste prikazali kompletnu CAPTCHA sliku, kao što je prikazano na slici ispod:
 
-<p><img src="https://cdn.acedata.cloud/xryo59.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xryo59.png" width="500" className="m-auto" /></p>
 
 Polje `queries` je snimak CAPTCHA slike iz prethodnog teksta, preporučuje se da veličina slike ne prelazi 100kb, takođe je potrebno snimiti područje koje je označeno crvenom strelicom na gornjoj slici, a takođe je potrebno da sami kompresujete veličinu slike i konvertujete je u Base64 kodiranje, kao što je prikazano na slici ispod:
 
-<p><img src="https://cdn.acedata.cloud/g8ikkb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g8ikkb.png" width="500" className="m-auto" /></p>
 
 Takođe je potrebno uneti parametar prepoznatljivog sadržaja vezanog za CAPTCHA sliku `question`, koji podržava prevod na kineski i engleski, možete direktno uneti relevantan prepoznatljiv sadržaj. Iz sadržaja koji je izvršen na slici iz prethodnog teksta može se videti da bi `question` trebalo da bude `Please click on the UNIQUE object among the others.`. Konkretni sadržaj je prikazan ispod:
 
-<p><img src="https://cdn.acedata.cloud/empncr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/empncr.png" width="500" className="m-auto" /></p>
 
 Možete videti da smo postavili Request Headers, uključujući:
 
@@ -41,7 +41,7 @@ Takođe je postavljen Request Body, uključujući:
 
 Nakon izbora, možete primetiti da je sa desne strane generisan odgovarajući kod, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/bww9b0.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bww9b0.png" width="500" className="m-auto" /></p>
 
 Kliknite na dugme „Try“ da biste izvršili test, kao što je prikazano na slici, ovde smo dobili sledeći rezultat:
 
@@ -69,12 +69,12 @@ Možete videti da smo dobili rezultat verifikacije obrade hCaptcha CAPTCHA slike
 
 U nastavku će biti objašnjeno kako da kliknete na osnovu informacija o lokaciji `box`, prvo je potrebno uspostaviti pravougaoni koordinatni sistem za otpremnu CAPTCHA sliku, gde je centar u donjem levom uglu slike, 360 je odgovarajuća horizontalna koordinata, a 276 je odgovarajuća vertikalna koordinata. Sve što treba da uradimo je da simuliramo klik na odgovarajuće koordinate CAPTCHA slike, konkretne informacije o slici su prikazane ispod:
 
-<p><img src="https://cdn.acedata.cloud/4ykvbl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4ykvbl.png" width="500" className="m-auto" /></p>
 
 Takođe, ako želite da generišete odgovarajući kod za integraciju, možete ga direktno kopirati, na primer, CURL kod je sledeći:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/captcha/recognition/hcaptcha' \
+curl -X POST 'https://api.xhuoapi.ai/v1/captcha/recognition/hcaptcha' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -89,7 +89,7 @@ Python kod za integraciju je sledeći:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/captcha/recognition/hcaptcha"
+url = "https://api.xhuoapi.ai/v1/captcha/recognition/hcaptcha"
 
 headers = {
     "accept": "application/json",

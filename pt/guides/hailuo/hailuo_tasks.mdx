@@ -1,6 +1,6 @@
 ---
 title: "Integração e Uso da API de Tarefas Hailuo"
-description: "Hailuo Video Generation 集成指南 - Ace Data Cloud"
+description: "Hailuo Video Generation 集成指南 - XHuoAPI"
 ---
 
 A principal função da API de Tarefas Hailuo é consultar o status de execução de uma tarefa através do ID da tarefa gerado pela API de Geração de Vídeos Hailuo.
@@ -9,27 +9,27 @@ Este documento irá detalhar as instruções de integração da API de Tarefas H
 
 ## Processo de Solicitação
 
-Para usar a API de Tarefas Hailuo, você precisa primeiro ir à página de solicitação [API de Geração de Vídeos Hailuo](https://platform.acedata.cloud/documents/ee06377b-9185-438f-ac84-3376bcb1275e) para solicitar o serviço correspondente e, em seguida, copiar o ID da tarefa da API de Geração de Vídeos Hailuo, como mostrado na imagem:
+Para usar a API de Tarefas Hailuo, você precisa primeiro ir à página de solicitação [API de Geração de Vídeos Hailuo](https://api.xhuoapi.ai/documents/ee06377b-9185-438f-ac84-3376bcb1275e) para solicitar o serviço correspondente e, em seguida, copiar o ID da tarefa da API de Geração de Vídeos Hailuo, como mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/4f9d95.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4f9d95.png" width="500" className="m-auto" /></p>
 
-Por fim, acesse a página da API de Tarefas [API de Tarefas Hailuo](https://platform.acedata.cloud/documents/4b1ccdbc-b8ed-4171-9a14-48e10970ba04) para solicitar o serviço correspondente. Após acessar a página, clique no botão "Adquirir", como mostrado na imagem:
+Por fim, acesse a página da API de Tarefas [API de Tarefas Hailuo](https://api.xhuoapi.ai/documents/4b1ccdbc-b8ed-4171-9a14-48e10970ba04) para solicitar o serviço correspondente. Após acessar a página, clique no botão "Adquirir", como mostrado na imagem:
 
-![Página de Solicitação](https://cdn.acedata.cloud/rci31i.png)
+![Página de Solicitação](https://cdn.xhuoapi.ai/rci31i.png)
 
-Se você ainda não estiver logado ou registrado, será redirecionado automaticamente para a [página de login](https://platform.acedata.cloud) que o convida a se registrar e fazer login. Após o registro e login, você será redirecionado automaticamente de volta para a página atual.
+Se você ainda não estiver logado ou registrado, será redirecionado automaticamente para a [página de login](https://api.xhuoapi.ai) que o convida a se registrar e fazer login. Após o registro e login, você será redirecionado automaticamente de volta para a página atual.
 
 Na primeira solicitação, haverá um crédito gratuito disponível, permitindo que você use essa API gratuitamente.
 
 ## Exemplo de Solicitação
 
-A API de Tarefas Hailuo pode ser usada para consultar os resultados da API de Geração de Vídeos Hailuo. Para saber como usar a API de Geração de Vídeos Hailuo, consulte o documento [API de Geração de Vídeos Hailuo](https://platform.acedata.cloud/documents/d2fc9087-2996-4573-bfe5-8b1c828fdfc7).
+A API de Tarefas Hailuo pode ser usada para consultar os resultados da API de Geração de Vídeos Hailuo. Para saber como usar a API de Geração de Vídeos Hailuo, consulte o documento [API de Geração de Vídeos Hailuo](https://api.xhuoapi.ai/documents/d2fc9087-2996-4573-bfe5-8b1c828fdfc7).
 
 Usaremos um exemplo de ID de tarefa retornado pelo serviço da API de Geração de Vídeos Hailuo para demonstrar como usar essa API. Suponha que temos um ID de tarefa: 58cc618b-9639-4ee7-add2-d2fcf260d9a3, a seguir, demonstraremos como passar um ID de tarefa.
 
 ### Exemplo de Tarefa
 
-<p><img src="https://cdn.acedata.cloud/4f9d95.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4f9d95.png" width="500" className="m-auto" /></p>
 
 ### Configurando Cabeçalhos e Corpo da Solicitação
 
@@ -45,20 +45,20 @@ Usaremos um exemplo de ID de tarefa retornado pelo serviço da API de Geração 
 
 Configuração conforme mostrado na imagem abaixo:
 
-<p><img src="https://cdn.acedata.cloud/e9btl5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/e9btl5.png" width="500" className="m-auto" /></p>
 
 ### Exemplo de Código
 
 Pode-se notar que, no lado direito da página, já foram gerados automaticamente códigos em várias linguagens, como mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/tfn261.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tfn261.png" width="500" className="m-auto" /></p>
 
 Alguns exemplos de código são os seguintes:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/hailuo/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/hailuo/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/hailuo/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/hailuo/tasks"
+url = "https://api.xhuoapi.ai/v1/hailuo/tasks"
 
 headers = {
     "accept": "application/json",
@@ -143,13 +143,13 @@ Esta operação é para consultar detalhes de tarefas de vídeo para vários IDs
 
 Configuração conforme mostrado na imagem abaixo:
 
-<p><img src="https://cdn.acedata.cloud/i023y9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/i023y9.png" width="500" className="m-auto" /></p>
 
 ### Exemplo de Código
 
 Pode-se notar que, no lado direito da página, já foram gerados automaticamente códigos em várias linguagens, como mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/3sxeeh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3sxeeh.png" width="500" className="m-auto" /></p>
 
 Alguns exemplos de código são os seguintes:
 
@@ -230,7 +230,7 @@ Após uma solicitação bem-sucedida, a API retornará as informações detalhad
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/hailuo/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/hailuo/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -245,7 +245,7 @@ curl -X POST 'https://api.acedata.cloud/hailuo/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/hailuo/tasks"
+url = "https://api.xhuoapi.ai/v1/hailuo/tasks"
 
 headers = {
     "accept": "application/json",

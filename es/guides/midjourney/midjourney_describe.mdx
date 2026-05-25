@@ -1,6 +1,6 @@
 ---
 title: "Integración y uso de la API Midjourney Describe"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 La principal función de la API Midjourney Describe es obtener una descripción de una imagen a través de la carga de la misma. Para utilizar esta API, solo es necesario proporcionar la dirección del archivo de imagen, y la API devolverá una descripción detallada de la imagen. No se requieren configuraciones de parámetros complicadas para obtener descripciones de imágenes de alta calidad.
@@ -11,11 +11,11 @@ Este documento detallará las instrucciones de integración de la API Midjourney
 
 ## Proceso de solicitud
 
-Para utilizar la API Midjourney Describe, primero debe ir a la página de solicitud [Midjourney Describe API](https://platform.acedata.cloud/documents/870e973b-712a-4686-ab8b-beae27f129ce) para solicitar el servicio correspondiente. Una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
+Para utilizar la API Midjourney Describe, primero debe ir a la página de solicitud [Midjourney Describe API](https://api.xhuoapi.ai/documents/870e973b-712a-4686-ab8b-beae27f129ce) para solicitar el servicio correspondiente. Una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
 
-![Página de solicitud](https://cdn.acedata.cloud/rci31i.png)
+![Página de solicitud](https://cdn.xhuoapi.ai/rci31i.png)
 
-Si aún no ha iniciado sesión o registrado, será redirigido automáticamente a la [página de inicio de sesión](https://platform.acedata.cloud) que le invita a registrarse e iniciar sesión. Después de iniciar sesión o registrarse, será redirigido automáticamente a la página actual.
+Si aún no ha iniciado sesión o registrado, será redirigido automáticamente a la [página de inicio de sesión](https://api.xhuoapi.ai) que le invita a registrarse e iniciar sesión. Después de iniciar sesión o registrarse, será redirigido automáticamente a la página actual.
 
 En la primera solicitud, se le otorgará un crédito gratuito, lo que le permitirá utilizar esta API sin costo.
 
@@ -25,7 +25,7 @@ Tomemos una imagen como ejemplo para demostrar cómo utilizar esta API. Supongam
 
 ### Imagen de ejemplo de solicitud
 
-![Imagen de ejemplo](https://cdn.acedata.cloud/kg7xp3.png)
+![Imagen de ejemplo](https://cdn.xhuoapi.ai/kg7xp3.png)
 
 ### Configuración de encabezados de solicitud y cuerpo de solicitud
 
@@ -40,25 +40,25 @@ Tomemos una imagen como ejemplo para demostrar cómo utilizar esta API. Supongam
 
 Configurado como se muestra en la imagen a continuación:
 
-![](https://cdn.acedata.cloud/eeui10.png)
+![](https://cdn.xhuoapi.ai/eeui10.png)
 
 ### Ejemplo de código
 
 Se puede observar que en el lado derecho de la página ya se han generado automáticamente códigos en varios lenguajes, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/8edj9z.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8edj9z.png" width="400" className="m-auto" /></p>
 
 Algunos ejemplos de código son los siguientes:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/describe' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/describe' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/kg7xp3.png"
+  "image_url": "https://cdn.xhuoapi.ai/kg7xp3.png"
 }'
 ```
 
@@ -67,7 +67,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/describe' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/describe"
+url = "https://api.xhuoapi.ai/v1/midjourney/describe"
 
 headers = {
     "accept": "application/json",
@@ -76,7 +76,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/kg7xp3.png"
+    "image_url": "https://cdn.xhuoapi.ai/kg7xp3.png"
 }
 
 response = requests.post(url, json=payload, headers=headers)

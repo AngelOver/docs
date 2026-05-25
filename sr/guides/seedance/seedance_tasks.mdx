@@ -1,6 +1,6 @@
 ---
 title: "SeeDance Tasks API интеграција и употреба"
-description: "ByteDance Seedance Video Generation 集成指南 - Ace Data Cloud"
+description: "ByteDance Seedance Video Generation 集成指南 - XHuoAPI"
 ---
 
 Главна функција SeeDance Tasks API је да омогући проверу статуса извршења задатка путем ID-a задатка генерисаног од SeeDance Video Generation API.
@@ -9,27 +9,27 @@ description: "ByteDance Seedance Video Generation 集成指南 - Ace Data Cloud"
 
 ## Процес пријаве
 
-Да бисте користили SeeDance Tasks API, прво морате да се пријавите на страници [SeeDance Video Generation API](https://platform.acedata.cloud/documents/seedance-videos) за одговарајућу услугу, а затим копирајте ID задатка SeeDance Video Generation API, као што је приказано на слици:
+Да бисте користили SeeDance Tasks API, прво морате да се пријавите на страници [SeeDance Video Generation API](https://api.xhuoapi.ai/documents/seedance-videos) за одговарајућу услугу, а затим копирајте ID задатка SeeDance Video Generation API, као што је приказано на слици:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
-На крају, идите на страницу Tasks API [SeeDance Tasks API](https://platform.acedata.cloud/documents/seedance-tasks) да бисте затражили одговарајућу услугу, а након уласка на страницу, кликните на дугме „Acquire“, као што је приказано на слици:
+На крају, идите на страницу Tasks API [SeeDance Tasks API](https://api.xhuoapi.ai/documents/seedance-tasks) да бисте затражили одговарајућу услугу, а након уласка на страницу, кликните на дугме „Acquire“, као што је приказано на слици:
 
-![Пријавна страница](https://cdn.acedata.cloud/rci31i.png)
+![Пријавна страница](https://cdn.xhuoapi.ai/rci31i.png)
 
-Ако се још нисте пријавили или регистровали, аутоматски ћете бити преусмерени на [страницу за пријаву](https://platform.acedata.cloud) која вас позива да се региструјете и пријавите, а након пријаве или регистрације аутоматски ћете се вратити на тренутну страницу.
+Ако се још нисте пријавили или регистровали, аутоматски ћете бити преусмерени на [страницу за пријаву](https://api.xhuoapi.ai) која вас позива да се региструјете и пријавите, а након пријаве или регистрације аутоматски ћете се вратити на тренутну страницу.
 
 При првом захтеву добићете бесплатну квоту, коју можете користити без накнаде.
 
 ## Пример захтева
 
-SeeDance Tasks API може се користити за проверу резултата SeeDance Video Generation API. За информације о томе како користити SeeDance Video Generation API, молимо вас да се упутите на документ [SeeDance Video Generation API](https://platform.acedata.cloud/documents/seedance-videos-integration).
+SeeDance Tasks API може се користити за проверу резултата SeeDance Video Generation API. За информације о томе како користити SeeDance Video Generation API, молимо вас да се упутите на документ [SeeDance Video Generation API](https://api.xhuoapi.ai/documents/seedance-videos-integration).
 
 Узмимо за пример ID задатка који је вратила услуга SeeDance Video Generation API, и демонстрираћемо како користити овај API. Хајде да претпоставимо да имамо ID задатка: 20068983-0cc9-4c6a-aeb6-9c6a3c668be0, а затим ћемо демонстрирати како да пренесемо ID задатка.
 
 ### Пример задатка
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 ### Постављање заглавља захтева и тела захтева
 
@@ -45,20 +45,20 @@ SeeDance Tasks API може се користити за проверу резу
 
 Поставите као што је приказано на слици:
 
-<p><img src="https://cdn.acedata.cloud/yuyte9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yuyte9.png" width="500" className="m-auto" /></p>
 
 ### Пример кода
 
 Можете приметити да су на десној страни странице аутоматски генерисани кодови на различитим језицима, као што је приказано на слици:
 
-<p><img src="https://cdn.acedata.cloud/b0wt0d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/b0wt0d.png" width="500" className="m-auto" /></p>
 
 Делимични примери кода су следећи:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/seedance/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/seedance/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -100,7 +100,7 @@ curl -X POST 'https://api.acedata.cloud/seedance/tasks' \
         "data": {
             "task_id": "cgt-20251221230356-sxgt7",
             "status": "succeeded",
-            "video_url": "https://platform.cdn.acedata.cloud/seedance/d1c2e49e-d854-4a2e-b0c0-88e520f82e2e.mp4",
+            "video_url": "https://platform.cdn.xhuoapi.ai/seedance/d1c2e49e-d854-4a2e-b0c0-88e520f82e2e.mp4",
             "last_frame_url": null,
             "model": "doubao-seedance-1-0-pro-250528"
         }
@@ -125,13 +125,13 @@ curl -X POST 'https://api.acedata.cloud/seedance/tasks' \
 
 Поставите као што је приказано на слици:
 
-<p><img src="https://cdn.acedata.cloud/ycc4th.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ycc4th.png" width="500" className="m-auto" /></p>
 
 ### Пример кода
 
 Можете приметити да су на десној страни странице аутоматски генерисани кодови на различитим језицима, као што је приказано на слици:
 
-<p><img src="https://cdn.acedata.cloud/u6bt64.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/u6bt64.png" width="500" className="m-auto" /></p>
 
 Делимични примери кода су следећи:
 
@@ -168,7 +168,7 @@ curl -X POST 'https://api.acedata.cloud/seedance/tasks' \
                 "data": {
                     "task_id": "cgt-20251221230356-sxgt7",
                     "status": "succeeded",
-                    "video_url": "https://platform.cdn.acedata.cloud/seedance/d1c2e49e-d854-4a2e-b0c0-88e520f82e2e.mp4",
+                    "video_url": "https://platform.cdn.xhuoapi.ai/seedance/d1c2e49e-d854-4a2e-b0c0-88e520f82e2e.mp4",
                     "last_frame_url": null,
                     "model": "doubao-seedance-1-0-pro-250528"
                 }
@@ -201,7 +201,7 @@ curl -X POST 'https://api.acedata.cloud/seedance/tasks' \
                 "data": {
                     "task_id": "cgt-20251221231109-cnkhp",
                     "status": "succeeded",
-                    "video_url": "https://platform.cdn.acedata.cloud/seedance/eb99ba03-178c-4616-8d19-e625fee2e884.mp4",
+                    "video_url": "https://platform.cdn.xhuoapi.ai/seedance/eb99ba03-178c-4616-8d19-e625fee2e884.mp4",
                     "last_frame_url": null,
                     "model": "doubao-seedance-1-0-pro-250528"
                 }
@@ -220,7 +220,7 @@ Povratni rezultat sadrži više polja, gde je `items` koji sadrži detaljne info
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/seedance/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/seedance/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

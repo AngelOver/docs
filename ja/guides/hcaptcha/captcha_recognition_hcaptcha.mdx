@@ -1,15 +1,15 @@
 ---
 title: "hCaptcha 画像認識 API 連携説明"
-description: "hCaptcha verification code recognition service 集成指南 - Ace Data Cloud"
+description: "hCaptcha verification code recognition service 集成指南 - XHuoAPI"
 ---
 
 本文では、ユーザーが入力した認識内容と hCaptcha の CAPTCHA 画像を通じて、クリックする必要のある小さな画像の座標を返す hCaptcha 画像認識 API の連携方法について説明します。
 
 ## 申請プロセス
 
-API を使用するには、まず [hCaptcha 画像認識 API](https://platform.acedata.cloud/documents/c9a5cc2f-e410-425f-857a-f8700205da6c) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
+API を使用するには、まず [hCaptcha 画像認識 API](https://api.xhuoapi.ai/documents/c9a5cc2f-e410-425f-857a-f8700205da6c) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 まだログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -19,15 +19,15 @@ API を使用するには、まず [hCaptcha 画像認識 API](https://platform.
 
 まず、基本的な使用方法を理解します。これは、処理する必要のある hCaptcha CAPTCHA 画像を入力することで、処理結果を得ることができます。最初に、`queries` フィールドを簡単に渡す必要があります。これが具体的な hCaptcha CAPTCHA 画像です。hCaptcha CAPTCHA サイトからこの CAPTCHA 画像をキャプチャする必要があります。サンプルサイトのリンクは次のとおりです： `https://democaptcha.com/demo-form-eng/hcaptcha.html`。チェックボックスをクリックすると、具体的な完全な CAPTCHA 画像が表示されます。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/xryo59.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xryo59.png" width="500" className="m-auto" /></p>
 
 `queries` フィールドは、上記の CAPTCHA 画像のスクリーンショットです。画像サイズは 100KB を超えないことをお勧めします。また、上の画像の赤い矢印が指している領域をキャプチャし、画像サイズを圧縮し、Base64 エンコードに変換する必要があります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/g8ikkb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g8ikkb.png" width="500" className="m-auto" /></p>
 
 さらに、CAPTCHA 画像に関連する認識内容パラメータ `question` を入力する必要があります。これは中英翻訳をサポートし、関連する認識内容を直接入力できます。上記のウェブページ画像の黄色い矢印が示す内容から、`question` に入力すべき内容は `Please click on the UNIQUE object among the others.` です。具体的な内容は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/empncr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/empncr.png" width="500" className="m-auto" /></p>
 
 ここでは、リクエストヘッダーを設定しています。これには以下が含まれます：
 
@@ -41,7 +41,7 @@ API を使用するには、まず [hCaptcha 画像認識 API](https://platform.
 
 選択後、右側にも対応するコードが生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/bww9b0.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bww9b0.png" width="500" className="m-auto" /></p>
 
 「Try」ボタンをクリックするとテストが行えます。上の図のように、以下の結果が得られました：
 
@@ -69,12 +69,12 @@ API を使用するには、まず [hCaptcha 画像認識 API](https://platform.
 
 次に、結果の `box` の位置情報を使用してクリックする方法を説明します。まず、アップロードした CAPTCHA 画像に対して直角座標系を構築します。中心原点は画像の左下隅にあり、360 は横座標、276 は縦座標に対応します。CAPTCHA に対応する座標をシミュレートクリックするだけで済みます。具体的な画像情報は以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/4ykvbl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4ykvbl.png" width="500" className="m-auto" /></p>
 
 また、対応する連携コードを生成したい場合は、生成されたものを直接コピーできます。例えば、CURL のコードは以下の通りです：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/captcha/recognition/hcaptcha' \
+curl -X POST 'https://api.xhuoapi.ai/v1/captcha/recognition/hcaptcha' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -89,7 +89,7 @@ Python の連携コードは以下の通りです：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/captcha/recognition/hcaptcha"
+url = "https://api.xhuoapi.ai/v1/captcha/recognition/hcaptcha"
 
 headers = {
     "accept": "application/json",

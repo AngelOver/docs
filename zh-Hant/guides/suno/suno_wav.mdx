@@ -1,6 +1,6 @@
 ---
 title: "Suno Wav API 對接說明"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 SUNO 允許我們獲取音樂的 wav 格式檔案，本文檔講解相關 API 的對接方法。
@@ -12,7 +12,7 @@ SUNO 允許我們獲取音樂的 wav 格式檔案，本文檔講解相關 API �
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/wav"
+url = "https://api.xhuoapi.ai/v1/suno/wav"
 
 headers = {
     "accept": "application/json",
@@ -37,7 +37,7 @@ print(response.text)
   "trace_id": "3fa70e81-6bb7-4ca8-b718-dd16a4eda7e8",
   "data": [
     {
-      "file_url": "https://platform.cdn.acedata.cloud/suno/6a5a2099-d6d3-4930-9709-a30ac5dc7de5.wav"
+      "file_url": "https://platform.cdn.xhuoapi.ai/suno/6a5a2099-d6d3-4930-9709-a30ac5dc7de5.wav"
     }
   ]
 }
@@ -48,6 +48,6 @@ print(response.text)
 > **關於 WAV 連結的持久化與有效期**
 >
 > 上游 Suno CDN 上的 WAV 檔案（`https://cdn1.suno.ai/{audio_id}.wav`）只會保留幾天，之後會被回收，訪問時返回 403。
-> 為避免連結失效，本接口在返回前會自動把上游 WAV 檔案轉存到我們自己的 CDN（`https://platform.cdn.acedata.cloud/suno/{task_id}.wav`），返回的 `file_url` 即為轉存後的穩定地址，不會因為上游 CDN 過期立即失效。
+> 為避免連結失效，本接口在返回前會自動把上游 WAV 檔案轉存到我們自己的 CDN（`https://platform.cdn.xhuoapi.ai/suno/{task_id}.wav`），返回的 `file_url` 即為轉存後的穩定地址，不會因為上游 CDN 過期立即失效。
 > **轉存後的連結有效期為 30 天**，超過 30 天後該檔案會被定期清理，建議盡快下載並妥善保存到自己的儲存中。
 > 轉存失敗時（極少見），會回退到原始上游 URL，行為與歷史保持一致。

@@ -1,15 +1,15 @@
 ---
 title: "五官定位 API 对接说明"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 本文将介绍一种 五官定位 API 对接说明，它可以通过输入图片，对请求图片进行五官定位（也称人脸关键点定位），计算构成人脸轮廓的 90 个点，包括眉毛（左右各 8 点）、眼睛（左右各 8 点）、鼻子（13 点）、嘴巴（22 点）、脸型轮廓（21 点）、眼珠[或瞳孔]（2点）。
 
 ## 申请流程
 
-要使用 API，需要先到 [五官定位 API](https://platform.acedata.cloud/documents/20945baf-b263-457b-be5f-0332c2180a57) 对应页面申请对应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
+要使用 API，需要先到 [五官定位 API](https://api.xhuoapi.ai/documents/20945baf-b263-457b-be5f-0332c2180a57) 对应页面申请对应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 如果你尚未登录或注册，会自动跳转到登录页面邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
@@ -19,11 +19,11 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 首先先了解下基本的使用方式，就是输入图片链接，便可获得处理后结果图片，首先需要简单地传递一个 `image_url` 字段，人脸图片如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/lrbtcn.jpg" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lrbtcn.jpg" width="500" className="m-auto" /></p>
 
 我们接下来就可以在界面上填写对应的内容，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/y3g837.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/y3g837.png" width="500" className="m-auto" /></p>
 
 可以看到这里我们设置了 Request Headers，包括：
 
@@ -39,7 +39,7 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 选择之后，可以发现右侧也生成了对应代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/2ceul8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2ceul8.png" width="500" className="m-auto" /></p>
 
 点击「Try」按钮即可进行测试，如上图所示，这里我们就得到了如下结果：
 
@@ -473,12 +473,12 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 另外如果想生成对应的对接代码，可以直接复制生成，例如 CURL 的代码如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/analyze' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/analyze' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }'
 ```
 
@@ -487,7 +487,7 @@ Python 的对接代码如下：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/analyze"
+url = "https://api.xhuoapi.ai/v1/face/analyze"
 
 headers = {
     "accept": "application/json",
@@ -496,7 +496,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }
 
 response = requests.post(url, json=payload, headers=headers)

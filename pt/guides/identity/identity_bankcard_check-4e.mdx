@@ -1,15 +1,15 @@
 ---
 title: "Verificação dos Quatro Elementos do Cartão Bancário API Integração"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Este documento apresentará uma descrição da integração da API de verificação dos quatro elementos do cartão bancário, que pode ser usada para inserir o número do cartão bancário, nome, número do documento de abertura e número de telefone cadastrado, verificando a veracidade e consistência das informações.
 
 ## Processo de Solicitação
 
-Para usar a API, você precisa primeiro acessar a página correspondente da [API de Verificação dos Quatro Elementos do Cartão Bancário](https://platform.acedata.cloud/documents/02f77369-ec7b-4218-a956-d7a84982a626) para solicitar o serviço correspondente. Após entrar na página, clique no botão "Adquirir", conforme mostrado na imagem:
+Para usar a API, você precisa primeiro acessar a página correspondente da [API de Verificação dos Quatro Elementos do Cartão Bancário](https://api.xhuoapi.ai/documents/02f77369-ec7b-4218-a956-d7a84982a626) para solicitar o serviço correspondente. Após entrar na página, clique no botão "Adquirir", conforme mostrado na imagem:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Se você ainda não estiver logado ou registrado, será redirecionado automaticamente para a página de login, convidando-o a se registrar e fazer login. Após o registro e login, você será redirecionado de volta para a página atual.
 
@@ -19,7 +19,7 @@ Na primeira solicitação, haverá um limite gratuito disponível, permitindo o 
 
 Primeiro, entenda a forma básica de uso, que é inserir as informações do número do cartão bancário para obter a imagem do resultado processado. Primeiro, é necessário passar um campo `bank_card`. Em seguida, podemos preencher o conteúdo correspondente na interface, conforme mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/1pl0y5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1pl0y5.png" width="500" className="m-auto" /></p>
 
 Podemos ver que aqui configuramos os Headers da Requisição, incluindo:
 
@@ -37,7 +37,7 @@ Além disso, configuramos o Corpo da Requisição, incluindo:
 
 Após a seleção, podemos ver que o código correspondente também foi gerado à direita, conforme mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/slajgv.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/slajgv.png" width="500" className="m-auto" /></p>
 
 Clique no botão "Tentar" para realizar o teste, como mostrado na imagem acima, e aqui obtivemos o seguinte resultado:
 
@@ -78,7 +78,7 @@ Pode-se ver que o número do cartão bancário, nome, número do documento de ab
 Além disso, se você quiser gerar o código de integração correspondente, pode copiá-lo diretamente, por exemplo, o código CURL é o seguinte:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/bankcard/check-4e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/bankcard/check-4e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -95,7 +95,7 @@ O código de integração em Python é o seguinte:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/bankcard/check-4e"
+url = "https://api.xhuoapi.ai/v1/identity/bankcard/check-4e"
 
 headers = {
     "accept": "application/json",

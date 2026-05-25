@@ -1,6 +1,6 @@
 ---
 title: "Интеграция и использование API Producer Tasks"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 Основная функция API Producer Tasks заключается в том, чтобы запрашивать статус выполнения задачи, используя ID задачи, сгенерированный API Producer Audios Generation.
@@ -9,27 +9,27 @@ description: "Producer Music Generation 集成指南 - Ace Data Cloud"
 
 ## Процесс подачи заявки
 
-Чтобы использовать API Producer Tasks, сначала необходимо перейти на страницу заявки [Producer Audios Generation API](https://platform.acedata.cloud/documents/producer-audios) и запросить соответствующую услугу, затем скопировать ID задачи API Producer Audios Generation, как показано на рисунке:
+Чтобы использовать API Producer Tasks, сначала необходимо перейти на страницу заявки [Producer Audios Generation API](https://api.xhuoapi.ai/documents/producer-audios) и запросить соответствующую услугу, затем скопировать ID задачи API Producer Audios Generation, как показано на рисунке:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
-Затем перейдите на страницу API Tasks [Producer Tasks API](https://platform.acedata.cloud/documents/622626b1-30a7-4799-a772-4946e1df3ac0) и запросите соответствующую услугу, после перехода на страницу нажмите кнопку «Acquire», как показано на рисунке:
+Затем перейдите на страницу API Tasks [Producer Tasks API](https://api.xhuoapi.ai/documents/622626b1-30a7-4799-a772-4946e1df3ac0) и запросите соответствующую услугу, после перехода на страницу нажмите кнопку «Acquire», как показано на рисунке:
 
-![Страница заявки](https://cdn.acedata.cloud/rci31i.png)
+![Страница заявки](https://cdn.xhuoapi.ai/rci31i.png)
 
-Если вы еще не вошли в систему или не зарегистрированы, вы будете автоматически перенаправлены на [страницу входа](https://platform.acedata.cloud), где вас пригласят зарегистрироваться и войти в систему. После входа в систему вы будете автоматически возвращены на текущую страницу.
+Если вы еще не вошли в систему или не зарегистрированы, вы будете автоматически перенаправлены на [страницу входа](https://api.xhuoapi.ai), где вас пригласят зарегистрироваться и войти в систему. После входа в систему вы будете автоматически возвращены на текущую страницу.
 
 При первой подаче заявки предоставляется бесплатный лимит, который позволяет бесплатно использовать этот API.
 
 ## Пример запроса
 
-API Producer Tasks можно использовать для запроса результатов API Producer Audios Generation. Для получения информации о том, как использовать API Producer Audios Generation, обратитесь к документации [Producer Audios Generation API](https://platform.acedata.cloud/documents/producer-audios-integration).
+API Producer Tasks можно использовать для запроса результатов API Producer Audios Generation. Для получения информации о том, как использовать API Producer Audios Generation, обратитесь к документации [Producer Audios Generation API](https://api.xhuoapi.ai/documents/producer-audios-integration).
 
 Мы возьмем один из ID задач, возвращенных службой API Producer Audios Generation, в качестве примера и продемонстрируем, как использовать этот API. Предположим, у нас есть ID задачи: 1a6ac2ad-10f2-4e2b-b500-66ec27fe82ad, далее мы покажем, как передать этот ID задачи.
 
 ### Пример задачи
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 ### Установка заголовков запроса и тела запроса
 
@@ -45,20 +45,20 @@ API Producer Tasks можно использовать для запроса р�
 
 Настройка, как показано на рисунке:
 
-<p><img src="https://cdn.acedata.cloud/bfe4ww.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bfe4ww.png" width="500" className="m-auto" /></p>
 
 ### Пример кода
 
 Можно заметить, что на правой стороне страницы автоматически сгенерирован код на различных языках, как показано на рисунке:
 
-<p><img src="https://cdn.acedata.cloud/u4pb2f.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/u4pb2f.png" width="500" className="m-auto" /></p>
 
 Некоторые примеры кода:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -134,13 +134,13 @@ curl -X POST 'https://api.acedata.cloud/producer/tasks' \
 
 Настройки, как показано на рисунке ниже:
 
-<p><img src="https://cdn.acedata.cloud/jlkoma.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jlkoma.png" width="500" className="m-auto" /></p>
 
 ### Пример кода
 
 Можно заметить, что на правой стороне страницы автоматически сгенерирован код на различных языках, как показано на рисунке:
 
-<p><img src="https://cdn.acedata.cloud/emw66n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/emw66n.png" width="500" className="m-auto" /></p>
 
 Некоторые примеры кода приведены ниже:
 
@@ -252,7 +252,7 @@ curl -X POST 'https://api.acedata.cloud/producer/tasks' \
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

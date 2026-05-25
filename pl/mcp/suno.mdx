@@ -3,7 +3,7 @@ title: "Suno MCP Przewodnik Integracji"
 description: "suno MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) to protokół kontekstu modelu wprowadzony przez Anthropic, który pozwala modelom AI (takim jak Claude, GPT itp.) na wywoływanie zewnętrznych narzędzi za pomocą znormalizowanego interfejsu. Dzięki Suno MCP Server dostarczonemu przez AceData Cloud, możesz bezpośrednio generować muzykę, teksty piosenek i zarządzać projektami audio w klientach AI, takich jak Claude Desktop, VS Code, Cursor.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) to protokół kontekstu modelu wprowadzony przez Anthropic, który pozwala modelom AI (takim jak Claude, GPT itp.) na wywoływanie zewnętrznych narzędzi za pomocą znormalizowanego interfejsu. Dzięki Suno MCP Server dostarczonemu przez XHuoAPI, możesz bezpośrednio generować muzykę, teksty piosenek i zarządzać projektami audio w klientach AI, takich jak Claude Desktop, VS Code, Cursor.
 
 ## Przegląd funkcji
 
@@ -21,10 +21,10 @@ Suno MCP Server oferuje następujące kluczowe funkcje:
 
 ## Wymagania wstępne
 
-Przed użyciem musisz uzyskać token API AceData Cloud:
+Przed użyciem musisz uzyskać token API XHuoAPI:
 
-1. Zarejestruj się lub zaloguj na [platformie AceData Cloud](https://platform.acedata.cloud)
-2. Przejdź do strony [Suno Audios API](https://platform.acedata.cloud/documents/suno-audios)
+1. Zarejestruj się lub zaloguj na [platformie XHuoAPI](https://api.xhuoapi.ai)
+2. Przejdź do strony [Suno Audios API](https://api.xhuoapi.ai/documents/suno-audios)
 3. Kliknij „Acquire”, aby uzyskać token API (pierwsze zgłoszenie daje darmowy limit)
 
 ## Instalacja i konfiguracja
@@ -38,7 +38,7 @@ pip install mcp-suno
 ### Metoda 2: Instalacja ze źródła
 
 ```bash
-git clone https://github.com/AceDataCloud/SunoMCP.git
+git clone https://github.com/XHuoAPI/SunoMCP.git
 cd SunoMCP
 pip install -e .
 ```
@@ -60,7 +60,7 @@ Dodaj następującą konfigurację:
     "suno": {
       "command": "mcp-suno",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "Twój token API"
+        "XHuoAPI_API_TOKEN": "Twój token API"
       }
     }
   }
@@ -76,7 +76,7 @@ Jeśli używasz `uvx` (nie wymaga wcześniejszej instalacji pakietu):
       "command": "uvx",
       "args": ["mcp-suno"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "Twój token API"
+        "XHuoAPI_API_TOKEN": "Twój token API"
       }
     }
   }
@@ -95,7 +95,7 @@ Utwórz plik `.vscode/mcp.json` w katalogu głównym projektu:
     "suno": {
       "command": "mcp-suno",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "Twój token API"
+        "XHuoAPI_API_TOKEN": "Twój token API"
       }
     }
   }
@@ -111,7 +111,7 @@ Lub użyj `uvx`:
       "command": "uvx",
       "args": ["mcp-suno"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "Twój token API"
+        "XHuoAPI_API_TOKEN": "Twój token API"
       }
     }
   }
@@ -160,6 +160,6 @@ Po skonfigurowaniu możesz bezpośrednio wywoływać te funkcje w kliencie AI za
 
 ## Więcej informacji
 
-- Repozytorium GitHub: [AceDataCloud/SunoMCP](https://github.com/AceDataCloud/SunoMCP)
+- Repozytorium GitHub: [XHuoAPI/SunoMCP](https://github.com/XHuoAPI/SunoMCP)
 - Pakiet PyPI: [mcp-suno](https://pypi.org/project/mcp-suno/)
-- Dokumentacja API: [Suno API do generowania muzyki](https://platform.acedata.cloud/documents/suno)
+- Dokumentacja API: [Suno API do generowania muzyki](https://api.xhuoapi.ai/documents/suno)

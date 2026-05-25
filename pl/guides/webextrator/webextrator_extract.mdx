@@ -1,9 +1,9 @@
 ---
 title: "WebExtrator Przewodnik po integracji inteligentnego API ekstrakcji"
-description: "WebExtrator Web Render & Extract 集成指南 - Ace Data Cloud"
+description: "WebExtrator Web Render & Extract 集成指南 - XHuoAPI"
 ---
 
-`POST https://api.acedata.cloud/webextrator/extract`
+`POST https://api.xhuoapi.ai/v1/webextrator/extract`
 
 Ekstrakcja treści na bazie `/webextrator/render`. Oprócz wszystkich parametrów interfejsu render, dodatkowo obsługiwane są:
 
@@ -41,7 +41,7 @@ Tryb asynchroniczny, kody błędów oraz zasady rozliczeń są identyczne jak w 
 ## Przykład: ekstrakcja treści artykułu (włączony LLM)
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -54,7 +54,7 @@ curl -X POST https://api.acedata.cloud/webextrator/extract \
 ## Przykład: asynchronicznie + niestandardowa ekstrakcja strukturalna
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

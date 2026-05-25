@@ -1,15 +1,15 @@
 ---
 title: "Οδηγίες Σύνδεσης Midjourney Edits API"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 Αυτό το άρθρο θα παρουσιάσει μια μέθοδο σύνδεσης με το Midjourney Edits API, το οποίο μπορεί να επεξεργαστεί τις εισερχόμενες εικόνες με την εισαγωγή προτροπών.
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [Midjourney Edits API](https://platform.acedata.cloud/documents/midjourney-edits) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [Midjourney Edits API](https://api.xhuoapi.ai/documents/midjourney-edits) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη σελίδα σύνδεσης για να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και τη σύνδεση, θα επιστρέψετε αυτόματα στη σελίδα.
 
@@ -19,7 +19,7 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 Αρχικά, πρέπει να κατανοήσετε τη βασική μέθοδο χρήσης, δηλαδή την εισαγωγή προτροπής `prompt`, τη δράση `action`, και τη διεύθυνση εικόνας `image_url`, για να αποκτήσετε το επεξεργασμένο αποτέλεσμα. Πρέπει πρώτα να περάσετε ένα πεδίο `action`, του οποίου η τιμή είναι `generate`, με τις λεπτομέρειες όπως παρακάτω:
 
-<p><img src="https://cdn.acedata.cloud/m44i6n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/m44i6n.png" width="500" className="m-auto" /></p>
 
 Μπορείτε να δείτε ότι έχουμε ρυθμίσει τα Request Headers, που περιλαμβάνουν:
 
@@ -38,7 +38,7 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 Αφού επιλέξετε, μπορείτε να δείτε ότι στα δεξιά έχει παραχθεί ο αντίστοιχος κώδικας, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/9wed3b.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/9wed3b.png" width="500" className="m-auto" /></p>
 
 Κάντε κλικ στο κουμπί «Try» για να κάνετε δοκιμή, όπως φαίνεται στην παραπάνω εικόνα, και εδώ έχουμε λάβει το εξής αποτέλεσμα:
 
@@ -79,14 +79,14 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 Επιπλέον, εάν θέλετε να παραγάγετε τον αντίστοιχο κώδικα σύνδεσης, μπορείτε να τον αντιγράψετε απευθείας, όπως ο παρακάτω κώδικας CURL:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/midjourney/edits' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/edits' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "prompt": "A cat sitting on a table",
   "split_images": true,
-  "image_url": "https://cdn.acedata.cloud/jgo1cw.jpg",
+  "image_url": "https://cdn.xhuoapi.ai/jgo1cw.jpg",
   "action": "generate"
 }'
 ```
@@ -101,13 +101,13 @@ curl -X POST 'https://api.acedata.cloud/midjourney/edits' \
 
 Αρχικά, η επιστροφή Webhook είναι μια υπηρεσία που μπορεί να δέχεται HTTP αιτήματα. Οι προγραμματιστές θα πρέπει να αντικαταστήσουν με τη διεύθυνση URL του HTTP διακομιστή που έχουν δημιουργήσει. Για ευκολία, χρησιμοποιούμε έναν δημόσιο ιστότοπο παραδείγματος Webhook https://webhook.site/, ανοίγοντας αυτόν τον ιστότοπο μπορείτε να αποκτήσετε μια διεύθυνση Webhook URL, όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/hfrbzw.png)
+![](https://cdn.xhuoapi.ai/hfrbzw.png)
 
 Αντιγράψτε αυτή τη διεύθυνση URL και μπορείτε να τη χρησιμοποιήσετε ως Webhook. Το παράδειγμα εδώ είναι `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`.
 
 Στη συνέχεια, μπορούμε να ρυθμίσουμε το πεδίο `callback_url` στην παραπάνω διεύθυνση Webhook, ενώ συμπληρώνουμε τα αντίστοιχα παραμέτρους, με τις λεπτομέρειες όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/q3fnhv.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q3fnhv.png" width="500" className="m-auto" /></p>
 
 Κάνοντας κλικ στην εκτέλεση, μπορείτε να δείτε ότι θα λάβετε αμέσως ένα αποτέλεσμα, όπως παρακάτω:
 
@@ -119,7 +119,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/edits' \
 
 Μετά από λίγο, μπορείτε να παρακολουθήσετε το αποτέλεσμα της παραγόμενης εικόνας στη διεύθυνση `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/t8cupr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/t8cupr.png" width="500" className="m-auto" /></p>
 
 Το περιεχόμενο είναι ως εξής:
 ```json

@@ -1,6 +1,6 @@
 ---
 title: "Fish Tasks API 的對接和使用"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 Fish Tasks API 的主要功能是通過輸入 Fish Audios Generation API 生成的任務ID來查詢該任務的執行情況。
@@ -9,27 +9,27 @@ Fish Tasks API 的主要功能是通過輸入 Fish Audios Generation API 生成�
 
 ## 申請流程
 
-要使用 Fish Tasks API，需要先到 申請頁面 [Fish Audios Generation API](https://platform.acedata.cloud/documents/e681b715-54fd-4464-a59a-d7f14500e095) 申請相應的服務，然後複製 Fish Audios Generation API 的任務ID，如圖所示：
+要使用 Fish Tasks API，需要先到 申請頁面 [Fish Audios Generation API](https://api.xhuoapi.ai/documents/e681b715-54fd-4464-a59a-d7f14500e095) 申請相應的服務，然後複製 Fish Audios Generation API 的任務ID，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/jxvue8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jxvue8.png" width="500" className="m-auto" /></p>
 
-最後進入 Tasks API 頁面 [Fish Tasks API](https://platform.acedata.cloud/documents/44c93949-1419-4a45-8db5-8a8335de7151) 申請相應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
+最後進入 Tasks API 頁面 [Fish Tasks API](https://api.xhuoapi.ai/documents/44c93949-1419-4a45-8db5-8a8335de7151) 申請相應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
 
-![申請頁面](https://cdn.acedata.cloud/rci31i.png)
+![申請頁面](https://cdn.xhuoapi.ai/rci31i.png)
 
-如果您尚未登錄或註冊，會自動跳轉到 [登錄頁面](https://platform.acedata.cloud) 邀請您來註冊和登錄，登錄註冊之後會自動返回當前頁面。
+如果您尚未登錄或註冊，會自動跳轉到 [登錄頁面](https://api.xhuoapi.ai) 邀請您來註冊和登錄，登錄註冊之後會自動返回當前頁面。
 
 首次申請時會有免費額度贈送，可以免費使用該 API。
 
 ## 請求示例
 
-Fish Tasks API 可以用於查詢 Fish Audios Generation API 的結果。關於怎樣使用 Fish Audios Generation API，請參考文檔 [Fish Videos Generation API](https://platform.acedata.cloud/documents/fish-audios-integration)。
+Fish Tasks API 可以用於查詢 Fish Audios Generation API 的結果。關於怎樣使用 Fish Audios Generation API，請參考文檔 [Fish Videos Generation API](https://api.xhuoapi.ai/documents/fish-audios-integration)。
 
 我們以 Fish Audios Generation API 服務返回的任務ID 一個為例，演示如何使用該 API。假設我們有一個任務ID：2725a2d3-f87e-4905-9c53-9988d5a7b2f5，接下來演示如何通過傳入一個任務ID 來。
 
 ### 任務示例圖
 
-<p><img src="https://cdn.acedata.cloud/jxvue8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jxvue8.png" width="500" className="m-auto" /></p>
 
 ### 設置請求頭和請求體
 
@@ -45,20 +45,20 @@ Fish Tasks API 可以用於查詢 Fish Audios Generation API 的結果。關於�
 
 設置如下圖所示：
 
-<p><img src="https://cdn.acedata.cloud/xc5ejq.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xc5ejq.png" width="500" className="m-auto" /></p>
 
 ### 代碼示例
 
 可以發現，在頁面右側已經自動生成了各種語言的代碼，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/851zv2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/851zv2.png" width="500" className="m-auto" /></p>
 
 部分代碼示例如下：
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/fish/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -120,13 +120,13 @@ curl -X POST 'https://api.acedata.cloud/fish/tasks' \
 
 設置如下圖所示：
 
-<p><img src="https://cdn.acedata.cloud/64lid9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/64lid9.png" width="500" className="m-auto" /></p>
 
 ### 代碼示例
 
 可以發現，在頁面右側已經自動生成了各種語言的代碼，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/ezkzmw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ezkzmw.png" width="500" className="m-auto" /></p>
 
 部分代碼示例如下：
 
@@ -205,7 +205,7 @@ curl -X POST 'https://api.acedata.cloud/fish/tasks' \
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/fish/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

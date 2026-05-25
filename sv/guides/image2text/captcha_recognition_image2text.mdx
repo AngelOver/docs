@@ -1,15 +1,15 @@
 ---
 title: "Digital English CAPTCHA Recognition API Integration Instructions"
-description: "Recognition of English numerical verification codes 集成指南 - Ace Data Cloud"
+description: "Recognition of English numerical verification codes 集成指南 - XHuoAPI"
 ---
 
 Denna artikel kommer att introducera en digital engelsk CAPTCHA igenkännings-API-integration, som är baserad på djupinlärningsteknik och kan användas för att känna igen variabla längd engelska numeriska CAPTCHA. Inmatning av CAPTCHA-bildens innehåll ger utdata av CAPTCHA-resultatet.
 
 ## Ansökningsprocess
 
-För att använda API:et måste du först gå till [Digital English CAPTCHA Recognition API](https://platform.acedata.cloud/documents/cd1f56dc-e9c9-4293-9c68-80fa560c9087) motsvarande sida för att ansöka om den tjänst som behövs. När du kommer till sidan, klicka på "Acquire"-knappen, som visas i bilden:
+För att använda API:et måste du först gå till [Digital English CAPTCHA Recognition API](https://api.xhuoapi.ai/documents/cd1f56dc-e9c9-4293-9c68-80fa560c9087) motsvarande sida för att ansöka om den tjänst som behövs. När du kommer till sidan, klicka på "Acquire"-knappen, som visas i bilden:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till inloggningssidan för att uppmanas att registrera dig och logga in. Efter inloggning och registrering kommer du automatiskt att återvända till den aktuella sidan.
 
@@ -19,19 +19,19 @@ Vid första ansökan kommer det att finnas en gratis kvot som ges, så att du ka
 
 Först bör du förstå den grundläggande användningsmetoden, vilket innebär att du anger den bild av variabel längd engelska numeriska CAPTCHA som behöver behandlas för att få det bearbetade resultatet. Du behöver först enkelt överföra ett `image`-fält, vilket är den specifika bilden av den engelska numeriska CAPTCHA, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/c50hi9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/c50hi9.png" width="500" className="m-auto" /></p>
 
 Därefter behöver vi konvertera CAPTCHA-bilden till Base64-kodad CAPTCHA-bild. För att konvertera till Base64-kod rekommenderas det att använda Google Chrome-tillägget FeHelper för konvertering. Den specifika användningsmetoden kan refereras till i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/zy2jwh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zy2jwh.png" width="500" className="m-auto" /></p>
 
-<p><img src="https://cdn.acedata.cloud/pr73gn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pr73gn.png" width="500" className="m-auto" /></p>
 
-<p><img src="https://cdn.acedata.cloud/ic4dbw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ic4dbw.png" width="500" className="m-auto" /></p>
 
 Därefter kan du kopiera den Base64-kod som erhållits från Google Chrome-tillägget FeHelp, kom ihåg att den inte innehåller prefixet data:image/png;base64, den specifika innehållet är som följer:
 
-<p><img src="https://cdn.acedata.cloud/5h4x4w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5h4x4w.png" width="500" className="m-auto" /></p>
 
 Här kan vi se att vi har ställt in Request Headers, inklusive:
 
@@ -44,7 +44,7 @@ Dessutom har vi ställt in Request Body, inklusive:
 
 När du har valt kan du se att motsvarande kod också har genererats till höger, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/202y3d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/202y3d.png" width="500" className="m-auto" /></p>
 
 Klicka på "Try"-knappen för att utföra testet, som visas i bilden ovan, här har vi fått följande resultat:
 
@@ -63,7 +63,7 @@ Vi kan se att vi har fått verifieringsresultatet för den bearbetade variabla l
 Om du vill generera motsvarande integrationskod kan du direkt kopiera den som genererats, till exempel CURL-koden nedan:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/captcha/recognition/image2text' \
+curl -X POST 'https://api.xhuoapi.ai/v1/captcha/recognition/image2text' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -77,7 +77,7 @@ Python-integrationskoden ser ut som följer:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/captcha/recognition/image2text"
+url = "https://api.xhuoapi.ai/v1/captcha/recognition/image2text"
 
 headers = {
     "accept": "application/json",

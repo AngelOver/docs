@@ -3,7 +3,7 @@ title: "Veo MCP 對接指南"
 description: "veo MCP 服务器集成"
 ---
 
-[MCP（Model Context Protocol）](https://modelcontextprotocol.io) 是由 Anthropic 推出的模型上下文協議，允許 AI 模型（如 Claude、GPT 等）透過標準化介面調用外部工具。透過 AceData Cloud 提供的 Veo MCP Server，你可以在 Claude Desktop、VS Code、Cursor 等 AI 用戶端中直接使用 Google Veo 生成 AI 影片。
+[MCP（Model Context Protocol）](https://modelcontextprotocol.io) 是由 Anthropic 推出的模型上下文協議，允許 AI 模型（如 Claude、GPT 等）透過標準化介面調用外部工具。透過 XHuoAPI 提供的 Veo MCP Server，你可以在 Claude Desktop、VS Code、Cursor 等 AI 用戶端中直接使用 Google Veo 生成 AI 影片。
 
 ## 功能概覽
 
@@ -19,10 +19,10 @@ Veo MCP Server 提供以下核心功能：
 
 ## 前置準備
 
-使用前，你需要取得 AceData Cloud API Token：
+使用前，你需要取得 XHuoAPI API Token：
 
-1. 註冊或登入 [AceData Cloud 平台](https://platform.acedata.cloud)
-2. 前往 [Veo Videos API](https://platform.acedata.cloud/documents/veo-videos) 頁面
+1. 註冊或登入 [XHuoAPI 平台](https://api.xhuoapi.ai)
+2. 前往 [Veo Videos API](https://api.xhuoapi.ai/documents/veo-videos) 頁面
 3. 點擊「Acquire」取得 API Token（首次申請贈送免費額度）
 
 ## 安裝配置
@@ -36,7 +36,7 @@ pip install mcp-veo
 ### 方式二：原始碼安裝
 
 ```bash
-git clone https://github.com/AceDataCloud/VeoMCP.git
+git clone https://github.com/XHuoAPI/VeoMCP.git
 cd VeoMCP
 pip install -e .
 ```
@@ -58,7 +58,7 @@ pip install -e .
     "veo": {
       "command": "mcp-veo",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -74,7 +74,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-veo"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -93,7 +93,7 @@ pip install -e .
     "veo": {
       "command": "mcp-veo",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -109,7 +109,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-veo"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -137,6 +137,6 @@ pip install -e .
 
 ## 更多資訊
 
-- GitHub 倉庫：[AceDataCloud/VeoMCP](https://github.com/AceDataCloud/VeoMCP)
+- GitHub 倉庫：[XHuoAPI/VeoMCP](https://github.com/XHuoAPI/VeoMCP)
 - PyPI 套件：[mcp-veo](https://pypi.org/project/mcp-veo/)
-- API 文件：[Veo 影片生成 API](https://platform.acedata.cloud/documents/veo)
+- API 文件：[Veo 影片生成 API](https://api.xhuoapi.ai/documents/veo)

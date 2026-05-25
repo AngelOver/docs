@@ -1,17 +1,17 @@
 ---
 title: "Claude Code GitHub Actions käyttöopas"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code on Anthropicin julkaisema **Agentic Coding** -työkalu, jota kutsutaan myös yhdeksi maailman vahvimmista ohjelmointiaineksista. Claude Code GitHub Actions voi integroida AI-ohjelmointikyvyt GitHub-työnkulkuusi, ja voit vain `@claude` PR:ssä tai Issue:ssa, jolloin Claude analysoi koodin, luo PR:n, toteuttaa toimintoja ja korjaa bugeja automaattisesti.
 
-Tässä asiakirjassa esitellään, kuinka voit konfiguroida ja käyttää Claude Code GitHub Actions AceData Cloudin välityspalvelun kautta.
+Tässä asiakirjassa esitellään, kuinka voit konfiguroida ja käyttää Claude Code GitHub Actions XHuoAPIin välityspalvelun kautta.
 
 ## Hakuprosessi
 
-Käyttääksesi Claude Codea, voit ensin siirtyä [Claude Messages -palvelusivulle](https://platform.acedata.cloud/documents/claude-messages) ja napsauttaa "Acquire"-painiketta saadaksesi tarvittavat todisteet:
+Käyttääksesi Claude Codea, voit ensin siirtyä [Claude Messages -palvelusivulle](https://api.xhuoapi.ai/documents/claude-messages) ja napsauttaa "Acquire"-painiketta saadaksesi tarvittavat todisteet:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -30,7 +30,7 @@ Ensimmäisellä hakemuskerralla saat ilmaisia krediittejä, joiden avulla voit k
 
 Siirry [https://github.com/apps/claude](https://github.com/apps/claude) ja asenna Claude GitHub App varastollesi.
 
-![GitHub Claude App asennussivu](https://cdn.acedata.cloud/ba4b8df66d.png)
+![GitHub Claude App asennussivu](https://cdn.xhuoapi.ai/ba4b8df66d.png)
 
 Sovellus tarvitsee seuraavat varastokäytännöt:
 
@@ -42,14 +42,14 @@ Sovellus tarvitsee seuraavat varastokäytännöt:
 
 ### Vaihe 2: Lisää API-avain
 
-Lisää AceData Cloudin API-avain varaston Salaisuudeksi:
+Lisää XHuoAPIin API-avain varaston Salaisuudeksi:
 
 1. Siirry varaston **Asetukset** → **Salaisuudet ja muuttujat** → **Toiminnot**
 2. Napsauta **Uusi varaston salaisuus**
-3. Nimeä `ANTHROPIC_API_KEY`, ja syötä Arvoon AceData Cloudista saamasi API-token
+3. Nimeä `ANTHROPIC_API_KEY`, ja syötä Arvoon XHuoAPIista saamasi API-token
 4. Napsauta **Lisää salaisuus** tallentaaksesi
 
-> **Vihje**: API-tokenin voi tarkistaa [AceData Cloud -hallintapaneelista](https://platform.acedata.cloud/console).
+> **Vihje**: API-tokenin voi tarkistaa [XHuoAPI -hallintapaneelista](https://api.xhuoapi.ai/console).
 
 ### Vaihe 3: Luo Workflow-tiedosto
 
@@ -76,7 +76,7 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 ```
 
-Jos haluat käyttää AceData Cloudin välityspalvelun API-päätettä, sinun on myös asetettava ympäristömuuttuja Workflow:ssa:
+Jos haluat käyttää XHuoAPIin välityspalvelun API-päätettä, sinun on myös asetettava ympäristömuuttuja Workflow:ssa:
 
 ```yaml
 name: Claude Code
@@ -94,7 +94,7 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
         env:
-          ANTHROPIC_BASE_URL: "https://api.acedata.cloud"
+          ANTHROPIC_BASE_URL: "https://api.xhuoapi.ai/v1"
 ```
 
 ## Käyttötapa
@@ -130,7 +130,7 @@ jobs:
           prompt: "/review"
           claude_args: "--max-turns 5"
         env:
-          ANTHROPIC_BASE_URL: "https://api.acedata.cloud"
+          ANTHROPIC_BASE_URL: "https://api.xhuoapi.ai/v1"
 ```
 
 ### Aikataulutetut automaatiotehtävät
@@ -152,7 +152,7 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: "Tuota eilisten sitoumusten yhteenveto ja raportti avoimista Issueista"
         env:
-          ANTHROPIC_BASE_URL: "https://api.acedata.cloud"
+          ANTHROPIC_BASE_URL: "https://api.xhuoapi.ai/v1"
 ```
 
 ## Action-parametrien selitys
@@ -215,12 +215,12 @@ Luo varaston juurihakemistoon tiedosto `CLAUDE.md`, jossa määritellään koodi
 
 ### Kuinka tarkistaa jäljellä oleva saldo?
 
-Kirjaudu sisään [AceData Cloud -hallintapaneeliin](https://platform.acedata.cloud/console), niin voit tarkistaa nykyisen tilin jäljellä olevan saldon ja käyttötilanteen.
+Kirjaudu sisään [XHuoAPI -hallintapaneeliin](https://api.xhuoapi.ai/console), niin voit tarkistaa nykyisen tilin jäljellä olevan saldon ja käyttötilanteen.
 
 ## Opi lisää
 
 - 📖 [Claude Code GitHub Actions -virallinen dokumentaatio](https://code.claude.com/docs/en/github-actions)
 - 📂 [claude-code-action -varasto](https://github.com/anthropics/claude-code-action)
 - 📋 [Työnkulkuesimerkit](https://github.com/anthropics/claude-code-action/tree/main/examples)
-- 🔧 [AceData Cloud Claude Code -palvelu](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code -palvelu](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 Jos sinulla on kysymyksiä, ota rohkeasti yhteyttä asiakaspalveluumme alustalla

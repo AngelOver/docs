@@ -1,17 +1,17 @@
 ---
 title: "Claude Code for VS Code 使用教程"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code 是 Anthropic 推出的一款 **Agentic Coding** 工具，也被称为世界最强编程 Agent 之一。Claude Code 的 VS Code 扩展提供了原生的图形化界面，支持内联 Diff 视图、`@`-mentions 引用、计划审查等功能，是在 VS Code 中使用 Claude Code 的推荐方式。
 
-本文档主要介绍如何通过 AceData Cloud 的代理服务，在 VS Code 中配置和使用 Claude Code 扩展。
+本文档主要介绍如何通过 XHuoAPI 的代理服务，在 VS Code 中配置和使用 Claude Code 扩展。
 
 ## 申请流程
 
-要使用 Claude Code，首先可以到 [Claude Messages 服务页面](https://platform.acedata.cloud/documents/claude-messages) 点击「Acquire」按钮，获取请求所需要的凭证：
+要使用 Claude Code，首先可以到 [Claude Messages 服务页面](https://api.xhuoapi.ai/documents/claude-messages) 点击「Acquire」按钮，获取请求所需要的凭证：
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 如果你尚未登录或注册，会自动跳转到登录页面邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
@@ -27,7 +27,7 @@ Claude Code 是 Anthropic 推出的一款 **Agentic Coding** 工具，也被称�
 
 在 VS Code / Cursor 的扩展市场中，按 `Cmd+Shift+X`（Mac）或 `Ctrl+Shift+X`（Windows/Linux）打开扩展视图，搜索 **Claude Code**，找到 Anthropic 官方发布的插件并点击「Install」安装：
 
-![VS Code Marketplace 中的 Claude Code 插件](https://cdn.acedata.cloud/10ddf71320.png)
+![VS Code Marketplace 中的 Claude Code 插件](https://cdn.xhuoapi.ai/10ddf71320.png)
 
 也可以通过以下链接直接安装：
 
@@ -38,9 +38,9 @@ Claude Code 是 Anthropic 推出的一款 **Agentic Coding** 工具，也被称�
 
 > 如果安装后扩展没有出现，请重启 VS Code 或在命令面板中执行「Developer: Reload Window」。
 
-## 配置 AceData Cloud API
+## 配置 XHuoAPI API
 
-第一次打开插件时，会提示登录 Anthropic 官方账号。我们可以跳过官方登录，通过配置 AceData Cloud 的代理 API 来使用，**无需官方订阅**。
+第一次打开插件时，会提示登录 Anthropic 官方账号。我们可以跳过官方登录，通过配置 XHuoAPI 的代理 API 来使用，**无需官方订阅**。
 
 ### 步骤一：配置环境变量
 
@@ -48,13 +48,13 @@ Claude Code 是 Anthropic 推出的一款 **Agentic Coding** 工具，也被称�
 
 **选项 A：用户级配置（所有项目适用）**
 
-编辑 `~/.claude/settings.json`（如果不存在则创建），添加 `env` 配置，将 `{token}` 替换为你在 AceData Cloud 控制台获取的 API 令牌：
+编辑 `~/.claude/settings.json`（如果不存在则创建），添加 `env` 配置，将 `{token}` 替换为你在 XHuoAPI 控制台获取的 API 令牌：
 
 ```json
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
@@ -67,12 +67,12 @@ Claude Code 是 Anthropic 推出的一款 **Agentic Coding** 工具，也被称�
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **提示**：API 令牌可在 [AceData Cloud 控制台](https://platform.acedata.cloud/console) 中查看。`ANTHROPIC_AUTH_TOKEN` 的值会被自动添加 `Bearer` 前缀发送到服务端。项目级配置优先级高于用户级配置。建议在团队项目中使用 `.claude/settings.json` 共享配置，个人敏感信息放在 `.claude/settings.local.json` 中。
+> **提示**：API 令牌可在 [XHuoAPI 控制台](https://api.xhuoapi.ai/console) 中查看。`ANTHROPIC_AUTH_TOKEN` 的值会被自动添加 `Bearer` 前缀发送到服务端。项目级配置优先级高于用户级配置。建议在团队项目中使用 `.claude/settings.json` 共享配置，个人敏感信息放在 `.claude/settings.local.json` 中。
 
 ### 步骤二：禁用登录提示（可选）
 
@@ -95,7 +95,7 @@ Claude Code 是 Anthropic 推出的一款 **Agentic Coding** 工具，也被称�
 
 与 Cursor / Copilot 等工具使用侧边栏不同，Claude Code 默认采用**编辑区视图**作为聊天区域，可视区域更大，内容展示更丰富。你也可以将面板拖动到侧边栏或其他位置。
 
-![VS Code 中的 Claude Code 面板](https://cdn.acedata.cloud/b84b878420.jpg)
+![VS Code 中的 Claude Code 面板](https://cdn.xhuoapi.ai/b84b878420.jpg)
 
 ## 基本使用
 
@@ -110,7 +110,7 @@ Claude Code 是 Anthropic 推出的一款 **Agentic Coding** 工具，也被称�
 
 Claude Code 会自动理解你的代码库上下文，跨文件进行分析和编辑。当 Claude 需要修改文件时，会显示 Diff 对比视图，你可以选择接受或拒绝修改。
 
-![VS Code 中的 Claude Code 对话和提示](https://cdn.acedata.cloud/650377f5cc.png)
+![VS Code 中的 Claude Code 对话和提示](https://cdn.xhuoapi.ai/650377f5cc.png)
 
 ### 上下文引用
 
@@ -146,7 +146,7 @@ Claude Code 会自动理解你的代码库上下文，跨文件进行分析和�
 ### 审阅代码变更
 
 当 Claude 需要修改文件时，会显示 Diff 对比视图，展示原始代码和修改后的对比。你可以选择接受或拒绝每项修改，也可以告诉 Claude 你想要的不同做法：
-![VS Code 中的 Diff 对比视图](https://cdn.acedata.cloud/c42381ea9f.png)
+![VS Code 中的 Diff 对比视图](https://cdn.xhuoapi.ai/c42381ea9f.png)
 
 ### 權限模式
 
@@ -186,8 +186,8 @@ Claude Code 支援切換不同的模型，例如 Claude Sonnet、Claude Opus 等
 ### 連接失敗怎麼辦？
 
 1. 確認 `~/.claude/settings.json` 或 `.claude/settings.json` 中環境變數配置正確，特別是 `ANTHROPIC_AUTH_TOKEN` 和 `ANTHROPIC_BASE_URL`
-2. 確認 API 令牌有效（可在 [控制台](https://platform.acedata.cloud/console) 查看）
-3. 檢查網路連接是否正常，確保能訪問 `https://api.acedata.cloud`
+2. 確認 API 令牌有效（可在 [控制台](https://api.xhuoapi.ai/console) 查看）
+3. 檢查網路連接是否正常，確保能訪問 `https://api.xhuoapi.ai/v1`
 4. 重啟 VS Code 後重試
 
 ### Spark 圖標沒有出現？
@@ -199,11 +199,11 @@ Claude Code 支援切換不同的模型，例如 Claude Sonnet、Claude Opus 等
 
 ### 如何查看剩餘額度？
 
-登錄 [AceData Cloud 控制台](https://platform.acedata.cloud/console)，即可查看當前賬戶的剩餘額度和使用情況。
+登錄 [XHuoAPI 控制台](https://api.xhuoapi.ai/console)，即可查看當前賬戶的剩餘額度和使用情況。
 
 ## 了解更多
 
 - 📖 [Claude Code VS Code 官方文檔](https://code.claude.com/docs/en/vs-code)
 - ⌨️ [VS Code 命令和快捷鍵參考](https://code.claude.com/docs/en/vs-code#vs-code-commands-and-shortcuts)
-- 🔧 [AceData Cloud Claude Code 服務](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code 服務](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 如有任何問題，歡迎透過平台客服聯繫我們

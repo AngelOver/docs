@@ -1,6 +1,6 @@
 ---
 title: "Integracja i użycie Hailuo Tasks API"
-description: "Hailuo Video Generation 集成指南 - Ace Data Cloud"
+description: "Hailuo Video Generation 集成指南 - XHuoAPI"
 ---
 
 Główną funkcją Hailuo Tasks API jest możliwość sprawdzania statusu wykonania zadań poprzez wprowadzenie ID zadania wygenerowanego przez Hailuo Videos Generation API.
@@ -9,27 +9,27 @@ Dokument ten szczegółowo opisuje integrację Hailuo Tasks API, aby pomóc Ci �
 
 ## Proces aplikacji
 
-Aby korzystać z Hailuo Tasks API, najpierw należy przejść do strony aplikacji [Hailuo Videos Generation API](https://platform.acedata.cloud/documents/ee06377b-9185-438f-ac84-3376bcb1275e) i złożyć wniosek o odpowiednią usługę, a następnie skopiować ID zadania Hailuo Videos Generation API, jak pokazano na obrazku:
+Aby korzystać z Hailuo Tasks API, najpierw należy przejść do strony aplikacji [Hailuo Videos Generation API](https://api.xhuoapi.ai/documents/ee06377b-9185-438f-ac84-3376bcb1275e) i złożyć wniosek o odpowiednią usługę, a następnie skopiować ID zadania Hailuo Videos Generation API, jak pokazano na obrazku:
 
-<p><img src="https://cdn.acedata.cloud/4f9d95.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4f9d95.png" width="500" className="m-auto" /></p>
 
-Na koniec przejdź do strony Tasks API [Hailuo Tasks API](https://platform.acedata.cloud/documents/4b1ccdbc-b8ed-4171-9a14-48e10970ba04) i złóż wniosek o odpowiednią usługę, po wejściu na stronę kliknij przycisk „Acquire”, jak pokazano na obrazku:
+Na koniec przejdź do strony Tasks API [Hailuo Tasks API](https://api.xhuoapi.ai/documents/4b1ccdbc-b8ed-4171-9a14-48e10970ba04) i złóż wniosek o odpowiednią usługę, po wejściu na stronę kliknij przycisk „Acquire”, jak pokazano na obrazku:
 
-![Strona aplikacji](https://cdn.acedata.cloud/rci31i.png)
+![Strona aplikacji](https://cdn.xhuoapi.ai/rci31i.png)
 
-Jeśli nie jesteś zalogowany lub zarejestrowany, automatycznie zostaniesz przekierowany na [stronę logowania](https://platform.acedata.cloud), aby zarejestrować się i zalogować, po zalogowaniu lub rejestracji automatycznie wrócisz na bieżącą stronę.
+Jeśli nie jesteś zalogowany lub zarejestrowany, automatycznie zostaniesz przekierowany na [stronę logowania](https://api.xhuoapi.ai), aby zarejestrować się i zalogować, po zalogowaniu lub rejestracji automatycznie wrócisz na bieżącą stronę.
 
 Podczas pierwszej aplikacji otrzymasz darmowy limit, który pozwala na bezpłatne korzystanie z tego API.
 
 ## Przykład żądania
 
-Hailuo Tasks API może być używane do sprawdzania wyników Hailuo Videos Generation API. Aby dowiedzieć się, jak korzystać z Hailuo Videos Generation API, zapoznaj się z dokumentem [Hailuo Videos Generation API](https://platform.acedata.cloud/documents/d2fc9087-2996-4573-bfe5-8b1c828fdfc7).
+Hailuo Tasks API może być używane do sprawdzania wyników Hailuo Videos Generation API. Aby dowiedzieć się, jak korzystać z Hailuo Videos Generation API, zapoznaj się z dokumentem [Hailuo Videos Generation API](https://api.xhuoapi.ai/documents/d2fc9087-2996-4573-bfe5-8b1c828fdfc7).
 
 Weźmy jako przykład ID zadania zwrócone przez usługę Hailuo Videos Generation API, aby pokazać, jak używać tego API. Załóżmy, że mamy ID zadania: 58cc618b-9639-4ee7-add2-d2fcf260d9a3, a następnie pokażemy, jak to zrobić, przekazując ID zadania.
 
 ### Przykład zadania
 
-<p><img src="https://cdn.acedata.cloud/4f9d95.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4f9d95.png" width="500" className="m-auto" /></p>
 
 ### Ustawienia nagłówków żądania i ciała żądania
 
@@ -45,20 +45,20 @@ Weźmy jako przykład ID zadania zwrócone przez usługę Hailuo Videos Generati
 
 Ustawienia są pokazane na poniższym obrazku:
 
-<p><img src="https://cdn.acedata.cloud/e9btl5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/e9btl5.png" width="500" className="m-auto" /></p>
 
 ### Przykład kodu
 
 Można zauważyć, że po prawej stronie strony automatycznie wygenerowano kod w różnych językach, jak pokazano na obrazku:
 
-<p><img src="https://cdn.acedata.cloud/tfn261.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tfn261.png" width="500" className="m-auto" /></p>
 
 Niektóre przykłady kodu są następujące:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/hailuo/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/hailuo/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/hailuo/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/hailuo/tasks"
+url = "https://api.xhuoapi.ai/v1/hailuo/tasks"
 
 headers = {
     "accept": "application/json",
@@ -143,13 +143,13 @@ To jest zapytanie o szczegóły zadań wideo dla wielu ID zadań, w przeciwieńs
 
 Ustawienia są pokazane na poniższym obrazku:
 
-<p><img src="https://cdn.acedata.cloud/i023y9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/i023y9.png" width="500" className="m-auto" /></p>
 
 ### Przykład kodu
 
 Można zauważyć, że po prawej stronie strony automatycznie wygenerowano kod w różnych językach, jak pokazano na obrazku:
 
-<p><img src="https://cdn.acedata.cloud/3sxeeh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3sxeeh.png" width="500" className="m-auto" /></p>
 
 Niektóre przykłady kodu są następujące:
 
@@ -225,7 +225,7 @@ Po pomyślnym wykonaniu żądania API zwróci szczegółowe informacje o wszystk
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/hailuo/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/hailuo/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -240,7 +240,7 @@ curl -X POST 'https://api.acedata.cloud/hailuo/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/hailuo/tasks"
+url = "https://api.xhuoapi.ai/v1/hailuo/tasks"
 
 headers = {
     "accept": "application/json",

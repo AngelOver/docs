@@ -1,15 +1,15 @@
 ---
 title: "Руководство по интеграции API генерации изображений SeeDream"
-description: "ByteDance Seedream Image Generation 集成指南 - Ace Data Cloud"
+description: "ByteDance Seedream Image Generation 集成指南 - XHuoAPI"
 ---
 
 В этой документации представлено описание процесса интеграции API генерации изображений SeeDream, который позволяет с помощью пользовательских параметров создавать изображения официального сайта SeeDream.
 
 ## Процесс подачи заявки
 
-Для использования API необходимо сначала подать заявку на соответствующую услугу на странице [SeeDream Images Generation API](https://platform.acedata.cloud/documents/seedream-images). После перехода на страницу нажмите кнопку «Acquire», как показано на рисунке:
+Для использования API необходимо сначала подать заявку на соответствующую услугу на странице [SeeDream Images Generation API](https://api.xhuoapi.ai/documents/seedream-images). После перехода на страницу нажмите кнопку «Acquire», как показано на рисунке:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Если вы не вошли в систему или не зарегистрированы, произойдет автоматический переход к странице входа с приглашением зарегистрироваться и войти. После входа или регистрации вы будете возвращены на текущую страницу.
 
@@ -19,7 +19,7 @@ description: "ByteDance Seedream Image Generation 集成指南 - Ace Data Cloud"
 
 Для начала ознакомьтесь с базовым способом использования: нужно передать вводной текст `prompt`, действие генерации `action`, размер изображения `size`, после чего вы получите результат. Для этого достаточно передать поле `action` со значением `generate`, а также текстовое описание `prompt`. Конкретный пример следующий:
 
-<p><img src="https://cdn.acedata.cloud/seedream_request_body.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedream_request_body.png" width="500" className="m-auto" /></p>
 
 Здесь в заголовках запроса указаны следующие параметры:
 
@@ -45,7 +45,7 @@ description: "ByteDance Seedream Image Generation 集成指南 - Ace Data Cloud"
 После выбора параметров на правой стороне автоматически сгенерируется код, например, для CURL:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/seedream/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/seedream/images' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer ${token}' \
 -H 'content-type: application/json' \
@@ -65,14 +65,14 @@ curl -X POST 'https://api.acedata.cloud/seedream/images' \
 
 Пример заполнения:
 
-<p><img src="https://cdn.acedata.cloud/seedream_edit.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedream_edit.png" width="500" className="m-auto" /></p>
 
 Соответствующий код (на Python):
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/images"
+url = "https://api.xhuoapi.ai/v1/flux/images"
 
 headers = {
     "accept": "application/json",
@@ -103,7 +103,7 @@ print(response.text)
         {
             "prompt": "Keep the model pose and the liquid garment flowing shape unchanged. Change the clothing material from silver metal to completely transparent water (or glass). Through the liquid flow, the details of the model skin are visible. The light and shadow effect shifts from reflection to refraction.",
             "size": "2048x2048",
-            "image_url": "https://platform.cdn.acedata.cloud/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
+            "image_url": "https://platform.cdn.xhuoapi.ai/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
         }
     ]
 }
@@ -132,7 +132,7 @@ print(response.text)
         {
             "prompt": "Keep the model pose and the liquid garment flowing shape unchanged. Change the clothing material from silver metal to completely transparent water (or glass). Through the liquid flow, the details of the model skin are visible. The light and shadow effect shifts from reflection to refraction.",
             "size": "2048x2048",
-            "image_url": "https://platform.cdn.acedata.cloud/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
+            "image_url": "https://platform.cdn.xhuoapi.ai/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
         }
     ]
 }

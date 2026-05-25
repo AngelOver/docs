@@ -1,6 +1,6 @@
 ---
 title: "Integracja i użycie API Tłumaczenia Lokalizacji"
-description: "Localization translation 集成指南 - Ace Data Cloud"
+description: "Localization translation 集成指南 - XHuoAPI"
 ---
 
 Główną funkcją API Tłumaczenia Lokalizacji jest uzyskanie przetłumaczonego tekstu poprzez wprowadzenie tekstu do przetłumaczenia, a język tłumaczenia można dostosować, a wyniki tłumaczenia mogą być wyjściem w dwóch głównych formatach: `json` i `markdown`.
@@ -9,11 +9,11 @@ Dokument ten szczegółowo opisuje instrukcje integracji API Tłumaczenia, aby p
 
 ## Proces aplikacji
 
-Aby korzystać z API Tłumaczenia Lokalizacji, należy najpierw przejść do strony aplikacji [API Tłumaczenia Lokalizacji](https://platform.acedata.cloud/documents/6dcc60d0-a973-4ad2-92d8-11f4d3775532), aby ubiegać się o odpowiednią usługę. Po wejściu na stronę kliknij przycisk „Acquire”, jak pokazano na obrazku:
+Aby korzystać z API Tłumaczenia Lokalizacji, należy najpierw przejść do strony aplikacji [API Tłumaczenia Lokalizacji](https://api.xhuoapi.ai/documents/6dcc60d0-a973-4ad2-92d8-11f4d3775532), aby ubiegać się o odpowiednią usługę. Po wejściu na stronę kliknij przycisk „Acquire”, jak pokazano na obrazku:
 
-![Strona aplikacji](https://cdn.acedata.cloud/rci31i.png)
+![Strona aplikacji](https://cdn.xhuoapi.ai/rci31i.png)
 
-Jeśli nie jesteś zalogowany lub zarejestrowany, automatycznie zostaniesz przekierowany na [stronę logowania](https://platform.acedata.cloud), aby zarejestrować się i zalogować. Po zalogowaniu lub rejestracji automatycznie wrócisz na bieżącą stronę.
+Jeśli nie jesteś zalogowany lub zarejestrowany, automatycznie zostaniesz przekierowany na [stronę logowania](https://api.xhuoapi.ai), aby zarejestrować się i zalogować. Po zalogowaniu lub rejestracji automatycznie wrócisz na bieżącą stronę.
 
 Podczas pierwszej aplikacji otrzymasz darmowy limit, który pozwala na bezpłatne korzystanie z tego API.
 
@@ -37,20 +37,20 @@ Weźmy przykład z angielskim wejściem, aby pokazać, jak używać tego API. Za
 
 Ustawienia przedstawione są na poniższym obrazku:
 
-<p><img src="https://cdn.acedata.cloud/d4uqst.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d4uqst.png" width="500" className="m-auto" /></p>
 
 ### Przykład kodu
 
 Można zauważyć, że po prawej stronie strony automatycznie wygenerowano różne kody w różnych językach, jak pokazano na obrazku:
 
-<p><img src="https://cdn.acedata.cloud/tn5nno.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tn5nno.png" width="500" className="m-auto" /></p>
 
 Niektóre przykłady kodu są następujące:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/localization/translate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/localization/translate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -66,7 +66,7 @@ curl -X POST 'https://api.acedata.cloud/localization/translate' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/localization/translate"
+url = "https://api.xhuoapi.ai/v1/localization/translate"
 
 headers = {
     "accept": "application/json",

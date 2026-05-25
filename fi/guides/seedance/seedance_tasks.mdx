@@ -1,6 +1,6 @@
 ---
 title: "SeeDance Tasks API:n integrointi ja käyttö"
-description: "ByteDance Seedance Video Generation 集成指南 - Ace Data Cloud"
+description: "ByteDance Seedance Video Generation 集成指南 - XHuoAPI"
 ---
 
 SeeDance Tasks API:n päätoiminto on kysyä tehtävän suoritustilaa syöttämällä SeeDance Video Generation API:n tuottama tehtävä-ID.
@@ -9,27 +9,27 @@ Tässä asiakirjassa käsitellään SeeDance Tasks API:n integrointia, jotta voi
 
 ## Hakuprosessi
 
-Käyttääksesi SeeDance Tasks API:a, sinun on ensin mentävä hakusivulle [SeeDance Video Generation API](https://platform.acedata.cloud/documents/seedance-videos) ja haettava vastaavaa palvelua, sitten kopioi SeeDance Video Generation API:n tehtävä-ID, kuten kuvassa näkyy:
+Käyttääksesi SeeDance Tasks API:a, sinun on ensin mentävä hakusivulle [SeeDance Video Generation API](https://api.xhuoapi.ai/documents/seedance-videos) ja haettava vastaavaa palvelua, sitten kopioi SeeDance Video Generation API:n tehtävä-ID, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
-Lopuksi siirry Tasks API -sivulle [SeeDance Tasks API](https://platform.acedata.cloud/documents/seedance-tasks) ja hae vastaavaa palvelua, siirryttyäsi sivulle, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
+Lopuksi siirry Tasks API -sivulle [SeeDance Tasks API](https://api.xhuoapi.ai/documents/seedance-tasks) ja hae vastaavaa palvelua, siirryttyäsi sivulle, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
 
-![Hakusivu](https://cdn.acedata.cloud/rci31i.png)
+![Hakusivu](https://cdn.xhuoapi.ai/rci31i.png)
 
-Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti [kirjautumissivulle](https://platform.acedata.cloud), jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
+Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti [kirjautumissivulle](https://api.xhuoapi.ai), jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
 Ensimmäisellä hakukerralla saat ilmaisia krediittejä, joita voit käyttää API:n ilmaiseksi.
 
 ## Pyyntöesimerkki
 
-SeeDance Tasks API:a voidaan käyttää SeeDance Video Generation API:n tulosten tarkistamiseen. Tietoa SeeDance Video Generation API:n käytöstä löytyy asiakirjasta [SeeDance Video Generation API](https://platform.acedata.cloud/documents/seedance-videos-integration).
+SeeDance Tasks API:a voidaan käyttää SeeDance Video Generation API:n tulosten tarkistamiseen. Tietoa SeeDance Video Generation API:n käytöstä löytyy asiakirjasta [SeeDance Video Generation API](https://api.xhuoapi.ai/documents/seedance-videos-integration).
 
 Otetaan esimerkki yhdestä SeeDance Video Generation API:n palauttamasta tehtävä-ID:stä ja näytetään, kuinka tätä API:a käytetään. Oletetaan, että meillä on tehtävä-ID: 20068983-0cc9-4c6a-aeb6-9c6a3c668be0, seuraavaksi näytetään, kuinka syötetään tämä tehtävä-ID.
 
 ### Tehtäväesimerkkikuva
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 ### Pyyntöotsikon ja -kehon asettaminen
 
@@ -45,20 +45,20 @@ Otetaan esimerkki yhdestä SeeDance Video Generation API:n palauttamasta tehtäv
 
 Aseta kuten alla olevassa kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/yuyte9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yuyte9.png" width="500" className="m-auto" /></p>
 
 ### Koodiesimerkki
 
 Voit huomata, että sivun oikealla puolella on automaattisesti luotu koodia eri kielillä, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/b0wt0d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/b0wt0d.png" width="500" className="m-auto" /></p>
 
 Osittainen koodiesimerkki on seuraava:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/seedance/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/seedance/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -100,7 +100,7 @@ Kun pyyntö onnistuu, API palauttaa tämän tehtävän yksityiskohtaiset tiedot.
         "data": {
             "task_id": "cgt-20251221230356-sxgt7",
             "status": "succeeded",
-            "video_url": "https://platform.cdn.acedata.cloud/seedance/d1c2e49e-d854-4a2e-b0c0-88e520f82e2e.mp4",
+            "video_url": "https://platform.cdn.xhuoapi.ai/seedance/d1c2e49e-d854-4a2e-b0c0-88e520f82e2e.mp4",
             "last_frame_url": null,
             "model": "doubao-seedance-1-0-pro-250528"
         }
@@ -125,13 +125,13 @@ Tämä on tarkoitettu useiden tehtävä-ID:iden kyselyyn tehtävän yksityiskoht
 
 Aseta kuten alla olevassa kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/ycc4th.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ycc4th.png" width="500" className="m-auto" /></p>
 
 ### Koodiesimerkki
 
 Voit huomata, että sivun oikealla puolella on automaattisesti luotu koodia eri kielillä, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/u6bt64.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/u6bt64.png" width="500" className="m-auto" /></p>
 
 Osittainen koodiesimerkki on seuraava:
 
@@ -168,7 +168,7 @@ Kun pyyntö onnistuu, API palauttaa kaikkien massatehtävien tarkat yksityiskohd
                 "data": {
                     "task_id": "cgt-20251221230356-sxgt7",
                     "status": "succeeded",
-                    "video_url": "https://platform.cdn.acedata.cloud/seedance/d1c2e49e-d854-4a2e-b0c0-88e520f82e2e.mp4",
+                    "video_url": "https://platform.cdn.xhuoapi.ai/seedance/d1c2e49e-d854-4a2e-b0c0-88e520f82e2e.mp4",
                     "last_frame_url": null,
                     "model": "doubao-seedance-1-0-pro-250528"
                 }
@@ -201,7 +201,7 @@ Kun pyyntö onnistuu, API palauttaa kaikkien massatehtävien tarkat yksityiskohd
                 "data": {
                     "task_id": "cgt-20251221231109-cnkhp",
                     "status": "succeeded",
-                    "video_url": "https://platform.cdn.acedata.cloud/seedance/eb99ba03-178c-4616-8d19-e625fee2e884.mp4",
+                    "video_url": "https://platform.cdn.xhuoapi.ai/seedance/eb99ba03-178c-4616-8d19-e625fee2e884.mp4",
                     "last_frame_url": null,
                     "model": "doubao-seedance-1-0-pro-250528"
                 }

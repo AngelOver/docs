@@ -3,7 +3,7 @@ title: "Veo MCP 연동 가이드"
 description: "veo MCP 服务器集成"
 ---
 
-[MCP（Model Context Protocol）](https://modelcontextprotocol.io)는 Anthropic에서 출시한 모델 컨텍스트 프로토콜로, Claude, GPT 등 AI 모델이 표준화된 인터페이스를 통해 외부 도구를 호출할 수 있게 합니다. AceData Cloud에서 제공하는 Veo MCP Server를 통해 Claude Desktop, VS Code, Cursor 등 AI 클라이언트에서 Google Veo를 사용해 AI 비디오를 직접 생성할 수 있습니다.
+[MCP（Model Context Protocol）](https://modelcontextprotocol.io)는 Anthropic에서 출시한 모델 컨텍스트 프로토콜로, Claude, GPT 등 AI 모델이 표준화된 인터페이스를 통해 외부 도구를 호출할 수 있게 합니다. XHuoAPI에서 제공하는 Veo MCP Server를 통해 Claude Desktop, VS Code, Cursor 등 AI 클라이언트에서 Google Veo를 사용해 AI 비디오를 직접 생성할 수 있습니다.
 
 ## 기능 개요
 
@@ -19,10 +19,10 @@ Veo MCP Server는 다음과 같은 핵심 기능을 제공합니다:
 
 ## 사전 준비
 
-사용 전, AceData Cloud API Token을 발급받아야 합니다:
+사용 전, XHuoAPI API Token을 발급받아야 합니다:
 
-1. [AceData Cloud 플랫폼](https://platform.acedata.cloud)에 가입 또는 로그인
-2. [Veo Videos API](https://platform.acedata.cloud/documents/veo-videos) 페이지로 이동
+1. [XHuoAPI 플랫폼](https://api.xhuoapi.ai)에 가입 또는 로그인
+2. [Veo Videos API](https://api.xhuoapi.ai/documents/veo-videos) 페이지로 이동
 3. 「Acquire」를 클릭하여 API Token 발급 (첫 신청 시 무료 크레딧 제공)
 
 ## 설치 및 설정
@@ -36,7 +36,7 @@ pip install mcp-veo
 ### 방법 2: 소스 코드 설치
 
 ```bash
-git clone https://github.com/AceDataCloud/VeoMCP.git
+git clone https://github.com/XHuoAPI/VeoMCP.git
 cd VeoMCP
 pip install -e .
 ```
@@ -58,7 +58,7 @@ Claude Desktop 설정 파일 편집:
     "veo": {
       "command": "mcp-veo",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "당신의 API Token"
+        "XHuoAPI_API_TOKEN": "당신의 API Token"
       }
     }
   }
@@ -74,7 +74,7 @@ Claude Desktop 설정 파일 편집:
       "command": "uvx",
       "args": ["mcp-veo"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "당신의 API Token"
+        "XHuoAPI_API_TOKEN": "당신의 API Token"
       }
     }
   }
@@ -93,7 +93,7 @@ Claude Desktop 설정 파일 편집:
     "veo": {
       "command": "mcp-veo",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "당신의 API Token"
+        "XHuoAPI_API_TOKEN": "당신의 API Token"
       }
     }
   }
@@ -109,7 +109,7 @@ Claude Desktop 설정 파일 편집:
       "command": "uvx",
       "args": ["mcp-veo"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "당신의 API Token"
+        "XHuoAPI_API_TOKEN": "당신의 API Token"
       }
     }
   }
@@ -137,6 +137,6 @@ Claude Desktop 설정 파일 편집:
 
 ## 추가 정보
 
-- GitHub 저장소: [AceDataCloud/VeoMCP](https://github.com/AceDataCloud/VeoMCP)
+- GitHub 저장소: [XHuoAPI/VeoMCP](https://github.com/XHuoAPI/VeoMCP)
 - PyPI 패키지: [mcp-veo](https://pypi.org/project/mcp-veo/)
-- API 문서: [Veo 비디오 생성 API](https://platform.acedata.cloud/documents/veo)
+- API 문서: [Veo 비디오 생성 API](https://api.xhuoapi.ai/documents/veo)

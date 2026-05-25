@@ -1,6 +1,6 @@
 ---
 title: "AI Passfoto Task API Integration and Usage"
-description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
+description: "AI ID Photo Production 集成指南 - XHuoAPI"
 ---
 
 Die Hauptfunktion der AI Passfoto Task API besteht darin, den Status der Ausführung eines Auftrags zu überprüfen, indem die von der AI Passfoto Erstellung API generierte Auftrags-ID eingegeben wird.
@@ -9,27 +9,27 @@ Dieses Dokument wird die Integrationsanleitung für die AI Passfoto Task API det
 
 ## Antragsprozess
 
-Um die AI Passfoto Task API zu nutzen, müssen Sie zunächst auf die Anmeldeseite [AI Passfoto Erstellung API](https://platform.acedata.cloud/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) gehen und den entsprechenden Dienst beantragen, dann kopieren Sie die Auftrags-ID der AI Passfoto Erstellung API, wie im Bild gezeigt:
+Um die AI Passfoto Task API zu nutzen, müssen Sie zunächst auf die Anmeldeseite [AI Passfoto Erstellung API](https://api.xhuoapi.ai/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) gehen und den entsprechenden Dienst beantragen, dann kopieren Sie die Auftrags-ID der AI Passfoto Erstellung API, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/7ezmmn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7ezmmn.png" width="500" className="m-auto" /></p>
 
-Gehen Sie schließlich zur Tasks API-Seite [AI Passfoto Task API](https://platform.acedata.cloud/documents/3a23ee34-8689-406b-9042-7954224348ad), um den entsprechenden Dienst zu beantragen. Klicken Sie nach dem Betreten der Seite auf die Schaltfläche „Acquire“, wie im Bild gezeigt:
+Gehen Sie schließlich zur Tasks API-Seite [AI Passfoto Task API](https://api.xhuoapi.ai/documents/3a23ee34-8689-406b-9042-7954224348ad), um den entsprechenden Dienst zu beantragen. Klicken Sie nach dem Betreten der Seite auf die Schaltfläche „Acquire“, wie im Bild gezeigt:
 
-![Anmeldeseite](https://cdn.acedata.cloud/rci31i.png)
+![Anmeldeseite](https://cdn.xhuoapi.ai/rci31i.png)
 
-Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur [Anmeldeseite](https://platform.acedata.cloud) weitergeleitet, um sich zu registrieren und anzumelden. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
+Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur [Anmeldeseite](https://api.xhuoapi.ai) weitergeleitet, um sich zu registrieren und anzumelden. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
 
 Bei der ersten Antragstellung gibt es ein kostenloses Kontingent, mit dem Sie die API kostenlos nutzen können.
 
 ## Anfragebeispiel
 
-Die AI Passfoto Task API kann verwendet werden, um die Ergebnisse der AI Passfoto Erstellung API abzufragen. Informationen zur Nutzung der AI Passfoto Erstellung API finden Sie im Dokument [AI Passfoto Erstellung API](https://platform.acedata.cloud/documents/d6ea75a4-836e-490a-aee5-7ca911a808fd).
+Die AI Passfoto Task API kann verwendet werden, um die Ergebnisse der AI Passfoto Erstellung API abzufragen. Informationen zur Nutzung der AI Passfoto Erstellung API finden Sie im Dokument [AI Passfoto Erstellung API](https://api.xhuoapi.ai/documents/d6ea75a4-836e-490a-aee5-7ca911a808fd).
 
 Wir nehmen als Beispiel eine von der AI Passfoto Erstellung API zurückgegebene Auftrags-ID und demonstrieren, wie man diese API verwendet. Angenommen, wir haben eine Auftrags-ID: `16f96e95-d95c-46ef-b183-139b9bd1aebd`, im Folgenden zeigen wir, wie man durch Eingabe einer Auftrags-ID vorgeht.
 
 ### Aufgabenbeispielbild
 
-<p><img src="https://cdn.acedata.cloud/7ezmmn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7ezmmn.png" width="500" className="m-auto" /></p>
 
 ### Anfrageheader und Anfragekörper festlegen
 
@@ -45,20 +45,20 @@ Wir nehmen als Beispiel eine von der AI Passfoto Erstellung API zurückgegebene 
 
 Einstellung wie im folgenden Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/ezsyyd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ezsyyd.png" width="500" className="m-auto" /></p>
 
 ### Codebeispiel
 
 Es kann festgestellt werden, dass auf der rechten Seite der Seite bereits automatisch Code in verschiedenen Sprachen generiert wurde, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/x99wu2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/x99wu2.png" width="500" className="m-auto" /></p>
 
 Einige Codebeispiele sind wie folgt:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/headshots/tasks"
+url = "https://api.xhuoapi.ai/v1/headshots/tasks"
 
 headers = {
     "accept": "application/json",
@@ -118,12 +118,12 @@ Nach erfolgreicher Anfrage gibt die API die Detailinformationen zu diesem Passfo
     "data": [
       {
         "id": "202411032022077381",
-        "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
         "template": "Männliches Porträt"
       },
       {
         "id": "202411032022079194",
-        "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
         "template": "Männliches Porträt"
       }
     ]
@@ -148,13 +148,13 @@ Dies ist eine Abfrage der Details von Passfotoaufträgen für mehrere Auftrags-I
 
 Einstellung wie im folgenden Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/8vynq9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8vynq9.png" width="500" className="m-auto" /></p>
 
 ### Codebeispiel
 
 Es kann festgestellt werden, dass auf der rechten Seite der Seite bereits automatisch Code in verschiedenen Sprachen generiert wurde, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/5jexyn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5jexyn.png" width="500" className="m-auto" /></p>
 
 Einige Codebeispiele sind wie folgt:
 
@@ -187,12 +187,12 @@ Nach erfolgreicher Anfrage gibt die API die spezifischen Detailinformationen zu 
         "data": [
           {
             "id": "202411032022077381",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
             "template": "男形象照"
           },
           {
             "id": "202411032022079194",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
             "template": "男形象照"
           }
         ]
@@ -229,7 +229,7 @@ Nach erfolgreicher Anfrage gibt die API die spezifischen Detailinformationen zu 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -244,7 +244,7 @@ curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/headshots/tasks"
+url = "https://api.xhuoapi.ai/v1/headshots/tasks"
 
 headers = {
     "accept": "application/json",

@@ -1,13 +1,13 @@
 ---
 title: "Fish TTS API 接続説明書"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
-本書では、Fish TTS API の接続説明について説明します。このインターフェースは [Fish Audio公式OpenAPI](https://docs.fish.audio/text-to-speech/text-to-speech) と完全互換であり、元の `https://api.fish.audio/v1/tts` 呼び出しコードを `https://api.acedata.cloud/fish/tts` に直接移行できます。認証情報を置き換えるだけで、リクエストボディの構造を変更する必要はありません。
+本書では、Fish TTS API の接続説明について説明します。このインターフェースは [Fish Audio公式OpenAPI](https://docs.fish.audio/text-to-speech/text-to-speech) と完全互換であり、元の `https://api.fish.audio/v1/tts` 呼び出しコードを `https://api.xhuoapi.ai/v1/fish/tts` に直接移行できます。認証情報を置き換えるだけで、リクエストボディの構造を変更する必要はありません。
 
 ## 申請手順
 
-APIを使用するには、まず [Fish TTS API](https://platform.acedata.cloud/services/caf99abc-ddcf-4714-b2a5-862d9b469509) の対応ページからサービスを申請します。ページにアクセスしたら、「Acquire」ボタンをクリックしてください。
+APIを使用するには、まず [Fish TTS API](https://api.xhuoapi.ai/services/caf99abc-ddcf-4714-b2a5-862d9b469509) の対応ページからサービスを申請します。ページにアクセスしたら、「Acquire」ボタンをクリックしてください。
 
 未ログインまたは未登録の場合、自動的にログインページにリダイレクトされ、登録とログインを促されます。登録とログイン後、元のページに自動的に戻ります。
 
@@ -29,7 +29,7 @@ APIを使用するには、まず [Fish TTS API](https://platform.acedata.cloud/
 最小限のリクエストは `text` フィールドのみを送信します。例のcurlは以下の通りです。
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -55,7 +55,7 @@ curl -X POST 'https://api.acedata.cloud/fish/tts' \
 クローン音色を使用したい場合は、`reference_id` をリクエストボディに追加します。
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -77,7 +77,7 @@ curl -X POST 'https://api.acedata.cloud/fish/tts' \
 リクエスト例：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -106,7 +106,7 @@ curl -X POST 'https://api.acedata.cloud/fish/tts' \
 }
 ```
 
-また、[Fish Tasks API](https://platform.acedata.cloud/documents/fc541fac-a941-47fd-b6f7-48d6cb9da523) を利用して `task_id` でステータスをポーリングすることも可能です。
+また、[Fish Tasks API](https://api.xhuoapi.ai/documents/fc541fac-a941-47fd-b6f7-48d6cb9da523) を利用して `task_id` でステータスをポーリングすることも可能です。
 
 ## エラー処理
 

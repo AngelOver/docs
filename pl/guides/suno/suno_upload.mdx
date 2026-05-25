@@ -1,21 +1,21 @@
 ---
 title: "Suno przesyłanie referencyjnego audio API integracja"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 SUNO pozwala nam na przesyłanie referencyjnego audio do dalszej obróbki, ten dokument wyjaśnia metody integracji odpowiednich API.
 
 To API ma tylko jeden parametr wejściowy, którym jest `audio_url`, jest to publicznie dostępny adres CDN, wspierający rozszerzenie mp3.
 
-Tutaj wprowadzamy `audio_url`, który jest `https://cdn.acedata.cloud/suno_demo.mp3`, jest to publicznie dostępny adres CDN.
+Tutaj wprowadzamy `audio_url`, który jest `https://cdn.xhuoapi.ai/suno_demo.mp3`, jest to publicznie dostępny adres CDN.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/upload' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/upload' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "audio_url": "https://cdn.acedata.cloud/suno_demo.mp3"
+  "audio_url": "https://cdn.xhuoapi.ai/suno_demo.mp3"
 }'
 ```
 
@@ -40,4 +40,4 @@ Wynik jest następujący:
 
 Można zauważyć, że pole `audio_id` w `data` to ID piosenki po przesłaniu.
 
-Mając ID piosenki, możemy użyć [Suno Audios Generation API](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) do generacji spersonalizowanej piosenki, na przykład przekazując `action` jako `upload_extend`, a `audio_id` jako zwrócone ID piosenki, możemy wygenerować nową piosenkę na podstawie referencyjnego audio.
+Mając ID piosenki, możemy użyć [Suno Audios Generation API](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) do generacji spersonalizowanej piosenki, na przykład przekazując `action` jako `upload_extend`, a `audio_id` jako zwrócone ID piosenki, możemy wygenerować nową piosenkę na podstawie referencyjnego audio.

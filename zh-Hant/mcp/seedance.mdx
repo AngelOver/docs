@@ -3,7 +3,7 @@ title: "Seedance MCP 對接指南"
 description: "seedance MCP 服务器集成"
 ---
 
-[MCP（Model Context Protocol）](https://modelcontextprotocol.io) 是由 Anthropic 推出的模型上下文協議，允許 AI 模型（如 Claude、GPT 等）透過標準化介面調用外部工具。透過 AceData Cloud 提供的 Seedance MCP Server，你可以在 Claude Desktop、VS Code、Cursor 等 AI 用戶端中直接使用字節跳動 Seedance 生成 AI 視頻。
+[MCP（Model Context Protocol）](https://modelcontextprotocol.io) 是由 Anthropic 推出的模型上下文協議，允許 AI 模型（如 Claude、GPT 等）透過標準化介面調用外部工具。透過 XHuoAPI 提供的 Seedance MCP Server，你可以在 Claude Desktop、VS Code、Cursor 等 AI 用戶端中直接使用字節跳動 Seedance 生成 AI 視頻。
 
 ## 功能概覽
 
@@ -20,10 +20,10 @@ Seedance MCP Server 提供以下核心功能：
 
 ## 前置準備
 
-使用前，你需要取得 AceData Cloud API Token：
+使用前，你需要取得 XHuoAPI API Token：
 
-1. 註冊或登入 [AceData Cloud 平台](https://platform.acedata.cloud)
-2. 前往 [Seedance Videos API](https://platform.acedata.cloud/documents/seedance-videos) 頁面
+1. 註冊或登入 [XHuoAPI 平台](https://api.xhuoapi.ai)
+2. 前往 [Seedance Videos API](https://api.xhuoapi.ai/documents/seedance-videos) 頁面
 3. 點擊「Acquire」取得 API Token（首次申請贈送免費額度）
 
 ## 安裝配置
@@ -37,7 +37,7 @@ pip install mcp-seedance
 ### 方式二：原始碼安裝
 
 ```bash
-git clone https://github.com/AceDataCloud/SeedanceMCP.git
+git clone https://github.com/XHuoAPI/SeedanceMCP.git
 cd SeedanceMCP
 pip install -e .
 ```
@@ -59,7 +59,7 @@ pip install -e .
     "seedance": {
       "command": "mcp-seedance",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -75,7 +75,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-seedance"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -94,7 +94,7 @@ pip install -e .
     "seedance": {
       "command": "mcp-seedance",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -110,7 +110,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-seedance"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -140,6 +140,6 @@ pip install -e .
 
 ## 更多資訊
 
-- GitHub 倉庫：[AceDataCloud/SeedanceMCP](https://github.com/AceDataCloud/SeedanceMCP)
+- GitHub 倉庫：[XHuoAPI/SeedanceMCP](https://github.com/XHuoAPI/SeedanceMCP)
 - PyPI 套件：[mcp-seedance](https://pypi.org/project/mcp-seedance/)
-- API 文件：[Seedance 視頻生成 API](https://platform.acedata.cloud/documents/seedance)
+- API 文件：[Seedance 視頻生成 API](https://api.xhuoapi.ai/documents/seedance)

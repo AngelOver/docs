@@ -1,6 +1,6 @@
 ---
 title: "Flux Tasks API の接続と使用"
-description: "Flux Image Generation 集成指南 - Ace Data Cloud"
+description: "Flux Image Generation 集成指南 - XHuoAPI"
 ---
 
 Flux Tasks API の主な機能は、Flux Images Generation API によって生成されたタスクIDを入力することで、そのタスクの実行状況を照会することです。
@@ -9,27 +9,27 @@ Flux Tasks API の主な機能は、Flux Images Generation API によって生�
 
 ## 申請プロセス
 
-Flux Tasks API を使用するには、まず申請ページ [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) にアクセスして、該当するサービスを申請し、その後、Flux Images Generation API のタスクIDをコピーします。以下の図のように：
+Flux Tasks API を使用するには、まず申請ページ [Flux Images Generation API](https://api.xhuoapi.ai/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) にアクセスして、該当するサービスを申請し、その後、Flux Images Generation API のタスクIDをコピーします。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/7furhb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7furhb.png" width="500" className="m-auto" /></p>
 
-最後に、Flux Tasks API ページ [Flux Tasks API](https://platform.acedata.cloud/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b) にアクセスして、該当するサービスを申請します。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
+最後に、Flux Tasks API ページ [Flux Tasks API](https://api.xhuoapi.ai/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b) にアクセスして、該当するサービスを申請します。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
 
-![申請ページ](https://cdn.acedata.cloud/rci31i.png)
+![申請ページ](https://cdn.xhuoapi.ai/rci31i.png)
 
-まだログインまたは登録していない場合は、自動的に[ログインページ](https://platform.acedata.cloud)にリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
+まだログインまたは登録していない場合は、自動的に[ログインページ](https://api.xhuoapi.ai)にリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
 初回申請時には無料のクレジットが付与され、この API を無料で使用できます。
 
 ## リクエスト例
 
-Flux Tasks API は、Flux Images Generation API の結果を照会するために使用できます。Flux Images Generation API の使用方法については、文書 [Flux Images Generation API](https://platform.acedata.cloud/documents/flux-images-integration) を参照してください。
+Flux Tasks API は、Flux Images Generation API の結果を照会するために使用できます。Flux Images Generation API の使用方法については、文書 [Flux Images Generation API](https://api.xhuoapi.ai/documents/flux-images-integration) を参照してください。
 
 Flux Images Generation API サービスから返されたタスクIDを例に、どのようにこの API を使用するかを示します。仮にタスクIDが：2db0168c-2373-4367-8d9a-9dc778802e8a だとします。次に、タスクIDを渡してどのように行うかを示します。
 
 ### タスク例の画像
 
-<p><img src="https://cdn.acedata.cloud/7furhb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7furhb.png" width="500" className="m-auto" /></p>
 
 ### リクエストヘッダーとリクエストボディの設定
 
@@ -45,20 +45,20 @@ Flux Images Generation API サービスから返されたタスクIDを例に、
 
 設定は以下の図のようになります：
 
-<p><img src="https://cdn.acedata.cloud/fiasxz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fiasxz.png" width="500" className="m-auto" /></p>
 
 ### コード例
 
 ページの右側には、さまざまな言語のコードが自動生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/j6gn86.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/j6gn86.png" width="500" className="m-auto" /></p>
 
 一部のコード例は以下の通りです：
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/flux/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/flux/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/tasks"
+url = "https://api.xhuoapi.ai/v1/flux/tasks"
 
 headers = {
     "accept": "application/json",
@@ -144,13 +144,13 @@ print(response.text)
 
 設定は以下の図のようになります：
 
-<p><img src="https://cdn.acedata.cloud/k3i9ns.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/k3i9ns.png" width="500" className="m-auto" /></p>
 
 ### コード例
 
 ページの右側には、さまざまな言語のコードが自動生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/pt5fww.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pt5fww.png" width="500" className="m-auto" /></p>
 
 一部のコード例は以下の通りです：
 
@@ -228,7 +228,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/flux/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -243,7 +243,7 @@ curl -X POST 'https://api.acedata.cloud/flux/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/tasks"
+url = "https://api.xhuoapi.ai/v1/flux/tasks"
 
 headers = {
     "accept": "application/json",

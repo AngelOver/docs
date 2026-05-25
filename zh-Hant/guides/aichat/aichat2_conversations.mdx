@@ -1,9 +1,9 @@
 ---
 title: "AI Chat v2 API 對接說明"
-description: "AI Dialogue 集成指南 - Ace Data Cloud"
+description: "AI Dialogue 集成指南 - XHuoAPI"
 ---
 
-AI Chat v2 API（`/aichat2/conversations`）是新一代的對話接口，是 [AI Chat API](https://platform.acedata.cloud/documents/59fb1199-6694-4afb-a222-3554d7f7d05a) 的全面升級版本。它在 v1 簡潔、托管多輪對話的基礎上，擴展了：
+AI Chat v2 API（`/aichat2/conversations`）是新一代的對話接口，是 [AI Chat API](https://api.xhuoapi.ai/documents/59fb1199-6694-4afb-a222-3554d7f7d05a) 的全面升級版本。它在 v1 簡潔、托管多輪對話的基礎上，擴展了：
 
 - **多模態用戶輸入**：透過結構化 `message` 欄位直接傳文本 + 圖片 + 檔案塊，無需先用 `references` 間接附加。
 - **Agent 化工具調用**：內建一套聯網搜尋、網頁抓取、檔案讀取等工具，並可掛載用戶授權的 MCP 伺服器（Google Drive、Notion、Slack、GitHub 等），模型可在一次請求裡多輪自主調用工具完成複雜任務。
@@ -18,7 +18,7 @@ AI Chat v2 API（`/aichat2/conversations`）是新一代的對話接口，是 [A
 
 ## 申請流程
 
-要使用 API，需要先到 [AI Chat v2 API](https://platform.acedata.cloud/documents/e4a7c2b9-3f1d-4e8a-9b6c-a5d2f8e1b4c7) 對應頁面申請對應的服務，進入頁面之後，點擊「Acquire」按鈕即可獲取請求所需要的憑證。
+要使用 API，需要先到 [AI Chat v2 API](https://api.xhuoapi.ai/documents/e4a7c2b9-3f1d-4e8a-9b6c-a5d2f8e1b4c7) 對應頁面申請對應的服務，進入頁面之後，點擊「Acquire」按鈕即可獲取請求所需要的憑證。
 
 如果你尚未登入或註冊，會自動跳轉到登入頁面，註冊並登入之後會自動返回當前頁面。
 
@@ -31,13 +31,13 @@ AI Chat v2 API（`/aichat2/conversations`）是新一代的對話接口，是 [A
 CURL 範例：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
   -d '{
     "model": "gpt-5.4",
-    "question": "用一句話介紹下 AceDataCloud。"
+    "question": "用一句話介紹下 XHuoAPI。"
   }'
 ```
 
@@ -45,7 +45,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 
 ```json
 {
-  "answer": "AceDataCloud 是一個聚合主流 AI 模型與多模態服務的統一 API 平台，開發者透過一個密鑰即可調用 GPT、Claude、Gemini、Midjourney、Suno、Veo 等多家服務。",
+  "answer": "XHuoAPI 是一個聚合主流 AI 模型與多模態服務的統一 API 平台，開發者透過一個密鑰即可調用 GPT、Claude、Gemini、Midjourney、Suno、Veo 等多家服務。",
   "id": "f2f4b3e8-0c0a-4d3a-aaa2-7ff80c0a1c44"
 }
 ```
@@ -55,7 +55,7 @@ Python 範例：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/aichat2/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat2/conversations"
 
 headers = {
     "accept": "application/json",
@@ -65,7 +65,7 @@ headers = {
 
 payload = {
     "model": "gpt-5.4",
-    "question": "用一句話介紹下 AceDataCloud。",
+    "question": "用一句話介紹下 XHuoAPI。",
 }
 
 response = requests.post(url, json=payload, headers=headers)
@@ -91,7 +91,7 @@ print(response.json())
 第一次請求：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -114,7 +114,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 第二次請求，帶上同一個 `id`：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -151,7 +151,7 @@ v2 支援兩種流式格式，按照 `accept` 頭選擇：
 import json
 import requests
 
-url = "https://api.acedata.cloud/aichat2/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat2/conversations"
 
 headers = {
     "accept": "application/x-ndjson",
@@ -195,7 +195,7 @@ NDJSON 每一行都是結構化事件，最常見的是 `text_delta`：
 瀏覽器端使用 `EventSource` 不支援自訂請求體，建議使用 `fetch` + 手動按 `\n\n` 切片解析：
 
 ```javascript
-const resp = await fetch("https://api.acedata.cloud/aichat2/conversations", {
+const resp = await fetch("https://api.xhuoapi.ai/v1/aichat2/conversations", {
   method: "POST",
   headers: {
     accept: "text/event-stream",
@@ -258,7 +258,7 @@ while (true) {
   "stateful": true,
   "message": [
     { "type": "text", "text": "這張圖片裡有幾隻貓？" },
-    { "type": "image_url", "image_url": { "url": "https://cdn.acedata.cloud/cats.jpg" } }
+    { "type": "image_url", "image_url": { "url": "https://cdn.xhuoapi.ai/cats.jpg" } }
   ]
 }
 ```
@@ -287,7 +287,7 @@ v2 的核心增強點是模型可以自主調用工具完成多步任務，**這
 
 - 用戶問「幫我搜一下最近上海有什麼新展覽」→ 模型調用內建 web search → 把結果整理成回答。
 - 用戶問「讀一下這個 PDF 然後寫個摘要」→ 模型調用 file_read → 寫摘要。
-- 用戶已在 [Connections](https://platform.acedata.cloud/connections) 裡授權了 Google Drive / GitHub / Notion 等 → 模型可調用對應的 MCP 工具讀寫其資料。
+- 用戶已在 [Connections](https://api.xhuoapi.ai/connections) 裡授權了 Google Drive / GitHub / Notion 等 → 模型可調用對應的 MCP 工具讀寫其資料。
 
 在 NDJSON / SSE 串流裡，工具調用透過 `tool_use` 和 `tool_result` 兩類事件呈現，例如：
 
@@ -321,7 +321,7 @@ v2 的核心增強點是模型可以自主調用工具完成多步任務，**這
 在前端把這個事件渲染成卡片讓用戶選答案，然後用同一個 `id` 發起下一次請求，把答案透過 `tool_results` 回填：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: text/event-stream' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -349,7 +349,7 @@ v2 在同一個 endpoint 上透過 `action` 欄位提供輕量級會話管理，
 ### `action: retrieve` —— 拉取一個會話
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -401,9 +401,9 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 
 ## 從 v1 平滑遷移
 
-如果你已經在使用 [`/aichat/conversations`](https://platform.acedata.cloud/documents/59fb1199-6694-4afb-a222-3554d7f7d05a)，遷移到 v2 幾乎不需要改程式碼：
+如果你已經在使用 [`/aichat/conversations`](https://api.xhuoapi.ai/documents/59fb1199-6694-4afb-a222-3554d7f7d05a)，遷移到 v2 幾乎不需要改程式碼：
 
-1. 把 URL 由 `https://api.acedata.cloud/aichat/conversations` 改成 `https://api.acedata.cloud/aichat2/conversations`。
+1. 把 URL 由 `https://api.xhuoapi.ai/v1/aichat/conversations` 改成 `https://api.xhuoapi.ai/v1/aichat2/conversations`。
 2. 如果你之前傳的是 v1 模型名（如 `gpt-3.5`、`gpt-4-browsing` 等），切換到 v2 時建議升級到當代模型（如 `gpt-5.4`、`claude-opus-4-7`、`gemini-3.1-pro` 等）。
 3. NDJSON 串流的欄位保持向後相容：每個 `text_delta` 事件依然帶 `delta_answer` 與 `id`，因此原來按行解析 `delta_answer` 的客戶端無需改動。
 

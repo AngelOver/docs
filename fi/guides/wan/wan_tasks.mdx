@@ -1,6 +1,6 @@
 ---
 title: "Wan Tasks API:n liittäminen ja käyttö"
-description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
+description: "Tongyi Wansiang Video Generation 集成指南 - XHuoAPI"
 ---
 
 Wan Tasks API:n päätoiminto on kysyä tehtävän suoritustilaa syöttämällä Wan Videos Generation API:n tuottama tehtävä-ID.
@@ -9,27 +9,27 @@ Tässä asiakirjassa käsitellään yksityiskohtaisesti Wan Tasks API:n liittäm
 
 ## Hakuprosessi
 
-Käyttääksesi Wan Tasks API:a, sinun on ensin mentävä hakusivulle [Wan Videos Generation API](https://platform.acedata.cloud/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c) ja haettava vastaavaa palvelua, sitten kopioitava Wan Videos Generation API:n tehtävä-ID, kuten kuvassa näkyy:
+Käyttääksesi Wan Tasks API:a, sinun on ensin mentävä hakusivulle [Wan Videos Generation API](https://api.xhuoapi.ai/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c) ja haettava vastaavaa palvelua, sitten kopioitava Wan Videos Generation API:n tehtävä-ID, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
-Lopuksi siirry Tasks API -sivulle [Wan Tasks API](https://platform.acedata.cloud/documents/240ef446-cbec-461c-a633-4a64178d7018) ja hae vastaavaa palvelua, siirryttyäsi sivulle, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
+Lopuksi siirry Tasks API -sivulle [Wan Tasks API](https://api.xhuoapi.ai/documents/240ef446-cbec-461c-a633-4a64178d7018) ja hae vastaavaa palvelua, siirryttyäsi sivulle, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
 
-![Hakusivu](https://cdn.acedata.cloud/rci31i.png)
+![Hakusivu](https://cdn.xhuoapi.ai/rci31i.png)
 
-Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti [kirjautumissivulle](https://platform.acedata.cloud), joka kutsuu sinua rekisteröitymään ja kirjautumaan sisään, ja kirjautumisen jälkeen palaat automaattisesti nykyiselle sivulle.
+Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti [kirjautumissivulle](https://api.xhuoapi.ai), joka kutsuu sinua rekisteröitymään ja kirjautumaan sisään, ja kirjautumisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
 Ensimmäisellä hakemiskerralla saat ilmaisia krediittejä, joita voit käyttää tämän API:n ilmaiseksi.
 
 ## Pyyntöesimerkki
 
-Wan Tasks API:a voidaan käyttää Wan Videos Generation API:n tulosten kysymiseen. Lisätietoja Wan Videos Generation API:n käytöstä löytyy asiakirjasta [Wan Videos Generation API](https://platform.acedata.cloud/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c).
+Wan Tasks API:a voidaan käyttää Wan Videos Generation API:n tulosten kysymiseen. Lisätietoja Wan Videos Generation API:n käytöstä löytyy asiakirjasta [Wan Videos Generation API](https://api.xhuoapi.ai/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c).
 
 Otetaan esimerkki yhdestä Wan Videos Generation API:n palauttamasta tehtävä-ID:stä ja näytetään, kuinka tätä API:a käytetään. Oletetaan, että meillä on tehtävä-ID: a4bca552-d964-46a1-8ff7-fd922f916582, seuraavaksi näytetään, kuinka syötetään tämä tehtävä-ID.
 
 ### Tehtäväesimerkkikuva
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 ### Pyyntöotsikoiden ja -kehon asettaminen
 
@@ -45,20 +45,20 @@ Otetaan esimerkki yhdestä Wan Videos Generation API:n palauttamasta tehtävä-I
 
 Aseta kuten alla olevassa kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/vr3hxw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vr3hxw.png" width="500" className="m-auto" /></p>
 
 ### Koodiesimerkki
 
 Voit huomata, että sivun oikealla puolella on automaattisesti luotu koodia eri kielillä, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/ehmsdi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ehmsdi.png" width="500" className="m-auto" /></p>
 
 Osittainen koodiesimerkki on seuraava:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/wan/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/wan/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/wan/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/wan/tasks"
+url = "https://api.xhuoapi.ai/v1/wan/tasks"
 
 headers = {
     "accept": "application/json",
@@ -140,13 +140,13 @@ Tämä on tarkoitettu useiden tehtävä-ID:iden kyselyyn videotehtävän yksityi
 
 Aseta kuten alla olevassa kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/wlks1o.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wlks1o.png" width="500" className="m-auto" /></p>
 
 ### Koodiesimerkki
 
 Voit huomata, että sivun oikealla puolella on automaattisesti luotu koodia eri kielillä, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/5h1k8t.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5h1k8t.png" width="500" className="m-auto" /></p>
 
 Osittainen koodiesimerkki on seuraava:
 
@@ -221,7 +221,7 @@ Kun pyyntö onnistuu, API palauttaa kaikkien massatehtävien tarkat yksityiskohd
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/wan/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/wan/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

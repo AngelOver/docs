@@ -1,15 +1,15 @@
 ---
 title: "Інструкція з інтеграції API для анімації портретів"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 У цьому документі буде представлено інструкцію з інтеграції API для анімації портретів, який може генерувати персоналізовані аніме-образи на основі введеного зображення обличчя. Це може бути використано для створення унікальних аватарів, розважальних заходів, додатків з ефектами тощо, покращуючи досвід соціальних розваг.
 
 ## Процес подачі заявки
 
-Щоб використовувати API, спочатку потрібно перейти на відповідну сторінку [API для анімації портретів](https://platform.acedata.cloud/documents/6b6313f1-f398-4d29-933d-5a652cfa1c37) та подати заявку на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
+Щоб використовувати API, спочатку потрібно перейти на відповідну сторінку [API для анімації портретів](https://api.xhuoapi.ai/documents/6b6313f1-f398-4d29-933d-5a652cfa1c37) та подати заявку на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, де ви зможете зареєструватися та увійти. Після входу або реєстрації ви автоматично повернетеся на цю сторінку.
 
@@ -19,11 +19,11 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 Спочатку розглянемо основний спосіб використання, а саме введення посилання на зображення, щоб отримати оброблене зображення. Спочатку потрібно просто передати поле `image_url`, зображення обличчя показано на малюнку нижче:
 
-<p><img src="https://cdn.acedata.cloud/lrbtcn.jpg" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lrbtcn.jpg" width="500" className="m-auto" /></p>
 
 Далі ми можемо заповнити відповідні поля на інтерфейсі, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/gflhrl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gflhrl.png" width="500" className="m-auto" /></p>
 
 Ми бачимо, що тут ми налаштували заголовки запиту, включаючи:
 
@@ -36,7 +36,7 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 Після вибору ви також можете побачити згенерований код праворуч, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/rwbicp.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/rwbicp.png" width="500" className="m-auto" /></p>
 
 Натисніть кнопку «Try», щоб провести тестування, як показано на малюнку, і ми отримали наступний результат:
 
@@ -48,19 +48,19 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 Ми бачимо, що в повернутому результаті є поле `image_url`, яке містить змінене зображення картонного обличчя. Змінена інформація про обличчя показана нижче:
 
-<p><img src="https://cdn.acedata.cloud/qkyga1.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qkyga1.png" width="500" className="m-auto" /></p>
 
 Можна побачити, що на зображенні обличчя вже згенеровано персоналізований аніме-образ.
 
 Якщо ви хочете згенерувати відповідний код інтеграції, ви можете просто скопіювати його, наприклад, код CURL виглядає так:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/cartoon' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/cartoon' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }'
 ```
 
@@ -69,7 +69,7 @@ curl -X POST 'https://api.acedata.cloud/face/cartoon' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/cartoon"
+url = "https://api.xhuoapi.ai/v1/face/cartoon"
 
 headers = {
     "accept": "application/json",
@@ -78,7 +78,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }
 
 response = requests.post(url, json=payload, headers=headers)

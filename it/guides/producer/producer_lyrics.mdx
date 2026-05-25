@@ -1,6 +1,6 @@
 ---
 title: "Producer interfaccia API per la generazione di testi"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 Producer ci consente di generare testi tramite parole chiave, questo documento spiega come integrare le API correlate.
@@ -10,7 +10,7 @@ Questa API ha solo un parametro di input, che è `prompt`, che è la parola chia
 Qui il nostro `prompt` è `Una canzone sull'inverno`, è la parola chiave per generare il testo.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/lyrics' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/lyrics' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

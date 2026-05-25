@@ -3,7 +3,7 @@ title: "Руководство по интеграции Seedance MCP"
 description: "seedance MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) — это протокол контекста модели, разработанный Anthropic, который позволяет AI-моделям (таким как Claude, GPT и др.) вызывать внешние инструменты через стандартизированный интерфейс. С помощью Seedance MCP Server от AceData Cloud вы можете напрямую использовать Seedance от ByteDance для генерации AI-видео в клиентах Claude Desktop, VS Code, Cursor и других.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) — это протокол контекста модели, разработанный Anthropic, который позволяет AI-моделям (таким как Claude, GPT и др.) вызывать внешние инструменты через стандартизированный интерфейс. С помощью Seedance MCP Server от XHuoAPI вы можете напрямую использовать Seedance от ByteDance для генерации AI-видео в клиентах Claude Desktop, VS Code, Cursor и других.
 
 ## Обзор возможностей
 
@@ -20,10 +20,10 @@ Seedance MCP Server предоставляет следующие ключевы
 
 ## Предварительная подготовка
 
-Для использования необходимо получить API Token AceData Cloud:
+Для использования необходимо получить API Token XHuoAPI:
 
-1. Зарегистрируйтесь или войдите на [AceData Cloud платформу](https://platform.acedata.cloud)
-2. Перейдите на страницу [Seedance Videos API](https://platform.acedata.cloud/documents/seedance-videos)
+1. Зарегистрируйтесь или войдите на [XHuoAPI платформу](https://api.xhuoapi.ai)
+2. Перейдите на страницу [Seedance Videos API](https://api.xhuoapi.ai/documents/seedance-videos)
 3. Нажмите «Acquire» для получения API Token (при первом запросе предоставляется бесплатный лимит)
 
 ## Установка и настройка
@@ -37,7 +37,7 @@ pip install mcp-seedance
 ### Способ 2: установка из исходников
 
 ```bash
-git clone https://github.com/AceDataCloud/SeedanceMCP.git
+git clone https://github.com/XHuoAPI/SeedanceMCP.git
 cd SeedanceMCP
 pip install -e .
 ```
@@ -59,7 +59,7 @@ pip install -e .
     "seedance": {
       "command": "mcp-seedance",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API Token"
+        "XHuoAPI_API_TOKEN": "ваш API Token"
       }
     }
   }
@@ -75,7 +75,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-seedance"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API Token"
+        "XHuoAPI_API_TOKEN": "ваш API Token"
       }
     }
   }
@@ -94,7 +94,7 @@ pip install -e .
     "seedance": {
       "command": "mcp-seedance",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API Token"
+        "XHuoAPI_API_TOKEN": "ваш API Token"
       }
     }
   }
@@ -110,7 +110,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-seedance"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API Token"
+        "XHuoAPI_API_TOKEN": "ваш API Token"
       }
     }
   }
@@ -140,6 +140,6 @@ pip install -e .
 
 ## Дополнительная информация
 
-- Репозиторий GitHub: [AceDataCloud/SeedanceMCP](https://github.com/AceDataCloud/SeedanceMCP)
+- Репозиторий GitHub: [XHuoAPI/SeedanceMCP](https://github.com/XHuoAPI/SeedanceMCP)
 - Пакет PyPI: [mcp-seedance](https://pypi.org/project/mcp-seedance/)
-- Документация API: [Seedance видео API](https://platform.acedata.cloud/documents/seedance)
+- Документация API: [Seedance видео API](https://api.xhuoapi.ai/documents/seedance)

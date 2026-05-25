@@ -1,15 +1,15 @@
 ---
 title: "Recaptcha2 протокол ідентифікації API інтеграція"
-description: "Recaptcha verification code recognition service 集成指南 - Ace Data Cloud"
+description: "Recaptcha verification code recognition service 集成指南 - XHuoAPI"
 ---
 
 У цьому документі буде представлено опис інтеграції API для ідентифікації протоколу Recaptcha2, який дозволяє користувачам не розпізнавати та не натискати на зображення коду Recaptcha2, а лише подавати Website Key для автоматичного декодування на сервері та завершення верифікації.
 
 ## Процес подачі заявки
 
-Щоб використовувати API, спочатку потрібно перейти на відповідну сторінку [API для ідентифікації протоколу Recaptcha2](https://platform.acedata.cloud/documents/597b8f11-26d8-4a1d-9a83-8d33bc4b8af7) для подачі заявки на відповідну послугу, після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
+Щоб використовувати API, спочатку потрібно перейти на відповідну сторінку [API для ідентифікації протоколу Recaptcha2](https://api.xhuoapi.ai/documents/597b8f11-26d8-4a1d-9a83-8d33bc4b8af7) для подачі заявки на відповідну послугу, після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, запрошуючи вас зареєструватися та увійти, після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
 
@@ -19,11 +19,11 @@ description: "Recaptcha verification code recognition service 集成指南 - Ace
 
 Спочатку потрібно ознайомитися з основним способом використання, а саме, ввести URL-адресу сайту, на якому потрібно обробити код, і ви отримаєте оброблений результат. Спочатку потрібно просто передати поле `website_url`, наш приклад сайту: `https://www.google.com/recaptcha/api2/demo`, нам потрібно отримати `website_key` на сторінці `website_url`, спочатку відкрийте цю веб-сторінку, натисніть F12, щоб увійти в консоль, а потім у вкладці Element виконайте глобальний пошук за `recaptcha-demo`, ми можемо отримати наступний результат:
 
-<p><img src="https://cdn.acedata.cloud/hvx41c.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/hvx41c.png" width="500" className="m-auto" /></p>
 
 Де `data-sitekey` відповідає рядку, який є значенням `website_key`, нижче наведені конкретні параметри результату:
 
-<p><img src="https://cdn.acedata.cloud/8oowyw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8oowyw.png" width="500" className="m-auto" /></p>
 
 Ми можемо бачити, що тут ми налаштували заголовки запиту, включаючи:
 
@@ -37,7 +37,7 @@ description: "Recaptcha verification code recognition service 集成指南 - Ace
 
 Після вибору ви можете помітити, що праворуч також згенеровано відповідний код, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/pudujk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pudujk.png" width="500" className="m-auto" /></p>
 
 Натисніть кнопку «Try», щоб провести тестування, як показано на малюнку, тут ми отримали наступний результат:
 ```json
@@ -56,14 +56,14 @@ description: "Recaptcha verification code recognition service 集成指南 - Ace
 
 - Спочатку вручну пройти перевірку, деталі наведені на малюнку нижче:
 
-<p><img src="https://cdn.acedata.cloud/gwiflr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gwiflr.png" width="500" className="m-auto" /></p>
 
 - Потім натиснути submit, спостерігаючи за змінами в мережі консолі, деталі наведені на малюнку нижче:
 
-<p><img src="https://cdn.acedata.cloud/6hm5kj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/6hm5kj.png" width="500" className="m-auto" /></p>
 
 - Проаналізувати конструкцію надісланого POST запиту, в кінці можна клацнути правою кнопкою миші на запиті та скопіювати код CURL, деталі наведені на малюнку нижче:
-<p><img src="https://cdn.acedata.cloud/m7y35w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/m7y35w.png" width="500" className="m-auto" /></p>
 
 Згідно з наведеним зображенням, URL для цього POST запиту: `https://www.google.com/recaptcha/api2/demo`, нам потрібно лише надіслати параметр `g-recaptcha-response`, після чого ми просто передаємо оброблений токен у нижче наведених даних, код CURL для виклику токена для перевірки виглядає так:
 
@@ -92,14 +92,14 @@ if response.status_code:
 
 Після цього ми запускаємо код і спостерігаємо, що консоль показує такий результат:
 
-<p><img src="https://cdn.acedata.cloud/ku22tk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ku22tk.png" width="500" className="m-auto" /></p>
 
 Врешті-решт, ми пройшли перевірку протоколу Recaptcha2.
 
 Крім того, якщо ви хочете згенерувати відповідний код для інтеграції, ви можете просто скопіювати його, наприклад, код CURL виглядає так:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/captcha/token/recaptcha2' \
+curl -X POST 'https://api.xhuoapi.ai/v1/captcha/token/recaptcha2' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -114,7 +114,7 @@ curl -X POST 'https://api.acedata.cloud/captcha/token/recaptcha2' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/captcha/token/recaptcha2"
+url = "https://api.xhuoapi.ai/v1/captcha/token/recaptcha2"
 
 headers = {
     "accept": "application/json",

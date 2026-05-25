@@ -1,6 +1,6 @@
 ---
 title: "Instruções de Integração do Proxy Móvel Celular"
-description: "Cellular Rotation Proxy 集成指南 - Ace Data Cloud"
+description: "Cellular Rotation Proxy 集成指南 - XHuoAPI"
 ---
 
 Na luta cada vez mais intensa entre crawlers e anti-crawlers, os sistemas de detecção de risco das principais websites e aplicativos estão se tornando cada vez mais robustos, sendo um dos métodos a proibição de IPs.
@@ -19,9 +19,9 @@ Este serviço de proxy é construído sobre uma grande piscina de celulares cont
 
 ## Método de Solicitação
 
-Para usar o serviço de proxy celular, você pode primeiro ir à 「[página de solicitação](https://platform.acedata.cloud/services/d8570fa7-8510-454e-913e-f1bd1b98338d)」 para fazer a solicitação, onde a primeira solicitação tem um crédito gratuito de 1 ponto.
+Para usar o serviço de proxy celular, você pode primeiro ir à 「[página de solicitação](https://api.xhuoapi.ai/services/d8570fa7-8510-454e-913e-f1bd1b98338d)」 para fazer a solicitação, onde a primeira solicitação tem um crédito gratuito de 1 ponto.
 
-![](https://cdn.acedata.cloud/wed8yf.png)
+![](https://cdn.xhuoapi.ai/wed8yf.png)
 
 Se você ainda não estiver logado, será redirecionado automaticamente para a página de login. Após fazer o login, você pode continuar com a solicitação.
 
@@ -29,13 +29,13 @@ Se você ainda não estiver logado, será redirecionado automaticamente para a p
 
 Após a solicitação, você pode verificar o resultado da sua solicitação no 「painel de controle」, como mostrado na imagem:
 
-![](https://cdn.acedata.cloud/db1js5.png)
+![](https://cdn.xhuoapi.ai/db1js5.png)
 
 Clique em 「Credenciais」 para visualizar o nome de usuário e a senha para usar o serviço de proxy celular, separados por dois pontos, onde o nome de usuário tem 8 caracteres e a senha tem 32 caracteres, como mostrado na imagem:
 
-![](https://cdn.acedata.cloud/54ffp0.png)
+![](https://cdn.xhuoapi.ai/54ffp0.png)
 
-Este proxy móvel celular é um proxy rotativo, portanto, ao usá-lo, você só precisa configurar um endereço de proxy fixo e uma porta. O endereço e a porta do proxy são cellular.proxy.acedata.cloud e 30000, respectivamente. Este proxy é compatível com os protocolos HTTP/HTTPS/SOCKS e pode ser usado para solicitar websites que utilizam os protocolos HTTP e HTTPS.
+Este proxy móvel celular é um proxy rotativo, portanto, ao usá-lo, você só precisa configurar um endereço de proxy fixo e uma porta. O endereço e a porta do proxy são cellular.proxy.xhuoapi.ai e 30000, respectivamente. Este proxy é compatível com os protocolos HTTP/HTTPS/SOCKS e pode ser usado para solicitar websites que utilizam os protocolos HTTP e HTTPS.
 
 ## Teste de Comando
 
@@ -44,7 +44,7 @@ Com o nome de usuário e a senha do proxy, a maneira mais conveniente de testar 
 Supondo que o nome de usuário e a senha do proxy atual sejam `1f78266a:eff0896726224fa2a99fe82dd1f07562`, podemos usar o seguinte comando curl para testar:
 
 ```shell
-curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@cellular.proxy.acedata.cloud:30000 https://ipinfo.io
+curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@cellular.proxy.xhuoapi.ai:30000 https://ipinfo.io
 ```
 
 Aqui, usamos o parâmetro `-x` do curl para especificar o endereço do proxy. O protocolo do proxy é, por padrão, HTTP/HTTPS, e a URL solicitada é [https://ipinfo.io](https://ipinfo.io), que pode retornar o IP real que fez a solicitação e a localização do IP.
@@ -78,7 +78,7 @@ Abaixo, como exemplo, mostramos como configurar o proxy rotativo celular usando 
 ```python
 import requests
 
-proxy = 'http://{proxy_username}:{proxy_password}@cellular.proxy.acedata.cloud:30000'
+proxy = 'http://{proxy_username}:{proxy_password}@cellular.proxy.xhuoapi.ai:30000'
 
 proxies = {
     'http': proxy,
@@ -144,7 +144,7 @@ Na verdade, o código acima é equivalente a definir um cabeçalho adicional - P
 import requests
 import base64
 
-proxy_host = 'cellular.proxy.acedata.cloud'
+proxy_host = 'cellular.proxy.xhuoapi.ai'
 proxy_port = '30000'
 proxy_username = '{proxy_username}' # 8 caracteres de nome de usuário
 proxy_password = '{proxy_password}' # 32 caracteres de senha
@@ -176,7 +176,7 @@ Para outras linguagens, como o axios do JavaScript, também é possível usar um
 const axios = require("axios");
 const base64 = require("base64");
 
-const proxy_host = "cellular.proxy.acedata.cloud";
+const proxy_host = "cellular.proxy.xhuoapi.ai";
 const proxy_port = "30000";
 const proxy_username = "{proxy_username}"; // 8 caracteres de nome de usuário
 const proxy_password = "{proxy_password}"; // 32 caracteres de senha
@@ -208,4 +208,4 @@ Para métodos de configuração em outras linguagens, consulte o texto acima e r
 
 Se o seu pacote já estiver esgotado, você precisará comprar mais para continuar usando o serviço de proxy.
 
-Para comprar mais, vá para a 「[página de solicitação](https://platform.acedata.cloud/services/d8570fa7-8510-454e-913e-f1bd1b98338d)」 e clique diretamente no botão 「Comprar mais」 para selecionar, quanto mais você comprar de uma só vez, mais barato será o preço unitário.
+Para comprar mais, vá para a 「[página de solicitação](https://api.xhuoapi.ai/services/d8570fa7-8510-454e-913e-f1bd1b98338d)」 e clique diretamente no botão 「Comprar mais」 para selecionar, quanto mais você comprar de uma só vez, mais barato será o preço unitário.

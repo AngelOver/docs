@@ -1,15 +1,15 @@
 ---
 title: "Documentation de l'API de génération de voix de poisson"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 Cet article présente une documentation sur l'API de génération de voix de poisson, qui permet de créer sa propre voix en entrant un lien audio.
 
 ## Processus de demande
 
-Pour utiliser l'API, vous devez d'abord vous rendre sur la page correspondante de [l'API de génération de voix de poisson](https://platform.acedata.cloud/documents/55e61b64-ac7d-4710-a7f1-57a4ba786b17) pour demander le service correspondant. Une fois sur la page, cliquez sur le bouton « Acquire », comme indiqué sur l'image :
+Pour utiliser l'API, vous devez d'abord vous rendre sur la page correspondante de [l'API de génération de voix de poisson](https://api.xhuoapi.ai/documents/55e61b64-ac7d-4710-a7f1-57a4ba786b17) pour demander le service correspondant. Une fois sur la page, cliquez sur le bouton « Acquire », comme indiqué sur l'image :
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Si vous n'êtes pas encore connecté ou inscrit, vous serez automatiquement redirigé vers la page de connexion pour vous inviter à vous inscrire et à vous connecter. Après vous être connecté ou inscrit, vous serez automatiquement renvoyé à la page actuelle.
 
@@ -19,7 +19,7 @@ Lors de la première demande, un quota gratuit sera offert, vous permettant d'ut
 
 Tout d'abord, comprenez la méthode d'utilisation de base, qui consiste à entrer le lien audio de la voix `voice_url`, ce qui vous permettra d'obtenir le résultat traité. Le contenu spécifique est le suivant :
 
-<p><img src="https://cdn.acedata.cloud/278ikr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/278ikr.png" width="500" className="m-auto" /></p>
 
 Vous pouvez voir ici que nous avons défini les en-têtes de requête, y compris :
 
@@ -36,7 +36,7 @@ De plus, nous avons défini le corps de la requête, y compris :
 
 Après avoir fait votre sélection, vous pouvez constater que le code correspondant a également été généré à droite, comme indiqué sur l'image :
 
-<p><img src="https://cdn.acedata.cloud/dkdfyj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dkdfyj.png" width="500" className="m-auto" /></p>
 
 Cliquez sur le bouton « Try » pour effectuer un test, comme indiqué sur l'image ci-dessus, et nous avons obtenu le résultat suivant :
 
@@ -103,7 +103,7 @@ Nous pouvons voir que nous avons obtenu des informations de voix satisfaisantes,
 De plus, si vous souhaitez générer le code de liaison correspondant, vous pouvez le copier directement, par exemple, le code CURL est le suivant :
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/voices' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/voices' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -124,13 +124,13 @@ Voyons maintenant un exemple pour comprendre comment procéder.
 
 Tout d'abord, le rappel Webhook est un service capable de recevoir des requêtes HTTP, et le développeur doit le remplacer par l'URL de son propre serveur HTTP. Pour des raisons de démonstration, nous utiliserons un site Web de Webhook public, https://webhook.site/, en ouvrant ce site, vous obtiendrez une URL Webhook, comme indiqué sur l'image :
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Copiez cette URL, qui peut être utilisée comme Webhook. L'exemple ici est `https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34`.
 
 Ensuite, nous pouvons définir le champ `callback_url` sur l'URL Webhook ci-dessus, tout en remplissant les paramètres correspondants, comme indiqué sur l'image :
 
-<p><img src="https://cdn.acedata.cloud/ecbq1s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ecbq1s.png" width="500" className="m-auto" /></p>
 
 Cliquez sur Exécuter, et vous constaterez que vous obtiendrez immédiatement un résultat, comme suit :
 
@@ -141,7 +141,7 @@ Cliquez sur Exécuter, et vous constaterez que vous obtiendrez immédiatement un
 ```
 Veuillez patienter un moment, nous pouvons observer les résultats de la tâche générée sur `https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34`, comme indiqué dans l'image ci-dessous :
 
-![](https://cdn.acedata.cloud/dxlupe.png)
+![](https://cdn.xhuoapi.ai/dxlupe.png)
 
 Le contenu est le suivant :
 

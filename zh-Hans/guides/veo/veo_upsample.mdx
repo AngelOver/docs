@@ -1,6 +1,6 @@
 ---
 title: "Veo Upsample API 对接说明"
-description: "Veo Video Generation 集成指南 - Ace Data Cloud"
+description: "Veo Video Generation 集成指南 - XHuoAPI"
 ---
 
 本文将介绍 Veo Upsample API 的对接说明。该接口用于对一段已经生成的 Veo 视频进行升采样或者输出动图预览。
@@ -22,7 +22,7 @@ description: "Veo Video Generation 集成指南 - Ace Data Cloud"
 请求示例：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/veo/upsample' \
+curl -X POST 'https://api.xhuoapi.ai/v1/veo/upsample' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -42,7 +42,7 @@ curl -X POST 'https://api.acedata.cloud/veo/upsample' \
   "data": [
     {
       "id": "253eedc47f1c4eb2a370ed2312168f4b",
-      "video_url": "https://platform.cdn.acedata.cloud/veo/8f5a90ae.mp4",
+      "video_url": "https://platform.cdn.xhuoapi.ai/veo/8f5a90ae.mp4",
       "created_at": "2025-07-25 16:07:43",
       "complete_at": "2025-07-25 16:10:28",
       "state": "succeeded"

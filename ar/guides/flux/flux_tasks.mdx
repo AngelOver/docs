@@ -1,6 +1,6 @@
 ---
 title: "واجهة برمجة تطبيقات مهام Flux والتكامل والاستخدام"
-description: "Flux Image Generation 集成指南 - Ace Data Cloud"
+description: "Flux Image Generation 集成指南 - XHuoAPI"
 ---
 
 الوظيفة الرئيسية لواجهة برمجة تطبيقات مهام Flux هي استعلام حالة تنفيذ المهمة من خلال إدخال معرف المهمة الذي تم إنشاؤه بواسطة واجهة برمجة تطبيقات توليد صور Flux.
@@ -9,27 +9,27 @@ description: "Flux Image Generation 集成指南 - Ace Data Cloud"
 
 ## عملية التقديم
 
-لاستخدام واجهة برمجة تطبيقات مهام Flux، يجب أولاً الذهاب إلى صفحة التقديم [واجهة برمجة تطبيقات توليد صور Flux](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) لتقديم الطلب للخدمة المناسبة، ثم نسخ معرف المهمة من واجهة برمجة تطبيقات توليد صور Flux، كما هو موضح في الصورة:
+لاستخدام واجهة برمجة تطبيقات مهام Flux، يجب أولاً الذهاب إلى صفحة التقديم [واجهة برمجة تطبيقات توليد صور Flux](https://api.xhuoapi.ai/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) لتقديم الطلب للخدمة المناسبة، ثم نسخ معرف المهمة من واجهة برمجة تطبيقات توليد صور Flux، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/7furhb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7furhb.png" width="500" className="m-auto" /></p>
 
-أخيرًا، انتقل إلى صفحة واجهة برمجة تطبيقات مهام Flux [واجهة برمجة تطبيقات مهام Flux](https://platform.acedata.cloud/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b) لتقديم الطلب للخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة
+أخيرًا، انتقل إلى صفحة واجهة برمجة تطبيقات مهام Flux [واجهة برمجة تطبيقات مهام Flux](https://api.xhuoapi.ai/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b) لتقديم الطلب للخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة
 
-![صفحة التقديم](https://cdn.acedata.cloud/rci31i.png)
+![صفحة التقديم](https://cdn.xhuoapi.ai/rci31i.png)
 
-إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى [صفحة تسجيل الدخول](https://platform.acedata.cloud) لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول أو التسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
+إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى [صفحة تسجيل الدخول](https://api.xhuoapi.ai) لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول أو التسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
 عند التقديم لأول مرة، سيكون هناك حد مجاني متاح، يمكنك استخدام هذه الواجهة مجانًا.
 
 ## مثال على الطلب
 
-يمكن استخدام واجهة برمجة تطبيقات مهام Flux لاستعلام نتائج واجهة برمجة تطبيقات توليد صور Flux. لمزيد من المعلومات حول كيفية استخدام واجهة برمجة تطبيقات توليد صور Flux، يرجى الرجوع إلى الوثيقة [واجهة برمجة تطبيقات توليد صور Flux](https://platform.acedata.cloud/documents/flux-images-integration).
+يمكن استخدام واجهة برمجة تطبيقات مهام Flux لاستعلام نتائج واجهة برمجة تطبيقات توليد صور Flux. لمزيد من المعلومات حول كيفية استخدام واجهة برمجة تطبيقات توليد صور Flux، يرجى الرجوع إلى الوثيقة [واجهة برمجة تطبيقات توليد صور Flux](https://api.xhuoapi.ai/documents/flux-images-integration).
 
 سنأخذ مثالاً على معرف المهمة الذي تم إرجاعه من خدمة واجهة برمجة تطبيقات توليد صور Flux، لنوضح كيفية استخدام هذه الواجهة. لنفترض أن لدينا معرف مهمة: 2db0168c-2373-4367-8d9a-9dc778802e8a، وسنوضح كيفية تمرير معرف المهمة.
 
 ### مثال على المهمة
 
-<p><img src="https://cdn.acedata.cloud/7furhb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7furhb.png" width="500" className="m-auto" /></p>
 
 ### إعداد رأس الطلب وجسم الطلب
 
@@ -45,20 +45,20 @@ description: "Flux Image Generation 集成指南 - Ace Data Cloud"
 
 الإعداد كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/fiasxz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fiasxz.png" width="500" className="m-auto" /></p>
 
 ### مثال على الكود
 
 يمكن ملاحظة أنه تم إنشاء أكواد بلغات مختلفة تلقائيًا على الجانب الأيمن من الصفحة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/j6gn86.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/j6gn86.png" width="500" className="m-auto" /></p>
 
 بعض أمثلة الكود كما يلي:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/flux/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/flux/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/tasks"
+url = "https://api.xhuoapi.ai/v1/flux/tasks"
 
 headers = {
     "accept": "application/json",
@@ -144,13 +144,13 @@ print(response.text)
 
 الإعداد كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/k3i9ns.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/k3i9ns.png" width="500" className="m-auto" /></p>
 
 ### مثال على الكود
 
 يمكن ملاحظة أنه تم إنشاء أكواد بلغات مختلفة تلقائيًا على الجانب الأيمن من الصفحة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/pt5fww.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pt5fww.png" width="500" className="m-auto" /></p>
 
 بعض أمثلة الكود كما يلي:
 
@@ -228,7 +228,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/flux/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -243,7 +243,7 @@ curl -X POST 'https://api.acedata.cloud/flux/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/tasks"
+url = "https://api.xhuoapi.ai/v1/flux/tasks"
 
 headers = {
     "accept": "application/json",

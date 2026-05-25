@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Tasks API 接入与使用"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI Tasks API 用于查询此前以 **回调模式** 提交到 OpenAI 图片接口的任务结果。当您无法等待同步 HTTP 响应、或希望事后再次查询任务时，请使用本接口。
@@ -11,14 +11,14 @@ OpenAI Tasks API 用于查询此前以 **回调模式** 提交到 OpenAI 图片�
 
 ## 申请流程
 
-OpenAI Tasks API 与现有 OpenAI 服务共用授权。如果您已经申请了 [OpenAI Images Generations](https://platform.acedata.cloud/services/06f2acb7-3a85-4b5a-bda8-2d9bbe2b4c8f)，可直接使用相同的 token 调用本接口，无需额外申请。
+OpenAI Tasks API 与现有 OpenAI 服务共用授权。如果您已经申请了 [OpenAI Images Generations](https://api.xhuoapi.ai/services/06f2acb7-3a85-4b5a-bda8-2d9bbe2b4c8f)，可直接使用相同的 token 调用本接口，无需额外申请。
 
 新用户首次申请均有免费额度。
 
 ## 接口地址
 
 ```
-POST https://api.acedata.cloud/openai/tasks
+POST https://api.xhuoapi.ai/v1/openai/tasks
 ```
 
 支持的 `action`：
@@ -51,7 +51,7 @@ POST https://api.acedata.cloud/openai/tasks
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/openai/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/openai/tasks' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -66,7 +66,7 @@ curl -X POST 'https://api.acedata.cloud/openai/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/tasks"
+url = "https://api.xhuoapi.ai/v1/openai/tasks"
 headers = {
     "accept": "application/json",
     "authorization": "Bearer {token}",
@@ -105,7 +105,7 @@ print(response.json())
   "response": {
     "created": 1763142637,
     "data": [
-      { "url": "https://platform.cdn.acedata.cloud/openai/...png" }
+      { "url": "https://platform.cdn.xhuoapi.ai/openai/...png" }
     ],
     "success": true
   }
@@ -150,7 +150,7 @@ print(response.json())
 ### CURL 示例
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/openai/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/openai/tasks' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
   -d '{
@@ -186,9 +186,9 @@ Tasks API 主要服务于回调模式下的异步流程。回调模式下，提�
 ```python
 import os, time, requests
 
-API = "https://api.acedata.cloud"
+API = "https://api.xhuoapi.ai/v1"
 HEADERS = {
-    "authorization": f"Bearer {os.environ['ACEDATA_API_KEY']}",
+    "authorization": f"Bearer {os.environ['XHuoAPI_API_KEY']}",
     "content-type": "application/json",
 }
 

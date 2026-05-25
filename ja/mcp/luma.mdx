@@ -3,7 +3,7 @@ title: "Luma MCP 接続ガイド"
 description: "luma MCP 服务器集成"
 ---
 
-[MCP（Model Context Protocol）](https://modelcontextprotocol.io) は、Anthropic によって提唱されたモデルコンテキストプロトコルで、AI モデル（Claude、GPT など）が標準化されたインターフェースを通じて外部ツールを呼び出すことを可能にします。AceData Cloud が提供する Luma MCP サーバーを使用することで、Claude Desktop、VS Code、Cursor などの AI クライアントで直接 AI ビデオを生成できます。
+[MCP（Model Context Protocol）](https://modelcontextprotocol.io) は、Anthropic によって提唱されたモデルコンテキストプロトコルで、AI モデル（Claude、GPT など）が標準化されたインターフェースを通じて外部ツールを呼び出すことを可能にします。XHuoAPI が提供する Luma MCP サーバーを使用することで、Claude Desktop、VS Code、Cursor などの AI クライアントで直接 AI ビデオを生成できます。
 
 ## 機能概要
 
@@ -18,10 +18,10 @@ Luma MCP サーバーは以下のコア機能を提供します：
 
 ## 前提準備
 
-使用する前に、AceData Cloud API トークンを取得する必要があります：
+使用する前に、XHuoAPI API トークンを取得する必要があります：
 
-1. [AceData Cloud プラットフォーム](https://platform.acedata.cloud) に登録またはログイン
-2. [Luma Videos API](https://platform.acedata.cloud/documents/luma-videos) ページに移動
+1. [XHuoAPI プラットフォーム](https://api.xhuoapi.ai) に登録またはログイン
+2. [Luma Videos API](https://api.xhuoapi.ai/documents/luma-videos) ページに移動
 3. 「Acquire」をクリックして API トークンを取得（初回申請で無料枠をプレゼント）
 
 ## インストール設定
@@ -35,7 +35,7 @@ pip install mcp-luma
 ### 方法二：ソースコードインストール
 
 ```bash
-git clone https://github.com/AceDataCloud/LumaMCP.git
+git clone https://github.com/XHuoAPI/LumaMCP.git
 cd LumaMCP
 pip install -e .
 ```
@@ -57,7 +57,7 @@ Claude Desktop の設定ファイルを編集します：
     "luma": {
       "command": "mcp-luma",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "あなたのAPIトークン"
+        "XHuoAPI_API_TOKEN": "あなたのAPIトークン"
       }
     }
   }
@@ -73,7 +73,7 @@ Claude Desktop の設定ファイルを編集します：
       "command": "uvx",
       "args": ["mcp-luma"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "あなたのAPIトークン"
+        "XHuoAPI_API_TOKEN": "あなたのAPIトークン"
       }
     }
   }
@@ -92,7 +92,7 @@ Claude Desktop の設定ファイルを編集します：
     "luma": {
       "command": "mcp-luma",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "あなたのAPIトークン"
+        "XHuoAPI_API_TOKEN": "あなたのAPIトークン"
       }
     }
   }
@@ -108,7 +108,7 @@ Claude Desktop の設定ファイルを編集します：
       "command": "uvx",
       "args": ["mcp-luma"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "あなたのAPIトークン"
+        "XHuoAPI_API_TOKEN": "あなたのAPIトークン"
       }
     }
   }
@@ -137,6 +137,6 @@ Claude Desktop の設定ファイルを編集します：
 
 ## さらなる情報
 
-- GitHub リポジトリ：[AceDataCloud/LumaMCP](https://github.com/AceDataCloud/LumaMCP)
+- GitHub リポジトリ：[XHuoAPI/LumaMCP](https://github.com/XHuoAPI/LumaMCP)
 - PyPI パッケージ：[mcp-luma](https://pypi.org/project/mcp-luma/)
-- API ドキュメント：[Luma ビデオ生成 API](https://platform.acedata.cloud/documents/luma)
+- API ドキュメント：[Luma ビデオ生成 API](https://api.xhuoapi.ai/documents/luma)

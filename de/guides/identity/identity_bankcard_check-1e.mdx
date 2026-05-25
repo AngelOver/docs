@@ -1,15 +1,15 @@
 ---
 title: "Bankkarten-Basisinformationsabfrage API Integrationsanleitung"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Dieser Artikel beschreibt eine Bankkarten-Basisinformationsabfrage API Integrationsanleitung, die zur Abfrage von Bankkarten-Basisinformationen verwendet werden kann.
 
 ## Antragsprozess
 
-Um die API zu nutzen, müssen Sie zunächst auf die entsprechende Seite der [Bankkarten-Basisinformationsabfrage API](https://platform.acedata.cloud/documents/3523988d-acba-4362-9def-105657991eb4) gehen und den entsprechenden Dienst beantragen. Nachdem Sie die Seite betreten haben, klicken Sie auf die Schaltfläche „Acquire“, wie im Bild gezeigt:
+Um die API zu nutzen, müssen Sie zunächst auf die entsprechende Seite der [Bankkarten-Basisinformationsabfrage API](https://api.xhuoapi.ai/documents/3523988d-acba-4362-9def-105657991eb4) gehen und den entsprechenden Dienst beantragen. Nachdem Sie die Seite betreten haben, klicken Sie auf die Schaltfläche „Acquire“, wie im Bild gezeigt:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur Anmeldeseite weitergeleitet, um sich zu registrieren und anzumelden. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
 
@@ -19,7 +19,7 @@ Bei der ersten Antragstellung gibt es ein kostenloses Kontingent, mit dem Sie di
 
 Zunächst sollten Sie die grundlegende Nutzungsmethode verstehen, bei der Sie die Bankkartennummer eingeben, um das verarbeitete Verifizierungsergebnis zu erhalten. Zunächst müssen Sie einfach ein `bank_card`-Feld übergeben, und wir können dann die entsprechenden Inhalte auf der Benutzeroberfläche ausfüllen, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/h41nrh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/h41nrh.png" width="500" className="m-auto" /></p>
 
 Hier haben wir die Request-Header festgelegt, einschließlich:
 
@@ -33,7 +33,7 @@ Außerdem haben wir den Request-Body festgelegt, einschließlich:
 
 Nach der Auswahl können Sie feststellen, dass auf der rechten Seite auch der entsprechende Code generiert wurde, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/grfra7.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/grfra7.png" width="500" className="m-auto" /></p>
 
 Klicken Sie auf die Schaltfläche „Try“, um einen Test durchzuführen. Wie im obigen Bild gezeigt, haben wir folgendes Ergebnis erhalten:
 
@@ -64,7 +64,7 @@ Es ist zu erkennen, dass die Basisinformationen der Bankkarte abgefragt wurden.
 Wenn Sie außerdem den entsprechenden Integrationscode generieren möchten, können Sie ihn direkt kopieren, zum Beispiel ist der CURL-Code wie folgt:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/bankcard/check-1e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/bankcard/check-1e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -78,7 +78,7 @@ Der Integrationscode in Python sieht wie folgt aus:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/bankcard/check-1e"
+url = "https://api.xhuoapi.ai/v1/identity/bankcard/check-1e"
 
 headers = {
     "accept": "application/json",

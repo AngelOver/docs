@@ -1,15 +1,15 @@
 ---
 title: "Wan Videos Generation API интеграција"
-description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
+description: "Tongyi Wansiang Video Generation 集成指南 - XHuoAPI"
 ---
 
 Овај документ ће представити упутство за интеграцију Wan Videos Generation API, који може генерисати видео записе званичне платформе Тонг И Ван Ксиан на основу унетих прилагођених параметара.
 
 ## Процес пријаве
 
-Да бисте користили API, прво морате да посетите [Wan Videos Generation API](https://platform.acedata.cloud/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c) страницу и затражите одговарајућу услугу. Након што уђете на страницу, кликните на дугме „Acquire“, као што је приказано на слици:
+Да бисте користили API, прво морате да посетите [Wan Videos Generation API](https://api.xhuoapi.ai/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c) страницу и затражите одговарајућу услугу. Након што уђете на страницу, кликните на дугме „Acquire“, као што је приказано на слици:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Ако се још нисте пријавили или регистровали, аутоматски ћете бити преусмерени на страницу за пријаву која вас позива да се региструјете и пријавите. Након пријаве или регистрације, аутоматски ћете се вратити на тренутну страницу.
 
@@ -19,7 +19,7 @@ description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
 
 Прво, потребно је разумети основни начин коришћења, а то је унос кључне речи `prompt`, генерисање акције `action`, референтне слике првог кадра `image_url` и модела `model`, како бисте добили обрађени резултат. Прво је потребно једноставно проследити поље `action`, чија вредност је `text2video`. Ово углавном укључује две врсте акција: генерисање видео записа из текста (`text2video`) и генерисање видео записа из слике (`image2video`). Затим, потребно је унети модел `model`, који тренутно укључује `wan2.6-i2v`, `wan2.6-r2v`, `wan2.6-i2v-flash`, `wan2.6-t2v`, а конкретни садржај је следећи:
 
-<p><img src="https://cdn.acedata.cloud/03gqdz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/03gqdz.png" width="500" className="m-auto" /></p>
 
 Можете видети да смо подесили Request Headers, укључујући:
 
@@ -45,7 +45,7 @@ description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
 
 Након избора, можете видети да је на десној страни генерисан одговарајући код, као што је приказано на слици:
 
-<p><img src="https://cdn.acedata.cloud/03gqdz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/03gqdz.png" width="500" className="m-auto" /></p>
 
 Кликните на дугме „Try“ да бисте тестирали, као што је приказано на слици, добили смо следећи резултат:
 
@@ -70,7 +70,7 @@ description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
 Ако желите да генеришете одговарајући код за интеграцију, можете га директно копирати, на пример, CURL код је следећи:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/wan/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/wan/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -92,18 +92,18 @@ Ako želite da generišete video na osnovu referentne slike ili referentnog vide
 
 Primer popunjavanja je sledeći:
 
-<p><img src="https://cdn.acedata.cloud/94l0kk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/94l0kk.png" width="500" className="m-auto" /></p>
 
 Nakon popunjavanja automatski se generiše kod kao što je prikazano ispod:
 
-<p><img src="https://cdn.acedata.cloud/b5q8tt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/b5q8tt.png" width="500" className="m-auto" /></p>
 
 Odgovarajući Python kod:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/wan/videos"
+url = "https://api.xhuoapi.ai/v1/wan/videos"
 
 headers = {
     "accept": "application/json",
@@ -116,7 +116,7 @@ payload = {
     "model": "wan2.6-i2v",
     "prompt": "Astronauts shuttle from space to volcano",
     "duration": 5,
-    "image_url": "https://cdn.acedata.cloud/r9vsv9.png",
+    "image_url": "https://cdn.xhuoapi.ai/r9vsv9.png",
     "callback_url": "https://www.baidu.com/"
 }
 
@@ -147,13 +147,13 @@ Pogledajmo kako to konkretno funkcioniše kroz primer.
 
 Prvo, Webhook povratni poziv je usluga koja može primati HTTP zahteve, programeri bi trebali zameniti URL-om HTTP servera koji su sami postavili. Ovde, radi lakšeg prikazivanja, koristi se javni Webhook sajt https://webhook.site/, otvaranjem tog sajta dobijate Webhook URL, kao što je prikazano na slici:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Kopirajte ovaj URL i možete ga koristiti kao Webhook, primer ovde je `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`.
 
 Zatim, možemo postaviti polje `callback_url` na navedeni Webhook URL, dok popunjavamo odgovarajuće parametre, konkretni sadržaj je prikazan na slici:
 
-<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vdx12s.png" width="500" className="m-auto" /></p>
 
 Klikom na pokretanje, može se primetiti da se odmah dobija rezultat kao što je prikazano ispod:
 
@@ -165,7 +165,7 @@ Klikom na pokretanje, može se primetiti da se odmah dobija rezultat kao što je
 
 Nakon nekoliko trenutaka, možemo posetiti `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3` da bismo posmatrali rezultat generisanog videa, kao što je prikazano na slici:
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 Sadržaj je sledeći:
 

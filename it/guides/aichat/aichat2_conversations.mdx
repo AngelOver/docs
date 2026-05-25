@@ -1,9 +1,9 @@
 ---
 title: "Istruzioni per l'integrazione API AI Chat v2"
-description: "AI Dialogue 集成指南 - Ace Data Cloud"
+description: "AI Dialogue 集成指南 - XHuoAPI"
 ---
 
-L'API AI Chat v2 (`/aichat2/conversations`) è la nuova generazione dell'interfaccia di conversazione, un aggiornamento completo rispetto a [AI Chat API](https://platform.acedata.cloud/documents/59fb1199-6694-4afb-a222-3554d7f7d05a). Basata sulla semplicità e gestione di conversazioni multi-turno di v1, estende le funzionalità con:
+L'API AI Chat v2 (`/aichat2/conversations`) è la nuova generazione dell'interfaccia di conversazione, un aggiornamento completo rispetto a [AI Chat API](https://api.xhuoapi.ai/documents/59fb1199-6694-4afb-a222-3554d7f7d05a). Basata sulla semplicità e gestione di conversazioni multi-turno di v1, estende le funzionalità con:
 
 - **Input utente multimodale**: tramite il campo strutturato `message` si possono inviare direttamente testo + immagini + blocchi di file, senza dover usare `references` come allegati indiretti.
 - **Chiamata agent di strumenti**: integra una serie di strumenti per ricerca online, scraping web, lettura file, ecc., e può collegarsi a server MCP autorizzati dall’utente (Google Drive, Notion, Slack, GitHub, ecc.). Il modello può autonomamente invocare strumenti multi-turno in una singola richiesta per completare compiti complessi.
@@ -18,7 +18,7 @@ Inoltre, a livello di corpo richiesta è **completamente retrocompatibile con v1
 
 ## Procedura di richiesta
 
-Per usare l’API, visita la pagina corrispondente di [AI Chat v2 API](https://platform.acedata.cloud/documents/e4a7c2b9-3f1d-4e8a-9b6c-a5d2f8e1b4c7) e clicca sul pulsante «Acquire» per ottenere le credenziali necessarie.
+Per usare l’API, visita la pagina corrispondente di [AI Chat v2 API](https://api.xhuoapi.ai/documents/e4a7c2b9-3f1d-4e8a-9b6c-a5d2f8e1b4c7) e clicca sul pulsante «Acquire» per ottenere le credenziali necessarie.
 
 Se non sei loggato o registrato, verrai reindirizzato automaticamente alla pagina di login; dopo registrazione e login tornerai alla pagina corrente.
 
@@ -31,13 +31,13 @@ L’uso più semplice è identico a v1: invia `model` + `question` e ricevi `{an
 Esempio CURL:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
   -d '{
     "model": "gpt-5.4",
-    "question": "用一句话介绍下 AceDataCloud。"
+    "question": "用一句话介绍下 XHuoAPI。"
   }'
 ```
 
@@ -45,7 +45,7 @@ Risposta:
 
 ```json
 {
-  "answer": "AceDataCloud è una piattaforma API unificata che aggrega i principali modelli AI e servizi multimodali, consentendo agli sviluppatori di chiamare GPT, Claude, Gemini, Midjourney, Suno, Veo e altri con una sola chiave.",
+  "answer": "XHuoAPI è una piattaforma API unificata che aggrega i principali modelli AI e servizi multimodali, consentendo agli sviluppatori di chiamare GPT, Claude, Gemini, Midjourney, Suno, Veo e altri con una sola chiave.",
   "id": "f2f4b3e8-0c0a-4d3a-aaa2-7ff80c0a1c44"
 }
 ```
@@ -55,7 +55,7 @@ Esempio Python:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/aichat2/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat2/conversations"
 
 headers = {
     "accept": "application/json",
@@ -65,7 +65,7 @@ headers = {
 
 payload = {
     "model": "gpt-5.4",
-    "question": "用一句话介绍下 AceDataCloud。",
+    "question": "用一句话介绍下 XHuoAPI。",
 }
 
 response = requests.post(url, json=payload, headers=headers)
@@ -91,7 +91,7 @@ Come in v1, invia `stateful: true` per abilitare la memorizzazione della session
 Prima richiesta:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -114,7 +114,7 @@ Risposta:
 Seconda richiesta con lo stesso `id`:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -153,7 +153,7 @@ v2 supporta due formati di streaming, selezionabili tramite l’header `accept`:
 import json
 import requests
 
-url = "https://api.acedata.cloud/aichat2/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat2/conversations"
 
 headers = {
     "accept": "application/x-ndjson",
@@ -197,7 +197,7 @@ Ogni riga NDJSON è un evento strutturato, il più comune è `text_delta`:
 Il browser con `EventSource` non supporta corpo personalizzato, si consiglia `fetch` con parsing manuale su `\n\n`:
 
 ```javascript
-const resp = await fetch("https://api.acedata.cloud/aichat2/conversations", {
+const resp = await fetch("https://api.xhuoapi.ai/v1/aichat2/conversations", {
   method: "POST",
   headers: {
     accept: "text/event-stream",
@@ -260,7 +260,7 @@ Se l’input utente include immagini o file, invia `message` (array) invece di `
   "stateful": true,
   "message": [
     { "type": "text", "text": "Quanti gatti ci sono in questa immagine?" },
-    { "type": "image_url", "image_url": { "url": "https://cdn.acedata.cloud/cats.jpg" } }
+    { "type": "image_url", "image_url": { "url": "https://cdn.xhuoapi.ai/cats.jpg" } }
   ]
 }
 ```
@@ -289,7 +289,7 @@ Il punto di forza di v2 è che il modello può autonomamente chiamare strumenti 
 
 - L’utente chiede «Cerca le nuove mostre a Shanghai» → il modello usa la ricerca web integrata → organizza i risultati nella risposta.
 - L’utente chiede «Leggi questo PDF e scrivi un riassunto» → il modello usa file_read → genera il riassunto.
-- L’utente ha autorizzato Google Drive / GitHub / Notion in [Connections](https://platform.acedata.cloud/connections) → il modello può usare gli strumenti MCP corrispondenti per leggere/scrivere dati.
+- L’utente ha autorizzato Google Drive / GitHub / Notion in [Connections](https://api.xhuoapi.ai/connections) → il modello può usare gli strumenti MCP corrispondenti per leggere/scrivere dati.
 
 Nel flusso NDJSON / SSE, le chiamate strumenti appaiono come eventi `tool_use` e `tool_result`, ad esempio:
 
@@ -323,7 +323,7 @@ Alcuni strumenti fanno sì che il modello «ponga domande all’utente», emette
 Nel frontend mostra questo evento come scheda con opzioni, quindi invia una nuova richiesta con lo stesso `id` e risposte in `tool_results`:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: text/event-stream' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -351,7 +351,7 @@ v2 offre gestione leggera delle conversazioni tramite il campo `action` sullo st
 ### `action: retrieve` — Recupera una conversazione
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -403,9 +403,9 @@ Risposta `{ id, success: true }`. L’eliminazione è irreversibile, confermare 
 
 ## Migrazione fluida da v1
 
-Se usi già [`/aichat/conversations`](https://platform.acedata.cloud/documents/59fb1199-6694-4afb-a222-3554d7f7d05a), la migrazione a v2 richiede quasi nessuna modifica:
+Se usi già [`/aichat/conversations`](https://api.xhuoapi.ai/documents/59fb1199-6694-4afb-a222-3554d7f7d05a), la migrazione a v2 richiede quasi nessuna modifica:
 
-1. Cambia l’URL da `https://api.acedata.cloud/aichat/conversations` a `https://api.acedata.cloud/aichat2/conversations`.
+1. Cambia l’URL da `https://api.xhuoapi.ai/v1/aichat/conversations` a `https://api.xhuoapi.ai/v1/aichat2/conversations`.
 2. Se usavi nomi modelli v1 (es. `gpt-3.5`, `gpt-4-browsing`), consigliamo di aggiornare a modelli contemporanei v2 (es. `gpt-5.4`, `claude-opus-4-7`, `gemini-3.1-pro`).
 3. I campi dello streaming NDJSON sono retrocompatibili: ogni evento `text_delta` include ancora `delta_answer` e `id`, quindi client che parsano `delta_answer` per riga non devono cambiare.
 

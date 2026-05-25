@@ -1,6 +1,6 @@
 ---
 title: "Suno Tasks API의 연동 및 사용"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 Suno Tasks API의 주요 기능은 Suno Audios Generation API 또는 Suno Lyrics Generation API로 생성된 작업 ID를 입력하여 해당 작업의 실행 상태를 조회하는 것입니다.
@@ -9,27 +9,27 @@ Suno Tasks API의 주요 기능은 Suno Audios Generation API 또는 Suno Lyrics
 
 ## 신청 절차
 
-Suno Tasks API를 사용하려면 먼저 신청 페이지 [Suno Audios Generation API](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9)에서 해당 서비스를 신청한 후, Suno Audios Generation API의 작업 ID를 복사합니다. 아래 그림과 같이 진행합니다:
+Suno Tasks API를 사용하려면 먼저 신청 페이지 [Suno Audios Generation API](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9)에서 해당 서비스를 신청한 후, Suno Audios Generation API의 작업 ID를 복사합니다. 아래 그림과 같이 진행합니다:
 
-<p><img src="https://cdn.acedata.cloud/bc6754.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bc6754.png" width="500" className="m-auto" /></p>
 
-마지막으로 Tasks API 페이지 [Suno Tasks API](https://platform.acedata.cloud/documents/b0dd9823-0e01-4c75-af83-5a6e2e05bfed)에서 해당 서비스를 신청하고, 페이지에 들어가면 「Acquire」 버튼을 클릭합니다. 아래 그림과 같이 진행합니다:
+마지막으로 Tasks API 페이지 [Suno Tasks API](https://api.xhuoapi.ai/documents/b0dd9823-0e01-4c75-af83-5a6e2e05bfed)에서 해당 서비스를 신청하고, 페이지에 들어가면 「Acquire」 버튼을 클릭합니다. 아래 그림과 같이 진행합니다:
 
-![신청 페이지](https://cdn.acedata.cloud/rci31i.png)
+![신청 페이지](https://cdn.xhuoapi.ai/rci31i.png)
 
-로그인 또는 등록이 되어 있지 않으면 자동으로 [로그인 페이지](https://platform.acedata.cloud)로 이동하여 등록 및 로그인을 요청합니다. 로그인 및 등록 후에는 자동으로 현재 페이지로 돌아옵니다.
+로그인 또는 등록이 되어 있지 않으면 자동으로 [로그인 페이지](https://api.xhuoapi.ai)로 이동하여 등록 및 로그인을 요청합니다. 로그인 및 등록 후에는 자동으로 현재 페이지로 돌아옵니다.
 
 첫 신청 시 무료 사용 한도가 제공되어, 해당 API를 무료로 사용할 수 있습니다.
 
 ## 요청 예시
 
-Suno Tasks API는 Suno Audios Generation API와 Suno Lyrics Generation API 두 개의 API 결과를 조회하는 데 사용할 수 있습니다. Suno Audios Generation API 사용 방법에 대한 자세한 내용은 문서 [Suno Audios Generation API](https://platform.acedata.cloud/documents/d016ee3f-421b-4b6e-989a-8beba8701701)를 참조하십시오. Suno Lyrics Generation API 사용 방법에 대한 내용은 [Suno Lyrics Generation API](https://platform.acedata.cloud/documents/f1c66741-a488-43ca-91fc-e53fbbda639a)를 참조하십시오.
+Suno Tasks API는 Suno Audios Generation API와 Suno Lyrics Generation API 두 개의 API 결과를 조회하는 데 사용할 수 있습니다. Suno Audios Generation API 사용 방법에 대한 자세한 내용은 문서 [Suno Audios Generation API](https://api.xhuoapi.ai/documents/d016ee3f-421b-4b6e-989a-8beba8701701)를 참조하십시오. Suno Lyrics Generation API 사용 방법에 대한 내용은 [Suno Lyrics Generation API](https://api.xhuoapi.ai/documents/f1c66741-a488-43ca-91fc-e53fbbda639a)를 참조하십시오.
 
 Suno Audios Generation API 서비스에서 반환된 작업 ID를 예로 들어, 해당 API를 사용하는 방법을 시연하겠습니다. 가정해 보겠습니다, 작업 ID가 eae26f89-b64b-404d-a80c-761996660b1c라고 할 때, 다음 단계에서 작업 ID를 전달하는 방법을 보여드리겠습니다.
 
 ### 작업 예시 그림
 
-<p><img src="https://cdn.acedata.cloud/bc6754.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bc6754.png" width="500" className="m-auto" /></p>
 
 ### 요청 헤더 및 요청 본문 설정
 
@@ -45,20 +45,20 @@ Suno Audios Generation API 서비스에서 반환된 작업 ID를 예로 들어,
 
 아래 그림과 같이 설정합니다:
 
-<p><img src="https://cdn.acedata.cloud/uo7t6n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/uo7t6n.png" width="500" className="m-auto" /></p>
 
 ### 코드 예시
 
 페이지 오른쪽에는 다양한 언어의 코드가 자동으로 생성된 것을 확인할 수 있습니다. 아래 그림과 같이 진행합니다:
 
-<p><img src="https://cdn.acedata.cloud/p6vi9o.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/p6vi9o.png" width="500" className="m-auto" /></p>
 
 일부 코드 예시는 다음과 같습니다:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/suno/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/tasks"
+url = "https://api.xhuoapi.ai/v1/suno/tasks"
 
 headers = {
     "accept": "application/json",
@@ -159,13 +159,13 @@ print(response.text)
 
 설정은 아래 그림과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/dqeknz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dqeknz.png" width="500" className="m-auto" /></p>
 
 ### 코드 예시
 
 페이지 오른쪽에서 다양한 언어의 코드가 자동으로 생성된 것을 확인할 수 있습니다, 아래 그림과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/1yk792.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1yk792.png" width="500" className="m-auto" /></p>
 
 일부 코드 예시는 다음과 같습니다:
 
@@ -275,7 +275,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -290,7 +290,7 @@ curl -X POST 'https://api.acedata.cloud/suno/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/tasks"
+url = "https://api.xhuoapi.ai/v1/suno/tasks"
 
 headers = {
     "accept": "application/json",

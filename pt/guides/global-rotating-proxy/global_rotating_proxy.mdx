@@ -1,15 +1,15 @@
 ---
 title: "Instruções de Integração com Agentes Globais"
-description: "Global Rotation Agent 集成指南 - Ace Data Cloud"
+description: "Global Rotation Agent 集成指南 - XHuoAPI"
 ---
 
-Este documento apresenta as instruções de integração com o agente global da Ace Data Cloud, incluindo métodos de solicitação, métodos práticos e outros conteúdos específicos.
+Este documento apresenta as instruções de integração com o agente global da XHuoAPI, incluindo métodos de solicitação, métodos práticos e outros conteúdos específicos.
 
 ## Método de Solicitação
 
-Para usar os serviços globais, você pode primeiro ir à 「[página de solicitação](https://platform.acedata.cloud/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)」 para fazer a solicitação, a primeira solicitação tem um crédito gratuito de 1 ponto.
+Para usar os serviços globais, você pode primeiro ir à 「[página de solicitação](https://api.xhuoapi.ai/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)」 para fazer a solicitação, a primeira solicitação tem um crédito gratuito de 1 ponto.
 
-![](https://cdn.acedata.cloud/cyzvmz.png)
+![](https://cdn.xhuoapi.ai/cyzvmz.png)
 
 Se você ainda não estiver logado, será redirecionado automaticamente para a página de login; após fazer login, você pode continuar a solicitação.
 
@@ -17,13 +17,13 @@ Se você ainda não estiver logado, será redirecionado automaticamente para a p
 
 Após a solicitação, você pode verificar o resultado da sua solicitação no 「painel de controle」, conforme mostrado na imagem:
 
-![](https://cdn.acedata.cloud/y9boi5.png)
+![](https://cdn.xhuoapi.ai/y9boi5.png)
 
 Clique em 「Credenciais」 para visualizar o nome de usuário e a senha para usar o serviço de agente global, separados por dois pontos, onde o nome de usuário tem 8 caracteres e a senha tem 32 caracteres, conforme mostrado na imagem:
 
-![](https://cdn.acedata.cloud/ixwm85.png)
+![](https://cdn.xhuoapi.ai/ixwm85.png)
 
-Este agente é um proxy rotativo (Rotating Proxy), portanto, ao usá-lo, você só precisa configurar um endereço e porta de proxy fixos, que são `global.proxy.acedata.cloud` e `30007`. Este proxy é compatível com os protocolos HTTP/HTTPS/SOCKS e pode ser usado para solicitar sites que utilizam os protocolos HTTP e HTTPS.
+Este agente é um proxy rotativo (Rotating Proxy), portanto, ao usá-lo, você só precisa configurar um endereço e porta de proxy fixos, que são `global.proxy.xhuoapi.ai` e `30007`. Este proxy é compatível com os protocolos HTTP/HTTPS/SOCKS e pode ser usado para solicitar sites que utilizam os protocolos HTTP e HTTPS.
 
 > Atenção: Este proxy só pode ser usado fora da China; não é utilizável na China continental.
 
@@ -34,7 +34,7 @@ Com o nome de usuário e a senha do proxy, a maneira mais conveniente de testar 
 Supondo que o nome de usuário e a senha do proxy atual sejam `1f78266a:eff0896726224fa2a99fe82dd1f07562`, podemos usar o seguinte comando curl para teste:
 
 ```shell
-curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007 https://ipinfo.io
+curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007 https://ipinfo.io
 ```
 
 Aqui, usamos o parâmetro `-x` do curl para especificar o endereço do proxy; o protocolo do proxy é, por padrão, HTTP/HTTPS, e a URL solicitada é [https://ipinfo.io](https://ipinfo.io), que pode retornar o endereço IP real e a localização do IP que fez a solicitação.
@@ -67,7 +67,7 @@ Abaixo, um exemplo em Python demonstrando como configurar o proxy:
 ```python
 import requests
 
-proxy = 'http://{proxy_username}:{proxy_password}@global.proxy.acedata.cloud:30007'
+proxy = 'http://{proxy_username}:{proxy_password}@global.proxy.xhuoapi.ai:30007'
 
 proxies = {
     'http': proxy,
@@ -81,7 +81,7 @@ for _ in range(3):
 
 Aqui, primeiro declaramos a URL do proxy e a definimos como a variável proxy; o protocolo é HTTP, seguido pelo nome de usuário e senha do proxy (ou seja, o nome de usuário e a senha exibidos no painel, separados por dois pontos), seguido por um símbolo `@`, e depois o endereço e a porta do proxy.
 
-> Atenção: Você precisa substituir `{proxy_username}:{proxy_password}` no código acima pelo seu nome de usuário e senha do proxy; o resultado final deve ser semelhante a `proxy = 'http://1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007'`, sem os caracteres `{` e `}`.
+> Atenção: Você precisa substituir `{proxy_username}:{proxy_password}` no código acima pelo seu nome de usuário e senha do proxy; o resultado final deve ser semelhante a `proxy = 'http://1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007'`, sem os caracteres `{` e `}`.
 
 Em seguida, declaramos uma variável proxies, configurando dois pares chave-valor, com os nomes das chaves sendo http e https, e os valores sendo ambos proxy, representando que para sites que utilizam os protocolos HTTP e HTTPS, ambos usarão o proxy definido na variável proxy para fazer as solicitações. Em seguida, definimos um loop de três vezes para testar o proxy.
 
@@ -135,7 +135,7 @@ Na verdade, o código acima é equivalente a definir um cabeçalho adicional - P
 import requests
 import base64
 
-proxy_host = 'global.proxy.acedata.cloud'
+proxy_host = 'global.proxy.xhuoapi.ai'
 proxy_port = '30007'
 proxy_username = '{proxy_username}' # nome de usuário de 8 caracteres
 proxy_password = '{proxy_password}' # senha de 32 caracteres
@@ -166,7 +166,7 @@ Para outras linguagens, como JavaScript com axios, também é possível usar uma
 const axios = require("axios");
 const base64 = require("base64");
 
-const proxy_host = "global.proxy.acedata.cloud";
+const proxy_host = "global.proxy.xhuoapi.ai";
 const proxy_port = "30007";
 const proxy_username = "{proxy_username}"; // 8 caracteres de nome de usuário
 const proxy_password = "{proxy_password}"; // 32 caracteres de senha
@@ -199,7 +199,7 @@ Para métodos de configuração em outras linguagens, consulte o texto acima e r
 Podemos filtrar por região adicionando a região no nome de usuário, por exemplo, se quisermos escolher um proxy dos Estados Unidos, o nome de usuário original é `1f78266a`, então podemos alterar o nome de usuário para `1f78266a-region-us`, o curl acima pode ser reescrito da seguinte forma:
 
 ```
-curl -x 1f78266a-region-us:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007 https://ipinfo.io
+curl -x 1f78266a-region-us:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007 https://ipinfo.io
 ```
 
 Lista de regiões:
@@ -455,11 +455,11 @@ Assim como o conteúdo acima, podemos implementar um IP fixo por um período de 
 Por exemplo, se quisermos implementar um IP fixo por um período de tempo, e o nome de usuário original é `1f78266a`, podemos alterar o nome de usuário para `1f78266a-session-12345`, onde `12345`, se não mudar, fará com que o IP permaneça o mesmo por um período de tempo. O curl acima pode ser reescrito da seguinte forma:
 
 ```
-curl -x 1f78266a-session-12345:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007 https://ipinfo.io
+curl -x 1f78266a-session-12345:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007 https://ipinfo.io
 ```
 
 ## Comprar mais
 
 Se o seu plano já se esgotou, você precisará comprar mais para continuar usando o serviço de proxy.
 
-Para comprar mais, vá até a 「[página de solicitação](https://platform.acedata.cloud/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)」 e clique diretamente no botão 「Comprar mais」 para selecionar, quanto mais você comprar de uma só vez, mais barato será o preço unitário.
+Para comprar mais, vá até a 「[página de solicitação](https://api.xhuoapi.ai/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)」 e clique diretamente no botão 「Comprar mais」 para selecionar, quanto mais você comprar de uma só vez, mais barato será o preço unitário.

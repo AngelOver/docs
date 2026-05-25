@@ -1,6 +1,6 @@
 ---
 title: "Artistic QR Tasks API:n liittäminen ja käyttö"
-description: "Art QR Code Generation 集成指南 - Ace Data Cloud"
+description: "Art QR Code Generation 集成指南 - XHuoAPI"
 ---
 
 Artistic QR Tasks API:n päätoiminto on kysyä tehtävän suoritusstatus syöttämällä Artistic QR Generation API:n tuottama tehtävä-ID.
@@ -9,27 +9,27 @@ Tässä asiakirjassa käsitellään yksityiskohtaisesti Artistic QR Tasks API:n 
 
 ## Hakuprosessi
 
-Käyttääksesi Artistic QR Tasks API:a, sinun on ensin mentävä hakusivulle [Artistic QR Generation API](https://platform.acedata.cloud/documents/ee085d2a-a0b9-4f0e-8b4d-8da407345138) ja haettava vastaavaa palvelua, sitten kopioit Artistic QR Generation API:n tehtävä-ID:n, kuten kuvassa näkyy:
+Käyttääksesi Artistic QR Tasks API:a, sinun on ensin mentävä hakusivulle [Artistic QR Generation API](https://api.xhuoapi.ai/documents/ee085d2a-a0b9-4f0e-8b4d-8da407345138) ja haettava vastaavaa palvelua, sitten kopioit Artistic QR Generation API:n tehtävä-ID:n, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/2wicjy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2wicjy.png" width="500" className="m-auto" /></p>
 
-Lopuksi siirry Artistic QR Tasks API -sivulle [Artistic QR Tasks API](https://platform.acedata.cloud/documents/21de9d76-6e39-4ac3-b8b9-20e7194c02b4) ja hae vastaavaa palvelua, siirryttyäsi sivulle, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
+Lopuksi siirry Artistic QR Tasks API -sivulle [Artistic QR Tasks API](https://api.xhuoapi.ai/documents/21de9d76-6e39-4ac3-b8b9-20e7194c02b4) ja hae vastaavaa palvelua, siirryttyäsi sivulle, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
 
-![Hakusivu](https://cdn.acedata.cloud/rci31i.png)
+![Hakusivu](https://cdn.xhuoapi.ai/rci31i.png)
 
-Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti [kirjautumissivulle](https://platform.acedata.cloud), jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
+Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti [kirjautumissivulle](https://api.xhuoapi.ai), jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
 Ensimmäisellä hakemiskerralla saat ilmaisia krediittejä, joita voit käyttää API:n ilmaiseksi.
 
 ## Pyyntöesimerkki
 
-Artistic QR Tasks API:a voidaan käyttää kysymään Artistic QR Generation API:n yhden API:n tuloksia. Lisätietoja siitä, miten käyttää Artistic QR Generation API:a, katso asiakirjasta [Artistic QR Generation API](https://platform.acedata.cloud/documents/ee085d2a-a0b9-4f0e-8b4d-8da407345138).
+Artistic QR Tasks API:a voidaan käyttää kysymään Artistic QR Generation API:n yhden API:n tuloksia. Lisätietoja siitä, miten käyttää Artistic QR Generation API:a, katso asiakirjasta [Artistic QR Generation API](https://api.xhuoapi.ai/documents/ee085d2a-a0b9-4f0e-8b4d-8da407345138).
 
 Otetaan esimerkkinä yksi Artistic QR Generation API:n palauttama tehtävä-ID ja näytetään, miten tätä API:a käytetään. Oletetaan, että meillä on tehtävä-ID: e2c65b20-a970-431e-99c1-76721e799df8, seuraavaksi näytetään, miten syötetään tämä tehtävä-ID.
 
 ### Tehtäväesimerkkikuva
 
-<p><img src="https://cdn.acedata.cloud/2wicjy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2wicjy.png" width="500" className="m-auto" /></p>
 
 ### Pyyntöotsikon ja -kehon asettaminen
 
@@ -45,20 +45,20 @@ Otetaan esimerkkinä yksi Artistic QR Generation API:n palauttama tehtävä-ID j
 
 Aseta kuten alla olevassa kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/use825.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/use825.png" width="500" className="m-auto" /></p>
 
 ### Koodiesimerkki
 
 Voit huomata, että sivun oikealla puolella on automaattisesti luotu koodia eri kielillä, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/jejwy6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jejwy6.png" width="500" className="m-auto" /></p>
 
 Osittainen koodiesimerkki on seuraava:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/qrart/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/qrart/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/qrart/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/qrart/tasks"
+url = "https://api.xhuoapi.ai/v1/qrart/tasks"
 
 headers = {
     "accept": "application/json",
@@ -104,7 +104,7 @@ Kun pyyntö onnistuu, API palauttaa tämän QR-kooditehtävän yksityiskohtaiset
   "request": {
     "aspect_ratio": "1:1",
     "callback_url": null,
-    "content": "https://platform.acedata.cloud",
+    "content": "https://api.xhuoapi.ai",
     "content_image_url": null,
     "ecl": "H",
     "image_origin": null,
@@ -128,7 +128,7 @@ Kun pyyntö onnistuu, API palauttaa tämän QR-kooditehtävän yksityiskohtaiset
     "type": "link"
   },
   "response": {
-    "image_url": "https://platform.cdn.acedata.cloud/qrart/e2c65b20-a970-431e-99c1-76721e799df8.png",
+    "image_url": "https://platform.cdn.xhuoapi.ai/qrart/e2c65b20-a970-431e-99c1-76721e799df8.png",
     "image_width": 768,
     "image_height": 768,
     "seed": 5324369603686616,
@@ -154,13 +154,13 @@ Tämä on tarkoitettu useiden QR-kooditehtävä-ID:iden kyselyyn QR-kooditehtäv
 
 Aseta kuten alla olevassa kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/mrbxmr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mrbxmr.png" width="500" className="m-auto" /></p>
 
 ### Koodiesimerkki
 
 Voit huomata, että sivun oikealla puolella on automaattisesti luotu koodia eri kielillä, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/u3b61d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/u3b61d.png" width="500" className="m-auto" /></p>
 
 Osittainen koodiesimerkki on seuraava:
 
@@ -203,7 +203,7 @@ Kun pyyntö onnistuu, API palauttaa kaikkien massakysely QR-kooditehtävien tark
         "type": "link"
       },
       "response": {
-        "image_url": "https://platform.cdn.acedata.cloud/qrart/8c89e97b-6a79-4406-b2ce-e00f92540b4e.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/qrart/8c89e97b-6a79-4406-b2ce-e00f92540b4e.png",
         "image_width": 768,
         "image_height": 768,
         "seed": 2701847236953402,
@@ -219,7 +219,7 @@ Kun pyyntö onnistuu, API palauttaa kaikkien massakysely QR-kooditehtävien tark
       "request": {
         "aspect_ratio": "1:1",
         "callback_url": null,
-        "content": "https://platform.acedata.cloud",
+        "content": "https://api.xhuoapi.ai",
         "content_image_url": null,
         "ecl": "H",
         "image_origin": null,
@@ -243,7 +243,7 @@ Kun pyyntö onnistuu, API palauttaa kaikkien massakysely QR-kooditehtävien tark
         "type": "link"
       },
       "response": {
-        "image_url": "https://platform.cdn.acedata.cloud/qrart/e2c65b20-a970-431e-99c1-76721e799df8.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/qrart/e2c65b20-a970-431e-99c1-76721e799df8.png",
         "image_width": 768,
         "image_height": 768,
         "seed": 5324369603686616,
@@ -258,7 +258,7 @@ Kun pyyntö onnistuu, API palauttaa kaikkien massakysely QR-kooditehtävien tark
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/qrart/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/qrart/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -273,7 +273,7 @@ curl -X POST 'https://api.acedata.cloud/qrart/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/qrart/tasks"
+url = "https://api.xhuoapi.ai/v1/qrart/tasks"
 
 headers = {
     "accept": "application/json",

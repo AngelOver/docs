@@ -1,6 +1,6 @@
 ---
 title: "Artistic QR Tasks API 的對接和使用"
-description: "Art QR Code Generation 集成指南 - Ace Data Cloud"
+description: "Art QR Code Generation 集成指南 - XHuoAPI"
 ---
 
 Artistic QR Tasks API 的主要功能是通過輸入 Artistic QR Generation API 生成的任務ID來查詢該任務的執行情況。
@@ -9,27 +9,27 @@ Artistic QR Tasks API 的主要功能是通過輸入 Artistic QR Generation API 
 
 ## 申請流程
 
-要使用 Artistic QR Tasks API，需要先到 申請頁面 [Artistic QR Generation API ](https://platform.acedata.cloud/documents/ee085d2a-a0b9-4f0e-8b4d-8da407345138)申請相應的服務，然後複製 Artistic QR Generation API 的任務ID，如圖所示：
+要使用 Artistic QR Tasks API，需要先到 申請頁面 [Artistic QR Generation API ](https://api.xhuoapi.ai/documents/ee085d2a-a0b9-4f0e-8b4d-8da407345138)申請相應的服務，然後複製 Artistic QR Generation API 的任務ID，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/2wicjy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2wicjy.png" width="500" className="m-auto" /></p>
 
-最後進入 Artistic QR Tasks API頁面 [Artistic QR Tasks API ](https://platform.acedata.cloud/documents/21de9d76-6e39-4ac3-b8b9-20e7194c02b4)申請相應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
+最後進入 Artistic QR Tasks API頁面 [Artistic QR Tasks API ](https://api.xhuoapi.ai/documents/21de9d76-6e39-4ac3-b8b9-20e7194c02b4)申請相應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
 
-![申請頁面](https://cdn.acedata.cloud/rci31i.png)
+![申請頁面](https://cdn.xhuoapi.ai/rci31i.png)
 
-如果您尚未登錄或註冊，會自動跳轉到[登錄頁面](https://platform.acedata.cloud)邀請您來註冊和登錄，登錄註冊之後會自動返回當前頁面。
+如果您尚未登錄或註冊，會自動跳轉到[登錄頁面](https://api.xhuoapi.ai)邀請您來註冊和登錄，登錄註冊之後會自動返回當前頁面。
 
 首次申請時會有免費額度贈送，可以免費使用該 API。
 
 ## 請求示例
 
-Artistic QR Tasks API 可以用於查詢 Artistic QR Generation API 一個 API 的結果。關於怎樣使用 Artistic QR Generation API，請參考文檔 [Artistic QR Generation API ](https://platform.acedata.cloud/documents/ee085d2a-a0b9-4f0e-8b4d-8da407345138)。
+Artistic QR Tasks API 可以用於查詢 Artistic QR Generation API 一個 API 的結果。關於怎樣使用 Artistic QR Generation API，請參考文檔 [Artistic QR Generation API ](https://api.xhuoapi.ai/documents/ee085d2a-a0b9-4f0e-8b4d-8da407345138)。
 
 我們以 Artistic QR Generation API 服務返回的任務ID一個為例，演示如何使用該 API。假設我們有一個任務ID：e2c65b20-a970-431e-99c1-76721e799df8，接下來演示如何通過傳入一個任務ID來。
 
 ### 任務示例圖
 
-<p><img src="https://cdn.acedata.cloud/2wicjy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2wicjy.png" width="500" className="m-auto" /></p>
 
 ### 設置請求頭和請求體
 
@@ -45,20 +45,20 @@ Artistic QR Tasks API 可以用於查詢 Artistic QR Generation API 一個 API �
 
 設置如下圖所示：
 
-<p><img src="https://cdn.acedata.cloud/use825.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/use825.png" width="500" className="m-auto" /></p>
 
 ### 代碼示例
 
 可以發現，在頁面右側已經自動生成了各種語言的代碼，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/jejwy6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jejwy6.png" width="500" className="m-auto" /></p>
 
 部分代碼示例如下：
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/qrart/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/qrart/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/qrart/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/qrart/tasks"
+url = "https://api.xhuoapi.ai/v1/qrart/tasks"
 
 headers = {
     "accept": "application/json",
@@ -104,7 +104,7 @@ print(response.text)
   "request": {
     "aspect_ratio": "1:1",
     "callback_url": null,
-    "content": "https://platform.acedata.cloud",
+    "content": "https://api.xhuoapi.ai",
     "content_image_url": null,
     "ecl": "H",
     "image_origin": null,
@@ -128,7 +128,7 @@ print(response.text)
     "type": "link"
   },
   "response": {
-    "image_url": "https://platform.cdn.acedata.cloud/qrart/e2c65b20-a970-431e-99c1-76721e799df8.png",
+    "image_url": "https://platform.cdn.xhuoapi.ai/qrart/e2c65b20-a970-431e-99c1-76721e799df8.png",
     "image_width": 768,
     "image_height": 768,
     "seed": 5324369603686616,
@@ -154,13 +154,13 @@ print(response.text)
 
 設置如下圖所示：
 
-<p><img src="https://cdn.acedata.cloud/mrbxmr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mrbxmr.png" width="500" className="m-auto" /></p>
 
 ### 代碼示例
 
 可以發現，在頁面右側已經自動生成了各種語言的代碼，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/u3b61d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/u3b61d.png" width="500" className="m-auto" /></p>
 
 部分代碼示例如下：
 
@@ -203,7 +203,7 @@ print(response.text)
         "type": "link"
       },
       "response": {
-        "image_url": "https://platform.cdn.acedata.cloud/qrart/8c89e97b-6a79-4406-b2ce-e00f92540b4e.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/qrart/8c89e97b-6a79-4406-b2ce-e00f92540b4e.png",
         "image_width": 768,
         "image_height": 768,
         "seed": 2701847236953402,
@@ -219,7 +219,7 @@ print(response.text)
       "request": {
         "aspect_ratio": "1:1",
         "callback_url": null,
-        "content": "https://platform.acedata.cloud",
+        "content": "https://api.xhuoapi.ai",
         "content_image_url": null,
         "ecl": "H",
         "image_origin": null,
@@ -243,7 +243,7 @@ print(response.text)
         "type": "link"
       },
       "response": {
-        "image_url": "https://platform.cdn.acedata.cloud/qrart/e2c65b20-a970-431e-99c1-76721e799df8.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/qrart/e2c65b20-a970-431e-99c1-76721e799df8.png",
         "image_width": 768,
         "image_height": 768,
         "seed": 5324369603686616,
@@ -258,7 +258,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/qrart/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/qrart/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -273,7 +273,7 @@ curl -X POST 'https://api.acedata.cloud/qrart/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/qrart/tasks"
+url = "https://api.xhuoapi.ai/v1/qrart/tasks"
 
 headers = {
     "accept": "application/json",

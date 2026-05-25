@@ -1,19 +1,19 @@
 ---
 title: "AI Chat API 对接说明"
-description: "AI Dialogue 集成指南 - Ace Data Cloud"
+description: "AI Dialogue 集成指南 - XHuoAPI"
 ---
 
 我们知道，市面上一些问答 API 的对接还是相对没那么容易的，比如说 OpenAI 的 Chat Completions API，它有一个 `messages` 字段，如果要完成连续对话，需要我们把所有的上下文历史全部传递，同时还需要处理 Token 超出限制的问题。
 
-AceDataCloud 提供的 AI 问答 API 针对上述情况进行了优化，在保证问答效果不变的情况下，对连续对话的实现进行了封装，对接时无需再关心 messages 的传递，也无需关心 Token 超出限制的问题（API 内部自动进行了处理），同时也提供了对话查询、修改等功能，使得整体的对接大大简化。
+XHuoAPI 提供的 AI 问答 API 针对上述情况进行了优化，在保证问答效果不变的情况下，对连续对话的实现进行了封装，对接时无需再关心 messages 的传递，也无需关心 Token 超出限制的问题（API 内部自动进行了处理），同时也提供了对话查询、修改等功能，使得整体的对接大大简化。
 
 本文档会介绍下 AI 问答 API 的对接说明。
 
 ## 申请流程
 
-要使用 API，需要先到 [AI 问答 API](https://platform.acedata.cloud/documents/59fb1199-6694-4afb-a222-3554d7f7d05a) 对应页面申请对应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
+要使用 API，需要先到 [AI 问答 API](https://api.xhuoapi.ai/documents/59fb1199-6694-4afb-a222-3554d7f7d05a) 对应页面申请对应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 如果你尚未登录或注册，会自动跳转到登录页面邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
@@ -25,7 +25,7 @@ AceDataCloud 提供的 AI 问答 API 针对上述情况进行了优化，在保�
 
 比如说询问：“What's your name？”，我们接下来就可以在界面上填写对应的内容，如图所示：
 
-![](https://cdn.acedata.cloud/xqxda4.png)
+![](https://cdn.xhuoapi.ai/xqxda4.png)
 
 可以看到这里我们设置了 Request Headers，包括：
 
@@ -39,7 +39,7 @@ AceDataCloud 提供的 AI 问答 API 针对上述情况进行了优化，在保�
 
 选择之后，可以发现右侧也生成了对应代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/dvkps6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dvkps6.png" width="500" className="m-auto" /></p>
 
 点击「Try」按钮即可进行测试，如上图所示，这里我们就得到了如下结果：
 
@@ -56,7 +56,7 @@ AceDataCloud 提供的 AI 问答 API 针对上述情况进行了优化，在保�
 另外如果想生成对应的对接代码，可以直接复制生成，例如 CURL 的代码如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -71,7 +71,7 @@ Python 的对接代码如下：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/aichat/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat/conversations"
 
 headers = {
     "accept": "application/json",
@@ -96,12 +96,12 @@ print(response.text)
 
 第一次请求，将 `stateful` 参数设置为 `true`，并正常传递 `model` 和 `question` 参数，如图所示：
 
-![](https://cdn.acedata.cloud/fn4bi9.png)
+![](https://cdn.xhuoapi.ai/fn4bi9.png)
 
 对应代码如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -123,12 +123,12 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 
 第二次请求，将第一次请求返回的 `id` 字段作为参数传递，同时 `stateful` 参数依然设置为 `true`，询问「What I asked you just now?」，如图所示：
 
-![](https://cdn.acedata.cloud/46a6kd.png)
+![](https://cdn.xhuoapi.ai/46a6kd.png)
 
 对应代码如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -159,7 +159,7 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 
 修改如图所示，不过调用代码需要有对应的更改才能支持流式响应。
 
-![](https://cdn.acedata.cloud/axt1aa.png)
+![](https://cdn.xhuoapi.ai/axt1aa.png)
 
 将 `accept` 修改为 `application/x-ndjson` 之后，API 将逐行返回对应的 JSON 数据，在代码层面我们需要做相应的修改来获得逐行的结果。
 
@@ -168,7 +168,7 @@ Python 样例调用代码：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/aichat/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat/conversations"
 
 headers = {
     "accept": "application/x-ndjson",
@@ -209,7 +209,7 @@ JavaScript 也是支持的，比如 Node.js 的流式调用代码如下：
 ```javascript
 const axios = require("axios");
 
-const url = "https://api.acedata.cloud/aichat/conversations";
+const url = "https://api.xhuoapi.ai/v1/aichat/conversations";
 const headers = {
   "Content-Type": "application/json",
   Accept: "application/x-ndjson",
@@ -237,7 +237,7 @@ axios
 Java 样例代码：
 
 ```java
-String url = "https://api.acedata.cloud/aichat/conversations";
+String url = "https://api.xhuoapi.ai/v1/aichat/conversations";
 OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, "{\"question\": \"Hello\", \"stateful\": true, \"model\": \"gpt-3.5\"}");
@@ -277,12 +277,12 @@ client.newCall(request).enqueue(new Callback() {
 
 这里我们额外添加 `preset` 字段，内容为 `You are a professional artist`，如图所示：
 
-![](https://cdn.acedata.cloud/ird6i9.png)
+![](https://cdn.xhuoapi.ai/ird6i9.png)
 
 对应代码如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -308,23 +308,23 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 
 本 AI 也能支持添加附件进行图片识别，通过 `references` 传递对应图片链接即可，比如我这里有一张苹果的图片，如图所示：
 
-![](https://cdn.acedata.cloud/ht05g0.png)
+![](https://cdn.xhuoapi.ai/ht05g0.png)
 
-该图片的链接是 [https://cdn.acedata.cloud/ht05g0.png](https://cdn.acedata.cloud/ht05g0.png)，我们直接将其作为 `references` 参数传递即可，同时需要注意的是，模型必须要选择支持视觉识别的模型，目前支持的是 `gpt-4-vision`，所以输入如下：
+该图片的链接是 [https://cdn.xhuoapi.ai/ht05g0.png](https://cdn.xhuoapi.ai/ht05g0.png)，我们直接将其作为 `references` 参数传递即可，同时需要注意的是，模型必须要选择支持视觉识别的模型，目前支持的是 `gpt-4-vision`，所以输入如下：
 
-![](https://cdn.acedata.cloud/cstrbq.png)
+![](https://cdn.xhuoapi.ai/cstrbq.png)
 
 对应的代码如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "model": "gpt-4-vision",
   "question": "How many apples in the picture?",
-  "references": ["https://cdn.acedata.cloud/ht05g0.png"]
+  "references": ["https://cdn.xhuoapi.ai/ht05g0.png"]
 }'
 ```
 
@@ -342,12 +342,12 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 
 本 API 还支持联网模型，包括 GPT-3.5、GPT-4 均能支持，在 API 背后有一个自动搜索互联网并总结的过程，我们可以选择模型为 `gpt-3.5-browsing` 来体验下，如图所示：
 
-![](https://cdn.acedata.cloud/x5i8np.png)
+![](https://cdn.xhuoapi.ai/x5i8np.png)
 
 代码如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

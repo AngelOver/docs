@@ -1,6 +1,6 @@
 ---
 title: "Instruções de integração da API de download de vídeo do Producer"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 O Producer nos permite baixar vídeos relacionados a músicas. Este documento explica como integrar a API relacionada.
@@ -10,7 +10,7 @@ Esta API possui apenas um parâmetro de entrada, que é o `audio_id`, que é o I
 Aqui, o `audio_id` que inserimos é `a54609c6-13e2-4176-be0f-4d7eebc68e1f`, que é um ID de música gerado pelo Producer.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

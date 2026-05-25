@@ -3,12 +3,12 @@
   "info": {
     "title": "Kling video generation",
     "version": "1.0.0",
-    "description": "API reference for Kling video generation on Ace Data Cloud."
+    "description": "API reference for Kling video generation on XHuoAPI."
   },
   "servers": [
     {
-      "url": "https://api.acedata.cloud",
-      "description": "Ace Data Cloud API"
+      "url": "https://api.xhuoapi.ai/v1",
+      "description": "XHuoAPI API"
     }
   ],
   "components": {
@@ -16,7 +16,7 @@
       "bearerAuth": {
         "type": "http",
         "scheme": "bearer",
-        "description": "API token from https://platform.acedata.cloud"
+        "description": "API token from https://api.xhuoapi.ai"
       }
     }
   },
@@ -135,7 +135,7 @@
                       "example": {
                         "error": {
                           "code": "disabled",
-                          "message": "Your application has been disabled by Ace Data Cloud due to abnormal usage behavior, please contact our support to get more information."
+                          "message": "Your application has been disabled by XHuoAPI due to abnormal usage behavior, please contact our support to get more information."
                         },
                         "trace_id": "2efa9340-b21b-4e26-9e14-4aac95f343ab"
                       },
@@ -150,7 +150,7 @@
                             },
                             "message": {
                               "type": "string",
-                              "example": "Your application has been disabled by Ace Data Cloud due to abnormal usage behavior, please contact our support to get more information.",
+                              "example": "Your application has been disabled by XHuoAPI due to abnormal usage behavior, please contact our support to get more information.",
                               "description": "Error message of the response."
                             }
                           }
@@ -343,7 +343,7 @@
                       "example": {
                         "error": {
                           "code": "used_up",
-                          "message": "Your balance is not sufficient for current request, please buy more in Ace Data Cloud."
+                          "message": "Your balance is not sufficient for current request, please buy more in XHuoAPI."
                         },
                         "trace_id": "2efa9340-b21b-4e26-9e14-4aac95f343ab"
                       },
@@ -358,7 +358,7 @@
                             },
                             "message": {
                               "type": "string",
-                              "example": "Your balance is not sufficient for current request, please buy more in Ace Data Cloud.",
+                              "example": "Your balance is not sufficient for current request, please buy more in XHuoAPI.",
                               "description": "Error message of the response."
                             }
                           }
@@ -970,7 +970,7 @@
                       "example": {
                         "error": {
                           "code": "disabled",
-                          "message": "Your application has been disabled by Ace Data Cloud due to abnormal usage behavior, please contact our support to get more information."
+                          "message": "Your application has been disabled by XHuoAPI due to abnormal usage behavior, please contact our support to get more information."
                         },
                         "trace_id": "2efa9340-b21b-4e26-9e14-4aac95f343ab"
                       },
@@ -985,7 +985,7 @@
                             },
                             "message": {
                               "type": "string",
-                              "example": "Your application has been disabled by Ace Data Cloud due to abnormal usage behavior, please contact our support to get more information.",
+                              "example": "Your application has been disabled by XHuoAPI due to abnormal usage behavior, please contact our support to get more information.",
                               "description": "Error message of the response."
                             }
                           }
@@ -1178,7 +1178,7 @@
                       "example": {
                         "error": {
                           "code": "used_up",
-                          "message": "Your balance is not sufficient for current request, please buy more in Ace Data Cloud."
+                          "message": "Your balance is not sufficient for current request, please buy more in XHuoAPI."
                         },
                         "trace_id": "2efa9340-b21b-4e26-9e14-4aac95f343ab"
                       },
@@ -1193,7 +1193,7 @@
                             },
                             "message": {
                               "type": "string",
-                              "example": "Your balance is not sufficient for current request, please buy more in Ace Data Cloud.",
+                              "example": "Your balance is not sufficient for current request, please buy more in XHuoAPI.",
                               "description": "Error message of the response."
                             }
                           }

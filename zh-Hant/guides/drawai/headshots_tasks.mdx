@@ -1,6 +1,6 @@
 ---
 title: "AI 證件照 Task API 的對接和使用"
-description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
+description: "AI ID Photo Production 集成指南 - XHuoAPI"
 ---
 
 AI 證件照 Task API 的主要功能是通過輸入 AI 證件照製作 API 生成的任務 ID 來查詢該任務的執行情況。
@@ -9,27 +9,27 @@ AI 證件照 Task API 的主要功能是通過輸入 AI 證件照製作 API 生�
 
 ## 申請流程
 
-要使用 AI 證件照 Task API，需要先到 申請頁面 [AI 證件照製作 API](https://platform.acedata.cloud/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) 申請相應的服務，然後複製 AI 證件照製作 API 的任務 ID，如圖所示：
+要使用 AI 證件照 Task API，需要先到 申請頁面 [AI 證件照製作 API](https://api.xhuoapi.ai/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) 申請相應的服務，然後複製 AI 證件照製作 API 的任務 ID，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/7ezmmn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7ezmmn.png" width="500" className="m-auto" /></p>
 
-最後進入 Tasks API 頁面 [AI 證件照 Task API](https://platform.acedata.cloud/documents/3a23ee34-8689-406b-9042-7954224348ad) 申請相應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
+最後進入 Tasks API 頁面 [AI 證件照 Task API](https://api.xhuoapi.ai/documents/3a23ee34-8689-406b-9042-7954224348ad) 申請相應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
 
-![申請頁面](https://cdn.acedata.cloud/rci31i.png)
+![申請頁面](https://cdn.xhuoapi.ai/rci31i.png)
 
-如果您尚未登錄或註冊，會自動跳轉到 [登錄頁面](https://platform.acedata.cloud) 邀請您來註冊和登錄，登錄註冊之後會自動返回當前頁面。
+如果您尚未登錄或註冊，會自動跳轉到 [登錄頁面](https://api.xhuoapi.ai) 邀請您來註冊和登錄，登錄註冊之後會自動返回當前頁面。
 
 首次申請時會有免費額度贈送，可以免費使用該 API。
 
 ## 請求示例
 
-AI 證件照 Task API 可以用於查詢 AI 證件照製作 API 的結果。關於怎樣使用 AI 證件照製作 API，請參考文檔 [AI 證件照製作 API](https://platform.acedata.cloud/documents/d6ea75a4-836e-490a-aee5-7ca911a808fd)。
+AI 證件照 Task API 可以用於查詢 AI 證件照製作 API 的結果。關於怎樣使用 AI 證件照製作 API，請參考文檔 [AI 證件照製作 API](https://api.xhuoapi.ai/documents/d6ea75a4-836e-490a-aee5-7ca911a808fd)。
 
 我們以 AI 證件照製作 API 服務返回的任務 ID 一個為例，演示如何使用該 API。假設我們有一個任務 ID：`16f96e95-d95c-46ef-b183-139b9bd1aebd`，接下來演示如何通過傳入一個任務 ID 來。
 
 ### 任務示例圖
 
-<p><img src="https://cdn.acedata.cloud/7ezmmn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7ezmmn.png" width="500" className="m-auto" /></p>
 
 ### 設置請求頭和請求體
 
@@ -45,20 +45,20 @@ AI 證件照 Task API 可以用於查詢 AI 證件照製作 API 的結果。關�
 
 設置如下圖所示：
 
-<p><img src="https://cdn.acedata.cloud/ezsyyd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ezsyyd.png" width="500" className="m-auto" /></p>
 
 ### 代碼示例
 
 可以發現，在頁面右側已經自動生成了各種語言的代碼，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/x99wu2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/x99wu2.png" width="500" className="m-auto" /></p>
 
 部分代碼示例如下：
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/headshots/tasks"
+url = "https://api.xhuoapi.ai/v1/headshots/tasks"
 
 headers = {
     "accept": "application/json",
@@ -118,12 +118,12 @@ print(response.text)
     "data": [
       {
         "id": "202411032022077381",
-        "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
         "template": "男形象照"
       },
       {
         "id": "202411032022079194",
-        "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
         "template": "男形象照"
       }
     ]
@@ -148,13 +148,13 @@ print(response.text)
 
 設置如下圖所示：
 
-<p><img src="https://cdn.acedata.cloud/8vynq9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8vynq9.png" width="500" className="m-auto" /></p>
 
 ### 代碼示例
 
 可以發現，在頁面右側已經自動生成了各種語言的代碼，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/5jexyn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5jexyn.png" width="500" className="m-auto" /></p>
 
 部分代碼示例如下：
 
@@ -187,12 +187,12 @@ print(response.text)
         "data": [
           {
             "id": "202411032022077381",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
             "template": "男形象照"
           },
           {
             "id": "202411032022079194",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
             "template": "男形象照"
           }
         ]
@@ -234,7 +234,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -249,7 +249,7 @@ curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/headshots/tasks"
+url = "https://api.xhuoapi.ai/v1/headshots/tasks"
 
 headers = {
     "accept": "application/json",

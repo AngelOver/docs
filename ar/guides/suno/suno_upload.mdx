@@ -1,21 +1,21 @@
 ---
 title: "سنو رفع مرجع الصوت API توصيل الشرح"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 تسمح لنا SUNO برفع مرجع الصوت لإعادة الإبداع، توضح هذه الوثيقة طرق توصيل API ذات الصلة.
 
 تحتوي هذه API على معلمة إدخال واحدة فقط، وهي `audio_url`، وهي عنوان CDN يمكن الوصول إليه علنًا، وتدعم لاحقة mp3.
 
-هنا، `audio_url` المدخل هو `https://cdn.acedata.cloud/suno_demo.mp3`، وهو عنوان CDN يمكن الوصول إليه علنًا.
+هنا، `audio_url` المدخل هو `https://cdn.xhuoapi.ai/suno_demo.mp3`، وهو عنوان CDN يمكن الوصول إليه علنًا.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/upload' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/upload' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "audio_url": "https://cdn.acedata.cloud/suno_demo.mp3"
+  "audio_url": "https://cdn.xhuoapi.ai/suno_demo.mp3"
 }'
 ```
 
@@ -40,4 +40,4 @@ curl -X POST 'https://api.acedata.cloud/suno/upload' \
 
 يمكنك أن ترى أن حقل `audio_id` في `data` هو معرف الأغنية بعد الرفع.
 
-مع معرف الأغنية، يمكننا استخدام [Suno Audios Generation API](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) لإنشاء أغاني مخصصة، على سبيل المثال، إذا تم تمرير `action` كـ `upload_extend`، وتم تمرير `audio_id` كمعرف الأغنية الذي تم إرجاعه، يمكننا إنشاء أغنية جديدة بناءً على مرجع الصوت.
+مع معرف الأغنية، يمكننا استخدام [Suno Audios Generation API](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) لإنشاء أغاني مخصصة، على سبيل المثال، إذا تم تمرير `action` كـ `upload_extend`، وتم تمرير `audio_id` كمعرف الأغنية الذي تم إرجاعه، يمكننا إنشاء أغنية جديدة بناءً على مرجع الصوت.

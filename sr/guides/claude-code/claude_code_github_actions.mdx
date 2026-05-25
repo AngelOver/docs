@@ -1,17 +1,17 @@
 ---
 title: "Claude Code GitHub Actions Упутство за коришћење"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code је алат за **Agentic Coding** који је представио Anthropic, а такође се сматра једним од најмоћнијих програмских агената на свету. Claude Code GitHub Actions може интегрисати AI програмске способности у ваш GitHub радни ток, само треба да у PR или Issue напишете `@claude`, и Claude ће аутоматски анализирати код, креирати PR, реализовати функције, и поправити Bug.
 
-Овај документ углавном описује како да конфигуришете и користите Claude Code GitHub Actions преко прокси услуге AceData Cloud.
+Овај документ углавном описује како да конфигуришете и користите Claude Code GitHub Actions преко прокси услуге XHuoAPI.
 
 ## Процес пријаве
 
-Да бисте користили Claude Code, прво можете отићи на [Claude Messages услужну страницу](https://platform.acedata.cloud/documents/claude-messages) и кликнути на дугме „Acquire“ да бисте добили потребне креденцијале:
+Да бисте користили Claude Code, прво можете отићи на [Claude Messages услужну страницу](https://api.xhuoapi.ai/documents/claude-messages) и кликнути на дугме „Acquire“ да бисте добили потребне креденцијале:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Ако нисте пријављени или регистровани, аутоматски ћете бити преусмерени на страницу за пријаву која вас позива да се региструјете и пријавите, а након пријаве или регистрације, аутоматски ћете се вратити на тренутну страницу.
 
@@ -30,7 +30,7 @@ Claude Code је алат за **Agentic Coding** који је представ
 
 Идите на [https://github.com/apps/claude](https://github.com/apps/claude) и инсталирајте Claude GitHub App у вашу репозиторију.
 
-![GitHub Claude App инсталациона страница](https://cdn.acedata.cloud/ba4b8df66d.png)
+![GitHub Claude App инсталациона страница](https://cdn.xhuoapi.ai/ba4b8df66d.png)
 
 Овај App захтева следеће дозволе за репозиторију:
 
@@ -42,14 +42,14 @@ Claude Code је алат за **Agentic Coding** који је представ
 
 ### Корак 2: Додајте API кључ
 
-Додајте AceData Cloud API кључ као тајну у репозиторији:
+Додајте XHuoAPI API кључ као тајну у репозиторији:
 
 1. Идите у **Settings** → **Secrets and variables** → **Actions**
 2. Кликните на **New repository secret**
-3. У поље Name упишите `ANTHROPIC_API_KEY`, а у поље Value унесите API токен који сте добили у AceData Cloud
+3. У поље Name упишите `ANTHROPIC_API_KEY`, а у поље Value унесите API токен који сте добили у XHuoAPI
 4. Кликните на **Add secret** да бисте сачували
 
-> **Напомена**: API токен можете видети у [AceData Cloud конзоли](https://platform.acedata.cloud/console).
+> **Напомена**: API токен можете видети у [XHuoAPI конзоли](https://api.xhuoapi.ai/console).
 
 ### Корак 3: Креирајте Workflow датотеку
 
@@ -76,7 +76,7 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 ```
 
-Ако је потребно да користите AceData Cloud прокси API крајњу тачку, такође треба да подесите променљиве окружења у Workflow-у:
+Ако је потребно да користите XHuoAPI прокси API крајњу тачку, такође треба да подесите променљиве окружења у Workflow-у:
 
 ```yaml
 name: Claude Code
@@ -94,7 +94,7 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
         env:
-          ANTHROPIC_BASE_URL: "https://api.acedata.cloud"
+          ANTHROPIC_BASE_URL: "https://api.xhuoapi.ai/v1"
 ```
 
 ## Начини коришћења
@@ -130,7 +130,7 @@ jobs:
           prompt: "/review"
           claude_args: "--max-turns 5"
         env:
-          ANTHROPIC_BASE_URL: "https://api.acedata.cloud"
+          ANTHROPIC_BASE_URL: "https://api.xhuoapi.ai/v1"
 ```
 
 ### Аутоматизација заказаних задатака
@@ -152,7 +152,7 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: "Генериши извештај о сажетку измена од јуче и непотпуном Issue"
         env:
-          ANTHROPIC_BASE_URL: "https://api.acedata.cloud"
+          ANTHROPIC_BASE_URL: "https://api.xhuoapi.ai/v1"
 ```
 
 ## Објашњење параметара Action
@@ -215,12 +215,12 @@ claude_args: "--max-turns 5 --model claude-sonnet-4-5-20250929"
 
 ### Како да видим преостали кредит?
 
-Пријавите се на [AceData Cloud контролну таблу](https://platform.acedata.cloud/console) да бисте видели тренутни преостали кредит и коришћење.
+Пријавите се на [XHuoAPI контролну таблу](https://api.xhuoapi.ai/console) да бисте видели тренутни преостали кредит и коришћење.
 
 ## Сазнајте више
 
 - 📖 [Официјелна документација Claude Code GitHub Actions](https://code.claude.com/docs/en/github-actions)
 - 📂 [claude-code-action репозиторјум](https://github.com/anthropics/claude-code-action)
 - 📋 [Пример радног тока](https://github.com/anthropics/claude-code-action/tree/main/examples)
-- 🔧 [AceData Cloud Claude Code услуга](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code услуга](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 Уколико имате било каква питања, слободно нас контактирајте преко платформе за корисничку подршку

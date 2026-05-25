@@ -8750,17 +8750,14 @@
   },
   "footer": {
     "socials": {
-      "github": "https://github.com/AceDataCloud",
-      "x": "https://x.com/AceDataCloud"
+      "website": "https://xhuoapi.ai",
+      "x": "https://x.com/xhuoapi"
     }
   },
   "metadata": {
-    "og:site_name": "Ace Data Cloud",
-    "og:image": "https://cdn.acedata.cloud/ab84d87135.png",
-    "og:description": "Unified AI API Platform — LLM chat, image generation, video generation, music, search and more.",
-    "twitter:card": "summary_large_image",
-    "twitter:site": "@AceDataCloud",
-    "google-site-verification": "VHiOHkNYiy1eA1VnulXrqznnCC6N0sBI73DRVD5i0KI"
+    "og:site_name": "XHuoAPI",
+    "og:description": "Global AI Model Aggregation API — OpenAI-compatible, 500+ models, pay-as-you-go.",
+    "twitter:card": "summary_large_image"
   },
   "seo": {
     "indexHiddenPages": false
@@ -8781,6 +8778,6 @@
     }
   },
   "variables": {
-    "BASE_URL": "https://api.acedata.cloud"
+    "BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }

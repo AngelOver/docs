@@ -1,19 +1,19 @@
 ---
 title: "Claude Code Επιχειρησιακή Εφαρμογή Χρήσης Οδηγίες"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code είναι ένα εργαλείο **Agentic Coding** που κυκλοφόρησε από την Anthropic, και θεωρείται ένα από τα πιο ισχυρά προγραμματιστικά Agents στον κόσμο. Η επιτραπέζια εφαρμογή Claude Code προσφέρει μια ανεξάρτητη γραφική διεπαφή, υποστηρίζει λειτουργίες Diff αναθεώρησης, παράλληλες συνεδρίες (μέσω απομόνωσης Git Worktree), απομακρυσμένες συνεδρίες και άλλα, χωρίς να εξαρτάται από οποιοδήποτε IDE.
 
-Αυτό το έγγραφο περιγράφει κυρίως πώς να ρυθμίσετε και να χρησιμοποιήσετε την επιτραπέζια εφαρμογή Claude Code μέσω της υπηρεσίας proxy του AceData Cloud.
+Αυτό το έγγραφο περιγράφει κυρίως πώς να ρυθμίσετε και να χρησιμοποιήσετε την επιτραπέζια εφαρμογή Claude Code μέσω της υπηρεσίας proxy του XHuoAPI.
 
 > **Σημείωση**: Η επιτραπέζια εφαρμογή Claude Code είναι αυτή τη στιγμή σε φάση προεπισκόπησης (Preview) και υποστηρίζει μόνο macOS και Windows.
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το Claude Code, μπορείτε πρώτα να επισκεφθείτε τη [σελίδα υπηρεσιών Claude Messages](https://platform.acedata.cloud/documents/claude-messages) και να κάνετε κλικ στο κουμπί «Acquire» για να αποκτήσετε τα απαραίτητα διαπιστευτήρια:
+Για να χρησιμοποιήσετε το Claude Code, μπορείτε πρώτα να επισκεφθείτε τη [σελίδα υπηρεσιών Claude Messages](https://api.xhuoapi.ai/documents/claude-messages) και να κάνετε κλικ στο κουμπί «Acquire» για να αποκτήσετε τα απαραίτητα διαπιστευτήρια:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη σελίδα σύνδεσης για να εγγραφείτε και να συνδεθείτε, και μετά την εγγραφή ή σύνδεση θα επιστρέψετε αυτόματα στη σελίδα.
 
@@ -34,13 +34,13 @@ Claude Code είναι ένα εργαλείο **Agentic Coding** που κυκ�
 - **Windows x64**: Κατεβάστε το πακέτο εγκατάστασης `.exe` και ακολουθήστε τις οδηγίες εγκατάστασης
 - **Windows ARM64**: Κατεβάστε την έκδοση ARM64 (σημειώστε: η ARM64 δεν υποστηρίζει τοπικές συνεδρίες, απαιτεί απομακρυσμένες συνεδρίες)
 
-![Σελίδα λήψης επιτραπέζιας εφαρμογής Claude](https://cdn.acedata.cloud/c3c8c57264.png)
+![Σελίδα λήψης επιτραπέζιας εφαρμογής Claude](https://cdn.xhuoapi.ai/c3c8c57264.png)
 
 Αφού ολοκληρωθεί η εγκατάσταση, εκκινήστε το Claude από τον φάκελο Applications (macOS) ή από το μενού Έναρξης (Windows).
 
-## Ρύθμιση AceData Cloud API
+## Ρύθμιση XHuoAPI API
 
-Αφού εκκινήσετε την επιτραπέζια εφαρμογή, θα χρειαστεί να συνδεθείτε με τον λογαριασμό Anthropic. Μπορούμε να χρησιμοποιήσουμε το API proxy του AceData Cloud ρυθμίζοντας μεταβλητές περιβάλλοντος, **χωρίς επίσημη συνδρομή**.
+Αφού εκκινήσετε την επιτραπέζια εφαρμογή, θα χρειαστεί να συνδεθείτε με τον λογαριασμό Anthropic. Μπορούμε να χρησιμοποιήσουμε το API proxy του XHuoAPI ρυθμίζοντας μεταβλητές περιβάλλοντος, **χωρίς επίσημη συνδρομή**.
 
 Η επιτραπέζια εφαρμογή διαβάζει τις μεταβλητές περιβάλλοντος από το περιβάλλον Shell σας, επομένως πρέπει να τις ρυθμίσετε στο αρχείο ρύθμισης του Shell.
 
@@ -51,9 +51,9 @@ Claude Code είναι ένα εργαλείο **Agentic Coding** που κυκ�
 Προσθέστε το παρακάτω περιεχόμενο στο `~/.zshrc` (ή `~/.bashrc`), αντικαθιστώντας το `{token}` με το API token σας:
 
 ```bash
-# AceData Cloud - Ρύθμιση proxy Claude Code
+# XHuoAPI - Ρύθμιση proxy Claude Code
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 Αποθηκεύστε και εκτελέστε:
@@ -69,13 +69,13 @@ source ~/.zshrc
 | Όνομα Μεταβλητής          | Τιμή                           |
 | ---------------------- | ----------------------------- |
 | `ANTHROPIC_AUTH_TOKEN` | `{token}` (αντικαταστήστε με το API token σας) |
-| `ANTHROPIC_BASE_URL`   | `https://api.acedata.cloud`  |
+| `ANTHROPIC_BASE_URL`   | `https://api.xhuoapi.ai/v1`  |
 
 Ή χρησιμοποιήστε το PowerShell:
 
 ```powershell
 [System.Environment]::SetEnvironmentVariable("ANTHROPIC_AUTH_TOKEN", "{token}", "User")
-[System.Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.acedata.cloud", "User")
+[System.Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.xhuoapi.ai/v1", "User")
 ```
 
 **Μπορείτε επίσης να ρυθμίσετε μέσω του settings.json**
@@ -86,12 +86,12 @@ source ~/.zshrc
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **Υπόδειξη**: Το API token μπορεί να προβληθεί στον [Πίνακα Ελέγχου AceData Cloud](https://platform.acedata.cloud/console). Μετά την ολοκλήρωση της ρύθμισης, απαιτείται **επανεκκίνηση της επιτραπέζιας εφαρμογής** για να ισχύσουν οι μεταβλητές περιβάλλοντος.
+> **Υπόδειξη**: Το API token μπορεί να προβληθεί στον [Πίνακα Ελέγχου XHuoAPI](https://api.xhuoapi.ai/console). Μετά την ολοκλήρωση της ρύθμισης, απαιτείται **επανεκκίνηση της επιτραπέζιας εφαρμογής** για να ισχύσουν οι μεταβλητές περιβάλλοντος.
 
 ## Βασική Χρήση
 
@@ -162,7 +162,7 @@ source ~/.zshrc
 
 1. Ελέγξτε αν το αρχείο `~/.claude/config.json` έχει δημιουργηθεί σωστά
 2. Επιβεβαιώστε ότι οι μεταβλητές περιβάλλοντος έχουν ρυθμιστεί σωστά (επανεκκινήστε την επιτραπέζια εφαρμογή για να ισχύσουν)
-3. Επιβεβαιώστε ότι το API token είναι έγκυρο (μπορείτε να το δείτε στον [Πίνακα Ελέγχου](https://platform.acedata.cloud/console))
+3. Επιβεβαιώστε ότι το API token είναι έγκυρο (μπορείτε να το δείτε στον [Πίνακα Ελέγχου](https://api.xhuoapi.ai/console))
 4. Εάν χρησιμοποιείτε το `settings.json` για να ρυθμίσετε τις μεταβλητές περιβάλλοντος, επιβεβαιώστε ότι η μορφή του αρχείου είναι σωστή
 
 ### Τι να κάνω αν δεν μπορώ να βρω τα εγκατεστημένα εργαλεία;
@@ -175,9 +175,9 @@ source ~/.zshrc
 
 ### Πώς να ελέγξω την υπόλοιπη πίστωση;
 
-Συνδεθείτε στον [Πίνακα Ελέγχου AceData Cloud](https://platform.acedata.cloud/console) για να δείτε την τρέχουσα υπόλοιπη πίστωση και την κατάσταση χρήσης.
+Συνδεθείτε στον [Πίνακα Ελέγχου XHuoAPI](https://api.xhuoapi.ai/console) για να δείτε την τρέχουσα υπόλοιπη πίστωση και την κατάσταση χρήσης.
 
 ## Μάθετε περισσότερα
 - 📖 [Επίσημη τεκμηρίωση εφαρμογής επιφάνειας εργασίας Claude Code](https://code.claude.com/docs/en/desktop)
-- 🔧 [Υπηρεσία AceData Cloud Claude Code](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [Υπηρεσία XHuoAPI Claude Code](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 Εάν έχετε οποιαδήποτε ερώτηση, μη διστάσετε να επικοινωνήσετε μαζί μας μέσω της εξυπηρέτησης πελατών της πλατφόρμας

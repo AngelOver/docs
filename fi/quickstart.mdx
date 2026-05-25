@@ -1,15 +1,15 @@
 ---
 title: "Nopea aloitus"
-description: "Aloita Ace Data Cloud API:n käyttö 5 minuutissa"
+description: "Aloita XHuoAPI API:n käyttö 5 minuutissa"
 ---
 
 ## 1. Hanki API-avain
 
-Rekisteröidy tilille osoitteessa [platform.acedata.cloud](https://platform.acedata.cloud) ja luo API-todennustiedot.
+Rekisteröidy tilille osoitteessa [platform.xhuoapi.ai](https://api.xhuoapi.ai) ja luo API-todennustiedot.
 
 <Steps>
   <Step title="Rekisteröidy tilille">
-    Käy osoitteessa [platform.acedata.cloud](https://platform.acedata.cloud) ja suorita rekisteröityminen.
+    Käy osoitteessa [platform.xhuoapi.ai](https://api.xhuoapi.ai) ja suorita rekisteröityminen.
   </Step>
   <Step title="Tilaa palvelu">
     Selaa saatavilla olevia palveluita ja klikkaa **Hanki** tilauksen tekemiseksi. Useimmat palvelut tarjoavat ilmaisen käyttörajan.
@@ -26,7 +26,7 @@ Kaikki API:t käyttävät Bearer Token -todennusta:
 <CodeGroup>
 
 ```bash cURL
-curl -X POST https://api.acedata.cloud/v1/chat/completions \
+curl -X POST https://api.xhuoapi.ai/v1/v1/chat/completions \
   -H "Authorization: Bearer YOUR_API_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
@@ -39,7 +39,7 @@ curl -X POST https://api.acedata.cloud/v1/chat/completions \
 import requests
 
 response = requests.post(
-    "https://api.acedata.cloud/v1/chat/completions",
+    "https://api.xhuoapi.ai/v1/v1/chat/completions",
     headers={"Authorization": "Bearer YOUR_API_TOKEN"},
     json={
         "model": "claude-sonnet-4-20250514",
@@ -50,7 +50,7 @@ print(response.json())
 ```
 
 ```javascript JavaScript
-const response = await fetch("https://api.acedata.cloud/v1/chat/completions", {
+const response = await fetch("https://api.xhuoapi.ai/v1/v1/chat/completions", {
   method: "POST",
   headers: {
     Authorization: "Bearer YOUR_API_TOKEN",

@@ -1,6 +1,6 @@
 ---
 title: "Інтеграція та використання Artistic QR Tasks API"
-description: "Art QR Code Generation 集成指南 - Ace Data Cloud"
+description: "Art QR Code Generation 集成指南 - XHuoAPI"
 ---
 
 Основна функція Artistic QR Tasks API полягає в тому, щоб за допомогою введеного ID завдання, згенерованого Artistic QR Generation API, перевірити стан виконання цього завдання.
@@ -9,27 +9,27 @@ description: "Art QR Code Generation 集成指南 - Ace Data Cloud"
 
 ## Процес подачі заявки
 
-Щоб використовувати Artistic QR Tasks API, спочатку потрібно перейти на сторінку подачі заявки [Artistic QR Generation API](https://platform.acedata.cloud/documents/ee085d2a-a0b9-4f0e-8b4d-8da407345138) для отримання відповідної послуги, а потім скопіювати ID завдання Artistic QR Generation API, як показано на малюнку:
+Щоб використовувати Artistic QR Tasks API, спочатку потрібно перейти на сторінку подачі заявки [Artistic QR Generation API](https://api.xhuoapi.ai/documents/ee085d2a-a0b9-4f0e-8b4d-8da407345138) для отримання відповідної послуги, а потім скопіювати ID завдання Artistic QR Generation API, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/2wicjy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2wicjy.png" width="500" className="m-auto" /></p>
 
-Нарешті, перейдіть на сторінку Artistic QR Tasks API [Artistic QR Tasks API](https://platform.acedata.cloud/documents/21de9d76-6e39-4ac3-b8b9-20e7194c02b4) для отримання відповідної послуги, після входу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
+Нарешті, перейдіть на сторінку Artistic QR Tasks API [Artistic QR Tasks API](https://api.xhuoapi.ai/documents/21de9d76-6e39-4ac3-b8b9-20e7194c02b4) для отримання відповідної послуги, після входу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
 
-![Сторінка подачі заявки](https://cdn.acedata.cloud/rci31i.png)
+![Сторінка подачі заявки](https://cdn.xhuoapi.ai/rci31i.png)
 
-Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на [сторінку входу](https://platform.acedata.cloud), запрошуючи вас зареєструватися та увійти. Після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
+Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на [сторінку входу](https://api.xhuoapi.ai), запрошуючи вас зареєструватися та увійти. Після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
 
 При першій подачі заявки вам буде надано безкоштовний ліміт, який дозволяє безкоштовно використовувати цей API.
 
 ## Приклад запиту
 
-Artistic QR Tasks API можна використовувати для перевірки результатів одного API Artistic QR Generation API. Щоб дізнатися, як використовувати Artistic QR Generation API, будь ласка, зверніться до документа [Artistic QR Generation API](https://platform.acedata.cloud/documents/ee085d2a-a0b9-4f0e-8b4d-8da407345138).
+Artistic QR Tasks API можна використовувати для перевірки результатів одного API Artistic QR Generation API. Щоб дізнатися, як використовувати Artistic QR Generation API, будь ласка, зверніться до документа [Artistic QR Generation API](https://api.xhuoapi.ai/documents/ee085d2a-a0b9-4f0e-8b4d-8da407345138).
 
 Розглянемо приклад з ID завдання, повернутим сервісом Artistic QR Generation API. Припустимо, у нас є ID завдання: e2c65b20-a970-431e-99c1-76721e799df8, далі демонструємо, як передати ID завдання.
 
 ### Приклад завдання
 
-<p><img src="https://cdn.acedata.cloud/2wicjy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2wicjy.png" width="500" className="m-auto" /></p>
 
 ### Налаштування заголовків запиту та тіла запиту
 
@@ -45,20 +45,20 @@ Artistic QR Tasks API можна використовувати для пере�
 
 Налаштування виглядає так, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/use825.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/use825.png" width="500" className="m-auto" /></p>
 
 ### Приклад коду
 
 Можна помітити, що на правій стороні сторінки вже автоматично згенеровано код на різних мовах, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/jejwy6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jejwy6.png" width="500" className="m-auto" /></p>
 
 Деякі приклади коду наведені нижче:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/qrart/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/qrart/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/qrart/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/qrart/tasks"
+url = "https://api.xhuoapi.ai/v1/qrart/tasks"
 
 headers = {
     "accept": "application/json",
@@ -104,7 +104,7 @@ print(response.text)
   "request": {
     "aspect_ratio": "1:1",
     "callback_url": null,
-    "content": "https://platform.acedata.cloud",
+    "content": "https://api.xhuoapi.ai",
     "content_image_url": null,
     "ecl": "H",
     "image_origin": null,
@@ -128,7 +128,7 @@ print(response.text)
     "type": "link"
   },
   "response": {
-    "image_url": "https://platform.cdn.acedata.cloud/qrart/e2c65b20-a970-431e-99c1-76721e799df8.png",
+    "image_url": "https://platform.cdn.xhuoapi.ai/qrart/e2c65b20-a970-431e-99c1-76721e799df8.png",
     "image_width": 768,
     "image_height": 768,
     "seed": 5324369603686616,
@@ -154,13 +154,13 @@ print(response.text)
 
 Налаштування виглядає так, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/mrbxmr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mrbxmr.png" width="500" className="m-auto" /></p>
 
 ### Приклад коду
 
 Можна помітити, що на правій стороні сторінки вже автоматично згенеровано код на різних мовах, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/u3b61d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/u3b61d.png" width="500" className="m-auto" /></p>
 
 Деякі приклади коду наведені нижче:
 
@@ -203,7 +203,7 @@ print(response.text)
         "type": "link"
       },
       "response": {
-        "image_url": "https://platform.cdn.acedata.cloud/qrart/8c89e97b-6a79-4406-b2ce-e00f92540b4e.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/qrart/8c89e97b-6a79-4406-b2ce-e00f92540b4e.png",
         "image_width": 768,
         "image_height": 768,
         "seed": 2701847236953402,
@@ -219,7 +219,7 @@ print(response.text)
       "request": {
         "aspect_ratio": "1:1",
         "callback_url": null,
-        "content": "https://platform.acedata.cloud",
+        "content": "https://api.xhuoapi.ai",
         "content_image_url": null,
         "ecl": "H",
         "image_origin": null,
@@ -243,7 +243,7 @@ print(response.text)
         "type": "link"
       },
       "response": {
-        "image_url": "https://platform.cdn.acedata.cloud/qrart/e2c65b20-a970-431e-99c1-76721e799df8.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/qrart/e2c65b20-a970-431e-99c1-76721e799df8.png",
         "image_width": 768,
         "image_height": 768,
         "seed": 5324369603686616,
@@ -258,7 +258,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/qrart/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/qrart/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -273,7 +273,7 @@ curl -X POST 'https://api.acedata.cloud/qrart/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/qrart/tasks"
+url = "https://api.xhuoapi.ai/v1/qrart/tasks"
 
 headers = {
     "accept": "application/json",

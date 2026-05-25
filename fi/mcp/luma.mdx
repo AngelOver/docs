@@ -3,7 +3,7 @@ title: "Luma MCP -integraatio-opas"
 description: "luma MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) on Anthropicin kehittämä mallin konteksti-protokolla, joka mahdollistaa AI-mallien (kuten Claude, GPT jne.) kutsuvan ulkoisia työkaluja standardoitujen rajapintojen kautta. AceData Cloudin tarjoaman Luma MCP Serverin avulla voit suoraan luoda AI-videoita Claude Desktopissa, VS Codessa, Cursorissa ja muissa AI-asiakkaissa.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) on Anthropicin kehittämä mallin konteksti-protokolla, joka mahdollistaa AI-mallien (kuten Claude, GPT jne.) kutsuvan ulkoisia työkaluja standardoitujen rajapintojen kautta. XHuoAPIin tarjoaman Luma MCP Serverin avulla voit suoraan luoda AI-videoita Claude Desktopissa, VS Codessa, Cursorissa ja muissa AI-asiakkaissa.
 
 ## Toimintojen yleiskatsaus
 
@@ -18,10 +18,10 @@ Luma MCP Server tarjoaa seuraavat keskeiset toiminnot:
 
 ## Esivalmistelut
 
-Ennen käyttöä sinun on hankittava AceData Cloud API Token:
+Ennen käyttöä sinun on hankittava XHuoAPI API Token:
 
-1. Rekisteröidy tai kirjaudu sisään [AceData Cloud -alustalle](https://platform.acedata.cloud)
-2. Siirry [Luma Videos API](https://platform.acedata.cloud/documents/luma-videos) -sivulle
+1. Rekisteröidy tai kirjaudu sisään [XHuoAPI -alustalle](https://api.xhuoapi.ai)
+2. Siirry [Luma Videos API](https://api.xhuoapi.ai/documents/luma-videos) -sivulle
 3. Napsauta "Acquire" saadaksesi API Token (ensimmäinen hakemus saa ilmaisia krediittejä)
 
 ## Asennus ja konfigurointi
@@ -35,7 +35,7 @@ pip install mcp-luma
 ### Tapa 2: Lähdekoodin asennus
 
 ```bash
-git clone https://github.com/AceDataCloud/LumaMCP.git
+git clone https://github.com/XHuoAPI/LumaMCP.git
 cd LumaMCP
 pip install -e .
 ```
@@ -57,7 +57,7 @@ Lisää seuraava konfiguraatio:
     "luma": {
       "command": "mcp-luma",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "API Tokenisi"
+        "XHuoAPI_API_TOKEN": "API Tokenisi"
       }
     }
   }
@@ -73,7 +73,7 @@ Jos käytät `uvx` (ei tarvitse asentaa paketteja etukäteen):
       "command": "uvx",
       "args": ["mcp-luma"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "API Tokenisi"
+        "XHuoAPI_API_TOKEN": "API Tokenisi"
       }
     }
   }
@@ -92,7 +92,7 @@ Luo projektin juurihakemistoon tiedosto `.vscode/mcp.json`:
     "luma": {
       "command": "mcp-luma",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "API Tokenisi"
+        "XHuoAPI_API_TOKEN": "API Tokenisi"
       }
     }
   }
@@ -108,7 +108,7 @@ Tai käytä `uvx`:
       "command": "uvx",
       "args": ["mcp-luma"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "API Tokenisi"
+        "XHuoAPI_API_TOKEN": "API Tokenisi"
       }
     }
   }
@@ -137,6 +137,6 @@ Kun konfiguraatio on valmis, voit suoraan kutsua näitä toimintoja luonnollisel
 
 ## Lisätietoja
 
-- GitHub-repositorio: [AceDataCloud/LumaMCP](https://github.com/AceDataCloud/LumaMCP)
+- GitHub-repositorio: [XHuoAPI/LumaMCP](https://github.com/XHuoAPI/LumaMCP)
 - PyPI-paketti: [mcp-luma](https://pypi.org/project/mcp-luma/)
-- API-dokumentaatio: [Luma videonluonti API](https://platform.acedata.cloud/documents/luma)
+- API-dokumentaatio: [Luma videonluonti API](https://api.xhuoapi.ai/documents/luma)

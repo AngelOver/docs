@@ -1,6 +1,6 @@
 ---
 title: "Nano Banana Tasks API της διασύνδεσης και χρήσης"
-description: "Nano Banana Image Generation 集成指南 - Ace Data Cloud"
+description: "Nano Banana Image Generation 集成指南 - XHuoAPI"
 ---
 
 Η κύρια λειτουργία του Nano Banana Tasks API είναι να ερωτά την κατάσταση εκτέλεσης ενός έργου μέσω του ID έργου που παράγεται από το Nano Banana Images API.
@@ -9,13 +9,13 @@ description: "Nano Banana Image Generation 集成指南 - Ace Data Cloud"
 
 ## Παράδειγμα αιτήματος
 
-Το Nano Banana Tasks API μπορεί να χρησιμοποιηθεί για να ελέγξει τα αποτελέσματα του Nano Banana Images API. Για πληροφορίες σχετικά με το πώς να χρησιμοποιήσετε το Nano Banana Images API, ανατρέξτε στο έγγραφο [Nano Banana Images API](https://platform.acedata.cloud/documents/63e01dc3-eb21-499e-8049-3025c460058f).
+Το Nano Banana Tasks API μπορεί να χρησιμοποιηθεί για να ελέγξει τα αποτελέσματα του Nano Banana Images API. Για πληροφορίες σχετικά με το πώς να χρησιμοποιήσετε το Nano Banana Images API, ανατρέξτε στο έγγραφο [Nano Banana Images API](https://api.xhuoapi.ai/documents/63e01dc3-eb21-499e-8049-3025c460058f).
 
 Θα χρησιμοποιήσουμε ένα παράδειγμα με το ID έργου που επιστρέφει η υπηρεσία Nano Banana Images API, για να δείξουμε πώς να χρησιμοποιήσετε αυτό το API. Ας υποθέσουμε ότι έχουμε ένα ID έργου: 4d320ead-4af4-4a55-8f3e-f2afebdf4fd0, και στη συνέχεια θα δείξουμε πώς να το περάσουμε.
 
 ### Παράδειγμα εικόνας έργου
 
-<p><img src="https://cdn.acedata.cloud/nuiuth.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nuiuth.png" width="500" className="m-auto" /></p>
 
 ### Ρύθμιση κεφαλίδων αιτήματος και σώματος αιτήματος
 
@@ -31,20 +31,20 @@ description: "Nano Banana Image Generation 集成指南 - Ace Data Cloud"
 
 Ρυθμίστε όπως φαίνεται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/nuiuth.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nuiuth.png" width="500" className="m-auto" /></p>
 
 ### Παράδειγμα κώδικα
 
 Μπορείτε να παρατηρήσετε ότι στη δεξιά πλευρά της σελίδας έχουν παραχθεί αυτόματα διάφορες γλώσσες κώδικα, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/r1u4vl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/r1u4vl.png" width="500" className="m-auto" /></p>
 
 Ορισμένα παραδείγματα κώδικα είναι τα εξής:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -59,7 +59,7 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/nano-banana/tasks"
+url = "https://api.xhuoapi.ai/v1/nano-banana/tasks"
 
 headers = {
     "accept": "application/json",
@@ -102,7 +102,7 @@ print(response.text)
     "data": [
       {
         "prompt": "a white siamese cat",
-        "image_url": "https://platform.cdn.acedata.cloud/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
+        "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
       }
     ]
   }
@@ -127,7 +127,7 @@ print(response.text)
 Το παράδειγμα είναι το εξής:
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -165,7 +165,7 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
         "data": [
           {
             "prompt": "a white siamese cat",
-            "image_url": "https://platform.cdn.acedata.cloud/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
+            "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
           }
         ]
       }

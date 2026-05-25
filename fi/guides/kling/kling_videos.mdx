@@ -1,15 +1,15 @@
 ---
 title: "Kling Videos Generation API - Integrointiohjeet"
-description: "Kling video generation 集成指南 - Ace Data Cloud"
+description: "Kling video generation 集成指南 - XHuoAPI"
 ---
 
 Tässä dokumentissa esitellään Kling Videos Generation API:n integrointiohjeet, jonka avulla voi syöttää mukautettuja parametreja ja luoda Klingin virallisia videoita.
 
 ## Hakuprosessi
 
-API:n käyttämiseksi sinun tulee ensin hakea palvelua osoitteesta [Kling Videos Generation API](https://platform.acedata.cloud/documents/3b921a16-a411-4557-8335-53f21d3f9e46). Sivulle siirryttyäsi klikkaa "Acquire"-painiketta, kuten kuvassa:
+API:n käyttämiseksi sinun tulee ensin hakea palvelua osoitteesta [Kling Videos Generation API](https://api.xhuoapi.ai/documents/3b921a16-a411-4557-8335-53f21d3f9e46). Sivulle siirryttyäsi klikkaa "Acquire"-painiketta, kuten kuvassa:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Jos et ole kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle rekisteröitymistä ja kirjautumista varten. Kirjautumisen jälkeen palaat automaattisesti tälle sivulle.
 
@@ -19,7 +19,7 @@ Ensimmäisellä hakukerralla saat ilmaisen käyttökiintiön, jonka avulla voit 
 
 Ensiksi tutustutaan peruskäyttöön: syötetään prompt-teksti `prompt`, toimintatapa `action`, aloituskuvan URL `start_image_url` sekä malli `model`, jolloin saadaan käsitelty tulos. Tarvitaan yksinkertaisesti `action`-kenttä, jonka arvoksi asetetaan `text2video`. Toimintoja on kolme: tekstistä videoon (`text2video`), kuvasta videoon (`image2video`) ja videon jatkaminen (`extend`). Lisäksi valitaan malli `model`. Saatavilla on mallit `kling-v1`, `kling-v1-6`, `kling-v2-master`, `kling-v2-1-master`, `kling-v2-5-turbo`, `kling-v2-6`, `kling-v3`, `kling-v3-omni` ja `kling-video-o1`. Tarkemmat tiedot alla:
 
-<p><img src="https://cdn.acedata.cloud/ke1bok.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ke1bok.png" width="500" className="m-auto" /></p>
 
 Request Headers -otsikot ovat:
 
@@ -46,7 +46,7 @@ Request Body sisältää:
 
 Valinnan jälkeen oikealle puolelle syntyy vastaava koodiesimerkki, kuten kuvassa:
 
-<p><img src="https://cdn.acedata.cloud/3yjql0.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3yjql0.png" width="500" className="m-auto" /></p>
 
 Klikkaa "Try" -painiketta testataksesi. Saat tuloksen, esimerkiksi:
 
@@ -75,7 +75,7 @@ Saat siis luodun Kling-videon `video_url`-osoitteesta.
 Voit myös kopioida automaattisesti generoituja koodiesimerkkejä, kuten CURL:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/kling/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -117,7 +117,7 @@ Huomioita:
 
 Jos haluat jatkaa jo luotua Kling-videota, aseta `action` arvoksi `extend` ja syötä jatkettavan videon ID. Videon ID saadaan peruskäytön yhteydessä, kuten kuvassa:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 Videon ID on:
 
@@ -137,18 +137,18 @@ Seuraavaksi määrittele jatkettavan videon prompt ja muut parametrit:
 
 Esimerkki:
 
-<p><img src="https://cdn.acedata.cloud/ejimqy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ejimqy.png" width="500" className="m-auto" /></p>
 
 Automaattisesti generoitu koodi:
 
-<p><img src="https://cdn.acedata.cloud/52x4u5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/52x4u5.png" width="500" className="m-auto" /></p>
 
 Python-esimerkki:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kling/videos"
+url = "https://api.xhuoapi.ai/v1/kling/videos"
 
 headers = {
     "accept": "application/json",
@@ -198,13 +198,13 @@ Esimerkki:
 
 Webhook on HTTP-palvelu, joka vastaanottaa pyyntöjä. Käytämme esimerkkinä julkista palvelua https://webhook.site/. Avaa sivu ja saat Webhook-URL:n, esim:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Kopioi URL, esimerkiksi `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`.
 
 Aseta `callback_url` tähän osoitteeseen ja muut parametrit:
 
-<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vdx12s.png" width="500" className="m-auto" /></p>
 
 Suorita pyyntö, saat välittömästi vastauksen:
 
@@ -216,7 +216,7 @@ Suorita pyyntö, saat välittömästi vastauksen:
 
 Hetken kuluttua näet Webhook-sivulla generoidun videon tuloksen:
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 Sisältö:
 

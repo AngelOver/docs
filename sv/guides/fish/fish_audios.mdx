@@ -1,15 +1,15 @@
 ---
 title: "Fish Audios Generation API Integrationsbeskrivning"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 Detta dokument kommer att introducera en Fish Audios Generation API integrationsbeskrivning, som kan klona sin egen röst genom att ange en prompt.
 
 ## Ansökningsprocess
 
-För att använda API:et måste du först gå till [Fish Audios Generation API](https://platform.acedata.cloud/documents/e681b715-54fd-4464-a59a-d7f14500e095) motsvarande sida för att ansöka om den tjänst som behövs. När du kommer till sidan, klicka på knappen "Acquire", som visas i bilden:
+För att använda API:et måste du först gå till [Fish Audios Generation API](https://api.xhuoapi.ai/documents/e681b715-54fd-4464-a59a-d7f14500e095) motsvarande sida för att ansöka om den tjänst som behövs. När du kommer till sidan, klicka på knappen "Acquire", som visas i bilden:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Om du inte har loggat in eller registrerat dig, kommer du automatiskt att omdirigeras till inloggningssidan för att registrera dig och logga in. Efter att ha loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
 
@@ -19,7 +19,7 @@ Vid första ansökan kommer det att finnas en gratis kvot som ges, så att du ka
 
 Först bör du förstå den grundläggande användningen, vilket innebär att ange prompt `prompt`, kloningsåtgärd `action`, röst-ID `voice_id` och modell `model`, för att få det bearbetade resultatet. Först behöver vi enkelt skicka ett `action`-fält, vars värde är `generate`, och sedan behöver vi också ange modellen `model`, som för närvarande huvudsakligen är `fish-tts`, med följande specifika innehåll:
 
-<p><img src="https://cdn.acedata.cloud/0jnfqb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0jnfqb.png" width="500" className="m-auto" /></p>
 
 Här kan vi se att vi har ställt in Request Headers, inklusive:
 
@@ -36,7 +36,7 @@ Dessutom har vi ställt in Request Body, inklusive:
 
 När du har valt kan du se att motsvarande kod också genererades till höger, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/8uyos2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8uyos2.png" width="500" className="m-auto" /></p>
 
 Klicka på knappen "Try" för att testa, som visas i bilden ovan, här får vi följande resultat:
 
@@ -64,7 +64,7 @@ Vi kan se att vi har fått tillfredsställande ljudinformation, vi behöver bara
 Om du vill generera motsvarande integrationskod kan du direkt kopiera den som genererats, till exempel CURL-koden nedan:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -86,13 +86,13 @@ Låt oss förstå hur man gör detta genom ett exempel.
 
 Först är Webhook callback en tjänst som kan ta emot HTTP-förfrågningar, utvecklaren bör ersätta med URL:en till sin egen byggda HTTP-server. Här för att underlätta demonstration använder vi en offentlig Webhook-exempelsida https://webhook.site/, öppna denna webbplats för att få en Webhook-URL, som visas i bilden:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Kopiera denna URL, så kan den användas som Webhook, här är exemplet `https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34`.
 
 Därefter kan vi ställa in fältet `callback_url` till ovanstående Webhook-URL, samtidigt som vi fyller i motsvarande parametrar, det specifika innehållet visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/8rv4te.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8rv4te.png" width="500" className="m-auto" /></p>
 
 Klicka på kör, så kan vi se att vi omedelbart får ett resultat, som följer:
 
@@ -104,7 +104,7 @@ Klicka på kör, så kan vi se att vi omedelbart får ett resultat, som följer:
 
 Vänta en stund, så kan vi observera resultatet av den genererade uppgiften på `https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34`, som visas i bilden:
 
-![](https://cdn.acedata.cloud/9utzve.png)
+![](https://cdn.xhuoapi.ai/9utzve.png)
 
 Innehållet är som följer:
 

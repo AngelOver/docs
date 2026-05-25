@@ -1,6 +1,6 @@
 ---
 title: "DeepSeek Chat Completion API 申請及使用"
-description: "DeepSeek AI 集成指南 - Ace Data Cloud"
+description: "DeepSeek AI 集成指南 - XHuoAPI"
 ---
 
 DeepSeek は非常に強力な AI 対話システムで、提示されたキーワードを入力するだけで、数秒以内に流暢で自然な返信を生成できます。DeepSeek-V3 はその優れた言語理解と生成能力により業界で際立っており、現在、DeepSeek-V3 はさまざまな業界や分野で広く利用されており、その影響力はますます顕著になっています。日常の対話、創造的な執筆、専門的な相談、コードプログラミングにおいても、DeepSeek-V3 は驚くべき知的支援を提供し、人間の作業効率と創造性を大幅に向上させています。
@@ -9,9 +9,9 @@ DeepSeek は非常に強力な AI 対話システムで、提示されたキー�
 
 ## 申請プロセス
 
-DeepSeek Chat Completion API を使用するには、まず [DeepSeek Chat Completion API](https://platform.acedata.cloud/documents/2d6a9bae-9a70-4aaa-bd72-28e5bd60fa67) ページにアクセスし、「Acquire」ボタンをクリックして、リクエストに必要な認証情報を取得します：
+DeepSeek Chat Completion API を使用するには、まず [DeepSeek Chat Completion API](https://api.xhuoapi.ai/documents/2d6a9bae-9a70-4aaa-bd72-28e5bd60fa67) ページにアクセスし、「Acquire」ボタンをクリックして、リクエストに必要な認証情報を取得します：
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 まだログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -21,7 +21,7 @@ DeepSeek Chat Completion API を使用するには、まず [DeepSeek Chat Compl
 
 次に、画面上に対応する内容を入力します。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/m9kxkz.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/m9kxkz.png" width="400" className="m-auto" /></p>
 
 このインターフェースを初めて使用する際には、少なくとも3つの内容を入力する必要があります。一つは `authorization` で、ドロップダウンリストから直接選択できます。もう一つのパラメータは `model` で、`model` は DeepSeek の公式モデルカテゴリを選択するものです。ここでは主に4つのモデルがあります。詳細は提供されたモデルをご覧ください。最後のパラメータは `messages` で、`messages` は入力する質問の配列です。これは配列で、複数の質問を同時にアップロードでき、各質問には `role` と `content` が含まれています。`role` は質問者の役割を示し、`user`、`assistant`、`system` の3つの役割を提供しています。もう一つの `content` は具体的な質問内容です。
 
@@ -34,7 +34,7 @@ DeepSeek Chat Completion API を使用するには、まず [DeepSeek Chat Compl
 - `n`：一度に生成する候補返信の数。
 - `response_format`：返却フォーマットの設定。
 
-<p><img src="https://cdn.acedata.cloud/93k4xi.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/93k4xi.png" width="400" className="m-auto" /></p>
 
 呼び出し後、返された結果は以下の通りです：
 
@@ -75,7 +75,7 @@ DeepSeek Chat Completion API を使用するには、まず [DeepSeek Chat Compl
 
 その中で `choices` は DeepSeek の回答情報を含んでおり、`choices` の中には DeepSeek の回答情報が含まれています。以下の図のように確認できます。
 
-<p><img src="https://cdn.acedata.cloud/0pd4q5.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0pd4q5.png" width="400" className="m-auto" /></p>
 
 `choices` の中の `content` フィールドには、DeepSeek の返信の具体的な内容が含まれています。
 
@@ -87,7 +87,7 @@ DeepSeek Chat Completion API を使用するには、まず [DeepSeek Chat Compl
 
 変更は以下の図のように行いますが、呼び出しコードにはストリーミング応答をサポートするための対応する変更が必要です。
 
-<p><img src="https://cdn.acedata.cloud/dsoiqw.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dsoiqw.png" width="400" className="m-auto" /></p>
 
 `stream` を `true` に変更すると、API は行ごとに対応する JSON データを返します。コードレベルで逐次結果を取得するために、相応の変更を行う必要があります。
 
@@ -96,7 +96,7 @@ Python サンプル呼び出しコード：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/deepseek/chat/completions"
+url = "https://api.xhuoapi.ai/v1/deepseek/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -166,7 +166,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/deepseek/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/deepseek/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -182,7 +182,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/deepseek/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/deepseek/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -199,14 +199,14 @@ System.out.print(response.body!!.string())
 ## 多輪対話
 
 もし多輪対話機能を接続したい場合は、`messages` フィールドに複数の質問をアップロードする必要があります。複数の質問の具体的な例は以下の図のようになります：
-<p><img src="https://cdn.acedata.cloud/7yyhl4.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7yyhl4.png" width="400" className="m-auto" /></p>
 
 Python サンプル呼び出しコード：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/deepseek/chat/completions"
+url = "https://api.xhuoapi.ai/v1/deepseek/chat/completions"
 
 headers = {
     "accept": "application/json",

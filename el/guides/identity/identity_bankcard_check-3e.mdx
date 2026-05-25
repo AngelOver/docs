@@ -1,15 +1,15 @@
 ---
 title: "Τριπλή Επιβεβαίωση Στοιχείων Τραπεζικής Κάρτας API Οδηγίες Σύνδεσης"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Αυτό το έγγραφο θα παρουσιάσει μια μέθοδο για την επιβεβαίωση των στοιχείων της τραπεζικής κάρτας μέσω του API, το οποίο μπορεί να χρησιμοποιηθεί για την επαλήθευση της γνησιότητας και της συνέπειας των στοιχείων αριθμού τραπεζικής κάρτας, ονόματος και αριθμού ταυτότητας.
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [API Τριπλής Επιβεβαίωσης Στοιχείων Τραπεζικής Κάρτας](https://platform.acedata.cloud/documents/eb9c6677-68db-4549-a207-41f8a1084634) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού εισέλθετε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [API Τριπλής Επιβεβαίωσης Στοιχείων Τραπεζικής Κάρτας](https://api.xhuoapi.ai/documents/eb9c6677-68db-4549-a207-41f8a1084634) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού εισέλθετε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη σελίδα σύνδεσης για να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη σελίδα.
 
@@ -19,7 +19,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 Αρχικά, πρέπει να κατανοήσετε τη βασική μέθοδο χρήσης, δηλαδή να εισάγετε τον αριθμό της τραπεζικής κάρτας, ώστε να λάβετε την επεξεργασμένη εικόνα αποτελέσματος. Πρέπει απλώς να μεταφέρετε ένα πεδίο `bank_card`. Στη συνέχεια, μπορείτε να συμπληρώσετε τα αντίστοιχα περιεχόμενα στην οθόνη, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/3kh6i2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3kh6i2.png" width="500" className="m-auto" /></p>
 
 Μπορείτε να δείτε ότι έχουμε ρυθμίσει τα Request Headers, που περιλαμβάνουν:
 
@@ -36,7 +36,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 Αφού επιλέξετε, μπορείτε να δείτε ότι έχει παραχθεί ο αντίστοιχος κώδικας στα δεξιά, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/cpvguu.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/cpvguu.png" width="500" className="m-auto" /></p>
 
 Κάντε κλικ στο κουμπί «Try» για να κάνετε δοκιμή, όπως φαίνεται στην παραπάνω εικόνα, και εδώ έχουμε λάβει το εξής αποτέλεσμα:
 
@@ -77,7 +77,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 Επιπλέον, εάν θέλετε να δημιουργήσετε τον αντίστοιχο κώδικα σύνδεσης, μπορείτε να τον αντιγράψετε απευθείας, όπως ο κώδικας CURL παρακάτω:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/bankcard/check-3e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/bankcard/check-3e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -93,7 +93,7 @@ curl -X POST 'https://api.acedata.cloud/identity/bankcard/check-3e' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/bankcard/check-3e"
+url = "https://api.xhuoapi.ai/v1/identity/bankcard/check-3e"
 
 headers = {
     "accept": "application/json",

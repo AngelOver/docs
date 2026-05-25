@@ -1,6 +1,6 @@
 ---
 title: "AI ID-foto Task API:s integration och användning"
-description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
+description: "AI ID Photo Production 集成指南 - XHuoAPI"
 ---
 
 AI ID-foto Task API:s huvudsakliga funktion är att genom att ange det uppdrag ID som genererats av AI ID-foto skapande API, kunna kontrollera statusen för det uppdraget.
@@ -9,27 +9,27 @@ Detta dokument kommer att detaljerat beskriva integrationen av AI ID-foto Task A
 
 ## Ansökningsprocess
 
-För att använda AI ID-foto Task API, behöver du först gå till ansökningssidan [AI ID-foto skapande API](https://platform.acedata.cloud/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) för att ansöka om den aktuella tjänsten, och sedan kopiera uppdrag ID från AI ID-foto skapande API, som visas i bilden:
+För att använda AI ID-foto Task API, behöver du först gå till ansökningssidan [AI ID-foto skapande API](https://api.xhuoapi.ai/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) för att ansöka om den aktuella tjänsten, och sedan kopiera uppdrag ID från AI ID-foto skapande API, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/7ezmmn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7ezmmn.png" width="500" className="m-auto" /></p>
 
-Slutligen går du till Tasks API-sidan [AI ID-foto Task API](https://platform.acedata.cloud/documents/3a23ee34-8689-406b-9042-7954224348ad) för att ansöka om den aktuella tjänsten, när du kommer in på sidan, klicka på knappen "Acquire", som visas i bilden:
+Slutligen går du till Tasks API-sidan [AI ID-foto Task API](https://api.xhuoapi.ai/documents/3a23ee34-8689-406b-9042-7954224348ad) för att ansöka om den aktuella tjänsten, när du kommer in på sidan, klicka på knappen "Acquire", som visas i bilden:
 
-![Ansökningssidan](https://cdn.acedata.cloud/rci31i.png)
+![Ansökningssidan](https://cdn.xhuoapi.ai/rci31i.png)
 
-Om du inte har loggat in eller registrerat dig, kommer du automatiskt att omdirigeras till [inloggningssidan](https://platform.acedata.cloud) för att registrera dig och logga in, efter inloggning och registrering kommer du automatiskt att återvända till den aktuella sidan.
+Om du inte har loggat in eller registrerat dig, kommer du automatiskt att omdirigeras till [inloggningssidan](https://api.xhuoapi.ai) för att registrera dig och logga in, efter inloggning och registrering kommer du automatiskt att återvända till den aktuella sidan.
 
 Vid första ansökan kommer det att finnas en gratis kvot som ges, så att du kan använda detta API gratis.
 
 ## Begärningsexempel
 
-AI ID-foto Task API kan användas för att kontrollera resultaten från AI ID-foto skapande API. För information om hur man använder AI ID-foto skapande API, vänligen se dokumentet [AI ID-foto skapande API](https://platform.acedata.cloud/documents/d6ea75a4-836e-490a-aee5-7ca911a808fd).
+AI ID-foto Task API kan användas för att kontrollera resultaten från AI ID-foto skapande API. För information om hur man använder AI ID-foto skapande API, vänligen se dokumentet [AI ID-foto skapande API](https://api.xhuoapi.ai/documents/d6ea75a4-836e-490a-aee5-7ca911a808fd).
 
 Vi tar ett exempel med ett uppdrag ID som returnerats av AI ID-foto skapande API, för att demonstrera hur man använder detta API. Anta att vi har ett uppdrag ID: `16f96e95-d95c-46ef-b183-139b9bd1aebd`, och vi visar hur man gör detta genom att skicka in ett uppdrag ID.
 
 ### Uppdragsexempelbild
 
-<p><img src="https://cdn.acedata.cloud/7ezmmn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7ezmmn.png" width="500" className="m-auto" /></p>
 
 ### Ställ in begärningshuvuden och begärningskropp
 
@@ -45,20 +45,20 @@ Vi tar ett exempel med ett uppdrag ID som returnerats av AI ID-foto skapande API
 
 Inställningarna visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/ezsyyd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ezsyyd.png" width="500" className="m-auto" /></p>
 
 ### Kodexempel
 
 Det kan noteras att olika språkets kod redan har genererats automatiskt på högra sidan, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/x99wu2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/x99wu2.png" width="500" className="m-auto" /></p>
 
 Några kodexempel visas nedan:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/headshots/tasks"
+url = "https://api.xhuoapi.ai/v1/headshots/tasks"
 
 headers = {
     "accept": "application/json",
@@ -118,12 +118,12 @@ Vid en lyckad begäran kommer API:t att returnera detaljerad information om dett
     "data": [
       {
         "id": "202411032022077381",
-        "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
         "template": "manligt porträtt"
       },
       {
         "id": "202411032022079194",
-        "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
         "template": "manligt porträtt"
       }
     ]
@@ -148,13 +148,13 @@ Detta är för att fråga detaljerna för ID-foto uppdrag för flera uppdrag ID,
 
 Inställningarna visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/8vynq9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8vynq9.png" width="500" className="m-auto" /></p>
 
 ### Kodexempel
 
 Det kan noteras att olika språkets kod redan har genererats automatiskt på högra sidan, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/5jexyn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5jexyn.png" width="500" className="m-auto" /></p>
 
 Några kodexempel visas nedan:
 
@@ -187,12 +187,12 @@ Vid en lyckad begäran kommer API:t att returnera detaljerad information om alla
         "data": [
           {
             "id": "202411032022077381",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
             "template": "男形象照"
           },
           {
             "id": "202411032022079194",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
             "template": "男形象照"
           }
         ]
@@ -229,7 +229,7 @@ Vid en lyckad begäran kommer API:t att returnera detaljerad information om alla
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -244,7 +244,7 @@ curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/headshots/tasks"
+url = "https://api.xhuoapi.ai/v1/headshots/tasks"
 
 headers = {
     "accept": "application/json",

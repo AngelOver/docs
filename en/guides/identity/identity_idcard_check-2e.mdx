@@ -1,15 +1,15 @@
 ---
 title: "Identity Information and Validity Verification API Integration Instructions"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 This document will introduce an Identity Information and Validity Verification API integration instruction, which can be used to verify the authenticity and consistency of names, ID card numbers, and ID card validity periods.
 
 ## Application Process
 
-To use the API, you need to first apply for the corresponding service on the [Identity Information and Validity Verification API](https://platform.acedata.cloud/documents/667017a4-017f-4af0-870e-807034f70632) page. After entering the page, click the "Acquire" button, as shown in the image below:
+To use the API, you need to first apply for the corresponding service on the [Identity Information and Validity Verification API](https://api.xhuoapi.ai/documents/667017a4-017f-4af0-870e-807034f70632) page. After entering the page, click the "Acquire" button, as shown in the image below:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
@@ -19,7 +19,7 @@ There will be a free quota granted for the first application, allowing you to us
 
 First, understand the basic usage method, which is to input the ID card image link to obtain the processed verification result. You first need to simply pass a `name` field, and we can then fill in the corresponding content on the interface, as shown in the image below:
 
-<p><img src="https://cdn.acedata.cloud/llvy1l.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/llvy1l.png" width="500" className="m-auto" /></p>
 
 Here we can see that we have set the Request Headers, including:
 
@@ -37,7 +37,7 @@ Additionally, the Request Body is set, including:
 
 After selection, you can find that the corresponding code is also generated on the right side, as shown in the image below:
 
-<p><img src="https://cdn.acedata.cloud/l77q0u.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/l77q0u.png" width="500" className="m-auto" /></p>
 
 Click the "Try" button to conduct a test, as shown in the above image, and we obtained the following result:
 
@@ -68,7 +68,7 @@ It can be seen that the name, ID card number, and ID card validity period in the
 Additionally, if you want to generate the corresponding integration code, you can directly copy it, for example, the CURL code is as follows:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/idcard/check-2e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/idcard/check-2e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -85,7 +85,7 @@ The integration code in Python is as follows:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/idcard/check-2e"
+url = "https://api.xhuoapi.ai/v1/identity/idcard/check-2e"
 
 headers = {
     "accept": "application/json",

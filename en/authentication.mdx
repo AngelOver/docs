@@ -1,30 +1,30 @@
 ---
 title: "Gateway & Authentication"
-description: "Ace Data Cloud API gateway endpoints, headers, authentication, and common errors."
+description: "XHuoAPI API gateway endpoints, headers, authentication, and common errors."
 ---
 
-All Ace Data Cloud APIs are served from `https://api.acedata.cloud` and authenticated via **Bearer Token**.
+All XHuoAPI APIs are served from `https://api.xhuoapi.ai/v1` and authenticated via **Bearer Token**.
 
 ## Endpoints
 
 <CardGroup cols={2}>
   <Card title="API Gateway" icon="globe">
-    `https://api.acedata.cloud`
+    `https://api.xhuoapi.ai/v1`
 
     Entry point for all business calls.
   </Card>
   <Card title="Developer Console" icon="browser">
-    `https://platform.acedata.cloud`
+    `https://api.xhuoapi.ai`
 
     Subscriptions, credentials, usage.
   </Card>
   <Card title="Identity" icon="key">
-    `https://auth.acedata.cloud`
+    `https://api.xhuoapi.ai`
 
     SSO and OAuth2 endpoints.
   </Card>
   <Card title="Status" icon="signal">
-    `https://status.acedata.cloud`
+    `https://xhuoapi.ai`
 
     Availability and incident history.
   </Card>
@@ -34,7 +34,7 @@ All Ace Data Cloud APIs are served from `https://api.acedata.cloud` and authenti
 
 <Steps>
   <Step title="Register">
-    Sign up at [platform.acedata.cloud](https://platform.acedata.cloud).
+    Sign up at [platform.xhuoapi.ai](https://api.xhuoapi.ai).
   </Step>
   <Step title="Subscribe">
     Open the detail page of the service you want (Midjourney / Suno / Claude / …) and purchase a package or claim a trial.
@@ -46,7 +46,7 @@ All Ace Data Cloud APIs are served from `https://api.acedata.cloud` and authenti
 
 ## Kinds of tokens
 
-- **Business token**: created on each service page at [platform.acedata.cloud](https://platform.acedata.cloud); used to call business endpoints on `api.acedata.cloud`. Depending on the application it is bound to, billing comes from either a per-service application (instance balance) or a general-scope application (general balance).
+- **Business token**: created on each service page at [platform.xhuoapi.ai](https://api.xhuoapi.ai); used to call business endpoints on `api.xhuoapi.ai`. Depending on the application it is bound to, billing comes from either a per-service application (instance balance) or a general-scope application (general balance).
 - **Platform token** (prefix `platform-`): for platform management APIs (accounts, subscriptions). **Do NOT** use for business calls.
 
 ## Request headers
@@ -94,7 +94,7 @@ Possible `error.code`:
 {
   "error": {
     "code": "used_up",
-    "message": "Your balance is not sufficient for current request, please buy more in Ace Data Cloud https://platform.acedata.cloud"
+    "message": "Your balance is not sufficient for current request, please buy more in XHuoAPI https://api.xhuoapi.ai"
   },
   "trace_id": "..."
 }

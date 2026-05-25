@@ -1,6 +1,6 @@
 ---
 title: "Διασύνδεση και Χρήση του Flux Tasks API"
-description: "Flux Image Generation 集成指南 - Ace Data Cloud"
+description: "Flux Image Generation 集成指南 - XHuoAPI"
 ---
 
 Η κύρια λειτουργία του Flux Tasks API είναι να ερωτά την κατάσταση εκτέλεσης ενός έργου μέσω του ID έργου που παράγεται από το Flux Images Generation API.
@@ -9,27 +9,27 @@ description: "Flux Image Generation 集成指南 - Ace Data Cloud"
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το Flux Tasks API, πρέπει πρώτα να επισκεφθείτε τη σελίδα αίτησης [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) για να ζητήσετε την αντίστοιχη υπηρεσία και στη συνέχεια να αντιγράψετε το ID έργου του Flux Images Generation API, όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε το Flux Tasks API, πρέπει πρώτα να επισκεφθείτε τη σελίδα αίτησης [Flux Images Generation API](https://api.xhuoapi.ai/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) για να ζητήσετε την αντίστοιχη υπηρεσία και στη συνέχεια να αντιγράψετε το ID έργου του Flux Images Generation API, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/7furhb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7furhb.png" width="500" className="m-auto" /></p>
 
-Τέλος, επισκεφθείτε τη σελίδα του Flux Tasks API [Flux Tasks API](https://platform.acedata.cloud/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b) για να ζητήσετε την αντίστοιχη υπηρεσία. Αφού εισέλθετε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα.
+Τέλος, επισκεφθείτε τη σελίδα του Flux Tasks API [Flux Tasks API](https://api.xhuoapi.ai/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b) για να ζητήσετε την αντίστοιχη υπηρεσία. Αφού εισέλθετε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα.
 
-![Σελίδα Αίτησης](https://cdn.acedata.cloud/rci31i.png)
+![Σελίδα Αίτησης](https://cdn.xhuoapi.ai/rci31i.png)
 
-Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα ανακατευθυνθείτε αυτόματα στη [σελίδα σύνδεσης](https://platform.acedata.cloud) για να σας προσκαλέσει να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη σελίδα.
+Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα ανακατευθυνθείτε αυτόματα στη [σελίδα σύνδεσης](https://api.xhuoapi.ai) για να σας προσκαλέσει να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη σελίδα.
 
 Κατά την πρώτη αίτηση, θα υπάρχει δωρεάν πίστωση που μπορείτε να χρησιμοποιήσετε δωρεάν για αυτό το API.
 
 ## Παράδειγμα Αίτησης
 
-Το Flux Tasks API μπορεί να χρησιμοποιηθεί για να ελέγξει τα αποτελέσματα του Flux Images Generation API. Για πληροφορίες σχετικά με το πώς να χρησιμοποιήσετε το Flux Images Generation API, ανατρέξτε στο έγγραφο [Flux Images Generation API](https://platform.acedata.cloud/documents/flux-images-integration).
+Το Flux Tasks API μπορεί να χρησιμοποιηθεί για να ελέγξει τα αποτελέσματα του Flux Images Generation API. Για πληροφορίες σχετικά με το πώς να χρησιμοποιήσετε το Flux Images Generation API, ανατρέξτε στο έγγραφο [Flux Images Generation API](https://api.xhuoapi.ai/documents/flux-images-integration).
 
 Θα χρησιμοποιήσουμε ένα παράδειγμα με το ID έργου που επιστρέφεται από την υπηρεσία Flux Images Generation API. Ας υποθέσουμε ότι έχουμε ένα ID έργου: 2db0168c-2373-4367-8d9a-9dc778802e8a, και στη συνέχεια θα δείξουμε πώς να το χρησιμοποιήσουμε περνώντας ένα ID έργου.
 
 ### Παράδειγμα Έργου
 
-<p><img src="https://cdn.acedata.cloud/7furhb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7furhb.png" width="500" className="m-auto" /></p>
 
 ### Ρύθμιση Κεφαλίδων Αίτησης και Σώματος Αίτησης
 
@@ -45,20 +45,20 @@ description: "Flux Image Generation 集成指南 - Ace Data Cloud"
 
 Ρυθμίστε όπως φαίνεται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/fiasxz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fiasxz.png" width="500" className="m-auto" /></p>
 
 ### Παράδειγμα Κώδικα
 
 Μπορείτε να παρατηρήσετε ότι στη δεξιά πλευρά της σελίδας έχουν ήδη παραχθεί αυτόματα κώδικες σε διάφορες γλώσσες, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/j6gn86.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/j6gn86.png" width="500" className="m-auto" /></p>
 
 Ορισμένα παραδείγματα κώδικα είναι τα εξής:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/flux/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/flux/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/tasks"
+url = "https://api.xhuoapi.ai/v1/flux/tasks"
 
 headers = {
     "accept": "application/json",
@@ -144,13 +144,13 @@ print(response.text)
 
 Ρυθμίστε όπως φαίνεται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/k3i9ns.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/k3i9ns.png" width="500" className="m-auto" /></p>
 
 ### Παράδειγμα Κώδικα
 
 Μπορείτε να παρατηρήσετε ότι στη δεξιά πλευρά της σελίδας έχουν ήδη παραχθεί αυτόματα κώδικες σε διάφορες γλώσσες, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/pt5fww.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pt5fww.png" width="500" className="m-auto" /></p>
 
 Ορισμένα παραδείγματα κώδικα είναι τα εξής:
 
@@ -228,7 +228,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/flux/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -243,7 +243,7 @@ curl -X POST 'https://api.acedata.cloud/flux/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/tasks"
+url = "https://api.xhuoapi.ai/v1/flux/tasks"
 
 headers = {
     "accept": "application/json",

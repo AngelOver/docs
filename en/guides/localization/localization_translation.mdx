@@ -1,6 +1,6 @@
 ---
 title: "Localization Translate API Integration and Usage"
-description: "Localization translation 集成指南 - Ace Data Cloud"
+description: "Localization translation 集成指南 - XHuoAPI"
 ---
 
 The main function of the Localization Translate API is to obtain translated text by inputting the text that needs to be translated, while the target language for translation can be customized, and the translation results can be output in two mainstream formats: `json` and `markdown`.
@@ -9,11 +9,11 @@ This document will provide detailed instructions on integrating the Translate AP
 
 ## Application Process
 
-To use the Localization Translate API, you need to first apply for the corresponding service on the application page [Localization Translate API](https://platform.acedata.cloud/documents/6dcc60d0-a973-4ad2-92d8-11f4d3775532). After entering the page, click the "Acquire" button, as shown in the image:
+To use the Localization Translate API, you need to first apply for the corresponding service on the application page [Localization Translate API](https://api.xhuoapi.ai/documents/6dcc60d0-a973-4ad2-92d8-11f4d3775532). After entering the page, click the "Acquire" button, as shown in the image:
 
-![Application Page](https://cdn.acedata.cloud/rci31i.png)
+![Application Page](https://cdn.xhuoapi.ai/rci31i.png)
 
-If you are not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
+If you are not logged in or registered, you will be automatically redirected to the [login page](https://api.xhuoapi.ai) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
 There is a free quota available for first-time applicants, allowing you to use the API for free.
 
@@ -37,20 +37,20 @@ We will take an English input as an example to demonstrate how to use the API. S
 
 Set as shown in the image below:
 
-<p><img src="https://cdn.acedata.cloud/d4uqst.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d4uqst.png" width="500" className="m-auto" /></p>
 
 ### Code Example
 
 You can see that various language codes have been automatically generated on the right side of the page, as shown in the image:
 
-<p><img src="https://cdn.acedata.cloud/tn5nno.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tn5nno.png" width="500" className="m-auto" /></p>
 
 Some code examples are as follows:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/localization/translate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/localization/translate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -66,7 +66,7 @@ curl -X POST 'https://api.acedata.cloud/localization/translate' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/localization/translate"
+url = "https://api.xhuoapi.ai/v1/localization/translate"
 
 headers = {
     "accept": "application/json",

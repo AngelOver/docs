@@ -1,15 +1,15 @@
 ---
 title: "Fish Model Get API -liitäntäohje"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 Tässä dokumentissa esitellään Fish Model Get API:n (`GET /fish/model/{id}`) liitäntäohje, joka on täysin yhteensopiva [Fish Audio virallisen OpenAPI:n](https://docs.fish.audio/resources/api-reference/model) kanssa. Tämä rajapinta on tarkoitettu **yksittäisen kloonatun äänen täydellisten tietojen hakemiseen äänen ID:n perusteella**.
 
-> Äänen luomisesta katso [Fish Model Create API](https://platform.acedata.cloud/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a), sivutettu listaushaku löytyy [Fish Model Query API:sta](https://platform.acedata.cloud/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d).
+> Äänen luomisesta katso [Fish Model Create API](https://api.xhuoapi.ai/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a), sivutettu listaushaku löytyy [Fish Model Query API:sta](https://api.xhuoapi.ai/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d).
 
 ## Hakemusprosessi
 
-API:n käyttämiseksi sinun tulee ensin hakea palvelua vastaavalta sivulta [Fish Model API](https://platform.acedata.cloud/services/caf99abc-ddcf-4714-b2a5-862d9b469509). Sivulle siirryttyäsi klikkaa "Acquire"-painiketta.
+API:n käyttämiseksi sinun tulee ensin hakea palvelua vastaavalta sivulta [Fish Model API](https://api.xhuoapi.ai/services/caf99abc-ddcf-4714-b2a5-862d9b469509). Sivulle siirryttyäsi klikkaa "Acquire"-painiketta.
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa voit rekisteröityä ja kirjautua sisään. Kirjautumisen jälkeen palaat automaattisesti tälle sivulle.
 
@@ -19,12 +19,12 @@ Ensimmäisellä hakemiskerralla saat ilmaisen käyttökiintiön, jolla voit käy
 
 - **Todennustapa**: Käytetään `Authorization: Bearer {token}` -otsikkoa, jossa `{token}` on alustalta haettu avain.
 - **Vastausrakenne**: Fishin ylävirran ModelEntity-objekti välitetään suoraan ilman alustan ympäröivää envelope-rakennetta; virhetilanteissa käytetään alustan standardirakennetta `{success:false, error:{code,message}, trace_id}`.
-- **Polkuparametri**: `{id}` on äänen `_id`, joka saadaan [Fish Model Create API:n](https://platform.acedata.cloud/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a) luontivastauksesta tai [Fish Model Query API:n](https://platform.acedata.cloud/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d) sivutetusta hausta.
+- **Polkuparametri**: `{id}` on äänen `_id`, joka saadaan [Fish Model Create API:n](https://api.xhuoapi.ai/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a) luontivastauksesta tai [Fish Model Query API:n](https://api.xhuoapi.ai/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d) sivutetusta hausta.
 
 ## Pyyntöesimerkki
 
 ```shell
-curl 'https://api.acedata.cloud/fish/model/d7900c21663f485ab63ebdb7e5905036' \
+curl 'https://api.xhuoapi.ai/v1/fish/model/d7900c21663f485ab63ebdb7e5905036' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}'
 ```
@@ -73,7 +73,7 @@ Onnistunut vastaus välittää suoraan Fish-alustan ModelEntity-objektin:
 }
 ```
 
-Palautettu `_id` voidaan käyttää myöhemmissä [Fish TTS API](https://platform.acedata.cloud/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) -kutsujen `reference_id`-kentän arvona, kun kloonattua ääntä käytetään puhesynteesiin.
+Palautettu `_id` voidaan käyttää myöhemmissä [Fish TTS API](https://api.xhuoapi.ai/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) -kutsujen `reference_id`-kentän arvona, kun kloonattua ääntä käytetään puhesynteesiin.
 
 ## Maksutiedot
 
@@ -103,4 +103,4 @@ Tämä rajapinta on maksuton — äänen tietojen hakeminen ID:n perusteella on 
 
 ## Yhteenveto
 
-Fish Model Get API tarjoaa täysin yhteensopivan tavan hakea yksittäisen äänen tiedot Fish Audion virallisen rajapinnan tapaan. Saatuasi äänen ID:n voit tämän rajapinnan avulla hakea täydellisen ModelEntity-objektin (sisältäen näytteet, tilan, näkyvyyden, tilastot jne.) ja yhdistää sen [Fish TTS API:n](https://platform.acedata.cloud/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) kanssa toteuttaaksesi kokonaisen kloonaus- ja synteesiprosessin.
+Fish Model Get API tarjoaa täysin yhteensopivan tavan hakea yksittäisen äänen tiedot Fish Audion virallisen rajapinnan tapaan. Saatuasi äänen ID:n voit tämän rajapinnan avulla hakea täydellisen ModelEntity-objektin (sisältäen näytteet, tilan, näkyvyyden, tilastot jne.) ja yhdistää sen [Fish TTS API:n](https://api.xhuoapi.ai/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) kanssa toteuttaaksesi kokonaisen kloonaus- ja synteesiprosessin.

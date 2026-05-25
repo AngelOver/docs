@@ -1,15 +1,15 @@
 ---
 title: "Проверка статуса номера телефона API Инструкция по интеграции"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 В этой статье будет представлена инструкция по интеграции API проверки статуса номера телефона, который можно использовать для проверки статуса номера телефона, вы можете ввести номер телефона для запроса.
 
 ## Процесс подачи заявки
 
-Чтобы использовать API, сначала необходимо перейти на соответствующую страницу [API проверки статуса номера телефона](https://platform.acedata.cloud/documents/037e2b5b-d0c0-425c-9e13-955ac64d1e07) и подать заявку на соответствующую услугу, после перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
+Чтобы использовать API, сначала необходимо перейти на соответствующую страницу [API проверки статуса номера телефона](https://api.xhuoapi.ai/documents/037e2b5b-d0c0-425c-9e13-955ac64d1e07) и подать заявку на соответствующую услугу, после перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Если вы еще не вошли в систему или не зарегистрированы, вас автоматически перенаправит на страницу входа, пригласив зарегистрироваться и войти в систему, после входа и регистрации вы автоматически вернетесь на текущую страницу.
 
@@ -19,7 +19,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 Сначала ознакомьтесь с основным способом использования, то есть введите номер телефона, чтобы получить обработанный результат, сначала необходимо просто передать поле `mobile`. Далее мы можем заполнить соответствующее содержимое на интерфейсе, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/r17llo.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/r17llo.png" width="500" className="m-auto" /></p>
 
 Как видно, мы настроили заголовки запроса, включая:
 
@@ -33,7 +33,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 После выбора можно заметить, что справа также сгенерирован соответствующий код, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/dpun55.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dpun55.png" width="500" className="m-auto" /></p>
 
 Нажмите кнопку «Try», чтобы провести тестирование, как показано на изображении, здесь мы получили следующий результат:
 
@@ -68,7 +68,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 Кроме того, если вы хотите сгенерировать соответствующий код интеграции, вы можете просто скопировать его, например, код CURL выглядит следующим образом:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/phone/check-1e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/phone/check-1e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -82,7 +82,7 @@ curl -X POST 'https://api.acedata.cloud/identity/phone/check-1e' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/phone/check-1e"
+url = "https://api.xhuoapi.ai/v1/identity/phone/check-1e"
 
 headers = {
     "accept": "application/json",

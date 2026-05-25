@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Chat Completion API 申請及び使用"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI ChatGPT は非常に強力な AI 対話システムで、提示語を入力するだけで、数秒以内に流暢で自然な返信を生成できます。ChatGPT はその優れた言語理解と生成能力で業界で際立っており、現在、ChatGPT はさまざまな業界や分野で広く利用されており、その影響力はますます顕著になっています。日常の対話、創造的な執筆、専門的な相談、コードプログラミングにおいて、ChatGPT は驚くべき知的支援を提供し、人間の作業効率と創造性を大幅に向上させています。
@@ -9,9 +9,9 @@ OpenAI ChatGPT は非常に強力な AI 対話システムで、提示語を入�
 
 ## 申請プロセス
 
-OpenAI Chat Completion API を使用するには、まず [OpenAI Chat Completion API](https://platform.acedata.cloud/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) ページにアクセスし、「Acquire」ボタンをクリックして、リクエストに必要な資格情報を取得します：
+OpenAI Chat Completion API を使用するには、まず [OpenAI Chat Completion API](https://api.xhuoapi.ai/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) ページにアクセスし、「Acquire」ボタンをクリックして、リクエストに必要な資格情報を取得します：
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 まだログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -21,7 +21,7 @@ OpenAI Chat Completion API を使用するには、まず [OpenAI Chat Completio
 
 次に、画面上に対応する内容を入力します。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/jqgg1t.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jqgg1t.png" width="400" className="m-auto" /></p>
 
 このインターフェースを初めて使用する際には、少なくとも3つの内容を入力する必要があります。一つは `authorization` で、ドロップダウンリストから選択するだけです。もう一つのパラメータは `model` で、`model` は OpenAI ChatGPT の公式モデルカテゴリを選択するものです。ここでは主に20種類のモデルがあり、詳細は提供されたモデルを参照できます。最後のパラメータは `messages` で、`messages` は入力する質問語の配列です。これは配列で、複数の質問語を同時にアップロードでき、各質問語には `role` と `content` が含まれています。`role` は質問者の役割を示し、私たちは `user`、`assistant`、`system` の3つの役割を提供しています。もう一つの `content` は私たちの具体的な質問内容です。
 
@@ -34,7 +34,7 @@ OpenAI Chat Completion API を使用するには、まず [OpenAI Chat Completio
 - `n`：一度に生成する候補返信の数。
 - `response_format`：返却フォーマットの設定。
 
-<p><img src="https://cdn.acedata.cloud/mthuu2.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mthuu2.png" width="400" className="m-auto" /></p>
 
 呼び出し後、返された結果は以下のようになります：
 
@@ -85,7 +85,7 @@ OpenAI Chat Completion API を使用するには、まず [OpenAI Chat Completio
 
 その中で `choices` は ChatGPT の回答情報を含んでおり、`choices` の中には ChatGPT の情報が含まれています。以下の図のように確認できます。
 
-<p><img src="https://cdn.acedata.cloud/4t1ev7.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4t1ev7.png" width="400" className="m-auto" /></p>
 
 `choices` の中の `content` フィールドには、ChatGPT の返信の具体的な内容が含まれています。
 
@@ -97,7 +97,7 @@ OpenAI Chat Completion API を使用するには、まず [OpenAI Chat Completio
 
 以下の図のように変更しますが、呼び出しコードにはストリーミング応答をサポートするための対応する変更が必要です。
 
-<p><img src="https://cdn.acedata.cloud/24scd4.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/24scd4.png" width="400" className="m-auto" /></p>
 
 `stream` を `true` に変更すると、API は行ごとに対応する JSON データを返します。コードレベルで逐行の結果を得るために、相応の変更を行う必要があります。
 
@@ -106,7 +106,7 @@ Python のサンプル呼び出しコード：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -175,7 +175,7 @@ const options = {
   }),
 };
 
-fetch("https://api.acedata.cloud/openai/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/openai/chat/completions", options)
   .then((response) => response.json())
   .then((response) => console.log(response))
   .catch((err) => console.error(err));
@@ -191,7 +191,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/openai/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/openai/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -209,13 +209,13 @@ System.out.print(response.body!!.string())
 
 もし多輪対話機能を接続したい場合は、`messages` フィールドに複数の質問をアップロードする必要があります。複数の質問の具体的な例は以下の画像の通りです：
 
-<p><img src="https://cdn.acedata.cloud/oz4mar.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/oz4mar.png" width="400" className="m-auto" /></p>
 
 Python のサンプル呼び出しコード：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -274,7 +274,7 @@ OpenAI Chat Completion API サービスの上流は公式の OpenAI サービス
 
 ```json
 OPENAI_API_KEY="sk-xxx"
-OPENAI_BASE_URL="https://api.acedata.cloud/openai"  # 再度注意：公式の OpenAI のキーを使用する場合は、このアドレスを使用しないでください。
+OPENAI_BASE_URL="https://api.xhuoapi.ai/v1/openai"  # 再度注意：公式の OpenAI のキーを使用する場合は、このアドレスを使用しないでください。
 ```
 
 `sk-xxx` を自分のキーに置き換えます。`OPENAI_BASE_URL` は OpenAI へのプロキシインターフェースにアクセスするためのものです。
@@ -318,11 +318,11 @@ print(response.text)
 
 gpt-3.5-browsing および gpt-4-browsing モデルは他のモデルとは異なり、質問に基づいてネット検索を行い、ネット検索の結果を適切に調整して返します。本記事では、具体的な例を通じてネットワーク機能を示します。次に、OpenAI Chat Completion API インターフェースに対応する内容を入力できます。以下のように：
 
-<p><img src="https://cdn.acedata.cloud/249829.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/249829.png" width="400" className="m-auto" /></p>
 
 また、右側に対応する呼び出しコードが生成されていることに注意してください。コードをコピーして直接実行することも、直接「試す」ボタンをクリックしてテストすることもできます。
 
-<p><img src="https://cdn.acedata.cloud/s8gxoo.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/s8gxoo.png" width="400" className="m-auto" /></p>
 
 呼び出し後、返された結果は以下の通りです：
 
@@ -364,7 +364,7 @@ gpt-4o モデルの画像処理能力を使用するには、元の `content` �
 - Curl スクリプト方式
 
 ```
-curl -X POST 'https://api.acedata.cloud/openai/chat/completions' \
+curl -X POST 'https://api.xhuoapi.ai/v1/openai/chat/completions' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -395,7 +395,7 @@ curl -X POST 'https://api.acedata.cloud/openai/chat/completions' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -477,7 +477,7 @@ gpt-4oの他に、より低コストのモデルであるgpt-4o-miniもありま
         {
           "type": "file_url",
           "file_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]

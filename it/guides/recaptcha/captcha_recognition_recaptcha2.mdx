@@ -1,15 +1,15 @@
 ---
 title: "Istruzioni per l'integrazione dell'API di riconoscimento delle immagini Recaptcha2"
-description: "Recaptcha verification code recognition service 集成指南 - Ace Data Cloud"
+description: "Recaptcha verification code recognition service 集成指南 - XHuoAPI"
 ---
 
 Questo documento introduce un'istruzione per l'integrazione dell'API di riconoscimento delle immagini Recaptcha2, che può identificare il contenuto inserito dall'utente e l'immagine del codice captcha Recaptcha2, restituendo infine le coordinate delle piccole immagini da cliccare per completare la verifica.
 
 ## Processo di richiesta
 
-Per utilizzare l'API, è necessario prima richiedere il servizio corrispondente sulla pagina [API di riconoscimento delle immagini Recaptcha2](https://platform.acedata.cloud/documents/b9bf7d07-b178-4881-ae45-a852ec40f53e), una volta entrati nella pagina, cliccare sul pulsante "Acquire", come mostrato nell'immagine:
+Per utilizzare l'API, è necessario prima richiedere il servizio corrispondente sulla pagina [API di riconoscimento delle immagini Recaptcha2](https://api.xhuoapi.ai/documents/b9bf7d07-b178-4881-ae45-a852ec40f53e), una volta entrati nella pagina, cliccare sul pulsante "Acquire", come mostrato nell'immagine:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Se non sei ancora loggato o registrato, verrai automaticamente reindirizzato alla pagina di accesso che ti invita a registrarti e accedere; dopo aver effettuato il login o la registrazione, verrai riportato automaticamente alla pagina corrente.
 
@@ -19,11 +19,11 @@ Alla prima richiesta, verrà offerto un credito gratuito, che consente di utiliz
 
 Prima di tutto, è necessario comprendere il modo di utilizzo di base; dobbiamo catturare l'immagine del codice captcha Recaptcha2 dal sito web, qui l'URL del sito di esempio: `https://www.google.com/recaptcha/api2/demo`, la pagina specifica è mostrata nell'immagine qui sotto:
 
-<p><img src="https://cdn.acedata.cloud/3mgkjk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3mgkjk.png" width="500" className="m-auto" /></p>
 
 Dobbiamo cliccare sulla casella di controllo del captcha affinché appaia l'immagine del captcha; nel'immagine sopra, la freccia gialla indica un testo, questo testo è il valore di `question` di seguito. Prima di tutto, è necessario passare un campo `image`, che è l'immagine specifica del captcha Recaptcha2, quest'immagine è quella indicata dalla freccia rossa nell'immagine sopra, e deve essere ridimensionata a una dimensione standard (100x100, 300x300, 450x450), in modo che il servizio possa determinare il tipo di immagine; la compressione dell'immagine deve essere effettuata da te, in questo documento si consiglia un [sito di compressione](https://www.photopea.com/), dove puoi comprimere le dimensioni e il peso dell'immagine, il risultato compresso è mostrato nell'immagine qui sotto:
 
-![](https://cdn.acedata.cloud/l7aotl.png)
+![](https://cdn.xhuoapi.ai/l7aotl.png)
 
 È inoltre necessario inserire il parametro di contenuto di riconoscimento relativo all'immagine del captcha `question`, abbiamo fornito solo il seguente elenco di contenuti, che può servire come riferimento:
 
@@ -79,7 +79,7 @@ Da quanto sopra, possiamo impostare il parametro `question` come corrispondente 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/captcha/recognition/recaptcha2"
+url = "https://api.xhuoapi.ai/v1/captcha/recognition/recaptcha2"
 
 headers = {
     "accept": "application/json",

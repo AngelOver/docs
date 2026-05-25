@@ -1,6 +1,6 @@
 ---
 title: "Οδηγίες Ενσωμάτωσης API Κλωνοποίησης Φωνής Suno"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 Το SUNO μας επιτρέπει να δημιουργούμε προσαρμοσμένους χαρακτήρες φωνής μέσω οποιουδήποτε αρχείου ήχου, επιτυγχάνοντας κλωνοποίηση φωνής για παραγωγή μουσικής. Σε αντίθεση με το υπάρχον Persona API (που χρησιμοποιεί το `audio_id` που δημιουργείται από το Suno), αυτό το API δέχεται ένα δημόσια προσβάσιμο `audio_url`, δηλαδή τη δική σας ηχογράφηση φωνής. Αυτό το έγγραφο εξηγεί πώς να ενσωματώσετε το API κλωνοποίησης φωνής.
@@ -15,7 +15,7 @@ description: "Suno Music Generation 集成指南 - Ace Data Cloud"
 - Περιεχόμενο: καθαρή φωνή ενός ατόμου, με ελάχιστο θόρυβο υποβάθρου ή μουσική
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/voices' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/voices' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -44,12 +44,12 @@ curl -X POST 'https://api.acedata.cloud/suno/voices' \
 
 ## Βήμα 2: Χρήση Χαρακτήρα Φωνής για Παραγωγή Μουσικής
 
-Αφού έχετε το ID του χαρακτήρα φωνής, μπορείτε να χρησιμοποιήσετε το [Suno Audios Generation API](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) για παραγωγή μουσικής. Ορίστε το `action` σε `generate` και το `persona_id` στο ID του χαρακτήρα φωνής που λάβατε παραπάνω. Το τραγούδι που θα παραχθεί θα τραγουδηθεί με την κλωνοποιημένη φωνή.
+Αφού έχετε το ID του χαρακτήρα φωνής, μπορείτε να χρησιμοποιήσετε το [Suno Audios Generation API](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) για παραγωγή μουσικής. Ορίστε το `action` σε `generate` και το `persona_id` στο ID του χαρακτήρα φωνής που λάβατε παραπάνω. Το τραγούδι που θα παραχθεί θα τραγουδηθεί με την κλωνοποιημένη φωνή.
 
 > **Σημείωση:** Η κλωνοποίηση φωνής υποστηρίζεται μόνο από τα μοντέλα `chirp-v4-5` και νεότερα (όπως `chirp-v4-5`, `chirp-v5`, `chirp-v5-5`), όχι από το `chirp-v4`.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

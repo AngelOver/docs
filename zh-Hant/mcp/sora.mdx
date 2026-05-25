@@ -3,7 +3,7 @@ title: "Sora MCP 對接指南"
 description: "sora MCP 服务器集成"
 ---
 
-[MCP（Model Context Protocol）](https://modelcontextprotocol.io) 是由 Anthropic 推出的模型上下文協議，允許 AI 模型（如 Claude、GPT 等）通過標準化接口調用外部工具。通過 AceData Cloud 提供的 Sora MCP Server，你可以在 Claude Desktop、VS Code、Cursor 等 AI 客戶端中直接使用 OpenAI Sora 生成 AI 視頻。
+[MCP（Model Context Protocol）](https://modelcontextprotocol.io) 是由 Anthropic 推出的模型上下文協議，允許 AI 模型（如 Claude、GPT 等）通過標準化接口調用外部工具。通過 XHuoAPI 提供的 Sora MCP Server，你可以在 Claude Desktop、VS Code、Cursor 等 AI 客戶端中直接使用 OpenAI Sora 生成 AI 視頻。
 
 ## 功能概覽
 
@@ -18,10 +18,10 @@ Sora MCP Server 提供以下核心功能：
 
 ## 前置準備
 
-使用前，你需要獲取 AceData Cloud API Token：
+使用前，你需要獲取 XHuoAPI API Token：
 
-1. 註冊或登錄 [AceData Cloud 平台](https://platform.acedata.cloud)
-2. 前往 [Sora Videos API](https://platform.acedata.cloud/documents/sora-videos) 頁面
+1. 註冊或登錄 [XHuoAPI 平台](https://api.xhuoapi.ai)
+2. 前往 [Sora Videos API](https://api.xhuoapi.ai/documents/sora-videos) 頁面
 3. 點擊「Acquire」獲取 API Token（首次申請贈送免費額度）
 
 ## 安裝配置
@@ -35,7 +35,7 @@ pip install mcp-sora
 ### 方式二：源碼安裝
 
 ```bash
-git clone https://github.com/AceDataCloud/SoraMCP.git
+git clone https://github.com/XHuoAPI/SoraMCP.git
 cd SoraMCP
 pip install -e .
 ```
@@ -57,7 +57,7 @@ pip install -e .
     "sora": {
       "command": "mcp-sora",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -73,7 +73,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-sora"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -92,7 +92,7 @@ pip install -e .
     "sora": {
       "command": "mcp-sora",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -108,7 +108,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-sora"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -137,6 +137,6 @@ pip install -e .
 
 ## 更多信息
 
-- GitHub 倉庫：[AceDataCloud/SoraMCP](https://github.com/AceDataCloud/SoraMCP)
+- GitHub 倉庫：[XHuoAPI/SoraMCP](https://github.com/XHuoAPI/SoraMCP)
 - PyPI 包：[mcp-sora](https://pypi.org/project/mcp-sora/)
-- API 文檔：[Sora 視頻生成 API](https://platform.acedata.cloud/documents/sora)
+- API 文檔：[Sora 視頻生成 API](https://api.xhuoapi.ai/documents/sora)

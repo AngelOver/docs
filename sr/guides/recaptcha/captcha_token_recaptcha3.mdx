@@ -1,15 +1,15 @@
 ---
 title: "Recaptcha3 протокол идентификације API интеграција"
-description: "Recaptcha verification code recognition service 集成指南 - Ace Data Cloud"
+description: "Recaptcha verification code recognition service 集成指南 - XHuoAPI"
 ---
 
 Овај текст ће представити упутство за интеграцију Recaptcha3 протокола идентификације API, које омогућава корисницима да не морају да идентификују и кликну на Recaptcha3 CAPTCHA слике, већ само да поднесу Website Key како би се реализовала аутоматска декодирања у позадини и завршила верификација.
 
 ## Процес пријаве
 
-Да бисте користили API, прво морате да одете на [Recaptcha3 протокол идентификације API](https://platform.acedata.cloud/documents/1083df69-f2f3-4c13-901e-e5336b0dbe3d) одговарајућу страницу и затражите одговарајућу услугу, након уласка на страницу, кликните на дугме „Acquire“, као што је приказано на слици:
+Да бисте користили API, прво морате да одете на [Recaptcha3 протокол идентификације API](https://api.xhuoapi.ai/documents/1083df69-f2f3-4c13-901e-e5336b0dbe3d) одговарајућу страницу и затражите одговарајућу услугу, након уласка на страницу, кликните на дугме „Acquire“, као што је приказано на слици:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Ако се још нисте пријавили или регистровали, аутоматски ћете бити преусмерени на страницу за пријаву која вас позива да се региструјете и пријавите, након пријаве и регистрације аутоматски ћете се вратити на тренутну страницу.
 
@@ -23,11 +23,11 @@ description: "Recaptcha verification code recognition service 集成指南 - Ace
 
 Отворите f12, а затим у Element страници претражите `.execute(`, у области обележеној црвеним оквиром можемо видети параметар `action`, а такође и низ знакова који следи после execute, што је такође садржај који ће нам бити потребан, конкретно, као што је приказано на слици испод.
 
-<p><img src="https://cdn.acedata.cloud/imwlto.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/imwlto.png" width="500" className="m-auto" /></p>
 
 Затим је потребно унети URL веб странице на којој се обрађује CAPTCHA, како бисте добили обрађени резултат, прво је потребно једноставно проследити поље `website_url`, а на крају је потребно унети параметар `website_key`, овај садржај можете добити из горњег текста, такође је низ знакова који следи после execute. Сада можемо попунити одговарајуће садржаје на интерфејсу, као што је приказано на слици:
 
-<p><img src="https://cdn.acedata.cloud/1hw2uo.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1hw2uo.png" width="500" className="m-auto" /></p>
 
 Можете видети да смо овде подесили Request Headers, укључујући:
 
@@ -42,7 +42,7 @@ description: "Recaptcha verification code recognition service 集成指南 - Ace
 
 Након избора, можете приметити да је на десној страни генерисан одговарајући код, као што је приказано на слици:
 
-<p><img src="https://cdn.acedata.cloud/3dahem.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3dahem.png" width="500" className="m-auto" /></p>
 
 Кликните на дугме „Try“ да бисте извршили тест, као што је приказано на горњој слици, овде смо добили следећи резултат:
 ```json
@@ -87,7 +87,7 @@ Možemo primetiti da `success` označava rezultat obrade verifikacije, što zna�
 
 Takođe, ako želite da generišete odgovarajući kod za integraciju, možete jednostavno kopirati generisani kod, na primer CURL kod je sledeći:
 ```shell
-curl -X POST 'https://api.acedata.cloud/captcha/token/recaptcha3' \
+curl -X POST 'https://api.xhuoapi.ai/v1/captcha/token/recaptcha3' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -103,7 +103,7 @@ Python код за интеграцију изгледа овако:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/captcha/token/recaptcha3"
+url = "https://api.xhuoapi.ai/v1/captcha/token/recaptcha3"
 
 headers = {
     "accept": "application/json",

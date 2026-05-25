@@ -1,6 +1,6 @@
 ---
 title: "Suno Vox API -integraatio-ohje"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 SUNO sallii meidän luoda uuden version Persona-v2-vox:sta, laulajan tyylistä, joka poikkeaa vanhasta versiosta, ja tarvitsemme ensin `vox_audio_id`:n. Tässä asiakirjassa selitetään, kuinka luodaan uusi versio Persona-v2-vox:sta.
@@ -12,7 +12,7 @@ Tässä syötämme `audio_id`:n, joka on `42599b24-fb14-4cd3-a444-e15ffde3661b`.
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/vox"
+url = "https://api.xhuoapi.ai/v1/suno/vox"
 
 headers = {
     "accept": "application/json",
@@ -102,12 +102,12 @@ Tulokset ovat seuraavat:
 }
 ```
 
-Voimme nähdä, että `data`:n `id`-kenttä on se, mitä haluamme `vox_audio_id`:ksi, ja sitten menemme [Persona API:in](https://platform.acedata.cloud/documents/78bb6c62-6ce0-490f-a7df-e89d80ec0583) luodaksemme uuden version Persona-v2-vox:sta, laulajan tyylistä, tarkat syötteet ovat seuraavat:
+Voimme nähdä, että `data`:n `id`-kenttä on se, mitä haluamme `vox_audio_id`:ksi, ja sitten menemme [Persona API:in](https://api.xhuoapi.ai/documents/78bb6c62-6ce0-490f-a7df-e89d80ec0583) luodaksemme uuden version Persona-v2-vox:sta, laulajan tyylistä, tarkat syötteet ovat seuraavat:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/persona"
+url = "https://api.xhuoapi.ai/v1/suno/persona"
 
 headers = {
     "accept": "application/json",
@@ -139,4 +139,4 @@ Kutsun jälkeen saamme seuraavat tulokset:
 }
 ```
 
-Sitten voimme käyttää yllä olevaa `persona_id`:n arvoa uuden version Persona-v2-vox:sta, laulajan tyylistä, luomiseen. Tarkka luomismenetelmä on sama kuin [Suno laulun generointi API -integraatio-ohje](https://platform.acedata.cloud/documents/suno-audios-integration#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%AD%8C%E6%89%8B%E9%A3%8E%E6%A0%BC%E7%94%9F%E6%88%90%E5%8A%9F%E8%83%BD) ja lopuksi voimme käyttää Suno Vox API:ta luodaksemme uuden version Persona-v2-vox:sta, laulajan tyylistä, lauluja.
+Sitten voimme käyttää yllä olevaa `persona_id`:n arvoa uuden version Persona-v2-vox:sta, laulajan tyylistä, luomiseen. Tarkka luomismenetelmä on sama kuin [Suno laulun generointi API -integraatio-ohje](https://api.xhuoapi.ai/documents/suno-audios-integration#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%AD%8C%E6%89%8B%E9%A3%8E%E6%A0%BC%E7%94%9F%E6%88%90%E5%8A%9F%E8%83%BD) ja lopuksi voimme käyttää Suno Vox API:ta luodaksemme uuden version Persona-v2-vox:sta, laulajan tyylistä, lauluja.

@@ -1,9 +1,9 @@
 ---
 title: "WebExtrator 智能抽取 API 集成指南"
-description: "WebExtrator Web Render & Extract 集成指南 - Ace Data Cloud"
+description: "WebExtrator Web Render & Extract 集成指南 - XHuoAPI"
 ---
 
-`POST https://api.acedata.cloud/webextrator/extract`
+`POST https://api.xhuoapi.ai/v1/webextrator/extract`
 
 WebExtrator 智能抽取 API 把一个 URL 转换成**类型化的结构化结果** —— 文章、商品、
 食谱、视频、讨论、招聘等，同时附带清洗后的 Markdown 与纯文本。当你想要"干净的结
@@ -22,7 +22,7 @@ URL 重复请求会被 Redis 结果缓存接住，&lt;1 ms 返回。
 ## 申请流程
 
 要使用 WebExtrator 智能抽取 API，需要先到
-[WebExtrator 服务页](https://platform.acedata.cloud/service/webextrator)
+[WebExtrator 服务页](https://api.xhuoapi.ai/service/webextrator)
 申请对应服务，点击「Acquire」按钮获取调用所需的凭证。首次申请会有免费额度赠送。
 
 ## 鉴权
@@ -202,7 +202,7 @@ LLM 成功时还会向顶层字段做"last-resort"回填：
 ### 1. Wikipedia 文章（schema.org 命中，不需要 LLM）
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -228,7 +228,7 @@ curl -X POST https://api.acedata.cloud/webextrator/extract \
 ### 2. BestBuy 商品页（schema.org 命中）
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -255,7 +255,7 @@ schema.org 抽出：
 ### 3. AllRecipes 食谱页（含营养与步骤）
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -281,7 +281,7 @@ schema.org 抽出：
 ### 4. HN 讨论页（无 JSON-LD —— 需要启用 LLM）
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -308,7 +308,7 @@ curl -X POST https://api.acedata.cloud/webextrator/extract \
 ### 5. Amazon 商品页（Amazon 无 JSON-LD —— 需要启用 LLM）
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -337,10 +337,10 @@ curl -X POST https://api.acedata.cloud/webextrator/extract \
 ```python
 import os, requests
 
-API_KEY = os.environ["ACEDATA_API_KEY"]
+API_KEY = os.environ["XHuoAPI_API_KEY"]
 
 resp = requests.post(
-    "https://api.acedata.cloud/webextrator/extract",
+    "https://api.xhuoapi.ai/v1/webextrator/extract",
     headers={
         "Authorization": f"Bearer {API_KEY}",
         "Content-Type": "application/json",
@@ -367,9 +367,9 @@ if primary and primary["kind"] == "article":
 ### Node.js (fetch)
 
 ```js
-const apiKey = process.env.ACEDATA_API_KEY;
+const apiKey = process.env.XHuoAPI_API_KEY;
 
-const res = await fetch('https://api.acedata.cloud/webextrator/extract', {
+const res = await fetch('https://api.xhuoapi.ai/v1/webextrator/extract', {
   method: 'POST',
   headers: {
     Authorization: `Bearer ${apiKey}`,

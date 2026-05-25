@@ -1,6 +1,6 @@
 ---
 title: "Kimi Chat Completion API 申请及使用"
-description: "Kimi 集成指南 - Ace Data Cloud"
+description: "Kimi 集成指南 - XHuoAPI"
 ---
 
 Kimi є дуже потужною AI системою для діалогу, яка може генерувати плавні та природні відповіді всього за кілька секунд, просто ввівши підказку. Kimi може надати вражаючу інтелектуальну допомогу, значно підвищуючи продуктивність і креативність людей.
@@ -9,9 +9,9 @@ Kimi є дуже потужною AI системою для діалогу, я�
 
 ## Процес подачі заявки
 
-Щоб використовувати Gemini Chat Completion API, спочатку можна перейти на сторінку [Kimi Chat Completion API](https://platform.acedata.cloud/documents/b23bbfa3-c820-47ee-b307-6c6dedc9d0cf) і натиснути кнопку «Acquire», щоб отримати необхідні для запиту облікові дані:
+Щоб використовувати Gemini Chat Completion API, спочатку можна перейти на сторінку [Kimi Chat Completion API](https://api.xhuoapi.ai/documents/b23bbfa3-c820-47ee-b307-6c6dedc9d0cf) і натиснути кнопку «Acquire», щоб отримати необхідні для запиту облікові дані:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, запрошуючи вас зареєструватися та увійти. Після входу або реєстрації ви автоматично повернетеся на цю сторінку.
 
@@ -21,13 +21,13 @@ Kimi є дуже потужною AI системою для діалогу, я�
 
 Далі ви можете заповнити відповідні поля на інтерфейсі, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/ej5ozg.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ej5ozg.png" width="400" className="m-auto" /></p>
 
 При першому використанні цього інтерфейсу нам потрібно заповнити принаймні три поля: одне з них - `authorization`, яке можна вибрати безпосередньо зі спадного списку. Інший параметр - `model`, `model` - це категорія моделі, яку ми вибираємо для використання з сайту Kimi, тут у нас є 7 різних моделей, деталі можна переглянути в наданих моделях. Останній параметр - `messages`, `messages` - це масив запитів, який представляє можливість одночасно завантажувати кілька запитів, кожен з яких містить `role` та `content`, де `role` вказує на роль запитувача, ми надаємо три типи ролей: `user`, `assistant`, `system`. Інший `content` - це конкретний зміст нашого запиту.
 
 Ви також можете помітити, що праворуч є відповідний код виклику, який ви можете скопіювати та запустити, або просто натиснути кнопку «Try» для тестування.
 
-<p><img src="https://cdn.acedata.cloud/six7e3.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/six7e3.png" width="400" className="m-auto" /></p>
 
 Після виклику ми отримуємо наступний результат:
 
@@ -73,7 +73,7 @@ Kimi є дуже потужною AI системою для діалогу, я�
 
 Серед `choices` міститься інформація про відповіді Kimi, в якій `choices` - це конкретна інформація про відповіді Kimi, як показано на малюнку.
 
-<p><img src="https://cdn.acedata.cloud/tv9rul.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tv9rul.png" width="400" className="m-auto" /></p>
 
 Можна побачити, що поле `content` в `choices` містить конкретний зміст відповіді Gemini.
 
@@ -85,7 +85,7 @@ Kimi є дуже потужною AI системою для діалогу, я�
 
 Зміна, як показано на малюнку, але код виклику потребує відповідних змін, щоб підтримувати потокову відповідь.
 
-<p><img src="https://cdn.acedata.cloud/a3nzpw.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a3nzpw.png" width="400" className="m-auto" /></p>
 
 Після зміни `stream` на `true`, API буде повертати відповідні JSON дані по рядках, на рівні коду нам потрібно внести відповідні зміни, щоб отримати результати по рядках.
 
@@ -94,7 +94,7 @@ Kimi є дуже потужною AI системою для діалогу, я�
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kimi/chat/completions"
+url = "https://api.xhuoapi.ai/v1/kimi/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -173,7 +173,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/kimi/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/kimi/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -189,7 +189,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/kimi/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/kimi/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -207,14 +207,14 @@ System.out.print(response.body!!.string())
 
 Якщо ви хочете інтегрувати функцію багатократного діалогу, потрібно завантажити кілька запитів у поле `messages`, приклади кількох запитів наведені на малюнку нижче:
 
-<p><img src="https://cdn.acedata.cloud/g85v2a.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g85v2a.png" width="400" className="m-auto" /></p>
 
 Приклад коду на Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kimi/chat/completions"
+url = "https://api.xhuoapi.ai/v1/kimi/chat/completions"
 
 headers = {
     "accept": "application/json",

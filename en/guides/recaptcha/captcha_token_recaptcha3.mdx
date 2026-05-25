@@ -1,15 +1,15 @@
 ---
 title: "Recaptcha3 Protocol Recognition API Integration Instructions"
-description: "Recaptcha verification code recognition service 集成指南 - Ace Data Cloud"
+description: "Recaptcha verification code recognition service 集成指南 - XHuoAPI"
 ---
 
 This article will introduce a Recaptcha3 protocol recognition API integration instruction, which allows users to complete verification without recognizing and clicking on Recaptcha3 verification images, simply by submitting the Website Key for automatic decoding in the background.
 
 ## Application Process
 
-To use the API, you need to first apply for the corresponding service on the [Recaptcha3 Protocol Recognition API](https://platform.acedata.cloud/documents/1083df69-f2f3-4c13-901e-e5336b0dbe3d) page. After entering the page, click the "Acquire" button, as shown in the image below:
+To use the API, you need to first apply for the corresponding service on the [Recaptcha3 Protocol Recognition API](https://api.xhuoapi.ai/documents/1083df69-f2f3-4c13-901e-e5336b0dbe3d) page. After entering the page, click the "Acquire" button, as shown in the image below:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
@@ -23,11 +23,11 @@ First, understand the basic usage method. Compared to Recaptcha2, we need to pas
 
 Open F12, then search for `.execute(` in the Elements page. In the red box area, we can see the `action` parameter, and there is also a string following execute, which is the content needed later, as shown in the image below.
 
-<p><img src="https://cdn.acedata.cloud/imwlto.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/imwlto.png" width="500" className="m-auto" /></p>
 
 Next, you need to input the URL of the website that requires captcha processing to obtain the processed result. First, you need to simply pass a `website_url` field, and finally, you need to input the `website_key` parameter, which can be obtained from the above text, also a string following execute. We can then fill in the corresponding content on the interface, as shown in the image below:
 
-<p><img src="https://cdn.acedata.cloud/1hw2uo.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1hw2uo.png" width="500" className="m-auto" /></p>
 
 Here we can see that we have set the Request Headers, including:
 
@@ -42,7 +42,7 @@ Additionally, the Request Body is set, including:
 
 After selection, you can find that the corresponding code is also generated on the right side, as shown in the image below:
 
-<p><img src="https://cdn.acedata.cloud/3dahem.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3dahem.png" width="500" className="m-auto" /></p>
 
 Click the "Try" button to test, as shown in the image above, and we have obtained the following result:
 ```json
@@ -87,7 +87,7 @@ As we can see, the `success` indicates the processing result of this verificatio
 
 Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
 ```shell
-curl -X POST 'https://api.acedata.cloud/captcha/token/recaptcha3' \
+curl -X POST 'https://api.xhuoapi.ai/v1/captcha/token/recaptcha3' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -103,7 +103,7 @@ The Python integration code is as follows:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/captcha/token/recaptcha3"
+url = "https://api.xhuoapi.ai/v1/captcha/token/recaptcha3"
 
 headers = {
     "accept": "application/json",

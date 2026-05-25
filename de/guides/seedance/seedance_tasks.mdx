@@ -1,6 +1,6 @@
 ---
 title: "SeeDance Tasks API Integration and Usage"
-description: "ByteDance Seedance Video Generation 集成指南 - Ace Data Cloud"
+description: "ByteDance Seedance Video Generation 集成指南 - XHuoAPI"
 ---
 
 Die Hauptfunktion der SeeDance Tasks API besteht darin, den Status der Ausführung eines Auftrags abzufragen, indem die Auftrags-ID eingegeben wird, die über die SeeDance Video Generation API generiert wurde.
@@ -9,27 +9,27 @@ Dieses Dokument wird die Integrationsanleitung der SeeDance Tasks API detaillier
 
 ## Antragsprozess
 
-Um die SeeDance Tasks API zu nutzen, müssen Sie zunächst auf die Anmeldeseite [SeeDance Video Generation API](https://platform.acedata.cloud/documents/seedance-videos) gehen und den entsprechenden Dienst beantragen, dann kopieren Sie die Auftrags-ID der SeeDance Video Generation API, wie im Bild gezeigt:
+Um die SeeDance Tasks API zu nutzen, müssen Sie zunächst auf die Anmeldeseite [SeeDance Video Generation API](https://api.xhuoapi.ai/documents/seedance-videos) gehen und den entsprechenden Dienst beantragen, dann kopieren Sie die Auftrags-ID der SeeDance Video Generation API, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
-Gehen Sie schließlich zur Tasks API-Seite [SeeDance Tasks API](https://platform.acedata.cloud/documents/seedance-tasks), um den entsprechenden Dienst zu beantragen. Klicken Sie nach dem Betreten der Seite auf die Schaltfläche „Acquire“, wie im Bild gezeigt:
+Gehen Sie schließlich zur Tasks API-Seite [SeeDance Tasks API](https://api.xhuoapi.ai/documents/seedance-tasks), um den entsprechenden Dienst zu beantragen. Klicken Sie nach dem Betreten der Seite auf die Schaltfläche „Acquire“, wie im Bild gezeigt:
 
-![Anmeldeseite](https://cdn.acedata.cloud/rci31i.png)
+![Anmeldeseite](https://cdn.xhuoapi.ai/rci31i.png)
 
-Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur [Anmeldeseite](https://platform.acedata.cloud) weitergeleitet, um sich zu registrieren und anzumelden. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
+Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur [Anmeldeseite](https://api.xhuoapi.ai) weitergeleitet, um sich zu registrieren und anzumelden. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
 
 Bei der ersten Beantragung gibt es ein kostenloses Kontingent, mit dem Sie die API kostenlos nutzen können.
 
 ## Anfragebeispiel
 
-Die SeeDance Tasks API kann verwendet werden, um die Ergebnisse der SeeDance Video Generation API abzufragen. Informationen zur Nutzung der SeeDance Video Generation API finden Sie im Dokument [SeeDance Video Generation API](https://platform.acedata.cloud/documents/seedance-videos-integration).
+Die SeeDance Tasks API kann verwendet werden, um die Ergebnisse der SeeDance Video Generation API abzufragen. Informationen zur Nutzung der SeeDance Video Generation API finden Sie im Dokument [SeeDance Video Generation API](https://api.xhuoapi.ai/documents/seedance-videos-integration).
 
 Wir nehmen eine von der SeeDance Video Generation API zurückgegebene Auftrags-ID als Beispiel und demonstrieren, wie man diese API verwendet. Angenommen, wir haben eine Auftrags-ID: 20068983-0cc9-4c6a-aeb6-9c6a3c668be0, im Folgenden zeigen wir, wie man durch Eingabe einer Auftrags-ID vorgeht.
 
 ### Beispielbild des Auftrags
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 ### Anfrageheader und Anfragekörper festlegen
 
@@ -45,20 +45,20 @@ Wir nehmen eine von der SeeDance Video Generation API zurückgegebene Auftrags-I
 
 Einstellung wie im folgenden Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/yuyte9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yuyte9.png" width="500" className="m-auto" /></p>
 
 ### Codebeispiel
 
 Es kann festgestellt werden, dass auf der rechten Seite der Seite bereits automatisch Code in verschiedenen Sprachen generiert wurde, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/b0wt0d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/b0wt0d.png" width="500" className="m-auto" /></p>
 
 Einige Codebeispiele sind wie folgt:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/seedance/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/seedance/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -100,7 +100,7 @@ Nach erfolgreicher Anfrage gibt die API die Detailinformationen zu diesem Auftra
         "data": {
             "task_id": "cgt-20251221230356-sxgt7",
             "status": "succeeded",
-            "video_url": "https://platform.cdn.acedata.cloud/seedance/d1c2e49e-d854-4a2e-b0c0-88e520f82e2e.mp4",
+            "video_url": "https://platform.cdn.xhuoapi.ai/seedance/d1c2e49e-d854-4a2e-b0c0-88e520f82e2e.mp4",
             "last_frame_url": null,
             "model": "doubao-seedance-1-0-pro-250528"
         }
@@ -125,13 +125,13 @@ Dies ist eine Abfrage der Auftragsdetails für mehrere Auftrags-IDs. Im Gegensat
 
 Einstellung wie im folgenden Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/ycc4th.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ycc4th.png" width="500" className="m-auto" /></p>
 
 ### Codebeispiel
 
 Es kann festgestellt werden, dass auf der rechten Seite der Seite bereits automatisch Code in verschiedenen Sprachen generiert wurde, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/u6bt64.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/u6bt64.png" width="500" className="m-auto" /></p>
 
 Einige Codebeispiele sind wie folgt:
 
@@ -168,7 +168,7 @@ Nach erfolgreicher Anfrage gibt die API die spezifischen Detailinformationen zu 
                 "data": {
                     "task_id": "cgt-20251221230356-sxgt7",
                     "status": "succeeded",
-                    "video_url": "https://platform.cdn.acedata.cloud/seedance/d1c2e49e-d854-4a2e-b0c0-88e520f82e2e.mp4",
+                    "video_url": "https://platform.cdn.xhuoapi.ai/seedance/d1c2e49e-d854-4a2e-b0c0-88e520f82e2e.mp4",
                     "last_frame_url": null,
                     "model": "doubao-seedance-1-0-pro-250528"
                 }
@@ -201,7 +201,7 @@ Nach erfolgreicher Anfrage gibt die API die spezifischen Detailinformationen zu 
                 "data": {
                     "task_id": "cgt-20251221231109-cnkhp",
                     "status": "succeeded",
-                    "video_url": "https://platform.cdn.acedata.cloud/seedance/eb99ba03-178c-4616-8d19-e625fee2e884.mp4",
+                    "video_url": "https://platform.cdn.xhuoapi.ai/seedance/eb99ba03-178c-4616-8d19-e625fee2e884.mp4",
                     "last_frame_url": null,
                     "model": "doubao-seedance-1-0-pro-250528"
                 }

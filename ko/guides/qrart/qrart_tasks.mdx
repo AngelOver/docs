@@ -1,6 +1,6 @@
 ---
 title: "Artistic QR Tasks API의 연동 및 사용"
-description: "Art QR Code Generation 集成指南 - Ace Data Cloud"
+description: "Art QR Code Generation 集成指南 - XHuoAPI"
 ---
 
 Artistic QR Tasks API의 주요 기능은 Artistic QR Generation API에서 생성된 작업 ID를 입력하여 해당 작업의 실행 상태를 조회하는 것입니다.
@@ -9,27 +9,27 @@ Artistic QR Tasks API의 주요 기능은 Artistic QR Generation API에서 생�
 
 ## 신청 절차
 
-Artistic QR Tasks API를 사용하려면 먼저 신청 페이지 [Artistic QR Generation API](https://platform.acedata.cloud/documents/ee085d2a-a0b9-4f0e-8b4d-8da407345138)에서 해당 서비스를 신청한 후, Artistic QR Generation API의 작업 ID를 복사합니다. 아래 그림과 같이:
+Artistic QR Tasks API를 사용하려면 먼저 신청 페이지 [Artistic QR Generation API](https://api.xhuoapi.ai/documents/ee085d2a-a0b9-4f0e-8b4d-8da407345138)에서 해당 서비스를 신청한 후, Artistic QR Generation API의 작업 ID를 복사합니다. 아래 그림과 같이:
 
-<p><img src="https://cdn.acedata.cloud/2wicjy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2wicjy.png" width="500" className="m-auto" /></p>
 
-마지막으로 Artistic QR Tasks API 페이지 [Artistic QR Tasks API](https://platform.acedata.cloud/documents/21de9d76-6e39-4ac3-b8b9-20e7194c02b4)에서 해당 서비스를 신청하고, 페이지에 들어가면 "Acquire" 버튼을 클릭합니다. 아래 그림과 같이:
+마지막으로 Artistic QR Tasks API 페이지 [Artistic QR Tasks API](https://api.xhuoapi.ai/documents/21de9d76-6e39-4ac3-b8b9-20e7194c02b4)에서 해당 서비스를 신청하고, 페이지에 들어가면 "Acquire" 버튼을 클릭합니다. 아래 그림과 같이:
 
-![신청 페이지](https://cdn.acedata.cloud/rci31i.png)
+![신청 페이지](https://cdn.xhuoapi.ai/rci31i.png)
 
-로그인 또는 등록이 되어 있지 않으면 자동으로 [로그인 페이지](https://platform.acedata.cloud)로 이동하여 등록 및 로그인을 요청합니다. 로그인 및 등록 후에는 자동으로 현재 페이지로 돌아옵니다.
+로그인 또는 등록이 되어 있지 않으면 자동으로 [로그인 페이지](https://api.xhuoapi.ai)로 이동하여 등록 및 로그인을 요청합니다. 로그인 및 등록 후에는 자동으로 현재 페이지로 돌아옵니다.
 
 첫 신청 시 무료 한도가 제공되어, 해당 API를 무료로 사용할 수 있습니다.
 
 ## 요청 예시
 
-Artistic QR Tasks API는 Artistic QR Generation API의 결과를 조회하는 데 사용될 수 있습니다. Artistic QR Generation API의 사용 방법에 대한 자세한 내용은 문서 [Artistic QR Generation API](https://platform.acedata.cloud/documents/ee085d2a-a0b9-4f0e-8b4d-8da407345138)를 참조하십시오.
+Artistic QR Tasks API는 Artistic QR Generation API의 결과를 조회하는 데 사용될 수 있습니다. Artistic QR Generation API의 사용 방법에 대한 자세한 내용은 문서 [Artistic QR Generation API](https://api.xhuoapi.ai/documents/ee085d2a-a0b9-4f0e-8b4d-8da407345138)를 참조하십시오.
 
 우리는 Artistic QR Generation API 서비스에서 반환된 작업 ID 하나를 예로 들어, 해당 API를 사용하는 방법을 시연합니다. 가정해 보겠습니다, 작업 ID가 e2c65b20-a970-431e-99c1-76721e799df8입니다. 다음으로 작업 ID를 전달하여 사용하는 방법을 시연합니다.
 
 ### 작업 예시 그림
 
-<p><img src="https://cdn.acedata.cloud/2wicjy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2wicjy.png" width="500" className="m-auto" /></p>
 
 ### 요청 헤더 및 요청 본문 설정
 
@@ -45,20 +45,20 @@ Artistic QR Tasks API는 Artistic QR Generation API의 결과를 조회하는 �
 
 아래 그림과 같이 설정합니다:
 
-<p><img src="https://cdn.acedata.cloud/use825.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/use825.png" width="500" className="m-auto" /></p>
 
 ### 코드 예시
 
 페이지 오른쪽에서 다양한 언어의 코드가 자동으로 생성된 것을 확인할 수 있습니다. 아래 그림과 같이:
 
-<p><img src="https://cdn.acedata.cloud/jejwy6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jejwy6.png" width="500" className="m-auto" /></p>
 
 일부 코드 예시는 다음과 같습니다:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/qrart/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/qrart/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/qrart/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/qrart/tasks"
+url = "https://api.xhuoapi.ai/v1/qrart/tasks"
 
 headers = {
     "accept": "application/json",
@@ -104,7 +104,7 @@ print(response.text)
   "request": {
     "aspect_ratio": "1:1",
     "callback_url": null,
-    "content": "https://platform.acedata.cloud",
+    "content": "https://api.xhuoapi.ai",
     "content_image_url": null,
     "ecl": "H",
     "image_origin": null,
@@ -128,7 +128,7 @@ print(response.text)
     "type": "link"
   },
   "response": {
-    "image_url": "https://platform.cdn.acedata.cloud/qrart/e2c65b20-a970-431e-99c1-76721e799df8.png",
+    "image_url": "https://platform.cdn.xhuoapi.ai/qrart/e2c65b20-a970-431e-99c1-76721e799df8.png",
     "image_width": 768,
     "image_height": 768,
     "seed": 5324369603686616,
@@ -154,13 +154,13 @@ print(response.text)
 
 아래 그림과 같이 설정합니다:
 
-<p><img src="https://cdn.acedata.cloud/mrbxmr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mrbxmr.png" width="500" className="m-auto" /></p>
 
 ### 코드 예시
 
 페이지 오른쪽에서 다양한 언어의 코드가 자동으로 생성된 것을 확인할 수 있습니다. 아래 그림과 같이:
 
-<p><img src="https://cdn.acedata.cloud/u3b61d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/u3b61d.png" width="500" className="m-auto" /></p>
 
 일부 코드 예시는 다음과 같습니다:
 
@@ -203,7 +203,7 @@ print(response.text)
         "type": "link"
       },
       "response": {
-        "image_url": "https://platform.cdn.acedata.cloud/qrart/8c89e97b-6a79-4406-b2ce-e00f92540b4e.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/qrart/8c89e97b-6a79-4406-b2ce-e00f92540b4e.png",
         "image_width": 768,
         "image_height": 768,
         "seed": 2701847236953402,
@@ -219,7 +219,7 @@ print(response.text)
       "request": {
         "aspect_ratio": "1:1",
         "callback_url": null,
-        "content": "https://platform.acedata.cloud",
+        "content": "https://api.xhuoapi.ai",
         "content_image_url": null,
         "ecl": "H",
         "image_origin": null,
@@ -243,7 +243,7 @@ print(response.text)
         "type": "link"
       },
       "response": {
-        "image_url": "https://platform.cdn.acedata.cloud/qrart/e2c65b20-a970-431e-99c1-76721e799df8.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/qrart/e2c65b20-a970-431e-99c1-76721e799df8.png",
         "image_width": 768,
         "image_height": 768,
         "seed": 5324369603686616,
@@ -258,7 +258,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/qrart/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/qrart/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -273,7 +273,7 @@ curl -X POST 'https://api.acedata.cloud/qrart/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/qrart/tasks"
+url = "https://api.xhuoapi.ai/v1/qrart/tasks"
 
 headers = {
     "accept": "application/json",

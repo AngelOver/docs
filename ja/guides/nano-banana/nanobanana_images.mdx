@@ -1,17 +1,17 @@
 ---
 title: "Nano Banana Images API 接続説明"
-description: "Nano Banana Image Generation 集成指南 - Ace Data Cloud"
+description: "Nano Banana Image Generation 集成指南 - XHuoAPI"
 ---
 
 本文は Nano Banana Images API の接続と使用について説明します。このインターフェースは二つの機能をサポートしています：**画像生成（generate）** と **画像編集（edit）**。
 
 ## 申請プロセス
 
-使用する前に、Ace Data Cloud プラットフォームで [Nano Banana Images API](https://platform.acedata.cloud/documents/23985a11-d713-41d1-ad84-24b021805b3d) にアクセスし、Acquire をクリックして開通を申請してください。初回申請では通常、無料の利用枠が利用可能です。開通が完了したら、プラットフォームで API を呼び出すための Bearer Token を取得できます。
+使用する前に、XHuoAPI プラットフォームで [Nano Banana Images API](https://api.xhuoapi.ai/documents/23985a11-d713-41d1-ad84-24b021805b3d) にアクセスし、Acquire をクリックして開通を申請してください。初回申請では通常、無料の利用枠が利用可能です。開通が完了したら、プラットフォームで API を呼び出すための Bearer Token を取得できます。
 
 ## インターフェース概要
 
-- **Base URL**：`https://api.acedata.cloud`
+- **Base URL**：`https://api.xhuoapi.ai/v1`
 - **エンドポイント**：`POST /nano-banana/images`
 - **認証方式**：HTTP ヘッダーに `authorization: Bearer {token}` を含める
 - **リクエストヘッダー**：
@@ -34,7 +34,7 @@ description: "Nano Banana Image Generation 集成指南 - Ace Data Cloud"
 ### リクエスト例（cURL）
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/images' \
   -H 'authorization: Bearer {token}' \
   -H 'accept: application/json' \
   -H 'content-type: application/json' \
@@ -50,7 +50,7 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/nano-banana/images"
+url = "https://api.xhuoapi.ai/v1/nano-banana/images"
 headers = {
     "authorization": "Bearer {token}",
     "accept": "application/json",
@@ -81,7 +81,7 @@ print(resp.json())
   "data": [
     {
       "prompt": "深い日焼けのしわと温かく知恵のある微笑を持つ高齢の日本の陶芸家のフォトリアリスティックなクローズアップポートレート。彼は新しく釉薬をかけた茶碗を注意深く検査しています。設定は彼の素朴で日差しの差し込む作業場です。シーンは窓から差し込む柔らかいゴールデンアワーの光に照らされ、粘土の細かい質感を強調しています。85mm ポートレートレンズで撮影され、柔らかくぼやけた背景（ボケ）を実現しています。全体の雰囲気は穏やかで熟練しています。縦型ポートレートの向き。",
-      "image_url": "https://platform.cdn.acedata.cloud/nanobanana/69790adb-c85d-4362-ad9e-0c9ba4352cf4.png"
+      "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/69790adb-c85d-4362-ad9e-0c9ba4352cf4.png"
     }
   ]
 }
@@ -107,7 +107,7 @@ print(resp.json())
 ### リクエスト例（cURL）
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/images' \
   -H 'authorization: Bearer {token}' \
   -H 'accept: application/json' \
   -H 'content-type: application/json' \
@@ -115,8 +115,8 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
     "action": "edit",
     "prompt": "この男性にこのTシャツを着せてください",
     "image_urls": [
-      "https://cdn.acedata.cloud/v8073y.png",
-      "https://cdn.acedata.cloud/44xlah.png"
+      "https://cdn.xhuoapi.ai/v8073y.png",
+      "https://cdn.xhuoapi.ai/44xlah.png"
     ],
     "count": 1
   }'
@@ -127,7 +127,7 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/nano-banana/images"
+url = "https://api.xhuoapi.ai/v1/nano-banana/images"
 headers = {
     "authorization": "Bearer {token}",
     "accept": "application/json",
@@ -137,8 +137,8 @@ payload = {
     "action": "edit",
     "prompt": "この男性にこのTシャツを着せてください",
     "image_urls": [
-        "https://cdn.acedata.cloud/v8073y.png",
-        "https://cdn.acedata.cloud/44xlah.png"
+        "https://cdn.xhuoapi.ai/v8073y.png",
+        "https://cdn.xhuoapi.ai/44xlah.png"
     ],
     "count": 1
 }
@@ -156,7 +156,7 @@ print(resp.json())
   "data": [
     {
       "prompt": "この男性にこのTシャツを着せてください",
-      "image_url": "https://platform.cdn.acedata.cloud/nanobanana/8e9e0253-26f4-45b9-b3f8-ac1aed1c284b.png"
+      "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/8e9e0253-26f4-45b9-b3f8-ac1aed1c284b.png"
     }
   ]
 }
@@ -186,7 +186,7 @@ print(resp.json())
   "data": [
     {
       "prompt": "白いシャム猫",
-      "image_url": "https://platform.cdn.acedata.cloud/nanobanana/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.png"
+      "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.png"
     }
   ]
 }

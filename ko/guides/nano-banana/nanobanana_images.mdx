@@ -1,17 +1,17 @@
 ---
 title: "나노 바나나 이미지 API 연동 설명"
-description: "Nano Banana Image Generation 集成指南 - Ace Data Cloud"
+description: "Nano Banana Image Generation 集成指南 - XHuoAPI"
 ---
 
 본 문서는 나노 바나나 이미지 API의 연동 및 사용에 대해 설명합니다. 이 인터페이스는 두 가지 기능을 지원합니다: **이미지 생성(generate)** 및 **이미지 편집(edit)**.
 
 ## 신청 절차
 
-사용하기 전에, Ace Data Cloud 플랫폼에서 [나노 바나나 이미지 API](https://platform.acedata.cloud/documents/23985a11-d713-41d1-ad84-24b021805b3d)에 들어가서 Acquire를 클릭하여 개통을 신청하세요. 최초 신청 시 일반적으로 무료 할당량이 제공됩니다. 개통이 완료되면, 플랫폼에서 API 호출에 사용할 Bearer Token을 얻을 수 있습니다.
+사용하기 전에, XHuoAPI 플랫폼에서 [나노 바나나 이미지 API](https://api.xhuoapi.ai/documents/23985a11-d713-41d1-ad84-24b021805b3d)에 들어가서 Acquire를 클릭하여 개통을 신청하세요. 최초 신청 시 일반적으로 무료 할당량이 제공됩니다. 개통이 완료되면, 플랫폼에서 API 호출에 사용할 Bearer Token을 얻을 수 있습니다.
 
 ## 인터페이스 개요
 
-- **기본 URL**: `https://api.acedata.cloud`
+- **기본 URL**: `https://api.xhuoapi.ai/v1`
 - **엔드포인트**: `POST /nano-banana/images`
 - **인증 방식**: HTTP Header에 `authorization: Bearer {token}` 포함
 - **요청 헤더**:
@@ -34,7 +34,7 @@ description: "Nano Banana Image Generation 集成指南 - Ace Data Cloud"
 ### 요청 예시 (cURL)
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/images' \
   -H 'authorization: Bearer {token}' \
   -H 'accept: application/json' \
   -H 'content-type: application/json' \
@@ -50,7 +50,7 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/nano-banana/images"
+url = "https://api.xhuoapi.ai/v1/nano-banana/images"
 headers = {
     "authorization": "Bearer {token}",
     "accept": "application/json",
@@ -83,7 +83,7 @@ print(resp.json())
   "data": [
     {
       "prompt": "A photorealistic close-up portrait of an elderly Japanese ceramicist with deep, sun-etched wrinkles and a warm, knowing smile. He is carefully inspecting a freshly glazed tea bowl. The setting is his rustic, sun-drenched workshop. The scene is illuminated by soft, golden hour light streaming through a window, highlighting the fine texture of the clay. Captured with an 85mm portrait lens, resulting in a soft, blurred background (bokeh). The overall mood is serene and masterful. Vertical portrait orientation.",
-      "image_url": "https://platform.cdn.acedata.cloud/nanobanana/69790adb-c85d-4362-ad9e-0c9ba4352cf4.png"
+      "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/69790adb-c85d-4362-ad9e-0c9ba4352cf4.png"
     }
   ]
 }
@@ -109,7 +109,7 @@ print(resp.json())
 ### 요청 예시 (cURL)
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/images' \
   -H 'authorization: Bearer {token}' \
   -H 'accept: application/json' \
   -H 'content-type: application/json' \
@@ -117,8 +117,8 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
     "action": "edit",
     "prompt": "let this man wear on this T-shirt",
     "image_urls": [
-      "https://cdn.acedata.cloud/v8073y.png",
-      "https://cdn.acedata.cloud/44xlah.png"
+      "https://cdn.xhuoapi.ai/v8073y.png",
+      "https://cdn.xhuoapi.ai/44xlah.png"
     ],
     "count": 1
   }'
@@ -129,7 +129,7 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/nano-banana/images"
+url = "https://api.xhuoapi.ai/v1/nano-banana/images"
 headers = {
     "authorization": "Bearer {token}",
     "accept": "application/json",
@@ -139,8 +139,8 @@ payload = {
     "action": "edit",
     "prompt": "let this man wear on this T-shirt",
     "image_urls": [
-        "https://cdn.acedata.cloud/v8073y.png",
-        "https://cdn.acedata.cloud/44xlah.png"
+        "https://cdn.xhuoapi.ai/v8073y.png",
+        "https://cdn.xhuoapi.ai/44xlah.png"
     ],
     "count": 1
 }
@@ -158,7 +158,7 @@ print(resp.json())
   "data": [
     {
       "prompt": "let this man wear on this T-shirt",
-      "image_url": "https://platform.cdn.acedata.cloud/nanobanana/8e9e0253-26f4-45b9-b3f8-ac1aed1c284b.png"
+      "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/8e9e0253-26f4-45b9-b3f8-ac1aed1c284b.png"
     }
   ]
 }
@@ -188,7 +188,7 @@ print(resp.json())
   "data": [
     {
       "prompt": "하얀 색 샴 고양이",
-      "image_url": "https://platform.cdn.acedata.cloud/nanobanana/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.png"
+      "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.png"
     }
   ]
 }

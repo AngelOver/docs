@@ -1,15 +1,15 @@
 ---
 title: "Instrucciones para la integración de la API Kling Videos Generation"
-description: "Kling video generation 集成指南 - Ace Data Cloud"
+description: "Kling video generation 集成指南 - XHuoAPI"
 ---
 
 Este documento presenta una guía para integrar la API Kling Videos Generation, la cual permite generar videos oficiales de Kling mediante la entrada de parámetros personalizados.
 
 ## Proceso de solicitud
 
-Para usar la API, primero debe solicitar el servicio en la página correspondiente de [Kling Videos Generation API](https://platform.acedata.cloud/documents/3b921a16-a411-4557-8335-53f21d3f9e46). Al ingresar, haga clic en el botón «Acquire», como se muestra en la imagen:
+Para usar la API, primero debe solicitar el servicio en la página correspondiente de [Kling Videos Generation API](https://api.xhuoapi.ai/documents/3b921a16-a411-4557-8335-53f21d3f9e46). Al ingresar, haga clic en el botón «Acquire», como se muestra en la imagen:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Si no ha iniciado sesión o registrado, será redirigido automáticamente a la página de login para registrarse e iniciar sesión, y luego volverá automáticamente a la página actual.
 
@@ -21,7 +21,7 @@ Primero, familiarícese con el método de uso básico: ingrese los parámetros `
 
 Debe enviar un campo `action` con valor `'text2video'`, que soporta tres acciones principales: generación de video desde texto (`text2video`), desde imagen (`image2video`), y expansión de videos (`extend`). Además, es necesario especificar el modelo `model`, con modelos principales como `kling-v1`, `kling-v1-6`, `kling-v2-master`, `kling-v2-1-master`, `kling-v2-5-turbo`, `kling-v2-6`, `kling-v3`, `kling-v3-omni`, `kling-video-o1`. La lista completa incluye:
 
-<p><img src="https://cdn.acedata.cloud/ke1bok.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ke1bok.png" width="500" className="m-auto" /></p>
 
 En la cabecera de la solicitud, se configuran los encabezados:
 
@@ -48,7 +48,7 @@ En el cuerpo de la solicitud (`Request Body`), se incluyen:
 
 Al seleccionar los parámetros, en el lado derecho se genera automáticamente el código de ejemplo, como en la siguiente imagen:
 
-<p><img src="https://cdn.acedata.cloud/3yjql0.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3yjql0.png" width="500" className="m-auto" /></p>
 
 Con un clic en "Try", puede realizar la prueba y obtener una respuesta como la siguiente:
 
@@ -77,7 +77,7 @@ Para obtener el video generado, basta con acceder al `video_url` proporcionado.
 Para integrar mediante código, por ejemplo usando CURL:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/kling/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -119,7 +119,7 @@ Notas importantes:
 
 Para extender un video previamente generado, configure `action` en `'extend'` y pase `video_id` del video existente. La obtención del `video_id` es mediante el método básico explicado anteriormente, como en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 Por ejemplo, el ID del video sería:
 
@@ -139,14 +139,14 @@ Luego, puede definir nuevas instrucciones de generación de video, por ejemplo:
 
 Ejemplo de envío:
 
-<p><img src="https://cdn.acedata.cloud/ejimqy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ejimqy.png" width="500" className="m-auto" /></p>
 
 El código generado automáticamente en Python sería:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kling/videos"
+url = "https://api.xhuoapi.ai/v1/kling/videos"
 
 headers = {
     "accept": "application/json",
@@ -189,7 +189,7 @@ Ejemplo práctico:
 
 Primero, configure un servicio web que reciba las llamadas HTTP, por ejemplo, usando [https://webhook.site/](https://webhook.site/). Al ingresar, copie la URL proporcionada, como en la imagen:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Luego, establezca `callback_url` en esa URL y envíe los parámetros necesarios. La respuesta será algo así:
 
@@ -201,7 +201,7 @@ Luego, establezca `callback_url` en esa URL y envíe los parámetros necesarios.
 
 Después de unos momentos, verá en la URL del webhook la respuesta de generación, por ejemplo:
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 Y el contenido JSON similar a:
 

@@ -1,13 +1,13 @@
 ---
 title: "شرح تكامل Fish TTS API"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
-تقدم هذه الوثيقة شرحًا لكيفية تكامل Fish TTS API، حيث أن هذه الواجهة متوافقة تمامًا مع [Fish Audio OpenAPI الرسمي](https://docs.fish.audio/text-to-speech/text-to-speech)، ويمكنك ببساطة نقل الأكواد التي كانت تستدعي `https://api.fish.audio/v1/tts` إلى `https://api.acedata.cloud/fish/tts` مع استبدال معلومات المصادقة فقط، دون الحاجة لتعديل هيكل جسم الطلب.
+تقدم هذه الوثيقة شرحًا لكيفية تكامل Fish TTS API، حيث أن هذه الواجهة متوافقة تمامًا مع [Fish Audio OpenAPI الرسمي](https://docs.fish.audio/text-to-speech/text-to-speech)، ويمكنك ببساطة نقل الأكواد التي كانت تستدعي `https://api.fish.audio/v1/tts` إلى `https://api.xhuoapi.ai/v1/fish/tts` مع استبدال معلومات المصادقة فقط، دون الحاجة لتعديل هيكل جسم الطلب.
 
 ## عملية التقديم
 
-لاستخدام API، يجب أولاً التقديم للحصول على الخدمة المناسبة من خلال صفحة [Fish TTS API](https://platform.acedata.cloud/services/caf99abc-ddcf-4714-b2a5-862d9b469509). بعد الدخول إلى الصفحة، اضغط على زر "Acquire".
+لاستخدام API، يجب أولاً التقديم للحصول على الخدمة المناسبة من خلال صفحة [Fish TTS API](https://api.xhuoapi.ai/services/caf99abc-ddcf-4714-b2a5-862d9b469509). بعد الدخول إلى الصفحة، اضغط على زر "Acquire".
 
 إذا لم تكن قد سجلت الدخول أو أنشأت حسابًا، سيتم توجيهك تلقائيًا إلى صفحة تسجيل الدخول لتسجيل الدخول أو إنشاء حساب، وبعد ذلك ستعود تلقائيًا إلى الصفحة الحالية.
 
@@ -29,7 +29,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 أصغر طلب يحتاج فقط إلى تمرير حقل `text`، مثال CURL كالتالي:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -55,7 +55,7 @@ curl -X POST 'https://api.acedata.cloud/fish/tts' \
 إذا كنت ترغب في استخدام صوت مستنسخ، يمكنك إضافة `reference_id` في جسم الطلب:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -77,7 +77,7 @@ curl -X POST 'https://api.acedata.cloud/fish/tts' \
 مثال على الطلب:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -106,7 +106,7 @@ curl -X POST 'https://api.acedata.cloud/fish/tts' \
 }
 ```
 
-يمكنك أيضًا استخدام [Fish Tasks API](https://platform.acedata.cloud/documents/fc541fac-a941-47fd-b6f7-48d6cb9da523) للاستعلام عن حالة المهمة بشكل نشط عبر `task_id`.
+يمكنك أيضًا استخدام [Fish Tasks API](https://api.xhuoapi.ai/documents/fc541fac-a941-47fd-b6f7-48d6cb9da523) للاستعلام عن حالة المهمة بشكل نشط عبر `task_id`.
 
 ## معالجة الأخطاء
 

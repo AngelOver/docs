@@ -1,15 +1,15 @@
 ---
 title: "Οδηγίες Σύνδεσης Wan Videos Generation API"
-description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
+description: "Tongyi Wansiang Video Generation 集成指南 - XHuoAPI"
 ---
 
 Αυτό το άρθρο θα παρουσιάσει μια μέθοδο σύνδεσης με το Wan Videos Generation API, το οποίο μπορεί να δημιουργήσει επίσημα βίντεο του Tongyi Wanxiang μέσω της εισαγωγής προσαρμοσμένων παραμέτρων.
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [Wan Videos Generation API](https://platform.acedata.cloud/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [Wan Videos Generation API](https://api.xhuoapi.ai/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη σελίδα σύνδεσης για να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και τη σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
 
@@ -19,7 +19,7 @@ description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
 
 Αρχικά, πρέπει να κατανοήσετε τη βασική μέθοδο χρήσης, δηλαδή την εισαγωγή του προτροπής `prompt`, της ενέργειας `action`, της αναφοράς εικόνας `image_url` και του μοντέλου `model`, για να αποκτήσετε το επεξεργασμένο αποτέλεσμα. Πρώτα, πρέπει να περάσετε ένα πεδίο `action`, του οποίου η τιμή είναι `text2video`. Αυτό περιλαμβάνει κυρίως δύο τύπους ενεργειών: δημιουργία βίντεο από κείμενο (`text2video`) και δημιουργία βίντεο από εικόνα (`image2video`). Στη συνέχεια, πρέπει να εισάγουμε το μοντέλο `model`, το οποίο περιλαμβάνει κυρίως τα μοντέλα `wan2.6-i2v`, `wan2.6-r2v`, `wan2.6-i2v-flash`, `wan2.6-t2v`, με τις λεπτομέρειες όπως παρακάτω:
 
-<p><img src="https://cdn.acedata.cloud/03gqdz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/03gqdz.png" width="500" className="m-auto" /></p>
 
 Μπορείτε να δείτε ότι έχουμε ρυθμίσει τα Request Headers, που περιλαμβάνουν:
 
@@ -45,7 +45,7 @@ description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
 
 Αφού επιλέξετε, μπορείτε να δείτε ότι στα δεξιά έχει παραχθεί ο αντίστοιχος κώδικας, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/03gqdz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/03gqdz.png" width="500" className="m-auto" /></p>
 
 Κάντε κλικ στο κουμπί «Try» για να δοκιμάσετε, όπως φαίνεται στην παραπάνω εικόνα, και εδώ έχουμε λάβει το εξής αποτέλεσμα:
 
@@ -70,7 +70,7 @@ description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
 Επιπλέον, εάν θέλετε να δημιουργήσετε τον αντίστοιχο κώδικα σύνδεσης, μπορείτε να τον αντιγράψετε απευθείας, όπως ο παρακάτω κώδικας CURL:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/wan/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/wan/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -92,18 +92,18 @@ curl -X POST 'https://api.acedata.cloud/wan/videos' \
 
 Ένα παράδειγμα συμπλήρωσης είναι το εξής:
 
-<p><img src="https://cdn.acedata.cloud/94l0kk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/94l0kk.png" width="500" className="m-auto" /></p>
 
 Αφού συμπληρωθεί, δημιουργείται αυτόματα ο παρακάτω κώδικας:
 
-<p><img src="https://cdn.acedata.cloud/b5q8tt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/b5q8tt.png" width="500" className="m-auto" /></p>
 
 Ο αντίστοιχος κώδικας Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/wan/videos"
+url = "https://api.xhuoapi.ai/v1/wan/videos"
 
 headers = {
     "accept": "application/json",
@@ -116,7 +116,7 @@ payload = {
     "model": "wan2.6-i2v",
     "prompt": "Astronauts shuttle from space to volcano",
     "duration": 5,
-    "image_url": "https://cdn.acedata.cloud/r9vsv9.png",
+    "image_url": "https://cdn.xhuoapi.ai/r9vsv9.png",
     "callback_url": "https://www.baidu.com/"
 }
 
@@ -147,13 +147,13 @@ print(response.text)
 
 Πρώτα, η κλήση Webhook είναι μια υπηρεσία που μπορεί να δέχεται HTTP αιτήματα, οι προγραμματιστές θα πρέπει να την αντικαταστήσουν με το URL του HTTP διακομιστή που έχουν δημιουργήσει. Για ευκολία, χρησιμοποιούμε έναν δημόσιο ιστότοπο παραδείγματος Webhook https://webhook.site/, ανοίγοντας αυτόν τον ιστότοπο μπορείτε να λάβετε ένα Webhook URL, όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Αντιγράψτε αυτό το URL και μπορείτε να το χρησιμοποιήσετε ως Webhook, το παράδειγμα εδώ είναι `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`.
 
 Στη συνέχεια, μπορούμε να ρυθμίσουμε το πεδίο `callback_url` στο παραπάνω Webhook URL, ενώ συμπληρώνουμε τις αντίστοιχες παραμέτρους, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vdx12s.png" width="500" className="m-auto" /></p>
 
 Αν κάνετε κλικ για εκτέλεση, μπορείτε να δείτε ότι θα λάβετε αμέσως ένα αποτέλεσμα, όπως παρακάτω:
 
@@ -165,7 +165,7 @@ print(response.text)
 
 Μετά από λίγο, μπορείτε να παρατηρήσετε το αποτέλεσμα του δημιουργημένου βίντεο στο `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`, όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 Το περιεχόμενο είναι το εξής:
 

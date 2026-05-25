@@ -1,6 +1,6 @@
 ---
 title: "Claude Messages Count Tokens API 申請及使用"
-description: "Claude AI 集成指南 - Ace Data Cloud"
+description: "Claude AI 集成指南 - XHuoAPI"
 ---
 
 Claude Messages Count Tokens API 可以在不實際創建消息的情況下，計算一條 Message 的輸入 Token 數量，包括工具、圖片和文檔等內容的 Token 計數。這在需要預估成本或檢查輸入是否超出模型上下文限制時非常有用。
@@ -9,7 +9,7 @@ Claude Messages Count Tokens API 可以在不實際創建消息的情況下，�
 
 ## 申請流程
 
-要使用 Claude Messages Count Tokens API，首先可以到 [Claude Messages Count Tokens API](https://platform.acedata.cloud/documents/claude-messages-count-tokens) 頁面點擊「Acquire」按鈕，獲取請求所需要的憑證。
+要使用 Claude Messages Count Tokens API，首先可以到 [Claude Messages Count Tokens API](https://api.xhuoapi.ai/documents/claude-messages-count-tokens) 頁面點擊「Acquire」按鈕，獲取請求所需要的憑證。
 
 如果你尚未登錄或註冊，會自動跳轉到登錄頁面邀請您來註冊和登錄，登錄註冊之後會自動返回當前頁面。
 
@@ -31,7 +31,7 @@ Claude Messages Count Tokens API 的請求路徑為 `/v1/messages/count_tokens`�
 ### cURL 示例
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/v1/messages/count_tokens' \
+curl -X POST 'https://api.xhuoapi.ai/v1/v1/messages/count_tokens' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -51,7 +51,7 @@ curl -X POST 'https://api.acedata.cloud/v1/messages/count_tokens' \
 ```python
 import httpx
 
-url = "https://api.acedata.cloud/v1/messages/count_tokens"
+url = "https://api.xhuoapi.ai/v1/v1/messages/count_tokens"
 headers = {
     "accept": "application/json",
     "authorization": "Bearer {token}",
@@ -87,7 +87,7 @@ from anthropic import Anthropic
 
 client = Anthropic(
     api_key="{token}",
-    base_url="https://api.acedata.cloud",
+    base_url="https://api.xhuoapi.ai/v1",
 )
 
 result = client.messages.count_tokens(

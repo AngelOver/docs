@@ -1,15 +1,15 @@
 ---
 title: "Uputstvo za integraciju Producer Audios Generation API"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 Ovaj dokument će predstaviti uputstvo za integraciju Producer Audios Generation API, koji može generisati zvukove zvanične muzike Producer-a putem unosa prilagođenih parametara.
 
 ## Proces prijave
 
-Da biste koristili API, prvo idite na [Producer Audios Generation API](https://platform.acedata.cloud/documents/producer-audios) odgovarajuću stranicu da biste zatražili odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
+Da biste koristili API, prvo idite na [Producer Audios Generation API](https://api.xhuoapi.ai/documents/producer-audios) odgovarajuću stranicu da biste zatražili odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Ako još niste prijavljeni ili registrovani, automatski ćete biti preusmereni na stranicu za prijavu koja vas poziva da se registrujete i prijavite. Nakon prijave ili registracije, automatski ćete se vratiti na trenutnu stranicu.
 
@@ -19,7 +19,7 @@ Prilikom prve prijave dobićete besplatnu kvotu koja vam omogućava besplatno ko
 
 Šta god da želite da generišete, možete uneti bilo koji tekst, na primer, ako želim da generišem pesmu o Božiću, mogu uneti `a song for Christmas`, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/lg9bb0.png" width="600" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lg9bb0.png" width="600" className="m-auto" /></p>
 
 Možete videti da smo ovde postavili Request Headers, uključujući:
 
@@ -46,7 +46,7 @@ Pored toga, parametri Request Body uključuju:
 
 Nakon izbora, možete primetiti da je desno generisan odgovarajući kod, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/0217zy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0217zy.png" width="500" className="m-auto" /></p>
 
 Kliknite na dugme „Try“ da biste izvršili testiranje, kao što je prikazano na gornjoj slici, ovde smo dobili sledeći rezultat:
 
@@ -98,7 +98,7 @@ Možete videti da smo dobili informacije o muzici koju želimo da generišemo, s
 Pored toga, ako želite da generišete odgovarajući kod za integraciju, možete jednostavno kopirati generisani kod, na primer, CURL kod je sledeći:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -125,16 +125,16 @@ Nakon toga, da bismo prilagođeno generisali pesmu na osnovu stihova, naslova i 
 - custom: uneti `true`, što označava prilagođeno generisanje, ovaj parametar je podrazumevano `false`, što označava korišćenje `prompt` za generisanje.
 - title: naslov pesme.
 填写样例如下：
-<p><img src="https://cdn.acedata.cloud/ruovz5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ruovz5.png" width="500" className="m-auto" /></p>
 
 填写完毕之后自动生成了代码如下：
 
-<p><img src="https://cdn.acedata.cloud/seyxxa.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seyxxa.png" width="500" className="m-auto" /></p>
 
 对应的代码：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -180,9 +180,9 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 
 Ako želite da izvršite prekrivanje već generisane pesme, možete uneti prethodno generisanu pesmu za prekrivanje, a zatim ćemo na osnovu teksta pesme i naslova prilagoditi generisanje pesme.
 
-Ako želite da nastavite sa prekrivanjem pesme koju ste sami otpremili, možete postaviti parametar `action` na `upload_cover` i uneti ID pesme koju želite da nastavite sa prekrivanjem, a ID pesme se dobija korišćenjem [Producer Upload API](https://platform.acedata.cloud/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447) kao što je prikazano na sledećem slici:
+Ako želite da nastavite sa prekrivanjem pesme koju ste sami otpremili, možete postaviti parametar `action` na `upload_cover` i uneti ID pesme koju želite da nastavite sa prekrivanjem, a ID pesme se dobija korišćenjem [Producer Upload API](https://api.xhuoapi.ai/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447) kao što je prikazano na sledećem slici:
 
-<p><img src="https://cdn.acedata.cloud/z7r5fd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/z7r5fd.png" width="500" className="m-auto" /></p>
 
 Možete odrediti sledeće sadržaje:
 
@@ -194,16 +194,16 @@ Možete odrediti sledeće sadržaje:
 
 填写样例如下：
 
-<p><img src="https://cdn.acedata.cloud/6xl82z.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/6xl82z.png" width="500" className="m-auto" /></p>
 
 填写完毕之后自动生成了代码如下：
 
-<p><img src="https://cdn.acedata.cloud/bxzfrw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bxzfrw.png" width="500" className="m-auto" /></p>
 
 对应的代码：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -250,22 +250,22 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 
 Ako želite da nastavite pesmu, potrebno je da prosledite `action` parametar sa vrednošću: `extend`, zatim treba da prilagodite generisanje pesme prema tekstu, naslovu i stilu.
 
-Ako želite da nastavite sa pesmom koju ste sami otpremili, možete postaviti parametar `action` na `upload_extend` i uneti ID pesme koju želite da nastavite, a ID pesme se dobija korišćenjem [Producer Upload API](https://platform.acedata.cloud/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447), kao što je prikazano na slici ispod:
+Ako želite da nastavite sa pesmom koju ste sami otpremili, možete postaviti parametar `action` na `upload_extend` i uneti ID pesme koju želite da nastavite, a ID pesme se dobija korišćenjem [Producer Upload API](https://api.xhuoapi.ai/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447), kao što je prikazano na slici ispod:
 
-<p><img src="https://cdn.acedata.cloud/z7r5fd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/z7r5fd.png" width="500" className="m-auto" /></p>
 
 Primer popunjavanja je sledeći:
 
-<p><img src="https://cdn.acedata.cloud/r3ux6z.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/r3ux6z.png" width="500" className="m-auto" /></p>
 
 Nakon popunjavanja automatski se generiše kod kao što je prikazano ispod:
 
-<p><img src="https://cdn.acedata.cloud/fsww0u.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fsww0u.png" width="500" className="m-auto" /></p>
 
 Odgovarajući kod:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -319,16 +319,16 @@ Ako želite da generišete novu muziku sličnog efekta na osnovu seed vrednosti 
 
 Primer popunjavanja je sledeći:
 
-<p><img src="https://cdn.acedata.cloud/bxslxt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bxslxt.png" width="500" className="m-auto" /></p>
 ```
 Popunjavanjem se automatski generiše kod kao što je prikazano:
 
-<p><img src="https://cdn.acedata.cloud/nojowk.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/nojowk.png" width="500" class="m-auto"></p>
 
 Odgovarajući kod:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -375,22 +375,22 @@ Testiranje je dozvoljeno, generisani efekat je sličan.
 
 Ako želite da zamenite deo pesme, potrebno je da prosledite parametar `action` sa vrednošću: `replace_section`, a zatim treba da generišete pesmu prema tekstu i naslovu.
 
-Ako želite da nastavite sa zamenom dela pesme koju ste sami otpremili, možete postaviti parametar `action` na `upload_replace_section` i uneti ID pesme koju želite da nastavite, a ID pesme se dobija korišćenjem [Producer Upload API](https://platform.acedata.cloud/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447), kao što je prikazano na sledećem slici:
+Ako želite da nastavite sa zamenom dela pesme koju ste sami otpremili, možete postaviti parametar `action` na `upload_replace_section` i uneti ID pesme koju želite da nastavite, a ID pesme se dobija korišćenjem [Producer Upload API](https://api.xhuoapi.ai/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447), kao što je prikazano na sledećem slici:
 
-<p><img src="https://cdn.acedata.cloud/z7r5fd.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/z7r5fd.png" width="500" class="m-auto"></p>
 
 Primer popunjavanja je sledeći:
 
-<p><img src="https://cdn.acedata.cloud/mzo9iw.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/mzo9iw.png" width="500" class="m-auto"></p>
 
 Popunjavanjem se automatski generiše kod kao što je prikazano:
 
-<p><img src="https://cdn.acedata.cloud/877x6c.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/877x6c.png" width="500" class="m-auto"></p>
 
 Odgovarajući kod:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -440,16 +440,16 @@ Ako želite da koristite zvuk prateće verzije, možete postaviti vrednost param
 
 Primer popunjavanja je sledeći:
 
-<p><img src="https://cdn.acedata.cloud/7l6976.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/7l6976.png" width="500" class="m-auto"></p>
 
 Nakon popunjavanja automatski je generisan sledeći kod:
 
-<p><img src="https://cdn.acedata.cloud/pvi2n3.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/pvi2n3.png" width="500" class="m-auto"></p>
 
 Odgovarajući kod:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -497,15 +497,15 @@ Ako želite da koristite zvuk prateće verzije, možete postaviti vrednost param
 
 Primer popunjavanja je sledeći:
 
-<p><img src="https://cdn.acedata.cloud/bk9ino.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/bk9ino.png" width="500" class="m-auto"></p>
 
 Nakon popunjavanja automatski je generisan sledeći kod:
 
-<p><img src="https://cdn.acedata.cloud/p5b1vg.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/p5b1vg.png" width="500" class="m-auto"></p>
 
 Odgovarajući kod:
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -556,16 +556,16 @@ Ako želite da koristite zvaničnu operaciju razdvajanja reči i muzike, možete
 
 Popunite primer kako je prikazano:
 
-<p><img src="https://cdn.acedata.cloud/fnpgvc.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/fnpgvc.png" width="500" class="m-auto"></p>
 
 Nakon popunjavanja automatski se generiše kod kao što je prikazano:
 
-<p><img src="https://cdn.acedata.cloud/oq5iv5.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/oq5iv5.png" width="500" class="m-auto"></p>
 
 Odgovarajući kod:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -586,7 +586,7 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
         {
             "title": "Probudila sam se sa suncem u očima",
             "lyric": "",
-            "stems_url": "https://platform.cdn.acedata.cloud/producer/561ac695-b4aa-47cf-978d-fb7be2b9ebfc.zip",
+            "stems_url": "https://platform.cdn.xhuoapi.ai/producer/561ac695-b4aa-47cf-978d-fb7be2b9ebfc.zip",
             "model": "",
             "progress": "100%",
             "state": "succeeded"
@@ -605,13 +605,13 @@ Pogledajmo kako to konkretno funkcioniše kroz primer.
 
 Prvo, Webhook povratni poziv je usluga koja može primati HTTP zahteve, programeri bi trebali zameniti URL svoje HTTP servera. Ovde, radi lakšeg prikazivanja, koristi se javni Webhook uzorak sa sajta [https://webhook.site/](https://webhook.site/), otvaranjem tog sajta dobijate Webhook URL, kao što je prikazano na slici:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Kopirajte ovaj URL i možete ga koristiti kao Webhook, a uzorak ovde je [https://webhook.site/#!/view/0d73431d-f833-4be4-9276-b6e1690d55c1](https://webhook.site/#!/view/0d73431d-f833-4be4-9276-b6e1690d55c1).
 
 Zatim, možemo postaviti polje `callback_url` na navedeni Webhook URL, dok popunjavamo odgovarajuće parametre, konkretni sadržaj je prikazan na slici:
 
-<p><img src="https://cdn.acedata.cloud/wuzd4y.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/wuzd4y.png" width="500" class="m-auto"></p>
 
 Klikom na pokretanje, možete primetiti da odmah dobijate rezultat, kao što je prikazano:
 
@@ -622,7 +622,7 @@ Klikom na pokretanje, možete primetiti da odmah dobijate rezultat, kao što je 
 ```
 稍等片刻，我们可以在 [https://webhook.site/#!/view/0d73431d-f833-4be4-9276-b6e1690d55c1](https://webhook.site/#!/view/0d73431d-f833-4be4-9276-b6e1690d55c1) наћи резултате генерисања задатка, као што је приказано на слици:
 
-![](https://cdn.acedata.cloud/k0kf0y.png)
+![](https://cdn.xhuoapi.ai/k0kf0y.png)
 
 Садржај је следећи:
 

@@ -1,19 +1,19 @@
 ---
 title: "Tutorial de Uso do Aplicativo de Desktop Claude Code"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code é uma ferramenta de **Codificação Agentic** lançada pela Anthropic, também conhecida como um dos agentes de programação mais poderosos do mundo. O aplicativo de desktop Claude Code oferece uma interface gráfica independente, suportando funcionalidades como revisão Diff, sessões paralelas (isoladas por meio do Git Worktree), sessões remotas, entre outras, sem depender de nenhum IDE.
 
-Este documento descreve principalmente como configurar e usar o aplicativo de desktop Claude Code através do serviço de proxy da AceData Cloud.
+Este documento descreve principalmente como configurar e usar o aplicativo de desktop Claude Code através do serviço de proxy da XHuoAPI.
 
 > **Nota**: O aplicativo de desktop Claude Code está atualmente em fase de pré-visualização (Preview), suportando apenas macOS e Windows.
 
 ## Processo de Solicitação
 
-Para usar o Claude Code, primeiro você pode acessar a [página de serviços Claude Messages](https://platform.acedata.cloud/documents/claude-messages) e clicar no botão "Acquire" para obter as credenciais necessárias para a solicitação:
+Para usar o Claude Code, primeiro você pode acessar a [página de serviços Claude Messages](https://api.xhuoapi.ai/documents/claude-messages) e clicar no botão "Acquire" para obter as credenciais necessárias para a solicitação:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Se você ainda não estiver logado ou registrado, será redirecionado automaticamente para a página de login, convidando-o a se registrar e fazer login. Após o login ou registro, você será redirecionado de volta para a página atual.
 
@@ -34,13 +34,13 @@ Acesse a [página de download oficial do Claude](https://claude.ai) para baixar 
 - **Windows x64**: baixe o pacote de instalação `.exe` e siga as instruções para instalar
 - **Windows ARM64**: baixe a versão ARM64 (observação: ARM64 não suporta sessões locais, deve-se usar sessões remotas)
 
-![Página de download do aplicativo de desktop Claude](https://cdn.acedata.cloud/c3c8c57264.png)
+![Página de download do aplicativo de desktop Claude](https://cdn.xhuoapi.ai/c3c8c57264.png)
 
 Após a instalação, inicie o Claude a partir da pasta Applications (macOS) ou do menu Iniciar (Windows).
 
-## Configuração da API AceData Cloud
+## Configuração da API XHuoAPI
 
-Após iniciar o aplicativo de desktop, você precisará fazer login na conta da Anthropic. Podemos usar variáveis de ambiente para configurar a API de proxy da AceData Cloud, **sem necessidade de assinatura oficial**.
+Após iniciar o aplicativo de desktop, você precisará fazer login na conta da Anthropic. Podemos usar variáveis de ambiente para configurar a API de proxy da XHuoAPI, **sem necessidade de assinatura oficial**.
 
 O aplicativo de desktop lê as variáveis de ambiente do seu ambiente Shell, portanto, é necessário configurá-las no arquivo de configuração do Shell.
 
@@ -51,9 +51,9 @@ O aplicativo de desktop lê as variáveis de ambiente do seu ambiente Shell, por
 Adicione o seguinte conteúdo ao `~/.zshrc` (ou `~/.bashrc`), substituindo `{token}` pelo seu token de API:
 
 ```bash
-# AceData Cloud - Configuração de Proxy Claude Code
+# XHuoAPI - Configuração de Proxy Claude Code
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 Após salvar, execute:
@@ -69,13 +69,13 @@ Adicione as seguintes variáveis de ambiente do sistema através de "Propriedade
 | Nome da Variável          | Valor                           |
 | ------------------------- | ------------------------------- |
 | `ANTHROPIC_AUTH_TOKEN`   | `{token}` (substitua pelo seu token de API) |
-| `ANTHROPIC_BASE_URL`     | `https://api.acedata.cloud`   |
+| `ANTHROPIC_BASE_URL`     | `https://api.xhuoapi.ai/v1`   |
 
 Ou use o PowerShell:
 
 ```powershell
 [System.Environment]::SetEnvironmentVariable("ANTHROPIC_AUTH_TOKEN", "{token}", "User")
-[System.Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.acedata.cloud", "User")
+[System.Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.xhuoapi.ai/v1", "User")
 ```
 
 **Também é possível configurar através do settings.json**
@@ -86,12 +86,12 @@ Edite `~/.claude/settings.json` (crie se não existir):
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **Dica**: O token de API pode ser visualizado no [console da AceData Cloud](https://platform.acedata.cloud/console). Após a configuração, é necessário **reiniciar o aplicativo de desktop** para que as variáveis de ambiente tenham efeito.
+> **Dica**: O token de API pode ser visualizado no [console da XHuoAPI](https://api.xhuoapi.ai/console). Após a configuração, é necessário **reiniciar o aplicativo de desktop** para que as variáveis de ambiente tenham efeito.
 
 ## Uso Básico
 
@@ -162,7 +162,7 @@ Ambos podem ser executados simultaneamente no mesmo projeto, mantendo cada um se
 
 1. Verifique se o arquivo `~/.claude/config.json` foi criado corretamente
 2. Confirme se as variáveis de ambiente estão configuradas corretamente (reinicie o aplicativo de desktop para que tenham efeito)
-3. Verifique se o token de API é válido (pode ser visualizado no [console](https://platform.acedata.cloud/console))
+3. Verifique se o token de API é válido (pode ser visualizado no [console](https://api.xhuoapi.ai/console))
 4. Se estiver usando `settings.json` para configurar variáveis de ambiente, verifique se o formato do arquivo está correto
 
 ### Não consigo encontrar as ferramentas instaladas?
@@ -175,9 +175,9 @@ Se Claude não conseguir encontrar comandos como `npm`, `node`, etc.:
 
 ### Como verificar o saldo restante?
 
-Faça login no [console da AceData Cloud](https://platform.acedata.cloud/console) para visualizar o saldo restante e o uso atual da sua conta.
+Faça login no [console da XHuoAPI](https://api.xhuoapi.ai/console) para visualizar o saldo restante e o uso atual da sua conta.
 
 ## Saiba Mais
 - 📖 [Documentação oficial do aplicativo de desktop Claude Code](https://code.claude.com/docs/en/desktop)
-- 🔧 [Serviço AceData Cloud Claude Code](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [Serviço XHuoAPI Claude Code](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 Se tiver alguma dúvida, sinta-se à vontade para entrar em contato conosco através do atendimento ao cliente da plataforma.

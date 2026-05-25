@@ -1,17 +1,17 @@
 ---
 title: "دليل استخدام واجهة سطر الأوامر (CLI) لـ Claude Code"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code هو أداة **Agentic Coding** أطلقتها شركة Anthropic، ويعتبر واحدًا من أقوى وكلاء البرمجة في العالم. واجهة سطر الأوامر CLI هي التجربة الأساسية لـ Claude Code، يمكنك تشغيل الأمر `claude` في أي طرفية، والتعاون مع الذكاء الاصطناعي في البرمجة باستخدام اللغة الطبيعية.
 
-تتناول هذه الوثيقة كيفية تثبيت وتكوين واستخدام واجهة سطر الأوامر لـ Claude Code من خلال خدمة الوكيل الخاصة بـ AceData Cloud.
+تتناول هذه الوثيقة كيفية تثبيت وتكوين واستخدام واجهة سطر الأوامر لـ Claude Code من خلال خدمة الوكيل الخاصة بـ XHuoAPI.
 
 ## عملية التقديم
 
-لاستخدام Claude Code، يمكنك أولاً زيارة [صفحة خدمة Claude Messages](https://platform.acedata.cloud/documents/claude-messages) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة:
+لاستخدام Claude Code، يمكنك أولاً زيارة [صفحة خدمة Claude Messages](https://api.xhuoapi.ai/documents/claude-messages) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل، سيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، وبعد تسجيل الدخول، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
@@ -62,9 +62,9 @@ winget install Claude.ClaudeCode
 
 سيقوم التثبيت الأصلي بالتحديث تلقائيًا في الخلفية، مما يحافظ على أحدث إصدار دائمًا.
 
-## تكوين واجهة برمجة التطبيقات لـ AceData Cloud
+## تكوين واجهة برمجة التطبيقات لـ XHuoAPI
 
-بعد الانتهاء من التثبيت، سيطلب منك تسجيل الدخول إلى حساب Anthropic الرسمي بشكل افتراضي. يمكننا استخدام متغيرات البيئة لتكوين واجهة برمجة التطبيقات الخاصة بـ AceData Cloud، **دون الحاجة إلى اشتراك رسمي**.
+بعد الانتهاء من التثبيت، سيطلب منك تسجيل الدخول إلى حساب Anthropic الرسمي بشكل افتراضي. يمكننا استخدام متغيرات البيئة لتكوين واجهة برمجة التطبيقات الخاصة بـ XHuoAPI، **دون الحاجة إلى اشتراك رسمي**.
 
 ### تكوين متغيرات البيئة
 
@@ -72,12 +72,12 @@ winget install Claude.ClaudeCode
 
 **الطريقة الأولى: إعداد في ملف تكوين Shell (موصى به)**
 
-أضف المحتوى التالي إلى ملف تكوين Shell الخاص بك (`~/.zshrc`، `~/.bashrc` أو `~/.bash_profile`)، واستبدل `{token}` بالتوكن الخاص بك الذي حصلت عليه من لوحة تحكم AceData Cloud:
+أضف المحتوى التالي إلى ملف تكوين Shell الخاص بك (`~/.zshrc`، `~/.bashrc` أو `~/.bash_profile`)، واستبدل `{token}` بالتوكن الخاص بك الذي حصلت عليه من لوحة تحكم XHuoAPI:
 
 ```bash
-# تكوين وكيل Claude Code - AceData Cloud
+# تكوين وكيل Claude Code - XHuoAPI
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 بعد التعديل، نفذ الأمر التالي لتفعيل التكوين:
@@ -94,14 +94,14 @@ source ~/.zshrc  # أو source ~/.bashrc
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
 تتمثل فائدة هذه الطريقة في أن متغيرات البيئة تؤثر فقط على Claude Code، ولا تؤثر على البرامج الأخرى.
 
-> **تلميح**: يمكنك عرض توكن واجهة برمجة التطبيقات في [لوحة تحكم AceData Cloud](https://platform.acedata.cloud/console). سيتم إضافة قيمة `ANTHROPIC_AUTH_TOKEN` تلقائيًا مع بادئة `Bearer` عند إرسالها إلى الخادم.
+> **تلميح**: يمكنك عرض توكن واجهة برمجة التطبيقات في [لوحة تحكم XHuoAPI](https://api.xhuoapi.ai/console). سيتم إضافة قيمة `ANTHROPIC_AUTH_TOKEN` تلقائيًا مع بادئة `Bearer` عند إرسالها إلى الخادم.
 
 ## البدء في الاستخدام
 
@@ -217,7 +217,7 @@ git diff main | claude -p "راجع هذه التغييرات"
    echo $ANTHROPIC_AUTH_TOKEN
    echo $ANTHROPIC_BASE_URL
    ```
-3. تأكد من أن رمز API صالح (يمكنك التحقق منه في [اللوحة](https://platform.acedata.cloud/console))
+3. تأكد من أن رمز API صالح (يمكنك التحقق منه في [اللوحة](https://api.xhuoapi.ai/console))
 4. حاول إعادة تشغيل الطرفية
 
 ### الأمر غير موجود: claude
@@ -230,11 +230,11 @@ git diff main | claude -p "راجع هذه التغييرات"
 
 ### كيف يمكنني查看 الرصيد المتبقي؟
 
-قم بتسجيل الدخول إلى [لوحة تحكم AceData Cloud](https://platform.acedata.cloud/console) لرؤية الرصيد المتبقي الحالي لحسابك واستخدامه.
+قم بتسجيل الدخول إلى [لوحة تحكم XHuoAPI](https://api.xhuoapi.ai/console) لرؤية الرصيد المتبقي الحالي لحسابك واستخدامه.
 
 ## تعرف على المزيد
 
 - 📖 [الوثائق الرسمية لـ Claude Code CLI](https://code.claude.com/docs/en/quickstart)
 - 📋 [مرجع أوامر CLI](https://code.claude.com/docs/en/cli-reference)
-- 🔧 [خدمة Claude Code من AceData Cloud](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [خدمة Claude Code من XHuoAPI](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 إذا كان لديك أي استفسارات، لا تتردد في الاتصال بنا عبر خدمة العملاء في المنصة

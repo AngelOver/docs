@@ -1,9 +1,9 @@
 ---
 title: "AI Chat v2 API - Integrointiohjeet"
-description: "AI Dialogue 集成指南 - Ace Data Cloud"
+description: "AI Dialogue 集成指南 - XHuoAPI"
 ---
 
-AI Chat v2 API (`/aichat2/conversations`) on uuden sukupolven keskustelurajapinta, joka on [AI Chat API:n](https://platform.acedata.cloud/documents/59fb1199-6694-4afb-a222-3554d7f7d05a) kattava päivitysversio. Se laajentaa v1:n yksinkertaista, monikierroksista keskustelua hallinnoivaa rajapintaa seuraavasti:
+AI Chat v2 API (`/aichat2/conversations`) on uuden sukupolven keskustelurajapinta, joka on [AI Chat API:n](https://api.xhuoapi.ai/documents/59fb1199-6694-4afb-a222-3554d7f7d05a) kattava päivitysversio. Se laajentaa v1:n yksinkertaista, monikierroksista keskustelua hallinnoivaa rajapintaa seuraavasti:
 
 - **Monimuotoiset käyttäjätulot**: Voit lähettää rakenteellisesti `message`-kentässä suoraan tekstiä + kuvia + tiedostolohkoja ilman, että tarvitsee liittää niitä ensin `references`-kentän kautta.
 - **Agenttipohjainen työkalukutsu**: Sisäänrakennettu joukko työkaluja kuten verkkohaku, verkkosivujen kaappaus, tiedostojen lukeminen, ja voit liittää käyttäjän valtuuttamat MCP-palvelimet (Google Drive, Notion, Slack, GitHub jne.). Malli voi yhdessä pyynnössä itsenäisesti kutsua työkaluja monikierroksisesti suorittaakseen monimutkaisia tehtäviä.
@@ -18,7 +18,7 @@ Se on myös **täysin taaksepäin yhteensopiva v1:n kanssa** pyynnön tasolla: p
 
 ## Hakemusprosessi
 
-API:n käyttöä varten sinun tulee ensin hakea palvelua [AI Chat v2 API](https://platform.acedata.cloud/documents/e4a7c2b9-3f1d-4e8a-9b6c-a5d2f8e1b4c7) -sivulta. Sivulle tultuasi klikkaa "Acquire"-painiketta saadaksesi pyynnöissä tarvittavan tunnistautumistiedon.
+API:n käyttöä varten sinun tulee ensin hakea palvelua [AI Chat v2 API](https://api.xhuoapi.ai/documents/e4a7c2b9-3f1d-4e8a-9b6c-a5d2f8e1b4c7) -sivulta. Sivulle tultuasi klikkaa "Acquire"-painiketta saadaksesi pyynnöissä tarvittavan tunnistautumistiedon.
 
 Jos et ole kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle. Rekisteröitymisen ja kirjautumisen jälkeen palaat automaattisesti takaisin tälle sivulle.
 
@@ -31,13 +31,13 @@ Yksinkertaisin käyttö on täysin sama kuin v1:ssä: lähetä `model` + `questi
 CURL-esimerkki:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
   -d '{
     "model": "gpt-5.4",
-    "question": "用一句话介绍下 AceDataCloud。"
+    "question": "用一句话介绍下 XHuoAPI。"
   }'
 ```
 
@@ -45,7 +45,7 @@ Vastaus:
 
 ```json
 {
-  "answer": "AceDataCloud 是一个聚合主流 AI 模型与多模态服务的统一 API 平台，开发者通过一个密钥即可调用 GPT、Claude、Gemini、Midjourney、Suno、Veo 等多家服务。",
+  "answer": "XHuoAPI 是一个聚合主流 AI 模型与多模态服务的统一 API 平台，开发者通过一个密钥即可调用 GPT、Claude、Gemini、Midjourney、Suno、Veo 等多家服务。",
   "id": "f2f4b3e8-0c0a-4d3a-aaa2-7ff80c0a1c44"
 }
 ```
@@ -55,7 +55,7 @@ Python-esimerkki:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/aichat2/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat2/conversations"
 
 headers = {
     "accept": "application/json",
@@ -65,7 +65,7 @@ headers = {
 
 payload = {
     "model": "gpt-5.4",
-    "question": "用一句话介绍下 AceDataCloud。",
+    "question": "用一句话介绍下 XHuoAPI。",
 }
 
 response = requests.post(url, json=payload, headers=headers)
@@ -91,7 +91,7 @@ Kuten v1:ssä, lähetä `stateful: true` aktivoidaksesi keskustelun tallennuksen
 Ensimmäinen pyyntö:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -114,7 +114,7 @@ Vastaus:
 Toinen pyyntö, sama `id` mukana:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -151,7 +151,7 @@ v2 tukee kahta suoravirtausformaattia, jotka valitaan `accept`-otsikolla:
 import json
 import requests
 
-url = "https://api.acedata.cloud/aichat2/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat2/conversations"
 
 headers = {
     "accept": "application/x-ndjson",
@@ -195,7 +195,7 @@ NDJSON:n jokainen rivi on rakenteellinen tapahtuma, yleisin on `text_delta`:
 Selainpuolella `EventSource` ei tue mukautettua pyyntöä, joten suositellaan `fetch`-kutsua ja manuaalista `\n\n`-pilkkomista:
 
 ```javascript
-const resp = await fetch("https://api.acedata.cloud/aichat2/conversations", {
+const resp = await fetch("https://api.xhuoapi.ai/v1/aichat2/conversations", {
   method: "POST",
   headers: {
     accept: "text/event-stream",
@@ -258,7 +258,7 @@ Jos käyttäjän syöte sisältää kuvia tai tiedostoja, lähetä `message`-tau
   "stateful": true,
   "message": [
     { "type": "text", "text": "这张图片里有几只猫？" },
-    { "type": "image_url", "image_url": { "url": "https://cdn.acedata.cloud/cats.jpg" } }
+    { "type": "image_url", "image_url": { "url": "https://cdn.xhuoapi.ai/cats.jpg" } }
   ]
 }
 ```
@@ -287,7 +287,7 @@ v2:n keskeinen parannus on, että malli voi itsenäisesti kutsua työkaluja moni
 
 - Käyttäjä kysyy: "Etsi minulle viimeisimmät Shanghain näyttelyt" → malli kutsuu sisäänrakennettua web search -työkalua → koostaa vastauksen.
 - Käyttäjä pyytää: "Lue tämä PDF ja tee tiivistelmä" → malli kutsuu file_read-työkalua → kirjoittaa tiivistelmän.
-- Käyttäjä on valtuuttanut Google Drive / GitHub / Notion -palvelut [Connections](https://platform.acedata.cloud/connections) -sivulla → malli voi kutsua vastaavia MCP-työkaluja lukeakseen ja kirjoittaakseen dataa.
+- Käyttäjä on valtuuttanut Google Drive / GitHub / Notion -palvelut [Connections](https://api.xhuoapi.ai/connections) -sivulla → malli voi kutsua vastaavia MCP-työkaluja lukeakseen ja kirjoittaakseen dataa.
 
 NDJSON / SSE-suoravirtauksessa työkalukutsut näkyvät `tool_use`- ja `tool_result`-tapahtumina, esimerkiksi:
 
@@ -321,7 +321,7 @@ Jotkin työkalut saattavat pyytää mallia "kysyä käyttäjältä", jolloin mal
 Frontend renderöi tämän korttina, jossa käyttäjä valitsee vastauksen. Sitten lähetetään seuraava pyyntö samalla `id`:llä, jossa vastaukset täytetään `tool_results`-kenttään:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: text/event-stream' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -349,7 +349,7 @@ v2 tarjoaa kevyen istunnonhallinnan samassa endpointissa `action`-kentän kautta
 ### `action: retrieve` — hae yksi istunto
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -401,9 +401,9 @@ Palauttaa `{ id, success: true }`. Poisto on peruuttamaton, varmista ennen kutsu
 
 ## Sujuva siirtyminen v1:stä
 
-Jos käytät jo [`/aichat/conversations`](https://platform.acedata.cloud/documents/59fb1199-6694-4afb-a222-3554d7f7d05a), siirtyminen v2:een vaatii lähes nolla koodimuutosta:
+Jos käytät jo [`/aichat/conversations`](https://api.xhuoapi.ai/documents/59fb1199-6694-4afb-a222-3554d7f7d05a), siirtyminen v2:een vaatii lähes nolla koodimuutosta:
 
-1. Vaihda URL `https://api.acedata.cloud/aichat/conversations` → `https://api.acedata.cloud/aichat2/conversations`.
+1. Vaihda URL `https://api.xhuoapi.ai/v1/aichat/conversations` → `https://api.xhuoapi.ai/v1/aichat2/conversations`.
 2. Jos käytit v1-mallinimiä (esim. `gpt-3.5`, `gpt-4-browsing`), suosittelemme päivittämään nykyaikaisiin malleihin (esim. `gpt-5.4`, `claude-opus-4-7`, `gemini-3.1-pro`).
 3. NDJSON-virtauskentät ovat taaksepäin yhteensopivia: jokainen `text_delta` sisältää edelleen `delta_answer` ja `id`, joten rivikohtainen `delta_answer`-käsittely toimii ennallaan.
 

@@ -1,15 +1,15 @@
 ---
 title: "Kling Motion Generation API Integration Instructions"
-description: "Kling video generation 集成指南 - Ace Data Cloud"
+description: "Kling video generation 集成指南 - XHuoAPI"
 ---
 
 This article will introduce the integration instructions for the Kling Motion Generation API, which can generate official Kling videos by inputting custom parameters.
 
 ## Application Process
 
-To use the API, you need to first apply for the corresponding service on the [Kling Motion Generation API](https://platform.acedata.cloud/documents/d3f2c369-102d-4856-9565-702ac5f2df63) page. After entering the page, click the "Acquire" button, as shown in the image:
+To use the API, you need to first apply for the corresponding service on the [Kling Motion Generation API](https://api.xhuoapi.ai/documents/d3f2c369-102d-4856-9565-702ac5f2df63) page. After entering the page, click the "Acquire" button, as shown in the image:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
@@ -19,7 +19,7 @@ Upon the first application, there will be a free quota provided, allowing you to
 
 First, understand the basic usage method, which involves inputting the prompt `prompt`, reference image `image_url`, and reference video link `video_url` to obtain the processed result. We also need to input the model `mode`, which currently mainly includes `std` and `pro` models, as detailed below:
 
-<p><img src="https://cdn.acedata.cloud/5qlpjt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5qlpjt.png" width="500" className="m-auto" /></p>
 
 Here we can see that we have set the Request Headers, including:
 
@@ -38,7 +38,7 @@ Additionally, we have set the Request Body, including:
 
 After selection, you can see that the corresponding code is generated on the right side, as shown in the image:
 
-<p><img src="https://cdn.acedata.cloud/buwczd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/buwczd.png" width="500" className="m-auto" /></p>
 
 Click the "Try" button to conduct a test, as shown in the image above, and we obtained the following result:
 
@@ -67,13 +67,13 @@ We can see that we have obtained satisfactory video information, and we only nee
 Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/kling/motion' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/motion' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "image_url": "https://sourceyoya.wenge.com/2025/06/03/683e9f76e4b0684509ab1aca.jpg",
-  "video_url": "https://cdn.acedata.cloud/odwfm5.mp4",
+  "video_url": "https://cdn.xhuoapi.ai/odwfm5.mp4",
   "prompt": "Make the picture come alive",
   "mode": "std",
   "character_orientation": "image"
@@ -90,12 +90,12 @@ Let’s understand how to operate specifically through an example.
 
 First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we will use a public Webhook sample site https://webhook.site/, where you can open the site to obtain a Webhook URL, as shown in the image:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 Copy this URL to use it as a Webhook, the example here is `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`.
 
 Next, we can set the field `callback_url` to the above Webhook URL, while filling in the corresponding parameters, the specific content is as shown in the image:
 
-<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vdx12s.png" width="500" className="m-auto" /></p>
 
 Clicking run, you will find that a result is immediately obtained, as follows:
 
@@ -107,7 +107,7 @@ Clicking run, you will find that a result is immediately obtained, as follows:
 
 After a moment, we can observe the generated video results at `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`, as shown in the image:
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 The content is as follows:
 

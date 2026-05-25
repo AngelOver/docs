@@ -1,15 +1,15 @@
 ---
 title: "Documentation de l'API de création de photos d'identité AI"
-description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
+description: "AI ID Photo Production 集成指南 - XHuoAPI"
 ---
 
 Cet article présente une documentation sur l'intégration de l'API de création de photos d'identité AI, qui permet de créer divers styles de photos d'identité en entrant l'URL d'une photo de portrait et un modèle de votre choix.
 
 ## Processus de demande
 
-Pour utiliser l'API, vous devez d'abord vous rendre sur la page correspondante de l'[API de création de photos d'identité AI](https://platform.acedata.cloud/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) pour demander le service correspondant. Une fois sur la page, cliquez sur le bouton « Acquire », comme indiqué sur l'image :
+Pour utiliser l'API, vous devez d'abord vous rendre sur la page correspondante de l'[API de création de photos d'identité AI](https://api.xhuoapi.ai/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) pour demander le service correspondant. Une fois sur la page, cliquez sur le bouton « Acquire », comme indiqué sur l'image :
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Si vous n'êtes pas encore connecté ou inscrit, vous serez automatiquement redirigé vers la page de connexion pour vous inviter à vous inscrire et à vous connecter. Après vous être connecté ou inscrit, vous serez automatiquement renvoyé à la page actuelle.
 
@@ -38,7 +38,7 @@ Ensuite, nous devons également entrer le modèle que nous préférons. Cet arti
 
 Ensuite, nous pouvons également spécifier le paramètre de vitesse de génération `mode`, qui se divise généralement en deux types : lent `relax` et rapide `fast`, les détails sont les suivants :
 
-<p><img src="https://cdn.acedata.cloud/73xbla.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/73xbla.png" width="500" className="m-auto" /></p>
 
 Nous pouvons voir ici que nous avons défini les en-têtes de requête, y compris :
 
@@ -54,7 +54,7 @@ De plus, nous avons défini le corps de la requête, y compris :
 
 Après avoir fait votre choix, vous pouvez constater que le code correspondant a également été généré à droite, comme indiqué sur l'image :
 
-<p><img src="https://cdn.acedata.cloud/yp49hc.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yp49hc.png" width="500" className="m-auto" /></p>
 
 Cliquez sur le bouton « Try » pour effectuer un test, comme indiqué sur l'image ci-dessus, et nous avons obtenu le résultat suivant :
 
@@ -65,12 +65,12 @@ Cliquez sur le bouton « Try » pour effectuer un test, comme indiqué sur l'ima
   "data": [
     {
       "id": "202411031951124776",
-      "image_url": "https://platform.cdn.acedata.cloud/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
+      "image_url": "https://platform.cdn.xhuoapi.ai/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
       "template": "Photo de portrait masculin"
     },
     {
       "id": "202411031951128490",
-      "image_url": "https://platform.cdn.acedata.cloud/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
+      "image_url": "https://platform.cdn.xhuoapi.ai/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
       "template": "Photo de portrait masculin"
     }
   ]
@@ -91,7 +91,7 @@ Nous pouvons voir que nous avons obtenu des informations satisfaisantes sur la p
 De plus, si vous souhaitez générer le code d'intégration correspondant, vous pouvez le copier directement, par exemple, le code CURL est le suivant :
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/headshots/generate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/generate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -112,13 +112,13 @@ Voyons maintenant un exemple pour comprendre comment procéder.
 
 Tout d'abord, le rappel Webhook est un service capable de recevoir des requêtes HTTP. Les développeurs doivent le remplacer par l'URL de leur propre serveur HTTP. Pour des raisons de démonstration, nous utiliserons un site d'exemple Webhook public https://webhook.site/, en ouvrant ce site, vous obtiendrez une URL Webhook, comme indiqué sur l'image :
 
-![](https://cdn.acedata.cloud/sb4p3v.png)
+![](https://cdn.xhuoapi.ai/sb4p3v.png)
 
 Copiez cette URL, qui peut être utilisée comme Webhook. L'exemple ici est `https://webhook.site/00f38b26-4289-4899-83d6-0cea7308850a`.
 
 Ensuite, nous pouvons définir le champ `callback_url` sur l'URL Webhook ci-dessus, tout en remplissant le lien de l'image de portrait et le modèle. Cet article recommande d'utiliser le rappel asynchrone lorsque le paramètre `mode` est `relax`, les détails sont indiqués sur l'image :
 
-<p><img src="https://cdn.acedata.cloud/opt326.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/opt326.png" width="500" className="m-auto" /></p>
 
 Cliquez sur Exécuter, et vous constaterez que vous obtiendrez immédiatement un résultat, comme suit :
 
@@ -129,7 +129,7 @@ Cliquez sur Exécuter, et vous constaterez que vous obtiendrez immédiatement un
 ```
 
 Après un court instant, vous pourrez observer le résultat de la génération de la chanson sur `https://webhook.site/00f38b26-4289-4899-83d6-0cea7308850a`, comme indiqué sur l'image :
-![](https://cdn.acedata.cloud/ym6fw1.png)
+![](https://cdn.xhuoapi.ai/ym6fw1.png)
 
 Le contenu est le suivant :
 
@@ -140,12 +140,12 @@ Le contenu est le suivant :
     "data": [
         {
             "id": "202411032010131366",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
             "template": "photo d'identité masculine"
         },
         {
             "id": "202411032010132420",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
             "template": "photo d'identité masculine"
         }
     ]

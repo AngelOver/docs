@@ -1,15 +1,15 @@
 ---
 title: "Instruções de Integração da API de Embelezamento Facial"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 Este documento apresentará uma instrução de integração da API de embelezamento facial, que pode localizar com precisão os traços faciais através do upload de uma imagem facial pelo usuário (capaz de processar até cinco informações faciais na maior imagem), realizando funções de embelezamento como suavização da pele, clareamento e remoção de acne.
 
 ## Processo de Solicitação
 
-Para usar a API, você precisa primeiro acessar a página correspondente da [API de Embelezamento Facial](https://platform.acedata.cloud/documents/29641bfa-8e71-4d63-8b35-7c9e647c18ba) para solicitar o serviço correspondente. Após entrar na página, clique no botão "Adquirir", conforme mostrado na imagem abaixo:
+Para usar a API, você precisa primeiro acessar a página correspondente da [API de Embelezamento Facial](https://api.xhuoapi.ai/documents/29641bfa-8e71-4d63-8b35-7c9e647c18ba) para solicitar o serviço correspondente. Após entrar na página, clique no botão "Adquirir", conforme mostrado na imagem abaixo:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Se você ainda não estiver logado ou registrado, será redirecionado automaticamente para a página de login, convidando-o a se registrar e fazer login. Após o registro e login, você será redirecionado de volta para a página atual.
 
@@ -19,11 +19,11 @@ Na primeira solicitação, haverá um crédito gratuito disponível, permitindo 
 
 Primeiro, entenda a forma básica de uso, que é inserir o link da imagem e as informações de embelezamento para obter a imagem resultante processada. Primeiro, é necessário passar um campo `image_url`, a imagem facial é mostrada na figura abaixo:
 
-<p><img src="https://cdn.acedata.cloud/ohgrs3.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ohgrs3.png" width="500" className="m-auto" /></p>
 
 Em seguida, precisamos enviar os parâmetros de informações de embelezamento facial, conforme detalhado nas informações do corpo da solicitação abaixo. Podemos então preencher os conteúdos correspondentes na interface, como mostrado na imagem abaixo:
 
-<p><img src="https://cdn.acedata.cloud/gjzkwv.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gjzkwv.png" width="500" className="m-auto" /></p>
 
 Podemos ver que aqui configuramos os Cabeçalhos da Solicitação, incluindo:
 
@@ -40,7 +40,7 @@ Além disso, configuramos o Corpo da Solicitação, incluindo:
 
 Após a seleção, podemos ver que o código correspondente também foi gerado à direita, como mostrado na imagem abaixo:
 
-<p><img src="https://cdn.acedata.cloud/nhq282.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nhq282.png" width="500" className="m-auto" /></p>
 
 Clique no botão "Tentar" para realizar o teste, como mostrado na imagem acima, e aqui obtemos o seguinte resultado:
 
@@ -52,19 +52,19 @@ Clique no botão "Tentar" para realizar o teste, como mostrado na imagem acima, 
 
 Podemos ver que o resultado retornado contém um campo `image_url`, que é a imagem facial após as alterações de embelezamento com base na entrada. As informações faciais alteradas são mostradas na imagem abaixo:
 
-<p><img src="https://cdn.acedata.cloud/g809b1.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g809b1.png" width="500" className="m-auto" /></p>
 
 Podemos ver que a imagem facial mudou de acordo com as informações de embelezamento inseridas.
 
 Além disso, se você quiser gerar o código de integração correspondente, pode copiá-lo diretamente, por exemplo, o código CURL é o seguinte:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/beautify' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/beautify' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg",
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg",
   "smoothing": 50,
   "whitening": 50,
   "face_lifting": 50,
@@ -77,7 +77,7 @@ O código de integração em Python é o seguinte:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/beautify"
+url = "https://api.xhuoapi.ai/v1/face/beautify"
 
 headers = {
     "accept": "application/json",
@@ -86,7 +86,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg",
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg",
     "smoothing": 50,
     "whitening": 50,
     "face_lifting": 50,

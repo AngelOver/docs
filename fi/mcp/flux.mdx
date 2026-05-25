@@ -3,7 +3,7 @@ title: "Flux MCP -integrointiohje"
 description: "flux MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) on Anthropicin kehittämä mallikontekstiprotokolla, joka mahdollistaa tekoälymallien (kuten Claude, GPT jne.) ulkoisten työkalujen kutsumisen standardoidun rajapinnan kautta. AceData Cloudin tarjoaman Flux MCP Serverin avulla voit suoraan luoda ja muokata tekoälykuvia Claude Desktopissa, VS Codessa, Cursorissa ja muissa tekoälyasiakasohjelmissa.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) on Anthropicin kehittämä mallikontekstiprotokolla, joka mahdollistaa tekoälymallien (kuten Claude, GPT jne.) ulkoisten työkalujen kutsumisen standardoidun rajapinnan kautta. XHuoAPIin tarjoaman Flux MCP Serverin avulla voit suoraan luoda ja muokata tekoälykuvia Claude Desktopissa, VS Codessa, Cursorissa ja muissa tekoälyasiakasohjelmissa.
 
 ## Ominaisuuskatsaus
 
@@ -17,10 +17,10 @@ Flux MCP Server tarjoaa seuraavat keskeiset toiminnot:
 
 ## Ennen käyttöä
 
-Ennen käyttöä sinun tulee hankkia AceData Cloud API Token:
+Ennen käyttöä sinun tulee hankkia XHuoAPI API Token:
 
-1. Rekisteröidy tai kirjaudu sisään [AceData Cloud -alustalle](https://platform.acedata.cloud)  
-2. Siirry [Flux Images API](https://platform.acedata.cloud/documents/flux-images) -sivulle  
+1. Rekisteröidy tai kirjaudu sisään [XHuoAPI -alustalle](https://api.xhuoapi.ai)  
+2. Siirry [Flux Images API](https://api.xhuoapi.ai/documents/flux-images) -sivulle  
 3. Klikkaa "Acquire" saadaksesi API Tokenin (ensihakemuksella saat ilmaisen käyttökiintiön)  
 
 ## Asennus ja konfigurointi
@@ -34,7 +34,7 @@ pip install mcp-flux-pro
 ### Vaihtoehto 2: Lähdekoodin asennus
 
 ```bash
-git clone https://github.com/AceDataCloud/FluxMCP.git
+git clone https://github.com/XHuoAPI/FluxMCP.git
 cd FluxMCP
 pip install -e .
 ```
@@ -56,7 +56,7 @@ Lisää seuraava konfiguraatio:
     "flux": {
       "command": "mcp-flux-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "sinun API Tokenisi"
+        "XHuoAPI_API_TOKEN": "sinun API Tokenisi"
       }
     }
   }
@@ -72,7 +72,7 @@ Jos käytät `uvx`-komentoa (ei vaadi etukäteisasennusta):
       "command": "uvx",
       "args": ["mcp-flux-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "sinun API Tokenisi"
+        "XHuoAPI_API_TOKEN": "sinun API Tokenisi"
       }
     }
   }
@@ -91,7 +91,7 @@ Luo projektin juurikansioon `.vscode/mcp.json`:
     "flux": {
       "command": "mcp-flux-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "sinun API Tokenisi"
+        "XHuoAPI_API_TOKEN": "sinun API Tokenisi"
       }
     }
   }
@@ -107,7 +107,7 @@ Tai käytä `uvx`-komentoa:
       "command": "uvx",
       "args": ["mcp-flux-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "sinun API Tokenisi"
+        "XHuoAPI_API_TOKEN": "sinun API Tokenisi"
       }
     }
   }
@@ -136,6 +136,6 @@ Konfiguroinnin jälkeen voit kutsua toimintoja suoraan tekoälyasiakasohjelmassa
 
 ## Lisätietoja
 
-- GitHub-repositorio: [AceDataCloud/FluxMCP](https://github.com/AceDataCloud/FluxMCP)  
+- GitHub-repositorio: [XHuoAPI/FluxMCP](https://github.com/XHuoAPI/FluxMCP)  
 - PyPI-paketti: [mcp-flux-pro](https://pypi.org/project/mcp-flux-pro/)  
-- API-dokumentaatio: [Flux-kuvageneraattorin API](https://platform.acedata.cloud/documents/flux)
+- API-dokumentaatio: [Flux-kuvageneraattorin API](https://api.xhuoapi.ai/documents/flux)

@@ -1,15 +1,15 @@
 ---
 title: "Henkilökuva-animaatio API -liitäntäohje"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 Tässä artikkelissa esitellään henkilökuva-animaatio API -liitäntäohje, joka voi syöttämällä yhden kasvojen valokuvan luoda henkilökohtaisen anime-hahmon, jota voidaan käyttää persoonallisten profiilikuvien, hauskojen aktiviteettien, erikoistehosteiden sovellusten ja muiden tilanteiden luomiseen, parantaen sosiaalista viihdekokemusta.
 
 ## Hakuprosessi
 
-API:n käyttämiseksi sinun on ensin mentävä [henkilökuva-animaatio API](https://platform.acedata.cloud/documents/6b6313f1-f398-4d29-933d-5a652cfa1c37) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire" -painiketta, kuten kuvassa on esitetty:
+API:n käyttämiseksi sinun on ensin mentävä [henkilökuva-animaatio API](https://api.xhuoapi.ai/documents/6b6313f1-f398-4d29-933d-5a652cfa1c37) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire" -painiketta, kuten kuvassa on esitetty:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -19,11 +19,11 @@ Ensimmäisellä hakukerralla saat ilmaisia käyttöoikeuksia, joiden avulla voit
 
 Ensinnäkin on hyvä ymmärtää peruskäyttötapa, eli syöttämällä kuvalinkki, voit saada käsitellyn tuloskuvan. Ensimmäiseksi sinun on yksinkertaisesti välitettävä `image_url`-kenttä, kasvojen kuva on esitetty alla olevassa kuvassa:
 
-<p><img src="https://cdn.acedata.cloud/lrbtcn.jpg" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lrbtcn.jpg" width="500" className="m-auto" /></p>
 
 Seuraavaksi voit täyttää vastaavat tiedot käyttöliittymässä, kuten kuvassa on esitetty:
 
-<p><img src="https://cdn.acedata.cloud/gflhrl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gflhrl.png" width="500" className="m-auto" /></p>
 
 Voit nähdä, että olemme asettaneet Request Headers, mukaan lukien:
 
@@ -36,7 +36,7 @@ Lisäksi on asetettu Request Body, mukaan lukien:
 
 Valinnan jälkeen voit huomata, että oikealla puolella on myös luotu vastaava koodi, kuten kuvassa on esitetty:
 
-<p><img src="https://cdn.acedata.cloud/rwbicp.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/rwbicp.png" width="500" className="m-auto" /></p>
 
 Napsauta "Try" -painiketta, niin voit testata, kuten yllä olevassa kuvassa on esitetty, ja saamme seuraavan tuloksen:
 
@@ -48,19 +48,19 @@ Napsauta "Try" -painiketta, niin voit testata, kuten yllä olevassa kuvassa on e
 
 Voit nähdä, että palautetussa tuloksessa on `image_url`-kenttä, joka on muunneltu sarjakuvakasvokuvan linkki. Muunnellut kasvojen tiedot ovat esitetty alla olevassa kuvassa:
 
-<p><img src="https://cdn.acedata.cloud/qkyga1.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qkyga1.png" width="500" className="m-auto" /></p>
 
 Voit nähdä, että kuvassa oleva kasvokuva on jo luonut henkilökohtaisen anime-hahmon.
 
 Jos haluat luoda vastaavan liitäntäkoodin, voit kopioida sen suoraan, esimerkiksi CURL-koodi on seuraava:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/cartoon' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/cartoon' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }'
 ```
 
@@ -69,7 +69,7 @@ Pythonin liitäntäkoodi on seuraava:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/cartoon"
+url = "https://api.xhuoapi.ai/v1/face/cartoon"
 
 headers = {
     "accept": "application/json",
@@ -78,7 +78,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }
 
 response = requests.post(url, json=payload, headers=headers)

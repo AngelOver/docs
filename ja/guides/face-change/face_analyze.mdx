@@ -1,15 +1,15 @@
 ---
 title: "五官定位 API 対接説明"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 本文では、五官定位 API 対接説明を紹介します。これは、画像を入力することで、リクエストされた画像の五官を定位（顔のキーポイント定位とも呼ばれる）し、顔の輪郭を構成する90のポイントを計算します。これには、眉毛（左右それぞれ8ポイント）、目（左右それぞれ8ポイント）、鼻（13ポイント）、口（22ポイント）、顔の輪郭（21ポイント）、眼球[または瞳孔]（2ポイント）が含まれます。
 
 ## 申請プロセス
 
-APIを使用するには、まず[五官定位 API](https://platform.acedata.cloud/documents/20945baf-b263-457b-be5f-0332c2180a57)の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
+APIを使用するには、まず[五官定位 API](https://api.xhuoapi.ai/documents/20945baf-b263-457b-be5f-0332c2180a57)の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 まだログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -19,11 +19,11 @@ APIを使用するには、まず[五官定位 API](https://platform.acedata.clo
 
 まず、基本的な使用方法を理解します。画像リンクを入力するだけで、処理後の結果画像を得ることができます。まず、`image_url`フィールドを簡単に渡す必要があります。顔の画像は以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/lrbtcn.jpg" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lrbtcn.jpg" width="500" className="m-auto" /></p>
 
 次に、画面上に対応する内容を記入できます。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/y3g837.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/y3g837.png" width="500" className="m-auto" /></p>
 
 ここでは、Request Headersを設定しました。これには以下が含まれます：
 
@@ -39,7 +39,7 @@ APIを使用するには、まず[五官定位 API](https://platform.acedata.clo
 
 選択後、右側にも対応するコードが生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/2ceul8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2ceul8.png" width="500" className="m-auto" /></p>
 
 「Try」ボタンをクリックするとテストを行うことができます。上の図のように、ここで以下の結果を得ました：
 ```json
@@ -470,12 +470,12 @@ APIを使用するには、まず[五官定位 API](https://platform.acedata.clo
 また、対応する接続コードを生成したい場合は、生成されたものを直接コピーできます。例えば、CURLのコードは以下の通りです：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/analyze' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/analyze' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }'
 ```
 
@@ -484,7 +484,7 @@ Pythonの接続コードは以下の通りです：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/analyze"
+url = "https://api.xhuoapi.ai/v1/face/analyze"
 
 headers = {
     "accept": "application/json",
@@ -493,7 +493,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }
 
 response = requests.post(url, json=payload, headers=headers)

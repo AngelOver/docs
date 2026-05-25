@@ -1,15 +1,15 @@
 ---
 title: "Fish Model Query API 对接说明"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
-本接口基于 [Fish Audio 官方 Model API](https://docs.fish.audio/resources/api-reference/model)，用于**分页检索 Fish 公共音色库或当前账号下的克隆音色**。地址为 `GET https://api.acedata.cloud/fish/model`。
+本接口基于 [Fish Audio 官方 Model API](https://docs.fish.audio/resources/api-reference/model)，用于**分页检索 Fish 公共音色库或当前账号下的克隆音色**。地址为 `GET https://api.xhuoapi.ai/v1/fish/model`。
 
-> 创建音色请参考 [Fish Model Create API](https://platform.acedata.cloud/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a)；按 `_id` 查询单个音色详情请参考 [Fish Model Get API](https://platform.acedata.cloud/documents/dabdffe7-254b-5a3f-9eca-425d614d82b9)。
+> 创建音色请参考 [Fish Model Create API](https://api.xhuoapi.ai/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a)；按 `_id` 查询单个音色详情请参考 [Fish Model Get API](https://api.xhuoapi.ai/documents/dabdffe7-254b-5a3f-9eca-425d614d82b9)。
 
 ## 申请流程
 
-要使用 API，需要先到 [Fish Model API](https://platform.acedata.cloud/services/caf99abc-ddcf-4714-b2a5-862d9b469509) 对应页面申请对应的服务，进入页面之后，点击「Acquire」按钮。
+要使用 API，需要先到 [Fish Model API](https://api.xhuoapi.ai/services/caf99abc-ddcf-4714-b2a5-862d9b469509) 对应页面申请对应的服务，进入页面之后，点击「Acquire」按钮。
 
 如果你尚未登录或注册，会自动跳转到登录页面邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
@@ -34,7 +34,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 ## 示例 1：默认翻页（按 `page_size`）
 
 ```shell
-curl -G 'https://api.acedata.cloud/fish/model' \
+curl -G 'https://api.xhuoapi.ai/v1/fish/model' \
   -H 'authorization: Bearer {token}' \
   --data-urlencode 'page_size=2'
 ```
@@ -87,7 +87,7 @@ curl -G 'https://api.acedata.cloud/fish/model' \
 ## 示例 2：按标题模糊搜索（`title`）
 
 ```shell
-curl -G 'https://api.acedata.cloud/fish/model' \
+curl -G 'https://api.xhuoapi.ai/v1/fish/model' \
   -H 'authorization: Bearer {token}' \
   --data-urlencode 'title=narration' \
   --data-urlencode 'page_size=2'
@@ -126,7 +126,7 @@ curl -G 'https://api.acedata.cloud/fish/model' \
 ## 示例 3：只列出自己创建的音色（`self=true`）
 
 ```shell
-curl -G 'https://api.acedata.cloud/fish/model' \
+curl -G 'https://api.xhuoapi.ai/v1/fish/model' \
   -H 'authorization: Bearer {token}' \
   --data-urlencode 'self=true' \
   --data-urlencode 'page_size=5'
@@ -142,7 +142,7 @@ curl -G 'https://api.acedata.cloud/fish/model' \
       "_id": "e5c6db52c3ed417f9cb2e5a33fb04667",
       "type": "tts",
       "title": "copilot-smoke-test",
-      "description": "smoke test from api.acedata.cloud",
+      "description": "smoke test from api.xhuoapi.ai",
       "state": "trained",
       "languages": ["zh"],
       "visibility": "public",
@@ -170,7 +170,7 @@ curl -G 'https://api.acedata.cloud/fish/model' \
 ## 示例 4：按语种 + 标签过滤
 
 ```shell
-curl -G 'https://api.acedata.cloud/fish/model' \
+curl -G 'https://api.xhuoapi.ai/v1/fish/model' \
   -H 'authorization: Bearer {token}' \
   --data-urlencode 'language=zh' \
   --data-urlencode 'tag=narration' \
@@ -202,7 +202,7 @@ curl -G 'https://api.acedata.cloud/fish/model' \
 
 ## 计费说明
 
-本接口不计费——分页查询音色列表是免费操作，仅 [Fish Model Create](https://platform.acedata.cloud/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a) 在请求体携带 `voices` 字段创建新音色时计费。
+本接口不计费——分页查询音色列表是免费操作，仅 [Fish Model Create](https://api.xhuoapi.ai/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a) 在请求体携带 `voices` 字段创建新音色时计费。
 
 ## 错误处理
 
@@ -226,4 +226,4 @@ curl -G 'https://api.acedata.cloud/fish/model' \
 
 ## 结论
 
-要从 Fish 公共库挑选音色喂给 `/fish/tts` 的 `reference_id`，先用本接口配合 `title` / `tag` / `language` 检索，定位到目标 `_id`，再用 [Fish Model Get](https://platform.acedata.cloud/documents/dabdffe7-254b-5a3f-9eca-425d614d82b9) 拿样本试听。要列出自己创建的音色，传 `self=true` 即可。
+要从 Fish 公共库挑选音色喂给 `/fish/tts` 的 `reference_id`，先用本接口配合 `title` / `tag` / `language` 检索，定位到目标 `_id`，再用 [Fish Model Get](https://api.xhuoapi.ai/documents/dabdffe7-254b-5a3f-9eca-425d614d82b9) 拿样本试听。要列出自己创建的音色，传 `self=true` 即可。

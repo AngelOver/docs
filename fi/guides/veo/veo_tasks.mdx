@@ -1,6 +1,6 @@
 ---
 title: "Veo Tasks API:n integrointi ja käyttö"
-description: "Veo Video Generation 集成指南 - Ace Data Cloud"
+description: "Veo Video Generation 集成指南 - XHuoAPI"
 ---
 
 Veo Tasks API:n päätoiminto on kysyä tehtävän suoritusstatus syöttämällä Veo Videos Generation API:n tuottama tehtävä-ID.
@@ -9,27 +9,27 @@ Tässä asiakirjassa käsitellään yksityiskohtaisesti Veo Tasks API:n integroi
 
 ## Hakuprosessi
 
-Veo Tasks API:n käyttöä varten sinun on ensin mentävä hakusivulle [Veo Videos Generation API](https://platform.acedata.cloud/documents/63e01dc3-eb21-499e-8049-3025c460058f) ja haettava tarvittavaa palvelua, sitten kopioitava Veo Videos Generation API:n tehtävä-ID, kuten kuvassa näkyy:
+Veo Tasks API:n käyttöä varten sinun on ensin mentävä hakusivulle [Veo Videos Generation API](https://api.xhuoapi.ai/documents/63e01dc3-eb21-499e-8049-3025c460058f) ja haettava tarvittavaa palvelua, sitten kopioitava Veo Videos Generation API:n tehtävä-ID, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/txlg6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/txlg6g.png" width="500" className="m-auto" /></p>
 
-Lopuksi siirry Tasks API -sivulle [Veo Tasks API](https://platform.acedata.cloud/documents/52778f8b-93ce-4db3-a62c-bcf0a92e5f3c) ja hae tarvittavaa palvelua, siirryttyäsi sivulle, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
+Lopuksi siirry Tasks API -sivulle [Veo Tasks API](https://api.xhuoapi.ai/documents/52778f8b-93ce-4db3-a62c-bcf0a92e5f3c) ja hae tarvittavaa palvelua, siirryttyäsi sivulle, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
 
-![Hakusivu](https://cdn.acedata.cloud/rci31i.png)
+![Hakusivu](https://cdn.xhuoapi.ai/rci31i.png)
 
-Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti [kirjautumissivulle](https://platform.acedata.cloud), joka kutsuu sinua rekisteröitymään ja kirjautumaan sisään, ja kirjautumisen jälkeen palaat automaattisesti nykyiselle sivulle.
+Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti [kirjautumissivulle](https://api.xhuoapi.ai), joka kutsuu sinua rekisteröitymään ja kirjautumaan sisään, ja kirjautumisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
 Ensimmäisellä hakukerralla saat ilmaisia krediittejä, joita voit käyttää API:n ilmaiseksi.
 
 ## Pyyntöesimerkki
 
-Veo Tasks API:ta voidaan käyttää Veo Videos Generation API:n tulosten kysymiseen. Lisätietoja Veo Videos Generation API:n käytöstä löytyy asiakirjasta [Veo Videos Generation API](https://platform.acedata.cloud/documents/63e01dc3-eb21-499e-8049-3025c460058f).
+Veo Tasks API:ta voidaan käyttää Veo Videos Generation API:n tulosten kysymiseen. Lisätietoja Veo Videos Generation API:n käytöstä löytyy asiakirjasta [Veo Videos Generation API](https://api.xhuoapi.ai/documents/63e01dc3-eb21-499e-8049-3025c460058f).
 
 Otetaan esimerkkinä yksi Veo Videos Generation API:n palauttamista tehtävä-ID:stä ja näytetään, kuinka tätä API:a käytetään. Oletetaan, että meillä on tehtävä-ID: 1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed, seuraavaksi näytetään, kuinka syötetään tämä tehtävä-ID.
 
 ### Tehtäväesimerkkikuva
 
-<p><img src="https://cdn.acedata.cloud/txlg6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/txlg6g.png" width="500" className="m-auto" /></p>
 
 ### Pyyntöotsikon ja -kehon asettaminen
 
@@ -45,20 +45,20 @@ Otetaan esimerkkinä yksi Veo Videos Generation API:n palauttamista tehtävä-ID
 
 Aseta kuten alla olevassa kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/xztiqi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xztiqi.png" width="500" className="m-auto" /></p>
 
 ### Koodiesimerkki
 
 Voit huomata, että sivun oikealla puolella on automaattisesti luotu koodia eri kielillä, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/bsqh3i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bsqh3i.png" width="500" className="m-auto" /></p>
 
 Osittainen koodiesimerkki on seuraava:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/veo/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/veo/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/veo/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/veo/tasks"
+url = "https://api.xhuoapi.ai/v1/veo/tasks"
 
 headers = {
     "accept": "application/json",
@@ -118,7 +118,7 @@ Kun pyyntö onnistuu, API palauttaa tämän videotehtävän yksityiskohtaiset ti
     "data": [
       {
         "id": "2f43ceed37944b4d836e1a1899dad0a1",
-        "video_url": "https://platform.cdn.acedata.cloud/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
+        "video_url": "https://platform.cdn.xhuoapi.ai/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
         "created_at": "2025-07-25 17:19:20",
         "complete_at": "2025-07-25 17:21:45",
         "state": "succeeded"
@@ -145,13 +145,13 @@ Tämä on tarkoitettu useiden tehtävä-ID:iden kyselyyn videotehtävän yksityi
 
 Aseta kuten alla olevassa kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/4p5uvq.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4p5uvq.png" width="500" className="m-auto" /></p>
 
 ### Koodiesimerkki
 
 Voit huomata, että sivun oikealla puolella on automaattisesti luotu koodia eri kielillä, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/g3b7g6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g3b7g6.png" width="500" className="m-auto" /></p>
 
 Osittainen koodiesimerkki on seuraava:
 
@@ -184,7 +184,7 @@ Kun pyyntö onnistuu, API palauttaa kaikkien massatehtävien tarkat yksityiskohd
         "data": [
           {
             "id": "2f43ceed37944b4d836e1a1899dad0a1",
-            "video_url": "https://platform.cdn.acedata.cloud/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
+            "video_url": "https://platform.cdn.xhuoapi.ai/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
             "created_at": "2025-07-25 17:19:20",
             "complete_at": "2025-07-25 17:21:45",
             "state": "succeeded"
@@ -215,7 +215,7 @@ Kun pyyntö onnistuu, API palauttaa kaikkien massatehtävien tarkat yksityiskohd
         "data": [
           {
             "id": "2f43ceed37944b4d836e1a1899dad0a1",
-            "video_url": "https://platform.cdn.acedata.cloud/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
+            "video_url": "https://platform.cdn.xhuoapi.ai/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
             "created_at": "2025-07-25 17:19:20",
             "complete_at": "2025-07-25 17:21:45",
             "state": "succeeded"
@@ -236,7 +236,7 @@ Kun pyyntö onnistuu, API palauttaa kaikkien massatehtävien tarkat yksityiskohd
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/veo/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/veo/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

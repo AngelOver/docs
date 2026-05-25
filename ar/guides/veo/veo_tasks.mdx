@@ -1,6 +1,6 @@
 ---
 title: "واجهة برمجة تطبيقات مهام Veo والتكامل والاستخدام"
-description: "Veo Video Generation 集成指南 - Ace Data Cloud"
+description: "Veo Video Generation 集成指南 - XHuoAPI"
 ---
 
 الوظيفة الرئيسية لواجهة برمجة تطبيقات مهام Veo هي استعلام حالة تنفيذ المهمة من خلال إدخال معرف المهمة الذي تم إنشاؤه بواسطة واجهة برمجة تطبيقات إنشاء مقاطع الفيديو Veo.
@@ -9,27 +9,27 @@ description: "Veo Video Generation 集成指南 - Ace Data Cloud"
 
 ## عملية التقديم
 
-لاستخدام واجهة برمجة تطبيقات مهام Veo، يجب أولاً الذهاب إلى صفحة التقديم [واجهة برمجة تطبيقات إنشاء مقاطع الفيديو Veo](https://platform.acedata.cloud/documents/63e01dc3-eb21-499e-8049-3025c460058f) لتقديم الطلب للخدمة المناسبة، ثم نسخ معرف المهمة من واجهة برمجة تطبيقات إنشاء مقاطع الفيديو Veo، كما هو موضح في الصورة:
+لاستخدام واجهة برمجة تطبيقات مهام Veo، يجب أولاً الذهاب إلى صفحة التقديم [واجهة برمجة تطبيقات إنشاء مقاطع الفيديو Veo](https://api.xhuoapi.ai/documents/63e01dc3-eb21-499e-8049-3025c460058f) لتقديم الطلب للخدمة المناسبة، ثم نسخ معرف المهمة من واجهة برمجة تطبيقات إنشاء مقاطع الفيديو Veo، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/txlg6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/txlg6g.png" width="500" className="m-auto" /></p>
 
-أخيرًا، انتقل إلى صفحة واجهة برمجة تطبيقات المهام [واجهة برمجة تطبيقات مهام Veo](https://platform.acedata.cloud/documents/52778f8b-93ce-4db3-a62c-bcf0a92e5f3c) لتقديم الطلب للخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
+أخيرًا، انتقل إلى صفحة واجهة برمجة تطبيقات المهام [واجهة برمجة تطبيقات مهام Veo](https://api.xhuoapi.ai/documents/52778f8b-93ce-4db3-a62c-bcf0a92e5f3c) لتقديم الطلب للخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
 
-![صفحة التقديم](https://cdn.acedata.cloud/rci31i.png)
+![صفحة التقديم](https://cdn.xhuoapi.ai/rci31i.png)
 
-إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى [صفحة تسجيل الدخول](https://platform.acedata.cloud) لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول أو التسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
+إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى [صفحة تسجيل الدخول](https://api.xhuoapi.ai) لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول أو التسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
 عند التقديم لأول مرة، سيكون هناك حد مجاني متاح، يمكنك استخدام هذه الواجهة مجانًا.
 
 ## مثال على الطلب
 
-يمكن استخدام واجهة برمجة تطبيقات مهام Veo لاستعلام نتائج واجهة برمجة تطبيقات إنشاء مقاطع الفيديو Veo. لمزيد من المعلومات حول كيفية استخدام واجهة برمجة تطبيقات إنشاء مقاطع الفيديو Veo، يرجى الرجوع إلى الوثيقة [واجهة برمجة تطبيقات إنشاء مقاطع الفيديو Veo](https://platform.acedata.cloud/documents/63e01dc3-eb21-499e-8049-3025c460058f).
+يمكن استخدام واجهة برمجة تطبيقات مهام Veo لاستعلام نتائج واجهة برمجة تطبيقات إنشاء مقاطع الفيديو Veo. لمزيد من المعلومات حول كيفية استخدام واجهة برمجة تطبيقات إنشاء مقاطع الفيديو Veo، يرجى الرجوع إلى الوثيقة [واجهة برمجة تطبيقات إنشاء مقاطع الفيديو Veo](https://api.xhuoapi.ai/documents/63e01dc3-eb21-499e-8049-3025c460058f).
 
 سنأخذ مثالاً على معرف المهمة الذي تم إرجاعه من خدمة واجهة برمجة تطبيقات إنشاء مقاطع الفيديو Veo، لنوضح كيفية استخدام هذه الواجهة. لنفترض أن لدينا معرف مهمة: 1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed، وسنوضح كيفية تمرير معرف المهمة.
 
 ### مثال على المهمة
 
-<p><img src="https://cdn.acedata.cloud/txlg6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/txlg6g.png" width="500" className="m-auto" /></p>
 
 ### إعداد رأس الطلب وجسم الطلب
 
@@ -45,20 +45,20 @@ description: "Veo Video Generation 集成指南 - Ace Data Cloud"
 
 الإعداد كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/xztiqi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xztiqi.png" width="500" className="m-auto" /></p>
 
 ### مثال على الكود
 
 يمكن ملاحظة أنه تم إنشاء أكواد بلغات مختلفة تلقائيًا على الجانب الأيمن من الصفحة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/bsqh3i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bsqh3i.png" width="500" className="m-auto" /></p>
 
 بعض أمثلة الكود كما يلي:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/veo/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/veo/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/veo/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/veo/tasks"
+url = "https://api.xhuoapi.ai/v1/veo/tasks"
 
 headers = {
     "accept": "application/json",
@@ -118,7 +118,7 @@ print(response.text)
     "data": [
       {
         "id": "2f43ceed37944b4d836e1a1899dad0a1",
-        "video_url": "https://platform.cdn.acedata.cloud/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
+        "video_url": "https://platform.cdn.xhuoapi.ai/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
         "created_at": "2025-07-25 17:19:20",
         "complete_at": "2025-07-25 17:21:45",
         "state": "succeeded"
@@ -145,13 +145,13 @@ print(response.text)
 
 الإعداد كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/4p5uvq.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4p5uvq.png" width="500" className="m-auto" /></p>
 
 ### مثال على الكود
 
 يمكن ملاحظة أنه تم إنشاء أكواد بلغات مختلفة تلقائيًا على الجانب الأيمن من الصفحة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/g3b7g6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g3b7g6.png" width="500" className="m-auto" /></p>
 
 بعض أمثلة الكود كما يلي:
 
@@ -184,7 +184,7 @@ print(response.text)
         "data": [
           {
             "id": "2f43ceed37944b4d836e1a1899dad0a1",
-            "video_url": "https://platform.cdn.acedata.cloud/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
+            "video_url": "https://platform.cdn.xhuoapi.ai/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
             "created_at": "2025-07-25 17:19:20",
             "complete_at": "2025-07-25 17:21:45",
             "state": "succeeded"
@@ -215,7 +215,7 @@ print(response.text)
         "data": [
           {
             "id": "2f43ceed37944b4d836e1a1899dad0a1",
-            "video_url": "https://platform.cdn.acedata.cloud/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
+            "video_url": "https://platform.cdn.xhuoapi.ai/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
             "created_at": "2025-07-25 17:19:20",
             "complete_at": "2025-07-25 17:21:45",
             "state": "succeeded"
@@ -236,7 +236,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/veo/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/veo/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

@@ -1,21 +1,21 @@
 ---
 title: "Producer رفع مرجع الصوت API توصيل الشرح"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 يسمح لنا Producer برفع مرجع الصوت لإعادة الإبداع، توضح هذه الوثيقة طريقة توصيل API ذات الصلة.
 
 هذا API يحتوي على معلمة إدخال واحدة، وهي `audio_url`، وهي عنوان CDN يمكن الوصول إليه علنًا، يدعم لاحقة mp3.
 
-هنا، `audio_url` المدخل هو `https://cdn.acedata.cloud/suno_demo.mp3`، وهو عنوان CDN يمكن الوصول إليه علنًا.
+هنا، `audio_url` المدخل هو `https://cdn.xhuoapi.ai/suno_demo.mp3`، وهو عنوان CDN يمكن الوصول إليه علنًا.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/upload' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/upload' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "audio_url": "https://cdn.acedata.cloud/suno_demo.mp3"
+  "audio_url": "https://cdn.xhuoapi.ai/suno_demo.mp3"
 }'
 ```
 
@@ -35,4 +35,4 @@ curl -X POST 'https://api.acedata.cloud/producer/upload' \
 
 يمكنك أن ترى أن حقل `audio_id` في `data` هو معرف الأغنية بعد الرفع.
 
-بعد الحصول على معرف الأغنية، يمكننا استخدام [Producer Audios Generation API](https://platform.acedata.cloud/documents/producer-audios-integration) لإنشاء أغاني مخصصة، على سبيل المثال، تمرير `action` كـ `upload_extend`، بينما يتم تمرير `audio_id` كمعرف الأغنية الذي تم إرجاعه، يمكننا إنشاء أغنية جديدة بناءً على مرجع الصوت.
+بعد الحصول على معرف الأغنية، يمكننا استخدام [Producer Audios Generation API](https://api.xhuoapi.ai/documents/producer-audios-integration) لإنشاء أغاني مخصصة، على سبيل المثال، تمرير `action` كـ `upload_extend`، بينما يتم تمرير `audio_id` كمعرف الأغنية الذي تم إرجاعه، يمكننا إنشاء أغنية جديدة بناءً على مرجع الصوت.

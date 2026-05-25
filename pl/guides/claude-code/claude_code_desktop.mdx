@@ -1,19 +1,19 @@
 ---
 title: "Claude Code - Instrukcja obsługi aplikacji desktopowej"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code to narzędzie **Agentic Coding** wydane przez Anthropic, znane również jako jeden z najsilniejszych agentów programistycznych na świecie. Aplikacja desktopowa Claude Code oferuje niezależny interfejs graficzny, wspierający funkcje przeglądania Diff, równoległych sesji (izolowanych przez Git Worktree), sesji zdalnych i inne, bez potrzeby korzystania z jakiegokolwiek IDE.
 
-Dokument ten opisuje, jak skonfigurować i używać aplikacji desktopowej Claude Code za pośrednictwem usługi proxy AceData Cloud.
+Dokument ten opisuje, jak skonfigurować i używać aplikacji desktopowej Claude Code za pośrednictwem usługi proxy XHuoAPI.
 
 > **Uwaga**: Aplikacja desktopowa Claude Code jest obecnie w fazie podglądu (Preview) i obsługuje tylko macOS i Windows.
 
 ## Proces aplikacji
 
-Aby korzystać z Claude Code, najpierw przejdź do [strony usługi Claude Messages](https://platform.acedata.cloud/documents/claude-messages) i kliknij przycisk „Acquire”, aby uzyskać wymagane poświadczenia:
+Aby korzystać z Claude Code, najpierw przejdź do [strony usługi Claude Messages](https://api.xhuoapi.ai/documents/claude-messages) i kliknij przycisk „Acquire”, aby uzyskać wymagane poświadczenia:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Jeśli nie jesteś zalogowany lub zarejestrowany, automatycznie zostaniesz przekierowany na stronę logowania, aby zarejestrować się i zalogować, a po zalogowaniu zostaniesz automatycznie przekierowany z powrotem na bieżącą stronę.
 
@@ -34,13 +34,13 @@ Przejdź do [oficjalnej strony pobierania Claude](https://claude.ai), aby pobra�
 - **Windows x64**: pobierz pakiet instalacyjny `.exe`, postępuj zgodnie z instrukcjami
 - **Windows ARM64**: pobierz wersję ARM64 (uwaga: ARM64 nie obsługuje sesji lokalnych, należy używać sesji zdalnych)
 
-![Strona pobierania aplikacji desktopowej Claude](https://cdn.acedata.cloud/c3c8c57264.png)
+![Strona pobierania aplikacji desktopowej Claude](https://cdn.xhuoapi.ai/c3c8c57264.png)
 
 Po zakończeniu instalacji uruchom Claude z folderu Applications (macOS) lub menu Start (Windows).
 
-## Konfiguracja API AceData Cloud
+## Konfiguracja API XHuoAPI
 
-Po uruchomieniu aplikacji desktopowej należy zalogować się na konto Anthropic. Możemy skonfigurować zmienne środowiskowe, aby korzystać z API proxy AceData Cloud, **bez potrzeby posiadania oficjalnej subskrypcji**.
+Po uruchomieniu aplikacji desktopowej należy zalogować się na konto Anthropic. Możemy skonfigurować zmienne środowiskowe, aby korzystać z API proxy XHuoAPI, **bez potrzeby posiadania oficjalnej subskrypcji**.
 
 Aplikacja desktopowa odczytuje zmienne środowiskowe z twojego środowiska Shell, dlatego należy je ustawić w pliku konfiguracyjnym Shell.
 
@@ -51,9 +51,9 @@ Aplikacja desktopowa odczytuje zmienne środowiskowe z twojego środowiska Shell
 Dodaj poniższe treści do `~/.zshrc` (lub `~/.bashrc`), zastępując `{token}` swoim tokenem API:
 
 ```bash
-# AceData Cloud - Konfiguracja proxy Claude Code
+# XHuoAPI - Konfiguracja proxy Claude Code
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 Po zapisaniu wykonaj:
@@ -69,13 +69,13 @@ Dodaj poniższe zmienne środowiskowe systemu przez „Właściwości systemu �
 | Nazwa zmiennej            | Wartość                           |
 | ---------------------- | ----------------------------- |
 | `ANTHROPIC_AUTH_TOKEN` | `{token}` (zastąp swoim tokenem API)     |
-| `ANTHROPIC_BASE_URL`   | `https://api.acedata.cloud` |
+| `ANTHROPIC_BASE_URL`   | `https://api.xhuoapi.ai/v1` |
 
 Lub użyj PowerShell:
 
 ```powershell
 [System.Environment]::SetEnvironmentVariable("ANTHROPIC_AUTH_TOKEN", "{token}", "User")
-[System.Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.acedata.cloud", "User")
+[System.Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.xhuoapi.ai/v1", "User")
 ```
 
 **Można również skonfigurować przez settings.json**
@@ -86,12 +86,12 @@ Edytuj `~/.claude/settings.json` (jeśli nie istnieje, utwórz):
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **Wskazówka**: Token API można zobaczyć w [konsoli AceData Cloud](https://platform.acedata.cloud/console). Po zakończeniu konfiguracji należy **zrestartować aplikację desktopową**, aby zmienne środowiskowe zaczęły działać.
+> **Wskazówka**: Token API można zobaczyć w [konsoli XHuoAPI](https://api.xhuoapi.ai/console). Po zakończeniu konfiguracji należy **zrestartować aplikację desktopową**, aby zmienne środowiskowe zaczęły działać.
 
 ## Podstawowe użycie
 
@@ -162,7 +162,7 @@ Obie mogą działać jednocześnie w tym samym projekcie, każda z nich utrzymuj
 
 1. Sprawdź, czy plik `~/.claude/config.json` został poprawnie utworzony
 2. Upewnij się, że zmienne środowiskowe zostały poprawnie ustawione (zrestartuj aplikację desktopową, aby je aktywować)
-3. Upewnij się, że token API jest ważny (można go zobaczyć w [konsoli](https://platform.acedata.cloud/console))
+3. Upewnij się, że token API jest ważny (można go zobaczyć w [konsoli](https://api.xhuoapi.ai/console))
 4. Jeśli używasz `settings.json` do konfiguracji zmiennych środowiskowych, upewnij się, że format pliku jest poprawny
 
 ### Co zrobić, gdy nie mogę znaleźć zainstalowanych narzędzi?
@@ -175,9 +175,9 @@ Jeśli Claude nie może znaleźć poleceń `npm`, `node` itp.:
 
 ### Jak sprawdzić pozostały limit?
 
-Zaloguj się do [konsoli AceData Cloud](https://platform.acedata.cloud/console), aby zobaczyć aktualny limit i stan wykorzystania konta.
+Zaloguj się do [konsoli XHuoAPI](https://api.xhuoapi.ai/console), aby zobaczyć aktualny limit i stan wykorzystania konta.
 
 ## Dowiedz się więcej
 - 📖 [Oficjalna dokumentacja aplikacji desktopowej Claude Code](https://code.claude.com/docs/en/desktop)
-- 🔧 [Usługa AceData Cloud Claude Code](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [Usługa XHuoAPI Claude Code](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 W razie jakichkolwiek pytań, zapraszamy do kontaktu z naszym zespołem wsparcia na platformie

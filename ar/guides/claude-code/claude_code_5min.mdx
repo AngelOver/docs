@@ -1,26 +1,26 @@
 ---
 title: "دليل الاستخدام السريع لـ Claude Code خلال 5 دقائق"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
-الهدف من هذه الوثيقة هو فقط: أن تتمكن **في غضون 5 دقائق** من تشغيل أول أمر لـ Claude Code عبر وكيل AceData Cloud. الدليل الكامل موجود في وثائق IDE الفرعية ( [VS Code](https://platform.acedata.cloud/documents/claude-code-vscode-integrations) / [Cursor](https://platform.acedata.cloud/documents/claude-code-cursor-integration) / [JetBrains](https://platform.acedata.cloud/documents/claude-code-jetbrains-integrations) )؛ هذه الوثيقة تركز فقط على أسرع مسار باستخدام «**واجهة الأوامر الطرفية CLI** + **ملحق VS Code**».
+الهدف من هذه الوثيقة هو فقط: أن تتمكن **في غضون 5 دقائق** من تشغيل أول أمر لـ Claude Code عبر وكيل XHuoAPI. الدليل الكامل موجود في وثائق IDE الفرعية ( [VS Code](https://api.xhuoapi.ai/documents/claude-code-vscode-integrations) / [Cursor](https://api.xhuoapi.ai/documents/claude-code-cursor-integration) / [JetBrains](https://api.xhuoapi.ai/documents/claude-code-jetbrains-integrations) )؛ هذه الوثيقة تركز فقط على أسرع مسار باستخدام «**واجهة الأوامر الطرفية CLI** + **ملحق VS Code**».
 
-> **لماذا نستخدم AceData Cloud كوكيل لـ Claude Code**:
+> **لماذا نستخدم XHuoAPI كوكيل لـ Claude Code**:
 > - اتصال مباشر من داخل البلاد، بدون الحاجة لإعداد VPN خاص
 > - سعر أقل مقارنة بالمصدر الرسمي (حسب منصة Token)
 > - نفس المفتاح يدعم في الوقت ذاته كل من Claude Messages API وClaude Code Token Protocol
 
 ## الدقيقة 1: طلب الاعتماد
 
-افتح [صفحة خدمة Claude Messages](https://platform.acedata.cloud/documents/claude-messages) وانقر على زر «**Acquire**»:
+افتح [صفحة خدمة Claude Messages](https://api.xhuoapi.ai/documents/claude-messages) وانقر على زر «**Acquire**»:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 سيقوم المنصة تلقائيًا بإنشاء تطبيق لك وتوفير رصيد مجاني. احفظ **Base URL** و **API Token** من صفحة التفاصيل — ستحتاج إليهما في الخطوات الخمسة التالية.
 
 | الحقل | القيمة | الاستخدام |
 |--------|---------|------------|
-| `BASE_URL` | `https://api.acedata.cloud` | مدخل متوافق مع Claude Messages |
+| `BASE_URL` | `https://api.xhuoapi.ai/v1` | مدخل متوافق مع Claude Messages |
 | `API_TOKEN` | `sk-...` (يمكن نسخه من صفحة التفاصيل) | رأس المصادقة المتوافق مع Anthropic |
 
 ## الدقيقة 2: تثبيت Claude Code
@@ -45,14 +45,14 @@ claude --version
 
 > إذا ظهرت لك رقم الإصدار، فهذا يعني أن التثبيت ناجح. Claude Code يأتي مع Node.js runtime مدمج، ولا يعتمد على نسخة Node المثبتة على جهازك.
 
-## الدقيقة 3: توجيه متغيرات البيئة إلى AceData Cloud
+## الدقيقة 3: توجيه متغيرات البيئة إلى XHuoAPI
 
 لا تستخدم عملية `claude login` الرسمية، بل استبدلها بواسطة متغيرات البيئة. اختر أحد الطريقتين:
 
 **الطريقة أ: مؤقتًا (لجلسة الشل الحالية فقط)**
 
 ```bash
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 export ANTHROPIC_AUTH_TOKEN="sk-مفتاح-الخاص-بك"
 ```
 
@@ -95,39 +95,39 @@ claude
 
 > **ملاحظة**: ملحق VS Code وCLI يستخدمان نفس ملف الإعدادات `~/.claude/settings.json`، لذلك لا حاجة لإعدادها بشكل منفصل في VS Code. إذا أردت تجاوز الإعدادات على مستوى المشروع، يمكنك إنشاء ملف `~/.claude/settings.local.json` في جذر المستودع (مخفي في git).
 
-عند النجاح، يمكنك سحب ملفات من اللوحة لطرح أسئلة، أو استخدام `@-mention` للإشارة إلى ملفات لاقتراح التعديلات. جميع عمليات الدفع تتم عبر AceData Cloud.
+عند النجاح، يمكنك سحب ملفات من اللوحة لطرح أسئلة، أو استخدام `@-mention` للإشارة إلى ملفات لاقتراح التعديلات. جميع عمليات الدفع تتم عبر XHuoAPI.
 
 ## التحقق من أن الوكيل يعمل فعلاً
 
-قم بتشغيل الأمر التالي مع وضع `--debug`، للتحقق من أن الطلبات تصل فعلاً إلى AceData Cloud:
+قم بتشغيل الأمر التالي مع وضع `--debug`، للتحقق من أن الطلبات تصل فعلاً إلى XHuoAPI:
 
 ```bash
-claude --debug -p "say hi" 2>&1 | grep -iE 'base.?url|api\.acedata|anthropic\.com' | head
+claude --debug -p "say hi" 2>&1 | grep -iE 'base.?url|api\.XHuoAPI|anthropic\.com' | head
 ```
 
-إذا رأيت `https://api.acedata.cloud`، فهذا يدل على أن الوكيل يعمل. وإذا ظهرت `api.anthropic.com` أو حصلت على خطأ 401، عد إلى الدقيقة 3 للتحقق من اسم متغير البيئة (`ANTHROPIC_AUTH_TOKEN` وليس `ANTHROPIC_API_KEY`) وتأكد من أن ملف `~/.claude/.credentials.json` لا يحتوي على مفتاح رسمي، واحذف الملف إن وجد.
+إذا رأيت `https://api.xhuoapi.ai/v1`، فهذا يدل على أن الوكيل يعمل. وإذا ظهرت `api.anthropic.com` أو حصلت على خطأ 401، عد إلى الدقيقة 3 للتحقق من اسم متغير البيئة (`ANTHROPIC_AUTH_TOKEN` وليس `ANTHROPIC_API_KEY`) وتأكد من أن ملف `~/.claude/.credentials.json` لا يحتوي على مفتاح رسمي، واحذف الملف إن وجد.
 
 ## أكثر 5 أسئلة تكرارًا
 
-**س: بعد تشغيل `claude login` غيرت متغيرات البيئة إلى AceData، ولم تعمل؟**  
+**س: بعد تشغيل `claude login` غيرت متغيرات البيئة إلى XHuoAPI، ولم تعمل؟**  
 ج: `claude login` يكتب المفتاح الرسمي في `~/.claude/.credentials.json`، وله أولوية أعلى من متغيرات البيئة. احذف هذا الملف ثم نفذ `source ~/.zshrc` أو `source ~/.bashrc`.
 
 **س: هل يمكن استخدام `--model claude-opus-4-7` مثلاً؟**  
-ج: نعم. وكيل AceData Cloud ينقل حقل النموذج بشكل مباشر، ويدعم جميع نماذج Anthropic العامة بالإضافة إلى نماذجنا الموسعة مثل `claude-opus-4-7` / `claude-haiku-4-5` / `claude-sonnet-4-5`.
+ج: نعم. وكيل XHuoAPI ينقل حقل النموذج بشكل مباشر، ويدعم جميع نماذج Anthropic العامة بالإضافة إلى نماذجنا الموسعة مثل `claude-opus-4-7` / `claude-haiku-4-5` / `claude-sonnet-4-5`.
 
 **س: هل يمكن إعداد ملفات تعريف متعددة (شخصية + شركة)؟**  
 ج: نعم. يدعم Claude Code ملفات `~/.claude/settings.json` متعددة، أو أبسط حل هو كتابة دالتين شل `claude_personal` / `claude_work`، وتصدير `ANTHROPIC_AUTH_TOKEN` مختلف لكلٍ منهما، ثم استدعاء `claude $@`.
 
 **س: هل يمكن تشغيله في GitHub Actions؟**  
-ج: نعم. راجع [دليل تكامل Claude Code مع GitHub Actions](https://platform.acedata.cloud/documents/claude-code-github-actions-integration).
+ج: نعم. راجع [دليل تكامل Claude Code مع GitHub Actions](https://api.xhuoapi.ai/documents/claude-code-github-actions-integration).
 
 **س: ماذا لو استُهلك الرصيد المجاني؟**  
-ج: انتقل إلى [إدارة التطبيقات](https://platform.acedata.cloud/applications) → اختر تطبيق Claude الخاص بك → اشحن الرصيد (سيتم خصم التكلفة حسب استهلاك Token)، أو قم بالتحويل إلى اشتراك يعتمد على النقاط.
+ج: انتقل إلى [إدارة التطبيقات](https://api.xhuoapi.ai/applications) → اختر تطبيق Claude الخاص بك → اشحن الرصيد (سيتم خصم التكلفة حسب استهلاك Token)، أو قم بالتحويل إلى اشتراك يعتمد على النقاط.
 
 ## الخطوة التالية
 
-- [دليل الطرفية لـ Claude Code (النسخة الكاملة)](https://platform.acedata.cloud/documents/claude-code-terminal-integration)
-- [دليل تكامل VS Code](https://platform.acedata.cloud/documents/claude-code-vscode-integrations)
-- [دليل تكامل Cursor](https://platform.acedata.cloud/documents/claude-code-cursor-integration)
-- [دليل تكامل IDE JetBrains](https://platform.acedata.cloud/documents/claude-code-jetbrains-integrations)
-- [دليل تكامل GitHub Actions](https://platform.acedata.cloud/documents/claude-code-github-actions-integration)
+- [دليل الطرفية لـ Claude Code (النسخة الكاملة)](https://api.xhuoapi.ai/documents/claude-code-terminal-integration)
+- [دليل تكامل VS Code](https://api.xhuoapi.ai/documents/claude-code-vscode-integrations)
+- [دليل تكامل Cursor](https://api.xhuoapi.ai/documents/claude-code-cursor-integration)
+- [دليل تكامل IDE JetBrains](https://api.xhuoapi.ai/documents/claude-code-jetbrains-integrations)
+- [دليل تكامل GitHub Actions](https://api.xhuoapi.ai/documents/claude-code-github-actions-integration)

@@ -1,6 +1,6 @@
 ---
 title: "Gemini Chat Completion API 申请及使用"
-description: "Gemini AI 集成指南 - Ace Data Cloud"
+description: "Gemini AI 集成指南 - XHuoAPI"
 ---
 
 Google Gemini — это очень мощная AI система диалогов, которая может генерировать плавные и естественные ответы всего за несколько секунд, просто вводя подсказки. Gemini предоставляет удивительную интеллектуальную помощь, значительно повышая эффективность и креативность работы человека.
@@ -9,9 +9,9 @@ Google Gemini — это очень мощная AI система диалог�
 
 ## 申请流程
 
-Чтобы использовать Gemini Chat Completion API, сначала перейдите на страницу [Gemini Chat Completion API](https://platform.acedata.cloud/documents/ae54bf9b-af41-4072-b969-3756b6d66834) и нажмите кнопку «Acquire», чтобы получить необходимые для запроса учетные данные:
+Чтобы использовать Gemini Chat Completion API, сначала перейдите на страницу [Gemini Chat Completion API](https://api.xhuoapi.ai/documents/ae54bf9b-af41-4072-b969-3756b6d66834) и нажмите кнопку «Acquire», чтобы получить необходимые для запроса учетные данные:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Если вы еще не вошли в систему или не зарегистрированы, вас автоматически перенаправят на страницу входа, пригласив зарегистрироваться и войти. После входа или регистрации вы автоматически вернетесь на текущую страницу.
 
@@ -21,13 +21,13 @@ Google Gemini — это очень мощная AI система диалог�
 
 Далее вы можете заполнить соответствующие поля на интерфейсе, как показано на рисунке:
 
-<p><img src="https://cdn.acedata.cloud/f6ksts.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/f6ksts.png" width="400" className="m-auto" /></p>
 
 При первом использовании этого интерфейса нам необходимо заполнить как минимум три поля: одно из них — это `authorization`, которое можно выбрать прямо из выпадающего списка. Другой параметр — это `model`, `model` — это категория модели, которую мы выбираем для использования с официального сайта Gemini, здесь у нас в основном есть 6 моделей, подробности можно посмотреть в предоставленных моделях. Последний параметр — это `messages`, `messages` — это массив наших вопросов, который представляет собой массив, позволяющий одновременно загружать несколько вопросов, каждый из которых содержит `role` и `content`, где `role` обозначает роль задающего вопрос, мы предоставили три идентичности: `user`, `assistant`, `system`. Другой `content` — это конкретное содержание нашего вопроса.
 
 Также вы можете заметить, что справа есть соответствующий код вызова, который вы можете скопировать и запустить, или просто нажать кнопку «Try» для тестирования.
 
-<p><img src="https://cdn.acedata.cloud/a3mdgy.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a3mdgy.png" width="400" className="m-auto" /></p>
 
 После вызова мы получаем следующий результат:
 
@@ -81,7 +81,7 @@ Google Gemini — это очень мощная AI система диалог�
 
 Где `choices` содержит информацию о ответах Gemini, и в нем `choices` — это конкретная информация о ответах Gemini, как показано на рисунке.
 
-<p><img src="https://cdn.acedata.cloud/v4z6e0.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/v4z6e0.png" width="400" className="m-auto" /></p>
 
 Можно увидеть, что поле `content` в `choices` содержит конкретное содержание ответа Gemini.
 
@@ -93,7 +93,7 @@ Google Gemini — это очень мощная AI система диалог�
 
 Изменение показано на рисунке, однако код вызова должен быть соответствующим образом изменен, чтобы поддерживать потоковые ответы.
 
-<p><img src="https://cdn.acedata.cloud/o2blmi.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/o2blmi.png" width="400" className="m-auto" /></p>
 
 После изменения `stream` на `true`, API будет возвращать соответствующие JSON данные построчно, и на уровне кода нам нужно внести соответствующие изменения, чтобы получить построчные результаты.
 
@@ -102,7 +102,7 @@ Google Gemini — это очень мощная AI система диалог�
 ```python
 import requests
 
-url = "https://api.acedata.cloud/gemini/chat/completions"
+url = "https://api.xhuoapi.ai/v1/gemini/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -162,7 +162,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/gemini/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/gemini/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -178,7 +178,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/gemini/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/gemini/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -196,14 +196,14 @@ System.out.print(response.body!!.string())
 
 Если вы хотите интегрировать функцию многоуровневого диалога, вам нужно загрузить несколько вопросов в поле `messages`, примеры нескольких вопросов приведены на изображении ниже:
 
-<p><img src="https://cdn.acedata.cloud/qvzu06.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qvzu06.png" width="400" className="m-auto" /></p>
 
 Пример кода на Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/gemini/chat/completions"
+url = "https://api.xhuoapi.ai/v1/gemini/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -282,7 +282,7 @@ print(response.text)
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]
@@ -350,7 +350,7 @@ print(response.text)
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/58yioe.mp4"
+            "url": "https://cdn.xhuoapi.ai/58yioe.mp4"
           }
         }
       ]
@@ -423,7 +423,7 @@ Gemini 3.1 Pro является обновленной версией Gemini 3.0
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]
@@ -449,7 +449,7 @@ Gemini 3.1 Pro также поддерживает понимание видео
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/58yioe.mp4"
+            "url": "https://cdn.xhuoapi.ai/58yioe.mp4"
           }
         }
       ]

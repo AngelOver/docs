@@ -3,12 +3,12 @@
   "info": {
     "title": "Luma Video Generation",
     "version": "1.0.0",
-    "description": "API reference for Luma Video Generation on Ace Data Cloud."
+    "description": "API reference for Luma Video Generation on XHuoAPI."
   },
   "servers": [
     {
-      "url": "https://api.acedata.cloud",
-      "description": "Ace Data Cloud API"
+      "url": "https://api.xhuoapi.ai/v1",
+      "description": "XHuoAPI API"
     }
   ],
   "components": {
@@ -16,7 +16,7 @@
       "bearerAuth": {
         "type": "http",
         "scheme": "bearer",
-        "description": "API token from https://platform.acedata.cloud"
+        "description": "API token from https://api.xhuoapi.ai"
       }
     }
   },
@@ -327,10 +327,10 @@
                     "success": true,
                     "task_id": "5636d6ba-957f-475e-a98a-718a07ee89a6",
                     "video_id": "b4ef4c5e-9680-41c8-a678-0ce2ce6194de",
-                    "video_url": "https://platform.cdn.acedata.cloud/luma/5636d6ba-957f-475e-a98a-718a07ee89a6.mp4",
+                    "video_url": "https://platform.cdn.xhuoapi.ai/luma/5636d6ba-957f-475e-a98a-718a07ee89a6.mp4",
                     "video_width": 1552,
                     "video_height": 656,
-                    "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/5636d6ba-957f-475e-a98a-718a07ee89a6.jpg",
+                    "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/5636d6ba-957f-475e-a98a-718a07ee89a6.jpg",
                     "thumbnail_width": 1552,
                     "thumbnail_height": 656
                   },
@@ -767,12 +767,12 @@
                   },
                   "end_image_url": {
                     "type": "string",
-                    "example": "https://cdn.acedata.cloud/0iad3k.png",
+                    "example": "https://cdn.xhuoapi.ai/0iad3k.png",
                     "description": "The URL of the end image, it will be the last frame of the generated video."
                   },
                   "start_image_url": {
                     "type": "string",
-                    "example": "https://cdn.acedata.cloud/r9vsv9.png",
+                    "example": "https://cdn.xhuoapi.ai/r9vsv9.png",
                     "description": "The URL of the start image, it will be the first frame of the generated video."
                   }
                 }

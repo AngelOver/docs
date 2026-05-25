@@ -1,15 +1,15 @@
 ---
 title: "Midjourney Videos API 接続説明"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 本文では、Midjourney Videos API の接続説明を紹介します。これは、カスタムパラメータを入力することでMidjourney公式の動画を生成することができます。
 
 ## 申請プロセス
 
-APIを使用するには、まず [Midjourney Videos API](https://platform.acedata.cloud/documents/midjourney-videos) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
+APIを使用するには、まず [Midjourney Videos API](https://api.xhuoapi.ai/documents/midjourney-videos) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 まだログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -19,7 +19,7 @@ APIを使用するには、まず [Midjourney Videos API](https://platform.aceda
 
 まず、基本的な使用方法を理解します。これは、プロンプト `prompt`、生成アクション `action`、先頭と末尾のフレーム参照画像の配列 `image_url` を入力することで、処理された結果を得ることができます。最初に、単純に `action` フィールドを渡す必要があります。その値は `generate` で、主に二つのアクションが含まれます：動画生成（`generate`）、動画拡張（`extend`）。具体的な内容は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/pi72m9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pi72m9.png" width="500" className="m-auto" /></p>
 
 ここでは、リクエストヘッダーを設定しました。これには以下が含まれます：
 
@@ -41,7 +41,7 @@ APIを使用するには、まず [Midjourney Videos API](https://platform.aceda
 
 選択後、右側にも対応するコードが生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/y0cw0p.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/y0cw0p.png" width="500" className="m-auto" /></p>
 
 「Try」ボタンをクリックするとテストができます。上の図のように、以下の結果が得られました：
 
@@ -78,14 +78,14 @@ APIを使用するには、まず [Midjourney Videos API](https://platform.aceda
 また、対応する接続コードを生成したい場合は、生成されたものを直接コピーできます。例えば、CURLのコードは以下の通りです：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/midjourney/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "action": "generate",
   "prompt": "A cat sitting on a table",
-  "image_url": "https://cdn.acedata.cloud/jgo1cw.jpg"
+  "image_url": "https://cdn.xhuoapi.ai/jgo1cw.jpg"
 }'
 ```
 
@@ -110,18 +110,18 @@ curl -X POST 'https://api.acedata.cloud/midjourney/videos' \
 
 記入例は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/855hnj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/855hnj.png" width="500" className="m-auto" /></p>
 
 記入が完了すると、自動的に以下のコードが生成されます：
 
-<p><img src="https://cdn.acedata.cloud/p58w39.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/p58w39.png" width="500" className="m-auto" /></p>
 
 対応するPythonコード：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/videos"
+url = "https://api.xhuoapi.ai/v1/midjourney/videos"
 
 headers = {
     "accept": "application/json",
@@ -171,13 +171,13 @@ Midjourney Videos APIによって生成される時間は比較的長く、約1�
 
 まず、WebhookコールバックはHTTPリクエストを受信できるサービスであり、開発者は自分で構築したHTTPサーバーのURLに置き換える必要があります。ここでは、デモのために公開されたWebhookサンプルサイトhttps://webhook.site/を使用します。このサイトを開くとWebhook URLが得られます。
 
-<p><img src="https://cdn.acedata.cloud/lali6d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lali6d.png" width="500" className="m-auto" /></p>
 
 このURLをコピーすればWebhookとして使用できます。このサンプルは`https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`です。
 
 次に、フィールド`callback_url`を上記のWebhook URLに設定し、対応するパラメータを入力します。具体的な内容は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/vk0l0a.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vk0l0a.png" width="500" className="m-auto" /></p>
 
 実行をクリックすると、すぐに結果が得られます。以下のようになります：
 
@@ -189,7 +189,7 @@ Midjourney Videos APIによって生成される時間は比較的長く、約1�
 
 少し待つと、`https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`で生成された動画の結果を観察できます。以下のようになります：
 
-<p><img src="https://cdn.acedata.cloud/7hcuw8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7hcuw8.png" width="500" className="m-auto" /></p>
 
 内容は以下の通りです：
 

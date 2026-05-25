@@ -1,6 +1,6 @@
 ---
 title: "ADSL 代理対接説明"
-description: "ADSL rotating proxy 集成指南 - Ace Data Cloud"
+description: "ADSL rotating proxy 集成指南 - XHuoAPI"
 ---
 
 クローラーと対クローラーの戦いが激化する中、各大サイトやアプリのリスク管理検出がますます強化されており、その一つがIP封禁です。
@@ -21,21 +21,21 @@ ADSL方式で構築されたプロキシは、データセンターで構築さ�
 
 ## 申請方法
 
-ADSLサービスを使用するには、まず「[申請ページ](https://platform.acedata.cloud/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)」にアクセスして申請します。初回申請には1ポイントの無料枠があり、約17.5MBです。
+ADSLサービスを使用するには、まず「[申請ページ](https://api.xhuoapi.ai/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)」にアクセスして申請します。初回申請には1ポイントの無料枠があり、約17.5MBです。
 
-![](https://cdn.acedata.cloud/a2inin.png)
+![](https://cdn.xhuoapi.ai/a2inin.png)
 
 まだログインしていない場合は、自動的にログインページにリダイレクトされ、ログイン後に申請を続けることができます。
 
 申請が完了したら、「コントロールパネル」で自分の申請結果を確認できます。以下のように表示されます：
 
-![](https://cdn.acedata.cloud/hc400a.png)
+![](https://cdn.xhuoapi.ai/hc400a.png)
 
 「Credentials」をクリックすると、ADSLプロキシサービスのユーザー名とパスワードを確認できます。コロンで区切られており、ユーザー名は8桁、パスワードは32桁です。以下のように表示されます：
 
-![](https://cdn.acedata.cloud/cej7m2.png)
+![](https://cdn.xhuoapi.ai/cej7m2.png)
 
-このADSLプロキシは回転プロキシのため、使用時には固定のプロキシアドレスとポートを設定するだけで済みます。プロキシのアドレスとポートはそれぞれadsl.proxy.acedata.cloudと30005で、HTTP/HTTPS/SOCKSプロトコルのプロキシであり、HTTPおよびHTTPSプロトコルのサイトにアクセスするために使用できます。
+このADSLプロキシは回転プロキシのため、使用時には固定のプロキシアドレスとポートを設定するだけで済みます。プロキシのアドレスとポートはそれぞれadsl.proxy.xhuoapi.aiと30005で、HTTP/HTTPS/SOCKSプロトコルのプロキシであり、HTTPおよびHTTPSプロトコルのサイトにアクセスするために使用できます。
 
 ## コマンドテスト
 
@@ -44,7 +44,7 @@ ADSLサービスを使用するには、まず「[申請ページ](https://platf
 現在のプロキシのユーザー名とパスワードが`1f78266a:eff0896726224fa2a99fe82dd1f07562`であると仮定すると、以下のcurlコマンドを使用してテストできます：
 
 ```shell
-curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@adsl.proxy.acedata.cloud:30005 https://ipinfo.io
+curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@adsl.proxy.xhuoapi.ai:30005 https://ipinfo.io
 ```
 
 ここではcurlの`-x`パラメータを使用してプロキシアドレスを指定しました。プロキシプロトコルはデフォルトでHTTP/HTTPSであり、リクエストするURLは[https://ipinfo.io](https://ipinfo.io)です。このサイトは、リクエストしたサイトの本当のIPアドレスとIPの所在地域を返すことができます。
@@ -72,7 +72,7 @@ curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@adsl.proxy.acedata.cloud:30005
 ```python
 import requests
 
-proxy = 'https://{proxy_username}:{proxy_password}@adsl.proxy.acedata.cloud:30005'
+proxy = 'https://{proxy_username}:{proxy_password}@adsl.proxy.xhuoapi.ai:30005'
 
 proxies = {
     'http': proxy,
@@ -138,7 +138,7 @@ for _ in range(3):
 import requests
 import base64
 
-proxy_host = 'adsl.proxy.acedata.cloud'
+proxy_host = 'adsl.proxy.xhuoapi.ai'
 proxy_port = '30005'
 proxy_username = '{proxy_username}' # 8桁のユーザー名
 proxy_password = '{proxy_password}' # 32桁のパスワード
@@ -170,7 +170,7 @@ for _ in range(3):
 const axios = require("axios");
 const base64 = require("base64");
 
-const proxy_host = "adsl.proxy.acedata.cloud";
+const proxy_host = "adsl.proxy.xhuoapi.ai";
 const proxy_port = "30005";
 const proxy_username = "{proxy_username}"; // 8桁のユーザー名
 const proxy_password = "{proxy_password}"; // 32桁のパスワード
@@ -202,4 +202,4 @@ for (let i = 0; i < 3; i++) {
 
 もしあなたのプランがすでに使い果たされている場合、引き続きこのプロキシサービスを使用するためには、もっと購入する必要がある。
 
-もっと購入するには、「[申請ページ](https://platform.acedata.cloud/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)」に直接アクセスし、「もっと購入」ボタンをクリックすれば選択でき、単回購入の方が単価が安くなる。
+もっと購入するには、「[申請ページ](https://api.xhuoapi.ai/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)」に直接アクセスし、「もっと購入」ボタンをクリックすれば選択でき、単回購入の方が単価が安くなる。

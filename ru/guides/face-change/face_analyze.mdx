@@ -1,15 +1,15 @@
 ---
 title: "Описание интеграции API для определения черт лица"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 В этой статье будет представлено описание интеграции API для определения черт лица, который может выполнять локализацию черт лица (также называемую локализацией ключевых точек лица) по введенному изображению, вычисляя 90 точек, формирующих контур лица, включая брови (по 8 точек с каждой стороны), глаза (по 8 точек с каждой стороны), нос (13 точек), рот (22 точки), контур лица (21 точка), зрачки [или зрачки] (2 точки).
 
 ## Процесс подачи заявки
 
-Чтобы использовать API, необходимо сначала перейти на соответствующую страницу [API для определения черт лица](https://platform.acedata.cloud/documents/20945baf-b263-457b-be5f-0332c2180a57) и подать заявку на соответствующую услугу. После перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
+Чтобы использовать API, необходимо сначала перейти на соответствующую страницу [API для определения черт лица](https://api.xhuoapi.ai/documents/20945baf-b263-457b-be5f-0332c2180a57) и подать заявку на соответствующую услугу. После перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Если вы еще не вошли в систему или не зарегистрировались, вас автоматически перенаправят на страницу входа, пригласив зарегистрироваться и войти в систему. После входа или регистрации вы автоматически вернетесь на текущую страницу.
 
@@ -19,11 +19,11 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 Сначала ознакомьтесь с основным способом использования, который заключается в том, что нужно ввести ссылку на изображение, чтобы получить обработанное изображение. Сначала необходимо просто передать поле `image_url`, изображение лица показано на следующем рисунке:
 
-<p><img src="https://cdn.acedata.cloud/lrbtcn.jpg" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lrbtcn.jpg" width="500" className="m-auto" /></p>
 
 Теперь мы можем заполнить соответствующие поля на интерфейсе, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/y3g837.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/y3g837.png" width="500" className="m-auto" /></p>
 
 Как видно, здесь мы настроили заголовки запроса, включая:
 
@@ -39,7 +39,7 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 После выбора можно заметить, что справа также сгенерирован соответствующий код, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/2ceul8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2ceul8.png" width="500" className="m-auto" /></p>
 
 Нажмите кнопку «Try», чтобы провести тестирование, как показано на изображении выше, и мы получили следующий результат:
 ```json
@@ -470,12 +470,12 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 Кроме того, если вы хотите сгенерировать соответствующий код для интеграции, вы можете просто скопировать его, например, код CURL выглядит следующим образом:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/analyze' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/analyze' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }'
 ```
 
@@ -484,7 +484,7 @@ curl -X POST 'https://api.acedata.cloud/face/analyze' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/analyze"
+url = "https://api.xhuoapi.ai/v1/face/analyze"
 
 headers = {
     "accept": "application/json",
@@ -493,7 +493,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }
 
 response = requests.post(url, json=payload, headers=headers)

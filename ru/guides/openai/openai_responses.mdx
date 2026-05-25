@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Responses API Заявка и использование"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI недавно предоставила интерфейс для создания ответов модели. Предоставьте текстовый или графический ввод для генерации текстового или графического вывода. Позвольте модели вызывать ваш собственный пользовательский код или использовать встроенные инструменты, такие как веб-поиск или поиск по файлам, чтобы использовать ваши собственные данные в качестве ввода для ответа модели.
@@ -9,9 +9,9 @@ OpenAI недавно предоставила интерфейс для соз�
 
 ## Процесс заявки
 
-Чтобы использовать OpenAI Responses API, сначала перейдите на страницу [OpenAI Responses API](https://platform.acedata.cloud/documents/81e285a6-d010-4a2d-a3a8-ca113d4ef82a) и нажмите кнопку «Acquire», чтобы получить необходимые для запроса учетные данные:
+Чтобы использовать OpenAI Responses API, сначала перейдите на страницу [OpenAI Responses API](https://api.xhuoapi.ai/documents/81e285a6-d010-4a2d-a3a8-ca113d4ef82a) и нажмите кнопку «Acquire», чтобы получить необходимые для запроса учетные данные:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Если вы еще не вошли в систему или не зарегистрированы, вы будете автоматически перенаправлены на страницу входа, где вас пригласят зарегистрироваться и войти в систему. После входа в систему или регистрации вы будете автоматически возвращены на текущую страницу.
 
@@ -21,7 +21,7 @@ OpenAI недавно предоставила интерфейс для соз�
 
 Далее вы можете заполнить соответствующие поля на интерфейсе, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/8lu8di.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8lu8di.png" width="400" className="m-auto" /></p>
 
 При первом использовании этого интерфейса вам необходимо заполнить как минимум три поля: одно из них — это `authorization`, которое можно выбрать прямо из выпадающего списка. Другой параметр — это `model`, `model` — это выбранная вами категория модели OpenAI ChatGPT, здесь у нас в основном 20 моделей, подробности можно посмотреть в предоставленных моделях. Последний параметр — это `input`, `input` — это массив ваших вопросов, который представляет собой массив, позволяющий одновременно загружать несколько вопросов, каждый из которых содержит `role` и `content`, где `role` обозначает роль задающего вопрос, мы предоставили три роли: `user`, `assistant`, `system`. Другой `content` — это конкретное содержание вашего вопроса.
 
@@ -36,7 +36,7 @@ OpenAI недавно предоставила интерфейс для соз�
 - `tools`: определение вызова функций/инструментов.
 - `background`: работает ли в фоновом режиме асинхронно.
 
-<p><img src="https://cdn.acedata.cloud/rsw47a.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/rsw47a.png" width="400" className="m-auto" /></p>
 
 После вызова мы получаем следующий результат:
 
@@ -114,7 +114,7 @@ OpenAI недавно предоставила интерфейс для соз�
 
 Где `output` содержит информацию о ответе ChatGPT, внутри которой `output` — это ответ ChatGPT, как показано на изображении.
 
-<p><img src="https://cdn.acedata.cloud/mald8o.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mald8o.png" width="400" className="m-auto" /></p>
 
 Можно увидеть, что поле `content` внутри `output` содержит конкретное содержание ответа ChatGPT.
 
@@ -126,7 +126,7 @@ OpenAI недавно предоставила интерфейс для соз�
 
 Изменение показано на изображении, однако код вызова должен быть соответствующим образом изменен, чтобы поддерживать потоковые ответы.
 
-<p><img src="https://cdn.acedata.cloud/xidnao.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xidnao.png" width="400" className="m-auto" /></p>
 
 После изменения `stream` на `true`, API будет возвращать соответствующие JSON данные построчно, и на уровне кода нам нужно внести соответствующие изменения, чтобы получить построчные результаты.
 
@@ -135,7 +135,7 @@ OpenAI недавно предоставила интерфейс для соз�
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/responses"
+url = "https://api.xhuoapi.ai/v1/openai/responses"
 
 headers = {
     "accept": "application/json",
@@ -223,7 +223,7 @@ const options = {
   }),
 };
 
-fetch("https://api.acedata.cloud/openai/responses", options)
+fetch("https://api.xhuoapi.ai/v1/openai/responses", options)
   .then((response) => response.json())
   .then((response) => console.log(response))
   .catch((err) => console.error(err));
@@ -239,7 +239,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/openai/responses")
+  .url("https://api.xhuoapi.ai/v1/openai/responses")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer b82d32f570bc434d9ba9923aa0e7dce0")
@@ -257,14 +257,14 @@ System.out.print(response.body!!.string())
 
 Если вы хотите интегрировать функцию многоуровневого диалога, вам нужно загрузить несколько вопросов в поле `input`, конкретные примеры нескольких вопросов приведены на изображении ниже:
 
-<p><img src="https://cdn.acedata.cloud/1jqwnf.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1jqwnf.png" width="400" className="m-auto" /></p>
 
 Пример кода на Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/responses"
+url = "https://api.xhuoapi.ai/v1/openai/responses"
 
 headers = {
     "accept": "application/json",
@@ -361,7 +361,7 @@ gpt-4o — это многомодальная большая языковая �
 - Скрипт Curl
 
 ```
-curl -X POST 'https://api.acedata.cloud/openai/responses' \
+curl -X POST 'https://api.xhuoapi.ai/v1/openai/responses' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -390,7 +390,7 @@ curl -X POST 'https://api.acedata.cloud/openai/responses' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",

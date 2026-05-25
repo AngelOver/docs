@@ -1,15 +1,15 @@
 ---
 title: "Fish Model Query API Integrationsinstruktioner"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 Denna dokumentation introducerar Fish Model Query API (`GET /fish/model`) för integration. Detta gränssnitt är fullt kompatibelt med [Fish Audio officiella OpenAPI](https://docs.fish.audio/resources/api-reference/model) och används för att **sidindela** listan över klonade ljudmodeller som är synliga för det aktuella kontot eller hela plattformen.
 
-> För att skapa ljudmodeller, se [Fish Model Create API](https://platform.acedata.cloud/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a). För att hämta detaljer för en enskild modell via `_id`, se [Fish Model Get API](https://platform.acedata.cloud/documents/dabdffe7-254b-5a3f-9eca-425d614d82b9).
+> För att skapa ljudmodeller, se [Fish Model Create API](https://api.xhuoapi.ai/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a). För att hämta detaljer för en enskild modell via `_id`, se [Fish Model Get API](https://api.xhuoapi.ai/documents/dabdffe7-254b-5a3f-9eca-425d614d82b9).
 
 ## Ansökningsprocess
 
-För att använda API:et måste du först ansöka om motsvarande tjänst på sidan [Fish Model API](https://platform.acedata.cloud/services/caf99abc-ddcf-4714-b2a5-862d9b469509). När du är på sidan klickar du på knappen "Acquire".
+För att använda API:et måste du först ansöka om motsvarande tjänst på sidan [Fish Model API](https://api.xhuoapi.ai/services/caf99abc-ddcf-4714-b2a5-862d9b469509). När du är på sidan klickar du på knappen "Acquire".
 
 Om du inte är inloggad eller registrerad kommer du automatiskt att omdirigeras till inloggningssidan för att registrera dig och logga in. Efter inloggning återgår du automatiskt till den aktuella sidan.
 
@@ -23,7 +23,7 @@ Vid första ansökan tilldelas du ett gratis kvotutrymme, vilket gör att du kan
 ## Exempel på förfrågan
 
 ```shell
-curl -G 'https://api.acedata.cloud/fish/model' \
+curl -G 'https://api.xhuoapi.ai/v1/fish/model' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   --data-urlencode 'page_size=10' \
@@ -69,7 +69,7 @@ Ett framgångsrikt svar vidarebefordrar direkt Fish plattforms paginerade strukt
 }
 ```
 
-Det returnerade `_id` kan användas som `reference_id` i [Fish TTS API](https://platform.acedata.cloud/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) för att använda den klonade ljudmodellen vid talgenerering.
+Det returnerade `_id` kan användas som `reference_id` i [Fish TTS API](https://api.xhuoapi.ai/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) för att använda den klonade ljudmodellen vid talgenerering.
 
 ## Prissättning
 
@@ -98,4 +98,4 @@ Detta API är gratis — sidindelning av ljudmodell-listan är kostnadsfri. Enda
 
 ## Slutsats
 
-Fish Model Query API erbjuder en helt kompatibel ljudmodellssökfunktion med Fish Audio officiella API:et, vilket möjliggör att underhålla ett eget bibliotek av klonade ljudmodeller på plattformen. Tillsammans med [Fish Model Get API](https://platform.acedata.cloud/documents/dabdffe7-254b-5a3f-9eca-425d614d82b9) kan du hämta fullständiga detaljer för en enskild modell via ID.
+Fish Model Query API erbjuder en helt kompatibel ljudmodellssökfunktion med Fish Audio officiella API:et, vilket möjliggör att underhålla ett eget bibliotek av klonade ljudmodeller på plattformen. Tillsammans med [Fish Model Get API](https://api.xhuoapi.ai/documents/dabdffe7-254b-5a3f-9eca-425d614d82b9) kan du hämta fullständiga detaljer för en enskild modell via ID.

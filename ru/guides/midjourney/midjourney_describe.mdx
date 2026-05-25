@@ -1,6 +1,6 @@
 ---
 title: "Интеграция и использование API Midjourney Describe"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 Основная функция API Midjourney Describe заключается в получении описания изображения путем его загрузки. Для использования этого API достаточно передать адрес файла изображения, и API вернет подробное описание изображения. Не требуется сложной настройки параметров, чтобы получить качественное описание изображения.
@@ -11,11 +11,11 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 ## Процесс подачи заявки
 
-Чтобы использовать API Midjourney Describe, сначала необходимо перейти на страницу заявки [Midjourney Describe API](https://platform.acedata.cloud/documents/870e973b-712a-4686-ab8b-beae27f129ce) и подать заявку на соответствующую услугу. После перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
+Чтобы использовать API Midjourney Describe, сначала необходимо перейти на страницу заявки [Midjourney Describe API](https://api.xhuoapi.ai/documents/870e973b-712a-4686-ab8b-beae27f129ce) и подать заявку на соответствующую услугу. После перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
 
-![Страница заявки](https://cdn.acedata.cloud/rci31i.png)
+![Страница заявки](https://cdn.xhuoapi.ai/rci31i.png)
 
-Если вы еще не вошли в систему или не зарегистрированы, вы будете автоматически перенаправлены на [страницу входа](https://platform.acedata.cloud), где вас пригласят зарегистрироваться и войти в систему. После входа в систему вы будете автоматически возвращены на текущую страницу.
+Если вы еще не вошли в систему или не зарегистрированы, вы будете автоматически перенаправлены на [страницу входа](https://api.xhuoapi.ai), где вас пригласят зарегистрироваться и войти в систему. После входа в систему вы будете автоматически возвращены на текущую страницу.
 
 При первой подаче заявки предоставляется бесплатный лимит, который позволяет бесплатно использовать этот API.
 
@@ -25,7 +25,7 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 ### Пример изображения запроса
 
-![Пример изображения](https://cdn.acedata.cloud/kg7xp3.png)
+![Пример изображения](https://cdn.xhuoapi.ai/kg7xp3.png)
 
 ### Установка заголовков запроса и тела запроса
 
@@ -40,25 +40,25 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 Настройка выглядит следующим образом:
 
-![](https://cdn.acedata.cloud/eeui10.png)
+![](https://cdn.xhuoapi.ai/eeui10.png)
 
 ### Пример кода
 
 Можно заметить, что на правой стороне страницы автоматически сгенерирован код на различных языках, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/8edj9z.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8edj9z.png" width="400" className="m-auto" /></p>
 
 Некоторые примеры кода приведены ниже:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/describe' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/describe' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/kg7xp3.png"
+  "image_url": "https://cdn.xhuoapi.ai/kg7xp3.png"
 }'
 ```
 
@@ -67,7 +67,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/describe' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/describe"
+url = "https://api.xhuoapi.ai/v1/midjourney/describe"
 
 headers = {
     "accept": "application/json",
@@ -76,7 +76,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/kg7xp3.png"
+    "image_url": "https://cdn.xhuoapi.ai/kg7xp3.png"
 }
 
 response = requests.post(url, json=payload, headers=headers)

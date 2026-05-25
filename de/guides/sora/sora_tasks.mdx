@@ -1,6 +1,6 @@
 ---
 title: "Sora Tasks API Integration und Nutzung"
-description: "Sora Video Generation 集成指南 - Ace Data Cloud"
+description: "Sora Video Generation 集成指南 - XHuoAPI"
 ---
 
 Die Hauptfunktion der Sora Tasks API besteht darin, den Ausführungsstatus eines Tasks abzufragen, indem die Task-ID eingegeben wird, die über die Sora Videos Generation API generiert wurde.
@@ -9,27 +9,27 @@ Dieses Dokument wird die Integrationsanleitung der Sora Tasks API detailliert be
 
 ## Antragsprozess
 
-Um die Sora Tasks API zu nutzen, müssen Sie zunächst auf die Anmeldeseite [Sora Videos Generation API](https://platform.acedata.cloud/documents/99a24421-2e22-4028-8201-e19cb834b67e) gehen und den entsprechenden Service beantragen, dann kopieren Sie die Task-ID der Sora Videos Generation API, wie im Bild gezeigt:
+Um die Sora Tasks API zu nutzen, müssen Sie zunächst auf die Anmeldeseite [Sora Videos Generation API](https://api.xhuoapi.ai/documents/99a24421-2e22-4028-8201-e19cb834b67e) gehen und den entsprechenden Service beantragen, dann kopieren Sie die Task-ID der Sora Videos Generation API, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/za62pb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/za62pb.png" width="500" className="m-auto" /></p>
 
-Gehen Sie schließlich zur Tasks API-Seite [Sora Tasks API](https://platform.acedata.cloud/documents/c9d81bad-9064-4796-86b6-4fb43cc93a16), um den entsprechenden Service zu beantragen. Klicken Sie nach dem Betreten der Seite auf die Schaltfläche „Acquire“, wie im Bild gezeigt:
+Gehen Sie schließlich zur Tasks API-Seite [Sora Tasks API](https://api.xhuoapi.ai/documents/c9d81bad-9064-4796-86b6-4fb43cc93a16), um den entsprechenden Service zu beantragen. Klicken Sie nach dem Betreten der Seite auf die Schaltfläche „Acquire“, wie im Bild gezeigt:
 
-![Anmeldeseite](https://cdn.acedata.cloud/rci31i.png)
+![Anmeldeseite](https://cdn.xhuoapi.ai/rci31i.png)
 
-Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur [Anmeldeseite](https://platform.acedata.cloud) weitergeleitet, um sich zu registrieren und anzumelden. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
+Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur [Anmeldeseite](https://api.xhuoapi.ai) weitergeleitet, um sich zu registrieren und anzumelden. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
 
 Bei der ersten Beantragung erhalten Sie ein kostenloses Kontingent, mit dem Sie die API kostenlos nutzen können.
 
 ## Anfragebeispiel
 
-Die Sora Tasks API kann verwendet werden, um die Ergebnisse der Sora Videos Generation API abzufragen. Informationen zur Nutzung der Sora Videos Generation API finden Sie im Dokument [Sora Videos Generation API](https://platform.acedata.cloud/documents/sora-videos-integration).
+Die Sora Tasks API kann verwendet werden, um die Ergebnisse der Sora Videos Generation API abzufragen. Informationen zur Nutzung der Sora Videos Generation API finden Sie im Dokument [Sora Videos Generation API](https://api.xhuoapi.ai/documents/sora-videos-integration).
 
 Wir nehmen als Beispiel eine von der Sora Videos Generation API zurückgegebene Task-ID und demonstrieren, wie man diese API verwendet. Angenommen, wir haben eine Task-ID: b8976e18-32dc-4718-9ed8-1ea090fcb6ea, im Folgenden zeigen wir, wie man durch Eingabe einer Task-ID vorgeht.
 
 ### Task-Beispielbild
 
-<p><img src="https://cdn.acedata.cloud/za62pb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/za62pb.png" width="500" className="m-auto" /></p>
 
 ### Anfrageheader und Anfragekörper festlegen
 
@@ -45,20 +45,20 @@ Wir nehmen als Beispiel eine von der Sora Videos Generation API zurückgegebene 
 
 Einstellung wie im folgenden Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/fe19dd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fe19dd.png" width="500" className="m-auto" /></p>
 
 ### Codebeispiel
 
 Es ist zu erkennen, dass auf der rechten Seite der Seite bereits automatisch Code in verschiedenen Sprachen generiert wurde, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/ou5lfa.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ou5lfa.png" width="500" className="m-auto" /></p>
 
 Einige Codebeispiele sind wie folgt:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/sora/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/sora/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/sora/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/sora/tasks"
+url = "https://api.xhuoapi.ai/v1/sora/tasks"
 
 headers = {
     "accept": "application/json",
@@ -109,7 +109,7 @@ Nach erfolgreicher Anfrage gibt die API die Detailinformationen zu diesem Video-
     "prompt": "cat running on the river",
     "model": "sora-2",
     "image_urls": [
-      "https://cdn.acedata.cloud/11wfp4.png"
+      "https://cdn.xhuoapi.ai/11wfp4.png"
     ],
     "callback_url": "https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa"
   },
@@ -148,12 +148,12 @@ Dies ist eine Abfrage der Details von Video-Tasks für mehrere Task-IDs. Im Gege
 
 Einstellung wie im folgenden Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/9cf4j8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/9cf4j8.png" width="500" className="m-auto" /></p>
 
 ### Codebeispiel
 可以发现，在页面右侧已经自动生成了各种语言的代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/8ci2tg.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8ci2tg.png" width="500" className="m-auto" /></p>
 
 部分代码示例如下：
 
@@ -178,7 +178,7 @@ Einstellung wie im folgenden Bild gezeigt:
         "prompt": "cat running on the river",
         "model": "sora-2",
         "image_urls": [
-          "https://cdn.acedata.cloud/11wfp4.png"
+          "https://cdn.xhuoapi.ai/11wfp4.png"
         ],
         "callback_url": "https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa"
       },
@@ -212,7 +212,7 @@ Einstellung wie im folgenden Bild gezeigt:
         "prompt": "cat running on the river",
         "model": "sora-2",
         "image_urls": [
-          "https://cdn.acedata.cloud/11wfp4.png"
+          "https://cdn.xhuoapi.ai/11wfp4.png"
         ],
         "callback_url": "https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa"
       },
@@ -245,7 +245,7 @@ Einstellung wie im folgenden Bild gezeigt:
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/sora/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/sora/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -259,7 +259,7 @@ curl -X POST 'https://api.acedata.cloud/sora/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/sora/tasks"
+url = "https://api.xhuoapi.ai/v1/sora/tasks"
 
 headers = {
     "accept": "application/json",

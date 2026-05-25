@@ -1,6 +1,6 @@
 ---
 title: "AI Pass Photo Task API:n liittäminen ja käyttö"
-description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
+description: "AI ID Photo Production 集成指南 - XHuoAPI"
 ---
 
 AI Pass Photo Task API:n päätoiminto on kysyä tehtävän suoritusstatus syöttämällä AI Pass Photo -tuotanto API:sta saatu tehtävä-ID.
@@ -9,27 +9,27 @@ Tässä asiakirjassa käsitellään yksityiskohtaisesti AI Pass Photo Task API:n
 
 ## Hakuprosessi
 
-Käyttääksesi AI Pass Photo Task API:a, sinun on ensin mentävä hakusivulle [AI Pass Photo -tuotanto API](https://platform.acedata.cloud/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) ja haettava tarvittavaa palvelua, sitten kopioi AI Pass Photo -tuotanto API:n tehtävä-ID, kuten kuvassa näkyy:
+Käyttääksesi AI Pass Photo Task API:a, sinun on ensin mentävä hakusivulle [AI Pass Photo -tuotanto API](https://api.xhuoapi.ai/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) ja haettava tarvittavaa palvelua, sitten kopioi AI Pass Photo -tuotanto API:n tehtävä-ID, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/7ezmmn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7ezmmn.png" width="500" className="m-auto" /></p>
 
-Lopuksi siirry Tasks API -sivulle [AI Pass Photo Task API](https://platform.acedata.cloud/documents/3a23ee34-8689-406b-9042-7954224348ad) ja hae tarvittavaa palvelua, siirryttyäsi sivulle, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
+Lopuksi siirry Tasks API -sivulle [AI Pass Photo Task API](https://api.xhuoapi.ai/documents/3a23ee34-8689-406b-9042-7954224348ad) ja hae tarvittavaa palvelua, siirryttyäsi sivulle, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
 
-![Hakusivu](https://cdn.acedata.cloud/rci31i.png)
+![Hakusivu](https://cdn.xhuoapi.ai/rci31i.png)
 
-Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti [kirjautumissivulle](https://platform.acedata.cloud), jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään, ja kirjautumisen jälkeen palaat automaattisesti nykyiselle sivulle.
+Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti [kirjautumissivulle](https://api.xhuoapi.ai), jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään, ja kirjautumisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
 Ensimmäisellä hakemiskerralla saat ilmaisia krediittejä, joita voit käyttää tämän API:n ilmaiseksi.
 
 ## Pyyntöesimerkki
 
-AI Pass Photo Task API:a voidaan käyttää AI Pass Photo -tuotanto API:n tulosten tarkistamiseen. Lisätietoja AI Pass Photo -tuotanto API:n käytöstä löytyy asiakirjasta [AI Pass Photo -tuotanto API](https://platform.acedata.cloud/documents/d6ea75a4-836e-490a-aee5-7ca911a808fd).
+AI Pass Photo Task API:a voidaan käyttää AI Pass Photo -tuotanto API:n tulosten tarkistamiseen. Lisätietoja AI Pass Photo -tuotanto API:n käytöstä löytyy asiakirjasta [AI Pass Photo -tuotanto API](https://api.xhuoapi.ai/documents/d6ea75a4-836e-490a-aee5-7ca911a808fd).
 
 Otetaan esimerkki yhdestä AI Pass Photo -tuotanto API:n palauttamasta tehtävä-ID:stä ja näytetään, kuinka tätä API:a käytetään. Oletetaan, että meillä on tehtävä-ID: `16f96e95-d95c-46ef-b183-139b9bd1aebd`, seuraavaksi näytetään, kuinka siirretään tehtävä-ID.
 
 ### Tehtäväesimerkkikuva
 
-<p><img src="https://cdn.acedata.cloud/7ezmmn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7ezmmn.png" width="500" className="m-auto" /></p>
 
 ### Pyyntöotsikon ja -kehon asettaminen
 
@@ -45,20 +45,20 @@ Otetaan esimerkki yhdestä AI Pass Photo -tuotanto API:n palauttamasta tehtävä
 
 Aseta kuten alla olevassa kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/ezsyyd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ezsyyd.png" width="500" className="m-auto" /></p>
 
 ### Koodiesimerkki
 
 Voit huomata, että sivun oikealla puolella on automaattisesti luotu koodia eri kielillä, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/x99wu2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/x99wu2.png" width="500" className="m-auto" /></p>
 
 Osittainen koodiesimerkki on seuraava:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/headshots/tasks"
+url = "https://api.xhuoapi.ai/v1/headshots/tasks"
 
 headers = {
     "accept": "application/json",
@@ -118,12 +118,12 @@ Kun pyyntö onnistuu, API palauttaa tämän passikuvatehtävän yksityiskohtaise
     "data": [
       {
         "id": "202411032022077381",
-        "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
         "template": "男形象照"
       },
       {
         "id": "202411032022079194",
-        "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
         "template": "男形象照"
       }
     ]
@@ -148,13 +148,13 @@ Tämä on tarkoitettu useiden tehtävä-ID:iden kyselyyn passikuvatehtävän yks
 
 Aseta kuten alla olevassa kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/8vynq9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8vynq9.png" width="500" className="m-auto" /></p>
 
 ### Koodiesimerkki
 
 Voit huomata, että sivun oikealla puolella on automaattisesti luotu koodia eri kielillä, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/5jexyn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5jexyn.png" width="500" className="m-auto" /></p>
 
 Osittainen koodiesimerkki on seuraava:
 
@@ -187,12 +187,12 @@ Kun pyyntö onnistuu, API palauttaa kaikkien massapassikuvatehtävien tarkat yks
         "data": [
           {
             "id": "202411032022077381",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
             "template": "男形象照"
           },
           {
             "id": "202411032022079194",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
             "template": "男形象照"
           }
         ]
@@ -229,7 +229,7 @@ Kun pyyntö onnistuu, API palauttaa kaikkien massapassikuvatehtävien tarkat yks
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -244,7 +244,7 @@ curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/headshots/tasks"
+url = "https://api.xhuoapi.ai/v1/headshots/tasks"
 
 headers = {
     "accept": "application/json",

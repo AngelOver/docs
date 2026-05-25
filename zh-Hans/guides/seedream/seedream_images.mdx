@@ -1,15 +1,15 @@
 ---
 title: "SeeDream Images Generation API 对接说明"
-description: "ByteDance Seedream Image Generation 集成指南 - Ace Data Cloud"
+description: "ByteDance Seedream Image Generation 集成指南 - XHuoAPI"
 ---
 
 本文将介绍一种 SeeDream Images Generation API 对接说明，它是可以通过输入自定义参数来生成 SeeDream 官方的图片。
 
 ## 申请流程
 
-要使用 API，需要先到 [SeeDream Images Generation API](https://platform.acedata.cloud/documents/seedream-images) 对应页面申请对应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
+要使用 API，需要先到 [SeeDream Images Generation API](https://api.xhuoapi.ai/documents/seedream-images) 对应页面申请对应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 如果你尚未登录或注册，会自动跳转到登录页面邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
@@ -19,7 +19,7 @@ description: "ByteDance Seedream Image Generation 集成指南 - Ace Data Cloud"
 
 首先先了解下基本的使用方式，就是输入提示词 `prompt`、 生成行为 `action`、图片尺寸 `size`，便可获得处理后的结果，首先需要简单地传递一个 `action` 字段，它的值为 `generate`，然后我们还需要输入提示词，具体的内容如下：
 
-<p><img src="https://cdn.acedata.cloud/seedream_request_body.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedream_request_body.png" width="500" className="m-auto" /></p>
 
 可以看到这里我们设置了 Request Headers，包括：
 
@@ -44,7 +44,7 @@ description: "ByteDance Seedream Image Generation 集成指南 - Ace Data Cloud"
 
 选择之后，可以发现右侧也生成了对应代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/seedream_image.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedream_image.png" width="500" className="m-auto" /></p>
 
 点击「Try」按钮即可进行测试，如上图所示，这里我们就得到了如下结果：
 
@@ -57,7 +57,7 @@ description: "ByteDance Seedream Image Generation 集成指南 - Ace Data Cloud"
     {
       "prompt": "a white siamese cat",
       "size": "2048x2048",
-      "image_url": "https://platform.cdn.acedata.cloud/seedream/3c060029-69b1-406f-a957-fcd55ddc9386.jpg"
+      "image_url": "https://platform.cdn.xhuoapi.ai/seedream/3c060029-69b1-406f-a957-fcd55ddc9386.jpg"
     }
   ]
 }
@@ -78,7 +78,7 @@ description: "ByteDance Seedream Image Generation 集成指南 - Ace Data Cloud"
 另外如果想生成对应的对接代码，可以直接复制生成，例如 CURL 的代码如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/seedream/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/seedream/images' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer ${token}' \
 -H 'content-type: application/json' \
@@ -98,7 +98,7 @@ curl -X POST 'https://api.acedata.cloud/seedream/images' \
 
 填写样例如下：
 
-<p><img src="https://cdn.acedata.cloud/seedream_edit.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedream_edit.png" width="500" className="m-auto" /></p>
 
 
 对应的代码：
@@ -106,7 +106,7 @@ curl -X POST 'https://api.acedata.cloud/seedream/images' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/images"
+url = "https://api.xhuoapi.ai/v1/flux/images"
 
 headers = {
     "accept": "application/json",
@@ -137,7 +137,7 @@ print(response.text)
         {
             "prompt": "Keep the model pose and the liquid garment flowing shape unchanged. Change the clothing material from silver metal to completely transparent water (or glass). Through the liquid flow, the details of the model skin are visible. The light and shadow effect shifts from reflection to refraction.",
             "size": "2048x2048",
-            "image_url": "https://platform.cdn.acedata.cloud/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
+            "image_url": "https://platform.cdn.xhuoapi.ai/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
         }
     ]
 }
@@ -172,7 +172,7 @@ print(response.text)
         {
             "prompt": "Keep the model pose and the liquid garment flowing shape unchanged. Change the clothing material from silver metal to completely transparent water (or glass). Through the liquid flow, the details of the model skin are visible. The light and shadow effect shifts from reflection to refraction.",
             "size": "2048x2048",
-            "image_url": "https://platform.cdn.acedata.cloud/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
+            "image_url": "https://platform.cdn.xhuoapi.ai/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
         }
     ]
 }

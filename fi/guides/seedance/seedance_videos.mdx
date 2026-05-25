@@ -1,15 +1,15 @@
 ---
 title: "SeeDance Videos Generation API -liittymisohje"
-description: "ByteDance Seedance Video Generation 集成指南 - Ace Data Cloud"
+description: "ByteDance Seedance Video Generation 集成指南 - XHuoAPI"
 ---
 
 Tässä artikkelissa esitellään SeeDance Videos Generation API -liittymisohje, jonka avulla voidaan luoda SeeDance-virallisia videoita syöttämällä mukautettuja parametreja.
 
 ## Hakuprosessi
 
-API:n käyttämiseksi sinun on ensin mentävä [SeeDance Videos Generation API](https://platform.acedata.cloud/documents/seedance-videos) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire"-painiketta, kuten kuvassa näkyy:
+API:n käyttämiseksi sinun on ensin mentävä [SeeDance Videos Generation API](https://api.xhuoapi.ai/documents/seedance-videos) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire"-painiketta, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -19,7 +19,7 @@ Ensimmäisellä hakukerralla saat ilmaisia krediittejä, joita voit käyttää A
 
 Ensinnäkin on hyvä ymmärtää peruskäyttötapa, eli syöttää kehotteet `content.text`, tyyppi `content.type=text` sekä malli `model`, jolloin saat käsitellyn tuloksen. Tarkat tiedot ovat seuraavat:
 
-<p><img src="https://cdn.acedata.cloud/seedance_parameters.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedance_parameters.png" width="500" className="m-auto" /></p>
 
 Voit nähdä, että olemme asettaneet Request Headers, mukaan lukien:
 
@@ -44,7 +44,7 @@ Lisäksi on asetettu Request Body, joka sisältää:
 
 Valinnan jälkeen voit huomata, että oikealle puolelle on myös luotu vastaava koodi, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/seedance_request.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedance_request.png" width="500" className="m-auto" /></p>
 
 Napsauta "Try"-painiketta testataksesi, kuten yllä olevassa kuvassa näkyy, ja saamme seuraavanlaisen tuloksen:
 
@@ -56,7 +56,7 @@ Napsauta "Try"-painiketta testataksesi, kuten yllä olevassa kuvassa näkyy, ja 
   "data": {
     "task_id": "cgt-20251222005129-62fhb",
     "status": "succeeded",
-    "video_url": "https://platform.cdn.acedata.cloud/seedance/f592800a-b87c-4705-8796-cbb8018cae35.mp4",
+    "video_url": "https://platform.cdn.xhuoapi.ai/seedance/f592800a-b87c-4705-8796-cbb8018cae35.mp4",
     "model": "doubao-seedance-1-0-pro-250528"
   }
 }
@@ -78,7 +78,7 @@ Voimme nähdä, että olemme saaneet tyydyttävän videoinfon, ja meidän tarvit
 Jos haluat luoda vastaavan liittymiskoodin, voit kopioida sen suoraan, esimerkiksi CURL-koodi on seuraava:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/seedance/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/seedance/videos' \
 -H 'authorization: Bearer ${bearer_token}' \
 -H 'accept: application/json' \
 -H 'content-type: application/json' \
@@ -136,7 +136,7 @@ Vastaava koodi:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/seedance/videos"
+url = "https://api.xhuoapi.ai/v1/seedance/videos"
 
 headers = {
     "accept": "application/json",
@@ -174,7 +174,7 @@ Kun napsautat suorita, voit huomata, että saat heti tuloksen, kuten alla:
     "data": {
         "task_id": "cgt-20251222072003-x2259",
         "status": "succeeded",
-        "video_url": "https://platform.cdn.acedata.cloud/seedance/6afb78b8-5ba8-424f-adcd-69423a700b50.mp4",
+        "video_url": "https://platform.cdn.xhuoapi.ai/seedance/6afb78b8-5ba8-424f-adcd-69423a700b50.mp4",
         "model": "doubao-seedance-1-0-pro-250528"
     }
 }
@@ -196,7 +196,7 @@ Vastaava koodi:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/seedance/videos"
+url = "https://api.xhuoapi.ai/v1/seedance/videos"
 
 headers = {
     "accept": "application/json",
@@ -242,7 +242,7 @@ Kun napsautat suorita, voit huomata, että saat heti tuloksen, kuten alla:
     "data": {
         "task_id": "cgt-20251222073134-54qcw",
         "status": "succeeded",
-        "video_url": "https://platform.cdn.acedata.cloud/seedance/95f9f5f0-fc50-4c71-bc6f-e154582c141e.mp4",
+        "video_url": "https://platform.cdn.xhuoapi.ai/seedance/95f9f5f0-fc50-4c71-bc6f-e154582c141e.mp4",
         "model": "doubao-seedance-1-0-pro-250528"
     }
 }
@@ -272,7 +272,7 @@ Kun tehtävä on valmis, alusta työntää `callback_url`:iin seuraavan sisäll�
   "data": {
     "task_id": "cgt-20251222073134-54qcw",
     "status": "succeeded",
-    "video_url": "https://platform.cdn.acedata.cloud/seedance/95f9f5f0-fc50-4c71-bc6f-e154582c141e.mp4",
+    "video_url": "https://platform.cdn.xhuoapi.ai/seedance/95f9f5f0-fc50-4c71-bc6f-e154582c141e.mp4",
     "model": "doubao-seedance-1-0-pro-250528"
   }
 }

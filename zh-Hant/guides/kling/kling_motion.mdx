@@ -1,15 +1,15 @@
 ---
 title: "Kling Motion Generation API 對接說明"
-description: "Kling video generation 集成指南 - Ace Data Cloud"
+description: "Kling video generation 集成指南 - XHuoAPI"
 ---
 
 本文將介紹一種 Kling Motion Generation API 對接說明，它是可以通過輸入自定義參數來生成Kling官方的視頻。
 
 ## 申請流程
 
-要使用 API，需要先到 [Kling Motion Generation API](https://platform.acedata.cloud/documents/d3f2c369-102d-4856-9565-702ac5f2df63) 對應頁面申請對應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
+要使用 API，需要先到 [Kling Motion Generation API](https://api.xhuoapi.ai/documents/d3f2c369-102d-4856-9565-702ac5f2df63) 對應頁面申請對應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 如果你尚未登錄或註冊，會自動跳轉到登錄頁面邀請您來註冊和登錄，登錄註冊之後會自動返回當前頁面。
 
@@ -19,7 +19,7 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 
 首先先了解下基本的使用方式，就是輸入提示詞 `prompt`、參考圖片 `image_url` 以及參考視頻鏈接 `video_url`，便可獲得處理後的結果，然後我們還需要輸入模型 `mode`，目前主要有 `std`, `pro` 模型，具體的內容如下：
 
-<p><img src="https://cdn.acedata.cloud/5qlpjt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5qlpjt.png" width="500" className="m-auto" /></p>
 
 可以看到這裡我們設置了 Request Headers，包括：
 
@@ -38,7 +38,7 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 
 選擇之後，可以發現右側也生成了對應代碼，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/buwczd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/buwczd.png" width="500" className="m-auto" /></p>
 
 點擊「Try」按鈕即可進行測試，如上圖所示，這裡我們就得到了如下結果：
 
@@ -67,13 +67,13 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 另外如果想生成對應的對接代碼，可以直接複製生成，例如 CURL 的代碼如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/kling/motion' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/motion' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "image_url": "https://sourceyoya.wenge.com/2025/06/03/683e9f76e4b0684509ab1aca.jpg",
-  "video_url": "https://cdn.acedata.cloud/odwfm5.mp4",
+  "video_url": "https://cdn.xhuoapi.ai/odwfm5.mp4",
   "prompt": "讓畫面生動起來",
   "mode": "std",
   "character_orientation": "image"
@@ -90,12 +90,12 @@ curl -X POST 'https://api.acedata.cloud/kling/motion' \
 
 首先，Webhook 回調是一個可以接收 HTTP 請求的服務，開發者應該替換為自己搭建的 HTTP 伺服器的 URL。此處為了方便演示，使用一個公開的 Webhook 樣例網站 https://webhook.site/，打開該網站即可得到一個 Webhook URL，如圖所示：
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 將此 URL 複製下來，就可以作為 Webhook 來使用，此處的範例為 `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`。
 
 接下來，我們可以設定欄位 `callback_url` 為上述 Webhook URL，同時填入相應的參數，具體的內容如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vdx12s.png" width="500" className="m-auto" /></p>
 
 點擊運行，可以發現會立即得到一個結果，如下：
 
@@ -107,7 +107,7 @@ curl -X POST 'https://api.acedata.cloud/kling/motion' \
 
 稍等片刻，我們可以在 `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3` 上觀察到生成視頻的結果，如圖所示：
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 內容如下：
 

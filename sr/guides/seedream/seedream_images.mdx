@@ -1,15 +1,15 @@
 ---
 title: "Uputstvo za integraciju SeeDream Images Generation API"
-description: "ByteDance Seedream Image Generation 集成指南 - Ace Data Cloud"
+description: "ByteDance Seedream Image Generation 集成指南 - XHuoAPI"
 ---
 
 Ovaj dokument predstavlja uputstvo za integraciju SeeDream Images Generation API, koji omogućava generisanje slika zvanične SeeDream platforme putem unosa prilagođenih parametara.
 
 ## Proces prijave
 
-Da biste koristili API, potrebno je prvo da se prijavite za odgovarajuću uslugu na stranici [SeeDream Images Generation API](https://platform.acedata.cloud/documents/seedream-images). Nakon ulaska na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
+Da biste koristili API, potrebno je prvo da se prijavite za odgovarajuću uslugu na stranici [SeeDream Images Generation API](https://api.xhuoapi.ai/documents/seedream-images). Nakon ulaska na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Ukoliko niste prijavljeni ili registrovani, bićete automatski preusmereni na stranicu za prijavu i registraciju. Nakon prijave ili registracije, bićete vraćeni na trenutnu stranicu.
 
@@ -19,7 +19,7 @@ Prilikom prve prijave dobijate besplatan kredit za korišćenje API-ja.
 
 Prvo je potrebno razumeti osnovni način korišćenja, koji podrazumeva unos prompta `prompt`, akcije generisanja `action` i dimenzija slike `size` da biste dobili obrađeni rezultat. Potrebno je poslati polje `action` sa vrednošću `generate`, kao i prompt. Detalji su sledeći:
 
-<p><img src="https://cdn.acedata.cloud/seedream_request_body.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedream_request_body.png" width="500" className="m-auto" /></p>
 
 Ovde vidimo da su postavljeni Request Headers, uključujući:
 
@@ -46,7 +46,7 @@ Takođe su postavljeni Request Body parametri:
 
 Nakon izbora, sa desne strane se generiše odgovarajući kod, kao na slici:
 
-<p><img src="https://cdn.acedata.cloud/seedream_image.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedream_image.png" width="500" className="m-auto" /></p>
 
 Klikom na dugme „Try“ možete testirati API. Kao na slici, dobijen je sledeći rezultat:
 
@@ -59,7 +59,7 @@ Klikom na dugme „Try“ možete testirati API. Kao na slici, dobijen je slede�
     {
       "prompt": "a white siamese cat",
       "size": "2048x2048",
-      "image_url": "https://platform.cdn.acedata.cloud/seedream/3c060029-69b1-406f-a957-fcd55ddc9386.jpg"
+      "image_url": "https://platform.cdn.xhuoapi.ai/seedream/3c060029-69b1-406f-a957-fcd55ddc9386.jpg"
     }
   ]
 }
@@ -80,7 +80,7 @@ Dobijena je zadovoljavajuća slika, koju možete preuzeti putem linka u polju `d
 Za generisanje koda za integraciju, možete direktno kopirati, na primer CURL primer:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/seedream/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/seedream/images' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer ${token}' \
 -H 'content-type: application/json' \
@@ -100,14 +100,14 @@ Ako želite da uredite postojeću sliku, potrebno je da u parametar `image` unes
 
 Primer popunjavanja:
 
-<p><img src="https://cdn.acedata.cloud/seedream_edit.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedream_edit.png" width="500" className="m-auto" /></p>
 
 Odgovarajući kod:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/images"
+url = "https://api.xhuoapi.ai/v1/flux/images"
 
 headers = {
     "accept": "application/json",
@@ -138,7 +138,7 @@ Nakon pokretanja dobićete rezultat:
         {
             "prompt": "Keep the model pose and the liquid garment flowing shape unchanged. Change the clothing material from silver metal to completely transparent water (or glass). Through the liquid flow, the details of the model skin are visible. The light and shadow effect shifts from reflection to refraction.",
             "size": "2048x2048",
-            "image_url": "https://platform.cdn.acedata.cloud/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
+            "image_url": "https://platform.cdn.xhuoapi.ai/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
         }
     ]
 }
@@ -171,7 +171,7 @@ Sadržaj povratnog JSON-a:
         {
             "prompt": "Keep the model pose and the liquid garment flowing shape unchanged. Change the clothing material from silver metal to completely transparent water (or glass). Through the liquid flow, the details of the model skin are visible. The light and shadow effect shifts from reflection to refraction.",
             "size": "2048x2048",
-            "image_url": "https://platform.cdn.acedata.cloud/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
+            "image_url": "https://platform.cdn.xhuoapi.ai/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
         }
     ]
 }

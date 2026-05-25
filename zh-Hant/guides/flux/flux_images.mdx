@@ -1,15 +1,15 @@
 ---
 title: "Flux Images Generation API 對接說明"
-description: "Flux Image Generation 集成指南 - Ace Data Cloud"
+description: "Flux Image Generation 集成指南 - XHuoAPI"
 ---
 
 本文將介紹一種 Flux Images Generation API 對接說明，它是可以通過輸入自定義參數來生成 Flux 官方的圖片。
 
 ## 申請流程
 
-要使用 API，需要先到 [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) 對應頁面申請對應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
+要使用 API，需要先到 [Flux Images Generation API](https://api.xhuoapi.ai/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) 對應頁面申請對應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 如果你尚未登錄或註冊，會自動跳轉到登錄頁面邀請您來註冊和登錄，登錄註冊之後會自動返回當前頁面。
 
@@ -19,7 +19,7 @@ description: "Flux Image Generation 集成指南 - Ace Data Cloud"
 
 首先先了解下基本的使用方式，就是輸入提示詞 `prompt`、 生成行為 `action`、圖片尺寸 `size`，便可獲得處理後的結果，首先需要簡單地傳遞一個 `action` 字段，它的值為 `generate`，然後我們還需要輸入提示詞，具體的內容如下：
 
-<p><img src="https://cdn.acedata.cloud/wz85jt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wz85jt.png" width="500" className="m-auto" /></p>
 
 可以看到這裡我們設置了 Request Headers，包括：
 
@@ -52,7 +52,7 @@ description: "Flux Image Generation 集成指南 - Ace Data Cloud"
 
 選擇之後，可以發現右側也生成了對應代碼，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/8q7aux.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8q7aux.png" width="500" className="m-auto" /></p>
 
 點擊「Try」按鈕即可進行測試，如上圖所示，這裡我們就得到了如下結果：
 
@@ -90,7 +90,7 @@ description: "Flux Image Generation 集成指南 - Ace Data Cloud"
 另外如果想生成對應的對接代碼，可以直接複製生成，例如 CURL 的代碼如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/flux/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/images' \
 -H 'authorization: Bearer {token}' \
 -H 'accept: application/json' \
 -H 'content-type: application/json' \
@@ -111,18 +111,18 @@ curl -X POST 'https://api.acedata.cloud/flux/images' \
 
 填寫樣例如下：
 
-<p><img src="https://cdn.acedata.cloud/jn9da5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jn9da5.png" width="500" className="m-auto" /></p>
 
 填寫完畢之後自動生成了代碼如下：
 
-<p><img src="https://cdn.acedata.cloud/6cwxb8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/6cwxb8.png" width="500" className="m-auto" /></p>
 
 對應的代碼：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/images"
+url = "https://api.xhuoapi.ai/v1/flux/images"
 
 headers = {
     "accept": "application/json",
@@ -134,7 +134,7 @@ payload = {
     "action": "edit",
     "prompt": "a white siamese cat",
     "model": "flux-kontext-pro",
-    "image_url": "https://cdn.acedata.cloud/ytj2qy.png"
+    "image_url": "https://cdn.xhuoapi.ai/ytj2qy.png"
 }
 
 response = requests.post(url, json=payload, headers=headers)
@@ -169,13 +169,13 @@ print(response.text)
 
 首先，Webhook 回調是一個可以接收 HTTP 請求的服務，開發者應該替換為自己搭建的 HTTP 伺服器的 URL。此處為了方便演示，使用一個公開的 Webhook 樣例網站 https://webhook.site/，打開該網站即可得到一個 Webhook URL，如圖所示：
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 將此 URL 複製下來，就可以作為 Webhook 來使用，此處的樣例為 `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`。
 
 接下來，我們可以設置欄位 `callback_url` 為上述 Webhook URL，同時填入相應的參數，具體的內容如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/wm6caw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wm6caw.png" width="500" className="m-auto" /></p>
 
 點擊運行，可以發現會立即得到一個結果，如下：
 
@@ -187,7 +187,7 @@ print(response.text)
 
 稍等片刻，我們可以在 `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab` 上觀察到生成圖片的結果，如圖所示：
 
-![](https://cdn.acedata.cloud/v23lot.png)
+![](https://cdn.xhuoapi.ai/v23lot.png)
 
 內容如下：
 

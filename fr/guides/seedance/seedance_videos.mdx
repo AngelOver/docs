@@ -1,15 +1,15 @@
 ---
 title: "Documentation de l'API de génération de vidéos SeeDance"
-description: "ByteDance Seedance Video Generation 集成指南 - Ace Data Cloud"
+description: "ByteDance Seedance Video Generation 集成指南 - XHuoAPI"
 ---
 
 Cet article présente une documentation sur l'API de génération de vidéos SeeDance, qui permet de générer des vidéos officielles de SeeDance en entrant des paramètres personnalisés.
 
 ## Processus de demande
 
-Pour utiliser l'API, vous devez d'abord vous rendre sur la page [API de génération de vidéos SeeDance](https://platform.acedata.cloud/documents/seedance-videos) pour demander le service correspondant. Une fois sur la page, cliquez sur le bouton « Acquire », comme indiqué dans l'image ci-dessous :
+Pour utiliser l'API, vous devez d'abord vous rendre sur la page [API de génération de vidéos SeeDance](https://api.xhuoapi.ai/documents/seedance-videos) pour demander le service correspondant. Une fois sur la page, cliquez sur le bouton « Acquire », comme indiqué dans l'image ci-dessous :
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Si vous n'êtes pas encore connecté ou inscrit, vous serez automatiquement redirigé vers la page de connexion pour vous inviter à vous inscrire et à vous connecter. Après vous être connecté ou inscrit, vous serez automatiquement renvoyé à la page actuelle.
 
@@ -19,7 +19,7 @@ Lors de la première demande, un quota gratuit sera offert, vous permettant d'ut
 
 Tout d'abord, comprenez la méthode d'utilisation de base, qui consiste à entrer le mot-clé `content.text`, le type `content.type=text` et le modèle `model`, afin d'obtenir le résultat traité. Le contenu spécifique est le suivant :
 
-<p><img src="https://cdn.acedata.cloud/seedance_parameters.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedance_parameters.png" width="500" className="m-auto" /></p>
 
 Nous pouvons voir ici que nous avons défini les en-têtes de requête, y compris :
 
@@ -44,7 +44,7 @@ De plus, nous avons défini le corps de la requête, y compris :
 
 Après avoir fait votre sélection, vous pouvez voir que le code correspondant a également été généré à droite, comme indiqué dans l'image ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/seedance_request.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedance_request.png" width="500" className="m-auto" /></p>
 
 Cliquez sur le bouton « Try » pour effectuer un test, comme indiqué ci-dessus, et nous avons obtenu le résultat suivant :
 
@@ -56,7 +56,7 @@ Cliquez sur le bouton « Try » pour effectuer un test, comme indiqué ci-dessus
   "data": {
     "task_id": "cgt-20251222005129-62fhb",
     "status": "succeeded",
-    "video_url": "https://platform.cdn.acedata.cloud/seedance/f592800a-b87c-4705-8796-cbb8018cae35.mp4",
+    "video_url": "https://platform.cdn.xhuoapi.ai/seedance/f592800a-b87c-4705-8796-cbb8018cae35.mp4",
     "model": "doubao-seedance-1-0-pro-250528"
   }
 }
@@ -78,7 +78,7 @@ Nous pouvons voir que nous avons obtenu des informations vidéo satisfaisantes, 
 De plus, si vous souhaitez générer le code d'intégration correspondant, vous pouvez le copier directement, par exemple, le code CURL est le suivant :
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/seedance/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/seedance/videos' \
 -H 'authorization: Bearer ${bearer_token}' \
 -H 'accept: application/json' \
 -H 'content-type: application/json' \
@@ -136,7 +136,7 @@ Code correspondant :
 ```python
 import requests
 
-url = "https://api.acedata.cloud/seedance/videos"
+url = "https://api.xhuoapi.ai/v1/seedance/videos"
 
 headers = {
     "accept": "application/json",
@@ -174,7 +174,7 @@ En cliquant sur exécuter, vous pouvez constater que vous obtiendrez immédiatem
     "data": {
         "task_id": "cgt-20251222072003-x2259",
         "status": "succeeded",
-        "video_url": "https://platform.cdn.acedata.cloud/seedance/6afb78b8-5ba8-424f-adcd-69423a700b50.mp4",
+        "video_url": "https://platform.cdn.xhuoapi.ai/seedance/6afb78b8-5ba8-424f-adcd-69423a700b50.mp4",
         "model": "doubao-seedance-1-0-pro-250528"
     }
 }
@@ -196,7 +196,7 @@ Code correspondant :
 ```python
 import requests
 
-url = "https://api.acedata.cloud/seedance/videos"
+url = "https://api.xhuoapi.ai/v1/seedance/videos"
 
 headers = {
     "accept": "application/json",
@@ -242,7 +242,7 @@ En cliquant sur exécuter, vous pouvez constater que vous obtiendrez immédiatem
     "data": {
         "task_id": "cgt-20251222073134-54qcw",
         "status": "succeeded",
-        "video_url": "https://platform.cdn.acedata.cloud/seedance/95f9f5f0-fc50-4c71-bc6f-e154582c141e.mp4",
+        "video_url": "https://platform.cdn.xhuoapi.ai/seedance/95f9f5f0-fc50-4c71-bc6f-e154582c141e.mp4",
         "model": "doubao-seedance-1-0-pro-250528"
     }
 }
@@ -272,7 +272,7 @@ Lorsque la tâche est terminée, le contenu envoyé à `callback_url` par la pla
   "data": {
     "task_id": "cgt-20251222073134-54qcw",
     "status": "succeeded",
-    "video_url": "https://platform.cdn.acedata.cloud/seedance/95f9f5f0-fc50-4c71-bc6f-e154582c141e.mp4",
+    "video_url": "https://platform.cdn.xhuoapi.ai/seedance/95f9f5f0-fc50-4c71-bc6f-e154582c141e.mp4",
     "model": "doubao-seedance-1-0-pro-250528"
   }
 }

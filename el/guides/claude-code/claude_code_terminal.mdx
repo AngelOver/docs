@@ -1,17 +1,17 @@
 ---
 title: "Claude Code Τερματικό (CLI) Χρήση Οδηγός"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code είναι ένα εργαλείο **Agentic Coding** που κυκλοφόρησε από την Anthropic, και θεωρείται ένα από τα πιο ισχυρά προγραμματιστικά Agents στον κόσμο. Το τερματικό CLI είναι η κύρια εμπειρία του Claude Code, όπου μπορείτε να εκτελέσετε την εντολή `claude` σε οποιοδήποτε τερματικό και να συνεργαστείτε με την AI μέσω φυσικής γλώσσας.
 
-Αυτό το έγγραφο περιγράφει κυρίως πώς να εγκαταστήσετε, να ρυθμίσετε και να χρησιμοποιήσετε το Claude Code CLI μέσω της υπηρεσίας proxy της AceData Cloud.
+Αυτό το έγγραφο περιγράφει κυρίως πώς να εγκαταστήσετε, να ρυθμίσετε και να χρησιμοποιήσετε το Claude Code CLI μέσω της υπηρεσίας proxy της XHuoAPI.
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το Claude Code, μπορείτε πρώτα να επισκεφθείτε τη [σελίδα υπηρεσιών Claude Messages](https://platform.acedata.cloud/documents/claude-messages) και να κάνετε κλικ στο κουμπί «Acquire» για να αποκτήσετε τα απαραίτητα διαπιστευτήρια:
+Για να χρησιμοποιήσετε το Claude Code, μπορείτε πρώτα να επισκεφθείτε τη [σελίδα υπηρεσιών Claude Messages](https://api.xhuoapi.ai/documents/claude-messages) και να κάνετε κλικ στο κουμπί «Acquire» για να αποκτήσετε τα απαραίτητα διαπιστευτήρια:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη σελίδα σύνδεσης για να εγγραφείτε και να συνδεθείτε, και μετά την εγγραφή θα επιστρέψετε αυτόματα στη σελίδα.
 
@@ -62,9 +62,9 @@ winget install Claude.ClaudeCode
 
 Η εγγενής εγκατάσταση θα ενημερώνεται αυτόματα στο παρασκήνιο, διατηρώντας πάντα την πιο πρόσφατη έκδοση.
 
-## Ρύθμιση AceData Cloud API
+## Ρύθμιση XHuoAPI API
 
-Αφού ολοκληρωθεί η εγκατάσταση, θα σας ζητηθεί να συνδεθείτε με τον επίσημο λογαριασμό της Anthropic. Μπορούμε να χρησιμοποιήσουμε την υπηρεσία proxy της AceData Cloud ρυθμίζοντας τις μεταβλητές περιβάλλοντος, **χωρίς επίσημη συνδρομή**.
+Αφού ολοκληρωθεί η εγκατάσταση, θα σας ζητηθεί να συνδεθείτε με τον επίσημο λογαριασμό της Anthropic. Μπορούμε να χρησιμοποιήσουμε την υπηρεσία proxy της XHuoAPI ρυθμίζοντας τις μεταβλητές περιβάλλοντος, **χωρίς επίσημη συνδρομή**.
 
 ### Ρύθμιση Μεταβλητών Περιβάλλοντος
 
@@ -72,12 +72,12 @@ winget install Claude.ClaudeCode
 
 **Μέθοδος 1: Ρύθμιση στο αρχείο ρύθμισης του Shell (Συνιστάται)**
 
-Προσθέστε το παρακάτω περιεχόμενο στο αρχείο ρύθμισης του Shell σας (`~/.zshrc`, `~/.bashrc` ή `~/.bash_profile`), αντικαθιστώντας το `{token}` με το API token που αποκτήσατε από τον πίνακα ελέγχου της AceData Cloud:
+Προσθέστε το παρακάτω περιεχόμενο στο αρχείο ρύθμισης του Shell σας (`~/.zshrc`, `~/.bashrc` ή `~/.bash_profile`), αντικαθιστώντας το `{token}` με το API token που αποκτήσατε από τον πίνακα ελέγχου της XHuoAPI:
 
 ```bash
-# AceData Cloud - Ρύθμιση Proxy Claude Code
+# XHuoAPI - Ρύθμιση Proxy Claude Code
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 Μετά την τροποποίηση, εκτελέστε την παρακάτω εντολή για να ενεργοποιήσετε τη ρύθμιση:
@@ -94,14 +94,14 @@ source ~/.zshrc  # ή source ~/.bashrc
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
 Το πλεονέκτημα αυτής της μεθόδου είναι ότι οι μεταβλητές περιβάλλοντος ισχύουν μόνο για το Claude Code και δεν επηρεάζουν άλλα προγράμματα.
 
-> **Σημείωση**: Το API token μπορεί να προβληθεί στον [πίνακα ελέγχου της AceData Cloud](https://platform.acedata.cloud/console). Η τιμή του `ANTHROPIC_AUTH_TOKEN` θα προστεθεί αυτόματα με το πρόθεμα `Bearer` κατά την αποστολή στον διακομιστή.
+> **Σημείωση**: Το API token μπορεί να προβληθεί στον [πίνακα ελέγχου της XHuoAPI](https://api.xhuoapi.ai/console). Η τιμή του `ANTHROPIC_AUTH_TOKEN` θα προστεθεί αυτόματα με το πρόθεμα `Bearer` κατά την αποστολή στον διακομιστή.
 
 ## Ξεκινώντας
 
@@ -217,7 +217,7 @@ git diff main | claude -p "Ανασκόπησε αυτές τις αλλαγές
    echo $ANTHROPIC_AUTH_TOKEN
    echo $ANTHROPIC_BASE_URL
    ```
-3. Επιβεβαιώστε ότι το API token είναι έγκυρο (μπορείτε να το δείτε στην [κονσόλα](https://platform.acedata.cloud/console))
+3. Επιβεβαιώστε ότι το API token είναι έγκυρο (μπορείτε να το δείτε στην [κονσόλα](https://api.xhuoapi.ai/console))
 4. Δοκιμάστε να επανεκκινήσετε το τερματικό
 
 ### command not found: claude
@@ -230,11 +230,11 @@ git diff main | claude -p "Ανασκόπησε αυτές τις αλλαγές
 
 ### Πώς να δείτε το υπόλοιπο;
 
-Συνδεθείτε στην [κονσόλα AceData Cloud](https://platform.acedata.cloud/console) για να δείτε το τρέχον υπόλοιπο και τη χρήση του λογαριασμού σας.
+Συνδεθείτε στην [κονσόλα XHuoAPI](https://api.xhuoapi.ai/console) για να δείτε το τρέχον υπόλοιπο και τη χρήση του λογαριασμού σας.
 
 ## Μάθετε περισσότερα
 
 - 📖 [Επίσημη τεκμηρίωση Claude Code CLI](https://code.claude.com/docs/en/quickstart)
 - 📋 [Αναφορά εντολών CLI](https://code.claude.com/docs/en/cli-reference)
-- 🔧 [Υπηρεσία Claude Code της AceData Cloud](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [Υπηρεσία Claude Code της XHuoAPI](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 Εάν έχετε οποιαδήποτε ερώτηση, μη διστάσετε να επικοινωνήσετε μαζί μας μέσω της υποστήριξης πελατών της πλατφόρμας

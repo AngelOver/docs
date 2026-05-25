@@ -1,6 +1,6 @@
 ---
 title: "سنو واجهة برمجة التطبيقات لتوليد الأغاني"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 مع اتساع استخدام الذكاء الاصطناعي، أصبحت برامج الذكاء الاصطناعي متنوعة وشائعة. لقد أصبح الذكاء الاصطناعي يتغلغل تدريجياً في جميع جوانب حياة الناس وعملهم. كما أن الصناعات التي تشملها الذكاء الاصطناعي تتزايد، بدءًا من الكتابة، إلى التعليم الطبي، وصولاً إلى الموسيقى الآن.
@@ -19,13 +19,13 @@ description: "Suno Music Generation 集成指南 - Ace Data Cloud"
 
 لقد قامت سنو مؤخرًا بترقية نموذج توليد الموسيقى إلى الإصدار V5، ولتفعيل الإصدار V5 الجديد، يكفي تعديل معلمة النموذج إلى `chirp-v5`، مما يتيح توليد أغاني تصل مدتها إلى 9 دقائق.
 
-ومع ذلك، لم تقدم سنو واجهة برمجة التطبيقات الرسمية، حيث توفر AceDataCloud مجموعة من واجهات برمجة التطبيقات الخاصة بسنو، مما يحاكي الاتصال الرسمي بسنو، مما يسهل ويسرع عملية توليد الموسيقى المطلوبة.
+ومع ذلك، لم تقدم سنو واجهة برمجة التطبيقات الرسمية، حيث توفر XHuoAPI مجموعة من واجهات برمجة التطبيقات الخاصة بسنو، مما يحاكي الاتصال الرسمي بسنو، مما يسهل ويسرع عملية توليد الموسيقى المطلوبة.
 
 ## التقديم والاستخدام
 
-لاستخدام واجهة برمجة التطبيقات الخاصة بسنو، يمكنك أولاً زيارة صفحة [Suno Audios Generation API](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة:
+لاستخدام واجهة برمجة التطبيقات الخاصة بسنو، يمكنك أولاً زيارة صفحة [Suno Audios Generation API](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، وبعد تسجيل الدخول، سيتم إرجاعك تلقائيًا إلى الصفحة الحالية.
 
@@ -35,7 +35,7 @@ description: "Suno Music Generation 集成指南 - Ace Data Cloud"
 
 إذا كنت ترغب في توليد أغاني، يمكنك إدخال نص عشوائي، على سبيل المثال، إذا كنت تريد توليد أغنية عن عيد الميلاد، يمكنك إدخال `a song for Christmas`، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/2kuuup.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2kuuup.png" width="500" className="m-auto" /></p>
 
 يمكنك أن ترى هنا أننا قمنا بتعيين رؤوس الطلب، بما في ذلك:
 
@@ -69,7 +69,7 @@ description: "Suno Music Generation 集成指南 - Ace Data Cloud"
 
 الكود الناتج كما يلي:
 
-<p><img src="https://cdn.acedata.cloud/1xehwl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1xehwl.png" width="500" className="m-auto" /></p>
 
 يمكنك النقر على زر "Try" لاختبار واجهة برمجة التطبيقات مباشرة، وانتظر لمدة 1-2 دقيقة، وستكون النتائج كما يلي:
 ```json
@@ -141,7 +141,7 @@ description: "Suno Music Generation 集成指南 - Ace Data Cloud"
 [المقطع]\nتتساقط رقاقات الثلج في كل مكان\nتتألق باللون الأبيض\nتغطي الأرض\nالأطفال يضحكون\nمليئون بالفرح\nفي هذا البلد الشتوي الليلة\nمزلج سانتا\nفي السماء\nأنف رودولف يتلألأ\nأوه يا\nاسمع أجراس الجينجل\nترن بوضوح\nتجلب الفرح والبهجة\n[المقطع 2]\nتحميص الكستناء بجانب توهج النار\nأضواء عيد الميلاد\nتتألق وتظهر\nتجمع العائلات بالحب والبهجة\nتنشر الدفء للجميع بالقرب
 ```
 
-> ملاحظة، هنا في كلمات الأغنية `\n` هو رمز الانتقال إلى السطر، إذا كنت لا تعرف كيفية توليد كلمات الأغاني، يمكنك استخدام واجهة برمجة التطبيقات لتوليد كلمات الأغاني التي تقدمها AceDataCloud لتوليد الكلمات من خلال prompt، الواجهة هي [Suno Lyrics Generation API](https://platform.acedata.cloud/documents/514d82dc-f7ab-4638-9f21-8b9275916b08).
+> ملاحظة، هنا في كلمات الأغنية `\n` هو رمز الانتقال إلى السطر، إذا كنت لا تعرف كيفية توليد كلمات الأغاني، يمكنك استخدام واجهة برمجة التطبيقات لتوليد كلمات الأغاني التي تقدمها XHuoAPI لتوليد الكلمات من خلال prompt، الواجهة هي [Suno Lyrics Generation API](https://api.xhuoapi.ai/documents/514d82dc-f7ab-4638-9f21-8b9275916b08).
 
 بعد ذلك، نريد توليد أغنية مخصصة بناءً على الكلمات، العنوان، والأسلوب، يمكننا تحديد المحتويات كما يلي:
 
@@ -152,16 +152,16 @@ description: "Suno Music Generation 集成指南 - Ace Data Cloud"
 
 مثال على كيفية التعبئة كما يلي:
 
-<p><img src="https://cdn.acedata.cloud/qp3iba.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qp3iba.png" width="500" className="m-auto" /></p>
 
 بعد ملء البيانات، تم توليد الكود تلقائيًا كما يلي:
 
-<p><img src="https://cdn.acedata.cloud/o5haei.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/o5haei.png" width="500" className="m-auto" /></p>
 
 الكود المقابل:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/suno/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -177,20 +177,20 @@ curl -X POST 'https://api.acedata.cloud/suno/audios' \
 اختبار مسموح، التأثير الناتج مشابه. 
 
 ## وظيفة توليد أسلوب المغني المخصص
-إذا كنت ترغب في استخدام أسلوب المغني لإنشاء أغنية، يجب أولاً إنشاء أغنية باستخدام الاستخدام الأساسي المذكور أعلاه، ثم تحتاج إلى تعيين هذه الأغنية كأسلوب المغني، ثم يجب الدخول إلى [Suno Persona API](https://platform.acedata.cloud/documents/78bb6c62-6ce0-490f-a7df-e89d80ec0583) لإنشاء معلمة id للأسلوب `persona_id` بناءً على معرف الموسيقى `audio_id` الذي تم إنشاؤه رسميًا، والمعلمات المحددة كما هو موضح في الصورة أدناه:
+إذا كنت ترغب في استخدام أسلوب المغني لإنشاء أغنية، يجب أولاً إنشاء أغنية باستخدام الاستخدام الأساسي المذكور أعلاه، ثم تحتاج إلى تعيين هذه الأغنية كأسلوب المغني، ثم يجب الدخول إلى [Suno Persona API](https://api.xhuoapi.ai/documents/78bb6c62-6ce0-490f-a7df-e89d80ec0583) لإنشاء معلمة id للأسلوب `persona_id` بناءً على معرف الموسيقى `audio_id` الذي تم إنشاؤه رسميًا، والمعلمات المحددة كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/pmzo3l.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pmzo3l.png" width="500" className="m-auto" /></p>
 
 بعد ملء البيانات، تم إنشاء الكود تلقائيًا كما يلي:
 
-<p><img src="https://cdn.acedata.cloud/a5g0nj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a5g0nj.png" width="500" className="m-auto" /></p>
 
 الكود المقابل بلغة بايثون:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/persona"
+url = "https://api.xhuoapi.ai/v1/suno/persona"
 
 headers = {
     "accept": "application/json",
@@ -221,18 +221,18 @@ print(response.text)
 
 نحن نأخذ `audio_id` و `persona_id` كأمثلة بيانات لهذه المرة، حيث تكون القيم هي `97efc9f4-0e8d-4b3e-88df-14568fa1b11f` و `e0d7319e-aa2a-44cb-b00a-916218d7cb0b`. ثم يمكنك تعيين المعلمة `action` إلى `artist_consistency` (إذا كان أسلوب المغني الجديد Persona-v2-vox، يجب تعيين `action` إلى `artist_consistency_vox`)، وإدخال معرف الأغنية الذي تحتاجه لمتابعة إنشاء الأغاني، ومعرف أسلوب المغني، كما هو موضح في المثال أدناه:
 
-<p><img src="https://cdn.acedata.cloud/fukijq.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fukijq.png" width="500" className="m-auto" /></p>
 
 بعد ملء البيانات، تم إنشاء الكود تلقائيًا كما يلي:
 
-<p><img src="https://cdn.acedata.cloud/5uzk9d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5uzk9d.png" width="500" className="m-auto" /></p>
 
 الكود المقابل بلغة بايثون:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -302,9 +302,9 @@ print(response.text)
 
 > ملاحظة: هنا، `id` في كلمات الأغاني هو معرف الأغنية التي تم إنشاؤها بعد ذلك، إذا كنت لا تعرف كيفية إنشاء أغنية، يمكنك الرجوع إلى الاستخدام الأساسي المذكور أعلاه لإنشاء أغنية.
 
-إذا كنت ترغب في متابعة إنشاء أغاني قمت بتحميلها، يمكنك تعيين المعلمة `action` إلى `upload_extend`، وإدخال معرف الأغنية المخصصة التي تحتاج إلى متابعة إنشائها، ومعرف الأغنية يمكن الحصول عليه باستخدام [Suno Upload Generation API](https://platform.acedata.cloud/documents/766db278-012c-43c4-9245-5f18d8dc4d82) كما هو موضح في الصورة أدناه:
+إذا كنت ترغب في متابعة إنشاء أغاني قمت بتحميلها، يمكنك تعيين المعلمة `action` إلى `upload_extend`، وإدخال معرف الأغنية المخصصة التي تحتاج إلى متابعة إنشائها، ومعرف الأغنية يمكن الحصول عليه باستخدام [Suno Upload Generation API](https://api.xhuoapi.ai/documents/766db278-012c-43c4-9245-5f18d8dc4d82) كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/a0mn5e.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a0mn5e.png" width="500" className="m-auto" /></p>
 
 بعد ذلك، يجب علينا ملء كلمات الأغاني، وتخصيص الأسلوب لإنشاء الأغاني، ويمكننا تحديد المحتويات كما يلي:
 
@@ -315,17 +315,17 @@ print(response.text)
 
 مثال على الملء كما يلي:
 
-<p><img src="https://cdn.acedata.cloud/zp9s42.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zp9s42.png" width="500" className="m-auto" /></p>
 
 بعد ملء البيانات، تم إنشاء الكود تلقائيًا كما يلي:
 
-<p><img src="https://cdn.acedata.cloud/wwpw78.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wwpw78.png" width="500" className="m-auto" /></p>
 
 الكود المقابل بلغة بايثون:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -894,22 +894,22 @@ print(response.text)
 
 تسمح الجهة الرسمية باستخدام معلمات متقدمة في الوضع المخصص `weirdness`==>`غرابة`، `style_influence`==>`تأثير النمط`، `audio_weight`==>`تأثير الصوت`، كما هو موضح في الأمثلة الرسمية أدناه:
 
-<p><img src="https://cdn.acedata.cloud/1xonxy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1xonxy.png" width="500" className="m-auto" /></p>
 
 حيث تتراوح معلمات المتقدمة بين 0-1، والمعلمات المحددة كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/7i94ih.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7i94ih.png" width="500" className="m-auto" /></p>
 
 بعد ملء البيانات، تم إنشاء الكود تلقائيًا كما هو موضح أدناه:
 
-<p><img src="https://cdn.acedata.cloud/2dlbo6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2dlbo6.png" width="500" className="m-auto" /></p>
 
 الكود المقابل بلغة بايثون:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -973,13 +973,13 @@ print(response.text)
 
 ## وظيفة إضافة موسيقى
 
-في أغسطس 2025، أصدرت suno وظيفة إضافة موسيقى، أولاً تحتاج إلى رفع أغنية بدون صوت، لتساعدك suno في إضافة الموسيقى، يمكنك أولاً الذهاب إلى [Suno Upload API](https://platform.acedata.cloud/documents/766db278-012c-43c4-9245-5f18d8dc4d82) لرفع أغنية بدون موسيقى، كما هو موضح في الصورة أدناه:
+في أغسطس 2025، أصدرت suno وظيفة إضافة موسيقى، أولاً تحتاج إلى رفع أغنية بدون صوت، لتساعدك suno في إضافة الموسيقى، يمكنك أولاً الذهاب إلى [Suno Upload API](https://api.xhuoapi.ai/documents/766db278-012c-43c4-9245-5f18d8dc4d82) لرفع أغنية بدون موسيقى، كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/fxl914.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fxl914.png" width="500" className="m-auto" /></p>
 
 ثم تحتاج إلى تسجيل `audio_id` بعد الرفع، والنتيجة كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/47t6wj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/47t6wj.png" width="500" className="m-auto" /></p>
 
 أخيرًا حصلت على `audio_id`: 92254cab-3372-4d9e-bce9-cdcfdbc39070، ثم نحتاج إلى ملء المعلمات التالية:
 
@@ -991,14 +991,14 @@ print(response.text)
 
 بعد ملء البيانات، تم إنشاء الكود تلقائيًا كما هو موضح أدناه:
 
-<p><img src="https://cdn.acedata.cloud/8x1ic6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8x1ic6.png" width="500" className="m-auto" /></p>
 
 الكود المقابل بلغة بايثون:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -1060,13 +1060,13 @@ print(response.text)
 
 ## وظيفة إضافة الأصوات
 
-في أغسطس 2025، أصدرت suno وظيفة إضافة الأصوات، أولاً تحتاج إلى رفع مقطع موسيقي خالص، ليقوم suno بكتابة الكلمات وإنتاج صوت بشري، يمكنك أولاً الذهاب إلى [واجهة رفع suno](https://platform.acedata.cloud/documents/766db278-012c-43c4-9245-5f18d8dc4d82) لرفع أغنية خالصة بدون موسيقى، والإجراءات المقابلة موضحة في الصورة أدناه:
+في أغسطس 2025، أصدرت suno وظيفة إضافة الأصوات، أولاً تحتاج إلى رفع مقطع موسيقي خالص، ليقوم suno بكتابة الكلمات وإنتاج صوت بشري، يمكنك أولاً الذهاب إلى [واجهة رفع suno](https://api.xhuoapi.ai/documents/766db278-012c-43c4-9245-5f18d8dc4d82) لرفع أغنية خالصة بدون موسيقى، والإجراءات المقابلة موضحة في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/fxl914.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/fxl914.png" width="500" class="m-auto"></p>
 
 ثم تحتاج إلى تسجيل `audio_id` بعد الرفع، والنتيجة المحددة موضحة في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/47t6wj.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/47t6wj.png" width="500" class="m-auto"></p>
 
 أخيرًا حصلنا على `audio_id`: 92254cab-3372-4d9e-bce9-cdcfdbc39070، ثم نحتاج إلى ملء المعلمات التالية:
 
@@ -1080,14 +1080,14 @@ print(response.text)
 
 بعد ملء كل شيء، تم توليد الكود تلقائيًا كما هو موضح أدناه:
 
-<p><img src="https://cdn.acedata.cloud/a4pbes.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/a4pbes.png" width="500" class="m-auto"></p>
 
 الكود المقابل بلغة بايثون:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -1159,7 +1159,7 @@ print(response.text)
 
 بعد ملء كل شيء، تم توليد الكود تلقائيًا كما هو موضح أدناه:
 
-<p><img src="https://cdn.acedata.cloud/7h4zmw.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/7h4zmw.png" width="500" class="m-auto"></p>
 
 الكود المقابل بلغة بايثون:
 ```python
@@ -1168,7 +1168,7 @@ print(response.text)
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -1237,14 +1237,14 @@ print(response.text)
 
 بعد ملء البيانات، تم توليد الكود تلقائيًا كما يلي:
 
-<p><img src="https://cdn.acedata.cloud/8mo82l.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/8mo82l.png" width="500" class="m-auto"></p>
 
 الكود المقابل بلغة بايثون:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -1316,13 +1316,13 @@ print(response.text)
 
 أولاً، ردود Webhook هي خدمة يمكنها استقبال طلبات HTTP، يجب على المطورين استبدالها بعنوان URL الخاص بخادم HTTP الذي قاموا بإنشائه. هنا، لتسهيل العرض، نستخدم موقع ويب عينة Webhook عام https://webhook.site/، عند فتح هذا الموقع، ستحصل على عنوان URL لـ Webhook، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/fwfqin.png)
+![](https://cdn.xhuoapi.ai/fwfqin.png)
 
 انسخ هذا العنوان URL، يمكنك استخدامه كـ Webhook، والعينة هنا هي https://webhook.site/03e60575-3d96-4132-b681-b713d78116e2.
 
 بعد ذلك، يمكننا تعيين الحقل `callback_url` إلى عنوان URL الخاص بـ Webhook المذكور أعلاه، مع ملء `prompt`، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/x8xql1.png)
+![](https://cdn.xhuoapi.ai/x8xql1.png)
 
 عند النقر على تشغيل، يمكنك أن تلاحظ أنك ستحصل على نتيجة على الفور، كما يلي:
 
@@ -1334,7 +1334,7 @@ print(response.text)
 
 بعد لحظة، يمكنك ملاحظة نتيجة الأغنية المولدة على https://webhook.site/03e60575-3d96-4132-b681-b713d78116e2، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/f9kosb.png)
+![](https://cdn.xhuoapi.ai/f9kosb.png)
 
 المحتوى كما يلي:
 ```json
@@ -1374,7 +1374,7 @@ print(response.text)
 
 بالطبع يمكننا أيضًا الحصول على النتائج من خلال استدعاء تدفق، كل ما علينا هو ضبط قيمة `accept` في رأس الطلب إلى `application/x-ndjson`، إليك مثال على إدخال كمثال:
 
-<p><img src="https://cdn.acedata.cloud/vgffvk.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/vgffvk.png" width="500" class="m-auto"></p>
 
 أثناء الانتظار يمكننا الحصول على المخرجات التالية:
 

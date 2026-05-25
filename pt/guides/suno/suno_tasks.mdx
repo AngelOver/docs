@@ -1,6 +1,6 @@
 ---
 title: "Integração e Uso da API Suno Tasks"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 A principal função da API Suno Tasks é consultar o status de execução de uma tarefa através do ID da tarefa gerado pela API Suno Audios Generation ou pela API Suno Lyrics Generation.
@@ -9,27 +9,27 @@ Este documento irá detalhar as instruções de integração da API Suno Tasks, 
 
 ## Processo de Solicitação
 
-Para usar a API Suno Tasks, você precisa primeiro ir à página de solicitação [Suno Audios Generation API](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) para solicitar o serviço correspondente e, em seguida, copiar o ID da tarefa da API Suno Audios Generation, como mostrado na imagem:
+Para usar a API Suno Tasks, você precisa primeiro ir à página de solicitação [Suno Audios Generation API](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) para solicitar o serviço correspondente e, em seguida, copiar o ID da tarefa da API Suno Audios Generation, como mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/bc6754.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bc6754.png" width="500" className="m-auto" /></p>
 
-Por fim, acesse a página da API Tasks [Suno Tasks API](https://platform.acedata.cloud/documents/b0dd9823-0e01-4c75-af83-5a6e2e05bfed) para solicitar o serviço correspondente. Após acessar a página, clique no botão "Acquire", como mostrado na imagem:
+Por fim, acesse a página da API Tasks [Suno Tasks API](https://api.xhuoapi.ai/documents/b0dd9823-0e01-4c75-af83-5a6e2e05bfed) para solicitar o serviço correspondente. Após acessar a página, clique no botão "Acquire", como mostrado na imagem:
 
-![Página de Solicitação](https://cdn.acedata.cloud/rci31i.png)
+![Página de Solicitação](https://cdn.xhuoapi.ai/rci31i.png)
 
-Se você ainda não estiver logado ou registrado, será redirecionado automaticamente para a [página de login](https://platform.acedata.cloud), convidando você a se registrar e fazer login. Após o registro e login, você será redirecionado automaticamente de volta para a página atual.
+Se você ainda não estiver logado ou registrado, será redirecionado automaticamente para a [página de login](https://api.xhuoapi.ai), convidando você a se registrar e fazer login. Após o registro e login, você será redirecionado automaticamente de volta para a página atual.
 
 Na primeira solicitação, haverá um crédito gratuito disponível, permitindo que você use a API gratuitamente.
 
 ## Exemplo de Solicitação
 
-A API Suno Tasks pode ser usada para consultar os resultados da API Suno Audios Generation e da API Suno Lyrics Generation. Para saber como usar a API Suno Audios Generation, consulte o documento [Suno Audios Generation API](https://platform.acedata.cloud/documents/d016ee3f-421b-4b6e-989a-8beba8701701). Para saber como usar a API Suno Lyrics Generation, consulte [Suno Lyrics Generation API](https://platform.acedata.cloud/documents/f1c66741-a488-43ca-91fc-e53fbbda639a).
+A API Suno Tasks pode ser usada para consultar os resultados da API Suno Audios Generation e da API Suno Lyrics Generation. Para saber como usar a API Suno Audios Generation, consulte o documento [Suno Audios Generation API](https://api.xhuoapi.ai/documents/d016ee3f-421b-4b6e-989a-8beba8701701). Para saber como usar a API Suno Lyrics Generation, consulte [Suno Lyrics Generation API](https://api.xhuoapi.ai/documents/f1c66741-a488-43ca-91fc-e53fbbda639a).
 
 Usaremos um exemplo de ID de tarefa retornado pelo serviço da API Suno Audios Generation. Suponha que temos um ID de tarefa: eae26f89-b64b-404d-a80c-761996660b1c, a seguir, demonstraremos como passar um ID de tarefa.
 
 ### Exemplo de Tarefa
 
-<p><img src="https://cdn.acedata.cloud/bc6754.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bc6754.png" width="500" className="m-auto" /></p>
 
 ### Configurando Cabeçalhos e Corpo da Solicitação
 
@@ -45,20 +45,20 @@ Usaremos um exemplo de ID de tarefa retornado pelo serviço da API Suno Audios G
 
 Configuração conforme mostrado na imagem abaixo:
 
-<p><img src="https://cdn.acedata.cloud/uo7t6n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/uo7t6n.png" width="500" className="m-auto" /></p>
 
 ### Exemplo de Código
 
 Pode-se notar que, no lado direito da página, já foram gerados automaticamente códigos em várias linguagens, como mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/p6vi9o.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/p6vi9o.png" width="500" className="m-auto" /></p>
 
 Alguns exemplos de código são os seguintes:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/suno/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/tasks"
+url = "https://api.xhuoapi.ai/v1/suno/tasks"
 
 headers = {
     "accept": "application/json",
@@ -159,13 +159,13 @@ Isso é para consultar os detalhes da tarefa de música para vários IDs de tare
 
 Configurar como mostrado na imagem abaixo:
 
-<p><img src="https://cdn.acedata.cloud/dqeknz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dqeknz.png" width="500" className="m-auto" /></p>
 
 ### Exemplo de Código
 
 Pode-se notar que, no lado direito da página, vários códigos de linguagem já foram gerados automaticamente, como mostrado na imagem abaixo:
 
-<p><img src="https://cdn.acedata.cloud/1yk792.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1yk792.png" width="500" className="m-auto" /></p>
 
 Parte do exemplo de código é o seguinte:
 
@@ -274,7 +274,7 @@ Após uma solicitação bem-sucedida, a API retornará as informações detalhad
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -289,7 +289,7 @@ curl -X POST 'https://api.acedata.cloud/suno/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/tasks"
+url = "https://api.xhuoapi.ai/v1/suno/tasks"
 
 headers = {
     "accept": "application/json",

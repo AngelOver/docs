@@ -1,6 +1,6 @@
 ---
 title: "Integracija i korišćenje Face Swap API"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 Glavna funkcija Face Swap API je da zameni lice na izvornoj slici licem sa ciljne slike, koristeći jednu izvoru sliku i jednu ciljnu sliku.
@@ -9,11 +9,11 @@ Ovaj dokument će detaljno opisati uputstva za integraciju Face Swap API, pomaž
 
 ## Proces prijave
 
-Da biste koristili Face Swap API, prvo treba da odete na stranicu za prijavu [Face Swap API](https://platform.acedata.cloud/documents/d10df07a-66a6-4c37-b114-3a003fc9bd55) i zatražite odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
+Da biste koristili Face Swap API, prvo treba da odete na stranicu za prijavu [Face Swap API](https://api.xhuoapi.ai/documents/d10df07a-66a6-4c37-b114-3a003fc9bd55) i zatražite odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
 
-![Stranica za prijavu](https://cdn.acedata.cloud/rci31i.png)
+![Stranica za prijavu](https://cdn.xhuoapi.ai/rci31i.png)
 
-Ako još niste prijavljeni ili registrovani, automatski ćete biti preusmereni na [stranicu za prijavu](https://platform.acedata.cloud) koja vas poziva da se registrujete i prijavite. Nakon prijave ili registracije, automatski ćete se vratiti na trenutnu stranicu.
+Ako još niste prijavljeni ili registrovani, automatski ćete biti preusmereni na [stranicu za prijavu](https://api.xhuoapi.ai) koja vas poziva da se registrujete i prijavite. Nakon prijave ili registracije, automatski ćete se vratiti na trenutnu stranicu.
 
 Prilikom prve prijave dobićete besplatnu kvotu koja vam omogućava da besplatno koristite ovaj API.
 
@@ -21,11 +21,11 @@ Prilikom prve prijave dobićete besplatnu kvotu koja vam omogućava da besplatno
 
 Uzećemo dve slike kao primer i prikazati kako koristiti ovaj API. Pretpostavimo da je izvorna slika prikazana ispod:
 
-<p><img src="https://cdn.acedata.cloud/n1lmd8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/n1lmd8.png" width="500" className="m-auto" /></p>
 
 Ciljna slika je:
 
-<p><img src="https://cdn.acedata.cloud/3np95r.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3np95r.png" width="500" className="m-auto" /></p>
 
 Sledeće ćemo prikazati kako zameniti lice sa ciljne slike licem sa izvorne slike.
 
@@ -44,26 +44,26 @@ Sledeće ćemo prikazati kako zameniti lice sa ciljne slike licem sa izvorne sli
 
 Postavite kao što je prikazano na slici ispod:
 
-<p><img src="https://cdn.acedata.cloud/g7tnn1.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g7tnn1.png" width="500" className="m-auto" /></p>
 
 ### Primer koda
 
 Možete primetiti da su na desnoj strani stranice automatski generisani kodovi na raznim jezicima, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/t8gsls.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/t8gsls.png" width="500" className="m-auto" /></p>
 
 Neki primeri koda su:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/face/swap' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/swap' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "source_image_url": "https://cdn.acedata.cloud/n1lmd8.png",
-  "target_image_url": "https://cdn.acedata.cloud/3np95r.png"
+  "source_image_url": "https://cdn.xhuoapi.ai/n1lmd8.png",
+  "target_image_url": "https://cdn.xhuoapi.ai/3np95r.png"
 }'
 ```
 
@@ -72,7 +72,7 @@ curl -X POST 'https://api.acedata.cloud/face/swap' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/swap"
+url = "https://api.xhuoapi.ai/v1/face/swap"
 
 headers = {
     "accept": "application/json",
@@ -81,8 +81,8 @@ headers = {
 }
 
 payload = {
-    "source_image_url": "https://cdn.acedata.cloud/n1lmd8.png",
-    "target_image_url": "https://cdn.acedata.cloud/3np95r.png"
+    "source_image_url": "https://cdn.xhuoapi.ai/n1lmd8.png",
+    "target_image_url": "https://cdn.xhuoapi.ai/3np95r.png"
 }
 
 response = requests.post(url, json=payload, headers=headers)
@@ -95,7 +95,7 @@ Kada je zahtev uspešan, API će vratiti informacije o rezultatu slike nakon zam
 
 ```json
 {
-  "image_url": "https://platform.cdn.acedata.cloud/face/4b13bdeb-1b19-4ea5-bddf-c2da14ba72e3.png",
+  "image_url": "https://platform.cdn.xhuoapi.ai/face/4b13bdeb-1b19-4ea5-bddf-c2da14ba72e3.png",
   "image_width": 2008,
   "image_height": 1942,
   "image_size": 4006213,
@@ -113,7 +113,7 @@ Možete primetiti da rezultat sadrži polje `image_url`, koje uključuje link do
 
 Rezultat generisane slike je:
 
-<p><img src="https://cdn.acedata.cloud/soa3lk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/soa3lk.png" width="500" className="m-auto" /></p>
 
 Može se jasno videti da je slika uspešno zamenila lice sa ciljne slike licem sa izvorne slike.
 
@@ -127,13 +127,13 @@ Pogledajmo kako to konkretno funkcioniše kroz primer.
 
 Prvo, Webhook povratni poziv je usluga koja može primati HTTP zahteve, a programeri bi trebali zameniti URL-om svog HTTP servera. Ovde, radi lakšeg prikazivanja, koristićemo javni Webhook sajt https://webhook.site/, otvaranjem ovog sajta dobićete Webhook URL, kao što je prikazano na slici:
 
-![](https://cdn.acedata.cloud/r8wyb7.png)
+![](https://cdn.xhuoapi.ai/r8wyb7.png)
 
 Kopirajte ovaj URL i možete ga koristiti kao Webhook, a primer ovde je https://webhook.site/3b76eba5-4573-432a-b607-3000b87afc06.
 
 Sledeće, možemo postaviti polje `callback_url` na navedeni Webhook URL, kao i uneti odgovarajuće parametre, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/xx08i2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xx08i2.png" width="500" className="m-auto" /></p>
 
 Kliknite na pokretanje, i možete odmah dobiti rezultat, kao što je prikazano:
 
@@ -145,7 +145,7 @@ Kliknite na pokretanje, i možete odmah dobiti rezultat, kao što je prikazano:
 
 Nakon nekoliko trenutaka, možemo posmatrati rezultat generisanja Face Swap-a na https://webhook.site/3b76eba5-4573-432a-b607-3000b87afc06, kao što je prikazano na slici:
 
-![](https://cdn.acedata.cloud/col42s.png)
+![](https://cdn.xhuoapi.ai/col42s.png)
 
 Sadržaj je:
 
@@ -153,7 +153,7 @@ Sadržaj je:
 {
   "success": true,
   "task_id": "9cba9d36-3b14-43c9-85b6-86f6dfc3b096",
-  "image_url": "https://platform.cdn.acedata.cloud/face/9cba9d36-3b14-43c9-85b6-86f6dfc3b096.png",
+  "image_url": "https://platform.cdn.xhuoapi.ai/face/9cba9d36-3b14-43c9-85b6-86f6dfc3b096.png",
   "image_width": 2008,
   "image_height": 1942,
   "image_size": 4006481

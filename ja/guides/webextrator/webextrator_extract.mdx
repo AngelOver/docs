@@ -1,9 +1,9 @@
 ---
 title: "WebExtrator インテリジェント抽出 API 統合ガイド"
-description: "WebExtrator Web Render & Extract 集成指南 - Ace Data Cloud"
+description: "WebExtrator Web Render & Extract 集成指南 - XHuoAPI"
 ---
 
-`POST https://api.acedata.cloud/webextrator/extract`
+`POST https://api.xhuoapi.ai/v1/webextrator/extract`
 
 `/webextrator/render` をベースにコンテンツ抽出を行います。render インターフェースの全パラメータに加え、以下をサポートします：
 
@@ -41,7 +41,7 @@ description: "WebExtrator Web Render & Extract 集成指南 - Ace Data Cloud"
 ## 例：記事本文抽出（LLM 有効）
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -54,7 +54,7 @@ curl -X POST https://api.acedata.cloud/webextrator/extract \
 ## 例：非同期 + カスタム構造化抽出
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

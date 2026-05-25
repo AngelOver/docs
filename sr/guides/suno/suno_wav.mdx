@@ -1,6 +1,6 @@
 ---
 title: "Uputstvo za integraciju Suno Wav API-ja"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 SUNO nam omogućava da dobijemo muzičke fajlove u wav formatu, a ovaj dokument objašnjava način integracije odgovarajućeg API-ja.
@@ -12,7 +12,7 @@ Ovde je uneti `audio_id` vrednost `4e43116a-bf09-472c-8e1c-655eabf02682`.
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/wav"
+url = "https://api.xhuoapi.ai/v1/suno/wav"
 
 headers = {
     "accept": "application/json",
@@ -37,7 +37,7 @@ Rezultat je sledeći:
   "trace_id": "3fa70e81-6bb7-4ca8-b718-dd16a4eda7e8",
   "data": [
     {
-      "file_url": "https://platform.cdn.acedata.cloud/suno/6a5a2099-d6d3-4930-9709-a30ac5dc7de5.wav"
+      "file_url": "https://platform.cdn.xhuoapi.ai/suno/6a5a2099-d6d3-4930-9709-a30ac5dc7de5.wav"
     }
   ]
 }
@@ -48,6 +48,6 @@ Možemo videti da je polje `file_url` u `data` muzički fajl u wav formatu koji 
 > **O čuvanju i važenju WAV linka**
 >
 > WAV fajlovi na Suno CDN-u izvornog provajdera (`https://cdn1.suno.ai/{audio_id}.wav`) se čuvaju samo nekoliko dana, nakon čega se brišu i pristup vraća 403 grešku.
-> Da bi se izbeglo istecanje linka, ovaj API automatski premešta WAV fajl sa izvornog CDN-a na naš sopstveni CDN (`https://platform.cdn.acedata.cloud/suno/{task_id}.wav`) pre nego što vrati odgovor. Povratni `file_url` je stabilna adresa premeštenog fajla i neće odmah isteći zbog isteka izvornog CDN-a.
+> Da bi se izbeglo istecanje linka, ovaj API automatski premešta WAV fajl sa izvornog CDN-a na naš sopstveni CDN (`https://platform.cdn.xhuoapi.ai/suno/{task_id}.wav`) pre nego što vrati odgovor. Povratni `file_url` je stabilna adresa premeštenog fajla i neće odmah isteći zbog isteka izvornog CDN-a.
 > **Važenje premeštenog linka je 30 dana**, nakon čega se fajl periodično briše. Preporučuje se da fajl što pre preuzmete i sačuvate na sopstvenom skladištu.
 > U retkim slučajevima neuspeha premeštanja, vraća se originalni izvorni URL, što je dosledno prethodnom ponašanju.

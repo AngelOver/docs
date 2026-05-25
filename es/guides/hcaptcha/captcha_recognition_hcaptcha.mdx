@@ -1,15 +1,15 @@
 ---
 title: "hCaptcha API de reconocimiento de imágenes"
-description: "hCaptcha verification code recognition service 集成指南 - Ace Data Cloud"
+description: "hCaptcha verification code recognition service 集成指南 - XHuoAPI"
 ---
 
 Este documento presentará una descripción de la API de reconocimiento de imágenes hCaptcha, que puede identificar el contenido ingresado por el usuario y la imagen del captcha hCaptcha, y finalmente devolver las coordenadas de la pequeña imagen que necesita ser clicada para completar la verificación.
 
 ## Proceso de solicitud
 
-Para usar la API, primero debe ir a la página correspondiente de la [API de reconocimiento de imágenes hCaptcha](https://platform.acedata.cloud/documents/c9a5cc2f-e410-425f-857a-f8700205da6c) para solicitar el servicio correspondiente. Una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
+Para usar la API, primero debe ir a la página correspondiente de la [API de reconocimiento de imágenes hCaptcha](https://api.xhuoapi.ai/documents/c9a5cc2f-e410-425f-857a-f8700205da6c) para solicitar el servicio correspondiente. Una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Si aún no ha iniciado sesión o registrado, será redirigido automáticamente a la página de inicio de sesión que lo invita a registrarse e iniciar sesión. Después de registrarse e iniciar sesión, será redirigido automáticamente a la página actual.
 
@@ -19,15 +19,15 @@ En la primera solicitud, se le otorgará un crédito gratuito, lo que le permiti
 
 Primero, comprenda la forma básica de uso, que consiste en ingresar la imagen del captcha hCaptcha que necesita ser procesada para obtener el resultado procesado. Primero, debe pasar un campo `queries`, que es la imagen del captcha hCaptcha específica. Necesitamos capturar esta imagen del captcha en un sitio web que tenga captcha hCaptcha; el enlace del sitio de ejemplo es: `https://democaptcha.com/demo-form-eng/hcaptcha.html`, haga clic en la casilla de verificación para mostrar la imagen completa del captcha, como se muestra en la imagen a continuación:
 
-<p><img src="https://cdn.acedata.cloud/xryo59.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xryo59.png" width="500" className="m-auto" /></p>
 
 El campo `queries` es la captura de pantalla de la imagen del captcha mencionada anteriormente. Se sugiere que el tamaño de la imagen no supere los 100 kb. También debe capturar la región señalada por la flecha roja en la imagen anterior, y debe comprimir el tamaño de la imagen y convertirla a codificación Base64, como se muestra en la imagen a continuación:
 
-<p><img src="https://cdn.acedata.cloud/g8ikkb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g8ikkb.png" width="500" className="m-auto" /></p>
 
 Además, debe ingresar el parámetro de contenido de reconocimiento relacionado con la imagen del captcha `question`, que admite traducción en chino e inglés. Puede ingresar directamente el contenido relacionado con el reconocimiento. Según el contenido ejecutado por la flecha amarilla en la imagen de la página web anterior, el `question` que debe ingresarse es `Please click on the UNIQUE object among the others.`. El contenido específico es el siguiente:
 
-<p><img src="https://cdn.acedata.cloud/empncr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/empncr.png" width="500" className="m-auto" /></p>
 
 Aquí podemos ver que hemos configurado los encabezados de la solicitud, que incluyen:
 
@@ -41,7 +41,7 @@ Además, se configuró el cuerpo de la solicitud, que incluye:
 
 Después de seleccionar, puede notar que también se generó el código correspondiente a la derecha, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/bww9b0.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bww9b0.png" width="500" className="m-auto" /></p>
 
 Haga clic en el botón "Try" para realizar la prueba, como se muestra en la imagen anterior, y aquí obtuvimos el siguiente resultado:
 
@@ -69,12 +69,12 @@ Podemos ver que hemos obtenido el resultado de la verificación de la imagen del
 
 A continuación, se explicará cómo hacer clic en la información de ubicación del `box` del resultado. Primero, se establece un sistema de coordenadas rectangulares para la imagen del captcha cargada, donde el origen central está en la esquina inferior izquierda de la imagen, 360 es la coordenada horizontal correspondiente y 276 es la coordenada vertical correspondiente. Solo necesitamos simular un clic en las coordenadas correspondientes del captcha, como se muestra en la imagen a continuación:
 
-<p><img src="https://cdn.acedata.cloud/4ykvbl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4ykvbl.png" width="500" className="m-auto" /></p>
 
 Además, si desea generar el código de integración correspondiente, puede copiarlo directamente, por ejemplo, el código de CURL es el siguiente:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/captcha/recognition/hcaptcha' \
+curl -X POST 'https://api.xhuoapi.ai/v1/captcha/recognition/hcaptcha' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -89,7 +89,7 @@ El código de integración en Python es el siguiente:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/captcha/recognition/hcaptcha"
+url = "https://api.xhuoapi.ai/v1/captcha/recognition/hcaptcha"
 
 headers = {
     "accept": "application/json",

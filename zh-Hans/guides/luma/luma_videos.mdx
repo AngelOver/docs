@@ -1,6 +1,6 @@
 ---
 title: "Luma 视频生成 API 对接说明"
-description: "Luma Video Generation 集成指南 - Ace Data Cloud"
+description: "Luma Video Generation 集成指南 - XHuoAPI"
 ---
 
 随着 AI 的应用变广，各类 AI 程序已逐渐普及。AI 已逐渐深入到人们的工作生活方方面面。而 AI 涉及的行业也越来越多，从最初的写作，到医疗教育，再到现在的视频。
@@ -8,13 +8,13 @@ description: "Luma Video Generation 集成指南 - Ace Data Cloud"
 Luma 是一个专业高质量的视频生成平台，用户只需上传素材，即可根据不同风格和效果自动生成高质量视频。该 AI 视频生成器由来自知名科技公司的团队成员开发，目标是无需复杂的编辑工具，让每个人都能轻松制作出色的视频。
 
 
-然而 Luma 官方是并没有提供 API 的，AceDataCloud 提供了一套 Luma 的 API，模拟对接了 Suno 官方，可以方便快捷地生成想要的视频。
+然而 Luma 官方是并没有提供 API 的，XHuoAPI 提供了一套 Luma 的 API，模拟对接了 Suno 官方，可以方便快捷地生成想要的视频。
 
 ## 申请和使用
 
-要使用 Luma Videos API，首先可以到 [Luma Videos Generation API](https://platform.acedata.cloud/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) 页面点击「Acquire」按钮，获取请求所需要的凭证：
+要使用 Luma Videos API，首先可以到 [Luma Videos Generation API](https://api.xhuoapi.ai/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) 页面点击「Acquire」按钮，获取请求所需要的凭证：
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 如果你尚未登录或注册，会自动跳转到登录页面邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
@@ -24,11 +24,11 @@ Luma 是一个专业高质量的视频生成平台，用户只需上传素材，
 
 想要生成什么视频，可以任意输入一段文字，比如我想生成一个关于宇航员穿梭于太空和火山之间的视频，就可以输入 `Astronauts shuttle from space to volcano`，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/yub02j.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yub02j.png" width="500" className="m-auto" /></p>
 
 生成的代码如下：
 
-<p><img src="https://cdn.acedata.cloud/ieq7yn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ieq7yn.png" width="500" className="m-auto" /></p>
 
 主要请求参数：
 
@@ -52,7 +52,7 @@ Luma 是一个专业高质量的视频生成平台，用户只需上传素材，
   "video_height": 752,
   "video_width": 1360,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/e4018a99-1522-4f24-9330-62c2a9b50b59.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/e4018a99-1522-4f24-9330-62c2a9b50b59.jpg",
   "thumbnail_width": 1360,
   "thumbnail_height": 752
 }
@@ -80,7 +80,7 @@ Luma 是一个专业高质量的视频生成平台，用户只需上传素材，
 
 这时候视频首帧 `start_image_url` 字段可以传入以下图片作为视频的首帧：
 
-![首帧](https://cdn.acedata.cloud/r9vsv9.png)
+![首帧](https://cdn.xhuoapi.ai/r9vsv9.png)
 
 
 接下来我们要根据首尾帧、关键词自定义生成视频，就可以指定如下内容：
@@ -92,18 +92,18 @@ Luma 是一个专业高质量的视频生成平台，用户只需上传素材，
 
 填写样例如下：
 
-<p><img src="https://cdn.acedata.cloud/zvzydx.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zvzydx.png" width="500" className="m-auto" /></p>
 
 填写完毕之后自动生成了代码如下：
 
-<p><img src="https://cdn.acedata.cloud/tx80pu.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tx80pu.png" width="500" className="m-auto" /></p>
 
 对应的代码：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/luma/videos"
+url = "https://api.xhuoapi.ai/v1/luma/videos"
 
 headers = {
     "accept": "application/json",
@@ -112,7 +112,7 @@ headers = {
 }
 
 payload = {
-    "start_image_url": "https://cdn.acedata.cloud/r9vsv9.png",
+    "start_image_url": "https://cdn.xhuoapi.ai/r9vsv9.png",
     "action": "generate",
     "prompt": "Astronauts shuttle from space to volcano"
 }
@@ -129,11 +129,11 @@ print(response.text)
   "task_id": "12a18694-fd4b-47e7-9c50-34f30862cff6",
   "video_id": "0105c090-03a5-425a-8026-523341cd575b",
   "prompt": "Astronauts shuttle from space to volcano",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -141,11 +141,11 @@ print(response.text)
 
 最后得到的结果与上文的类似的，生成的视频首帧包含了我们传入的图片，当然也可以同时传入首尾帧图片链接来生成视频，只需要在上面的基础上再加一个尾帧图片即可，尾帧的图片信息如下：
 
-![尾帧](https://cdn.acedata.cloud/0iad3k.png)
+![尾帧](https://cdn.xhuoapi.ai/0iad3k.png)
 
 填写样例如下：
 
-<p><img src="https://cdn.acedata.cloud/20igwi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/20igwi.png" width="500" className="m-auto" /></p>
 
 最后得出如下结果：
 
@@ -155,11 +155,11 @@ print(response.text)
   "task_id": "d1cb723a-e554-4775-94a4-bb6ae8c7ea67",
   "video_id": "6bebd0d2-f793-472e-9326-38528a9273bb",
   "prompt": "Astronauts shuttle from space to volcano",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -172,13 +172,13 @@ print(response.text)
 
 如果想对生成的视频进行继续生成的话，可以将参数 `action` 设置为 `extend` ，并且输入需要继续生成视频的ID或者视频链接，视频ID和视频链接的获取是根据基本使用来获取，如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/fwknj4.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fwknj4.png" width="500" className="m-auto" /></p>
 
 这时候可以看到视频的ID为：
 
 ```
 "video_id": "0105c090-03a5-425a-8026-523341cd575b",
-"video_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4"
+"video_url": "https://platform.cdn.xhuoapi.ai/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4"
 ```
 
 > 注意，这里的视频中 `video_id` 和 `video_url` 是生成后视频的ID和视频链接，如果你不知道如何生成视频，可以参考上文的基本使用来生成视频。
@@ -193,18 +193,18 @@ print(response.text)
 
 填写样例如下：
 
-<p><img src="https://cdn.acedata.cloud/vv0rxk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vv0rxk.png" width="500" className="m-auto" /></p>
 
 填写完毕之后自动生成了代码如下：
 
-<p><img src="https://cdn.acedata.cloud/woapxi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/woapxi.png" width="500" className="m-auto" /></p>
 
 对应的Python代码：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/luma/videos"
+url = "https://api.xhuoapi.ai/v1/luma/videos"
 
 headers = {
     "accept": "application/json",
@@ -230,11 +230,11 @@ print(response.text)
   "task_id": "c6e529d1-a06d-4c12-91b2-c855135131c3",
   "video_id": "36908c49-c2bb-4a11-bd5a-b8512b004818",
   "prompt": "Astronauts shuttle from space to volcano",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -244,7 +244,7 @@ print(response.text)
 
 当然我们也可以指定视频的链接来进行扩展生成，填如下信息：
 
-<p><img src="https://cdn.acedata.cloud/0cv0hg.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0cv0hg.png" width="500" className="m-auto" /></p>
 
 运行后得到了如下结果：
 
@@ -254,11 +254,11 @@ print(response.text)
   "task_id": "1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca",
   "video_id": "f0187dc2-339f-4a08-a435-c3a3341f620a",
   "prompt": "Astronauts shuttle from space to volcano",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -268,11 +268,11 @@ print(response.text)
 
 最后我们还可以对扩展视频中指定一个尾帧图片来进行扩展，下面是尾帧图片信息：
 
-![尾帧](https://cdn.acedata.cloud/0iad3k.png)
+![尾帧](https://cdn.xhuoapi.ai/0iad3k.png)
 
 接下来在上面的基础上添加尾帧图片信息，具体的如下所示：
 
-<p><img src="https://cdn.acedata.cloud/9p1vrj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/9p1vrj.png" width="500" className="m-auto" /></p>
 
 点击运行后得到如下信息：
 
@@ -282,11 +282,11 @@ print(response.text)
   "task_id": "b816b2b4-c345-4673-9e19-83e91f91b643",
   "video_id": "c5400053-63e6-4206-8082-31cf9dd1e7ed",
   "prompt": "Astronauts shuttle from space to volcano",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/b816b2b4-c345-4673-9e19-83e91f91b643.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/b816b2b4-c345-4673-9e19-83e91f91b643.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/b816b2b4-c345-4673-9e19-83e91f91b643.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/b816b2b4-c345-4673-9e19-83e91f91b643.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -305,13 +305,13 @@ print(response.text)
 
 首先，Webhook 回调是一个可以接收 HTTP 请求的服务，开发者应该替换为自己搭建的 HTTP 服务器的 URL。此处为了方便演示，使用一个公开的 Webhook 样例网站 https://webhook.site/，打开该网站即可得到一个 Webhook URL，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/q78okf.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q78okf.png" width="500" className="m-auto" /></p>
 
 将此 URL 复制下来，就可以作为 Webhook 来使用，此处的样例为 https://webhook.site/0c87ca0e-cd74-4577-8d68-f2b80fbf8a13。
 
 接下来，我们可以设置字段 `callback_url` 为上述 Webhook URL，同时填入 `prompt`，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/n2fjvi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/n2fjvi.png" width="500" className="m-auto" /></p>
 
 点击运行，可以发现会立即得到一个结果，如下：
 
@@ -323,7 +323,7 @@ print(response.text)
 
 稍等片刻，我们可以在 https://webhook.site/0c87ca0e-cd74-4577-8d68-f2b80fbf8a13 上观察到生成歌曲的结果，如图所示：
 
-![](https://cdn.acedata.cloud/1hwm5m.png)
+![](https://cdn.xhuoapi.ai/1hwm5m.png)
 
 内容如下：
 
@@ -333,11 +333,11 @@ print(response.text)
     "task_id": "732f8282-7cf8-401c-95f2-42c33aa079a6",
     "video_id": "4d8013c3-5de0-41aa-966e-0b1a51d1c633",
     "prompt": "Astronauts shuttle from space to volcano",
-    "video_url": "https://platform.cdn.acedata.cloud/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.mp4",
+    "video_url": "https://platform.cdn.xhuoapi.ai/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.mp4",
     "video_height": 752,
     "video_width": 1360,
     "state": "completed",
-    "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.jpg",
+    "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.jpg",
     "thumbnail_width": 1360,
     "thumbnail_height": 752
 }

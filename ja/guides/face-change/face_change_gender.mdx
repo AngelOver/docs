@@ -1,15 +1,15 @@
 ---
 title: "人顔性別変換 API 接続説明"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 本文では、人顔性別変換 API 接続説明を紹介します。これは、ユーザーが顔画像をアップロードすることで、人顔編集と生成アルゴリズムに基づいて、顔の性別を変換した画像を出力します。男性から女性への変換では、美顔、薄化粧、前髪、長髪の効果を実現できます。女性から男性への変換では、ひげを加えたり、短髪にする効果を実現できます。
 
 ## 申請プロセス
 
-APIを使用するには、まず [人顔性別変換 API](https://platform.acedata.cloud/documents/0e4e5318-060e-4976-8d3a-171301240f8c) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
+APIを使用するには、まず [人顔性別変換 API](https://api.xhuoapi.ai/documents/0e4e5318-060e-4976-8d3a-171301240f8c) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 まだログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -19,11 +19,11 @@ APIを使用するには、まず [人顔性別変換 API](https://platform.aced
 
 まず、基本的な使用方法を理解します。画像リンクと性別情報を入力することで、処理後の結果画像を得ることができます。まず、`image_url` フィールドを簡単に渡す必要があります。顔画像は以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/lrbtcn.jpg" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lrbtcn.jpg" width="500" className="m-auto" /></p>
 
 次に、顔の性別情報パラメータ `gender_infos` をアップロードする必要があります。これは配列であり、複数の情報を渡すことができます。次に、画面上に対応する内容を記入できます。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/j22eg4.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/j22eg4.png" width="500" className="m-auto" /></p>
 
 ここでは、Request Headers を設定しました。これには以下が含まれます：
 
@@ -37,7 +37,7 @@ APIを使用するには、まず [人顔性別変換 API](https://platform.aced
 
 選択後、右側にも対応するコードが生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/5kwudj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5kwudj.png" width="500" className="m-auto" /></p>
 
 「Try」ボタンをクリックするとテストができます。上の図のように、以下の結果が得られました：
 
@@ -49,19 +49,19 @@ APIを使用するには、まず [人顔性別変換 API](https://platform.aced
 
 ここで返された結果には、入力された性別変化パラメータに基づいて変化した顔画像の `image_url` フィールドがあります。変化後の顔情報は以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/hm7w44.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/hm7w44.png" width="500" className="m-auto" /></p>
 
 画像中の顔は、入力された性別に基づいて変化しています。
 
 また、対応する接続コードを生成したい場合は、生成されたものを直接コピーできます。例えば、CURL のコードは以下の通りです：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/change-gender' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/change-gender' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg",
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg",
   "gender_infos": [{"gender":1}]
 }'
 ```
@@ -71,7 +71,7 @@ Python の接続コードは以下の通りです：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/change-gender"
+url = "https://api.xhuoapi.ai/v1/face/change-gender"
 
 headers = {
     "accept": "application/json",
@@ -80,7 +80,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg",
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg",
     "gender_infos": [{"gender":1}]
 }
 

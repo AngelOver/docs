@@ -1,15 +1,15 @@
 ---
 title: "Hailuo Videos Generation API - Integrointio-ohje"
-description: "Hailuo Video Generation 集成指南 - Ace Data Cloud"
+description: "Hailuo Video Generation 集成指南 - XHuoAPI"
 ---
 
 Tässä artikkelissa esitellään Hailuo Videos Generation API -integrointiohje, jonka avulla voidaan luoda Hailuon virallisia videoita syöttämällä mukautettuja parametreja.
 
 ## Hakuprosessi
 
-API:n käyttämiseksi sinun on ensin mentävä [Hailuo Videos Generation API](https://platform.acedata.cloud/documents/ee06377b-9185-438f-ac84-3376bcb1275e) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
+API:n käyttämiseksi sinun on ensin mentävä [Hailuo Videos Generation API](https://api.xhuoapi.ai/documents/ee06377b-9185-438f-ac84-3376bcb1275e) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -19,7 +19,7 @@ Ensimmäisellä hakukerralla saat ilmaisia krediittejä, joiden avulla voit käy
 
 Ensinnäkin on hyvä ymmärtää peruskäyttötapa, joka tarkoittaa, että syötät kehotteen `prompt`, generointitoiminnon `action`, ensimmäisen kuvan URL-osoitteen `first_image_url` sekä mallin `model`, jolloin saat käsitellyn tuloksen. Ensinnäkin sinun on yksinkertaisesti välitettävä `action`-kenttä, jonka arvo on `generate`, ja sitten meidän on syötettävä malli. Tällä hetkellä käytettävissä ovat pääasiassa kuvasta videoon -malli `minimax-i2v` ja tekstistä videoon -malli `minimax-t2v`, tarkat tiedot ovat seuraavat:
 
-<p><img src="https://cdn.acedata.cloud/7jyu0n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7jyu0n.png" width="500" className="m-auto" /></p>
 
 Voit nähdä, että olemme asettaneet Request Headers -asetukset, mukaan lukien:
 
@@ -36,7 +36,7 @@ Lisäksi on asetettu Request Body, joka sisältää:
 
 Valinnan jälkeen voit huomata, että oikealla puolella on myös luotu vastaava koodi, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/8psuxw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8psuxw.png" width="500" className="m-auto" /></p>
 
 Napsauta "Try" -painiketta, niin voit testata, kuten yllä olevassa kuvassa näkyy, ja saamme seuraavanlaisen tuloksen:
 
@@ -74,7 +74,7 @@ Voit nähdä, että olemme saaneet tyydyttävää videoinformaatiota, ja meidän
 Jos haluat luoda vastaavan integrointikoodin, voit kopioida sen suoraan, esimerkiksi CURL-koodi on seuraava:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/hailuo/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/hailuo/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -94,13 +94,13 @@ Katsotaanpa esimerkin avulla, miten tämä toimii.
 
 Ensinnäkin, Webhook-palaute on palvelu, joka voi vastaanottaa HTTP-pyyntöjä, ja kehittäjän tulisi korvata se omalla HTTP-palvelimensa URL-osoitteella. Tässä esimerkin vuoksi käytämme julkista Webhook-esimerkkisivustoa https://webhook.site/, avaa tämä sivusto saadaksesi Webhook URL:n, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 Kopioi tämä URL, niin voit käyttää sitä Webhookina, tässä esimerkki on `https://webhook.site/580b81f5-596e-4321-b03f-606770b0bb83`.
 
 Seuraavaksi voimme asettaa kentän `callback_url` yllä olevaan Webhook URL:iin ja täyttää vastaavat parametrit, tarkat tiedot ovat seuraavat:
 
-<p><img src="https://cdn.acedata.cloud/odabh3.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/odabh3.png" width="500" className="m-auto" /></p>
 
 Napsauta Suorita, ja huomaat, että saat heti tuloksen, kuten seuraavassa:
 
@@ -112,7 +112,7 @@ Napsauta Suorita, ja huomaat, että saat heti tuloksen, kuten seuraavassa:
 
 Odota hetki, niin voit tarkastella luodun videon tulosta osoitteessa `https://webhook.site/580b81f5-596e-4321-b03f-606770b0bb83`, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/7jngb4.png)
+![](https://cdn.xhuoapi.ai/7jngb4.png)
 
 Sisältö on seuraava:
 

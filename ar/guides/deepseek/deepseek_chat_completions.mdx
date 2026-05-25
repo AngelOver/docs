@@ -1,6 +1,6 @@
 ---
 title: "DeepSeek Chat Completion API 申请及使用"
-description: "DeepSeek AI 集成指南 - Ace Data Cloud"
+description: "DeepSeek AI 集成指南 - XHuoAPI"
 ---
 
 DeepSeek هو نظام محادثة AI قوي للغاية، حيث يمكنه توليد ردود طبيعية وسلسة في غضون ثوانٍ قليلة بمجرد إدخال كلمات التحفيز. يتميز DeepSeek-V3 بقدرته الفائقة على فهم اللغة وتوليدها، وقد أصبح له تأثير ملحوظ في مختلف الصناعات والقطاعات. سواء كان ذلك في المحادثات اليومية، الكتابة الإبداعية، أو الاستشارات المهنية، أو برمجة الأكواد، يمكن لـ DeepSeek-V3 تقديم مساعدة ذكية مذهلة، مما يزيد بشكل كبير من كفاءة وإبداع البشر في العمل.
@@ -9,9 +9,9 @@ DeepSeek هو نظام محادثة AI قوي للغاية، حيث يمكنه �
 
 ## 申请流程
 
-لاستخدام DeepSeek Chat Completion API، يمكنك أولاً زيارة صفحة [DeepSeek Chat Completion API](https://platform.acedata.cloud/documents/2d6a9bae-9a70-4aaa-bd72-28e5bd60fa67) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة:
+لاستخدام DeepSeek Chat Completion API، يمكنك أولاً زيارة صفحة [DeepSeek Chat Completion API](https://api.xhuoapi.ai/documents/2d6a9bae-9a70-4aaa-bd72-28e5bd60fa67) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، وبعد تسجيل الدخول، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
@@ -21,7 +21,7 @@ DeepSeek هو نظام محادثة AI قوي للغاية، حيث يمكنه �
 
 بعد ذلك، يمكنك ملء المحتوى المقابل في الواجهة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/m9kxkz.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/m9kxkz.png" width="400" className="m-auto" /></p>
 
 عند استخدام هذه الواجهة لأول مرة، نحتاج على الأقل إلى ملء ثلاثة محتويات، أحدها هو `authorization`، والذي يمكن اختياره مباشرة من القائمة المنسدلة. المعامل الآخر هو `model`، حيث يمثل `model` فئة النموذج التي نختار استخدامها من موقع DeepSeek الرسمي، وهنا لدينا 4 نماذج رئيسية، يمكن الاطلاع على التفاصيل في النماذج المقدمة. المعامل الأخير هو `messages`، حيث أن `messages` هو مصفوفة كلمات الاستفسار التي ندخلها، وهي مصفوفة تمثل إمكانية تحميل عدة كلمات استفسار في نفس الوقت، كل كلمة استفسار تحتوي على `role` و `content`، حيث يمثل `role` دور المستفسر، وقد قدمنا ثلاثة هويات، وهي `user` و `assistant` و `system`. أما `content` فهو المحتوى المحدد لاستفسارنا.
 
@@ -34,7 +34,7 @@ DeepSeek هو نظام محادثة AI قوي للغاية، حيث يمكنه �
 - `n`: عدد الردود المرشحة التي يتم توليدها في مرة واحدة.
 - `response_format`: إعداد تنسيق الاستجابة.
 
-<p><img src="https://cdn.acedata.cloud/93k4xi.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/93k4xi.png" width="400" className="m-auto" /></p>
 
 بعد الاستدعاء، نجد أن النتيجة المرجعة هي كما يلي:
 
@@ -75,7 +75,7 @@ DeepSeek هو نظام محادثة AI قوي للغاية، حيث يمكنه �
 
 حيث أن `choices` تحتوي على معلومات الرد من DeepSeek، ويمكن ملاحظة ذلك كما هو موضح في الصورة.
 
-<p><img src="https://cdn.acedata.cloud/0pd4q5.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0pd4q5.png" width="400" className="m-auto" /></p>
 
 يمكنك رؤية أن حقل `content` داخل `choices` يحتوي على المحتوى المحدد للرد من DeepSeek.
 
@@ -87,7 +87,7 @@ DeepSeek هو نظام محادثة AI قوي للغاية، حيث يمكنه �
 
 التعديل كما هو موضح في الصورة، ولكن يجب أن يكون هناك تغييرات مطابقة في كود الاستدعاء لدعم الاستجابة المتدفقة.
 
-<p><img src="https://cdn.acedata.cloud/dsoiqw.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dsoiqw.png" width="400" className="m-auto" /></p>
 
 بعد تغيير `stream` إلى `true`، ستقوم API بإرجاع بيانات JSON سطرًا بسطر، وعلى مستوى الكود، نحتاج إلى إجراء التعديلات اللازمة للحصول على النتائج سطرًا بسطر.
 
@@ -96,7 +96,7 @@ DeepSeek هو نظام محادثة AI قوي للغاية، حيث يمكنه �
 ```python
 import requests
 
-url = "https://api.acedata.cloud/deepseek/chat/completions"
+url = "https://api.xhuoapi.ai/v1/deepseek/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -166,7 +166,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/deepseek/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/deepseek/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -182,7 +182,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/deepseek/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/deepseek/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -199,14 +199,14 @@ System.out.print(response.body!!.string())
 ## محادثة متعددة الجولات
 
 إذا كنت ترغب في دمج وظيفة المحادثة متعددة الجولات، تحتاج إلى رفع عدة كلمات سؤال في حقل `messages`، أمثلة الكلمات المتعددة موضحة في الصورة أدناه:
-<p><img src="https://cdn.acedata.cloud/7yyhl4.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7yyhl4.png" width="400" className="m-auto" /></p>
 
 مثال على كود استدعاء Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/deepseek/chat/completions"
+url = "https://api.xhuoapi.ai/v1/deepseek/chat/completions"
 
 headers = {
     "accept": "application/json",

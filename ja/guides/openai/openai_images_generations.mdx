@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Images Generations API 申請および使用方法"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI Images Generations API は現在、クラシックな `dall-e-3`、文字レンダリング能力がより高い `gpt-image-1`、最新世代の **`gpt-image-2`**、および同一インターフェースで利用可能な **`nano-banana` / `nano-banana-2` / `nano-banana-pro`** シリーズモデルをサポートしています。これらはすべてテキストの説明に基づいて高品質な画像を生成できます。
@@ -9,9 +9,9 @@ OpenAI Images Generations API は現在、クラシックな `dall-e-3`、文字
 
 ## 申請手順
 
-OpenAI Images Generations API を使用するには、まず [OpenAI Images Generations API](https://platform.acedata.cloud/documents/fd932485-90c7-45d6-8394-1e14b6f07b2b) ページで「Acquire」ボタンをクリックして、リクエストに必要な認証情報を取得してください：
+OpenAI Images Generations API を使用するには、まず [OpenAI Images Generations API](https://api.xhuoapi.ai/documents/fd932485-90c7-45d6-8394-1e14b6f07b2b) ページで「Acquire」ボタンをクリックして、リクエストに必要な認証情報を取得してください：
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 ログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録およびログイン後に元のページに戻ります。
 
@@ -26,7 +26,7 @@ OpenAI Images Generations API を使用するには、まず [OpenAI Images Gene
 - **スタイル表現が豊富**：映画風ポートレート、レトロポスター、児童向けイラスト、商品写真、インフォグラフィックなど多様なスタイルをネイティブサポート。
 - **ネイティブで多比率＋高解像度対応**：5種類の比率（1:1、4:3、3:4、16:9、9:16）に対し、3段階の解像度（1K / 2K / 4K）をカバー。
 
-呼び出し方法は他のモデルと完全に同じで、`model` フィールドに `gpt-image-2` を指定するだけです。返却される `url` は `platform.cdn.acedata.cloud` に永久ホスティングされた画像リンクで、ブラウザで直接開くかウェブページに埋め込むことができます。
+呼び出し方法は他のモデルと完全に同じで、`model` フィールドに `gpt-image-2` を指定するだけです。返却される `url` は `platform.cdn.xhuoapi.ai` に永久ホスティングされた画像リンクで、ブラウザで直接開くかウェブページに埋め込むことができます。
 
 ### 対応する `size` の値と課金レベル
 
@@ -66,7 +66,7 @@ Python サンプルコード：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -94,7 +94,7 @@ print(response.text)
   "data": [
     {
       "revised_prompt": "A cinematic portrait of a young woman standing in a convenience store at night, illuminated by soft pink and cyan neon signs through the window. Shot on 35mm film, shallow depth of field, slight grain, melancholic mood.",
-      "url": "https://platform.cdn.acedata.cloud/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png"
+      "url": "https://platform.cdn.xhuoapi.ai/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png"
     }
   ]
 }
@@ -102,7 +102,7 @@ print(response.text)
 
 生成画像例：
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png" width="500" className="m-auto" /></p>
 
 ### シーン2：レトロ旅行ポスター（文字レンダリング付き）
 
@@ -118,7 +118,7 @@ payload = {
 
 返却された `url` の画像：
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/c6061f92-3fae-498e-af8e-688e7f415ba3_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/c6061f92-3fae-498e-af8e-688e7f415ba3_0.png" width="500" className="m-auto" /></p>
 
 Art Deco ポスターの視覚スタイルを正確に再現し、タイトル文字 `AMALFI` と `ITALIA 1958` が鮮明かつ正確にレンダリングされています。
 
@@ -136,7 +136,7 @@ payload = {
 
 生成画像例：
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/64a3b932-a082-4cad-9f85-9d30474b104d_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/64a3b932-a082-4cad-9f85-9d30474b104d_0.png" width="500" className="m-auto" /></p>
 
 3段の本棚にそれぞれ1冊、3冊、7冊の本が正確に配置されており、`dall-e-3` 時代には安定して実現が難しかった成果です。
 
@@ -154,7 +154,7 @@ payload = {
 
 生成された横長イラスト：
 
-![](https://platform.cdn.acedata.cloud/gpt-image/6cd57e69-d237-4cc1-a666-759a93964a08_0.png)
+![](https://platform.cdn.xhuoapi.ai/gpt-image/6cd57e69-d237-4cc1-a666-759a93964a08_0.png)
 
 ### 非同期およびコールバック
 
@@ -186,7 +186,7 @@ payload = {
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -211,7 +211,7 @@ print(response.text)
   "created": 0,
   "data": [
     {
-      "url": "https://platform.cdn.acedata.cloud/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png",
+      "url": "https://platform.cdn.xhuoapi.ai/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png",
       "revised_prompt": "a small red apple on a white table, photoreal"
     }
   ]
@@ -220,7 +220,7 @@ print(response.text)
 
 生成画像は返却された `url` から直接アクセス可能です：
 
-<p><img src="https://platform.cdn.acedata.cloud/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png" width="500" className="m-auto" /></p>
 
 ### フラッグシップモデル `nano-banana-pro` へのアップグレード
 
@@ -241,14 +241,14 @@ payload = {
   "created": 0,
   "data": [
     {
-      "url": "https://platform.cdn.acedata.cloud/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png",
+      "url": "https://platform.cdn.xhuoapi.ai/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png",
       "revised_prompt": "abstract painting"
     }
   ]
 }
 ```
 
-<p><img src="https://platform.cdn.acedata.cloud/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png" width="500" className="m-auto" /></p>
 
 ### 非同期コールバック
 
@@ -258,20 +258,20 @@ payload = {
 
 インターフェース上で必要な内容を入力します。例：
 
-<p><img src="https://cdn.acedata.cloud/zv58ug.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zv58ug.png" width="500" className="m-auto" /></p>
 
 初回利用時は少なくとも3つの項目を入力します。1つは `authorization` で、ドロップダウンリストから選択可能です。もう1つは `model` で、OpenAI DALL-E の公式モデルカテゴリから選択します。ここでは主に1種類のモデルを利用可能で、詳細は提供されたモデル情報を参照してください。最後は `prompt` で、生成したい画像の説明文を入力します。
 
 右側には対応する呼び出しコードが自動生成され、コピーして実行したり、「Try」ボタンでテスト可能です。
 
-<p><img src="https://cdn.acedata.cloud/pbss4f.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pbss4f.png" width="500" className="m-auto" /></p>
 
 Python サンプルコード：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -309,7 +309,7 @@ print(response.text)
 
 `data` は生成された画像の詳細情報を含み、その中の `url` は生成画像の詳細リンクです。以下のように表示されます。
 
-<p><img src="https://cdn.acedata.cloud/dz7u0x.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dz7u0x.png" width="500" className="m-auto" /></p>
 
 ## 画像品質パラメータ `quality`
 
@@ -317,18 +317,18 @@ print(response.text)
 
 以下は `quality` を `standard` に設定した例です：
 
-<p><img src="https://cdn.acedata.cloud/1q303w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1q303w.png" width="500" className="m-auto" /></p>
 
 右側に対応する呼び出しコードが生成され、コピーして実行したり「Try」ボタンでテスト可能です。
 
-<p><img src="https://cdn.acedata.cloud/c0ps6i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/c0ps6i.png" width="500" className="m-auto" /></p>
 
 Python サンプルコード：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -354,7 +354,7 @@ print(response.text)
   "data": [
     {
       "revised_prompt": "A cute baby sea otter is lying playfully on its back in the water, with its fur looking glossy and soft. One of its tiny paws is reaching out curiously, and it has an expression of pure joy and warmth on its face as it looks up to the sky. Its body is surrounded by bubbles from its playful twirling in the water. A gentle breeze is playing with its fur making it look more charming. The scene portrays the tranquility and charm of marine life.",
-      "url": "https://cdn.acedata.cloud/j5v15b.png"
+      "url": "https://cdn.xhuoapi.ai/j5v15b.png"
     }
   ]
 }
@@ -362,11 +362,11 @@ print(response.text)
 
 `quality` が `standard` の画像例：
 
-<p><img src="https://cdn.acedata.cloud/j5v15b.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/j5v15b.png" width="500" className="m-auto" /></p>
 
 同様の操作で `quality` を `hd` に設定すると、以下のようなより細密な画像が得られます：
 
-<p><img src="https://cdn.acedata.cloud/vjpbqr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vjpbqr.png" width="500" className="m-auto" /></p>
 
 `hd` は `standard` よりも細かいディテールと高い一貫性を持つ画像を生成します。
 
@@ -374,18 +374,18 @@ print(response.text)
 
 生成画像のサイズも設定可能です。以下は `1024 * 1024` に設定した例です：
 
-<p><img src="https://cdn.acedata.cloud/dx5rwh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dx5rwh.png" width="500" className="m-auto" /></p>
 
 右側に対応する呼び出しコードが生成され、コピーして実行したり「Try」ボタンでテスト可能です。
 
-<p><img src="https://cdn.acedata.cloud/0sbybl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0sbybl.png" width="500" className="m-auto" /></p>
 
 Python サンプルコード：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -411,7 +411,7 @@ print(response.text)
   "data": [
     {
       "revised_prompt": "A delightful depiction of a baby sea otter. The small mammal is captured in its natural habitat in the ocean, floating on its back. It has thick brown fur that is sleek and wet from the sea water. Its eyes are closed as if it is enjoying a moment of deep relaxation. The water around it is calm, reflecting the peacefulness of the scene. The background should hint at a diverse marine ecosystem, with visible strands of kelp floating on the surface, suggesting the baby otter's preferred environment.",
-      "url": "https://cdn.acedata.cloud/o4pvvx.png"
+      "url": "https://cdn.xhuoapi.ai/o4pvvx.png"
     }
   ]
 }
@@ -419,11 +419,11 @@ print(response.text)
 
 `1024 * 1024` サイズの生成画像例：
 
-<p><img src="https://cdn.acedata.cloud/o4pvvx.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/o4pvvx.png" width="500" className="m-auto" /></p>
 
 同様に `1792 * 1024` サイズに設定すると、以下のような画像が得られます：
 
-![](https://cdn.acedata.cloud/4pilae.png)
+![](https://cdn.xhuoapi.ai/4pilae.png)
 
 画像サイズが明確に異なることがわかります。さらに多様なサイズ設定も可能で、詳細は公式ドキュメントをご参照ください。
 
@@ -433,18 +433,18 @@ print(response.text)
 
 以下は `style` を `vivid` に設定した例です：
 
-<p><img src="https://cdn.acedata.cloud/609l9i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/609l9i.png" width="500" className="m-auto" /></p>
 
 右側に対応する呼び出しコードが生成され、コピーして実行したり「Try」ボタンでテスト可能です。
 
-<p><img src="https://cdn.acedata.cloud/ee3u9o.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ee3u9o.png" width="500" className="m-auto" /></p>
 
 Python サンプルコード：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -470,7 +470,7 @@ print(response.text)
   "data": [
     {
       "revised_prompt": "A baby sea otter with soft, shiny fur and sparkling eyes floating playfully on calm ocean waters. This adorable creature is trippingly frolicking amidst small, gentle waves under a bright, clear, sunny sky. The tranquility of the sea contrasts subtly with the delightful energy of this young otter. The critter gamely clings to a tiny piece of driftwood, its small paws adorably enveloping the floating object.",
-      "url": "https://cdn.acedata.cloud/e0rpc3.png"
+      "url": "https://cdn.xhuoapi.ai/e0rpc3.png"
     }
   ]
 }
@@ -478,11 +478,11 @@ print(response.text)
 
 `vivid` スタイルの生成画像例：
 
-<p><img src="https://cdn.acedata.cloud/e0rpc3.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/e0rpc3.png" width="500" className="m-auto" /></p>
 
 同様に `style` を `natural` に設定すると、以下のような画像が得られます：
 
-<p><img src="https://cdn.acedata.cloud/q9tqwu.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q9tqwu.png" width="500" className="m-auto" /></p>
 
 `vivid` は `natural` よりもより生き生きとしたリアルな画像を生成します。
 
@@ -492,18 +492,18 @@ print(response.text)
 
 以下は `response_format` を `url` に設定した例です：
 
-<p><img src="https://cdn.acedata.cloud/2zbgrg.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2zbgrg.png" width="500" className="m-auto" /></p>
 
 右側に対応する呼び出しコードが生成され、コピーして実行したり「Try」ボタンでテスト可能です。
 
-<p><img src="https://cdn.acedata.cloud/a9exmp.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a9exmp.png" width="500" className="m-auto" /></p>
 
 Python サンプルコード：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -537,7 +537,7 @@ print(response.text)
 
 `response_format` が `url` の場合の画像リンクは [画像 URL](https://dalleprodsec.blob.core.windows.net/private/images/87792c5f-8b6d-412e-81dd-f1a1baa19bd2/generated_00.png?se=2024-07-23T08%3A39%3A47Z&sig=zzRAn30TqIKHdLVqZPUUuSJdjCYpoJdaGU6BeoA76Jo%3D&ske=2024-07-23T13%3A32%3A13Z&skoid=e52d5ed7-0657-4f62-bc12-7e5dbb260a96&sks=b&skt=2024-07-16T13%3A32%3A13Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02) で直接アクセス可能です。画像例：
 
-<p><img src="https://cdn.acedata.cloud/33hs4z.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/33hs4z.png" width="500" className="m-auto" /></p>
 
 同様に `response_format` を `b64_json` に設定すると、Base64 エンコードされた画像リンクが返却されます。例：
 
@@ -563,7 +563,7 @@ OpenAI Images Generations API は画像生成に時間がかかる場合があ�
 
 まず、Webhook コールバックは HTTP リクエストを受け取るサービスで、開発者は自身で構築した HTTP サーバーの URL を指定してください。ここではデモ用に公開 Webhook サイト https://webhook.site/ を使用します。サイトを開くと Webhook URL が取得できます：
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 この URL をコピーし、Webhook として利用します。例：`https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`
 
@@ -572,7 +572,7 @@ OpenAI Images Generations API は画像生成に時間がかかる場合があ�
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",

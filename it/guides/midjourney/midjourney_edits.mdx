@@ -1,15 +1,15 @@
 ---
 title: "Istruzioni per l'integrazione dell'API Midjourney Edits"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 Questo documento presenterà un'istruzione per l'integrazione dell'API Midjourney Edits, che consente di modificare le immagini in ingresso tramite l'inserimento di parole chiave.
 
 ## Procedura di richiesta
 
-Per utilizzare l'API, è necessario prima andare alla pagina corrispondente dell'[API Midjourney Edits](https://platform.acedata.cloud/documents/midjourney-edits) per richiedere il servizio corrispondente. Una volta entrati nella pagina, fare clic sul pulsante "Acquire", come mostrato nell'immagine:
+Per utilizzare l'API, è necessario prima andare alla pagina corrispondente dell'[API Midjourney Edits](https://api.xhuoapi.ai/documents/midjourney-edits) per richiedere il servizio corrispondente. Una volta entrati nella pagina, fare clic sul pulsante "Acquire", come mostrato nell'immagine:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Se non si è ancora effettuato il login o la registrazione, si verrà automaticamente reindirizzati alla pagina di accesso per registrarsi e accedere. Dopo aver effettuato il login o la registrazione, si verrà riportati automaticamente alla pagina corrente.
 
@@ -19,7 +19,7 @@ Alla prima richiesta, verrà fornito un credito gratuito, che consente di utiliz
 
 Iniziamo a comprendere il modo di utilizzo di base, che consiste nell'inserire la parola chiave `prompt`, l'azione `action` e l'immagine di riferimento `image_url`, per ottenere il risultato elaborato. Prima di tutto, è necessario passare un campo `action`, il cui valore è `generate`, i dettagli sono i seguenti:
 
-<p><img src="https://cdn.acedata.cloud/m44i6n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/m44i6n.png" width="500" className="m-auto" /></p>
 
 Possiamo vedere che qui abbiamo impostato le intestazioni della richiesta, che includono:
 
@@ -38,7 +38,7 @@ Inoltre, abbiamo impostato il corpo della richiesta, che include:
 
 Dopo aver selezionato, si può notare che a destra è stato generato il codice corrispondente, come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/9wed3b.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/9wed3b.png" width="500" className="m-auto" /></p>
 
 Cliccando sul pulsante "Try" è possibile effettuare un test, come mostrato nell'immagine sopra, e abbiamo ottenuto il seguente risultato:
 
@@ -79,14 +79,14 @@ Possiamo vedere che abbiamo ottenuto informazioni soddisfacenti sull'immagine, e
 Inoltre, se si desidera generare il codice di integrazione corrispondente, è possibile copiarlo direttamente, ad esempio il codice CURL è il seguente:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/midjourney/edits' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/edits' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "prompt": "A cat sitting on a table",
   "split_images": true,
-  "image_url": "https://cdn.acedata.cloud/jgo1cw.jpg",
+  "image_url": "https://cdn.xhuoapi.ai/jgo1cw.jpg",
   "action": "generate"
 }'
 ```
@@ -101,13 +101,13 @@ Di seguito, vediamo un esempio per comprendere come operare concretamente.
 
 Innanzitutto, il callback Webhook è un servizio in grado di ricevere richieste HTTP, e gli sviluppatori dovrebbero sostituirlo con l'URL del server HTTP che hanno creato. Qui, per comodità di dimostrazione, utilizziamo un sito Web pubblico di esempio per Webhook, https://webhook.site/, aprendo questo sito si ottiene un URL Webhook, come mostrato nell'immagine:
 
-![](https://cdn.acedata.cloud/hfrbzw.png)
+![](https://cdn.xhuoapi.ai/hfrbzw.png)
 
 Copiare questo URL consente di utilizzarlo come Webhook, l'esempio qui è `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`.
 
 Successivamente, possiamo impostare il campo `callback_url` su questo URL Webhook, riempiendo i parametri corrispondenti, i dettagli sono mostrati nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/q3fnhv.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q3fnhv.png" width="500" className="m-auto" /></p>
 
 Cliccando su "Esegui", si può notare che si ottiene immediatamente un risultato, come segue:
 
@@ -119,7 +119,7 @@ Cliccando su "Esegui", si può notare che si ottiene immediatamente un risultato
 
 Dopo un breve periodo, possiamo osservare il risultato della generazione del video su `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`, come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/t8cupr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/t8cupr.png" width="500" className="m-auto" /></p>
 
 Il contenuto è il seguente:
 ```json

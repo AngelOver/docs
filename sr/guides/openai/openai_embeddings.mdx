@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Embeddings API申请及使用"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI reč vektora usluga, koja se koristi za generisanje reč vektora rezultata koji predstavljaju ulazni tekst.
@@ -9,9 +9,9 @@ Ovaj dokument uglavnom opisuje proces korišćenja OpenAI Embeddings API, korist
 
 ## Proces prijave
 
-Da biste koristili OpenAI Embeddings API, prvo možete otići na [OpenAI Embeddings API](https://platform.acedata.cloud/documents/0f2e63fa-5890-4bdd-84f0-1706b5c9a387) stranicu i kliknuti na dugme „Acquire“ da biste dobili potrebne akreditive za zahtev:
+Da biste koristili OpenAI Embeddings API, prvo možete otići na [OpenAI Embeddings API](https://api.xhuoapi.ai/documents/0f2e63fa-5890-4bdd-84f0-1706b5c9a387) stranicu i kliknuti na dugme „Acquire“ da biste dobili potrebne akreditive za zahtev:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Ako se još niste prijavili ili registrovali, automatski ćete biti preusmereni na stranicu za prijavu koja vas poziva da se registrujete i prijavite, a nakon prijave ili registracije automatski ćete se vratiti na trenutnu stranicu.
 
@@ -21,7 +21,7 @@ Prilikom prve prijave dobićete besplatnu kvotu, koju možete besplatno koristit
 
 Sledeće možete popuniti odgovarajući sadržaj na interfejsu, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/4qtbvr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4qtbvr.png" width="500" className="m-auto" /></p>
 
 Prilikom prvog korišćenja ovog interfejsa, potrebno je da popunite najmanje tri sadržaja, jedan je `authorization`, koji možete direktno odabrati iz padajuće liste. Drugi parametar je `model`, `model` je kategorija modela koju biramo da koristimo sa OpenAI zvanične stranice, ovde imamo 3 glavna modela, detalje možete pogledati u modelima koje pružamo. Poslednji parametar je `input`, `input` je tekst reč vektora koji treba da konvertujemo.
 
@@ -32,14 +32,14 @@ Opcioni parametri:
 - `dimensions`: skraćivanje dimenzija vektora, podrazumevano izlaz je u punim dimenzijama.
 - `encoding_format`: format povratka, opcionalno `float` ili `base64`.
 
-<p><img src="https://cdn.acedata.cloud/gqulm9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gqulm9.png" width="500" className="m-auto" /></p>
 
 Python primer pozivnog koda:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/embeddings"
+url = "https://api.xhuoapi.ai/v1/openai/embeddings"
 
 headers = {
     "accept": "application/json",

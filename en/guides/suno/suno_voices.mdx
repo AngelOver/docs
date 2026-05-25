@@ -1,6 +1,6 @@
 ---
 title: "Suno Voice Cloning API Integration Guide"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 SUNO allows us to create custom voice personas from any audio file, enabling voice cloning for music generation. Unlike the existing Persona API (which uses Suno-generated `audio_id`), this API accepts a publicly accessible `audio_url`, i.e., your own voice recording. This document explains how to integrate with the voice cloning API.
@@ -15,7 +15,7 @@ This API has three input parameters: `audio_url` (required), which is a publicly
 - Content: Single clear voice, with minimal background noise or music
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/voices' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/voices' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -44,12 +44,12 @@ As you can see, the `persona_id` field in `data` is the ID of the created voice 
 
 ## Step 2: Generate Music Using the Voice Persona
 
-Once you have the voice persona ID, you can use the [Suno Audios Generation API](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) to generate music. Set `action` to `generate` and set `persona_id` to the voice persona ID returned above. The generated song will be sung using the cloned voice.
+Once you have the voice persona ID, you can use the [Suno Audios Generation API](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) to generate music. Set `action` to `generate` and set `persona_id` to the voice persona ID returned above. The generated song will be sung using the cloned voice.
 
 > **Note:** Voice cloning only supports models `chirp-v4-5` and above (such as `chirp-v4-5`, `chirp-v5`, `chirp-v5-5`), and does not support `chirp-v4`.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

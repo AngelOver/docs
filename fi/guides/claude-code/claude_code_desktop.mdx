@@ -1,19 +1,19 @@
 ---
 title: "Claude Code työpöytäsovelluksen käyttöopas"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code on Anthropicin julkaisema **Agentic Coding** -työkalu, jota kutsutaan myös yhdeksi maailman vahvimmista ohjelmointiaineksista. Claude Code työpöytäsovellus tarjoaa itsenäisen graafisen käyttöliittymän, joka tukee Diff-tarkastelua, rinnakkaisia istuntoja (Git Worktree -eristyksen kautta), etäistuntoja ja muita toimintoja ilman, että se riippuu mistään IDE:stä.
 
-Tässä asiakirjassa esitellään, kuinka konfiguroidaan ja käytetään Claude Code työpöytäsovellusta AceData Cloudin välityspalvelun kautta.
+Tässä asiakirjassa esitellään, kuinka konfiguroidaan ja käytetään Claude Code työpöytäsovellusta XHuoAPIin välityspalvelun kautta.
 
 > **Huomio**: Claude Code työpöytäsovellus on tällä hetkellä esikatseluvaiheessa (Preview) ja tukee vain macOS:ää ja Windowsia.
 
 ## Hakuprosessi
 
-Käyttääksesi Claude Codea, voit ensin siirtyä [Claude Messages -palvelusivulle](https://platform.acedata.cloud/documents/claude-messages) ja napsauttaa "Acquire"-painiketta saadaksesi tarvittavat todisteet:
+Käyttääksesi Claude Codea, voit ensin siirtyä [Claude Messages -palvelusivulle](https://api.xhuoapi.ai/documents/claude-messages) ja napsauttaa "Acquire"-painiketta saadaksesi tarvittavat todisteet:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -34,13 +34,13 @@ Siirry [Claude viralliselle lataussivulle](https://claude.ai) ja lataa vastaavan
 - **Windows x64**: Lataa `.exe`-asennustiedosto ja asenna ohjeiden mukaan
 - **Windows ARM64**: Lataa ARM64-versio (huom: ARM64 ei tue paikallisia istuntoja, vaan etäistuntoja on käytettävä)
 
-![Claude työpöytäsovelluksen lataussivu](https://cdn.acedata.cloud/c3c8c57264.png)
+![Claude työpöytäsovelluksen lataussivu](https://cdn.xhuoapi.ai/c3c8c57264.png)
 
 Asennuksen jälkeen käynnistä Claude Applications-kansiosta (macOS) tai Käynnistä-valikosta (Windows).
 
-## AceData Cloud API:n konfigurointi
+## XHuoAPI API:n konfigurointi
 
-Työpöytäsovelluksen käynnistyessä sinun on kirjauduttava Anthropic-tilillesi. Voimme käyttää AceData Cloudin välityspalvelu API:a konfiguroimalla ympäristömuuttujat, **ilman virallista tilausta**.
+Työpöytäsovelluksen käynnistyessä sinun on kirjauduttava Anthropic-tilillesi. Voimme käyttää XHuoAPIin välityspalvelu API:a konfiguroimalla ympäristömuuttujat, **ilman virallista tilausta**.
 
 Työpöytäsovellus lukee ympäristömuuttujat Shell-ympäristöstäsi, joten ne on asetettava Shellin konfiguraatiotiedostoon.
 
@@ -51,9 +51,9 @@ Työpöytäsovellus lukee ympäristömuuttujat Shell-ympäristöstäsi, joten ne
 Lisää seuraava sisältö `~/.zshrc`- (tai `~/.bashrc`) tiedostoon, vaihtaen `{token}` omaksi API-tunnuksesi:
 
 ```bash
-# AceData Cloud - Claude Code välityspalvelun konfigurointi
+# XHuoAPI - Claude Code välityspalvelun konfigurointi
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 Tallenna ja suorita:
@@ -69,13 +69,13 @@ Lisää seuraavat järjestelmäympäristömuuttujat "Järjestelmän ominaisuudet
 | Muuttujan nimi            | Arvo                           |
 | ---------------------- | ----------------------------- |
 | `ANTHROPIC_AUTH_TOKEN` | `{token}` (vaihda omaksi API-tunnuksesi) |
-| `ANTHROPIC_BASE_URL`   | `https://api.acedata.cloud`  |
+| `ANTHROPIC_BASE_URL`   | `https://api.xhuoapi.ai/v1`  |
 
 Tai käytä PowerShellia:
 
 ```powershell
 [System.Environment]::SetEnvironmentVariable("ANTHROPIC_AUTH_TOKEN", "{token}", "User")
-[System.Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.acedata.cloud", "User")
+[System.Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.xhuoapi.ai/v1", "User")
 ```
 
 **Voit myös konfiguroida settings.json-tiedostolla**
@@ -86,12 +86,12 @@ Muokkaa `~/.claude/settings.json` (luo se, jos sitä ei ole):
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **Vinkki**: API-tunnuksen voi tarkistaa [AceData Cloudin hallintapaneelista](https://platform.acedata.cloud/console). Konfiguroinnin jälkeen on tarpeen **käynnistää työpöytäsovellus uudelleen** ympäristömuuttujien voimaantulemiseksi.
+> **Vinkki**: API-tunnuksen voi tarkistaa [XHuoAPIin hallintapaneelista](https://api.xhuoapi.ai/console). Konfiguroinnin jälkeen on tarpeen **käynnistää työpöytäsovellus uudelleen** ympäristömuuttujien voimaantulemiseksi.
 
 ## Peruskäyttö
 
@@ -162,7 +162,7 @@ Molemmat voivat toimia samassa projektissa samanaikaisesti, ja ne ylläpitävät
 
 1. Tarkista, onko `~/.claude/config.json` tiedosto luotu oikein
 2. Varmista, että ympäristömuuttujat on asetettu oikein (käynnistä työpöytäsovellus uudelleen, jotta ne tulevat voimaan)
-3. Varmista, että API-tunnus on voimassa (voit tarkistaa sen [hallintapaneelista](https://platform.acedata.cloud/console))
+3. Varmista, että API-tunnus on voimassa (voit tarkistaa sen [hallintapaneelista](https://api.xhuoapi.ai/console))
 4. Jos käytät `settings.json`-tiedostoa ympäristömuuttujien konfiguroimiseen, varmista, että tiedostomuoto on oikea
 
 ### En löydä asennettuja työkaluja?
@@ -175,9 +175,9 @@ Jos Claude ei löydä `npm`-, `node`-komentoja jne.:
 
 ### Kuinka tarkistaa jäljellä oleva saldo?
 
-Kirjaudu sisään [AceData Cloud hallintapaneeliin](https://platform.acedata.cloud/console) nähdäksesi nykyisen tilisi jäljellä olevan saldon ja käyttötilanteen.
+Kirjaudu sisään [XHuoAPI hallintapaneeliin](https://api.xhuoapi.ai/console) nähdäksesi nykyisen tilisi jäljellä olevan saldon ja käyttötilanteen.
 
 ## Lisätietoja
 - 📖 [Claude Code työpöytäsovelluksen virallinen dokumentaatio](https://code.claude.com/docs/en/desktop)
-- 🔧 [AceData Cloud Claude Code palvelu](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code palvelu](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 Jos sinulla on kysymyksiä, ota rohkeasti yhteyttä asiakaspalveluumme.

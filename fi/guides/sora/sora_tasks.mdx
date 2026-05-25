@@ -1,6 +1,6 @@
 ---
 title: "Sora Tasks API:n liittäminen ja käyttö"
-description: "Sora Video Generation 集成指南 - Ace Data Cloud"
+description: "Sora Video Generation 集成指南 - XHuoAPI"
 ---
 
 Sora Tasks API:n päätoiminto on kysyä tehtävän suoritusstatus syöttämällä Sora Videos Generation API:n tuottama tehtävä-ID.
@@ -9,27 +9,27 @@ Tässä asiakirjassa käsitellään Sora Tasks API:n liittämistä, jotta voit h
 
 ## Hakuprosessi
 
-Käyttääksesi Sora Tasks API:a, sinun on ensin mentävä hakusivulle [Sora Videos Generation API](https://platform.acedata.cloud/documents/99a24421-2e22-4028-8201-e19cb834b67e) ja haettava vastaavaa palvelua, sitten kopioit Sora Videos Generation API:n tehtävä-ID:n, kuten kuvassa näkyy:
+Käyttääksesi Sora Tasks API:a, sinun on ensin mentävä hakusivulle [Sora Videos Generation API](https://api.xhuoapi.ai/documents/99a24421-2e22-4028-8201-e19cb834b67e) ja haettava vastaavaa palvelua, sitten kopioit Sora Videos Generation API:n tehtävä-ID:n, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/za62pb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/za62pb.png" width="500" className="m-auto" /></p>
 
-Lopuksi siirry Tasks API -sivulle [Sora Tasks API](https://platform.acedata.cloud/documents/c9d81bad-9064-4796-86b6-4fb43cc93a16) ja hae vastaavaa palvelua, siirryttyäsi sivulle, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
+Lopuksi siirry Tasks API -sivulle [Sora Tasks API](https://api.xhuoapi.ai/documents/c9d81bad-9064-4796-86b6-4fb43cc93a16) ja hae vastaavaa palvelua, siirryttyäsi sivulle, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
 
-![Hakusivu](https://cdn.acedata.cloud/rci31i.png)
+![Hakusivu](https://cdn.xhuoapi.ai/rci31i.png)
 
-Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti [kirjautumissivulle](https://platform.acedata.cloud), jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen sinut ohjataan automaattisesti takaisin nykyiselle sivulle.
+Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti [kirjautumissivulle](https://api.xhuoapi.ai), jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen sinut ohjataan automaattisesti takaisin nykyiselle sivulle.
 
 Ensimmäisellä hakukerralla saat ilmaisia krediittejä, joita voit käyttää API:n ilmaiseksi.
 
 ## Pyyntöesimerkki
 
-Sora Tasks API:a voidaan käyttää Sora Videos Generation API:n tulosten kysymiseen. Lisätietoja Sora Videos Generation API:n käytöstä löytyy asiakirjasta [Sora Videos Generation API](https://platform.acedata.cloud/documents/sora-videos-integration).
+Sora Tasks API:a voidaan käyttää Sora Videos Generation API:n tulosten kysymiseen. Lisätietoja Sora Videos Generation API:n käytöstä löytyy asiakirjasta [Sora Videos Generation API](https://api.xhuoapi.ai/documents/sora-videos-integration).
 
 Otetaan esimerkki yhdestä Sora Videos Generation API:n palauttamasta tehtävä-ID:stä ja näytetään, kuinka tätä API:a käytetään. Oletetaan, että meillä on tehtävä-ID: b8976e18-32dc-4718-9ed8-1ea090fcb6ea, seuraavaksi näytetään, kuinka siirretään tämä tehtävä-ID.
 
 ### Tehtäväesimerkkikuva
 
-<p><img src="https://cdn.acedata.cloud/za62pb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/za62pb.png" width="500" className="m-auto" /></p>
 
 ### Pyyntöotsikon ja -kehon asettaminen
 
@@ -45,20 +45,20 @@ Otetaan esimerkki yhdestä Sora Videos Generation API:n palauttamasta tehtävä-
 
 Aseta kuten alla olevassa kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/fe19dd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fe19dd.png" width="500" className="m-auto" /></p>
 
 ### Koodiesimerkki
 
 Voit huomata, että sivun oikealla puolella on automaattisesti luotu koodia eri kielillä, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/ou5lfa.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ou5lfa.png" width="500" className="m-auto" /></p>
 
 Osittainen koodiesimerkki on seuraava:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/sora/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/sora/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/sora/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/sora/tasks"
+url = "https://api.xhuoapi.ai/v1/sora/tasks"
 
 headers = {
     "accept": "application/json",
@@ -109,7 +109,7 @@ Kun pyyntö onnistuu, API palauttaa tämän videotehtävän yksityiskohtaiset ti
     "prompt": "cat running on the river",
     "model": "sora-2",
     "image_urls": [
-      "https://cdn.acedata.cloud/11wfp4.png"
+      "https://cdn.xhuoapi.ai/11wfp4.png"
     ],
     "callback_url": "https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa"
   },
@@ -148,12 +148,12 @@ Tämä on tarkoitettu useiden tehtävä-ID:iden kyselyyn videotehtävän yksityi
 
 Aseta kuten alla olevassa kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/9cf4j8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/9cf4j8.png" width="500" className="m-auto" /></p>
 
 ### Koodiesimerkki
 Voidaan havaita, että sivun oikealla puolella on automaattisesti luotu erilaisia kielikoodeja, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/8ci2tg.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8ci2tg.png" width="500" className="m-auto" /></p>
 
 Osittainen koodiesimerkki on seuraava:
 
@@ -178,7 +178,7 @@ Kun pyyntö onnistuu, API palauttaa kaikkien tämän kertaisista erävideo-teht�
         "prompt": "cat running on the river",
         "model": "sora-2",
         "image_urls": [
-          "https://cdn.acedata.cloud/11wfp4.png"
+          "https://cdn.xhuoapi.ai/11wfp4.png"
         ],
         "callback_url": "https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa"
       },
@@ -212,7 +212,7 @@ Kun pyyntö onnistuu, API palauttaa kaikkien tämän kertaisista erävideo-teht�
         "prompt": "cat running on the river",
         "model": "sora-2",
         "image_urls": [
-          "https://cdn.acedata.cloud/11wfp4.png"
+          "https://cdn.xhuoapi.ai/11wfp4.png"
         ],
         "callback_url": "https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa"
       },
@@ -245,7 +245,7 @@ Palautetussa tuloksessa on useita kenttiä, joista items sisältää erävideo-t
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/sora/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/sora/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -259,7 +259,7 @@ curl -X POST 'https://api.acedata.cloud/sora/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/sora/tasks"
+url = "https://api.xhuoapi.ai/v1/sora/tasks"
 
 headers = {
     "accept": "application/json",

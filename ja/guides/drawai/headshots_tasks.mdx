@@ -1,6 +1,6 @@
 ---
 title: "AI 証明写真タスク API の接続と使用"
-description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
+description: "AI ID Photo Production 集成指南 - XHuoAPI"
 ---
 
 AI 証明写真タスク API の主な機能は、AI 証明写真制作 API から生成されたタスク ID を入力することで、そのタスクの実行状況を照会することです。
@@ -9,27 +9,27 @@ AI 証明写真タスク API の主な機能は、AI 証明写真制作 API か�
 
 ## 申請プロセス
 
-AI 証明写真タスク API を使用するには、まず申請ページ [AI 証明写真制作 API](https://platform.acedata.cloud/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) にアクセスして、該当するサービスを申請し、その後、AI 証明写真制作 API のタスク ID をコピーします。以下の図のように：
+AI 証明写真タスク API を使用するには、まず申請ページ [AI 証明写真制作 API](https://api.xhuoapi.ai/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) にアクセスして、該当するサービスを申請し、その後、AI 証明写真制作 API のタスク ID をコピーします。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/7ezmmn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7ezmmn.png" width="500" className="m-auto" /></p>
 
-最後に、Tasks API ページ [AI 証明写真タスク API](https://platform.acedata.cloud/documents/3a23ee34-8689-406b-9042-7954224348ad) にアクセスして、該当するサービスを申請します。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
+最後に、Tasks API ページ [AI 証明写真タスク API](https://api.xhuoapi.ai/documents/3a23ee34-8689-406b-9042-7954224348ad) にアクセスして、該当するサービスを申請します。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
 
-![申請ページ](https://cdn.acedata.cloud/rci31i.png)
+![申請ページ](https://cdn.xhuoapi.ai/rci31i.png)
 
-まだログインまたは登録していない場合は、自動的に[ログインページ](https://platform.acedata.cloud)にリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
+まだログインまたは登録していない場合は、自動的に[ログインページ](https://api.xhuoapi.ai)にリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
 初回申請時には無料のクレジットが付与され、この API を無料で使用できます。
 
 ## リクエスト例
 
-AI 証明写真タスク API は、AI 証明写真制作 API の結果を照会するために使用できます。AI 証明写真制作 API の使用方法については、文書 [AI 証明写真制作 API](https://platform.acedata.cloud/documents/d6ea75a4-836e-490a-aee5-7ca911a808fd) を参照してください。
+AI 証明写真タスク API は、AI 証明写真制作 API の結果を照会するために使用できます。AI 証明写真制作 API の使用方法については、文書 [AI 証明写真制作 API](https://api.xhuoapi.ai/documents/d6ea75a4-836e-490a-aee5-7ca911a808fd) を参照してください。
 
 AI 証明写真制作 API サービスから返されたタスク ID を例に、どのようにこの API を使用するかを示します。タスク ID が `16f96e95-d95c-46ef-b183-139b9bd1aebd` だと仮定し、次にタスク ID を渡す方法を示します。
 
 ### タスク例の画像
 
-<p><img src="https://cdn.acedata.cloud/7ezmmn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7ezmmn.png" width="500" className="m-auto" /></p>
 
 ### リクエストヘッダーとリクエストボディの設定
 
@@ -45,20 +45,20 @@ AI 証明写真制作 API サービスから返されたタスク ID を例に�
 
 以下の図のように設定します：
 
-<p><img src="https://cdn.acedata.cloud/ezsyyd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ezsyyd.png" width="500" className="m-auto" /></p>
 
 ### コード例
 
 ページの右側には、さまざまな言語のコードが自動生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/x99wu2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/x99wu2.png" width="500" className="m-auto" /></p>
 
 一部のコード例は以下の通りです：
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/headshots/tasks"
+url = "https://api.xhuoapi.ai/v1/headshots/tasks"
 
 headers = {
     "accept": "application/json",
@@ -118,12 +118,12 @@ print(response.text)
     "data": [
       {
         "id": "202411032022077381",
-        "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
         "template": "男形象照"
       },
       {
         "id": "202411032022079194",
-        "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
         "template": "男形象照"
       }
     ]
@@ -148,13 +148,13 @@ print(response.text)
 
 以下の図のように設定します：
 
-<p><img src="https://cdn.acedata.cloud/8vynq9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8vynq9.png" width="500" className="m-auto" /></p>
 
 ### コード例
 
 ページの右側には、さまざまな言語のコードが自動生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/5jexyn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5jexyn.png" width="500" className="m-auto" /></p>
 
 一部のコード例は以下の通りです：
 
@@ -187,12 +187,12 @@ print(response.text)
         "data": [
           {
             "id": "202411032022077381",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
             "template": "男性ポートレート"
           },
           {
             "id": "202411032022079194",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
             "template": "男性ポートレート"
           }
         ]
@@ -229,7 +229,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -244,7 +244,7 @@ curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/headshots/tasks"
+url = "https://api.xhuoapi.ai/v1/headshots/tasks"
 
 headers = {
     "accept": "application/json",

@@ -1,9 +1,9 @@
 ---
 title: "MCP Servers Overview"
-description: "Bring Ace Data Cloud into Claude Desktop, Cursor, Windsurf and other Model-Context-Protocol-aware AI tools."
+description: "Bring XHuoAPI into Claude Desktop, Cursor, Windsurf and other Model-Context-Protocol-aware AI tools."
 ---
 
-We ship official **MCP (Model Context Protocol) servers** for every core service. Claude Desktop, Cursor, Windsurf, Continue, and any MCP-aware AI tool can call Ace Data Cloud APIs directly — no more pasting cURL commands; the AI assistant picks the right endpoint, passes parameters, and parses results.
+We ship official **MCP (Model Context Protocol) servers** for every core service. Claude Desktop, Cursor, Windsurf, Continue, and any MCP-aware AI tool can call XHuoAPI APIs directly — no more pasting cURL commands; the AI assistant picks the right endpoint, passes parameters, and parses results.
 
 ## When to use MCP
 
@@ -12,13 +12,13 @@ We ship official **MCP (Model Context Protocol) servers** for every core service
     You want Claude / Cursor to generate images, search the web, transcode video for you
   </Card>
   <Card title="✅ Agent / workflow" icon="robot">
-    Expose Ace Data Cloud as a toolset to an AI agent
+    Expose XHuoAPI as a toolset to an AI agent
   </Card>
   <Card title="❌ Web / mobile production" icon="circle-xmark">
     Use the REST API directly — more flexible
   </Card>
   <Card title="❌ Mass inference" icon="circle-xmark">
-    Call [api.acedata.cloud](https://api.acedata.cloud) directly
+    Call [api.xhuoapi.ai](https://api.xhuoapi.ai/v1) directly
   </Card>
 </CardGroup>
 
@@ -71,21 +71,21 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json` (Mac) or 
       "command": "uvx",
       "args": ["mcp-midjourney"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "YOUR_API_TOKEN"
+        "XHuoAPI_API_TOKEN": "YOUR_API_TOKEN"
       }
     },
     "suno": {
       "command": "uvx",
       "args": ["mcp-suno"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "YOUR_API_TOKEN"
+        "XHuoAPI_API_TOKEN": "YOUR_API_TOKEN"
       }
     },
     "serp": {
       "command": "uvx",
       "args": ["mcp-serp"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "YOUR_API_TOKEN"
+        "XHuoAPI_API_TOKEN": "YOUR_API_TOKEN"
       }
     }
   }
@@ -105,7 +105,7 @@ In Cursor: `Settings` → `Tools & Integrations` → `Add new MCP server`, or ed
       "command": "uvx",
       "args": ["mcp-midjourney"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "YOUR_API_TOKEN"
+        "XHuoAPI_API_TOKEN": "YOUR_API_TOKEN"
       }
     }
   }
@@ -138,13 +138,13 @@ pip install mcp-midjourney mcp-suno mcp-serp
 {
   "command": "mcp-midjourney",
   "args": [],
-  "env": { "ACEDATACLOUD_API_TOKEN": "..." }
+  "env": { "XHuoAPI_API_TOKEN": "..." }
 }
 ```
 
 ## Billing
 
-Calls made via MCP tools are calls to the Ace Data Cloud API — **same billing rules apply**. The MCP server itself is free; your token gets charged normally.
+Calls made via MCP tools are calls to the XHuoAPI API — **same billing rules apply**. The MCP server itself is free; your token gets charged normally.
 
 See [Pricing](/en/pricing/overview).
 
@@ -157,6 +157,6 @@ See [Pricing](/en/pricing/overview).
 
 ## Resources
 
-- [GitHub source & releases](https://github.com/AceDataCloud)
+- [GitHub source & releases](https://github.com/XHuoAPI)
 - [SunoMCP on PyPI](https://pypi.org/project/mcp-suno/)
 - [SerpMCP on PyPI](https://pypi.org/project/mcp-serp/)

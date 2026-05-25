@@ -1,6 +1,6 @@
 ---
 title: "Integracja i użycie API Nano Banana Tasks"
-description: "Nano Banana Image Generation 集成指南 - Ace Data Cloud"
+description: "Nano Banana Image Generation 集成指南 - XHuoAPI"
 ---
 
 Główną funkcją API Nano Banana Tasks jest możliwość sprawdzania statusu wykonania zadań poprzez wprowadzenie identyfikatora zadania (ID) wygenerowanego przez API Nano Banana Images.
@@ -9,13 +9,13 @@ Dokument ten szczegółowo opisuje integrację z API Nano Banana Tasks, aby pom�
 
 ## Przykład żądania
 
-API Nano Banana Tasks może być używane do sprawdzania wyników API Nano Banana Images. Aby dowiedzieć się, jak korzystać z API Nano Banana Images, zapoznaj się z dokumentem [Nano Banana Images API](https://platform.acedata.cloud/documents/63e01dc3-eb21-499e-8049-3025c460058f).
+API Nano Banana Tasks może być używane do sprawdzania wyników API Nano Banana Images. Aby dowiedzieć się, jak korzystać z API Nano Banana Images, zapoznaj się z dokumentem [Nano Banana Images API](https://api.xhuoapi.ai/documents/63e01dc3-eb21-499e-8049-3025c460058f).
 
 Weźmy jako przykład identyfikator zadania (ID) zwrócony przez usługę API Nano Banana Images i pokażmy, jak używać tego API. Załóżmy, że mamy identyfikator zadania: 4d320ead-4af4-4a55-8f3e-f2afebdf4fd0, a następnie pokażemy, jak to zrobić, przekazując identyfikator zadania.
 
 ### Przykład zadania
 
-<p><img src="https://cdn.acedata.cloud/nuiuth.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nuiuth.png" width="500" className="m-auto" /></p>
 
 ### Ustawienia nagłówków żądania i ciała żądania
 
@@ -31,20 +31,20 @@ Weźmy jako przykład identyfikator zadania (ID) zwrócony przez usługę API Na
 
 Ustawienia są pokazane na poniższym obrazku:
 
-<p><img src="https://cdn.acedata.cloud/nuiuth.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nuiuth.png" width="500" className="m-auto" /></p>
 
 ### Przykład kodu
 
 Można zauważyć, że po prawej stronie strony automatycznie wygenerowano kod w różnych językach, jak pokazano na obrazku:
 
-<p><img src="https://cdn.acedata.cloud/r1u4vl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/r1u4vl.png" width="500" className="m-auto" /></p>
 
 Przykłady kodu są następujące:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -59,7 +59,7 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/nano-banana/tasks"
+url = "https://api.xhuoapi.ai/v1/nano-banana/tasks"
 
 headers = {
     "accept": "application/json",
@@ -102,7 +102,7 @@ Po pomyślnym wykonaniu żądania API zwróci szczegółowe informacje o tym zad
     "data": [
       {
         "prompt": "a white siamese cat",
-        "image_url": "https://platform.cdn.acedata.cloud/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
+        "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
       }
     ]
   }
@@ -127,7 +127,7 @@ To jest zapytanie o szczegóły wielu identyfikatorów zadań, w przeciwieństwi
 Przykład jest następujący:
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -165,7 +165,7 @@ Po pomyślnym wykonaniu żądania API zwróci szczegółowe informacje o wszystk
         "data": [
           {
             "prompt": "a white siamese cat",
-            "image_url": "https://platform.cdn.acedata.cloud/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
+            "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
           }
         ]
       }

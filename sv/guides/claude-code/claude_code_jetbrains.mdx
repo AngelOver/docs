@@ -1,17 +1,17 @@
 ---
 title: "Claude Code för JetBrains IDE Användarguide"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code är ett **Agentic Coding** verktyg som lanserats av Anthropic, och det kallas också en av världens mest kraftfulla programmeringsagenter. Claude Code erbjuder en plugin specifikt för JetBrains IDE, som stöder hela serien av JetBrains IDE inklusive IntelliJ IDEA, PyCharm, WebStorm, GoLand, PhpStorm, Android Studio med mera.
 
-Detta dokument beskriver hur man konfigurerar och använder Claude Code i JetBrains IDE via AceData Clouds proxy-tjänst.
+Detta dokument beskriver hur man konfigurerar och använder Claude Code i JetBrains IDE via XHuoAPIs proxy-tjänst.
 
 ## Ansökningsprocess
 
-För att använda Claude Code kan du först gå till [Claude Messages tjänstsidan](https://platform.acedata.cloud/documents/claude-messages) och klicka på "Acquire" knappen för att få de nödvändiga autentiseringsuppgifterna:
+För att använda Claude Code kan du först gå till [Claude Messages tjänstsidan](https://api.xhuoapi.ai/documents/claude-messages) och klicka på "Acquire" knappen för att få de nödvändiga autentiseringsuppgifterna:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Om du inte är inloggad eller registrerad kommer du automatiskt att omdirigeras till inloggningssidan för att registrera dig och logga in, och efter inloggning kommer du automatiskt att återvända till den aktuella sidan.
 
@@ -53,7 +53,7 @@ claude --version
 
 ### Installera plugin
 
-![Claude Code-plugin i JetBrains Marketplace](https://cdn.acedata.cloud/de78fd305b.png)
+![Claude Code-plugin i JetBrains Marketplace](https://cdn.xhuoapi.ai/de78fd305b.png)
 
 1. Öppna JetBrains IDE
 2. Gå till **Settings** → **Plugins** → **Marketplace**
@@ -65,7 +65,7 @@ Eller besök direkt [JetBrains Marketplace](https://plugins.jetbrains.com/plugin
 
 > **Viktigt**: Efter installation av plugin måste du **starta om IDE helt** (kan kräva flera omstarter) för att det ska träda i kraft.
 
-## Konfigurera AceData Cloud API
+## Konfigurera XHuoAPI API
 
 Claude Code JetBrains-plugin kör `claude` kommandot via den integrerade terminalen, så miljövariabelkonfigurationen är densamma som för CLI.
 
@@ -99,9 +99,9 @@ mkdir -p ~/.claude && echo '{"primaryApiKey": "self"}' > ~/.claude/config.json
 Lägg till följande innehåll i din `~/.zshrc` eller `~/.bashrc`, och ersätt `{token}` med din API-token:
 
 ```bash
-# AceData Cloud - Claude Code proxykonfiguration
+# XHuoAPI - Claude Code proxykonfiguration
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 Kör `source ~/.zshrc` efter ändringen för att aktivera konfigurationen, och **starta om JetBrains IDE**.
@@ -114,12 +114,12 @@ Redigera `~/.claude/settings.json` (skapa om den inte finns):
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **Tips**: API-token kan ses i [AceData Cloud-konsolen](https://platform.acedata.cloud/console).
+> **Tips**: API-token kan ses i [XHuoAPI-konsolen](https://api.xhuoapi.ai/console).
 
 ## Grundläggande användning
 
@@ -186,7 +186,7 @@ wsl -d Ubuntu -- bash -lic "claude"
 
 1. Kontrollera att `~/.claude/config.json`-filen har skapats korrekt
 2. Bekräfta att miljövariablerna har ställts in korrekt
-3. Bekräfta att API-token är giltig (kan ses i [konsolen](https://platform.acedata.cloud/console))
+3. Bekräfta att API-token är giltig (kan ses i [konsolen](https://api.xhuoapi.ai/console))
 4. Starta om JetBrains IDE och försök igen
 
 ### Vad gör jag om plugin inte fungerar?
@@ -212,10 +212,10 @@ Om du får meddelandet "command not found" när du klickar på Claude-ikonen:
 3. WSL-användare bör använda ovanstående WSL-kommandostruktur
 ### Hur man ser saldo kvar?
 
-Logga in på [AceData Cloud-konsolen](https://platform.acedata.cloud/console) för att se det aktuella kontots saldo och användning.
+Logga in på [XHuoAPI-konsolen](https://api.xhuoapi.ai/console) för att se det aktuella kontots saldo och användning.
 
 ## Lär dig mer
 
 - 📖 [Claude Code JetBrains officiella dokumentation](https://code.claude.com/docs/en/jetbrains)
-- 🔧 [AceData Cloud Claude Code-tjänst](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code-tjänst](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 Om du har några frågor, tveka inte att kontakta oss via plattformens kundtjänst

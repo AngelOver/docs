@@ -1,15 +1,15 @@
 ---
 title: "تعليمات دمج واجهة برمجة تطبيقات توليد فيديوهات Kling"
-description: "Kling video generation 集成指南 - Ace Data Cloud"
+description: "Kling video generation 集成指南 - XHuoAPI"
 ---
 
 تقدم هذه الوثيقة شرحًا لكيفية دمج واجهة برمجة تطبيقات توليد فيديوهات Kling، والتي تتيح إنشاء فيديوهات رسمية من Kling عبر إدخال معلمات مخصصة.
 
 ## عملية التقديم
 
-لاستخدام API، يجب أولاً التقدم للحصول على الخدمة المناسبة من خلال صفحة [Kling Videos Generation API](https://platform.acedata.cloud/documents/3b921a16-a411-4557-8335-53f21d3f9e46). بعد الدخول إلى الصفحة، اضغط على زر "Acquire" كما هو موضح في الصورة:
+لاستخدام API، يجب أولاً التقدم للحصول على الخدمة المناسبة من خلال صفحة [Kling Videos Generation API](https://api.xhuoapi.ai/documents/3b921a16-a411-4557-8335-53f21d3f9e46). بعد الدخول إلى الصفحة، اضغط على زر "Acquire" كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 إذا لم تكن مسجلاً أو مسجلاً دخولك، سيتم توجيهك تلقائيًا إلى صفحة تسجيل الدخول للتسجيل أو الدخول، وبعدها ستعود تلقائيًا إلى الصفحة الحالية.
 
@@ -19,7 +19,7 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 
 أولاً، لفهم طريقة الاستخدام الأساسية، تحتاج إلى إدخال كلمة التوجيه `prompt`، وسلوك التوليد `action`، ورابط صورة الإطار الأول المرجعية `start_image_url`، بالإضافة إلى النموذج `model` للحصول على النتيجة المعالجة. يجب تمرير حقل `action` بقيمة `text2video`، والذي يحتوي على ثلاثة سلوكيات رئيسية: توليد فيديو من نص (`text2video`)، توليد فيديو من صورة (`image2video`)، وتوسيع الفيديو (`extend`). ثم نحتاج إلى إدخال النموذج `model`، حاليًا النماذج الرئيسية هي `kling-v1`, `kling-v1-6`, `kling-v2-master`, `kling-v2-1-master`, `kling-v2-5-turbo`, `kling-v2-6`, `kling-v3`, `kling-v3-omni`, و `kling-video-o1`، كما هو موضح أدناه:
 
-<p><img src="https://cdn.acedata.cloud/ke1bok.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ke1bok.png" width="500" className="m-auto" /></p>
 
 يمكن ملاحظة أننا قمنا بتعيين رؤوس الطلب (Request Headers)، والتي تشمل:
 
@@ -46,7 +46,7 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 
 بعد الاختيار، ستلاحظ أن الكود المقابل تم إنشاؤه على الجانب الأيمن، كما هو موضح:
 
-<p><img src="https://cdn.acedata.cloud/3yjql0.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3yjql0.png" width="500" className="m-auto" /></p>
 
 اضغط على زر "Try" لاختبار الطلب، كما في الصورة السابقة، وستحصل على النتيجة التالية:
 
@@ -75,7 +75,7 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 إذا رغبت في توليد كود دمج، يمكنك نسخه مباشرة، مثل كود CURL التالي:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/kling/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -117,7 +117,7 @@ curl -X POST 'https://api.acedata.cloud/kling/videos' \
 
 إذا أردت متابعة توليد فيديو Kling موجود، يمكنك تعيين `action` إلى `extend` وإدخال معرف الفيديو الذي تريد توسيعه. يتم الحصول على معرف الفيديو من الاستخدام الأساسي كما في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 يمكنك رؤية معرف الفيديو:
 
@@ -137,18 +137,18 @@ curl -X POST 'https://api.acedata.cloud/kling/videos' \
 
 مثال تعبئة:
 
-<p><img src="https://cdn.acedata.cloud/ejimqy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ejimqy.png" width="500" className="m-auto" /></p>
 
 بعد التعبئة، يتم إنشاء الكود تلقائيًا كما يلي:
 
-<p><img src="https://cdn.acedata.cloud/52x4u5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/52x4u5.png" width="500" className="m-auto" /></p>
 
 كود Python المقابل:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kling/videos"
+url = "https://api.xhuoapi.ai/v1/kling/videos"
 
 headers = {
     "accept": "application/json",
@@ -193,13 +193,13 @@ print(response.text)
 
 أولاً، استدعاء Webhook هو خدمة تستقبل طلبات HTTP، ويجب على المطور استبدالها بعنوان URL لخادم HTTP خاص به. للعرض، نستخدم موقع Webhook عام https://webhook.site/، حيث يمكنك الحصول على عنوان URL، كما في الصورة:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 انسخ هذا العنوان لاستخدامه كـ Webhook، في المثال هو `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`.
 
 بعدها، قم بتعيين `callback_url` إلى عنوان Webhook هذا، وأدخل المعلمات المطلوبة، كما في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vdx12s.png" width="500" className="m-auto" /></p>
 
 بعد الضغط على تشغيل، ستحصل فورًا على نتيجة:
 
@@ -211,7 +211,7 @@ print(response.text)
 
 بعد فترة قصيرة، يمكنك مشاهدة نتيجة الفيديو في `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`، كما في الصورة:
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 المحتوى:
 

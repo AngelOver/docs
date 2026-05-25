@@ -1,15 +1,15 @@
 ---
 title: "Fish Model Get API 对接说明"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
-本接口基于 [Fish Audio 官方 Model API](https://docs.fish.audio/resources/api-reference/model)，用于**按 `_id` 查询单个克隆音色的完整详情**。地址为 `GET https://api.acedata.cloud/fish/model/{id}`。
+本接口基于 [Fish Audio 官方 Model API](https://docs.fish.audio/resources/api-reference/model)，用于**按 `_id` 查询单个克隆音色的完整详情**。地址为 `GET https://api.xhuoapi.ai/v1/fish/model/{id}`。
 
-> 创建音色请参考 [Fish Model Create API](https://platform.acedata.cloud/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a)；分页检索请参考 [Fish Model Query API](https://platform.acedata.cloud/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d)。
+> 创建音色请参考 [Fish Model Create API](https://api.xhuoapi.ai/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a)；分页检索请参考 [Fish Model Query API](https://api.xhuoapi.ai/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d)。
 
 ## 申请流程
 
-要使用 API，需要先到 [Fish Model API](https://platform.acedata.cloud/services/caf99abc-ddcf-4714-b2a5-862d9b469509) 对应页面申请对应的服务，进入页面之后，点击「Acquire」按钮。
+要使用 API，需要先到 [Fish Model API](https://api.xhuoapi.ai/services/caf99abc-ddcf-4714-b2a5-862d9b469509) 对应页面申请对应的服务，进入页面之后，点击「Acquire」按钮。
 
 如果你尚未登录或注册，会自动跳转到登录页面邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
@@ -19,14 +19,14 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 
 | 参数 | 必填 | 说明                                                                                                                                                                  |
 | ---- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id` | 是   | 音色的 `_id`（32 位十六进制字符串）。可通过 [Fish Model Create](https://platform.acedata.cloud/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a) 创建时返回，或通过 [Fish Model Query](https://platform.acedata.cloud/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d) 检索得到。 |
+| `id` | 是   | 音色的 `_id`（32 位十六进制字符串）。可通过 [Fish Model Create](https://api.xhuoapi.ai/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a) 创建时返回，或通过 [Fish Model Query](https://api.xhuoapi.ai/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d) 检索得到。 |
 
 无请求体、无查询参数。
 
 ## 示例：拉取一个公开西班牙语音色的完整详情
 
 ```shell
-curl 'https://api.acedata.cloud/fish/model/8d2c17a9b26d4d83888ea67a1ee565b2' \
+curl 'https://api.xhuoapi.ai/v1/fish/model/8d2c17a9b26d4d83888ea67a1ee565b2' \
   -H 'authorization: Bearer {token}'
 ```
 
@@ -76,10 +76,10 @@ curl 'https://api.acedata.cloud/fish/model/8d2c17a9b26d4d83888ea67a1ee565b2' \
 }
 ```
 
-拿到的 `_id` 直接喂给 [Fish TTS](https://platform.acedata.cloud/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) 的 `reference_id` 即可合成相同音色的语音：
+拿到的 `_id` 直接喂给 [Fish TTS](https://api.xhuoapi.ai/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) 的 `reference_id` 即可合成相同音色的语音：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
   -d '{
@@ -120,7 +120,7 @@ curl -X POST 'https://api.acedata.cloud/fish/tts' \
 
 ## 计费说明
 
-本接口不计费——按 ID 查询单个音色详情是免费操作，仅 [Fish Model Create](https://platform.acedata.cloud/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a) 在请求体携带 `voices` 字段创建新音色时计费。
+本接口不计费——按 ID 查询单个音色详情是免费操作，仅 [Fish Model Create](https://api.xhuoapi.ai/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a) 在请求体携带 `voices` 字段创建新音色时计费。
 
 ## 错误处理
 
@@ -133,7 +133,7 @@ curl -X POST 'https://api.acedata.cloud/fish/tts' \
 实际请求一个不存在的 ID 时上游会直接返回 `400 Model not found`（实测）：
 
 ```shell
-curl 'https://api.acedata.cloud/fish/model/test123' \
+curl 'https://api.xhuoapi.ai/v1/fish/model/test123' \
   -H 'authorization: Bearer {token}'
 ```
 
@@ -158,4 +158,4 @@ curl 'https://api.acedata.cloud/fish/model/test123' \
 
 ## 结论
 
-知道音色 `_id` 时直接用本接口拿完整 ModelEntity，最常见的用法是：(1) 试听 `samples[].audio`，(2) 把 `_id` 喂给 `/fish/tts` 的 `reference_id` 完成合成。如果只有标题或标签，请先用 [Fish Model Query](https://platform.acedata.cloud/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d) 检索。
+知道音色 `_id` 时直接用本接口拿完整 ModelEntity，最常见的用法是：(1) 试听 `samples[].audio`，(2) 把 `_id` 喂给 `/fish/tts` 的 `reference_id` 完成合成。如果只有标题或标签，请先用 [Fish Model Query](https://api.xhuoapi.ai/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d) 检索。

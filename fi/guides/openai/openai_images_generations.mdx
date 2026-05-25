@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Images Generations API Hakemus ja Käyttö"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI Images Generations API tukee tällä hetkellä useita kuvageneraatiomalleja, mukaan lukien klassinen `dall-e-3`, tekstin renderointikyvyltään vahvempi `gpt-image-1`, uusin sukupolvi **`gpt-image-2`**, sekä saman rajapinnan kautta käytettävät **`nano-banana` / `nano-banana-2` / `nano-banana-pro`** -mallisarjat. Ne kaikki pystyvät tuottamaan korkealaatuisia kuvia tekstikuvauksen perusteella.
@@ -9,9 +9,9 @@ Tämä dokumentti esittelee pääasiassa OpenAI Images Generations API:n käytt�
 
 ## Hakemusprosessi
 
-OpenAI Images Generations API:n käyttämiseksi voit ensin mennä [OpenAI Images Generations API](https://platform.acedata.cloud/documents/fd932485-90c7-45d6-8394-1e14b6f07b2b) -sivulle ja klikata "Acquire"-painiketta saadaksesi pyynnön vaatimat tunnukset:
+OpenAI Images Generations API:n käyttämiseksi voit ensin mennä [OpenAI Images Generations API](https://api.xhuoapi.ai/documents/fd932485-90c7-45d6-8394-1e14b6f07b2b) -sivulle ja klikata "Acquire"-painiketta saadaksesi pyynnön vaatimat tunnukset:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle rekisteröitymään ja kirjautumaan sisään. Kirjautumisen jälkeen palaat automaattisesti tälle sivulle.
 
@@ -26,7 +26,7 @@ Ensimmäisellä hakemiskerralla saat ilmaisen käyttökiintiön, jolla voit käy
 - **Monipuolisempi tyylin ilmentäminen**: tukee natiivisti elokuvamaista muotokuvaa, retrojulisteita, lastenkirjakuvituksia, tuotekuvauksia, infografiikoita ja muita tyylejä.
 - **Natiivisti useita kuvasuhteita + korkea resoluutio**: tukee 5 kuvasuhdetta (1:1, 4:3, 3:4, 16:9, 9:16) kolmella resoluutiotasolla (1K / 2K / 4K).
 
-Käyttötapa on täysin sama kuin muilla malleilla, riittää että asetat `model`-kentän arvoksi `gpt-image-2`. Palautetun vastauksen `url` on pysyvästi `platform.cdn.acedata.cloud` -palvelimella isännöity kuvalinkki, jonka voi avata suoraan selaimessa tai upottaa verkkosivulle.
+Käyttötapa on täysin sama kuin muilla malleilla, riittää että asetat `model`-kentän arvoksi `gpt-image-2`. Palautetun vastauksen `url` on pysyvästi `platform.cdn.xhuoapi.ai` -palvelimella isännöity kuvalinkki, jonka voi avata suoraan selaimessa tai upottaa verkkosivulle.
 
 ### Tuetut `size`-arvot ja hinnoittelutasot
 
@@ -66,7 +66,7 @@ Python-esimerkkikoodi:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -94,7 +94,7 @@ Palautettu vastaus:
   "data": [
     {
       "revised_prompt": "A cinematic portrait of a young woman standing in a convenience store at night, illuminated by soft pink and cyan neon signs through the window. Shot on 35mm film, shallow depth of field, slight grain, melancholic mood.",
-      "url": "https://platform.cdn.acedata.cloud/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png"
+      "url": "https://platform.cdn.xhuoapi.ai/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png"
     }
   ]
 }
@@ -102,7 +102,7 @@ Palautettu vastaus:
 
 Generoitua kuvaa:
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png" width="500" className="m-auto" /></p>
 
 ### Tapaus 2: Retro-matkajuliste (tekstin renderointi mukana)
 
@@ -118,7 +118,7 @@ payload = {
 
 Palautetun vastauksen `url`-kentän kuva:
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/c6061f92-3fae-498e-af8e-688e7f415ba3_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/c6061f92-3fae-498e-af8e-688e7f415ba3_0.png" width="500" className="m-auto" /></p>
 
 Mallin onnistui tarkasti toistaa Art Deco -julisteen visuaalinen tyyli, ja otsikkotekstit `AMALFI` ja `ITALIA 1958` renderöityivät selkeästi ja oikein.
 
@@ -136,7 +136,7 @@ payload = {
 
 Generoitu kuva:
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/64a3b932-a082-4cad-9f85-9d30474b104d_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/64a3b932-a082-4cad-9f85-9d30474b104d_0.png" width="500" className="m-auto" /></p>
 
 Kirjojen määrä kolmella hyllyllä (1 / 3 / 7) vastaa täysin promptin ohjeita, mikä oli haastavaa saavuttaa `dall-e-3`-aikana.
 
@@ -154,7 +154,7 @@ payload = {
 
 Generoitu vaakakuva:
 
-![](https://platform.cdn.acedata.cloud/gpt-image/6cd57e69-d237-4cc1-a666-759a93964a08_0.png)
+![](https://platform.cdn.xhuoapi.ai/gpt-image/6cd57e69-d237-4cc1-a666-759a93964a08_0.png)
 
 ### Asynkroninen palautus
 
@@ -186,7 +186,7 @@ Generoitu vaakakuva:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -211,7 +211,7 @@ Palautus:
   "created": 0,
   "data": [
     {
-      "url": "https://platform.cdn.acedata.cloud/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png",
+      "url": "https://platform.cdn.xhuoapi.ai/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png",
       "revised_prompt": "a small red apple on a white table, photoreal"
     }
   ]
@@ -220,7 +220,7 @@ Palautus:
 
 Kuva on suoraan saatavilla `url`-kentästä:
 
-<p><img src="https://platform.cdn.acedata.cloud/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png" width="500" className="m-auto" /></p>
 
 ### Päivitys lippulaivamalliin `nano-banana-pro`
 
@@ -241,14 +241,14 @@ Palautus:
   "created": 0,
   "data": [
     {
-      "url": "https://platform.cdn.acedata.cloud/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png",
+      "url": "https://platform.cdn.xhuoapi.ai/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png",
       "revised_prompt": "abstract painting"
     }
   ]
 }
 ```
 
-<p><img src="https://platform.cdn.acedata.cloud/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png" width="500" className="m-auto" /></p>
 
 ### Asynkroninen palautus
 
@@ -258,20 +258,20 @@ Palautus:
 
 Voit täyttää käyttöliittymässä vastaavat kentät, kuten alla näkyy:
 
-<p><img src="https://cdn.acedata.cloud/zv58ug.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zv58ug.png" width="500" className="m-auto" /></p>
 
 Ensimmäisellä käyttökerralla tarvitset vähintään kolme kenttää: `authorization` valitaan alasvetovalikosta, `model` valitaan käyttämäsi OpenAI DALL-E mallin mukaan (tarjolla on yksi malli, lisätietoja mallista löytyy dokumentaatiosta), ja `prompt` on kuvaa luova tekstikuvauksesi.
 
 Oikealla näkyy vastaava kutsukoodi, jonka voit kopioida suoraan ajettavaksi tai klikata "Try"-painiketta testaukseen.
 
-<p><img src="https://cdn.acedata.cloud/pbss4f.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pbss4f.png" width="500" className="m-auto" /></p>
 
 Python-esimerkkikutsu:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -309,7 +309,7 @@ Palautuksessa on useita kenttiä:
 
 `data` sisältää mallin generoiman kuvan tiedot, ja sen `url`-kenttä on kuvan yksityiskohtainen linkki, kuten alla näkyy.
 
-<p><img src="https://cdn.acedata.cloud/dz7u0x.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dz7u0x.png" width="500" className="m-auto" /></p>
 
 ## Kuvan laatuparametri `quality`
 
@@ -317,18 +317,18 @@ Seuraavaksi esitellään, miten asetetaan kuvan generointiin liittyviä lisäase
 
 Alla asetetaan laatuparametriksi `standard`:
 
-<p><img src="https://cdn.acedata.cloud/1q303w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1q303w.png" width="500" className="m-auto" /></p>
 
 Oikealla näkyy vastaava kutsukoodi, jonka voi kopioida tai testata suoraan.
 
-<p><img src="https://cdn.acedata.cloud/c0ps6i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/c0ps6i.png" width="500" className="m-auto" /></p>
 
 Python-esimerkki:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -362,11 +362,11 @@ Palautus:
 
 Kuvan laatuparametrilla `standard` generoitu kuva:
 
-<p><img src="https://cdn.acedata.cloud/j5v15b.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/j5v15b.png" width="500" className="m-auto" /></p>
 
 Vastaavasti asettamalla laatuparametriksi `hd` saadaan seuraavanlainen kuva:
 
-<p><img src="https://cdn.acedata.cloud/vjpbqr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vjpbqr.png" width="500" className="m-auto" /></p>
 
 `hd`-kuva on yksityiskohdiltaan tarkempi ja yhtenäisempi kuin `standard`.
 
@@ -376,18 +376,18 @@ Voit myös määrittää kuvan koon.
 
 Alla asetetaan kuvan kooksi `1024 * 1024`:
 
-<p><img src="https://cdn.acedata.cloud/dx5rwh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dx5rwh.png" width="500" className="m-auto" /></p>
 
 Oikealla näkyy vastaava kutsukoodi.
 
-<p><img src="https://cdn.acedata.cloud/0sbybl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0sbybl.png" width="500" className="m-auto" /></p>
 
 Python-esimerkki:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -421,11 +421,11 @@ Palautus:
 
 Generoitu kuva koossa `1024 * 1024`:
 
-<p><img src="https://cdn.acedata.cloud/o4pvvx.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/o4pvvx.png" width="500" className="m-auto" /></p>
 
 Vastaavasti asettamalla koko `1792 * 1024` saadaan:
 
-![](https://cdn.acedata.cloud/4pilae.png)
+![](https://cdn.xhuoapi.ai/4pilae.png)
 
 Kuvan koko on selvästi erilainen. Voit asettaa myös muita kokoja, lisätietoja löytyy virallisesta dokumentaatiosta.
 
@@ -435,18 +435,18 @@ Kuvan koko on selvästi erilainen. Voit asettaa myös muita kokoja, lisätietoja
 
 Alla asetetaan tyyli `vivid`:
 
-<p><img src="https://cdn.acedata.cloud/609l9i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/609l9i.png" width="500" className="m-auto" /></p>
 
 Oikealla näkyy vastaava kutsukoodi.
 
-<p><img src="https://cdn.acedata.cloud/ee3u9o.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ee3u9o.png" width="500" className="m-auto" /></p>
 
 Python-esimerkki:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -480,11 +480,11 @@ Palautus:
 
 `vivid`-tyylillä generoitu kuva:
 
-<p><img src="https://cdn.acedata.cloud/e0rpc3.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/e0rpc3.png" width="500" className="m-auto" /></p>
 
 Vastaavasti asettamalla tyyli `natural` saadaan:
 
-<p><img src="https://cdn.acedata.cloud/q9tqwu.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q9tqwu.png" width="500" className="m-auto" /></p>
 
 `vivid` on elävämpi ja realistisempi kuin `natural`.
 
@@ -494,18 +494,18 @@ Viimeinen parametri on kuvan linkin formaatti, jossa on kaksi vaihtoehtoa: `b64_
 
 Alla asetetaan `response_format` arvoksi `url`:
 
-<p><img src="https://cdn.acedata.cloud/2zbgrg.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2zbgrg.png" width="500" className="m-auto" /></p>
 
 Oikealla näkyy vastaava kutsukoodi.
 
-<p><img src="https://cdn.acedata.cloud/a9exmp.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a9exmp.png" width="500" className="m-auto" /></p>
 
 Python-esimerkki:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -539,7 +539,7 @@ Palautus:
 
 `url`-formaatilla generoitu kuvalinkki on suoraan käytettävissä: [kuvan URL](https://dalleprodsec.blob.core.windows.net/private/images/87792c5f-8b6d-412e-81dd-f1a1baa19bd2/generated_00.png?se=2024-07-23T08%3A39%3A47Z&sig=zzRAn30TqIKHdLVqZPUUuSJdjCYpoJdaGU6BeoA76Jo%3D&ske=2024-07-23T13%3A32%3A13Z&skoid=e52d5ed7-0657-4f62-bc12-7e5dbb260a96&sks=b&skt=2024-07-16T13%3A32%3A13Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02) ja kuva:
 
-<p><img src="https://cdn.acedata.cloud/33hs4z.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/33hs4z.png" width="500" className="m-auto" /></p>
 
 Vastaavasti asettamalla `response_format` arvoksi `b64_json` saat Base64-koodatun kuvan:
 
@@ -565,7 +565,7 @@ Seuraavassa esimerkki:
 
 Webhook-palautus on HTTP-palvelu, jonka kehittäjä määrittää omalle palvelimelleen. Tässä esimerkissä käytetään julkista Webhook-sivustoa https://webhook.site/, josta saa yksilöllisen Webhook-URL:n:
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 Kopioi tämä URL, esimerkiksi `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`.
 
@@ -574,7 +574,7 @@ Aseta `callback_url`-kenttään tämä URL ja muut parametrit:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",

@@ -1,15 +1,15 @@
 ---
 title: "Uputstvo za integraciju API za anime transformaciju portreta"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 Ovaj dokument će predstaviti način integracije API za anime transformaciju portreta, koji može generisati personalizovane anime likove na osnovu unete fotografije lica, što se može koristiti za kreiranje jedinstvenih avatara, zabavne aktivnosti, aplikacije sa efektima i druge scenarije, poboljšavajući iskustvo društvene zabave.
 
 ## Proces prijave
 
-Da biste koristili API, prvo treba da odete na [API za anime transformaciju portreta](https://platform.acedata.cloud/documents/6b6313f1-f398-4d29-933d-5a652cfa1c37) i zatražite odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
+Da biste koristili API, prvo treba da odete na [API za anime transformaciju portreta](https://api.xhuoapi.ai/documents/6b6313f1-f398-4d29-933d-5a652cfa1c37) i zatražite odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Ako još niste prijavljeni ili registrovani, automatski ćete biti preusmereni na stranicu za prijavu koja vas poziva da se registrujete i prijavite. Nakon prijave ili registracije, automatski ćete se vratiti na trenutnu stranicu.
 
@@ -19,11 +19,11 @@ Prilikom prve prijave dobićete besplatnu kvotu koja vam omogućava besplatno ko
 
 Prvo, upoznajte se sa osnovnim načinom korišćenja, što podrazumeva unos linka slike, kako biste dobili obrađenu sliku rezultata. Prvo je potrebno jednostavno proslediti polje `image_url`, a slika lica je prikazana na sledećoj slici:
 
-<p><img src="https://cdn.acedata.cloud/lrbtcn.jpg" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lrbtcn.jpg" width="500" className="m-auto" /></p>
 
 Sledeće, možemo popuniti odgovarajući sadržaj na interfejsu, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/gflhrl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gflhrl.png" width="500" className="m-auto" /></p>
 
 Možete primetiti da smo ovde postavili Request Headers, uključujući:
 
@@ -36,7 +36,7 @@ Takođe je postavljen Request Body, uključujući:
 
 Nakon izbora, možete primetiti da je sa desne strane generisan odgovarajući kod, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/rwbicp.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/rwbicp.png" width="500" className="m-auto" /></p>
 
 Kliknite na dugme „Try“ da biste izvršili testiranje, kao što je prikazano na slici, i ovde smo dobili sledeći rezultat:
 
@@ -48,19 +48,19 @@ Kliknite na dugme „Try“ da biste izvršili testiranje, kao što je prikazano
 
 Možete primetiti da u vraćenom rezultatu postoji polje `image_url`, koje sadrži promenjenu sliku karikature lica. Promenjene informacije o licu su prikazane na sledećoj slici:
 
-<p><img src="https://cdn.acedata.cloud/qkyga1.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qkyga1.png" width="500" className="m-auto" /></p>
 
 Možete primetiti da je na slici lice već generisano kao personalizovani anime lik.
 
 Takođe, ako želite da generišete odgovarajući kod za integraciju, možete ga direktno kopirati, na primer, CURL kod je sledeći:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/cartoon' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/cartoon' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }'
 ```
 
@@ -69,7 +69,7 @@ Python kod za integraciju je sledeći:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/cartoon"
+url = "https://api.xhuoapi.ai/v1/face/cartoon"
 
 headers = {
     "accept": "application/json",
@@ -78,7 +78,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }
 
 response = requests.post(url, json=payload, headers=headers)

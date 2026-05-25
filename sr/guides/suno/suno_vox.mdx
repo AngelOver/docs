@@ -1,6 +1,6 @@
 ---
 title: "Suno Vox API интеграција упутство"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 SUNO нам омогућава да креирамо нову верзију Persona-v2-vox: стил певача, која се разликује од старе верзије и захтева прво добијање `vox_audio_id`. Овај документ објашњава метод интеграције за креирање нове верзије Persona-v2-vox.
@@ -12,7 +12,7 @@ SUNO нам омогућава да креирамо нову верзију Per
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/vox"
+url = "https://api.xhuoapi.ai/v1/suno/vox"
 
 headers = {
     "accept": "application/json",
@@ -102,12 +102,12 @@ print(response.text)
 }
 ```
 
-Можемо видети да је `id` поље у `data` оно што желимо, `vox_audio_id`, а затим идемо на [Persona API](https://platform.acedata.cloud/documents/78bb6c62-6ce0-490f-a7df-e89d80ec0583) да креирамо нову верзију Persona-v2-vox: стил певача, конкретни унос је следећи:
+Можемо видети да је `id` поље у `data` оно што желимо, `vox_audio_id`, а затим идемо на [Persona API](https://api.xhuoapi.ai/documents/78bb6c62-6ce0-490f-a7df-e89d80ec0583) да креирамо нову верзију Persona-v2-vox: стил певача, конкретни унос је следећи:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/persona"
+url = "https://api.xhuoapi.ai/v1/suno/persona"
 
 headers = {
     "accept": "application/json",
@@ -139,4 +139,4 @@ print(response.text)
 }
 ```
 
-Затим можемо користити горњу вредност `persona_id` за креацију нове верзије Persona-v2-vox: стил певача, конкретна метода креације је иста као у [Suno API интеграција за генерисање песама](https://platform.acedata.cloud/documents/suno-audios-integration#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%AD%8C%E6%89%8B%E9%A3%8E%E6%A0%BC%E7%94%9F%E6%88%90%E5%8A%9F%E8%83%BD), на крају можемо користити Suno Vox API за креацију нове верзије Persona-v2-vox: стил певача за стварање песама.
+Затим можемо користити горњу вредност `persona_id` за креацију нове верзије Persona-v2-vox: стил певача, конкретна метода креације је иста као у [Suno API интеграција за генерисање песама](https://api.xhuoapi.ai/documents/suno-audios-integration#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%AD%8C%E6%89%8B%E9%A3%8E%E6%A0%BC%E7%94%9F%E6%88%90%E5%8A%9F%E8%83%BD), на крају можемо користити Suno Vox API за креацију нове верзије Persona-v2-vox: стил певача за стварање песама.

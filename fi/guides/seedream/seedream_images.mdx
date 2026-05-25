@@ -1,15 +1,15 @@
 ---
 title: "SeeDream-kuvien generointirajapinnan liittäminen"
-description: "ByteDance Seedream Image Generation 集成指南 - Ace Data Cloud"
+description: "ByteDance Seedream Image Generation 集成指南 - XHuoAPI"
 ---
 
 Tässä dokumentissa esitellään SeeDream-kuvien generointirajapinnan (API) liittäminen, jonka avulla voi syöttää mukautettuja parametreja ja luoda SeeDreamin virallisia kuvia.
 
 ## Hakuprosessi
 
-API:n käyttämiseksi tulee ensin hakea palvelua osoitteesta [SeeDream Images Generation API](https://platform.acedata.cloud/documents/seedream-images). Sivulle siirryttyäsi napsauta "Acquire"-painiketta, kuten alla olevassa kuvassa:
+API:n käyttämiseksi tulee ensin hakea palvelua osoitteesta [SeeDream Images Generation API](https://api.xhuoapi.ai/documents/seedream-images). Sivulle siirryttyäsi napsauta "Acquire"-painiketta, kuten alla olevassa kuvassa:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle rekisteröitymään ja kirjautumaan sisään. Kirjautumisen jälkeen palaat automaattisesti tälle sivulle.
 
@@ -19,7 +19,7 @@ Ensimmäisellä hakukerralla saat ilmaisen käyttökiintiön, joten API:a voi k�
 
 Ensiksi tutustutaan peruskäyttötapaan: syötetään kehoteteksti `prompt`, generointitoiminto `action` ja kuvan koko `size`, jolloin saadaan käsitelty tulos. Tarvitaan yksinkertaisesti `action`-kenttä, jonka arvoksi asetetaan `generate`, ja lisäksi syötetään kehoteteksti. Esimerkki:
 
-<p><img src="https://cdn.acedata.cloud/seedream_request_body.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedream_request_body.png" width="500" className="m-auto" /></p>
 
 Request Headers -otsikossa määritellään:
 
@@ -46,7 +46,7 @@ Request Body -osassa määritellään:
 
 Valinnan jälkeen oikealle puolelle muodostuu vastaava koodiesimerkki, kuten alla:
 
-<p><img src="https://cdn.acedata.cloud/seedream_image.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedream_image.png" width="500" className="m-auto" /></p>
 
 Napsauttamalla "Try"-painiketta voit testata pyyntöä. Kuvassa näkyy esimerkkivastaus:
 
@@ -59,7 +59,7 @@ Napsauttamalla "Try"-painiketta voit testata pyyntöä. Kuvassa näkyy esimerkki
     {
       "prompt": "a white siamese cat",
       "size": "2048x2048",
-      "image_url": "https://platform.cdn.acedata.cloud/seedream/3c060029-69b1-406f-a957-fcd55ddc9386.jpg"
+      "image_url": "https://platform.cdn.xhuoapi.ai/seedream/3c060029-69b1-406f-a957-fcd55ddc9386.jpg"
     }
   ]
 }
@@ -80,7 +80,7 @@ Näin ollen saamme halutun kuvan osoitteesta `data`-kentän linkin kautta.
 Voit myös kopioida suoraan liitäntäkoodin, esimerkiksi CURL-komento:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/seedream/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/seedream/images' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer ${token}' \
 -H 'content-type: application/json' \
@@ -100,14 +100,14 @@ Jos haluat muokata tiettyä kuvaa, sinun on annettava `image`-parametrina muokat
 
 Esimerkki:
 
-<p><img src="https://cdn.acedata.cloud/seedream_edit.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedream_edit.png" width="500" className="m-auto" /></p>
 
 Vastaava koodi:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/images"
+url = "https://api.xhuoapi.ai/v1/flux/images"
 
 headers = {
     "accept": "application/json",
@@ -138,7 +138,7 @@ Suorita pyyntö, ja saat heti vastauksen:
         {
             "prompt": "Keep the model pose and the liquid garment flowing shape unchanged. Change the clothing material from silver metal to completely transparent water (or glass). Through the liquid flow, the details of the model skin are visible. The light and shadow effect shifts from reflection to refraction.",
             "size": "2048x2048",
-            "image_url": "https://platform.cdn.acedata.cloud/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
+            "image_url": "https://platform.cdn.xhuoapi.ai/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
         }
     ]
 }
@@ -171,7 +171,7 @@ Sisältö:
         {
             "prompt": "Keep the model pose and the liquid garment flowing shape unchanged. Change the clothing material from silver metal to completely transparent water (or glass). Through the liquid flow, the details of the model skin are visible. The light and shadow effect shifts from reflection to refraction.",
             "size": "2048x2048",
-            "image_url": "https://platform.cdn.acedata.cloud/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
+            "image_url": "https://platform.cdn.xhuoapi.ai/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
         }
     ]
 }

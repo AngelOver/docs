@@ -1,15 +1,15 @@
 ---
 title: "Fish Voices Generation API 接続説明"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 本文では、音声リンクを入力することで自分の音色を作成できる Fish Voices Generation API の接続説明を紹介します。
 
 ## 申請プロセス
 
-API を使用するには、まず [Fish Voices Generation API](https://platform.acedata.cloud/documents/55e61b64-ac7d-4710-a7f1-57a4ba786b17) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
+API を使用するには、まず [Fish Voices Generation API](https://api.xhuoapi.ai/documents/55e61b64-ac7d-4710-a7f1-57a4ba786b17) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 まだログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -19,7 +19,7 @@ API を使用するには、まず [Fish Voices Generation API](https://platform
 
 まず、基本的な使用方法を理解します。音色の音声リンク `voice_url` を入力することで、処理された結果を得ることができます。具体的な内容は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/278ikr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/278ikr.png" width="500" className="m-auto" /></p>
 
 ここでは、Request Headers を設定しています。含まれる内容は：
 
@@ -36,7 +36,7 @@ API を使用するには、まず [Fish Voices Generation API](https://platform
 
 選択後、右側にも対応するコードが生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/dkdfyj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dkdfyj.png" width="500" className="m-auto" /></p>
 
 「Try」ボタンをクリックするとテストが行えます。上の図のように、以下の結果が得られました：
 
@@ -103,7 +103,7 @@ API を使用するには、まず [Fish Voices Generation API](https://platform
 また、対応する接続コードを生成したい場合は、生成されたものを直接コピーできます。例えば CURL のコードは以下の通りです：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/voices' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/voices' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -124,13 +124,13 @@ Fish Voices Generation API の生成には比較的長い時間がかかりま�
 
 まず、Webhook コールバックは HTTP リクエストを受け取ることができるサービスで、開発者は自分が構築した HTTP サーバーの URL に置き換える必要があります。ここではデモのために、公開の Webhook サンプルサイト https://webhook.site/ を使用します。このサイトを開くと、Webhook URL が得られます。以下の図のように：
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 この URL をコピーすれば、Webhook として使用できます。このサンプルは `https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34` です。
 
 次に、フィールド `callback_url` を上記の Webhook URL に設定し、相応のパラメータを入力します。具体的な内容は以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/ecbq1s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ecbq1s.png" width="500" className="m-auto" /></p>
 
 実行をクリックすると、すぐに結果が得られます。以下のように：
 
@@ -141,7 +141,7 @@ Fish Voices Generation API の生成には比較的長い時間がかかりま�
 ```
 少々お待ちください。`https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34` で生成タスクの結果を観察できます。以下の通りです：
 
-![](https://cdn.acedata.cloud/dxlupe.png)
+![](https://cdn.xhuoapi.ai/dxlupe.png)
 
 内容は以下の通りです：
 

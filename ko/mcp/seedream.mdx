@@ -3,7 +3,7 @@ title: "Seedream MCP 연동 가이드"
 description: "seedream MCP 服务器集成"
 ---
 
-[MCP（Model Context Protocol）](https://modelcontextprotocol.io)는 Anthropic에서 출시한 모델 컨텍스트 프로토콜로, AI 모델(Claude, GPT 등)이 표준화된 인터페이스를 통해 외부 도구를 호출할 수 있도록 합니다. AceData Cloud에서 제공하는 Seedream MCP Server를 통해 Claude Desktop, VS Code, Cursor 등 AI 클라이언트에서 ByteDance Seedream을 사용하여 AI 이미지를 직접 생성하고 편집할 수 있습니다.
+[MCP（Model Context Protocol）](https://modelcontextprotocol.io)는 Anthropic에서 출시한 모델 컨텍스트 프로토콜로, AI 모델(Claude, GPT 등)이 표준화된 인터페이스를 통해 외부 도구를 호출할 수 있도록 합니다. XHuoAPI에서 제공하는 Seedream MCP Server를 통해 Claude Desktop, VS Code, Cursor 등 AI 클라이언트에서 ByteDance Seedream을 사용하여 AI 이미지를 직접 생성하고 편집할 수 있습니다.
 
 ## 기능 개요
 
@@ -19,10 +19,10 @@ Seedream MCP Server는 다음과 같은 핵심 기능을 제공합니다:
 
 ## 사전 준비
 
-사용 전 AceData Cloud API Token을 발급받아야 합니다:
+사용 전 XHuoAPI API Token을 발급받아야 합니다:
 
-1. [AceData Cloud 플랫폼](https://platform.acedata.cloud) 회원가입 또는 로그인
-2. [Seedream Images API](https://platform.acedata.cloud/documents/seedream-images) 페이지 접속
+1. [XHuoAPI 플랫폼](https://api.xhuoapi.ai) 회원가입 또는 로그인
+2. [Seedream Images API](https://api.xhuoapi.ai/documents/seedream-images) 페이지 접속
 3. 「Acquire」 버튼 클릭하여 API Token 발급(첫 신청 시 무료 크레딧 제공)
 
 ## 설치 및 설정
@@ -36,7 +36,7 @@ pip install mcp-seedream-pro
 ### 방법 2: 소스 코드 설치
 
 ```bash
-git clone https://github.com/AceDataCloud/SeedreamMCP.git
+git clone https://github.com/XHuoAPI/SeedreamMCP.git
 cd SeedreamMCP
 pip install -e .
 ```
@@ -58,7 +58,7 @@ Claude Desktop 설정 파일 편집:
     "seedream": {
       "command": "mcp-seedream-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "당신의 API Token"
+        "XHuoAPI_API_TOKEN": "당신의 API Token"
       }
     }
   }
@@ -74,7 +74,7 @@ Claude Desktop 설정 파일 편집:
       "command": "uvx",
       "args": ["mcp-seedream-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "당신의 API Token"
+        "XHuoAPI_API_TOKEN": "당신의 API Token"
       }
     }
   }
@@ -93,7 +93,7 @@ Claude Desktop 설정 파일 편집:
     "seedream": {
       "command": "mcp-seedream-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "당신의 API Token"
+        "XHuoAPI_API_TOKEN": "당신의 API Token"
       }
     }
   }
@@ -109,7 +109,7 @@ Claude Desktop 설정 파일 편집:
       "command": "uvx",
       "args": ["mcp-seedream-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "당신의 API Token"
+        "XHuoAPI_API_TOKEN": "당신의 API Token"
       }
     }
   }
@@ -138,6 +138,6 @@ Claude Desktop 설정 파일 편집:
 
 ## 추가 정보
 
-- GitHub 저장소: [AceDataCloud/SeedreamMCP](https://github.com/AceDataCloud/SeedreamMCP)
+- GitHub 저장소: [XHuoAPI/SeedreamMCP](https://github.com/XHuoAPI/SeedreamMCP)
 - PyPI 패키지: [mcp-seedream-pro](https://pypi.org/project/mcp-seedream-pro/)
-- API 문서: [Seedream 이미지 생성 API](https://platform.acedata.cloud/documents/seedream)
+- API 문서: [Seedream 이미지 생성 API](https://api.xhuoapi.ai/documents/seedream)

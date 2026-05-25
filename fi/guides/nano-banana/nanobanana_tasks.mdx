@@ -1,6 +1,6 @@
 ---
 title: "Nano Banana Tasks API:n liittäminen ja käyttö"
-description: "Nano Banana Image Generation 集成指南 - Ace Data Cloud"
+description: "Nano Banana Image Generation 集成指南 - XHuoAPI"
 ---
 
 Nano Banana Tasks API:n päätoiminto on kysyä tehtävän suoritusstatus syöttämällä Nano Banana Images API:n tuottama tehtävä-ID.
@@ -9,13 +9,13 @@ Tässä asiakirjassa käsitellään yksityiskohtaisesti Nano Banana Tasks API:n 
 
 ## Pyyntöesimerkki
 
-Nano Banana Tasks API:ta voidaan käyttää Nano Banana Images API:n tulosten kysymiseen. Lisätietoja Nano Banana Images API:n käytöstä löytyy asiakirjasta [Nano Banana Images API](https://platform.acedata.cloud/documents/63e01dc3-eb21-499e-8049-3025c460058f).
+Nano Banana Tasks API:ta voidaan käyttää Nano Banana Images API:n tulosten kysymiseen. Lisätietoja Nano Banana Images API:n käytöstä löytyy asiakirjasta [Nano Banana Images API](https://api.xhuoapi.ai/documents/63e01dc3-eb21-499e-8049-3025c460058f).
 
 Otetaan esimerkki yhdestä Nano Banana Images API:n palauttamasta tehtävä-ID:stä ja näytetään, kuinka tätä API:a käytetään. Oletetaan, että meillä on tehtävä-ID: 4d320ead-4af4-4a55-8f3e-f2afebdf4fd0, seuraavaksi näytetään, kuinka syötetään tämä tehtävä-ID.
 
 ### Tehtäväesimerkkikuva
 
-<p><img src="https://cdn.acedata.cloud/nuiuth.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nuiuth.png" width="500" className="m-auto" /></p>
 
 ### Pyyntöotsikon ja -kehon asettaminen
 
@@ -31,20 +31,20 @@ Otetaan esimerkki yhdestä Nano Banana Images API:n palauttamasta tehtävä-ID:s
 
 Aseta kuten alla olevassa kuvassa:
 
-<p><img src="https://cdn.acedata.cloud/nuiuth.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nuiuth.png" width="500" className="m-auto" /></p>
 
 ### Koodiesimerkki
 
 Voit huomata, että sivun oikealla puolella on automaattisesti luotu koodia eri kielillä, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/r1u4vl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/r1u4vl.png" width="500" className="m-auto" /></p>
 
 Osittainen koodiesimerkki on seuraava:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -59,7 +59,7 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/nano-banana/tasks"
+url = "https://api.xhuoapi.ai/v1/nano-banana/tasks"
 
 headers = {
     "accept": "application/json",
@@ -102,7 +102,7 @@ Kun pyyntö onnistuu, API palauttaa tämän tehtävän yksityiskohtaiset tiedot.
     "data": [
       {
         "prompt": "a white siamese cat",
-        "image_url": "https://platform.cdn.acedata.cloud/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
+        "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
       }
     ]
   }
@@ -127,7 +127,7 @@ Tämä on tarkoitettu useiden tehtävä-ID:iden kyselyyn tehtävän yksityiskoht
 Esimerkki on seuraava:
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -165,7 +165,7 @@ Kun pyyntö onnistuu, API palauttaa kaikkien massatehtävien tarkat yksityiskohd
         "data": [
           {
             "prompt": "a white siamese cat",
-            "image_url": "https://platform.cdn.acedata.cloud/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
+            "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
           }
         ]
       }

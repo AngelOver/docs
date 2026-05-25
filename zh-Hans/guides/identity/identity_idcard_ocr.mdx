@@ -1,15 +1,15 @@
 ---
 title: "身份证识别及信息核验 API 对接说明"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 本文将介绍一种 身份证识别及信息核验 API 对接说明，它可以通过输入身份证图片 或 姓名和身份证号码，来校验姓名和身份证号的真实性和一致性。本接口用于校验姓名和身份证号的真实性和一致性，您可以通过输入姓名和身份证号或传入身份证人像面照片提供所需验证信息。
 
 ## 申请流程
 
-要使用 API，需要先到 [身份证识别及信息核验 API](https://platform.acedata.cloud/documents/67f96afa-60b8-4cbb-a4bf-0cbfcf139a23) 对应页面申请对应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
+要使用 API，需要先到 [身份证识别及信息核验 API](https://api.xhuoapi.ai/documents/67f96afa-60b8-4cbb-a4bf-0cbfcf139a23) 对应页面申请对应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 如果你尚未登录或注册，会自动跳转到登录页面邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
@@ -19,7 +19,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 首先先了解下基本的使用方式，就是输入身份证图片链接，便可获得处理后验证结果，首先需要简单地传递一个 `image_url` 字段，我们接下来就可以在界面上填写对应的内容，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/qxy9rh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qxy9rh.png" width="500" className="m-auto" /></p>
 
 可以看到这里我们设置了 Request Headers，包括：
 
@@ -33,7 +33,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 选择之后，可以发现右侧也生成了对应代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/uw90il.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/uw90il.png" width="500" className="m-auto" /></p>
 
 点击「Try」按钮即可进行测试，如上图所示，这里我们就得到了如下结果：
 
@@ -76,7 +76,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 另外如果想生成对应的对接代码，可以直接复制生成，例如 CURL 的代码如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/idcard/ocr' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/idcard/ocr' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -90,7 +90,7 @@ Python 的对接代码如下：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/idcard/ocr"
+url = "https://api.xhuoapi.ai/v1/identity/idcard/ocr"
 
 headers = {
     "accept": "application/json",
@@ -109,7 +109,7 @@ print(response.text)
 
 我们也提供了一种不泄露身份证图片信息的方式来验证，可以只传入姓名`name` 和 身份证号码 `id_card` 来进行校验姓名和身份证号的真实性和一致性，下面是填的具体信息：
 
-<p><img src="https://cdn.acedata.cloud/mc5bbw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mc5bbw.png" width="500" className="m-auto" /></p>
 
 点击运行后得到如下结果：
 

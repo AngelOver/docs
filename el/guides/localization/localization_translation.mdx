@@ -1,6 +1,6 @@
 ---
 title: "Τοπική Μετάφραση API: Σύνδεση και Χρήση"
-description: "Localization translation 集成指南 - Ace Data Cloud"
+description: "Localization translation 集成指南 - XHuoAPI"
 ---
 
 Η κύρια λειτουργία του Τοπικού Μεταφραστικού API είναι να αποκτάτε το μεταφρασμένο κείμενο μέσω της εισαγωγής του κειμένου που χρειάζεται μετάφραση, ενώ η γλώσσα της μετάφρασης μπορεί να προσαρμοστεί, και τα αποτελέσματα της μετάφρασης μπορούν να παραχθούν σε δύο κύριες μορφές: `json` και `markdown`.
@@ -9,11 +9,11 @@ description: "Localization translation 集成指南 - Ace Data Cloud"
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το Τοπικό Μεταφραστικό API, πρέπει πρώτα να επισκεφθείτε τη σελίδα αίτησης [Τοπικό Μεταφραστικό API](https://platform.acedata.cloud/documents/6dcc60d0-a973-4ad2-92d8-11f4d3775532) για να ζητήσετε την αντίστοιχη υπηρεσία. Αφού εισέλθετε στη σελίδα, κάντε κλικ στο κουμπί «Απόκτηση», όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε το Τοπικό Μεταφραστικό API, πρέπει πρώτα να επισκεφθείτε τη σελίδα αίτησης [Τοπικό Μεταφραστικό API](https://api.xhuoapi.ai/documents/6dcc60d0-a973-4ad2-92d8-11f4d3775532) για να ζητήσετε την αντίστοιχη υπηρεσία. Αφού εισέλθετε στη σελίδα, κάντε κλικ στο κουμπί «Απόκτηση», όπως φαίνεται στην εικόνα:
 
-![Σελίδα Αίτησης](https://cdn.acedata.cloud/rci31i.png)
+![Σελίδα Αίτησης](https://cdn.xhuoapi.ai/rci31i.png)
 
-Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα ανακατευθυνθείτε αυτόματα στη [σελίδα σύνδεσης](https://platform.acedata.cloud) για να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και τη σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
+Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα ανακατευθυνθείτε αυτόματα στη [σελίδα σύνδεσης](https://api.xhuoapi.ai) για να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και τη σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
 
 Κατά την πρώτη αίτηση, θα υπάρχει δωρεάν πίστωση που μπορείτε να χρησιμοποιήσετε δωρεάν για αυτό το API.
 
@@ -37,20 +37,20 @@ description: "Localization translation 集成指南 - Ace Data Cloud"
 
 Ρυθμίστε όπως φαίνεται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/d4uqst.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d4uqst.png" width="500" className="m-auto" /></p>
 
 ### Παράδειγμα Κώδικα
 
 Μπορείτε να παρατηρήσετε ότι στη δεξιά πλευρά της σελίδας έχουν παραχθεί αυτόματα διάφορες γλώσσες κώδικα, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/tn5nno.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tn5nno.png" width="500" className="m-auto" /></p>
 
 Ορισμένα παραδείγματα κώδικα είναι τα εξής:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/localization/translate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/localization/translate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -66,7 +66,7 @@ curl -X POST 'https://api.acedata.cloud/localization/translate' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/localization/translate"
+url = "https://api.xhuoapi.ai/v1/localization/translate"
 
 headers = {
     "accept": "application/json",

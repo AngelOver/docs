@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Images Generations API 申请及使用"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI Images Generations API 目前支持多种图像生成模型，包括经典的 `dall-e-3`、文字渲染能力更强的 `gpt-image-1`、最新一代的 **`gpt-image-2`**，以及通过同一接口接入的 **`nano-banana` / `nano-banana-2` / `nano-banana-pro`** 系列模型。它们都能根据文本描述生成高质量的图像。
@@ -9,9 +9,9 @@ OpenAI Images Generations API 目前支持多种图像生成模型，包括经�
 
 ## 申请流程
 
-要使用 OpenAI Images Generations API，首先可以到 [OpenAI Images Generations API](https://platform.acedata.cloud/documents/fd932485-90c7-45d6-8394-1e14b6f07b2b) 页面点击「Acquire」按钮，获取请求所需要的凭证：
+要使用 OpenAI Images Generations API，首先可以到 [OpenAI Images Generations API](https://api.xhuoapi.ai/documents/fd932485-90c7-45d6-8394-1e14b6f07b2b) 页面点击「Acquire」按钮，获取请求所需要的凭证：
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 如果你尚未登录或注册，会自动跳转到登录页面邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
@@ -26,7 +26,7 @@ OpenAI Images Generations API 目前支持多种图像生成模型，包括经�
 - **风格表现更丰富**：原生支持电影感人像、复古海报、儿童插画、产品摄影、信息图等多种风格。
 - **原生多比例 + 高分辨率支持**：覆盖 5 种比例（1:1、4:3、3:4、16:9、9:16）共 3 档分辨率（1K / 2K / 4K）。
 
-调用方式与其它模型完全一致，只需将 `model` 字段设置为 `gpt-image-2` 即可。返回结果中的 `url` 是一个永久托管在 `platform.cdn.acedata.cloud` 上的图片链接，可以直接在浏览器中打开或嵌入到网页中。
+调用方式与其它模型完全一致，只需将 `model` 字段设置为 `gpt-image-2` 即可。返回结果中的 `url` 是一个永久托管在 `platform.cdn.xhuoapi.ai` 上的图片链接，可以直接在浏览器中打开或嵌入到网页中。
 
 ### 支持的 `size` 取值与计费档位
 
@@ -66,7 +66,7 @@ Python 样例调用代码：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -94,7 +94,7 @@ print(response.text)
   "data": [
     {
       "revised_prompt": "A cinematic portrait of a young woman standing in a convenience store at night, illuminated by soft pink and cyan neon signs through the window. Shot on 35mm film, shallow depth of field, slight grain, melancholic mood.",
-      "url": "https://platform.cdn.acedata.cloud/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png"
+      "url": "https://platform.cdn.xhuoapi.ai/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png"
     }
   ]
 }
@@ -102,7 +102,7 @@ print(response.text)
 
 生成的图片如下所示：
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png" width="500" className="m-auto" /></p>
 
 ### 场景二：复古旅行海报（带文字渲染）
 
@@ -118,7 +118,7 @@ payload = {
 
 返回结果中的 `url` 字段对应的图片如下：
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/c6061f92-3fae-498e-af8e-688e7f415ba3_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/c6061f92-3fae-498e-af8e-688e7f415ba3_0.png" width="500" className="m-auto" /></p>
 
 可以看到模型不仅准确还原了 Art Deco 海报的视觉风格，标题文字 `AMALFI` 与 `ITALIA 1958` 都被清晰、正确地渲染出来。
 
@@ -136,7 +136,7 @@ payload = {
 
 生成的图片如下：
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/64a3b932-a082-4cad-9f85-9d30474b104d_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/64a3b932-a082-4cad-9f85-9d30474b104d_0.png" width="500" className="m-auto" /></p>
 
 可以看到三层书架上的书本数量（1 / 3 / 7）与提示词完全一致，这是 `dall-e-3` 时代很难稳定做到的。
 
@@ -154,7 +154,7 @@ payload = {
 
 生成的横屏插画如下：
 
-![](https://platform.cdn.acedata.cloud/gpt-image/6cd57e69-d237-4cc1-a666-759a93964a08_0.png)
+![](https://platform.cdn.xhuoapi.ai/gpt-image/6cd57e69-d237-4cc1-a666-759a93964a08_0.png)
 
 ### 异步与回调
 
@@ -186,7 +186,7 @@ payload = {
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -211,7 +211,7 @@ print(response.text)
   "created": 0,
   "data": [
     {
-      "url": "https://platform.cdn.acedata.cloud/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png",
+      "url": "https://platform.cdn.xhuoapi.ai/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png",
       "revised_prompt": "a small red apple on a white table, photoreal"
     }
   ]
@@ -220,7 +220,7 @@ print(response.text)
 
 生成的图片可以直接通过返回的 `url` 字段访问：
 
-<p><img src="https://platform.cdn.acedata.cloud/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png" width="500" className="m-auto" /></p>
 
 ### 升级到旗舰模型 `nano-banana-pro`
 
@@ -241,14 +241,14 @@ payload = {
   "created": 0,
   "data": [
     {
-      "url": "https://platform.cdn.acedata.cloud/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png",
+      "url": "https://platform.cdn.xhuoapi.ai/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png",
       "revised_prompt": "abstract painting"
     }
   ]
 }
 ```
 
-<p><img src="https://platform.cdn.acedata.cloud/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png" width="500" className="m-auto" /></p>
 
 ### 异步回调
 
@@ -258,20 +258,20 @@ payload = {
 
 接下来就可以在界面上填写对应的内容，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/zv58ug.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zv58ug.png" width="500" className="m-auto" /></p>
 
 在第一次使用该接口时，我们至少需要填写三个内容，一个是 `authorization`，直接在下拉列表里面选择即可。另一个参数是 `model`， `model` 就是我们选择使用 OpenAI DALL-E 官网模型类别，这里我们主要有 1 种模型，详情可以看我们提供的模型。最后一个参数是`prompt`，`prompt` 是我们输入要生成图像的提示词。
 
 同时您可以注意到右侧有对应的调用代码生成，您可以复制代码直接运行，也可以直接点击「Try」按钮进行测试。
 
-<p><img src="https://cdn.acedata.cloud/pbss4f.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pbss4f.png" width="500" className="m-auto" /></p>
 
 Python 样例调用代码：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -309,7 +309,7 @@ print(response.text)
 
 其中 `data` 是包含了模型生成图片的具体信息，它里面的 `url` 是生成图片的详情链接，可以发现如图所示。
 
-<p><img src="https://cdn.acedata.cloud/dz7u0x.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dz7u0x.png" width="500" className="m-auto" /></p>
 
 ## 图片质量参数 `quality`
 
@@ -317,18 +317,18 @@ print(response.text)
 
 下面设置图片质量参数为 `standard` ，具体设置如下图：
 
-<p><img src="https://cdn.acedata.cloud/1q303w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1q303w.png" width="500" className="m-auto" /></p>
 
 同时您可以注意到右侧有对应的调用代码生成，您可以复制代码直接运行，也可以直接点击「Try」按钮进行测试。
 
-<p><img src="https://cdn.acedata.cloud/c0ps6i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/c0ps6i.png" width="500" className="m-auto" /></p>
 
 Python 样例调用代码：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -362,11 +362,11 @@ print(response.text)
 
 返回的结果与基本使用的内容一致，可以看到图片质量参数为 `standard` 的生成图片如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/j5v15b.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/j5v15b.png" width="500" className="m-auto" /></p>
 
 与上述相同操作，仅需将图片质量参数设置为 `hd` ，可以得到如下图所示的图片：
 
-<p><img src="https://cdn.acedata.cloud/vjpbqr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vjpbqr.png" width="500" className="m-auto" /></p>
 
 可以看到 `hd` 比 `standard` 生成的图片具有更精细的细节和更大的一致性。
 
@@ -376,18 +376,18 @@ print(response.text)
 
 下面设置图片的尺寸大小为 `1024 * 1024` ，具体设置如下图：
 
-<p><img src="https://cdn.acedata.cloud/dx5rwh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dx5rwh.png" width="500" className="m-auto" /></p>
 
 同时您可以注意到右侧有对应的调用代码生成，您可以复制代码直接运行，也可以直接点击「Try」按钮进行测试。
 
-<p><img src="https://cdn.acedata.cloud/0sbybl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0sbybl.png" width="500" className="m-auto" /></p>
 
 Python 样例调用代码：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -421,11 +421,11 @@ print(response.text)
 
 返回的结果与基本使用的内容一致，可以看到图片的尺寸大小为 `1024 * 1024` 的生成图片如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/o4pvvx.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/o4pvvx.png" width="500" className="m-auto" /></p>
 
 与上述相同操作，仅需将图片的尺寸大小为 `1792 * 1024` ，可以得到如下图所示的图片：
 
-![](https://cdn.acedata.cloud/4pilae.png)
+![](https://cdn.xhuoapi.ai/4pilae.png)
 
 可以看到图片的尺寸大小很明显不一样，另外还可以设置更多尺寸大小，详情信息参考我们官网文档。
 
@@ -435,18 +435,18 @@ print(response.text)
 
 下面设置图片风格参数为 `vivid` ，具体设置如下图：
 
-<p><img src="https://cdn.acedata.cloud/609l9i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/609l9i.png" width="500" className="m-auto" /></p>
 
 同时您可以注意到右侧有对应的调用代码生成，您可以复制代码直接运行，也可以直接点击「Try」按钮进行测试。
 
-<p><img src="https://cdn.acedata.cloud/ee3u9o.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ee3u9o.png" width="500" className="m-auto" /></p>
 
 Python 样例调用代码：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -480,11 +480,11 @@ print(response.text)
 
 返回的结果与基本使用的内容一致，可以看到图片风格参数为 `vivid` 的生成图片如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/e0rpc3.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/e0rpc3.png" width="500" className="m-auto" /></p>
 
 与上述相同操作，仅需将图片风格参数为 `natural` ，可以得到如下图所示的图片：
 
-<p><img src="https://cdn.acedata.cloud/q9tqwu.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q9tqwu.png" width="500" className="m-auto" /></p>
 
 可以看到 `vivid` 比 `natural` 生成的图片具有更加生动逼真。
 
@@ -494,18 +494,18 @@ print(response.text)
 
 下面设置图片链接的格式参数为 `url` ，具体设置如下图：
 
-<p><img src="https://cdn.acedata.cloud/2zbgrg.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2zbgrg.png" width="500" className="m-auto" /></p>
 
 同时您可以注意到右侧有对应的调用代码生成，您可以复制代码直接运行，也可以直接点击「Try」按钮进行测试。
 
-<p><img src="https://cdn.acedata.cloud/a9exmp.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a9exmp.png" width="500" className="m-auto" /></p>
 
 Python 样例调用代码：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -539,7 +539,7 @@ print(response.text)
 
 返回的结果与基本使用的内容一致，可以看到图片链接的格式参数为 `url` 的生成图片的链接为 [图片 URL](https://dalleprodsec.blob.core.windows.net/private/images/87792c5f-8b6d-412e-81dd-f1a1baa19bd2/generated_00.png?se=2024-07-23T08%3A39%3A47Z&sig=zzRAn30TqIKHdLVqZPUUuSJdjCYpoJdaGU6BeoA76Jo%3D&ske=2024-07-23T13%3A32%3A13Z&skoid=e52d5ed7-0657-4f62-bc12-7e5dbb260a96&sks=b&skt=2024-07-16T13%3A32%3A13Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02) 这是可以直接访问的，图片内容如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/33hs4z.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/33hs4z.png" width="500" className="m-auto" /></p>
 
 与上述相同操作，仅需将图片链接的格式参数为 `b64_json` ，可以得到结果 Base64 编码后的图片链接，具体结果如下图所示：
 
@@ -565,7 +565,7 @@ print(response.text)
 
 首先，Webhook 回调是一个可以接收 HTTP 请求的服务，开发者应该替换为自己搭建的 HTTP 服务器的 URL。此处为了方便演示，使用一个公开的 Webhook 样例网站 https://webhook.site/，打开该网站即可得到一个 Webhook URL，如图所示：
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 将此 URL 复制下来，就可以作为 Webhook 来使用，此处的样例为 `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`。
 
@@ -574,7 +574,7 @@ print(response.text)
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",

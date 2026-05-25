@@ -1,6 +1,6 @@
 ---
 title: "واجهة برمجة تطبيقات Hailuo Tasks والتكامل والاستخدام"
-description: "Hailuo Video Generation 集成指南 - Ace Data Cloud"
+description: "Hailuo Video Generation 集成指南 - XHuoAPI"
 ---
 
 الوظيفة الرئيسية لواجهة برمجة تطبيقات Hailuo Tasks هي استعلام حالة تنفيذ المهمة من خلال إدخال معرف المهمة الذي تم إنشاؤه بواسطة واجهة برمجة تطبيقات Hailuo Videos Generation.
@@ -9,27 +9,27 @@ description: "Hailuo Video Generation 集成指南 - Ace Data Cloud"
 
 ## عملية التقديم
 
-لاستخدام واجهة برمجة تطبيقات Hailuo Tasks، يجب أولاً زيارة صفحة التقديم [واجهة برمجة تطبيقات Hailuo Videos Generation](https://platform.acedata.cloud/documents/ee06377b-9185-438f-ac84-3376bcb1275e) لتقديم طلب الخدمة المناسبة، ثم نسخ معرف المهمة من واجهة برمجة تطبيقات Hailuo Videos Generation كما هو موضح في الصورة:
+لاستخدام واجهة برمجة تطبيقات Hailuo Tasks، يجب أولاً زيارة صفحة التقديم [واجهة برمجة تطبيقات Hailuo Videos Generation](https://api.xhuoapi.ai/documents/ee06377b-9185-438f-ac84-3376bcb1275e) لتقديم طلب الخدمة المناسبة، ثم نسخ معرف المهمة من واجهة برمجة تطبيقات Hailuo Videos Generation كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/4f9d95.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4f9d95.png" width="500" className="m-auto" /></p>
 
-أخيرًا، انتقل إلى صفحة واجهة برمجة تطبيقات Tasks [واجهة برمجة تطبيقات Hailuo Tasks](https://platform.acedata.cloud/documents/4b1ccdbc-b8ed-4171-9a14-48e10970ba04) لتقديم طلب الخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire" كما هو موضح في الصورة:
+أخيرًا، انتقل إلى صفحة واجهة برمجة تطبيقات Tasks [واجهة برمجة تطبيقات Hailuo Tasks](https://api.xhuoapi.ai/documents/4b1ccdbc-b8ed-4171-9a14-48e10970ba04) لتقديم طلب الخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire" كما هو موضح في الصورة:
 
-![صفحة التقديم](https://cdn.acedata.cloud/rci31i.png)
+![صفحة التقديم](https://cdn.xhuoapi.ai/rci31i.png)
 
-إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى [صفحة تسجيل الدخول](https://platform.acedata.cloud) لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول أو التسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
+إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى [صفحة تسجيل الدخول](https://api.xhuoapi.ai) لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول أو التسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
 عند التقديم لأول مرة، سيكون هناك حد مجاني متاح، يمكنك استخدام هذه الواجهة مجانًا.
 
 ## مثال على الطلب
 
-يمكن استخدام واجهة برمجة تطبيقات Hailuo Tasks لاستعلام نتائج واجهة برمجة تطبيقات Hailuo Videos Generation. لمزيد من المعلومات حول كيفية استخدام واجهة برمجة تطبيقات Hailuo Videos Generation، يرجى الرجوع إلى الوثيقة [واجهة برمجة تطبيقات Hailuo Videos Generation](https://platform.acedata.cloud/documents/d2fc9087-2996-4573-bfe5-8b1c828fdfc7).
+يمكن استخدام واجهة برمجة تطبيقات Hailuo Tasks لاستعلام نتائج واجهة برمجة تطبيقات Hailuo Videos Generation. لمزيد من المعلومات حول كيفية استخدام واجهة برمجة تطبيقات Hailuo Videos Generation، يرجى الرجوع إلى الوثيقة [واجهة برمجة تطبيقات Hailuo Videos Generation](https://api.xhuoapi.ai/documents/d2fc9087-2996-4573-bfe5-8b1c828fdfc7).
 
 سنأخذ مثالاً على معرف المهمة الذي تم إرجاعه من خدمة واجهة برمجة تطبيقات Hailuo Videos Generation، لنوضح كيفية استخدام هذه الواجهة. لنفترض أن لدينا معرف مهمة: 58cc618b-9639-4ee7-add2-d2fcf260d9a3، وسنوضح كيفية تمرير معرف المهمة.
 
 ### مثال على المهمة
 
-<p><img src="https://cdn.acedata.cloud/4f9d95.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4f9d95.png" width="500" className="m-auto" /></p>
 
 ### إعداد رأس الطلب وجسم الطلب
 
@@ -45,20 +45,20 @@ description: "Hailuo Video Generation 集成指南 - Ace Data Cloud"
 
 الإعداد كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/e9btl5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/e9btl5.png" width="500" className="m-auto" /></p>
 
 ### مثال على الكود
 
 يمكن ملاحظة أنه تم إنشاء أكواد بلغات مختلفة تلقائيًا على الجانب الأيمن من الصفحة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/tfn261.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tfn261.png" width="500" className="m-auto" /></p>
 
 بعض أمثلة الكود كما يلي:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/hailuo/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/hailuo/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/hailuo/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/hailuo/tasks"
+url = "https://api.xhuoapi.ai/v1/hailuo/tasks"
 
 headers = {
     "accept": "application/json",
@@ -143,13 +143,13 @@ print(response.text)
 
 الإعداد كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/i023y9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/i023y9.png" width="500" className="m-auto" /></p>
 
 ### مثال على الكود
 
 يمكن ملاحظة أنه تم إنشاء أكواد بلغات مختلفة تلقائيًا على الجانب الأيمن من الصفحة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/3sxeeh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3sxeeh.png" width="500" className="m-auto" /></p>
 
 بعض أمثلة الكود كما يلي:
 
@@ -230,7 +230,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/hailuo/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/hailuo/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -245,7 +245,7 @@ curl -X POST 'https://api.acedata.cloud/hailuo/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/hailuo/tasks"
+url = "https://api.xhuoapi.ai/v1/hailuo/tasks"
 
 headers = {
     "accept": "application/json",

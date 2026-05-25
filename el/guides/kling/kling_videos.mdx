@@ -1,15 +1,15 @@
 ---
 title: "Οδηγίες Ενσωμάτωσης του Kling Videos Generation API"
-description: "Kling video generation 集成指南 - Ace Data Cloud"
+description: "Kling video generation 集成指南 - XHuoAPI"
 ---
 
 Αυτό το έγγραφο παρουσιάζει τις οδηγίες ενσωμάτωσης του Kling Videos Generation API, το οποίο επιτρέπει τη δημιουργία επίσημων βίντεο Kling μέσω εισαγωγής προσαρμοσμένων παραμέτρων.
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το API, πρέπει πρώτα να κάνετε αίτηση για την αντίστοιχη υπηρεσία στη σελίδα [Kling Videos Generation API](https://platform.acedata.cloud/documents/3b921a16-a411-4557-8335-53f21d3f9e46). Αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε το API, πρέπει πρώτα να κάνετε αίτηση για την αντίστοιχη υπηρεσία στη σελίδα [Kling Videos Generation API](https://api.xhuoapi.ai/documents/3b921a16-a411-4557-8335-53f21d3f9e46). Αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα ανακατευθυνθείτε αυτόματα στη σελίδα σύνδεσης για εγγραφή και σύνδεση. Μετά τη σύνδεση, θα επιστρέψετε αυτόματα στην τρέχουσα σελίδα.
 
@@ -19,7 +19,7 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 
 Αρχικά, κατανοήστε τον βασικό τρόπο χρήσης: εισάγετε το πεδίο `prompt` (προτροπή), το `action` (ενέργεια δημιουργίας), το `start_image_url` (URL αρχικής εικόνας αναφοράς) και το `model` (μοντέλο), και λαμβάνετε το επεξεργασμένο αποτέλεσμα. Πρέπει να περάσετε απλά το πεδίο `action` με τιμή `text2video`. Υπάρχουν τρεις βασικές ενέργειες: δημιουργία βίντεο από κείμενο (`text2video`), δημιουργία βίντεο από εικόνα (`image2video`) και επέκταση βίντεο (`extend`). Επιπλέον, πρέπει να εισάγετε το μοντέλο `model`. Τα κύρια διαθέσιμα μοντέλα είναι: `kling-v1`, `kling-v1-6`, `kling-v2-master`, `kling-v2-1-master`, `kling-v2-5-turbo`, `kling-v2-6`, `kling-v3`, `kling-v3-omni`, `kling-video-o1`. Αναλυτικά:
 
-<p><img src="https://cdn.acedata.cloud/ke1bok.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ke1bok.png" width="500" className="m-auto" /></p>
 
 Εδώ ορίζουμε τα Request Headers, τα οποία περιλαμβάνουν:
 
@@ -46,7 +46,7 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 
 Μετά την επιλογή, παράγεται ο αντίστοιχος κώδικας δεξιά, όπως φαίνεται:
 
-<p><img src="https://cdn.acedata.cloud/3yjql0.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3yjql0.png" width="500" className="m-auto" /></p>
 
 Πατώντας το κουμπί «Try» μπορείτε να δοκιμάσετε. Το αποτέλεσμα είναι:
 
@@ -75,7 +75,7 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 Επίσης, μπορείτε να αντιγράψετε τον κώδικα ενσωμάτωσης, π.χ. CURL:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/kling/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -117,7 +117,7 @@ curl -X POST 'https://api.acedata.cloud/kling/videos' \
 
 Για να συνεχίσετε τη δημιουργία ενός ήδη παραχθέντος βίντεο Kling, ορίστε το `action` σε `extend` και εισάγετε το ID του βίντεο που θέλετε να επεκτείνετε. Το ID βίντεο λαμβάνεται από τη βασική χρήση, όπως φαίνεται:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 Το ID βίντεο είναι:
 
@@ -137,18 +137,18 @@ curl -X POST 'https://api.acedata.cloud/kling/videos' \
 
 Παράδειγμα συμπλήρωσης:
 
-<p><img src="https://cdn.acedata.cloud/ejimqy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ejimqy.png" width="500" className="m-auto" /></p>
 
 Μετά τη συμπλήρωση, παράγεται αυτόματα ο κώδικας:
 
-<p><img src="https://cdn.acedata.cloud/52x4u5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/52x4u5.png" width="500" className="m-auto" /></p>
 
 Παράδειγμα Python κώδικα:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kling/videos"
+url = "https://api.xhuoapi.ai/v1/kling/videos"
 
 headers = {
     "accept": "application/json",
@@ -193,11 +193,11 @@ print(response.text)
 
 Το Webhook callback είναι μια υπηρεσία που δέχεται HTTP αιτήματα. Ο προγραμματιστής πρέπει να χρησιμοποιήσει το URL του δικού του HTTP server. Για επίδειξη, χρησιμοποιούμε το δημόσιο Webhook site https://webhook.site/, όπου λαμβάνετε ένα Webhook URL, όπως:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Αντιγράψτε το URL, π.χ. `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`, και ορίστε το ως `callback_url` μαζί με τις άλλες παραμέτρους:
 
-<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vdx12s.png" width="500" className="m-auto" /></p>
 
 Μετά την εκτέλεση, λαμβάνετε άμεσα:
 
@@ -209,7 +209,7 @@ print(response.text)
 
 Μετά από λίγο, στο https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3 θα δείτε το αποτέλεσμα δημιουργίας βίντεο:
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 Περιεχόμενο:
 

@@ -1,15 +1,15 @@
 ---
 title: "Flux Images Generation API 連携説明"
-description: "Flux Image Generation 集成指南 - Ace Data Cloud"
+description: "Flux Image Generation 集成指南 - XHuoAPI"
 ---
 
 本文では、Flux Images Generation API 連携説明を紹介します。これは、カスタムパラメータを入力することで、Flux の公式画像を生成することができます。
 
 ## 申請プロセス
 
-API を使用するには、まず [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
+API を使用するには、まず [Flux Images Generation API](https://api.xhuoapi.ai/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 まだログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -19,7 +19,7 @@ API を使用するには、まず [Flux Images Generation API](https://platform
 
 まず、基本的な使用方法を理解します。これは、プロンプト `prompt`、生成アクション `action`、画像サイズ `size` を入力することで、処理された結果を得ることができます。まず、`action` フィールドを単純に渡す必要があり、その値は `generate` です。次に、プロンプトを入力する必要があります。具体的な内容は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/wz85jt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wz85jt.png" width="500" className="m-auto" /></p>
 
 ここでは、リクエストヘッダーを設定しています。これには以下が含まれます：
 
@@ -52,7 +52,7 @@ API を使用するには、まず [Flux Images Generation API](https://platform
 
 選択後、右側にも対応するコードが生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/8q7aux.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8q7aux.png" width="500" className="m-auto" /></p>
 
 「Try」ボタンをクリックするとテストが行えます。上の図のように、以下の結果が得られました：
 
@@ -90,7 +90,7 @@ API を使用するには、まず [Flux Images Generation API](https://platform
 また、対応する連携コードを生成したい場合は、生成されたものを直接コピーできます。例えば、CURL のコードは以下の通りです：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/flux/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/images' \
 -H 'authorization: Bearer {token}' \
 -H 'accept: application/json' \
 -H 'content-type: application/json' \
@@ -111,18 +111,18 @@ curl -X POST 'https://api.acedata.cloud/flux/images' \
 
 記入例は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/jn9da5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jn9da5.png" width="500" className="m-auto" /></p>
 
 記入が完了すると、自動的に以下のコードが生成されます：
 
-<p><img src="https://cdn.acedata.cloud/6cwxb8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/6cwxb8.png" width="500" className="m-auto" /></p>
 
 対応するコード：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/images"
+url = "https://api.xhuoapi.ai/v1/flux/images"
 
 headers = {
     "accept": "application/json",
@@ -134,7 +134,7 @@ payload = {
     "action": "edit",
     "prompt": "a white siamese cat",
     "model": "flux-kontext-pro",
-    "image_url": "https://cdn.acedata.cloud/ytj2qy.png"
+    "image_url": "https://cdn.xhuoapi.ai/ytj2qy.png"
 }
 
 response = requests.post(url, json=payload, headers=headers)
@@ -169,13 +169,13 @@ Flux Images Generation APIによって生成される時間は比較的長く、
 
 まず、WebhookコールバックはHTTPリクエストを受信できるサービスであり、開発者は自分で構築したHTTPサーバーのURLに置き換える必要があります。ここでは、デモのために公開のWebhookサンプルサイトhttps://webhook.site/を使用します。このサイトを開くとWebhook URLが得られます。
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 このURLをコピーすればWebhookとして使用できます。このサンプルは`https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`です。
 
 次に、フィールド`callback_url`を上記のWebhook URLに設定し、対応するパラメータを入力します。具体的な内容は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/wm6caw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wm6caw.png" width="500" className="m-auto" /></p>
 
 実行ボタンをクリックすると、すぐに結果が得られます。以下のようになります：
 
@@ -187,7 +187,7 @@ Flux Images Generation APIによって生成される時間は比較的長く、
 
 少し待つと、`https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`で生成された画像の結果を観察できます。以下のようになります：
 
-![](https://cdn.acedata.cloud/v23lot.png)
+![](https://cdn.xhuoapi.ai/v23lot.png)
 
 内容は以下の通りです：
 

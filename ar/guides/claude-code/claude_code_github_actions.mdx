@@ -1,17 +1,17 @@
 ---
 title: "دليل استخدام Claude Code GitHub Actions"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code هو أداة **Agentic Coding** أطلقتها شركة Anthropic، وتعتبر واحدة من أقوى الوكلاء البرمجيين في العالم. يمكن أن تدمج Claude Code GitHub Actions قدرات البرمجة الذكية في سير عمل GitHub الخاص بك، فقط قم بكتابة `@claude` في PR أو Issue، ليقوم Claude بتحليل الكود تلقائيًا، وإنشاء PR، وتنفيذ الوظائف، وإصلاح الأخطاء.
 
-تتناول هذه الوثيقة كيفية تكوين واستخدام Claude Code GitHub Actions من خلال خدمة الوكيل من AceData Cloud.
+تتناول هذه الوثيقة كيفية تكوين واستخدام Claude Code GitHub Actions من خلال خدمة الوكيل من XHuoAPI.
 
 ## عملية التقديم
 
-لاستخدام Claude Code، يمكنك أولاً زيارة [صفحة خدمة Claude Messages](https://platform.acedata.cloud/documents/claude-messages) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة:
+لاستخدام Claude Code، يمكنك أولاً زيارة [صفحة خدمة Claude Messages](https://api.xhuoapi.ai/documents/claude-messages) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل، فسيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، وبعد تسجيل الدخول، سيتم إرجاعك تلقائيًا إلى الصفحة الحالية.
 
@@ -30,7 +30,7 @@ Claude Code هو أداة **Agentic Coding** أطلقتها شركة Anthropic،
 
 انتقل إلى [https://github.com/apps/claude](https://github.com/apps/claude) لتثبيت تطبيق Claude GitHub في مستودعك.
 
-![صفحة تثبيت تطبيق GitHub Claude](https://cdn.acedata.cloud/ba4b8df66d.png)
+![صفحة تثبيت تطبيق GitHub Claude](https://cdn.xhuoapi.ai/ba4b8df66d.png)
 
 يتطلب هذا التطبيق الأذونات التالية للمستودع:
 
@@ -42,14 +42,14 @@ Claude Code هو أداة **Agentic Coding** أطلقتها شركة Anthropic،
 
 ### الخطوة الثانية: إضافة مفتاح API
 
-قم بإضافة مفتاح API الخاص بـ AceData Cloud كسر للمستودع:
+قم بإضافة مفتاح API الخاص بـ XHuoAPI كسر للمستودع:
 
 1. انتقل إلى **Settings** → **Secrets and variables** → **Actions**
 2. انقر على **New repository secret**
-3. اكتب في Name `ANTHROPIC_API_KEY`، وأدخل قيمة رمز API الذي حصلت عليه من AceData Cloud
+3. اكتب في Name `ANTHROPIC_API_KEY`، وأدخل قيمة رمز API الذي حصلت عليه من XHuoAPI
 4. انقر على **Add secret** للحفظ
 
-> **تلميح**: يمكنك عرض رمز API في [وحدة تحكم AceData Cloud](https://platform.acedata.cloud/console).
+> **تلميح**: يمكنك عرض رمز API في [وحدة تحكم XHuoAPI](https://api.xhuoapi.ai/console).
 
 ### الخطوة الثالثة: إنشاء ملف Workflow
 
@@ -76,7 +76,7 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 ```
 
-إذا كنت بحاجة إلى استخدام نقطة نهاية API الخاصة بـ AceData Cloud، فستحتاج أيضًا إلى إعداد متغيرات البيئة في Workflow:
+إذا كنت بحاجة إلى استخدام نقطة نهاية API الخاصة بـ XHuoAPI، فستحتاج أيضًا إلى إعداد متغيرات البيئة في Workflow:
 
 ```yaml
 name: Claude Code
@@ -94,7 +94,7 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
         env:
-          ANTHROPIC_BASE_URL: "https://api.acedata.cloud"
+          ANTHROPIC_BASE_URL: "https://api.xhuoapi.ai/v1"
 ```
 
 ## طريقة الاستخدام
@@ -130,7 +130,7 @@ jobs:
           prompt: "/review"
           claude_args: "--max-turns 5"
         env:
-          ANTHROPIC_BASE_URL: "https://api.acedata.cloud"
+          ANTHROPIC_BASE_URL: "https://api.xhuoapi.ai/v1"
 ```
 
 ### أتمتة المهام المجدولة
@@ -152,7 +152,7 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: "إنشاء ملخص للتقديمات من الأمس وتقرير عن Issues غير المغلقة"
         env:
-          ANTHROPIC_BASE_URL: "https://api.acedata.cloud"
+          ANTHROPIC_BASE_URL: "https://api.xhuoapi.ai/v1"
 ```
 
 ## شرح معلمات Action
@@ -215,12 +215,12 @@ claude_args: "--max-turns 5 --model claude-sonnet-4-5-20250929"
 
 ### كيف يمكنني查看 الرصيد المتبقي؟
 
-قم بتسجيل الدخول إلى [لوحة تحكم AceData Cloud](https://platform.acedata.cloud/console) لرؤية الرصيد المتبقي الحالي وحالة الاستخدام.
+قم بتسجيل الدخول إلى [لوحة تحكم XHuoAPI](https://api.xhuoapi.ai/console) لرؤية الرصيد المتبقي الحالي وحالة الاستخدام.
 
 ## تعرف على المزيد
 
 - 📖 [وثائق GitHub Actions الرسمية لـ Claude Code](https://code.claude.com/docs/en/github-actions)
 - 📂 [مستودع claude-code-action](https://github.com/anthropics/claude-code-action)
 - 📋 [أمثلة على سير العمل](https://github.com/anthropics/claude-code-action/tree/main/examples)
-- 🔧 [خدمة Claude Code من AceData Cloud](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [خدمة Claude Code من XHuoAPI](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 إذا كان لديك أي استفسارات، لا تتردد في الاتصال بنا عبر خدمة العملاء في المنصة

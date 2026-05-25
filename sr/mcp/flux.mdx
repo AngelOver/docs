@@ -3,7 +3,7 @@ title: "Flux MCP Vodič za integraciju"
 description: "flux MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) je protokol za kontekst modela koji je razvio Anthropic, omogućavajući AI modelima (kao što su Claude, GPT i drugi) da pozivaju spoljne alate putem standardizovanog interfejsa. Korišćenjem Flux MCP Servera koji pruža AceData Cloud, možete direktno generisati i uređivati AI slike u AI klijentima kao što su Claude Desktop, VS Code, Cursor i drugi.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) je protokol za kontekst modela koji je razvio Anthropic, omogućavajući AI modelima (kao što su Claude, GPT i drugi) da pozivaju spoljne alate putem standardizovanog interfejsa. Korišćenjem Flux MCP Servera koji pruža XHuoAPI, možete direktno generisati i uređivati AI slike u AI klijentima kao što su Claude Desktop, VS Code, Cursor i drugi.
 
 ## Pregled funkcionalnosti
 
@@ -17,10 +17,10 @@ Flux MCP Server pruža sledeće ključne funkcije:
 
 ## Preduslovi
 
-Pre korišćenja potrebno je da dobijete AceData Cloud API Token:
+Pre korišćenja potrebno je da dobijete XHuoAPI API Token:
 
-1. Registrujte se ili prijavite na [AceData Cloud platformu](https://platform.acedata.cloud)
-2. Posetite stranicu [Flux Images API](https://platform.acedata.cloud/documents/flux-images)
+1. Registrujte se ili prijavite na [XHuoAPI platformu](https://api.xhuoapi.ai)
+2. Posetite stranicu [Flux Images API](https://api.xhuoapi.ai/documents/flux-images)
 3. Kliknite na „Acquire“ da biste dobili API Token (prvi zahtev donosi besplatni kredit)
 
 ## Instalacija i konfiguracija
@@ -34,7 +34,7 @@ pip install mcp-flux-pro
 ### Metod 2: instalacija iz izvornog koda
 
 ```bash
-git clone https://github.com/AceDataCloud/FluxMCP.git
+git clone https://github.com/XHuoAPI/FluxMCP.git
 cd FluxMCP
 pip install -e .
 ```
@@ -56,7 +56,7 @@ Dodajte sledeću konfiguraciju:
     "flux": {
       "command": "mcp-flux-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -72,7 +72,7 @@ Ako koristite `uvx` (nije potrebno prethodno instalirati pakete):
       "command": "uvx",
       "args": ["mcp-flux-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -91,7 +91,7 @@ U korenskom direktorijumu projekta kreirajte `.vscode/mcp.json`:
     "flux": {
       "command": "mcp-flux-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -107,7 +107,7 @@ Ili koristite `uvx`:
       "command": "uvx",
       "args": ["mcp-flux-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -136,6 +136,6 @@ Nakon konfiguracije, možete direktno koristiti ove funkcije u AI klijentima pri
 
 ## Više informacija
 
-- GitHub repozitorijum: [AceDataCloud/FluxMCP](https://github.com/AceDataCloud/FluxMCP)
+- GitHub repozitorijum: [XHuoAPI/FluxMCP](https://github.com/XHuoAPI/FluxMCP)
 - PyPI paket: [mcp-flux-pro](https://pypi.org/project/mcp-flux-pro/)
-- API dokumentacija: [Flux Image Generation API](https://platform.acedata.cloud/documents/flux)
+- API dokumentacija: [Flux Image Generation API](https://api.xhuoapi.ai/documents/flux)

@@ -1,15 +1,15 @@
 ---
 title: "Instruções de Integração da API de Vídeos Midjourney"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 Este documento apresentará uma descrição da integração da API de Vídeos Midjourney, que pode gerar vídeos oficiais do Midjourney através da entrada de parâmetros personalizados.
 
 ## Processo de Solicitação
 
-Para usar a API, você precisa primeiro acessar a página correspondente da [API de Vídeos Midjourney](https://platform.acedata.cloud/documents/midjourney-videos) para solicitar o serviço correspondente. Após entrar na página, clique no botão "Acquire", conforme mostrado na imagem:
+Para usar a API, você precisa primeiro acessar a página correspondente da [API de Vídeos Midjourney](https://api.xhuoapi.ai/documents/midjourney-videos) para solicitar o serviço correspondente. Após entrar na página, clique no botão "Acquire", conforme mostrado na imagem:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Se você ainda não estiver logado ou registrado, será redirecionado automaticamente para a página de login, convidando-o a se registrar e fazer login. Após o registro e login, você será redirecionado de volta para a página atual.
 
@@ -19,7 +19,7 @@ Na primeira solicitação, haverá um crédito gratuito disponível, permitindo 
 
 Primeiro, entenda a forma básica de uso, que consiste em inserir a palavra-chave `prompt`, a ação `action`, e um array de imagens de referência para o primeiro e último quadro `image_url`, para obter o resultado processado. Primeiro, é necessário passar um campo `action`, cujo valor é `generate`. Ele contém duas ações principais: gerar vídeo (`generate`) e estender vídeo (`extend`), conforme descrito abaixo:
 
-<p><img src="https://cdn.acedata.cloud/pi72m9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pi72m9.png" width="500" className="m-auto" /></p>
 
 Podemos ver que configuramos os Headers da Requisição, incluindo:
 
@@ -41,7 +41,7 @@ Além disso, configuramos o Corpo da Requisição, incluindo:
 
 Após a seleção, você pode notar que o código correspondente também foi gerado à direita, conforme mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/y0cw0p.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/y0cw0p.png" width="500" className="m-auto" /></p>
 
 Clique no botão "Try" para realizar o teste, como mostrado na imagem acima, e você obterá o seguinte resultado:
 
@@ -78,14 +78,14 @@ Podemos ver que obtivemos informações satisfatórias sobre o vídeo, e tudo o 
 Além disso, se você quiser gerar o código de integração correspondente, pode copiá-lo diretamente, como o código CURL abaixo:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/midjourney/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "action": "generate",
   "prompt": "A cat sitting on a table",
-  "image_url": "https://cdn.acedata.cloud/jgo1cw.jpg"
+  "image_url": "https://cdn.xhuoapi.ai/jgo1cw.jpg"
 }'
 ```
 
@@ -110,18 +110,18 @@ Em seguida, precisamos preencher a próxima etapa com a palavra-chave que precis
 
 Um exemplo de preenchimento é mostrado abaixo:
 
-<p><img src="https://cdn.acedata.cloud/855hnj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/855hnj.png" width="500" className="m-auto" /></p>
 
 Após o preenchimento, o código gerado automaticamente é o seguinte:
 
-<p><img src="https://cdn.acedata.cloud/p58w39.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/p58w39.png" width="500" className="m-auto" /></p>
 
 Código correspondente em Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/videos"
+url = "https://api.xhuoapi.ai/v1/midjourney/videos"
 
 headers = {
     "accept": "application/json",
@@ -171,13 +171,13 @@ Abaixo, vamos entender como operar isso através de um exemplo.
 
 Primeiro, o callback Webhook é um serviço que pode receber solicitações HTTP, e os desenvolvedores devem substituí-lo pela URL do servidor HTTP que construíram. Aqui, para facilitar a demonstração, usamos um site de exemplo de Webhook público https://webhook.site/, ao abrir este site, você obterá uma URL de Webhook, como mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/lali6d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lali6d.png" width="500" className="m-auto" /></p>
 
 Copie esta URL e você pode usá-la como Webhook, o exemplo aqui é `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`.
 
 Em seguida, podemos definir o campo `callback_url` para a URL do Webhook acima, enquanto preenchemos os parâmetros correspondentes, conforme mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/vk0l0a.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vk0l0a.png" width="500" className="m-auto" /></p>
 
 Ao clicar em executar, você pode notar que receberá imediatamente um resultado, como abaixo:
 
@@ -189,7 +189,7 @@ Ao clicar em executar, você pode notar que receberá imediatamente um resultado
 
 Após alguns instantes, podemos observar o resultado do vídeo gerado em `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`, como mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/7hcuw8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7hcuw8.png" width="500" className="m-auto" /></p>
 
 O conteúdo é o seguinte:
 

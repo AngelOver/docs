@@ -1,13 +1,13 @@
 ---
 title: "Fish TTS API Инструкције за интеграцију"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
-Ово ће описати инструкције за интеграцију Fish TTS API, који је потпуно компатибилан са [Fish Audio званичним OpenAPI-jem](https://docs.fish.audio/text-to-speech/text-to-speech), што омогућава директно преношење кода који позива `https://api.fish.audio/v1/tts` на `https://api.acedata.cloud/fish/tts`, уз само замену информација о ауторизацији, без измена у структури захтева.
+Ово ће описати инструкције за интеграцију Fish TTS API, који је потпуно компатибилан са [Fish Audio званичним OpenAPI-jem](https://docs.fish.audio/text-to-speech/text-to-speech), што омогућава директно преношење кода који позива `https://api.fish.audio/v1/tts` на `https://api.xhuoapi.ai/v1/fish/tts`, уз само замену информација о ауторизацији, без измена у структури захтева.
 
 ## Процес пријаве
 
-Да бисте користили API, потребно је да прво аплицирате за одговарајућу услугу на страници [Fish TTS API](https://platform.acedata.cloud/services/caf99abc-ddcf-4714-b2a5-862d9b469509). Након уласка на страницу, кликните на дугме „Acquire“.
+Да бисте користили API, потребно је да прво аплицирате за одговарајућу услугу на страници [Fish TTS API](https://api.xhuoapi.ai/services/caf99abc-ddcf-4714-b2a5-862d9b469509). Након уласка на страницу, кликните на дугме „Acquire“.
 
 Ако нисте пријављени или регистровани, бићете аутоматски преусмерени на страницу за пријаву/регистрацију, а након пријаве или регистрације бићете враћени на тренутну страницу.
 
@@ -29,7 +29,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 Најминималнији захтев садржи само поље `text`. Пример CURL:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -52,7 +52,7 @@ curl -X POST 'https://api.acedata.cloud/fish/tts' \
 Ако желите да користите клонирање гласова, у тело захтева додајте `reference_id`:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -74,7 +74,7 @@ curl -X POST 'https://api.acedata.cloud/fish/tts' \
 Пример захтева:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -103,7 +103,7 @@ curl -X POST 'https://api.acedata.cloud/fish/tts' \
 }
 ```
 
-Можете такође користити [Fish Tasks API](https://platform.acedata.cloud/documents/fc541fac-a941-47fd-b6f7-48d6cb9da523) за активну проверу статуса по `task_id`.
+Можете такође користити [Fish Tasks API](https://api.xhuoapi.ai/documents/fc541fac-a941-47fd-b6f7-48d6cb9da523) за активну проверу статуса по `task_id`.
 
 ## Обрада грешака
 

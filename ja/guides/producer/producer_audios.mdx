@@ -1,15 +1,15 @@
 ---
 title: "Producer Audios Generation API 接続説明"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 本文では、Producer Audios Generation API 接続説明を紹介します。これは、カスタムパラメータを入力することで、Producer の公式音楽を生成することができます。
 
 ## 申請プロセス
 
-APIを使用するには、まず [Producer Audios Generation API](https://platform.acedata.cloud/documents/producer-audios) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
+APIを使用するには、まず [Producer Audios Generation API](https://api.xhuoapi.ai/documents/producer-audios) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 まだログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -19,7 +19,7 @@ APIを使用するには、まず [Producer Audios Generation API](https://platf
 
 生成したい曲について、任意のテキストを入力できます。例えば、クリスマスに関する曲を生成したい場合は、`a song for Christmas` と入力します。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/lg9bb0.png" width="600" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lg9bb0.png" width="600" className="m-auto" /></p>
 
 ここでは、Request Headersを設定しました。内容は以下の通りです：
 
@@ -46,7 +46,7 @@ APIを使用するには、まず [Producer Audios Generation API](https://platf
 
 選択後、右側にも対応するコードが生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/0217zy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0217zy.png" width="500" className="m-auto" /></p>
 
 「Try」ボタンをクリックするとテストが行えます。上の図のように、以下の結果が得られました：
 
@@ -98,7 +98,7 @@ APIを使用するには、まず [Producer Audios Generation API](https://platf
 また、対応する接続コードを生成したい場合は、生成されたものを直接コピーできます。例えば、CURLのコードは以下の通りです：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -125,16 +125,16 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 - custom：`true`と記入し、カスタム生成を示します。このパラメータのデフォルトはfalseで、`prompt`を使用して生成します。
 - title：曲のタイトル。
 填写样例如下：
-<p><img src="https://cdn.acedata.cloud/ruovz5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ruovz5.png" width="500" className="m-auto" /></p>
 
 填写完毕之后自动生成了代码如下：
 
-<p><img src="https://cdn.acedata.cloud/seyxxa.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seyxxa.png" width="500" className="m-auto" /></p>
 
 对应的代码：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -180,9 +180,9 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 
 もし生成された曲を翻唱したい場合は、上記で生成された曲を入力して翻唱することができます。次に、歌詞とタイトルに基づいて曲をカスタマイズして生成します。
 
-自分がアップロードした曲を続けて翻唱したい場合は、パラメータ `action` を `upload_cover` に設定し、続けて翻唱するカスタマイズアップロードの曲 ID を入力します。曲 ID の取得は [Producer Upload API](https://platform.acedata.cloud/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447) を使用して取得します。以下の図のように：
+自分がアップロードした曲を続けて翻唱したい場合は、パラメータ `action` を `upload_cover` に設定し、続けて翻唱するカスタマイズアップロードの曲 ID を入力します。曲 ID の取得は [Producer Upload API](https://api.xhuoapi.ai/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447) を使用して取得します。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/z7r5fd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/z7r5fd.png" width="500" className="m-auto" /></p>
 
 次の内容を指定できます：
 
@@ -194,16 +194,16 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 
 填写样例如下：
 
-<p><img src="https://cdn.acedata.cloud/6xl82z.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/6xl82z.png" width="500" className="m-auto" /></p>
 
 填写完毕之后自动生成了代码如下：
 
-<p><img src="https://cdn.acedata.cloud/bxzfrw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bxzfrw.png" width="500" className="m-auto" /></p>
 
 对应的代码：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -250,22 +250,22 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 
 曲を続けたい場合は、`action`パラメータの値を`extend`に設定する必要があります。次に、歌詞、タイトル、スタイルに基づいてカスタマイズして曲を生成します。
 
-自分がアップロードした曲を続けたい場合は、`action`パラメータを`upload_extend`に設定し、続けてカスタマイズしたいアップロードした曲のIDを入力します。曲のIDは、[Producer Upload API](https://platform.acedata.cloud/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447)を使用して取得します。以下の画像のように：
+自分がアップロードした曲を続けたい場合は、`action`パラメータを`upload_extend`に設定し、続けてカスタマイズしたいアップロードした曲のIDを入力します。曲のIDは、[Producer Upload API](https://api.xhuoapi.ai/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447)を使用して取得します。以下の画像のように：
 
-<p><img src="https://cdn.acedata.cloud/z7r5fd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/z7r5fd.png" width="500" className="m-auto" /></p>
 
 記入例は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/r3ux6z.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/r3ux6z.png" width="500" className="m-auto" /></p>
 
 記入が完了すると、自動的に生成されたコードは以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/fsww0u.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fsww0u.png" width="500" className="m-auto" /></p>
 
 対応するコード：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -319,16 +319,16 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 
 記入例は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/bxslxt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bxslxt.png" width="500" className="m-auto" /></p>
 ```
 填写完毕之后自動生成されたコードは以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/nojowk.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/nojowk.png" width="500" class="m-auto"></p>
 
 対応するコード：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -375,22 +375,22 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 
 もし曲のセクションを置き換えたい場合は、`action`パラメータの値を`replace_section`に設定する必要があります。次に、歌詞やタイトルに基づいて曲をカスタマイズ生成します。
 
-自分がアップロードした曲を続けて置き換えたい場合は、`action`パラメータを`upload_replace_section`に設定し、続けてカスタマイズしたいアップロードした曲のIDを入力します。曲のIDは[Producer Upload API](https://platform.acedata.cloud/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447)を使用して取得します。以下の図のように：
+自分がアップロードした曲を続けて置き換えたい場合は、`action`パラメータを`upload_replace_section`に設定し、続けてカスタマイズしたいアップロードした曲のIDを入力します。曲のIDは[Producer Upload API](https://api.xhuoapi.ai/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447)を使用して取得します。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/z7r5fd.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/z7r5fd.png" width="500" class="m-auto"></p>
 
 記入例は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/mzo9iw.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/mzo9iw.png" width="500" class="m-auto"></p>
 
 記入完了後、自動生成されたコードは以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/877x6c.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/877x6c.png" width="500" class="m-auto"></p>
 
 対応するコード：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -440,16 +440,16 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 
 記入例は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/7l6976.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/7l6976.png" width="500" class="m-auto"></p>
 
 記入が完了した後、自動生成されたコードは以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/pvi2n3.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/pvi2n3.png" width="500" class="m-auto"></p>
 
 対応するコード：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -497,15 +497,15 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 
 記入例は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/bk9ino.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/bk9ino.png" width="500" class="m-auto"></p>
 
 記入が完了した後、自動生成されたコードは以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/p5b1vg.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/p5b1vg.png" width="500" class="m-auto"></p>
 
 対応するコード：
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -556,16 +556,16 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 
 記入例は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/fnpgvc.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/fnpgvc.png" width="500" class="m-auto"></p>
 
 記入が完了すると、自動的に生成されたコードは以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/oq5iv5.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/oq5iv5.png" width="500" class="m-auto"></p>
 
 対応するコード：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -586,7 +586,7 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
         {
             "title": "太陽が目に入って目が覚めた",
             "lyric": "",
-            "stems_url": "https://platform.cdn.acedata.cloud/producer/561ac695-b4aa-47cf-978d-fb7be2b9ebfc.zip",
+            "stems_url": "https://platform.cdn.xhuoapi.ai/producer/561ac695-b4aa-47cf-978d-fb7be2b9ebfc.zip",
             "model": "",
             "progress": "100%",
             "state": "succeeded"
@@ -605,13 +605,13 @@ Producer Audios Generation APIによって生成される時間は時々長く�
 
 まず、WebhookコールバックはHTTPリクエストを受信できるサービスであり、開発者は自分が構築したHTTPサーバーのURLに置き換える必要があります。ここでは、デモのために公開されたWebhookサンプルサイト[https://webhook.site/](https://webhook.site/)を使用します。このサイトを開くと、Webhook URLが得られます。以下の画像のように：
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 このURLをコピーすれば、Webhookとして使用できます。このサンプルは[https://webhook.site/#!/view/0d73431d-f833-4be4-9276-b6e1690d55c1](https://webhook.site/#!/view/0d73431d-f833-4be4-9276-b6e1690d55c1)です。
 
 次に、`callback_url`フィールドを上記のWebhook URLに設定し、対応するパラメータを入力します。具体的な内容は以下の画像の通りです：
 
-<p><img src="https://cdn.acedata.cloud/wuzd4y.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/wuzd4y.png" width="500" class="m-auto"></p>
 
 実行をクリックすると、すぐに次のような結果が得られます：
 
@@ -622,7 +622,7 @@ Producer Audios Generation APIによって生成される時間は時々長く�
 ```
 少々お待ちください。私たちは [https://webhook.site/#!/view/0d73431d-f833-4be4-9276-b6e1690d55c1](https://webhook.site/#!/view/0d73431d-f833-4be4-9276-b6e1690d55c1) で生成タスクの結果を観察できます。以下の通りです：
 
-![](https://cdn.acedata.cloud/k0kf0y.png)
+![](https://cdn.xhuoapi.ai/k0kf0y.png)
 
 内容は以下の通りです：
 

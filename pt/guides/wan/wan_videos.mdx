@@ -1,15 +1,15 @@
 ---
 title: "Wan Videos Generation API Integração"
-description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
+description: "Tongyi Wansiang Video Generation 集成指南 - XHuoAPI"
 ---
 
 Este documento apresentará uma descrição da integração da Wan Videos Generation API, que pode gerar vídeos oficiais da Tongyi Wanxiang através da entrada de parâmetros personalizados.
 
 ## Processo de Solicitação
 
-Para usar a API, você precisa primeiro acessar a página correspondente da [Wan Videos Generation API](https://platform.acedata.cloud/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c) para solicitar o serviço correspondente. Após entrar na página, clique no botão "Acquire", conforme mostrado na imagem:
+Para usar a API, você precisa primeiro acessar a página correspondente da [Wan Videos Generation API](https://api.xhuoapi.ai/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c) para solicitar o serviço correspondente. Após entrar na página, clique no botão "Acquire", conforme mostrado na imagem:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Se você ainda não estiver logado ou registrado, será redirecionado automaticamente para a página de login, convidando-o a se registrar e fazer login. Após o registro e login, você será redirecionado de volta para a página atual.
 
@@ -19,7 +19,7 @@ Na primeira solicitação, haverá um crédito gratuito disponível, permitindo 
 
 Primeiro, entenda a forma básica de uso, que é inserir a palavra-chave `prompt`, a ação `action`, a imagem de referência do primeiro quadro `image_url` e o modelo `model`, para obter o resultado processado. Primeiro, é necessário passar um campo `action`, cujo valor é `text2video`. Ele contém duas ações principais: vídeo gerado por texto (`text2video`) e vídeo gerado por imagem (`image2video`). Em seguida, precisamos inserir o modelo `model`, que atualmente inclui os modelos `wan2.6-i2v`, `wan2.6-r2v`, `wan2.6-i2v-flash`, `wan2.6-t2v`, conforme detalhado abaixo:
 
-<p><img src="https://cdn.acedata.cloud/03gqdz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/03gqdz.png" width="500" className="m-auto" /></p>
 
 Podemos ver que aqui configuramos os Request Headers, incluindo:
 
@@ -45,7 +45,7 @@ Além disso, configuramos o Request Body, incluindo:
 
 Após a seleção, você pode notar que o código correspondente também foi gerado à direita, conforme mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/03gqdz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/03gqdz.png" width="500" className="m-auto" /></p>
 
 Clique no botão "Try" para realizar o teste, como mostrado na imagem acima, e assim obtemos o seguinte resultado:
 
@@ -70,7 +70,7 @@ Podemos ver que obtivemos informações satisfatórias sobre o vídeo, e tudo o 
 Além disso, se você quiser gerar o código de integração correspondente, pode copiá-lo diretamente, por exemplo, o código CURL é o seguinte:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/wan/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/wan/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -92,18 +92,18 @@ Se você deseja gerar um vídeo a partir de uma imagem de referência ou vídeo 
 
 Um exemplo de preenchimento é o seguinte:
 
-<p><img src="https://cdn.acedata.cloud/94l0kk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/94l0kk.png" width="500" className="m-auto" /></p>
 
 Após o preenchimento, o código gerado automaticamente é o seguinte:
 
-<p><img src="https://cdn.acedata.cloud/b5q8tt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/b5q8tt.png" width="500" className="m-auto" /></p>
 
 O código Python correspondente:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/wan/videos"
+url = "https://api.xhuoapi.ai/v1/wan/videos"
 
 headers = {
     "accept": "application/json",
@@ -116,7 +116,7 @@ payload = {
     "model": "wan2.6-i2v",
     "prompt": "Astronautas se deslocam do espaço para o vulcão",
     "duration": 5,
-    "image_url": "https://cdn.acedata.cloud/r9vsv9.png",
+    "image_url": "https://cdn.xhuoapi.ai/r9vsv9.png",
     "callback_url": "https://www.baidu.com/"
 }
 
@@ -147,13 +147,13 @@ Vamos entender como operar isso através de um exemplo.
 
 Primeiro, o callback Webhook é um serviço que pode receber solicitações HTTP, e os desenvolvedores devem substituí-lo pela URL do servidor HTTP que construíram. Para facilitar a demonstração, usamos um site de exemplo de Webhook público https://webhook.site/, ao abrir este site, você obterá uma URL de Webhook, como mostrado na imagem:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Copie esta URL para usá-la como Webhook, o exemplo aqui é `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`.
 
 Em seguida, podemos definir o campo `callback_url` para a URL do Webhook acima, ao mesmo tempo em que preenchemos os parâmetros correspondentes, conforme mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vdx12s.png" width="500" className="m-auto" /></p>
 
 Ao clicar em executar, você pode notar que um resultado é obtido imediatamente, como abaixo:
 
@@ -165,7 +165,7 @@ Ao clicar em executar, você pode notar que um resultado é obtido imediatamente
 
 Após um momento, podemos observar o resultado do vídeo gerado em `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`, como mostrado na imagem:
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 O conteúdo é o seguinte:
 

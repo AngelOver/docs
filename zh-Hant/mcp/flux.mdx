@@ -3,7 +3,7 @@ title: "Flux MCP 對接指南"
 description: "flux MCP 服务器集成"
 ---
 
-[MCP（Model Context Protocol）](https://modelcontextprotocol.io) 是由 Anthropic 推出的模型上下文協議，允許 AI 模型（如 Claude、GPT 等）透過標準化介面調用外部工具。透過 AceData Cloud 提供的 Flux MCP Server，你可以在 Claude Desktop、VS Code、Cursor 等 AI 用戶端中直接生成和編輯 AI 圖像。
+[MCP（Model Context Protocol）](https://modelcontextprotocol.io) 是由 Anthropic 推出的模型上下文協議，允許 AI 模型（如 Claude、GPT 等）透過標準化介面調用外部工具。透過 XHuoAPI 提供的 Flux MCP Server，你可以在 Claude Desktop、VS Code、Cursor 等 AI 用戶端中直接生成和編輯 AI 圖像。
 
 ## 功能概覽
 
@@ -17,10 +17,10 @@ Flux MCP Server 提供以下核心功能：
 
 ## 前置準備
 
-使用前，你需要取得 AceData Cloud API Token：
+使用前，你需要取得 XHuoAPI API Token：
 
-1. 註冊或登入 [AceData Cloud 平台](https://platform.acedata.cloud)
-2. 前往 [Flux Images API](https://platform.acedata.cloud/documents/flux-images) 頁面
+1. 註冊或登入 [XHuoAPI 平台](https://api.xhuoapi.ai)
+2. 前往 [Flux Images API](https://api.xhuoapi.ai/documents/flux-images) 頁面
 3. 點擊「Acquire」取得 API Token（首次申請贈送免費額度）
 
 ## 安裝配置
@@ -34,7 +34,7 @@ pip install mcp-flux-pro
 ### 方式二：原始碼安裝
 
 ```bash
-git clone https://github.com/AceDataCloud/FluxMCP.git
+git clone https://github.com/XHuoAPI/FluxMCP.git
 cd FluxMCP
 pip install -e .
 ```
@@ -56,7 +56,7 @@ pip install -e .
     "flux": {
       "command": "mcp-flux-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -72,7 +72,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-flux-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -91,7 +91,7 @@ pip install -e .
     "flux": {
       "command": "mcp-flux-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -107,7 +107,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-flux-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -136,6 +136,6 @@ pip install -e .
 
 ## 更多資訊
 
-- GitHub 倉庫：[AceDataCloud/FluxMCP](https://github.com/AceDataCloud/FluxMCP)
+- GitHub 倉庫：[XHuoAPI/FluxMCP](https://github.com/XHuoAPI/FluxMCP)
 - PyPI 套件：[mcp-flux-pro](https://pypi.org/project/mcp-flux-pro/)
-- API 文件：[Flux 圖像生成 API](https://platform.acedata.cloud/documents/flux)
+- API 文件：[Flux 圖像生成 API](https://api.xhuoapi.ai/documents/flux)

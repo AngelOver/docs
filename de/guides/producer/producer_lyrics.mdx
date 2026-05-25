@@ -1,6 +1,6 @@
 ---
 title: "Producer Liedtext-Generierungs-API Schnittstellendokumentation"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 Producer ermöglicht es uns, Liedtexte durch Eingabewörter zu generieren. Dieses Dokument erklärt die entsprechenden API-Integrationsmethoden.
@@ -10,7 +10,7 @@ Die API hat nur einen Eingabeparameter, nämlich `prompt`, der das Eingabewort f
 Hier ist unser eingegebener `prompt`: `Ein Lied über den Winter`, das das Eingabewort für die Liedtextgenerierung ist.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/lyrics' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/lyrics' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

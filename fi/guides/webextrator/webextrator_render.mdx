@@ -1,9 +1,9 @@
 ---
 title: "WebExtrator Verkkosivujen Renderöinti API:n Asennusohje"
-description: "WebExtrator Web Render & Extract 集成指南 - Ace Data Cloud"
+description: "WebExtrator Web Render & Extract 集成指南 - XHuoAPI"
 ---
 
-`POST https://api.acedata.cloud/webextrator/render`
+`POST https://api.xhuoapi.ai/v1/webextrator/render`
 
 ## Todentaminen
 
@@ -82,7 +82,7 @@ Virhekoodit: `bad_request` / `forbidden` / `too_many_requests` / `not_found` / `
 ## Esimerkki
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/render \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/render \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

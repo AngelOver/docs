@@ -1,15 +1,15 @@
 ---
 title: "Ταυτότητα αναγνώρισης και πληροφορίες API διασύνδεσης"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Αυτό το έγγραφο θα παρουσιάσει μια μέθοδο για την αναγνώριση ταυτότητας και την επαλήθευση πληροφοριών μέσω API, η οποία μπορεί να ελέγξει την αυθεντικότητα και τη συνέπεια του ονόματος και του αριθμού ταυτότητας εισάγοντας μια εικόνα ταυτότητας ή το όνομα και τον αριθμό ταυτότητας. Αυτό το API χρησιμοποιείται για την επαλήθευση της αυθεντικότητας και της συνέπειας του ονόματος και του αριθμού ταυτότητας, μπορείτε να παρέχετε τις απαιτούμενες πληροφορίες επαλήθευσης εισάγοντας το όνομα και τον αριθμό ταυτότητας ή μεταφέροντας μια φωτογραφία της ταυτότητας.
 
 ## Διαδικασία αίτησης
 
-Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [Ταυτότητα αναγνώρισης και πληροφορίες API](https://platform.acedata.cloud/documents/67f96afa-60b8-4cbb-a4bf-0cbfcf139a23) για να ζητήσετε την αντίστοιχη υπηρεσία, αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [Ταυτότητα αναγνώρισης και πληροφορίες API](https://api.xhuoapi.ai/documents/67f96afa-60b8-4cbb-a4bf-0cbfcf139a23) για να ζητήσετε την αντίστοιχη υπηρεσία, αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη σελίδα σύνδεσης που σας προσκαλεί να εγγραφείτε και να συνδεθείτε, και μετά την εγγραφή και σύνδεση θα επιστρέψετε αυτόματα στη σελίδα.
 
@@ -19,7 +19,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 Αρχικά, πρέπει να κατανοήσετε τη βασική μέθοδο χρήσης, δηλαδή να εισάγετε τον σύνδεσμο εικόνας ταυτότητας, για να αποκτήσετε το αποτέλεσμα επαλήθευσης μετά την επεξεργασία. Πρέπει πρώτα να μεταφέρετε ένα πεδίο `image_url`, και στη συνέχεια μπορούμε να συμπληρώσουμε τα αντίστοιχα περιεχόμενα στην διεπαφή, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/qxy9rh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qxy9rh.png" width="500" className="m-auto" /></p>
 
 Μπορείτε να δείτε ότι έχουμε ρυθμίσει τα Request Headers, συμπεριλαμβανομένων:
 
@@ -33,7 +33,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 Αφού επιλέξετε, μπορείτε να δείτε ότι έχει παραχθεί ο αντίστοιχος κώδικας στα δεξιά, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/uw90il.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/uw90il.png" width="500" className="m-auto" /></p>
 
 Κάντε κλικ στο κουμπί «Try» για να κάνετε δοκιμή, όπως φαίνεται στην παραπάνω εικόνα, και εδώ έχουμε λάβει το εξής αποτέλεσμα:
 
@@ -76,7 +76,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 Επιπλέον, εάν θέλετε να δημιουργήσετε τον αντίστοιχο κώδικα διασύνδεσης, μπορείτε να τον αντιγράψετε απευθείας, για παράδειγμα, ο κώδικας CURL είναι ως εξής:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/idcard/ocr' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/idcard/ocr' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -90,7 +90,7 @@ curl -X POST 'https://api.acedata.cloud/identity/idcard/ocr' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/idcard/ocr"
+url = "https://api.xhuoapi.ai/v1/identity/idcard/ocr"
 
 headers = {
     "accept": "application/json",
@@ -110,7 +110,7 @@ print(response.text)
 
 Προσφέρουμε επίσης μια μέθοδο επαλήθευσης που δεν αποκαλύπτει τις πληροφορίες της εικόνας ταυτότητας, μπορείτε να εισάγετε μόνο το όνομα `name` και τον αριθμό ταυτότητας `id_card` για να ελέγξετε την αυθεντικότητα και τη συνέπεια του ονόματος και του αριθμού ταυτότητας. Ακολουθούν οι συγκεκριμένες πληροφορίες που συμπληρώθηκαν:
 
-<p><img src="https://cdn.acedata.cloud/mc5bbw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mc5bbw.png" width="500" className="m-auto" /></p>
 
 Αφού κάνετε κλικ στην εκτέλεση, θα λάβετε το εξής αποτέλεσμα:
 

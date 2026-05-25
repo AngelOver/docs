@@ -1,6 +1,6 @@
 ---
 title: "Integración y uso de la API de Traducción de Localización"
-description: "Localization translation 集成指南 - Ace Data Cloud"
+description: "Localization translation 集成指南 - XHuoAPI"
 ---
 
 La función principal de la API de Traducción de Localización es obtener el texto traducido a partir de la entrada de texto que necesita ser traducido, y el idioma de la traducción se puede personalizar. Además, los resultados de la traducción se pueden presentar en dos formatos principales: `json` y `markdown`.
@@ -9,11 +9,11 @@ Este documento detallará las instrucciones de integración de la API de Traducc
 
 ## Proceso de Solicitud
 
-Para utilizar la API de Traducción de Localización, primero debe ir a la página de solicitud [API de Traducción de Localización](https://platform.acedata.cloud/documents/6dcc60d0-a973-4ad2-92d8-11f4d3775532) para solicitar el servicio correspondiente. Una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
+Para utilizar la API de Traducción de Localización, primero debe ir a la página de solicitud [API de Traducción de Localización](https://api.xhuoapi.ai/documents/6dcc60d0-a973-4ad2-92d8-11f4d3775532) para solicitar el servicio correspondiente. Una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
 
-![Página de Solicitud](https://cdn.acedata.cloud/rci31i.png)
+![Página de Solicitud](https://cdn.xhuoapi.ai/rci31i.png)
 
-Si aún no ha iniciado sesión o registrado, será redirigido automáticamente a la [página de inicio de sesión](https://platform.acedata.cloud) para invitarlo a registrarse e iniciar sesión. Después de iniciar sesión o registrarse, será redirigido automáticamente a la página actual.
+Si aún no ha iniciado sesión o registrado, será redirigido automáticamente a la [página de inicio de sesión](https://api.xhuoapi.ai) para invitarlo a registrarse e iniciar sesión. Después de iniciar sesión o registrarse, será redirigido automáticamente a la página actual.
 
 En la primera solicitud, se le otorgará un crédito gratuito que le permitirá utilizar la API sin costo.
 
@@ -37,20 +37,20 @@ Tomemos un ejemplo de entrada en inglés para demostrar cómo usar esta API. Sup
 
 Configuración como se muestra en la imagen a continuación:
 
-<p><img src="https://cdn.acedata.cloud/d4uqst.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d4uqst.png" width="500" className="m-auto" /></p>
 
 ### Ejemplo de Código
 
 Se puede observar que en el lado derecho de la página se han generado automáticamente códigos en varios lenguajes, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/tn5nno.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tn5nno.png" width="500" className="m-auto" /></p>
 
 Algunos ejemplos de código son los siguientes:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/localization/translate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/localization/translate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -66,7 +66,7 @@ curl -X POST 'https://api.acedata.cloud/localization/translate' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/localization/translate"
+url = "https://api.xhuoapi.ai/v1/localization/translate"
 
 headers = {
     "accept": "application/json",

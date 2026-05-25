@@ -1,6 +1,6 @@
 ---
 title: "Google SERP API Integrazione"
-description: "Search Engine 集成指南 - Ace Data Cloud"
+description: "Search Engine 集成指南 - XHuoAPI"
 ---
 
 Google SERP (Search Engine Results Page) è la pagina dei risultati che gli utenti vedono dopo aver inserito una query nel motore di ricerca Google. Mostra risultati di ricerca naturali, annunci, estratti in evidenza, grafici della conoscenza e vari contenuti come immagini e video, con l'obiettivo di fornire agli utenti le informazioni più rilevanti.
@@ -11,9 +11,9 @@ Questo documento descriverà le istruzioni per l'integrazione del Google SERP AP
 
 ## Processo di richiesta
 
-Per utilizzare il Google SERP API, è necessario prima andare alla pagina corrispondente [Google SERP API](https://platform.acedata.cloud/documents/44c86226-8eaa-49bf-85f3-1fae8d2e23f1) per richiedere il servizio corrispondente. Una volta entrati nella pagina, fare clic sul pulsante "Acquire", come mostrato nell'immagine:
+Per utilizzare il Google SERP API, è necessario prima andare alla pagina corrispondente [Google SERP API](https://api.xhuoapi.ai/documents/44c86226-8eaa-49bf-85f3-1fae8d2e23f1) per richiedere il servizio corrispondente. Una volta entrati nella pagina, fare clic sul pulsante "Acquire", come mostrato nell'immagine:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Se non si è ancora registrati o loggati, si verrà automaticamente reindirizzati alla pagina di accesso per registrarsi e accedere. Dopo aver effettuato la registrazione e l'accesso, si verrà riportati automaticamente alla pagina corrente.
 
@@ -25,7 +25,7 @@ Innanzitutto, è importante comprendere il modo di utilizzo di base, ovvero inse
 
 Ad esempio, per cercare informazioni su "apple inc", possiamo quindi compilare il contenuto corrispondente nell'interfaccia, come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/lnqiye.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lnqiye.png" width="500" className="m-auto" /></p>
 
 Possiamo vedere che qui abbiamo impostato le intestazioni della richiesta, che includono:
 
@@ -44,7 +44,7 @@ Inoltre, abbiamo impostato il corpo della richiesta, che include:
 
 Dopo aver effettuato le scelte, si può notare che a destra è stato generato il codice corrispondente, come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/1j81zr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1j81zr.png" width="500" className="m-auto" /></p>
 
 Cliccando sul pulsante "Try" è possibile effettuare un test, come mostrato nell'immagine sopra, e qui abbiamo ottenuto i seguenti risultati:
 ```json
@@ -182,7 +182,7 @@ Cliccando sul pulsante "Try" è possibile effettuare un test, come mostrato nell
 ```
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -194,7 +194,7 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/serp/google"
+url = "https://api.xhuoapi.ai/v1/serp/google"
 
 headers = {
     "accept": "application/json",
@@ -217,12 +217,12 @@ Se desideri personalizzare il tipo di risorsa di ricerca, possiamo modificare il
 Ora dimostriamo l'operazione specifica.
 
 Innanzitutto, imposta il parametro `type` su `videos`, e passa normalmente il parametro `query`, come mostrato nell'immagine:
-<p><img src="https://cdn.acedata.cloud/czlt12.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/czlt12.png" width="500" className="m-auto" /></p>
 
 Il codice corrispondente è il seguente:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -344,7 +344,7 @@ Si può notare che qui il risultato restituito ha un campo `videos`, che contien
 
 Questa interfaccia supporta anche la limitazione dei risultati di ricerca al paese di origine, possiamo aggiungere il parametro `country` per limitare il paese, il parametro in input è l'abbreviazione del paese, ad esempio cn (Cina), us (Stati Uniti), in questo articolo utilizzeremo la Cina come esempio, di seguito le informazioni specifiche:
 
-<p><img src="https://cdn.acedata.cloud/gztpwi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gztpwi.png" width="500" className="m-auto" /></p>
 
 L'effetto di output è il seguente:
 ```json
@@ -445,12 +445,12 @@ L'effetto di output è il seguente:
 ```
 我们还可以自定义搜索结果的语言，这里我们额外添加 `language` 字段，内容为 `zh-cn`，其中它指的是简体中文的语言，同时还支持其他语言，但必须输入的语言的简写，比如 en（English）、fr（French）、zh-cn（Chinese（Simplified））等语言，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/yyrssp.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yyrssp.png" width="500" className="m-auto" /></p>
 
 对应代码如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -622,12 +622,12 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 ## 自定义搜索结果时间范围
 本文 può anche personalizzare l'intervallo di tempo dei risultati di ricerca, che include cinque opzioni: `qdr:h` (ultime un'ora), `qdr:d` (ultimi giorno), `qdr:w` (ultima settimana), `qdr:m` (ultimo mese), e nessun limite di default. Possiamo passare l'intervallo di tempo corrispondente tramite `range`, ad esempio impostandolo su `qdr:d`, il che significa cercare i risultati dell'ultimo giorno, quindi l'input sarà il seguente:
 
-<p><img src="https://cdn.acedata.cloud/qccfib.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qccfib.png" width="500" className="m-auto" /></p>
 
 Il codice corrispondente è il seguente:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -781,13 +781,13 @@ Possiamo vedere che abbiamo ottenuto con successo i risultati di ricerca dell'ul
 
 Questa API supporta anche la visualizzazione personalizzata della paginazione dei risultati di ricerca, `number` e `page` indicano la dimensione della pagina e il numero di pagina, in questo articolo imposteremo una pagina con 20 risultati di ricerca per la visualizzazione della paginazione, le informazioni specifiche sono come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/dqla1e.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dqla1e.png" width="500" className="m-auto" /></p>
 
 > Nota: quando il numero di risultati per pagina supera 10, i punti sottratti raddoppieranno.
 
 Il codice è il seguente:
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

@@ -1,9 +1,9 @@
 ---
 title: "WebExtrator 智能抽取 API 集成指南"
-description: "WebExtrator Web Render & Extract 集成指南 - Ace Data Cloud"
+description: "WebExtrator Web Render & Extract 集成指南 - XHuoAPI"
 ---
 
-`POST https://api.acedata.cloud/webextrator/extract`
+`POST https://api.xhuoapi.ai/v1/webextrator/extract`
 
 在 `/webextrator/render` 的基礎上做內容抽取。除了 render 介面的全部參數，額外支援：
 
@@ -41,7 +41,7 @@ description: "WebExtrator Web Render & Extract 集成指南 - Ace Data Cloud"
 ## 範例：抽取文章正文（啟用 LLM）
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -54,7 +54,7 @@ curl -X POST https://api.acedata.cloud/webextrator/extract \
 ## 範例：非同步 + 自訂結構化抽取
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

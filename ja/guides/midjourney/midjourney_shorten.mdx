@@ -1,6 +1,6 @@
 ---
 title: "Midjourney Shorten API の連携と使用"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 Midjourney Shorten API の主な機能は、Midjourney公式の `/shorten`（Prompt分析）コマンドに接続し、Promptの一部を分析して最も重要なキーワードを識別し、より簡潔な候補Promptを5つ生成することです。このインターフェースは非常に便利です：
@@ -13,9 +13,9 @@ Midjourney Shorten API の主な機能は、Midjourney公式の `/shorten`（Pro
 
 ## 申請手順
 
-Midjourney Shorten APIを利用するには、まず申請ページ [Midjourney Shorten API](https://platform.acedata.cloud/documents/f0c6be1d-c084-43ac-bde6-44ef9cf824a2) で該当サービスを申請してください。ページに入ったら、「Acquire」ボタンをクリックします。
+Midjourney Shorten APIを利用するには、まず申請ページ [Midjourney Shorten API](https://api.xhuoapi.ai/documents/f0c6be1d-c084-43ac-bde6-44ef9cf824a2) で該当サービスを申請してください。ページに入ったら、「Acquire」ボタンをクリックします。
 
-未ログインまたは未登録の場合は、自動的に [ログインページ](https://platform.acedata.cloud) にリダイレクトされ、登録とログインを促されます。登録後は自動的に元のページに戻ります。
+未ログインまたは未登録の場合は、自動的に [ログインページ](https://api.xhuoapi.ai) にリダイレクトされ、登録とログインを促されます。登録後は自動的に元のページに戻ります。
 
 初回申請時には無料枠が付与され、無料でこのAPIを使用できます。
 
@@ -39,7 +39,7 @@ Midjourney Shorten APIを利用するには、まず申請ページ [Midjourney 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/shorten' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/shorten' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -53,7 +53,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/shorten' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/shorten"
+url = "https://api.xhuoapi.ai/v1/midjourney/shorten"
 
 headers = {
     "accept": "application/json",

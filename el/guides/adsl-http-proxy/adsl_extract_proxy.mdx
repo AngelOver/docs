@@ -1,15 +1,15 @@
 ---
 title: "ADSL Proxy API Αίτηση και Χρήση"
-description: "ADSL Direct Connection Proxy 集成指南 - Ace Data Cloud"
+description: "ADSL Direct Connection Proxy 集成指南 - XHuoAPI"
 ---
 
 Αυτό το έγγραφο περιγράφει κυρίως τη διαδικασία χρήσης του ADSL Proxy API, με το οποίο μπορούμε εύκολα να εξάγουμε τη διεύθυνση IP του ADSL και να προσθέσουμε διευθύνσεις IP στη λευκή λίστα του ADSL Proxy.
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε την εξαγωγή της διεύθυνσης IP του ADSL και να προσθέσετε διευθύνσεις IP στη λευκή λίστα του ADSL Proxy, μπορείτε πρώτα να επισκεφθείτε τις σελίδες [ADSL Proxy Extract API](https://platform.acedata.cloud/documents/d8426c17-d22c-449a-b6bf-0a7790928e4d) και [ADSL Proxy Whitelist API](https://platform.acedata.cloud/documents/c21534fe-1f62-424b-9b10-a805cb473dd1) και να κάνετε κλικ στο κουμπί «Acquire» για να αποκτήσετε τα απαραίτητα διαπιστευτήρια:
+Για να χρησιμοποιήσετε την εξαγωγή της διεύθυνσης IP του ADSL και να προσθέσετε διευθύνσεις IP στη λευκή λίστα του ADSL Proxy, μπορείτε πρώτα να επισκεφθείτε τις σελίδες [ADSL Proxy Extract API](https://api.xhuoapi.ai/documents/d8426c17-d22c-449a-b6bf-0a7790928e4d) και [ADSL Proxy Whitelist API](https://api.xhuoapi.ai/documents/c21534fe-1f62-424b-9b10-a805cb473dd1) και να κάνετε κλικ στο κουμπί «Acquire» για να αποκτήσετε τα απαραίτητα διαπιστευτήρια:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη σελίδα σύνδεσης που σας προσκαλεί να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και τη σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
 
@@ -17,7 +17,7 @@ description: "ADSL Direct Connection Proxy 集成指南 - Ace Data Cloud"
 
 ## Εξαγωγή της Διεύθυνσης IP του ADSL
 
-Στη συνέχεια, μπορείτε να συμπληρώσετε τα αντίστοιχα περιεχόμενα στη διεπαφή [ADSL Proxy Extract API](https://platform.acedata.cloud/documents/d8426c17-d22c-449a-b6bf-0a7790928e4d), και παρακάτω θα δείξουμε πώς να εξάγετε τη διεύθυνση IP του ADSL.
+Στη συνέχεια, μπορείτε να συμπληρώσετε τα αντίστοιχα περιεχόμενα στη διεπαφή [ADSL Proxy Extract API](https://api.xhuoapi.ai/documents/d8426c17-d22c-449a-b6bf-0a7790928e4d), και παρακάτω θα δείξουμε πώς να εξάγετε τη διεύθυνση IP του ADSL.
 
 ### Ρύθμιση Κεφαλίδων Αίτησης και Σώματος Αίτησης
 
@@ -38,20 +38,20 @@ description: "ADSL Direct Connection Proxy 集成指南 - Ace Data Cloud"
 {"province":"Πεκίνο","city":"Πεκίνο","pId":0,"cId":0},{"province":"Τιαντζίν","city":"Τιαντζίν","pId":1,"cId":1},{"province":"Σαγκάη","city":"Σαγκάη","pId":2,"cId":3},{"province":"Τσονγκκίνγκ","city":"Τσονγκκίνγκ","pId":3,"cId":4},{"province":"Χεϊλονγκτζιάνγκ","city":"Περιοχή Νταξίνγκανλινγκ","pId":4,"cId":7},{"province":"Χεϊλονγκτζιάνγκ","city":"Χεϊχέ","pId":4,"cId":8},{"province":"Χεϊλονγκτζιάνγκ","city":"Τσιτσιχάρ","pId":4,"cId":9},{"province":"Χεϊλονγκτζιάνγκ","city":"Σουϊχουά","pId":4,"cId":10},{"province":"Χεϊλονγκτζιάνγκ","city":"Χεγκάνγκ","pId":4,"cId":11},{"province":"Χεϊλονγκτζιάνγκ","city":"Τζιαμούσι","pId":4,"cId":12},{"province":"Χεϊλονγκτζιάνγκ","city":"Γιτσούν","pId":4,"cId":13},{"province":"Χεϊλονγκτζιάνγκ","city":"Σουανγκιάσαν","pId":4,"cId":14},{"province":"Χεϊλονγκτζιάνγκ","city":"Χαρμπίν","pId":4,"cId":15},{"province":"Χεϊλονγκτζιάνγκ","city":"Τζιξί","pId":4,"cId":16},{"province":"Χεϊλονγκτζιάνγκ","city":"Ντατσίνγκ","pId":4,"cId":18},{"province":"Χεϊλονγκτζιάνγκ","city":"Τσιτάιχε","pId":4,"cId":19},{"province":"Χεϊλονγκτζιάνγκ","city":"Μουτανγιάνγκ","pId":4,"cId":20},{"province":"Τζιλίν","city":"Λιαογιουάν","pId":5,"cId":22},{"province":"Τζιλίν","city":"Τονγκχούα","pId":5,"cId":23},{"province":"Τζιλίν","city":"Μπαϊτσένγκ","pId":5,"cId":24},{"province":"Τζιλίν","city":"Σονγκγιουάν","pId":5,"cId":25},{"province":"Τζιλίν","city":"Τσανγκτσούν","pId":5,"cId":26},{"province":"Τζιλίν","city":"Πόλη Τζιλίν","pId":5,"cId":27},{"province":"Τζιλίν","city":"Επαρχία Γιανμπιάν Κορεατικής Αυτονομίας","pId":5,"cId":29},{"province":"Τζιλίν","city":"Μπαϊσάν","pId":5,"cId":31},{"province":"Τζιλίν","city":"Σιπίνγκ","pId":5,"cId":32},{"province":"Λιαονίνγκ","city":"Χουλού Ντάο","pId":6,"cId":33},{"province":"Λιαονίνγκ","city":"Παντζίν","pId":6,"cId":34},{"province":"Λιαονίνγκ","city":"Λιαογιάνγκ","pId":6,"cId":35},{"province":"Λιαονίνγκ","city":"Τιελίγκ","pId":6,"cId":36},{"province":"Λιαονίνγκ","city":"Φουξίν","pId":6,"cId":37},{"province":"Λιαονίνγκ","city":"Τζάογιάνγκ","pId":6,"cId":38},{"province":"Λιαονίνγκ","city":"Τζινζού","pId":6,"cId":39},{"province":"Λιαονίνγκ","city":"Άνσαν","pId":6,"cId":40},{"province":"Λιαονίνγκ","city":"Σενγιάνγκ","pId":6,"cId":41},{"province":"Λιαονίνγκ","city":"Μπενξί","pId":6,"cId":42},{"province":"Λιαονίνγκ","city":"Φουσούν","pId":6,"cId":43},{"province":"Λιαονίνγκ","city":"Γινγκκόου","pId":6,"cId":44},{"province":"Λιαονίνγκ","city":"Νταντόνγκ","pId":6,"cId":45},{"province":"Λιαονίνγκ","city":"Νταλιάν","pId":6,"cId":47},{"province":"Εσωτερική Μογγολία","city":"Χουλούν Μπεϊρ","pId":7,"cId":48},{"province":"Εσωτερική Μογγολία","city":"Σινγκάν Μενγκ","pId":7,"cId":49},{"province":"Εσωτερική Μογγολία","city":"Σιλιγκόρ","pId":7,"cId":50},{"province":"Εσωτερική Μογγολία","city":"Μπαγιάν Νάοερ","pId":7,"cId":51},{"province":"Εσωτερική Μογγολία","city":"Μπαοτό","pId":7,"cId":52},{"province":"Εσωτερική Μογγολία","city":"Χουχάοτο","pId":7,"cId":53},{"province":"Εσωτερική Μογγολία","city":"Τονγκλιάο","pId":7,"cId":55},{"province":"Εσωτερική Μογγολία","city":"Τσιφένγκ","pId":7,"cId":56},{"province":"Εσωτερική Μογγολία","city":"Ουχάι","pId":7,"cId":57},{"province":"Εσωτερική Μογγολία","city":"Ερντόρς","pId":7,"cId":58},{"province":"Εσωτερική Μογγολία","city":"Ουλάν Τσάμπα","pId":7,"cId":59},{"province":"Νινγκξία","city":"Σιζουϊσάν","pId":8,"cId":60},{"province":"Νινγκξία","city":"Γιάνγκτσουαν","pId":8,"cId":61},{"province":"Νινγκξία","city":"Γουζόνγκ","pId":8,"cId":62},{"province":"Νινγκξία","city":"Γκουγιουάν","pId":8,"cId":63},{"province":"Γκανσού","city":"Ζανγκγιέ","pId":9,"cId":64},{"province":"Γκανσού","city":"Τζιντσάνγκ","pId":9,"cId":65},{"province":"Γκανσού","city":"Γουούγουι","pId":9,"cId":66},{"province":"Γκανσού","city":"Λαντζόου","pId":9,"cId":67},{"province":"Γκανσού","city":"Μπαϊγίν","pId":9,"cId":68},{"province":"Γκανσού","city":"Ντινγκσί","pId":9,"cId":69},{"province":"Γκανσού","city":"Πινγκλιάνγκ","pId":9,"cId":70},{"province":"Γκανσού","city":"Τσινγκγιάνγκ","pId":9,"cId":71},{"province":"Γκανσού","city":"Γκαν Ναν Τζανγκζού","pId":9,"cId":72},{"province":"Γκανσού","city":"Λινξιά Χουι Τζανγκζού","pId":9,"cId":73},{"province":"Γκανσού","city":"Τιανσούι","pId":9,"cId":74},{"province":"Γκανσού","city":"Τζιαγιουγκουάν","pId":9,"cId":75},{"province":"Γκανσού","city":"Τζιουτσουάν","pId":9,"cId":76},{"province":"Γκανσού","city":"Λονγκνάν","pId":9,"cId":77},{"province":"Σιντζιάνγκ","city":"Περιοχή Τσανγκτζι","pId":10,"cId":78},{"province":"Σιντζιάνγκ","city":"Περιοχή Κεζίλεσου Κερχίζ","pId":10,"cId":79},{"province":"Σιντζιάνγκ","city":"Περιοχή Ιλί Χαζάκ","pId":10,"cId":80},{"province":"Σιντζιάνγκ","city":"Αλαρ","pId":10,"cId":81},{"province":"Σιντζιάνγκ","city":"Κελαμάι","pId":10,"cId":82},{"province":"Σιντζιάνγκ","city":"Περιοχή Μπορτάλα Μογγολικής Αυτονομίας","pId":10,"cId":83},{"province":"Σιντζιάνγκ","city":"Ουρούμτσι","pId":10,"cId":84},{"province":"Σιντζιάνγκ","city":"Τουλουφάν","pId":10,"cId":85},{"province":"Σιντζιάνγκ","city":"Περιοχή Ακσού","pId":10,"cId":86},{"province":"Σιντζιάνγκ","city":"Σιχέζι","pId":10,"cId":87},{"province":"Σιντζιάνγκ","city":"Περιοχή Κασγκάρ","pId":10,"cId":88},{"province":"Σιντζιάνγκ","city":"Περιοχή Χετιάν","pId":10,"cId":89},{"province":"Σιντζιάνγκ","city":"Χαμί","pId":10,"cId":90},{"province":"Σαανξί","city":"Γιουλίν","pId":11,"cId":92},{"province":"Σαανξί","city":"Γιανάν","pId":11,"cId":93},{"province":"Σαανξί","city":"Σιάν","pId":11,"cId":94},{"province":"Σαανξί","city":"Γουέι Ναν","pId":11,"cId":96},{"province":"Σαανξί","city":"Χανζόνγκ","pId":11,"cId":97},{"province":"Σαανξί","city":"Σανγκλό","pId":11,"cId":98},{"province":"Σαανξί","city":"Ανκάνγκ","pId":11,"cId":99},{"province":"Σαανξί","city":"Τονγκτσουάν","pId":11,"cId":100},{"province":"Σαανξί","city":"Μπάοτζι","pId":11,"cId":101},{"province":"Σανξί","city":"Τσανγκζι","pId":12,"cId":102},{"province":"Σανξί","city":"Τζινζόνγκ","pId":12,"cId":103},{"province":"Σανξί","city":"Σουόζου","pId":12,"cId":104},{"province":"Σανξί","city":"Ντάτονγκ","pId":12,"cId":105},{"province":"Σανξί","city":"Λυουλιάνγκ","pId":12,"cId":106},{"province":"Σανξί","city":"Σινζόου","pId":12,"cId":107},{"province":"Σανξί","city":"Τάιγιουάν","pId":12,"cId":108},{"province":"Σανξί","city":"Γιάνγκκουάν","pId":12,"cId":109},{"province":"Σανξί","city":"Λινφέν","pId":12,"cId":110},{"province":"Σανξί","city":"Γιουντσέν","pId":12,"cId":111},{"province":"Σανξί","city":"Τζιντσένγκ","pId":12,"cId":112},{"province":"Σαντόνγκ","city":"Ντεζόου","pId":13,"cId":114},{"province":"Σαντόνγκ","city":"Μπινζόου","pId":13,"cId":115},{"province":"Σαντόνγκ","city":"Γιάνταϊ","pId":13,"cId":116},{"province":"Σαντόνγκ","city":"Λιαοτσένγκ","pId":13,"cId":117},{"province":"Σαντόνγκ","city":"Τζινάν","pId":13,"cId":118},{"province":"Σαντόνγκ","city":"Τάι Αν","pId":13,"cId":119},{"province":"Σαντόνγκ","city":"Ζιμπό","pId":13,"cId":120},{"province":"Σαντόνγκ","city":"Γουεϊφάνγκ","pId":13,"cId":121},{"province":"Σαντόνγκ","city":"Κινγκντάο","pId":13,"cId":122},{"province":"Σαντόνγκ","city":"Τζινίνγκ","pId":13,"cId":123},{"province":"Σαντόνγκ","city":"Ριζάο","pId":13,"cId":124},{"province":"Σαντόνγκ","city":"Ζαοτσουάν","pId":13,"cId":126},{"province":"Σαντόνγκ","city":"Ντονγκγίνγκ","pId":13,"cId":127},{"province":"Σαντόνγκ","city":"Γουεϊχάι","pId":13,"cId":128},{"province":"Σαντόνγκ","city":"Λάιγου","pId":13,"cId":129},{"province":"Σαντόνγκ","city":"Λινγι","pId":13,"cId":130},{"province":"Σαντόνγκ","city":"Χεζέ","pId":13,"cId":131},{"province":"Χεμπέι","city":"Χαντάν","pId":14,"cId":132},{"province":"Χεμπέι","city":"Χενγκσούι","pId":14,"cId":133},{"province":"Χεμπέι","city":"Στιτζιαζουάνγκ","pId":14,"cId":134},{"province":"Χεμπέι","city":"Σινγκτάι","pId":14,"cId":135},{"province":"Χεμπέι","city":"Τζανγκτζιακόου","pId":14,"cId":136},{"province":"Χεμπέι","city":"Τσενγκντέ","pId":14,"cId":137},{"province":"Χεμπέι","city":"Κινγκχουάνγκντάο","pId":14,"cId":138},{"province":"Χεμπέι","city":"Λανγκφάνγκ","pId":14,"cId":139},{"province":"Χεμπέι","city":"Τανγκσάν","pId":14,"cId":140},{"province":"Χεμπέι","city":"Μπαοντίνγκ","pId":14,"cId":141},{"province":"Χεμπέι","city":"Τσανγκζού","pId":14,"cId":142},{"province":"Χενάν","city":"Ανγιάνγκ","pId":15,"cId":143},{"province":"Χενάν","city":"Σανμένξια","pId":15,"cId":144},{"province":"Χενάν","city":"Ζενγκζού","pId":15,"cId":145},{"province":"Χενάν","city":"Νανγιάνγκ","pId":15,"cId":146},{"province":"Χενάν","city":"Ζουκόου","pId":15,"cId":147},{"province":"Χενάν","city":"Ζουμάινταν","pId":15,"cId":148},{"province":"Χενάν","city":"Σινγιάνγκ","pId":15,"cId":149},{"province":"Χενάν","city":"Καϊφένγκ","pId":15,"cId":150},{"province":"Χενάν","city":"Λογιάνγκ","pId":15,"cId":151},{"province":"Χενάν","city":"Πινγκντινγκσάν","pId":15,"cId":152},{"province":"Χενάν","city":"Τζιαοτσό","pId":15,"cId":153},{"province":"Χενάν","city":"Χεμπί","pId":15,"cId":154},{"province":"Χενάν","city":"Νέο Χιάνγκ","pId":15,"cId":155},{"province":"Χενάν","city":"Πουγιάνγκ","pId":15,"cId":156},{"province":"Χενάν","city":"Σιουτσάν","pId":15,"cId":157},{"province":"Χενάν","city":"Λοχέ","pId":15,"c
 因此 σύμφωνα με τους παραπάνω κανόνες πρέπει να ρυθμίσουμε σωστά το `province` και το `city`, προσπαθώντας να επιλέξουμε την περιοχή του Τζιανγκσού και της Ζετζιάνγκ, καθώς οι διευθύνσεις IP σε αυτές τις περιοχές είναι περισσότερες, οι συγκεκριμένες ρυθμίσεις παραμέτρων φαίνονται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/g8remv.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/g8remv.png" width="500" class="m-auto"></p>
 
 ### Παράδειγμα Κώδικα
 
 Μπορούμε να παρατηρήσουμε ότι στη δεξιά πλευρά της σελίδας έχουν αυτόματα παραχθεί διάφορες γλώσσες κώδικα, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/e2rmr0.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/e2rmr0.png" width="500" class="m-auto"></p>
 
 Ορισμένα παραδείγματα κώδικα είναι τα εξής:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/adsl/extract' \
+curl -X POST 'https://api.xhuoapi.ai/v1/adsl/extract' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -66,7 +66,7 @@ curl -X POST 'https://api.acedata.cloud/adsl/extract' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/adsl/extract"
+url = "https://api.xhuoapi.ai/v1/adsl/extract"
 
 headers = {
     "accept": "application/json",
@@ -217,18 +217,18 @@ if __name__ == "__main__":
 
 Οι παρακάτω ρυθμίσεις ορίζουν τον τύπο του IP proxy σε `socks`, οι συγκεκριμένες ρυθμίσεις φαίνονται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/h3xlwj.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/h3xlwj.png" width="500" class="m-auto"></p>
 
 Ταυτόχρονα, μπορείτε να παρατηρήσετε ότι στη δεξιά πλευρά υπάρχει αντίστοιχος κώδικας κλήσης που έχει παραχθεί, μπορείτε να αντιγράψετε τον κώδικα και να τον εκτελέσετε απευθείας ή να κάνετε κλικ στο κουμπί «Δοκιμή» για να κάνετε δοκιμή.
 
-<p><img src="https://cdn.acedata.cloud/7w0d5h.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/7w0d5h.png" width="500" class="m-auto"></p>
 
 Παράδειγμα κώδικα κλήσης Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/adsl/extract"
+url = "https://api.xhuoapi.ai/v1/adsl/extract"
 
 headers = {
     "accept": "application/json",
@@ -272,20 +272,20 @@ print(response.text)
 
 接下来就可以在界面上填写对应的内容，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/wz4obo.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/wz4obo.png" width="500" class="m-auto"></p>
 
 在第一次使用该接口时，我们至少需要填写三个内容，一个是 `authorization`，直接在下拉列表里面选择即可。另一个参数是 `ip`， `ip` 就是我们需要使用上文提取到的 IP 代理的本机网络地址。最后一个参数是`action`，`action` 是我们对白名单进行的操作，这里是对白名单进行添加的操作。
 
 同时您可以注意到右侧有对应的调用代码生成，您可以复制代码直接运行，也可以直接点击「Try」按钮进行测试。
 
-<p><img src="https://cdn.acedata.cloud/cs5ib2.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/cs5ib2.png" width="500" class="m-auto"></p>
 
 Python 样例调用代码：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/adsl/whitelist"
+url = "https://api.xhuoapi.ai/v1/adsl/whitelist"
 
 headers = {
     "accept": "application/json",

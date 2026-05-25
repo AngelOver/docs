@@ -1,6 +1,6 @@
 ---
 title: "Publisher Configs"
-description: "Publisher Cross-Platform Automatic Publishing 集成指南 - Ace Data Cloud"
+description: "Publisher Cross-Platform Automatic Publishing 集成指南 - XHuoAPI"
 ---
 
 ## 介绍
@@ -12,7 +12,7 @@ Publisher Configs API 用于管理各平台的登录凭证配置。在发布内�
 ### 创建配置
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/publisher/configs' \
+curl -X POST 'https://api.xhuoapi.ai/v1/publisher/configs' \
   -H 'Authorization: Bearer YOUR_TOKEN' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -40,7 +40,7 @@ curl -X POST 'https://api.acedata.cloud/publisher/configs' \
 ### 获取配置列表
 
 ```bash
-curl -X GET 'https://api.acedata.cloud/publisher/configs' \
+curl -X GET 'https://api.xhuoapi.ai/v1/publisher/configs' \
   -H 'Authorization: Bearer YOUR_TOKEN'
 ```
 
@@ -49,7 +49,7 @@ curl -X GET 'https://api.acedata.cloud/publisher/configs' \
 在凭证过期后，可以通过刷新操作自动续期：
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/publisher/configs/refresh' \
+curl -X POST 'https://api.xhuoapi.ai/v1/publisher/configs/refresh' \
   -H 'Authorization: Bearer YOUR_TOKEN' \
   -H 'Content-Type: application/json' \
   -d '{

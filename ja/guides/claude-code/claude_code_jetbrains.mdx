@@ -1,17 +1,17 @@
 ---
 title: "Claude Code for JetBrains IDE 使用教程"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code は Anthropic が提供する **Agentic Coding** ツールであり、世界最強のプログラミングエージェントの一つとも言われています。Claude Code は JetBrains IDE 専用のプラグインを提供しており、IntelliJ IDEA、PyCharm、WebStorm、GoLand、PhpStorm、Android Studio など、全ての JetBrains IDE に対応しています。
 
-この文書では、AceData Cloud のプロキシサービスを通じて、JetBrains IDE で Claude Code を設定し使用する方法を主に説明します。
+この文書では、XHuoAPI のプロキシサービスを通じて、JetBrains IDE で Claude Code を設定し使用する方法を主に説明します。
 
 ## 申請プロセス
 
-Claude Code を使用するには、まず [Claude Messages サービスページ](https://platform.acedata.cloud/documents/claude-messages) にアクセスし、「Acquire」ボタンをクリックして、リクエストに必要な認証情報を取得します：
+Claude Code を使用するには、まず [Claude Messages サービスページ](https://api.xhuoapi.ai/documents/claude-messages) にアクセスし、「Acquire」ボタンをクリックして、リクエストに必要な認証情報を取得します：
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 まだログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -53,7 +53,7 @@ claude --version
 
 ### プラグインのインストール
 
-![JetBrains Marketplace の Claude Code プラグイン](https://cdn.acedata.cloud/de78fd305b.png)
+![JetBrains Marketplace の Claude Code プラグイン](https://cdn.xhuoapi.ai/de78fd305b.png)
 
 1. JetBrains IDE を開く
 2. **Settings** → **Plugins** → **Marketplace** に移動
@@ -65,7 +65,7 @@ claude --version
 
 > **重要**：プラグインをインストールした後は、**IDE を完全に再起動**する必要があります（複数回再起動が必要な場合があります）。
 
-## AceData Cloud API の設定
+## XHuoAPI API の設定
 
 Claude Code JetBrains プラグインは統合ターミナルを通じて `claude` コマンドを実行するため、環境変数の設定方法は CLI と同じです。
 
@@ -99,9 +99,9 @@ mkdir -p ~/.claude && echo '{"primaryApiKey": "self"}' > ~/.claude/config.json
 以下の内容を `~/.zshrc` または `~/.bashrc` に追加し、`{token}` をあなたの API トークンに置き換えます：
 
 ```bash
-# AceData Cloud - Claude Code プロキシ設定
+# XHuoAPI - Claude Code プロキシ設定
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 変更後、`source ~/.zshrc` を実行して設定を有効にし、その後**JetBrains IDE を再起動**します。
@@ -114,12 +114,12 @@ export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **ヒント**：API トークンは [AceData Cloud コンソール](https://platform.acedata.cloud/console) で確認できます。
+> **ヒント**：API トークンは [XHuoAPI コンソール](https://api.xhuoapi.ai/console) で確認できます。
 
 ## 基本的な使用法
 
@@ -186,7 +186,7 @@ wsl -d Ubuntu -- bash -lic "claude"
 
 1. `~/.claude/config.json` ファイルが正しく作成されているか確認する
 2. 環境変数が正しく設定されているか確認する
-3. API トークンが有効であることを確認する（[コンソール](https://platform.acedata.cloud/console) で確認可能）
+3. API トークンが有効であることを確認する（[コンソール](https://api.xhuoapi.ai/console) で確認可能）
 4. JetBrains IDE を再起動して再試行する
 
 ### プラグインが動作しない？
@@ -212,10 +212,10 @@ Claude アイコンをクリックした際に "command not found" と表示さ�
 3. WSL ユーザーは上記の WSL コマンド形式を使用する
 ### 残高を確認する方法は？
 
-[AceData Cloud コンソール](https://platform.acedata.cloud/console)にログインすると、現在のアカウントの残高と使用状況を確認できます。
+[XHuoAPI コンソール](https://api.xhuoapi.ai/console)にログインすると、現在のアカウントの残高と使用状況を確認できます。
 
 ## 詳しく知る
 
 - 📖 [Claude Code JetBrains 公式ドキュメント](https://code.claude.com/docs/en/jetbrains)
-- 🔧 [AceData Cloud Claude Code サービス](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code サービス](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 何か質問がある場合は、プラットフォームのカスタマーサービスにお問い合わせください。

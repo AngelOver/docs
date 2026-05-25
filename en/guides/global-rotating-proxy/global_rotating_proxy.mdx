@@ -1,15 +1,15 @@
 ---
 title: "Global Proxy Integration Instructions"
-description: "Global Rotation Agent 集成指南 - Ace Data Cloud"
+description: "Global Rotation Agent 集成指南 - XHuoAPI"
 ---
 
-This document mainly introduces the integration instructions for Ace Data Cloud's global proxy, including application methods, usage methods, and other specific content.
+This document mainly introduces the integration instructions for XHuoAPI's global proxy, including application methods, usage methods, and other specific content.
 
 ## Application Method
 
-To use global services, you can first go to the "[application page](https://platform.acedata.cloud/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)" to apply. The first application comes with a free quota of 1 point.
+To use global services, you can first go to the "[application page](https://api.xhuoapi.ai/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)" to apply. The first application comes with a free quota of 1 point.
 
-![](https://cdn.acedata.cloud/cyzvmz.png)
+![](https://cdn.xhuoapi.ai/cyzvmz.png)
 
 If you are not logged in, you will be automatically redirected to the login page. After logging in, you can continue with the application.
 
@@ -17,13 +17,13 @@ If you are not logged in, you will be automatically redirected to the login page
 
 After the application is completed, you can check your application results in the "console," as shown in the figure:
 
-![](https://cdn.acedata.cloud/y9boi5.png)
+![](https://cdn.xhuoapi.ai/y9boi5.png)
 
 Click on "Credentials" to view the username and password for using the global proxy service, separated by a colon. The username is 8 characters long, and the password is 32 characters long, as shown in the figure:
 
-![](https://cdn.acedata.cloud/ixwm85.png)
+![](https://cdn.xhuoapi.ai/ixwm85.png)
 
-This proxy is a rotating proxy, so you only need to set a fixed proxy address and port when using it. The proxy address and port are `global.proxy.acedata.cloud` and `30007`, respectively. This proxy supports HTTP/HTTPS/SOCKS protocols and can be used to request websites using HTTP and HTTPS protocols.
+This proxy is a rotating proxy, so you only need to set a fixed proxy address and port when using it. The proxy address and port are `global.proxy.xhuoapi.ai` and `30007`, respectively. This proxy supports HTTP/HTTPS/SOCKS protocols and can be used to request websites using HTTP and HTTPS protocols.
 
 > Note: This proxy can only be used in networks outside of China. It cannot be used in mainland China.
 
@@ -34,7 +34,7 @@ Once you have the proxy's username and password, the easiest way to test is thro
 If the current proxy's username and password are `1f78266a:eff0896726224fa2a99fe82dd1f07562`, you can test it with the following curl command:
 
 ```shell
-curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007 https://ipinfo.io
+curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007 https://ipinfo.io
 ```
 
 Here, we use curl's `-x` parameter to specify the proxy address. The default proxy protocol is HTTP/HTTPS, and the requested URL is [https://ipinfo.io](https://ipinfo.io), which can return the real IP address and location of the requester.
@@ -67,7 +67,7 @@ Below is an example of how to set up the proxy using Python:
 ```python
 import requests
 
-proxy = 'http://{proxy_username}:{proxy_password}@global.proxy.acedata.cloud:30007'
+proxy = 'http://{proxy_username}:{proxy_password}@global.proxy.xhuoapi.ai:30007'
 
 proxies = {
     'http': proxy,
@@ -81,7 +81,7 @@ for _ in range(3):
 
 Here, we first declare the proxy URL and define it as the proxy variable. The protocol is HTTP, followed by the username and password for the tunnel proxy (i.e., the username and password displayed in the console, separated by a colon), followed by an `@` symbol, and then the proxy address and port.
 
-> Note: You need to replace `{proxy_username}:{proxy_password}` in the above code with your proxy username and password. The final result should look like `proxy = 'http://1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007'`, without the `{` and `}` characters.
+> Note: You need to replace `{proxy_username}:{proxy_password}` in the above code with your proxy username and password. The final result should look like `proxy = 'http://1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007'`, without the `{` and `}` characters.
 
 Next, we declare a proxies variable, configuring two key-value pairs, with the keys being http and https, and both values being the proxy variable, indicating that for both HTTP and HTTPS protocol websites, the requests will use the proxy defined by the proxy variable. We then define a loop to test the proxy three times.
 
@@ -135,7 +135,7 @@ In fact, the above code is equivalent to setting an additional header - Proxy Au
 import requests
 import base64
 
-proxy_host = 'global.proxy.acedata.cloud'
+proxy_host = 'global.proxy.xhuoapi.ai'
 proxy_port = '30007'
 proxy_username = '{proxy_username}' # 8-character username
 proxy_password = '{proxy_password}' # 32-character password
@@ -166,7 +166,7 @@ For other languages, such as JavaScript's axios, similar setup methods can also 
 const axios = require("axios");
 const base64 = require("base64");
 
-const proxy_host = "global.proxy.acedata.cloud";
+const proxy_host = "global.proxy.xhuoapi.ai";
 const proxy_port = "30007";
 const proxy_username = "{proxy_username}"; // 8-character username
 const proxy_password = "{proxy_password}"; // 32-character password
@@ -199,7 +199,7 @@ For the setup methods in other languages, please refer to the above text and rew
 We can filter by region by adding region to the username. For example, if you want to select a proxy from the United States, the original username is `1f78266a`, then you can change the username to `1f78266a-region-us`, and the above curl can be rewritten as follows:
 
 ```
-curl -x 1f78266a-region-us:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007 https://ipinfo.io
+curl -x 1f78266a-region-us:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007 https://ipinfo.io
 ```
 
 Region list:
@@ -455,11 +455,11 @@ Similar to the above content, we can achieve a fixed IP for a period of time by 
 For example, if you want to achieve a fixed IP for a period of time, and the original username is `1f78266a`, you can change the username to `1f78266a-session-12345`, where `12345` remains unchanged, then the IP will remain the same for a period of time. The above curl can be rewritten as follows:
 
 ```
-curl -x 1f78266a-session-12345:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007 https://ipinfo.io
+curl -x 1f78266a-session-12345:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007 https://ipinfo.io
 ```
 
 ## Purchase More
 
 If your plan has been exhausted, you need to purchase more to continue using the proxy service.
 
-To purchase more, please go to the "[Application Page](https://platform.acedata.cloud/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)" and directly click the "Purchase More" button to select, the more you purchase at once, the cheaper the unit price.
+To purchase more, please go to the "[Application Page](https://api.xhuoapi.ai/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)" and directly click the "Purchase More" button to select, the more you purchase at once, the cheaper the unit price.

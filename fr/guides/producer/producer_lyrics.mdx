@@ -1,6 +1,6 @@
 ---
 title: "Producteur Interface de génération de paroles API Documentation"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 Le Producteur nous permet de générer des paroles via des mots-clés, ce document explique la méthode d'intégration de l'API associée.
@@ -10,7 +10,7 @@ Cette API n'a qu'un seul paramètre d'entrée, qui est `prompt`, c'est le mot-cl
 Ici, notre `prompt` est `Une chanson sur l'hiver`, c'est le mot-clé pour générer les paroles.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/lyrics' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/lyrics' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

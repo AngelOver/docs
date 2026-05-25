@@ -1,6 +1,6 @@
 ---
 title: "Integracija i korišćenje Localization Translate API"
-description: "Localization translation 集成指南 - Ace Data Cloud"
+description: "Localization translation 集成指南 - XHuoAPI"
 ---
 
 Glavna funkcija Localization Translate API je da dobijete preveden tekst unosom teksta koji treba prevesti, pri čemu se jezik na koji se prevodi može prilagoditi, a rezultati prevođenja mogu se isporučiti u dva glavna formata: `json` i `markdown`.
@@ -9,11 +9,11 @@ Ovaj dokument će detaljno opisati uputstva za integraciju Translate API, pomaž
 
 ## Proces prijave
 
-Da biste koristili Localization Translate API, prvo treba da odete na stranicu za prijavu [Localization Translate API](https://platform.acedata.cloud/documents/6dcc60d0-a973-4ad2-92d8-11f4d3775532) i zatražite odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
+Da biste koristili Localization Translate API, prvo treba da odete na stranicu za prijavu [Localization Translate API](https://api.xhuoapi.ai/documents/6dcc60d0-a973-4ad2-92d8-11f4d3775532) i zatražite odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
 
-![Stranica za prijavu](https://cdn.acedata.cloud/rci31i.png)
+![Stranica za prijavu](https://cdn.xhuoapi.ai/rci31i.png)
 
-Ako još niste prijavljeni ili registrovani, automatski ćete biti preusmereni na [stranicu za prijavu](https://platform.acedata.cloud) koja vas poziva da se registrujete i prijavite. Nakon prijave ili registracije, automatski ćete se vratiti na trenutnu stranicu.
+Ako još niste prijavljeni ili registrovani, automatski ćete biti preusmereni na [stranicu za prijavu](https://api.xhuoapi.ai) koja vas poziva da se registrujete i prijavite. Nakon prijave ili registracije, automatski ćete se vratiti na trenutnu stranicu.
 
 Prilikom prve prijave dobićete besplatnu kvotu koja vam omogućava besplatno korišćenje ovog API-ja.
 
@@ -37,20 +37,20 @@ Uzmimo primer sa engleskim unosom kako bismo prikazali kako koristiti ovaj API. 
 
 Postavke su prikazane na sledećoj slici:
 
-<p><img src="https://cdn.acedata.cloud/d4uqst.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d4uqst.png" width="500" className="m-auto" /></p>
 
 ### Primer koda
 
 Možete primetiti da su na desnoj strani stranice automatski generisani kodovi na različitim jezicima, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/tn5nno.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tn5nno.png" width="500" className="m-auto" /></p>
 
 Neki primeri koda su:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/localization/translate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/localization/translate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -66,7 +66,7 @@ curl -X POST 'https://api.acedata.cloud/localization/translate' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/localization/translate"
+url = "https://api.xhuoapi.ai/v1/localization/translate"
 
 headers = {
     "accept": "application/json",

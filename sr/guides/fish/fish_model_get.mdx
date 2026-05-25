@@ -1,15 +1,15 @@
 ---
 title: "Fish Model Get API Uputstvo za Integraciju"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 Ovaj dokument opisuje uputstvo za integraciju Fish Model Get API-ja (`GET /fish/model/{id}`), koji je potpuno kompatibilan sa [Fish Audio zvaničnim OpenAPI](https://docs.fish.audio/resources/api-reference/model) i koristi se za **dobijanje kompletnog detalja pojedinačnog kloniranog tona na osnovu ID-ja tona**.
 
-> Za kreiranje tona pogledajte [Fish Model Create API](https://platform.acedata.cloud/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a), a za paginirano listanje koristite [Fish Model Query API](https://platform.acedata.cloud/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d).
+> Za kreiranje tona pogledajte [Fish Model Create API](https://api.xhuoapi.ai/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a), a za paginirano listanje koristite [Fish Model Query API](https://api.xhuoapi.ai/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d).
 
 ## Proces Zahteva
 
-Da biste koristili API, potrebno je da se prijavite za odgovarajuću uslugu na stranici [Fish Model API](https://platform.acedata.cloud/services/caf99abc-ddcf-4714-b2a5-862d9b469509), zatim kliknite na dugme „Acquire“.
+Da biste koristili API, potrebno je da se prijavite za odgovarajuću uslugu na stranici [Fish Model API](https://api.xhuoapi.ai/services/caf99abc-ddcf-4714-b2a5-862d9b469509), zatim kliknite na dugme „Acquire“.
 
 Ako niste prijavljeni ili registrovani, bićete automatski preusmereni na stranicu za prijavu gde možete da se registrujete i prijavite, a nakon toga bićete vraćeni na trenutnu stranicu.
 
@@ -19,12 +19,12 @@ Prilikom prve prijave dobijate besplatan kredit za korišćenje API-ja.
 
 - **Metod autentifikacije**: koristi se `Authorization: Bearer {token}`, gde je `{token}` ključ dobijen na ovoj platformi.
 - **Struktura odgovora**: direktno se prosleđuje ModelEntity objekat sa Fish platforme, bez dodatnog omotača; u slučaju greške koristi se standardna struktura platforme `{success:false, error:{code,message}, trace_id}`.
-- **Parametar u putanji**: `{id}` je `_id` tona, koji se može dobiti prilikom kreiranja preko [Fish Model Create API](https://platform.acedata.cloud/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a) ili paginiranog pretraživanja preko [Fish Model Query API](https://platform.acedata.cloud/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d).
+- **Parametar u putanji**: `{id}` je `_id` tona, koji se može dobiti prilikom kreiranja preko [Fish Model Create API](https://api.xhuoapi.ai/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a) ili paginiranog pretraživanja preko [Fish Model Query API](https://api.xhuoapi.ai/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d).
 
 ## Primer Zahteva
 
 ```shell
-curl 'https://api.acedata.cloud/fish/model/d7900c21663f485ab63ebdb7e5905036' \
+curl 'https://api.xhuoapi.ai/v1/fish/model/d7900c21663f485ab63ebdb7e5905036' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}'
 ```
@@ -73,7 +73,7 @@ Uspešan odgovor direktno prosleđuje ModelEntity objekat sa Fish platforme:
 }
 ```
 
-Vraćeni `_id` može se koristiti kao vrednost polja `reference_id` u narednim pozivima [Fish TTS API](https://platform.acedata.cloud/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) za sintezu govora koristeći ovaj klonirani ton.
+Vraćeni `_id` može se koristiti kao vrednost polja `reference_id` u narednim pozivima [Fish TTS API](https://api.xhuoapi.ai/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) za sintezu govora koristeći ovaj klonirani ton.
 
 ## Informacije o Naplati
 
@@ -103,4 +103,4 @@ Ovaj API nije naplaćen — pretraga tona po ID-ju je besplatna, naplata se vrš
 
 ## Zaključak
 
-Fish Model Get API pruža potpuno kompatibilnu funkcionalnost sa Fish Audio zvaničnim API-jem za dobijanje detalja pojedinačnog tona. Nakon dobijanja ID-ja tona, ovaj API omogućava preuzimanje kompletnog ModelEntity objekta (uključujući uzorke, status, vidljivost, statističke podatke itd.), koji se može koristiti zajedno sa [Fish TTS API](https://platform.acedata.cloud/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) za kompletan proces kloniranja i sinteze glasa.
+Fish Model Get API pruža potpuno kompatibilnu funkcionalnost sa Fish Audio zvaničnim API-jem za dobijanje detalja pojedinačnog tona. Nakon dobijanja ID-ja tona, ovaj API omogućava preuzimanje kompletnog ModelEntity objekta (uključujući uzorke, status, vidljivost, statističke podatke itd.), koji se može koristiti zajedno sa [Fish TTS API](https://api.xhuoapi.ai/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) za kompletan proces kloniranja i sinteze glasa.

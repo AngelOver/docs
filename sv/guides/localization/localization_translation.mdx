@@ -1,6 +1,6 @@
 ---
 title: "Lokalisering Översätt API:s integration och användning"
-description: "Localization translation 集成指南 - Ace Data Cloud"
+description: "Localization translation 集成指南 - XHuoAPI"
 ---
 
 Lokalisering Översätt API:s huvudfunktion är att få översatt text genom att mata in text som behöver översättas, samtidigt som det går att anpassa det översatta språket, och översättningsresultatet kan presenteras i antingen `json` eller `markdown` format.
@@ -9,11 +9,11 @@ Detta dokument kommer att detaljerat beskriva integrationsanvisningarna för Öv
 
 ## Ansökningsprocess
 
-För att använda Lokalisering Översätt API, behöver du först gå till ansökningssidan [Lokalisering Översätt API](https://platform.acedata.cloud/documents/6dcc60d0-a973-4ad2-92d8-11f4d3775532) för att ansöka om motsvarande tjänst. När du kommer till sidan, klicka på "Acquire"-knappen, som visas i bilden nedan:
+För att använda Lokalisering Översätt API, behöver du först gå till ansökningssidan [Lokalisering Översätt API](https://api.xhuoapi.ai/documents/6dcc60d0-a973-4ad2-92d8-11f4d3775532) för att ansöka om motsvarande tjänst. När du kommer till sidan, klicka på "Acquire"-knappen, som visas i bilden nedan:
 
-![Ansökningssidan](https://cdn.acedata.cloud/rci31i.png)
+![Ansökningssidan](https://cdn.xhuoapi.ai/rci31i.png)
 
-Om du inte har loggat in eller registrerat dig, kommer du automatiskt att omdirigeras till [inloggningssidan](https://platform.acedata.cloud) där du uppmanas att registrera dig och logga in. Efter inloggning eller registrering kommer du automatiskt att återvända till den aktuella sidan.
+Om du inte har loggat in eller registrerat dig, kommer du automatiskt att omdirigeras till [inloggningssidan](https://api.xhuoapi.ai) där du uppmanas att registrera dig och logga in. Efter inloggning eller registrering kommer du automatiskt att återvända till den aktuella sidan.
 
 Vid första ansökan kommer det att finnas en gratis kvot som ges, så att du kan använda API:et gratis.
 
@@ -37,20 +37,20 @@ Vi tar ett engelskt inmatningsexempel för att demonstrera hur man använder API
 
 Inställningarna visas som på bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/d4uqst.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d4uqst.png" width="500" className="m-auto" /></p>
 
 ### Kodexempel
 
 Det kan noteras att olika språkversioner av koden redan har genererats automatiskt på höger sida, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/tn5nno.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tn5nno.png" width="500" className="m-auto" /></p>
 
 Några kodexempel är som följer:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/localization/translate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/localization/translate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -66,7 +66,7 @@ curl -X POST 'https://api.acedata.cloud/localization/translate' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/localization/translate"
+url = "https://api.xhuoapi.ai/v1/localization/translate"
 
 headers = {
     "accept": "application/json",

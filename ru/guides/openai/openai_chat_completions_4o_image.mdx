@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Chat Completion 4o Image API Заявка и использование"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI ChatGPT — это очень мощная AI система диалога, которая может генерировать плавные и естественные ответы всего за несколько секунд, просто вводя подсказки. ChatGPT выделяется в отрасли благодаря своим выдающимся способностям к пониманию и генерации языка, и в настоящее время он широко используется в различных отраслях и сферах, его влияние становится все более значительным. Будь то повседневные беседы, креативное письмо или профессиональные консультации и программирование, ChatGPT может предоставить удивительную интеллектуальную помощь, значительно повышая эффективность и креативность человека.
@@ -9,9 +9,9 @@ OpenAI ChatGPT — это очень мощная AI система диалог
 
 ## Процесс заявки
 
-Чтобы использовать OpenAI Chat Completion 4o Image API, сначала перейдите на страницу [OpenAI Chat Completion 4o Image API](https://platform.acedata.cloud/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) и нажмите кнопку «Acquire», чтобы получить необходимые для запроса учетные данные:
+Чтобы использовать OpenAI Chat Completion 4o Image API, сначала перейдите на страницу [OpenAI Chat Completion 4o Image API](https://api.xhuoapi.ai/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) и нажмите кнопку «Acquire», чтобы получить необходимые для запроса учетные данные:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Если вы еще не вошли в систему или не зарегистрированы, вас автоматически перенаправят на страницу входа, пригласив зарегистрироваться и войти в систему, после чего вы автоматически вернетесь на текущую страницу.
 
@@ -23,7 +23,7 @@ OpenAI ChatGPT — это очень мощная AI система диалог
 
 Ниже приведен пример генерации изображения в пользовательском стиле на основе одного изображения, сначала давайте посмотрим на изображение, которое мы ввели, как показано на следующем изображении:
 
-![](https://cdn.acedata.cloud/qzx2z1.png)
+![](https://cdn.xhuoapi.ai/qzx2z1.png)
 
 Можно увидеть, что эталонное изображение — это фотография реального человека, мы можем изменить его стиль, например, сделать его в аниме-стиле, конкретный пример запроса:
 
@@ -41,7 +41,7 @@ OpenAI ChatGPT — это очень мощная AI система диалог
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]
@@ -79,7 +79,7 @@ OpenAI ChatGPT — это очень мощная AI система диалог
 
 Внутри `choices` сообщение `message` — это полный результат диалога, изображение также содержится в результате диалога, можно увидеть, что сгенерированное изображение действительно в аниме-стиле, конкретно, как показано на следующем изображении:
 
-<p><img src="https://cdn.acedata.cloud/qmr391.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qmr391.jpg" width="400" className="m-auto" /></p>
 
 ### Генерация изображения только по тексту
 
@@ -99,7 +99,7 @@ OpenAI ChatGPT — это очень мощная AI система диалог
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]
@@ -137,15 +137,15 @@ OpenAI ChatGPT — это очень мощная AI система диалог
 
 Можно увидеть, что результат соответствует подсказке, конкретно, как показано ниже:
 
-<p><img src="https://cdn.acedata.cloud/q502uk.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q502uk.jpg" width="400" className="m-auto" /></p>
 
 ### Генерация одного изображения из нескольких изображений
 
 Мы также можем использовать несколько эталонных изображений для генерации одного изображения, например, используя одно изображение с красивым парнем и изображение с кофе, с помощью этих двух изображений можно создать изображение, на котором красивый парень пьет кофе, ниже приведены конкретные эталонные изображения:
 
-<p><img src="https://cdn.acedata.cloud/pqquv3.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pqquv3.jpg" width="400" className="m-auto" /></p>
 
-<p><img src="https://cdn.acedata.cloud/h8j2i0.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/h8j2i0.jpg" width="400" className="m-auto" /></p>
 下面我们以`生成男生举着咖啡，并且马上要喝的样子`为示例，下面具体的示例：
 
 ```json
@@ -162,13 +162,13 @@ OpenAI ChatGPT — это очень мощная AI система диалог
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/pqquv3.jpg"
+            "url": "https://cdn.xhuoapi.ai/pqquv3.jpg"
           }
         },
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/h8j2i0.jpg"
+            "url": "https://cdn.xhuoapi.ai/h8j2i0.jpg"
           }
         }
       ]
@@ -206,7 +206,7 @@ OpenAI ChatGPT — это очень мощная AI система диалог
 
 可以看到，生成的结果确实是结合了俩张图来生成的，下面是具体的结果：
 
-<p><img src="https://cdn.acedata.cloud/89vnpx.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/89vnpx.jpg" width="400" className="m-auto" /></p>
 
 ## 错误处理
 

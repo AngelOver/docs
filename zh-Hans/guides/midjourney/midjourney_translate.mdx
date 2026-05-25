@@ -1,6 +1,6 @@
 ---
 title: "Midjourney Translate API 的对接和使用"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 Midjourney Translate API 的主要功能是通过输入中文描述词content来获取英文的描述词content。
@@ -9,12 +9,12 @@ Midjourney Translate API 的主要功能是通过输入中文描述词content来
 本文档将详细介绍  Midjourney Translate API  的对接说明，帮助您轻松集成并充分利用该 API 的强大功能。通过  Midjourney Translate API ，您可以轻松实现将中文描述词content转换为英文的描述词content。
 
 ## 申请流程
-要使用 Midjourney Translate API，需要先到 申请页面 [Midjourney Translate API ](https://platform.acedata.cloud/documents/e067d19b-7a66-4458-a45f-0fe88c1d5d34)申请相应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
+要使用 Midjourney Translate API，需要先到 申请页面 [Midjourney Translate API ](https://api.xhuoapi.ai/documents/e067d19b-7a66-4458-a45f-0fe88c1d5d34)申请相应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
 
-![申请页面](https://cdn.acedata.cloud/rci31i.png)
+![申请页面](https://cdn.xhuoapi.ai/rci31i.png)
 
 
-如果您尚未登录或注册，会自动跳转到[登录页面](https://platform.acedata.cloud)邀请您来注册和登录，登录注册之后会自动返回当前页面。
+如果您尚未登录或注册，会自动跳转到[登录页面](https://api.xhuoapi.ai)邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
 首次申请时会有免费额度赠送，可以免费使用该 API。
 
@@ -37,20 +37,20 @@ Midjourney Translate API 的主要功能是通过输入中文描述词content来
 
 设置如下图所示：
 
-![](https://cdn.acedata.cloud/db8lrn.png)
+![](https://cdn.xhuoapi.ai/db8lrn.png)
 
 ### 代码示例
 
 可以发现，在页面右侧已经自动生成了各种语言的代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/oj1cck.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/oj1cck.png" width="500" className="m-auto" /></p>
 
 部分代码示例如下：
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/translate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/translate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -64,7 +64,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/translate' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/translate"
+url = "https://api.xhuoapi.ai/v1/midjourney/translate"
 
 headers = {
     "accept": "application/json",

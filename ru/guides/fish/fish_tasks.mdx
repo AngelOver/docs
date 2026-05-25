@@ -1,6 +1,6 @@
 ---
 title: "Интеграция и использование Fish Tasks API"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 Основная функция Fish Tasks API заключается в том, чтобы запрашивать статус выполнения задачи, используя ID задачи, сгенерированный Fish Audios Generation API.
@@ -9,27 +9,27 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 
 ## Процесс подачи заявки
 
-Чтобы использовать Fish Tasks API, сначала необходимо перейти на страницу заявки [Fish Audios Generation API](https://platform.acedata.cloud/documents/e681b715-54fd-4464-a59a-d7f14500e095) и подать заявку на соответствующую услугу, затем скопировать ID задачи Fish Audios Generation API, как показано на изображении:
+Чтобы использовать Fish Tasks API, сначала необходимо перейти на страницу заявки [Fish Audios Generation API](https://api.xhuoapi.ai/documents/e681b715-54fd-4464-a59a-d7f14500e095) и подать заявку на соответствующую услугу, затем скопировать ID задачи Fish Audios Generation API, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/jxvue8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jxvue8.png" width="500" className="m-auto" /></p>
 
-Затем перейдите на страницу Tasks API [Fish Tasks API](https://platform.acedata.cloud/documents/44c93949-1419-4a45-8db5-8a8335de7151) и подайте заявку на соответствующую услугу, после перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
+Затем перейдите на страницу Tasks API [Fish Tasks API](https://api.xhuoapi.ai/documents/44c93949-1419-4a45-8db5-8a8335de7151) и подайте заявку на соответствующую услугу, после перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
 
-![Страница заявки](https://cdn.acedata.cloud/rci31i.png)
+![Страница заявки](https://cdn.xhuoapi.ai/rci31i.png)
 
-Если вы еще не вошли в систему или не зарегистрированы, вы будете автоматически перенаправлены на [страницу входа](https://platform.acedata.cloud), где вас пригласят зарегистрироваться и войти в систему. После входа или регистрации вы будете автоматически возвращены на текущую страницу.
+Если вы еще не вошли в систему или не зарегистрированы, вы будете автоматически перенаправлены на [страницу входа](https://api.xhuoapi.ai), где вас пригласят зарегистрироваться и войти в систему. После входа или регистрации вы будете автоматически возвращены на текущую страницу.
 
 При первой подаче заявки предоставляется бесплатный лимит, который позволяет бесплатно использовать этот API.
 
 ## Пример запроса
 
-Fish Tasks API можно использовать для запроса результатов Fish Audios Generation API. Для получения информации о том, как использовать Fish Audios Generation API, пожалуйста, обратитесь к документу [Fish Videos Generation API](https://platform.acedata.cloud/documents/fish-audios-integration).
+Fish Tasks API можно использовать для запроса результатов Fish Audios Generation API. Для получения информации о том, как использовать Fish Audios Generation API, пожалуйста, обратитесь к документу [Fish Videos Generation API](https://api.xhuoapi.ai/documents/fish-audios-integration).
 
 Мы возьмем один из ID задач, возвращенных сервисом Fish Audios Generation API, в качестве примера, чтобы продемонстрировать, как использовать этот API. Предположим, у нас есть ID задачи: 2725a2d3-f87e-4905-9c53-9988d5a7b2f5, далее мы покажем, как передать этот ID задачи.
 
 ### Пример задачи
 
-<p><img src="https://cdn.acedata.cloud/jxvue8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jxvue8.png" width="500" className="m-auto" /></p>
 
 ### Установка заголовков запроса и тела запроса
 
@@ -45,20 +45,20 @@ Fish Tasks API можно использовать для запроса рез�
 
 Настройка, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/xc5ejq.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xc5ejq.png" width="500" className="m-auto" /></p>
 
 ### Пример кода
 
 Можно заметить, что на правой стороне страницы автоматически сгенерирован код на различных языках, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/851zv2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/851zv2.png" width="500" className="m-auto" /></p>
 
 Некоторые примеры кода:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/fish/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -120,13 +120,13 @@ curl -X POST 'https://api.acedata.cloud/fish/tasks' \
 
 Настройка, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/64lid9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/64lid9.png" width="500" className="m-auto" /></p>
 
 ### Пример кода
 
 Можно заметить, что на правой стороне страницы автоматически сгенерирован код на различных языках, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/ezkzmw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ezkzmw.png" width="500" className="m-auto" /></p>
 
 Некоторые примеры кода:
 
@@ -205,7 +205,7 @@ curl -X POST 'https://api.acedata.cloud/fish/tasks' \
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/fish/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

@@ -1,15 +1,15 @@
 ---
 title: "Kasvojen Ominaisuuksien Paikannus API -liittymän Ohjeet"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 Tässä artikkelissa esitellään kasvojen ominaisuuksien paikannus API -liittymän ohjeet, joka voi syöttää kuvia ja paikantaa kasvojen ominaisuuksia (tunnetaan myös kasvojen avainpisteiden paikannuksena), laskemalla kasvojen ääriviivoja muodostavat 90 pistettä, mukaan lukien kulmakarvat (kummassakin 8 pistettä), silmät (kummassakin 8 pistettä), nenä (13 pistettä), suu (22 pistettä), kasvojen ääriviivat (21 pistettä) ja silmän pupillit (2 pistettä).
 
 ## Hakuprosessi
 
-API:n käyttämiseksi sinun on ensin mentävä [kasvojen ominaisuuksien paikannus API](https://platform.acedata.cloud/documents/20945baf-b263-457b-be5f-0332c2180a57) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire" -painiketta, kuten kuvassa on esitetty:
+API:n käyttämiseksi sinun on ensin mentävä [kasvojen ominaisuuksien paikannus API](https://api.xhuoapi.ai/documents/20945baf-b263-457b-be5f-0332c2180a57) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire" -painiketta, kuten kuvassa on esitetty:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -19,11 +19,11 @@ Ensimmäisellä hakukerralla saat ilmaisia käyttöoikeuksia, joiden avulla voit
 
 Ensinnäkin on hyvä ymmärtää peruskäyttötapa, eli syöttämällä kuvalinkki, voit saada käsitellyn tuloskuvan. Ensimmäiseksi sinun on yksinkertaisesti välitettävä `image_url`-kenttä, kasvojen kuva on esitetty alla olevassa kuvassa:
 
-<p><img src="https://cdn.acedata.cloud/lrbtcn.jpg" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lrbtcn.jpg" width="500" className="m-auto" /></p>
 
 Seuraavaksi voimme täyttää vastaavat tiedot käyttöliittymässä, kuten kuvassa on esitetty:
 
-<p><img src="https://cdn.acedata.cloud/y3g837.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/y3g837.png" width="500" className="m-auto" /></p>
 
 Voit nähdä, että olemme asettaneet pyyntöotsikot, mukaan lukien:
 
@@ -39,7 +39,7 @@ Lisäksi on asetettu pyyntökeho, mukaan lukien:
 
 Valinnan jälkeen voit huomata, että oikealle puolelle on myös luotu vastaava koodi, kuten kuvassa on esitetty:
 
-<p><img src="https://cdn.acedata.cloud/2ceul8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2ceul8.png" width="500" className="m-auto" /></p>
 
 Napsauta "Try" -painiketta, jotta voit testata, kuten yllä olevassa kuvassa on esitetty, ja saamme seuraavat tulokset:
 ```json
@@ -470,12 +470,12 @@ Kenttäkuvaus on seuraava:
 Lisäksi, jos haluat luoda vastaavan koodin, voit suoraan kopioida sen, esimerkiksi CURL-koodi on seuraava:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/analyze' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/analyze' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }'
 ```
 
@@ -484,7 +484,7 @@ Pythonin koodin integrointi on seuraava:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/analyze"
+url = "https://api.xhuoapi.ai/v1/face/analyze"
 
 headers = {
     "accept": "application/json",
@@ -493,7 +493,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }
 
 response = requests.post(url, json=payload, headers=headers)

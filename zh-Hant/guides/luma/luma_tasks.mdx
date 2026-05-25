@@ -1,6 +1,6 @@
 ---
 title: "Luma Tasks API 的對接和使用"
-description: "Luma Video Generation 集成指南 - Ace Data Cloud"
+description: "Luma Video Generation 集成指南 - XHuoAPI"
 ---
 
 Luma Tasks API 的主要功能是通過輸入 Luma Videos Generation API 生成的任務ID來查詢該任務的執行情況。
@@ -9,27 +9,27 @@ Luma Tasks API 的主要功能是通過輸入 Luma Videos Generation API 生成�
 
 ## 申請流程
 
-要使用 Luma Tasks API，需要先到 申請頁面 [Luma Videos Generation API](https://platform.acedata.cloud/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) 申請相應的服務，然後複製 Luma Videos Generation API 的任務ID，如圖所示：
+要使用 Luma Tasks API，需要先到 申請頁面 [Luma Videos Generation API](https://api.xhuoapi.ai/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) 申請相應的服務，然後複製 Luma Videos Generation API 的任務ID，如圖所示：
 
-![](https://cdn.acedata.cloud/ynk4ow.png)
+![](https://cdn.xhuoapi.ai/ynk4ow.png)
 
-最後進入 Tasks API 頁面 [Luma Tasks API](https://platform.acedata.cloud/documents/7d32369c-4ead-4364-a4c5-652bc768b3ff) 申請相應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
+最後進入 Tasks API 頁面 [Luma Tasks API](https://api.xhuoapi.ai/documents/7d32369c-4ead-4364-a4c5-652bc768b3ff) 申請相應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
 
-![申請頁面](https://cdn.acedata.cloud/rci31i.png)
+![申請頁面](https://cdn.xhuoapi.ai/rci31i.png)
 
-如果您尚未登錄或註冊，會自動跳轉到 [登錄頁面](https://platform.acedata.cloud) 邀請您來註冊和登錄，登錄註冊之後會自動返回當前頁面。
+如果您尚未登錄或註冊，會自動跳轉到 [登錄頁面](https://api.xhuoapi.ai) 邀請您來註冊和登錄，登錄註冊之後會自動返回當前頁面。
 
 首次申請時會有免費額度贈送，可以免費使用該 API。
 
 ## 請求示例
 
-Luma Tasks API 可以用於查詢 Luma Videos Generation API 的結果。關於怎樣使用 Luma Videos Generation API，請參考文檔 [Luma Videos Generation API](https://platform.acedata.cloud/documents/16bb0108-1f09-45b3-97ac-16a668750a8c)。
+Luma Tasks API 可以用於查詢 Luma Videos Generation API 的結果。關於怎樣使用 Luma Videos Generation API，請參考文檔 [Luma Videos Generation API](https://api.xhuoapi.ai/documents/16bb0108-1f09-45b3-97ac-16a668750a8c)。
 
 我們以 Luma Videos Generation API 服務返回的任務ID 一個為例，演示如何使用該 API。假設我們有一個任務ID：50fc6182-fa86-4c7d-ac12-2fa27ec2f151，接下來演示如何通過傳入一個任務ID 來。
 
 ### 任務示例圖
 
-<p><img src="https://cdn.acedata.cloud/frcrux.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/frcrux.png" width="500" className="m-auto" /></p>
 
 ### 設置請求頭和請求體
 
@@ -45,20 +45,20 @@ Luma Tasks API 可以用於查詢 Luma Videos Generation API 的結果。關於�
 
 設置如下圖所示：
 
-<p><img src="https://cdn.acedata.cloud/g6ev5b.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g6ev5b.png" width="500" className="m-auto" /></p>
 
 ### 代碼示例
 
 可以發現，在頁面右側已經自動生成了各種語言的代碼，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/i4fxqf.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/i4fxqf.png" width="500" className="m-auto" /></p>
 
 部分代碼示例如下：
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/luma/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/luma/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/luma/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/luma/tasks"
+url = "https://api.xhuoapi.ai/v1/luma/tasks"
 
 headers = {
     "accept": "application/json",
@@ -113,11 +113,11 @@ print(response.text)
     "task_id": "50fc6182-fa86-4c7d-ac12-2fa27ec2f151",
     "video_id": "4b088fc8-2bbc-4706-80a6-a0fb118adc1a",
     "prompt": "Astronauts shuttle from space to volcano",
-    "video_url": "https://platform.cdn.acedata.cloud/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.mp4",
+    "video_url": "https://platform.cdn.xhuoapi.ai/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.mp4",
     "video_height": 752,
     "video_width": 1360,
     "state": "completed",
-    "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.jpg",
+    "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.jpg",
     "thumbnail_width": 1360,
     "thumbnail_height": 752
   },
@@ -143,13 +143,13 @@ print(response.text)
 
 設置如下圖所示：
 
-<p><img src="https://cdn.acedata.cloud/mpcf1m.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mpcf1m.png" width="500" className="m-auto" /></p>
 
 ### 代碼示例
 
 可以發現，在頁面右側已經自動生成了各種語言的代碼，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/zs6y35.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zs6y35.png" width="500" className="m-auto" /></p>
 
 部分代碼示例如下：
 
@@ -177,11 +177,11 @@ print(response.text)
         "task_id": "50fc6182-fa86-4c7d-ac12-2fa27ec2f151",
         "video_id": "4b088fc8-2bbc-4706-80a6-a0fb118adc1a",
         "prompt": "宇航員從太空穿梭到火山",
-        "video_url": "https://platform.cdn.acedata.cloud/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.mp4",
+        "video_url": "https://platform.cdn.xhuoapi.ai/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.mp4",
         "video_height": 752,
         "video_width": 1360,
         "state": "completed",
-        "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.jpg",
+        "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.jpg",
         "thumbnail_width": 1360,
         "thumbnail_height": 752
       },
@@ -205,11 +205,11 @@ print(response.text)
         "task_id": "76a05f61-68ad-4c1a-838f-a00cd08cf65b",
         "video_id": "5a638d6a-7481-4c5e-8843-36c9d1b5bcd5",
         "prompt": "啦啦啦",
-        "video_url": "https://platform.cdn.acedata.cloud/luma/76a05f61-68ad-4c1a-838f-a00cd08cf65b.mp4",
+        "video_url": "https://platform.cdn.xhuoapi.ai/luma/76a05f61-68ad-4c1a-838f-a00cd08cf65b.mp4",
         "video_height": 752,
         "video_width": 1360,
         "state": "completed",
-        "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/76a05f61-68ad-4c1a-838f-a00cd08cf65b.jpg",
+        "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/76a05f61-68ad-4c1a-838f-a00cd08cf65b.jpg",
         "thumbnail_width": 1360,
         "thumbnail_height": 752
       },
@@ -223,7 +223,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/luma/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/luma/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -238,7 +238,7 @@ curl -X POST 'https://api.acedata.cloud/luma/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/luma/tasks"
+url = "https://api.xhuoapi.ai/v1/luma/tasks"
 
 headers = {
     "accept": "application/json",

@@ -1,15 +1,15 @@
 ---
 title: "ADSL Proxy API заявка та використання"
-description: "ADSL Direct Connection Proxy 集成指南 - Ace Data Cloud"
+description: "ADSL Direct Connection Proxy 集成指南 - XHuoAPI"
 ---
 
 Цей документ головним чином описує процес використання ADSL Proxy API, за допомогою якого ми можемо легко витягувати IP ADSL та додавати IP до білого списку ADSL Proxy.
 
 ## Процес заявки
 
-Щоб використовувати витягування IP ADSL та додавання IP до білого списку ADSL Proxy, спочатку можна перейти на сторінки [ADSL Proxy Extract API](https://platform.acedata.cloud/documents/d8426c17-d22c-449a-b6bf-0a7790928e4d) та [ADSL Proxy Whitelist API](https://platform.acedata.cloud/documents/c21534fe-1f62-424b-9b10-a805cb473dd1) і натиснути кнопку «Отримати», щоб отримати необхідні для запиту облікові дані:
+Щоб використовувати витягування IP ADSL та додавання IP до білого списку ADSL Proxy, спочатку можна перейти на сторінки [ADSL Proxy Extract API](https://api.xhuoapi.ai/documents/d8426c17-d22c-449a-b6bf-0a7790928e4d) та [ADSL Proxy Whitelist API](https://api.xhuoapi.ai/documents/c21534fe-1f62-424b-9b10-a805cb473dd1) і натиснути кнопку «Отримати», щоб отримати необхідні для запиту облікові дані:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, запрошуючи вас зареєструватися та увійти. Після входу або реєстрації ви автоматично повернетеся на цю сторінку.
 
@@ -17,7 +17,7 @@ description: "ADSL Direct Connection Proxy 集成指南 - Ace Data Cloud"
 
 ## Витягування IP ADSL
 
-Далі ви можете заповнити відповідні дані на інтерфейсі [ADSL Proxy Extract API](https://platform.acedata.cloud/documents/d8426c17-d22c-449a-b6bf-0a7790928e4d), далі демонструється, як витягнути IP ADSL.
+Далі ви можете заповнити відповідні дані на інтерфейсі [ADSL Proxy Extract API](https://api.xhuoapi.ai/documents/d8426c17-d22c-449a-b6bf-0a7790928e4d), далі демонструється, як витягнути IP ADSL.
 
 ### Налаштування заголовків запиту та тіла запиту
 
@@ -38,20 +38,20 @@ description: "ADSL Direct Connection Proxy 集成指南 - Ace Data Cloud"
 {"province":"Пекін","city":"Пекін","pId":0,"cId":0},{"province":"Тяньцзінь","city":"Тяньцзінь","pId":1,"cId":1},{"province":"Шанхай","city":"Шанхай","pId":2,"cId":3},{"province":"Чунцін","city":"Чунцін","pId":3,"cId":4},{"province":"Хейлунцзян","city":"Дахіньаньлінг","pId":4,"cId":7},{"province":"Хейлунцзян","city":"Хейхе","pId":4,"cId":8},{"province":"Хейлунцзян","city":"Ціцзихар","pId":4,"cId":9},{"province":"Хейлунцзян","city":"Суйхуа","pId":4,"cId":10},{"province":"Хейлунцзян","city":"Хеган","pId":4,"cId":11},{"province":"Хейлунцзян","city":"Цзямусі","pId":4,"cId":12},{"province":"Хейлунцзян","city":"Ічунь","pId":4,"cId":13},{"province":"Хейлунцзян","city":"Шуан'яшань","pId":4,"cId":14},{"province":"Хейлунцзян","city":"Харбін","pId":4,"cId":15},{"province":"Хейлунцзян","city":"Цзісі","pId":4,"cId":16},{"province":"Хейлунцзян","city":"Дачін","pId":4,"cId":18},{"province":"Хейлунцзян","city":"Цзитайхе","pId":4,"cId":19},{"province":"Хейлунцзян","city":"Муданцзян","pId":4,"cId":20},{"province":"Цзілінь","city":"Ляоюань","pId":5,"cId":22},{"province":"Цзілінь","city":"Тунхуа","pId":5,"cId":23},{"province":"Цзілінь","city":"Байчен","pId":5,"cId":24},{"province":"Цзілінь","city":"Суньюань","pId":5,"cId":25},{"province":"Цзілінь","city":"Чанчунь","pId":5,"cId":26},{"province":"Цзілінь","city":"Цзілінь","pId":5,"cId":27},{"province":"Цзілінь","city":"Яньбянь Корейський автономний округ","pId":5,"cId":29},{"province":"Цзілінь","city":"Байшань","pId":5,"cId":31},{"province":"Цзілінь","city":"Сіпін","pId":5,"cId":32},{"province":"Ляонінь","city":"Хулудао","pId":6,"cId":33},{"province":"Ляонінь","city":"Паньцзинь","pId":6,"cId":34},{"province":"Ляонінь","city":"Ляоян","pId":6,"cId":35},{"province":"Ляонінь","city":"Тієлін","pId":6,"cId":36},{"province":"Ляонінь","city":"Фусінь","pId":6,"cId":37},{"province":"Ляонінь","city":"Чаоян","pId":6,"cId":38},{"province":"Ляонінь","city":"Цзиньчжоу","pId":6,"cId":39},{"province":"Ляонінь","city":"Аншань","pId":6,"cId":40},{"province":"Ляонінь","city":"Шеньянь","pId":6,"cId":41},{"province":"Ляонінь","city":"Бенсі","pId":6,"cId":42},{"province":"Ляонінь","city":"Фушунь","pId":6,"cId":43},{"province":"Ляонінь","city":"Інкоу","pId":6,"cId":44},{"province":"Ляонінь","city":"Даньдун","pId":6,"cId":45},{"province":"Ляонінь","city":"Далянь","pId":6,"cId":47},{"province":"Внутрішня Монголія","city":"Хулуньбеєр","pId":7,"cId":48},{"province":"Внутрішня Монголія","city":"Сіньань","pId":7,"cId":49},{"province":"Внутрішня Монголія","city":"Сілінь-Гуолер","pId":7,"cId":50},{"province":"Внутрішня Монголія","city":"Баян-Нур","pId":7,"cId":51},{"province":"Внутрішня Монголія","city":"Баотоу","pId":7,"cId":52},{"province":"Внутрішня Монголія","city":"Хух-Хото","pId":7,"cId":53},{"province":"Внутрішня Монголія","city":"Тунляо","pId":7,"cId":55},{"province":"Внутрішня Монголія","city":"Чифен","pId":7,"cId":56},{"province":"Внутрішня Монголія","city":"Ухай","pId":7,"cId":57},{"province":"Внутрішня Монголія","city":"Ерлунг","pId":7,"cId":58},{"province":"Внутрішня Монголія","city":"Уланьчаб","pId":7,"cId":59},{"province":"Нінся","city":"Шицзуйшань","pId":8,"cId":60},{"province":"Нінся","city":"Іньчуань","pId":8,"cId":61},{"province":"Нінся","city":"Учжун","pId":8,"cId":62},{"province":"Нінся","city":"Гуянь","pId":8,"cId":63},{"province":"Ганьсу","city":"Чжанє","pId":9,"cId":64},{"province":"Ганьсу","city":"Цзиньчанг","pId":9,"cId":65},{"province":"Ганьсу","city":"Увуй","pId":9,"cId":66},{"province":"Ганьсу","city":"Ланьчжоу","pId":9,"cId":67},{"province":"Ганьсу","city":"Байїн","pId":9,"cId":68},{"province":"Ганьсу","city":"Дінсі","pId":9,"cId":69},{"province":"Ганьсу","city":"Пінлян","pId":9,"cId":70},{"province":"Ганьсу","city":"Ціньян","pId":9,"cId":71},{"province":"Ганьсу","city":"Ганьнань Тибетський автономний округ","pId":9,"cId":72},{"province":"Ганьсу","city":"Лінсян Хуейський автономний округ","pId":9,"cId":73},{"province":"Ганьсу","city":"Тяньшуй","pId":9,"cId":74},{"province":"Ганьсу","city":"Цзюцюань","pId":9,"cId":75},{"province":"Ганьсу","city":"Цзілунань","pId":9,"cId":76},{"province":"Ганьсу","city":"Луннань","pId":9,"cId":77},{"province":"Сіньцзян","city":"Чанцзюй Хуейський автономний округ","pId":10,"cId":78},{"province":"Сіньцзян","city":"Кизилсу Киргизький автономний округ","pId":10,"cId":79},{"province":"Сіньцзян","city":"Ілі Казахський автономний округ","pId":10,"cId":80},{"province":"Сіньцзян","city":"Алар","pId":10,"cId":81},{"province":"Сіньцзян","city":"Карамай","pId":10,"cId":82},{"province":"Сіньцзян","city":"Бортоала Монголський автономний округ","pId":10,"cId":83},{"province":"Сіньцзян","city":"Урумчі","pId":10,"cId":84},{"province":"Сіньцзян","city":"Турфан","pId":10,"cId":85},{"province":"Сіньцзян","city":"Аксу","pId":10,"cId":86},{"province":"Сіньцзян","city":"Шихеці","pId":10,"cId":87},{"province":"Сіньцзян","city":"Кашгар","pId":10,"cId":88},{"province":"Сіньцзян","city":"Хетянь","pId":10,"cId":89},{"province":"Сіньцзян","city":"Хамі","pId":10,"cId":90},{"province":"Шеньсі","city":"Юйлінь","pId":11,"cId":92},{"province":"Шеньсі","city":"Єньань","pId":11,"cId":93},{"province":"Шеньсі","city":"Сяньян","pId":11,"cId":94},{"province":"Шеньсі","city":"Сіань","pId":11,"cId":95},{"province":"Шеньсі","city":"Вейнань","pId":11,"cId":96},{"province":"Шеньсі","city":"Ханьчжун","pId":11,"cId":97},{"province":"Шеньсі","city":"Шанлуо","pId":11,"cId":98},{"province":"Шеньсі","city":"Анкан","pId":11,"cId":99},{"province":"Шеньсі","city":"Тунчжуан","pId":11,"cId":100},{"province":"Шеньсі","city":"Баодзін","pId":11,"cId":101},{"province":"Шаньсі","city":"Чанжі","pId":12,"cId":102},{"province":"Шаньсі","city":"Цзиньчжун","pId":12,"cId":103},{"province":"Шаньсі","city":"Шоучжоу","pId":12,"cId":104},{"province":"Шаньсі","city":"Датун","pId":12,"cId":105},{"province":"Шаньсі","city":"Люлян","pId":12,"cId":106},{"province":"Шаньсі","city":"Сіньчжоу","pId":12,"cId":107},{"province":"Шаньсі","city":"Тайюань","pId":12,"cId":108},{"province":"Шаньсі","city":"Янцюань","pId":12,"cId":109},{"province":"Шаньсі","city":"Ліньфень","pId":12,"cId":110},{"province":"Шаньсі","city":"Юньчжень","pId":12,"cId":111},{"province":"Шаньсі","city":"Цзиньчжень","pId":12,"cId":112},{"province":"Шаньдун","city":"Децзю","pId":13,"cId":114},{"province":"Шаньдун","city":"Біньчжоу","pId":13,"cId":115},{"province":"Шаньдун","city":"Янтай","pId":13,"cId":116},{"province":"Шаньдун","city":"Ляочен","pId":13,"cId":117},{"province":"Шаньдун","city":"Цзинань","pId":13,"cId":118},{"province":"Шаньдун","city":"Тайань","pId":13,"cId":119},{"province":"Шаньдун","city":"Цзибо","pId":13,"cId":120},{"province":"Шаньдун","city":"Вейфан","pId":13,"cId":121},{"province":"Шаньдун","city":"Ціндао","pId":13,"cId":122},{"province":"Шаньдун","city":"Цзинінь","pId":13,"cId":123},{"province":"Шаньдун","city":"Ріцзяо","pId":13,"cId":124},{"province":"Шаньдун","city":"Цзаоцзюань","pId":13,"cId":126},{"province":"Шаньдун","city":"Дунін","pId":13,"cId":127},{"province":"Шаньдун","city":"Вейхай","pId":13,"cId":128},{"province":"Шаньдун","city":"Лайву","pId":13,"cId":129},{"province":"Шаньдун","city":"Ліньї","pId":13,"cId":130},{"province":"Шаньдун","city":"Хецьзе","pId":13,"cId":131},{"province":"Хебей","city":"Хандань","pId":14,"cId":132},{"province":"Хебей","city":"Хенгшуй","pId":14,"cId":133},{"province":"Хебей","city":"Шицзячжуан","pId":14,"cId":134},{"province":"Хебей","city":"Сінтай","pId":14,"cId":135},{"province":"Хебей","city":"Чжанцзякоу","pId":14,"cId":136},{"province":"Хебей","city":"Ченде","pId":14,"cId":137},{"province":"Хебей","city":"Ціньхуандао","pId":14,"cId":138},{"province":"Хебей","city":"Ланфан","pId":14,"cId":139},{"province":"Хебей","city":"Таншань","pId":14,"cId":140},{"province":"Хебей","city":"Баодін","pId":14,"cId":141},{"province":"Хебей","city":"Цанчжоу","pId":14,"cId":142},{"province":"Хенань","city":"Анян","pId":15,"cId":143},{"province":"Хенань","city":"Саньменся","pId":15,"cId":144},{"province":"Хенань","city":"Чженьчжоу","pId":15,"cId":145},{"province":"Хенань","city":"Наньян","pId":15,"cId":146},{"province":"Хенань","city":"Чжоукоу","pId":15,"cId":147},{"province":"Хенань","city":"Чжумадянь","pId":15,"cId":148},{"province":"Хенань","city":"Сіньян","pId":15,"cId":149},{"province":"Хенань","city":"Кайфен","pId":15,"cId":150},{"province":"Хенань","city":"Лоян","pId":15,"cId":151},{"province":"Хенань","city":"Піндіншань","pId":15,"cId":152},{"province":"Хенань","city":"Цзяозо","pId":15,"cId":153},{"province":"Хенань","city":"Хебі","pId":15,"cId":154},{"province":"Хенань","city":"Сіньсян","pId":15,"cId":155},{"province":"Хенань","city":"Пуянь","pId":15,"cId":156},{"province":"Хенань","city":"Сюйчан","pId":15,"cId":157},{"province":"Хенань","city":"Лоехе","pId":15,"cId":158},{"province":"Хенань","city":"Шанцю","pId":15,"cId":159},{"province":"Хенань","city":"Цзюйюань","pId":15,"cId":160},{"province":"Тибет","city":"Накю","pId":16,"cId":161},{"province":"Тибет","city":"Рікайзе","pId":16,"cId":162},{"province":"Тибет","city":"Лхаса","pId":16,"cId":163},{"province":"Тибет","city":"Шаннань","pId":16,"cId":164},{"province":"Тибет","city":"Алі","pId":16,"cId":165},{"province":"Тибет","city":"Чанду","pId":16,"cId":166},{"province":"Тибет","city":"Ліньцзі","pId":16,"cId":167},{"province":"Юньнань","city":"Чжаотун","pId":17,"cId":168},{"province":"Юньнань","city":"Ліцзянь","pId":17,"cId":169},{"province":"Юньнань","city":"Цюцзин","pId":17,"cId":170},{"province":"Юньнань","city":"Баошань","pId":17,"cId":171},{"province":"Юньнань","city":"Далі","pId":17,"cId":172},{"province":"Юньнань","city":"Чусян","pId":17,"cId":173},{"province":"Юньнань","city":"Куньмін
 Отже, відповідно до наведених вище правил, нам потрібно налаштувати правильні `province` та `city`, намагайтеся вибрати регіони Цзянсу та Чжецзян, оскільки IP-адреси в цих регіонах будуть більше, конкретні параметри налаштування наведені на малюнку нижче:
 
-<p><img src="https://cdn.acedata.cloud/g8remv.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/g8remv.png" width="500" class="m-auto"></p>
 
 ### Приклад коду
 
 Можна помітити, що на правій стороні сторінки вже автоматично згенеровано код на різних мовах, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/e2rmr0.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/e2rmr0.png" width="500" class="m-auto"></p>
 
 Деякі приклади коду наведені нижче:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/adsl/extract' \
+curl -X POST 'https://api.xhuoapi.ai/v1/adsl/extract' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -66,7 +66,7 @@ curl -X POST 'https://api.acedata.cloud/adsl/extract' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/adsl/extract"
+url = "https://api.xhuoapi.ai/v1/adsl/extract"
 
 headers = {
     "accept": "application/json",
@@ -217,18 +217,18 @@ if __name__ == "__main__":
 
 Нижче налаштуємо тип проксі IP на `socks`, конкретні налаштування наведені на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/h3xlwj.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/h3xlwj.png" width="500" class="m-auto"></p>
 
 Також ви можете помітити, що праворуч є відповідний згенерований код виклику, ви можете скопіювати код і безпосередньо виконати, або просто натиснути кнопку «Спробувати» для тестування.
 
-<p><img src="https://cdn.acedata.cloud/7w0d5h.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/7w0d5h.png" width="500" class="m-auto"></p>
 
 Приклад коду виклику на Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/adsl/extract"
+url = "https://api.xhuoapi.ai/v1/adsl/extract"
 
 headers = {
     "accept": "application/json",
@@ -272,20 +272,20 @@ print(response.text)
 
 Далі можна заповнити відповідні дані на інтерфейсі, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/wz4obo.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/wz4obo.png" width="500" class="m-auto"></p>
 
 При першому використанні цього інтерфейсу нам потрібно заповнити принаймні три поля: одне з них - `authorization`, яке можна вибрати безпосередньо зі списку. Інший параметр - це `ip`, `ip` - це локальна мережа IP-проксі, витягнута вище. Останній параметр - `action`, `action` - це операція, яку ми виконуємо з білим списком, тут ми додаємо до білого списку.
 
 Водночас ви можете помітити, що праворуч є відповідний код виклику, ви можете скопіювати код і безпосередньо виконати його, або просто натиснути кнопку «Спробувати» для тестування.
 
-<p><img src="https://cdn.acedata.cloud/cs5ib2.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/cs5ib2.png" width="500" class="m-auto"></p>
 
 Приклад коду виклику на Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/adsl/whitelist"
+url = "https://api.xhuoapi.ai/v1/adsl/whitelist"
 
 headers = {
     "accept": "application/json",

@@ -1,13 +1,13 @@
 ---
 title: "Instructions d'intégration de l'API Fish TTS"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
-Cet article présente les instructions d'intégration de l'API Fish TTS. Cette interface est entièrement compatible avec l’[OpenAPI officielle de Fish Audio](https://docs.fish.audio/text-to-speech/text-to-speech) et permet de migrer directement le code appelant `https://api.fish.audio/v1/tts` vers `https://api.acedata.cloud/fish/tts`, en ne remplaçant que les informations d’authentification, sans modifier la structure du corps de la requête.
+Cet article présente les instructions d'intégration de l'API Fish TTS. Cette interface est entièrement compatible avec l’[OpenAPI officielle de Fish Audio](https://docs.fish.audio/text-to-speech/text-to-speech) et permet de migrer directement le code appelant `https://api.fish.audio/v1/tts` vers `https://api.xhuoapi.ai/v1/fish/tts`, en ne remplaçant que les informations d’authentification, sans modifier la structure du corps de la requête.
 
 ## Processus de demande
 
-Pour utiliser l’API, il faut d’abord demander le service correspondant sur la page [Fish TTS API](https://platform.acedata.cloud/services/caf99abc-ddcf-4714-b2a5-862d9b469509). Une fois sur la page, cliquez sur le bouton « Acquire ».
+Pour utiliser l’API, il faut d’abord demander le service correspondant sur la page [Fish TTS API](https://api.xhuoapi.ai/services/caf99abc-ddcf-4714-b2a5-862d9b469509). Une fois sur la page, cliquez sur le bouton « Acquire ».
 
 Si vous n’êtes pas encore connecté ou inscrit, vous serez automatiquement redirigé vers la page de connexion pour vous inscrire et vous connecter. Après connexion ou inscription, vous reviendrez automatiquement à la page actuelle.
 
@@ -29,7 +29,7 @@ Cette API conserve les champs de requête et de réponse officiels de Fish Audio
 La requête minimale nécessite uniquement le champ `text`. Exemple CURL :
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -55,7 +55,7 @@ La réponse contient directement les champs officiels Fish, notamment :
 Pour utiliser une voix clonée, ajoutez `reference_id` dans le corps de la requête :
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -77,7 +77,7 @@ Le processus est le suivant : le client ajoute un champ `callback_url` dans le c
 Exemple de requête :
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -106,7 +106,7 @@ Après un court instant, l’`callback_url` recevra le résultat complet :
 }
 ```
 
-Il est également possible d’utiliser la [Fish Tasks API](https://platform.acedata.cloud/documents/fc541fac-a941-47fd-b6f7-48d6cb9da523) pour interroger activement l’état d’une tâche via `task_id`.
+Il est également possible d’utiliser la [Fish Tasks API](https://api.xhuoapi.ai/documents/fc541fac-a941-47fd-b6f7-48d6cb9da523) pour interroger activement l’état d’une tâche via `task_id`.
 
 ## Gestion des erreurs
 

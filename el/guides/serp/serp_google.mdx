@@ -1,6 +1,6 @@
 ---
 title: "Οδηγίες Σύνδεσης Google SERP API"
-description: "Search Engine 集成指南 - Ace Data Cloud"
+description: "Search Engine 集成指南 - XHuoAPI"
 ---
 
 Η Google SERP (Σελίδα Αποτελεσμάτων Μηχανής Αναζήτησης) είναι η σελίδα αποτελεσμάτων που βλέπει ο χρήστης μετά την εισαγωγή ενός ερωτήματος στη μηχανή αναζήτησης Google. Εμφανίζει φυσικά αποτελέσματα αναζήτησης, διαφημίσεις, χαρακτηριστικά αποσπάσματα, γραφήματα γνώσης καθώς και διάφορα περιεχόμενα όπως εικόνες και βίντεο, με στόχο να παρέχει στους χρήστες τις πιο σχετικές πληροφορίες.
@@ -11,9 +11,9 @@ description: "Search Engine 集成指南 - Ace Data Cloud"
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το Google SERP API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [Google SERP API](https://platform.acedata.cloud/documents/44c86226-8eaa-49bf-85f3-1fae8d2e23f1) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε το Google SERP API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [Google SERP API](https://api.xhuoapi.ai/documents/44c86226-8eaa-49bf-85f3-1fae8d2e23f1) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη σελίδα σύνδεσης για να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη σελίδα.
 
@@ -25,7 +25,7 @@ description: "Search Engine 集成指南 - Ace Data Cloud"
 
 Για παράδειγμα, για να βρείτε πληροφορίες σχετικά με την «apple inc», μπορείτε να συμπληρώσετε τα αντίστοιχα περιεχόμενα στην οθόνη, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/lnqiye.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lnqiye.png" width="500" className="m-auto" /></p>
 
 Μπορείτε να δείτε ότι εδώ έχουμε ρυθμίσει τα Request Headers, που περιλαμβάνουν:
 
@@ -44,7 +44,7 @@ description: "Search Engine 集成指南 - Ace Data Cloud"
 
 Αφού επιλέξετε, μπορείτε να δείτε ότι έχει παραχθεί ο αντίστοιχος κώδικας στα δεξιά, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/1j81zr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1j81zr.png" width="500" className="m-auto" /></p>
 
 Κάντε κλικ στο κουμπί «Try» για να δοκιμάσετε, όπως φαίνεται στην παραπάνω εικόνα, και εδώ έχουμε λάβει τα εξής αποτελέσματα:
 ```json
@@ -180,12 +180,12 @@ description: "Search Engine 集成指南 - Ace Data Cloud"
   ]
 }
 ```
-<p><img src="https://cdn.acedata.cloud/czlt12.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/czlt12.png" width="500" className="m-auto" /></p>
 
 Ο κώδικας είναι ο εξής:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -307,7 +307,7 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 
 Αυτή η διεπαφή υποστηρίζει επίσης τον περιορισμό των αποτελεσμάτων αναζήτησης στη χώρα προέλευσης, μπορούμε να προσθέσουμε την παράμετρο `country` για να περιορίσουμε τη χώρα, η είσοδος της παραμέτρου είναι η συντομογραφία της χώρας, όπως cn (Κίνα), us (Ηνωμένες Πολιτείες), το παρόν άρθρο θα χρησιμοποιήσει την Κίνα ως παράδειγμα, παρακάτω είναι οι συγκεκριμένες πληροφορίες:
 
-<p><img src="https://cdn.acedata.cloud/gztpwi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gztpwi.png" width="500" className="m-auto" /></p>
 
 Η έξοδος είναι ως εξής:
 ```json
@@ -408,12 +408,12 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 ```
 我们还可以自定义搜索结果的语言，这里我们额外添加 `language` 字段，内容为 `zh-cn`，其中它指的是简体中文的语言，同时还支持其他语言，但必须输入的语言的简写，比如 en（English）、fr（French）、zh-cn（Chinese（Simplified））等语言，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/yyrssp.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yyrssp.png" width="500" className="m-auto" /></p>
 
 对应代码如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -585,12 +585,12 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 ## 自定义搜索结果时间范围
 本文 μπορεί επίσης να προσαρμόσει το χρονικό εύρος των αποτελεσμάτων αναζήτησης, το οποίο περιλαμβάνει πέντε τύπους, συγκεκριμένα `qdr:h` (προηγούμενη μία ώρα), `qdr:d` (προηγούμενη ημέρα), `qdr:w` (προηγούμενη εβδομάδα), `qdr:m` (προηγούμενος μήνας), προεπιλεγμένα χωρίς περιορισμούς, μπορούμε να περάσουμε το αντίστοιχο χρονικό εύρος μέσω του `range`, για παράδειγμα, εδώ ορίζεται ως `qdr:d`, που σημαίνει αναζήτηση των αποτελεσμάτων της προηγούμενης ημέρας, οπότε η είσοδος είναι η εξής:
 
-<p><img src="https://cdn.acedata.cloud/qccfib.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qccfib.png" width="500" className="m-auto" /></p>
 
 Ο αντίστοιχος κώδικας είναι ο εξής:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -744,13 +744,13 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 
 Αυτή η API υποστηρίζει επίσης την προσαρμογή της εμφάνισης των αποτελεσμάτων αναζήτησης σε σελίδες, το `number` και το `page` δηλώνουν το μέγεθος της σελίδας και τον αριθμό της σελίδας, σε αυτό το κείμενο θα ορίσουμε ότι σε μία σελίδα υπάρχουν 20 αποτελέσματα αναζήτησης για την εμφάνιση σελίδων, οι συγκεκριμένες πληροφορίες είναι όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/dqla1e.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dqla1e.png" width="500" className="m-auto" /></p>
 
 > Σημείωση: Όταν τα αποτελέσματα ανά σελίδα υπερβαίνουν τα 10, οι πόντοι που αφαιρούνται θα διπλασιαστούν.
 
 Ο κώδικας είναι ο εξής:
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

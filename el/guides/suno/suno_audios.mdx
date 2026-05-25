@@ -1,6 +1,6 @@
 ---
 title: "Suno API για τη δημιουργία τραγουδιών"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 Με την ευρεία εφαρμογή της AI, διάφορα προγράμματα AI έχουν σταδιακά γίνει δημοφιλή. Η AI έχει βαθιά διεισδύσει σε όλες τις πτυχές της εργασιακής και καθημερινής ζωής των ανθρώπων. Οι τομείς που εμπλέκονται με την AI αυξάνονται συνεχώς, από την αρχική συγγραφή, στην ιατρική εκπαίδευση, μέχρι τη μουσική σήμερα.
@@ -19,13 +19,13 @@ description: "Suno Music Generation 集成指南 - Ace Data Cloud"
 
 Το Suno έχει αναβαθμίσει το μοντέλο δημιουργίας μουσικής στην έκδοση V5, και για να καλέσετε την τελευταία V5, απλώς αλλάξτε την παράμετρο model σε `chirp-v5`, και μπορείτε να δημιουργήσετε τραγούδια διάρκειας 9 λεπτών.
 
-Ωστόσο, η επίσημη Suno δεν παρέχει API, η AceDataCloud προσφέρει ένα σύνολο API του Suno, προσομοιώνοντας την επίσημη σύνδεση του Suno, διευκολύνοντας τη γρήγορη δημιουργία της επιθυμητής μουσικής.
+Ωστόσο, η επίσημη Suno δεν παρέχει API, η XHuoAPI προσφέρει ένα σύνολο API του Suno, προσομοιώνοντας την επίσημη σύνδεση του Suno, διευκολύνοντας τη γρήγορη δημιουργία της επιθυμητής μουσικής.
 
 ## Αίτηση και Χρήση
 
-Για να χρησιμοποιήσετε το Suno Audios API, μπορείτε πρώτα να επισκεφθείτε τη σελίδα [Suno Audios Generation API](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) και να κάνετε κλικ στο κουμπί «Acquire» για να αποκτήσετε τα απαραίτητα διαπιστευτήρια:
+Για να χρησιμοποιήσετε το Suno Audios API, μπορείτε πρώτα να επισκεφθείτε τη σελίδα [Suno Audios Generation API](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) και να κάνετε κλικ στο κουμπί «Acquire» για να αποκτήσετε τα απαραίτητα διαπιστευτήρια:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα ανακατευθυνθείτε αυτόματα στη σελίδα σύνδεσης για να σας προσκαλέσουν να εγγραφείτε και να συνδεθείτε, και μετά την εγγραφή και σύνδεση θα επιστρέψετε αυτόματα στη σελίδα.
 
@@ -35,7 +35,7 @@ description: "Suno Music Generation 集成指南 - Ace Data Cloud"
 
 Για να σκεφτείτε κάποια τραγούδια, μπορείτε να εισάγετε οποιοδήποτε κείμενο, για παράδειγμα, αν θέλετε να δημιουργήσετε ένα τραγούδι για τα Χριστούγεννα, μπορείτε να εισάγετε `a song for Christmas`, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/2kuuup.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2kuuup.png" width="500" className="m-auto" /></p>
 
 Μπορείτε να δείτε ότι εδώ έχουμε ρυθμίσει τα Request Headers, που περιλαμβάνουν:
 
@@ -69,7 +69,7 @@ description: "Suno Music Generation 集成指南 - Ace Data Cloud"
 
 Ο παραγόμενος κώδικας είναι ως εξής:
 
-<p><img src="https://cdn.acedata.cloud/1xehwl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1xehwl.png" width="500" className="m-auto" /></p>
 
 Μπορείτε να κάνετε κλικ στο κουμπί «Try» για να δοκιμάσετε απευθείας το API, περιμένετε 1-2 λεπτά, και τα αποτελέσματα είναι τα εξής:
 ```json
@@ -141,7 +141,7 @@ description: "Suno Music Generation 集成指南 - Ace Data Cloud"
 [Verse]\nΧιονονιφάδες πέφτουν παντού\nΛαμπερό λευκό\nΚαλύπτοντας το έδαφος\nΠαιδιά γελούν\nΓεμάτα απόλαυση\nΣε αυτό το χειμερινό θαύμα απόψε\nΗ έλκηθρο του Άγιου Βασίλη\nΣτον ουρανό\nΗ μύτη του Ρούντολφ λάμπει φωτεινά\nΩ Θεέ μου\nΆκου τα καμπανάκια\nΝα χτυπούν καθαρά\nΦέρνοντας χαρά και γιορτινή διάθεση\n[Verse 2]\nΨήσιμο κάστανων από τη λάμψη της φωτιάς\nΧριστουγεννιάτικα φώτα\nΛάμπουν και δείχνουν\nΟικογένειες συγκεντρώνονται με αγάπη και χαρά\nΔιαδίδοντας ζεστασιά σε όλους κοντά
 ```
 
-> Σημειώστε ότι οι στίχοι εδώ `\n` είναι χαρακτήρας αλλαγής γραμμής, αν δεν ξέρετε πώς να δημιουργήσετε στίχους, μπορείτε να χρησιμοποιήσετε το API δημιουργίας στίχων που παρέχει η AceDataCloud για να δημιουργήσετε στίχους μέσω prompt, το API είναι [Suno Lyrics Generation API](https://platform.acedata.cloud/documents/514d82dc-f7ab-4638-9f21-8b9275916b08).
+> Σημειώστε ότι οι στίχοι εδώ `\n` είναι χαρακτήρας αλλαγής γραμμής, αν δεν ξέρετε πώς να δημιουργήσετε στίχους, μπορείτε να χρησιμοποιήσετε το API δημιουργίας στίχων που παρέχει η XHuoAPI για να δημιουργήσετε στίχους μέσω prompt, το API είναι [Suno Lyrics Generation API](https://api.xhuoapi.ai/documents/514d82dc-f7ab-4638-9f21-8b9275916b08).
 
 Στη συνέχεια, πρέπει να προσαρμόσουμε τη δημιουργία τραγουδιού με βάση τους στίχους, τον τίτλο, το στυλ, μπορείτε να καθορίσετε τα παρακάτω περιεχόμενα:
 
@@ -152,16 +152,16 @@ description: "Suno Music Generation 集成指南 - Ace Data Cloud"
 
 Ένα παράδειγμα συμπλήρωσης είναι το εξής:
 
-<p><img src="https://cdn.acedata.cloud/qp3iba.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qp3iba.png" width="500" className="m-auto" /></p>
 
 Αφού συμπληρωθεί αυτόματα δημιουργήθηκε ο παρακάτω κώδικας:
 
-<p><img src="https://cdn.acedata.cloud/o5haei.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/o5haei.png" width="500" className="m-auto" /></p>
 
 Ο αντίστοιχος κώδικας:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/suno/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -177,20 +177,20 @@ curl -X POST 'https://api.acedata.cloud/suno/audios' \
 Δοκιμάστε το, το αποτέλεσμα που δημιουργείται είναι παρόμοιο. 
 
 ## Λειτουργία Δημιουργίας με Προσαρμοσμένο Στυλ Καλλιτέχνη
-如果 θέλετε να χρησιμοποιήσετε το στυλ ενός καλλιτέχνη για να δημιουργήσετε ένα τραγούδι, πρώτα μέσω της βασικής χρήσης που αναφέρθηκε παραπάνω, δημιουργήστε ένα τραγούδι. Στο τέλος, θα χρειαστεί να ρυθμίσετε αυτό το τραγούδι στο στυλ του καλλιτέχνη και θα πρέπει να εισέλθετε στο [Suno Persona API](https://platform.acedata.cloud/documents/78bb6c62-6ce0-490f-a7df-e89d80ec0583) για να δημιουργήσετε μια παράμετρο id καλλιτέχνη `persona_id` με βάση το μουσικό ID `audio_id` που έχει παραχθεί από την επίσημη πηγή. Οι συγκεκριμένες παράμετροι φαίνονται στην παρακάτω εικόνα:
+如果 θέλετε να χρησιμοποιήσετε το στυλ ενός καλλιτέχνη για να δημιουργήσετε ένα τραγούδι, πρώτα μέσω της βασικής χρήσης που αναφέρθηκε παραπάνω, δημιουργήστε ένα τραγούδι. Στο τέλος, θα χρειαστεί να ρυθμίσετε αυτό το τραγούδι στο στυλ του καλλιτέχνη και θα πρέπει να εισέλθετε στο [Suno Persona API](https://api.xhuoapi.ai/documents/78bb6c62-6ce0-490f-a7df-e89d80ec0583) για να δημιουργήσετε μια παράμετρο id καλλιτέχνη `persona_id` με βάση το μουσικό ID `audio_id` που έχει παραχθεί από την επίσημη πηγή. Οι συγκεκριμένες παράμετροι φαίνονται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/pmzo3l.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pmzo3l.png" width="500" className="m-auto" /></p>
 
 Αφού συμπληρωθούν, δημιουργείται αυτόματα ο παρακάτω κώδικας:
 
-<p><img src="https://cdn.acedata.cloud/a5g0nj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a5g0nj.png" width="500" className="m-auto" /></p>
 
 Αντίστοιχος κώδικας Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/persona"
+url = "https://api.xhuoapi.ai/v1/suno/persona"
 
 headers = {
     "accept": "application/json",
@@ -221,18 +221,18 @@ print(response.text)
 
 Χρησιμοποιώντας το `audio_id` και το `persona_id` που αναφέρθηκαν παραπάνω, αντίστοιχα `97efc9f4-0e8d-4b3e-88df-14568fa1b11f` και `e0d7319e-aa2a-44cb-b00a-916218d7cb0b`, έχουμε τα δεδομένα παραδείγματος για αυτή τη διαδικασία. Στη συνέχεια, μπορείτε να ρυθμίσετε την παράμετρο `action` σε `artist_consistency` (αν πρόκειται για την νέα έκδοση του στυλ καλλιτέχνη Persona-v2-vox, η `action` πρέπει να ρυθμιστεί σε `artist_consistency_vox`) και να εισάγετε το ID του τραγουδιού που θέλετε να συνεχίσετε να δημιουργείτε, καθώς και το ID του στυλ του καλλιτέχνη, όπως φαίνεται παρακάτω:
 
-<p><img src="https://cdn.acedata.cloud/fukijq.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fukijq.png" width="500" className="m-auto" /></p>
 
 Αφού συμπληρωθούν, δημιουργείται αυτόματα ο παρακάτω κώδικας:
 
-<p><img src="https://cdn.acedata.cloud/5uzk9d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5uzk9d.png" width="500" className="m-auto" /></p>
 
 Αντίστοιχος κώδικας Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -302,9 +302,9 @@ print(response.text)
 
 > Σημειώστε ότι το `id` εδώ είναι το ID του τραγουδιού που έχει παραχθεί. Αν δεν ξέρετε πώς να δημιουργήσετε ένα τραγούδι, μπορείτε να ανατρέξετε στη βασική χρήση που αναφέρθηκε παραπάνω.
 
-Αν θέλετε να συνεχίσετε τη δημιουργία ενός τραγουδιού που έχετε ανεβάσει, μπορείτε να ρυθμίσετε την παράμετρο `action` σε `upload_extend` και να εισάγετε το ID του τραγουδιού που θέλετε να συνεχίσετε να δημιουργείτε. Το ID του τραγουδιού μπορεί να αποκτηθεί χρησιμοποιώντας το [Suno Upload Generation API](https://platform.acedata.cloud/documents/766db278-012c-43c4-9245-5f18d8dc4d82), όπως φαίνεται στην παρακάτω εικόνα:
+Αν θέλετε να συνεχίσετε τη δημιουργία ενός τραγουδιού που έχετε ανεβάσει, μπορείτε να ρυθμίσετε την παράμετρο `action` σε `upload_extend` και να εισάγετε το ID του τραγουδιού που θέλετε να συνεχίσετε να δημιουργείτε. Το ID του τραγουδιού μπορεί να αποκτηθεί χρησιμοποιώντας το [Suno Upload Generation API](https://api.xhuoapi.ai/documents/766db278-012c-43c4-9245-5f18d8dc4d82), όπως φαίνεται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/a0mn5e.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a0mn5e.png" width="500" className="m-auto" /></p>
 
 Στη συνέχεια, πρέπει να συμπληρώσετε τους στίχους και το στυλ για να δημιουργήσετε το τραγούδι, καθορίζοντας τα παρακάτω περιεχόμενα:
 
@@ -315,17 +315,17 @@ print(response.text)
 
 Ένα παράδειγμα συμπλήρωσης φαίνεται παρακάτω:
 
-<p><img src="https://cdn.acedata.cloud/zp9s42.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zp9s42.png" width="500" className="m-auto" /></p>
 
 Αφού συμπληρωθούν, δημιουργείται αυτόματα ο παρακάτω κώδικας:
 
-<p><img src="https://cdn.acedata.cloud/wwpw78.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wwpw78.png" width="500" className="m-auto" /></p>
 
 Αντίστοιχος κώδικας Python:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -894,22 +894,22 @@ print(response.text)
 
 Η επίσημη πλατφόρμα επιτρέπει τη χρήση προηγμένων παραμέτρων `weirdness`==>`Weirdness`, `style_influence`==>`Style Influence`, `audio_weight`==>`Audio Influence` σε προσαρμοσμένη λειτουργία, όπως φαίνεται στα παρακάτω επίσημα παραδείγματα:
 
-<p><img src="https://cdn.acedata.cloud/1xonxy.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/1xonxy.png" width="500" class="m-auto"></p>
 
 Οι προηγμένες παράμετροι κυμαίνονται από 0-1, με τις συγκεκριμένες παραμέτρους να φαίνονται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/7i94ih.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/7i94ih.png" width="500" class="m-auto"></p>
 
 Αφού συμπληρωθούν, αυτόματα δημιουργείται ο παρακάτω κώδικας:
 
-<p><img src="https://cdn.acedata.cloud/2dlbo6.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/2dlbo6.png" width="500" class="m-auto"></p>
 
 Αντίστοιχος κώδικας Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -973,13 +973,13 @@ print(response.text)
 
 ## Λειτουργία Προσθήκης Ορχήστρας
 
-Τον Αύγουστο του 2025, η suno παρουσίασε τη νέα λειτουργία Προσθήκης Ορχήστρας, όπου πρώτα χρειάζεται να ανεβάσετε ένα τραγούδι χωρίς φωνητικά, ώστε η suno να σας προσθέσει μουσική. Αρχικά, μπορείτε να επισκεφθείτε το [Suno Upload API](https://platform.acedata.cloud/documents/766db278-012c-43c4-9245-5f18d8dc4d82) για να ανεβάσετε ένα τραγούδι χωρίς φωνητικά, όπως φαίνεται στην παρακάτω εικόνα:
+Τον Αύγουστο του 2025, η suno παρουσίασε τη νέα λειτουργία Προσθήκης Ορχήστρας, όπου πρώτα χρειάζεται να ανεβάσετε ένα τραγούδι χωρίς φωνητικά, ώστε η suno να σας προσθέσει μουσική. Αρχικά, μπορείτε να επισκεφθείτε το [Suno Upload API](https://api.xhuoapi.ai/documents/766db278-012c-43c4-9245-5f18d8dc4d82) για να ανεβάσετε ένα τραγούδι χωρίς φωνητικά, όπως φαίνεται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/fxl914.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/fxl914.png" width="500" class="m-auto"></p>
 
 Στη συνέχεια, χρειάζεται να καταγράψετε το `audio_id` μετά την ανάρτηση, με το συγκεκριμένο αποτέλεσμα να φαίνεται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/47t6wj.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/47t6wj.png" width="500" class="m-auto"></p>
 
 Τελικά, λάβατε ένα `audio_id`: 92254cab-3372-4d9e-bce9-cdcfdbc39070, και στη συνέχεια χρειάζεται να συμπληρώσετε τις παρακάτω παραμέτρους:
 
@@ -991,14 +991,14 @@ print(response.text)
 
 Αφού συμπληρωθούν, αυτόματα δημιουργείται ο παρακάτω κώδικας:
 
-<p><img src="https://cdn.acedata.cloud/8x1ic6.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/8x1ic6.png" width="500" class="m-auto"></p>
 
 Αντίστοιχος κώδικας Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -1060,13 +1060,13 @@ print(response.text)
 
 ## Λειτουργία Προσθήκης Φωνητικών
 
-Τον Αύγουστο του 2025, η suno παρουσίασε τη νέα λειτουργία Προσθήκης Φωνητικών. Αρχικά, χρειάζεται να ανεβάσετε ένα κομμάτι καθαρής μουσικής, ώστε η suno να προσθέσει στίχους και φωνητικά. Μπορείτε πρώτα να επισκεφθείτε το [Suno Upload API](https://platform.acedata.cloud/documents/766db278-012c-43c4-9245-5f18d8dc4d82) για να ανεβάσετε ένα κομμάτι καθαρής φωνής χωρίς μουσική, όπως φαίνεται στην παρακάτω εικόνα:
+Τον Αύγουστο του 2025, η suno παρουσίασε τη νέα λειτουργία Προσθήκης Φωνητικών. Αρχικά, χρειάζεται να ανεβάσετε ένα κομμάτι καθαρής μουσικής, ώστε η suno να προσθέσει στίχους και φωνητικά. Μπορείτε πρώτα να επισκεφθείτε το [Suno Upload API](https://api.xhuoapi.ai/documents/766db278-012c-43c4-9245-5f18d8dc4d82) για να ανεβάσετε ένα κομμάτι καθαρής φωνής χωρίς μουσική, όπως φαίνεται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/fxl914.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fxl914.png" width="500" className="m-auto" /></p>
 
 Στη συνέχεια, χρειάζεται να καταγράψετε το `audio_id` μετά την ανάρτηση, με τα αποτελέσματα να φαίνονται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/47t6wj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/47t6wj.png" width="500" className="m-auto" /></p>
 
 Τελικά, αποκτήσαμε ένα `audio_id`: 92254cab-3372-4d9e-bce9-cdcfdbc39070, και στη συνέχεια πρέπει να συμπληρώσουμε τις παρακάτω παραμέτρους:
 
@@ -1080,14 +1080,14 @@ print(response.text)
 
 Αφού συμπληρωθούν, δημιουργήθηκε αυτόματα ο παρακάτω κώδικας:
 
-<p><img src="https://cdn.acedata.cloud/a4pbes.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a4pbes.png" width="500" className="m-auto" /></p>
 
 Αντίστοιχος κώδικας Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -1159,13 +1159,13 @@ print(response.text)
 
 Αφού συμπληρωθούν, δημιουργήθηκε αυτόματα ο παρακάτω κώδικας:
 
-<p><img src="https://cdn.acedata.cloud/7h4zmw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7h4zmw.png" width="500" className="m-auto" /></p>
 
 Αντίστοιχος κώδικας Python:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -1234,14 +1234,14 @@ print(response.text)
 
 Αφού συμπληρωθούν, αυτόματα δημιουργήθηκε ο παρακάτω κώδικας:
 
-<p><img src="https://cdn.acedata.cloud/8mo82l.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8mo82l.png" width="500" className="m-auto" /></p>
 
 Αντίστοιχος κώδικας Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -1313,13 +1313,13 @@ print(response.text)
 
 Καταρχάς, η επιστροφή Webhook είναι μια υπηρεσία που μπορεί να δέχεται HTTP αιτήματα, οι προγραμματιστές θα πρέπει να την αντικαταστήσουν με το URL του HTTP διακομιστή που έχουν δημιουργήσει. Εδώ για ευκολία επίδειξης, χρησιμοποιούμε έναν δημόσιο ιστότοπο παραδείγματος Webhook https://webhook.site/, ανοίγοντας αυτόν τον ιστότοπο μπορείτε να αποκτήσετε ένα Webhook URL, όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/fwfqin.png)
+![](https://cdn.xhuoapi.ai/fwfqin.png)
 
 Αντιγράψτε αυτό το URL και μπορείτε να το χρησιμοποιήσετε ως Webhook, το παρακάτω παράδειγμα είναι https://webhook.site/03e60575-3d96-4132-b681-b713d78116e2.
 
 Στη συνέχεια, μπορούμε να ρυθμίσουμε το πεδίο `callback_url` στο παραπάνω Webhook URL, ενώ συμπληρώνουμε το `prompt`, όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/x8xql1.png)
+![](https://cdn.xhuoapi.ai/x8xql1.png)
 
 Κάνοντας κλικ στην εκτέλεση, μπορείτε να παρατηρήσετε ότι θα λάβετε αμέσως ένα αποτέλεσμα, όπως παρακάτω:
 
@@ -1331,7 +1331,7 @@ print(response.text)
 
 Μετά από λίγο, μπορούμε να παρατηρήσουμε το αποτέλεσμα της δημιουργίας του τραγουδιού στο https://webhook.site/03e60575-3d96-4132-b681-b713d78116e2, όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/f9kosb.png)
+![](https://cdn.xhuoapi.ai/f9kosb.png)
 
 Το περιεχόμενο είναι το εξής:
 ```json
@@ -1371,7 +1371,7 @@ print(response.text)
 
 当然我们也可以通过流式调用来获取结果，我们只需要将请求头里面的`accept`的值设置为`application/x-ndjson`即可，下面用一个示例输入作为示范：
 
-<p><img src="https://cdn.acedata.cloud/vgffvk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vgffvk.png" width="500" className="m-auto" /></p>
 
 等待过程中我们可以得到以下输出：
 

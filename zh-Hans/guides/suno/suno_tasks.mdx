@@ -1,6 +1,6 @@
 ---
 title: "Suno Tasks API 的对接和使用"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 Suno Tasks API 的主要功能是通过输入 Suno Audios Generation API 或 Suno Lyrics Generation API 生成的任务ID来查询该任务的执行情况。
@@ -9,26 +9,26 @@ Suno Tasks API 的主要功能是通过输入 Suno Audios Generation API 或 Sun
 本文档将详细介绍  Suno Tasks API  的对接说明，帮助您轻松集成并充分利用该 API 的强大功能。通过  Suno Tasks API ，您可以轻松实现查询 Suno Lyrics Generation API 或 Suno Audios Generation API 的任务执行情况。
 
 ## 申请流程
-要使用 Suno Tasks API，需要先到 申请页面 [Suno Audios Generation API ](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9)申请相应的服务，然后复制 Suno Audios Generation API的任务ID，如图所示：
+要使用 Suno Tasks API，需要先到 申请页面 [Suno Audios Generation API ](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9)申请相应的服务，然后复制 Suno Audios Generation API的任务ID，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/bc6754.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bc6754.png" width="500" className="m-auto" /></p>
 
-最后进入Tasks API页面 [Suno Tasks API ](https://platform.acedata.cloud/documents/b0dd9823-0e01-4c75-af83-5a6e2e05bfed)申请相应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
+最后进入Tasks API页面 [Suno Tasks API ](https://api.xhuoapi.ai/documents/b0dd9823-0e01-4c75-af83-5a6e2e05bfed)申请相应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
 
-![申请页面](https://cdn.acedata.cloud/rci31i.png)
+![申请页面](https://cdn.xhuoapi.ai/rci31i.png)
 
-如果您尚未登录或注册，会自动跳转到[登录页面](https://platform.acedata.cloud)邀请您来注册和登录，登录注册之后会自动返回当前页面。
+如果您尚未登录或注册，会自动跳转到[登录页面](https://api.xhuoapi.ai)邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
 首次申请时会有免费额度赠送，可以免费使用该 API。
 
 ## 请求示例
-Suno Tasks API 可以用于查询 Suno Audios Generation API 和 Suno Lyrics Generation API 两个 API 的结果。关于怎样使用 Suno Audios Generation API，请参考文档 [Suno Audios Generation API ](https://platform.acedata.cloud/documents/d016ee3f-421b-4b6e-989a-8beba8701701)。关于怎样使用 Suno Lyrics Generation API，请参考 [Suno Lyrics Generation API ](https://platform.acedata.cloud/documents/f1c66741-a488-43ca-91fc-e53fbbda639a)。
+Suno Tasks API 可以用于查询 Suno Audios Generation API 和 Suno Lyrics Generation API 两个 API 的结果。关于怎样使用 Suno Audios Generation API，请参考文档 [Suno Audios Generation API ](https://api.xhuoapi.ai/documents/d016ee3f-421b-4b6e-989a-8beba8701701)。关于怎样使用 Suno Lyrics Generation API，请参考 [Suno Lyrics Generation API ](https://api.xhuoapi.ai/documents/f1c66741-a488-43ca-91fc-e53fbbda639a)。
 
 我们以 Suno Audios Generation API 服务返回的任务ID一个为例，演示如何使用该 API。假设我们有一个任务ID：eae26f89-b64b-404d-a80c-761996660b1c，接下来演示如何通过传入一个任务ID来。
 
 ### 任务示例图
 
-<p><img src="https://cdn.acedata.cloud/bc6754.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bc6754.png" width="500" className="m-auto" /></p>
 
 ### 设置请求头和请求体
 
@@ -44,20 +44,20 @@ Suno Tasks API 可以用于查询 Suno Audios Generation API 和 Suno Lyrics Gen
 
 设置如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/uo7t6n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/uo7t6n.png" width="500" className="m-auto" /></p>
 
 ### 代码示例
 
 可以发现，在页面右侧已经自动生成了各种语言的代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/p6vi9o.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/p6vi9o.png" width="500" className="m-auto" /></p>
 
 部分代码示例如下：
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -72,7 +72,7 @@ curl -X POST 'https://api.acedata.cloud/suno/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/tasks"
+url = "https://api.xhuoapi.ai/v1/suno/tasks"
 
 headers = {
     "accept": "application/json",
@@ -159,20 +159,20 @@ print(response.text)
 
 设置如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/dqeknz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dqeknz.png" width="500" className="m-auto" /></p>
 
 ### 代码示例
 
 可以发现，在页面右侧已经自动生成了各种语言的代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/1yk792.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1yk792.png" width="500" className="m-auto" /></p>
 
 部分代码示例如下：
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -187,7 +187,7 @@ curl -X POST 'https://api.acedata.cloud/suno/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/tasks"
+url = "https://api.xhuoapi.ai/v1/suno/tasks"
 
 headers = {
     "accept": "application/json",

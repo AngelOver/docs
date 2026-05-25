@@ -1,15 +1,15 @@
 ---
 title: "Recaptcha2 API za prepoznavanje slika - Uputstvo za integraciju"
-description: "Recaptcha verification code recognition service 集成指南 - Ace Data Cloud"
+description: "Recaptcha verification code recognition service 集成指南 - XHuoAPI"
 ---
 
 Ovaj dokument će predstaviti način integracije Recaptcha2 API za prepoznavanje slika, koji može da vrati koordinate malih slika koje je potrebno kliknuti na osnovu sadržaja koji korisnik unese i Recaptcha2 verifikacione slike, čime se završava verifikacija.
 
 ## Proces prijave
 
-Da biste koristili API, prvo treba da odete na [Recaptcha2 API za prepoznavanje slika](https://platform.acedata.cloud/documents/b9bf7d07-b178-4881-ae45-a852ec40f53e) i zatražite odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
+Da biste koristili API, prvo treba da odete na [Recaptcha2 API za prepoznavanje slika](https://api.xhuoapi.ai/documents/b9bf7d07-b178-4881-ae45-a852ec40f53e) i zatražite odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Ako još niste prijavljeni ili registrovani, automatski ćete biti preusmereni na stranicu za prijavu koja vas poziva da se registrujete i prijavite. Nakon prijave ili registracije, automatski ćete se vratiti na trenutnu stranicu.
 
@@ -19,11 +19,11 @@ Prilikom prve prijave dobićete besplatnu kvotu koja vam omogućava besplatno ko
 
 Prvo, potrebno je da se upoznate sa osnovnim načinom korišćenja. Moramo da snimimo Recaptcha2 verifikacionu sliku sa veb sajta, ovde je URL primer sajta: `https://www.google.com/recaptcha/api2/demo`, a konkretna stranica je prikazana na slici ispod:
 
-<p><img src="https://cdn.acedata.cloud/3mgkjk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3mgkjk.png" width="500" className="m-auto" /></p>
 
 Moramo da kliknemo na kvadratić za verifikaciju da bi se pojavila verifikaciona slika. U gornjoj slici, žutom strelicom je označen deo teksta, koji predstavlja vrednost `question` u nastavku. Prvo je potrebno jednostavno proslediti polje `image`, što je konkretna Recaptcha2 verifikaciona slika, a ova slika je označena crvenom strelicom na gornjoj slici. Takođe, sliku je potrebno skalirati na standardnu veličinu (100x100, 300x300, 450x450), kako bi usluga mogla da odredi tip slike. Kompresiju slike morate izvršiti sami, a u ovom dokumentu preporučujemo jedan [sajt za kompresiju](https://www.photopea.com/), gde možete izvršiti promene u dimenzijama i veličini slike. Rezultat kompresije je prikazan na slici ispod:
 
-![](https://cdn.acedata.cloud/l7aotl.png)
+![](https://cdn.xhuoapi.ai/l7aotl.png)
 
 Takođe je potrebno uneti parametar prepoznavanja vezan za verifikacionu sliku `question`, a mi smo pružili sledeću tabelu kao referencu:
 
@@ -77,7 +77,7 @@ Takođe je potrebno uneti parametar prepoznavanja vezan za verifikacionu sliku `
 
 Iz gornjeg teksta možemo zaključiti da se parametar `question` postavlja na `/m/01pns0`, što odgovara vatrogasnom hidrantu, a konkretan sadržaj je prikazan ispod:
 
-<p><img src="https://cdn.acedata.cloud/d53oc3.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d53oc3.png" width="500" className="m-auto" /></p>
 
 Možemo videti da smo ovde postavili Request Headers, uključujući:
 
@@ -91,7 +91,7 @@ Takođe je postavljen Request Body, koji uključuje:
 
 Nakon izbora, možete primetiti da je sa desne strane generisan odgovarajući kod, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/bsp8g9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bsp8g9.png" width="500" className="m-auto" /></p>
 
 Kliknite na dugme „Try“ da biste izvršili testiranje, kao što je prikazano na gornjoj slici, i dobićemo sledeći rezultat:
 
@@ -132,14 +132,14 @@ Vraćeni rezultat sadrži više polja, koja su objašnjena u nastavku:
 
 Možemo videti da smo dobili rezultat verifikacije za obradu Recaptcha2 verifikacione slike, prvo delimo verifikacionu sliku na oblasti, kao što je prikazano na slici ispod:
 
-<p><img src="https://cdn.acedata.cloud/2d6qhx.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2d6qhx.png" width="500" className="m-auto" /></p>
 
 Možemo primetiti da oblasti počinju od 0, a iz rezultata `objects` dobijamo 2, 5, 7, što znači da je potrebno simulirati klik na ta tri područja da bismo prošli verifikaciju.
 
 Takođe, ako želite da generišete odgovarajući kod za integraciju, možete jednostavno kopirati generisani kod, na primer, CURL kod je sledeći:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/captcha/recognition/recaptcha2' \
+curl -X POST 'https://api.xhuoapi.ai/v1/captcha/recognition/recaptcha2' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -153,7 +153,7 @@ Python kod za integraciju je sledeći:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/captcha/recognition/recaptcha2"
+url = "https://api.xhuoapi.ai/v1/captcha/recognition/recaptcha2"
 
 headers = {
     "accept": "application/json",

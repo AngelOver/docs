@@ -1,15 +1,15 @@
 ---
 title: "Henkilötietojen ja voimassaolon tarkistuksen API-liitännäisen ohjeet"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Tässä artikkelissa esitellään henkilötietojen ja voimassaolon tarkistuksen API-liitännäisen ohjeet, jota voidaan käyttää nimen, henkilökortin numeron ja henkilökortin voimassaolon aitouden ja yhdenmukaisuuden tarkistamiseen.
 
 ## Hakuprosessi
 
-API:n käyttämiseksi sinun on ensin mentävä [henkilötietojen ja voimassaolon tarkistuksen API](https://platform.acedata.cloud/documents/667017a4-017f-4af0-870e-807034f70632) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
+API:n käyttämiseksi sinun on ensin mentävä [henkilötietojen ja voimassaolon tarkistuksen API](https://api.xhuoapi.ai/documents/667017a4-017f-4af0-870e-807034f70632) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -19,7 +19,7 @@ Ensimmäisellä hakemiskerralla saat ilmaisia käyttöoikeuksia, joiden avulla v
 
 Ensinnäkin on hyvä ymmärtää peruskäyttötapa, eli syöttää henkilökortin kuvalinkki, jolloin saat käsittelyn jälkeen vahvistustuloksen. Ensinnäkin sinun on yksinkertaisesti välitettävä `name`-kenttä, ja voimme seuraavaksi täyttää vastaavat tiedot käyttöliittymässä, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/llvy1l.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/llvy1l.png" width="500" className="m-auto" /></p>
 
 Voit nähdä, että olemme asettaneet pyyntöotsikot, mukaan lukien:
 
@@ -37,7 +37,7 @@ Lisäksi on asetettu pyyntökeho, joka sisältää:
 
 Valinnan jälkeen voit huomata, että oikealle puolelle on myös luotu vastaava koodi, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/l77q0u.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/l77q0u.png" width="500" className="m-auto" /></p>
 
 Napsauta "Try" -painiketta, niin voit testata, kuten yllä olevassa kuvassa näkyy, ja saamme seuraavanlaisen tuloksen:
 
@@ -68,7 +68,7 @@ Voit nähdä, että henkilökortissa nimi, henkilökortin numero ja voimassaoloa
 Jos haluat luoda vastaavan liitännäiskoodin, voit kopioida sen suoraan, esimerkiksi CURL-koodi on seuraava:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/idcard/check-2e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/idcard/check-2e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -85,7 +85,7 @@ Pythonin liitännäiskoodi on seuraava:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/idcard/check-2e"
+url = "https://api.xhuoapi.ai/v1/identity/idcard/check-2e"
 
 headers = {
     "accept": "application/json",

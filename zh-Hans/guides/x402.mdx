@@ -1,20 +1,20 @@
 ---
-title: "AceDataCloud x402 支付对接指南"
-description: "x402 集成指南 - Ace Data Cloud"
+title: "XHuoAPI x402 支付对接指南"
+description: "x402 集成指南 - XHuoAPI"
 ---
 
-x402 是基于 HTTP 402 Payment Required 标准的链上支付协议，可让调用方在发起 API 请求的同时完成链上结算，非常适合自动化程序、AI Agent、微服务之间的按调用计费场景。通过本指南，你可以在自己的系统中以编程方式完成 AceDataCloud 订单的支付，实现「请求即付费」的体验。
+x402 是基于 HTTP 402 Payment Required 标准的链上支付协议，可让调用方在发起 API 请求的同时完成链上结算，非常适合自动化程序、AI Agent、微服务之间的按调用计费场景。通过本指南，你可以在自己的系统中以编程方式完成 XHuoAPI 订单的支付，实现「请求即付费」的体验。
 
 官方资料参考：
 
 - x402 总览文档：[https://docs.cdp.coinbase.com/x402/docs/overview](https://docs.cdp.coinbase.com/x402/docs/overview)
 - x402 开源示例：[https://github.com/coinbase/x402](https://github.com/coinbase/x402)
 
-本文档面向需要在业务中接入 AceDataCloud 平台 x402 支付能力的开发者，介绍从准备环境到完成支付调用的完整流程，并提供 Axios、Fetch、Python requests 与 httpx 的示例代码。核心要点：
+本文档面向需要在业务中接入 XHuoAPI 平台 x402 支付能力的开发者，介绍从准备环境到完成支付调用的完整流程，并提供 Axios、Fetch、Python requests 与 httpx 的示例代码。核心要点：
 
 - 支付链路在 **Base 主网** 完成，资产使用 **USDC**；
 - 必须使用持币钱包的 **EVM 私钥** 生成 `X-PAYMENT` 签名头；
-- 所有 API 均位于 `https://platform.acedata.cloud` 域名下，`Authorization` 头需携带 **账户令牌（Account Token）**。
+- 所有 API 均位于 `https://api.xhuoapi.ai` 域名下，`Authorization` 头需携带 **账户令牌（Account Token）**。
 
 ---
 
@@ -22,7 +22,7 @@ x402 是基于 HTTP 402 Payment Required 标准的链上支付协议，可让调
 
 ### 1. 查看订单并记录收款信息
 
-登录控制台 [https://platform.acedata.cloud](https://platform.acedata.cloud)，在订单列表或订单详情页可以看到需要支付的订单。订单详情会展示：
+登录控制台 [https://api.xhuoapi.ai](https://api.xhuoapi.ai)，在订单列表或订单详情页可以看到需要支付的订单。订单详情会展示：
 
 - 订单 ID（例如 `7744945e-5e77-4dcc-a9c4-528692d17b34`）；
 - 收款地址 `pay_to`（也会在 402 响应中返回，建议以页面信息为准）。
@@ -40,11 +40,11 @@ x402 是基于 HTTP 402 Payment Required 标准的链上支付协议，可让调
 
 账户令牌（Account Token，旧称 Platform Token）用于调用平台 API，与登录后浏览器使用的用户 Token 功能类似，但不会过期。请按照以下步骤创建：
 
-1. 打开控制台页面 [https://platform.acedata.cloud/console/platform-tokens](https://platform.acedata.cloud/console/platform-tokens)；
+1. 打开控制台页面 [https://api.xhuoapi.ai/console/platform-tokens](https://api.xhuoapi.ai/console/platform-tokens)；
 2. 点击「创建 Token」，根据提示填写备注信息后生成；
 3. 复制生成的 Token（例如 `platform-v1-xxxx`），妥善保存为 `platform_token`。
 
-![platform-token](https://cdn.acedata.cloud/6g86oz.png)
+![platform-token](https://cdn.xhuoapi.ai/6g86oz.png)
 
 后续所有 API 调用 header 中都需要包含：
 
@@ -54,7 +54,7 @@ Authorization: Bearer {platform_token}
 
 ### 4. 请求基础信息
 
-- API 基础域名：`https://platform.acedata.cloud`
+- API 基础域名：`https://api.xhuoapi.ai`
 - 支付请求路径：`/api/v1/orders/{order_id}/pay/`
 - 请求和响应均使用 JSON，编码为 UTF-8。
 
@@ -75,7 +75,7 @@ Authorization: Bearer {platform_token}
 ### 1. 首次请求（触发 402）
 
 ```http
-POST https://platform.acedata.cloud/api/v1/orders/{order_id}/pay/
+POST https://api.xhuoapi.ai/api/v1/orders/{order_id}/pay/
 Authorization: Bearer {platform_token}
 Content-Type: application/json
 
@@ -127,7 +127,7 @@ Content-Type: application/json
 ### 3. 携带签名重试
 
 ```http
-POST https://platform.acedata.cloud/api/v1/orders/{order_id}/pay/
+POST https://api.xhuoapi.ai/api/v1/orders/{order_id}/pay/
 Authorization: Bearer {platform_token}
 Content-Type: application/json
 X-PAYMENT: {base64_signed_payload}
@@ -163,7 +163,7 @@ import { Hex } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
 import { buildPaymentHeader, decodePaymentResponse } from "x402-js";
 
-const baseURL = "https://platform.acedata.cloud";
+const baseURL = "https://api.xhuoapi.ai";
 const orderId = process.env.ACE_X402_ORDER_ID!;
 const platformToken = process.env.ACE_PLATFORM_TOKEN!;
 const privateKey = process.env.ACE_X402_PRIVATE_KEY as Hex;
@@ -229,7 +229,7 @@ const orderId = process.env.ACE_X402_ORDER_ID!;
 const fetchWithPayment = wrapFetchWithPayment(fetch, account);
 
 async function payOrder() {
-  const url = `https://platform.acedata.cloud/api/v1/orders/${orderId}/pay/`;
+  const url = `https://api.xhuoapi.ai/api/v1/orders/${orderId}/pay/`;
 
   const response = await fetchWithPayment(url, {
     method: "POST",
@@ -274,7 +274,7 @@ session = x402_requests(
 )
 
 response = session.post(
-    f"https://platform.acedata.cloud/api/v1/orders/{order_id}/pay/",
+    f"https://api.xhuoapi.ai/api/v1/orders/{order_id}/pay/",
     json={"pay_way": "X402"},
     headers={"Authorization": f"Bearer {platform_token}"},
 )
@@ -301,7 +301,7 @@ async def pay_order() -> None:
 
     async with x402HttpxClient(
         account=account,
-        base_url="https://platform.acedata.cloud",
+        base_url="https://api.xhuoapi.ai",
         headers={"Authorization": f"Bearer {platform_token}"},
         payment_requirements_selector=lambda accepts, **_: next(
             req for req in accepts if req.network == "base"
@@ -325,8 +325,8 @@ asyncio.run(pay_order())
 
 ## 五、支付成功后的验证
 
-- **控制台验证**：访问订单详情页 `https://platform.acedata.cloud/console/orders/{order_id}`，若页面显示「支付成功」或订单状态已变为已支付/已完成，即代表链上结算完成。
-- **API 验证**：调用 `GET https://platform.acedata.cloud/api/v1/orders/{order_id}/` 并携带 `Authorization: Bearer {platform_token}`，检查响应中的 `state` 字段（`PAID` 或 `FINISHED` 表示支付成功）。
+- **控制台验证**：访问订单详情页 `https://api.xhuoapi.ai/console/orders/{order_id}`，若页面显示「支付成功」或订单状态已变为已支付/已完成，即代表链上结算完成。
+- **API 验证**：调用 `GET https://api.xhuoapi.ai/api/v1/orders/{order_id}/` 并携带 `Authorization: Bearer {platform_token}`，检查响应中的 `state` 字段（`PAID` 或 `FINISHED` 表示支付成功）。
 - **回传头部**：在支付成功的响应中读取 `X-PAYMENT-RESPONSE`，可解析出链上交易哈希作为最终凭证；建议在系统日志中保存该信息以便对账。
 
 ---
@@ -344,7 +344,7 @@ asyncio.run(pay_order())
 ## 七、更多帮助
 
 - 在线文档与常见问题：平台控制台顶部导航「文档」。
-- 提交工单与客服支持：[https://platform.acedata.cloud/support](https://platform.acedata.cloud/support)
-- 社区交流：Discord [https://discord.gg/f9GRuKCmRc](https://discord.gg/f9GRuKCmRc)，X（Twitter）[https://x.com/acedatacloud](https://x.com/acedatacloud)
-- 其他渠道：邮箱 `office@acedata.cloud`、`office@germey.tech`；公司地址 651 N Broad St, Suite 201, Middletown, Delaware, USA；WeChat 客服请在支持页面查看最新二维码。
+- 提交工单与客服支持：[https://api.xhuoapi.ai/support](https://api.xhuoapi.ai/support)
+- 社区交流：Discord [https://discord.gg/f9GRuKCmRc](https://discord.gg/f9GRuKCmRc)，X（Twitter）[https://x.com/XHuoAPI](https://x.com/XHuoAPI)
+- 其他渠道：邮箱 `office@xhuoapi.ai`、`office@germey.tech`；公司地址 651 N Broad St, Suite 201, Middletown, Delaware, USA；WeChat 客服请在支持页面查看最新二维码。
 - 反馈建议：欢迎通过上述任意渠道告诉我们改进需求。

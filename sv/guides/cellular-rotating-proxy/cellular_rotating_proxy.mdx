@@ -1,6 +1,6 @@
 ---
 title: "Mobil cellulär proxy integration instruktion"
-description: "Cellular Rotation Proxy 集成指南 - Ace Data Cloud"
+description: "Cellular Rotation Proxy 集成指南 - XHuoAPI"
 ---
 
 I kampen mellan webbsökare och anti-webbsökare har riskhanteringen på olika webbplatser och appar blivit allt starkare, där en av åtgärderna är IP-blockering.
@@ -19,9 +19,9 @@ Denna proxyservice är baserad på en stor skala av kontrollerade mobiltelefoner
 
 ## Ansökningsmetod
 
-För att använda den cellulära proxyservicen kan du först gå till "[ansökningssidan](https://platform.acedata.cloud/services/d8570fa7-8510-454e-913e-f1bd1b98338d)" för att göra en ansökan, och den första ansökan har 1 gratis poäng.
+För att använda den cellulära proxyservicen kan du först gå till "[ansökningssidan](https://api.xhuoapi.ai/services/d8570fa7-8510-454e-913e-f1bd1b98338d)" för att göra en ansökan, och den första ansökan har 1 gratis poäng.
 
-![](https://cdn.acedata.cloud/wed8yf.png)
+![](https://cdn.xhuoapi.ai/wed8yf.png)
 
 Om du inte är inloggad kommer du automatiskt att omdirigeras till inloggningssidan, logga in och fortsätt med ansökan.
 
@@ -29,13 +29,13 @@ Om du inte är inloggad kommer du automatiskt att omdirigeras till inloggningssi
 
 När ansökan är klar kan du gå till "kontrollpanelen" för att se din ansökningsstatus, som visas i bilden:
 
-![](https://cdn.acedata.cloud/db1js5.png)
+![](https://cdn.xhuoapi.ai/db1js5.png)
 
 Klicka på "Credentials" för att se användarnamn och lösenord för att använda den cellulära proxyservicen, separerade med kolon, där användarnamnet är 8 tecken och lösenordet är 32 tecken, som visas i bilden:
 
-![](https://cdn.acedata.cloud/54ffp0.png)
+![](https://cdn.xhuoapi.ai/54ffp0.png)
 
-Denna mobil cellulära proxy är en roterande proxy, så när du använder den behöver du bara ställa in en fast proxyadress och port, där proxyadressen och porten är cellular.proxy.acedata.cloud och 30000. Denna proxy stöder HTTP/HTTPS/SOCKS-protokoll och kan användas för att begära webbplatser med HTTP- och HTTPS-protokoll.
+Denna mobil cellulära proxy är en roterande proxy, så när du använder den behöver du bara ställa in en fast proxyadress och port, där proxyadressen och porten är cellular.proxy.xhuoapi.ai och 30000. Denna proxy stöder HTTP/HTTPS/SOCKS-protokoll och kan användas för att begära webbplatser med HTTP- och HTTPS-protokoll.
 
 ## Kommandotest
 
@@ -44,7 +44,7 @@ När du har proxyanvändarnamn och lösenord är det enklaste sättet att testa 
 Om det aktuella proxyanvändarnamnet och lösenordet är `1f78266a:eff0896726224fa2a99fe82dd1f07562`, kan vi använda följande curl-kommando för att testa:
 
 ```shell
-curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@cellular.proxy.acedata.cloud:30000 https://ipinfo.io
+curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@cellular.proxy.xhuoapi.ai:30000 https://ipinfo.io
 ```
 
 Här använder vi curl:s `-x` parameter för att specificera proxyadressen, där proxyprotokollet som standard är HTTP/HTTPS, och den begärda URL:en är [https://ipinfo.io](https://ipinfo.io), denna webbplats kan returnera den verkliga IP-adressen och platsen för den som begärde webbplatsen.
@@ -78,7 +78,7 @@ Nedan visas ett exempel på hur man ställer in den cellulära roterande proxyen
 ```python
 import requests
 
-proxy = 'http://{proxy_username}:{proxy_password}@cellular.proxy.acedata.cloud:30000'
+proxy = 'http://{proxy_username}:{proxy_password}@cellular.proxy.xhuoapi.ai:30000'
 
 proxies = {
     'http': proxy,
@@ -144,7 +144,7 @@ I själva verket är den ovanstående koden ekvivalent med att ställa in en ext
 import requests
 import base64
 
-proxy_host = 'cellular.proxy.acedata.cloud'
+proxy_host = 'cellular.proxy.xhuoapi.ai'
 proxy_port = '30000'
 proxy_username = '{proxy_username}' # 8 tecken användarnamn
 proxy_password = '{proxy_password}' # 32 tecken lösenord
@@ -176,7 +176,7 @@ För andra språk, som JavaScript:s axios, kan en liknande inställningsmetod oc
 const axios = require("axios");
 const base64 = require("base64");
 
-const proxy_host = "cellular.proxy.acedata.cloud";
+const proxy_host = "cellular.proxy.xhuoapi.ai";
 const proxy_port = "30000";
 const proxy_username = "{proxy_username}"; // 8 tecken användarnamn
 const proxy_password = "{proxy_password}"; // 32 tecken lösenord
@@ -208,4 +208,4 @@ För inställningsmetoder för andra språk, vänligen hänvisa till ovanståend
 
 Om din plan har tagit slut, behöver du köpa mer för att fortsätta använda denna proxyservice.
 
-För att köpa mer, gå till 「[ansökningssidan](https://platform.acedata.cloud/services/d8570fa7-8510-454e-913e-f1bd1b98338d)」 och klicka direkt på knappen 「Köp mer」 för att välja, ju mer du köper på en gång, desto billigare blir enhetspriset.
+För att köpa mer, gå till 「[ansökningssidan](https://api.xhuoapi.ai/services/d8570fa7-8510-454e-913e-f1bd1b98338d)」 och klicka direkt på knappen 「Köp mer」 för att välja, ju mer du köper på en gång, desto billigare blir enhetspriset.

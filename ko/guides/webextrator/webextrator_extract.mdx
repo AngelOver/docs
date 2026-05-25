@@ -1,9 +1,9 @@
 ---
 title: "WebExtrator 스마트 추출 API 통합 가이드"
-description: "WebExtrator Web Render & Extract 集成指南 - Ace Data Cloud"
+description: "WebExtrator Web Render & Extract 集成指南 - XHuoAPI"
 ---
 
-`POST https://api.acedata.cloud/webextrator/extract`
+`POST https://api.xhuoapi.ai/v1/webextrator/extract`
 
 `/webextrator/render`를 기반으로 콘텐츠 추출을 수행합니다. render 인터페이스의 모든 매개변수 외에 추가로 다음을 지원합니다:
 
@@ -41,7 +41,7 @@ description: "WebExtrator Web Render & Extract 集成指南 - Ace Data Cloud"
 ## 예시: 기사 본문 추출 (LLM 활성화)
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -54,7 +54,7 @@ curl -X POST https://api.acedata.cloud/webextrator/extract \
 ## 예시: 비동기 + 사용자 정의 구조화 추출
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

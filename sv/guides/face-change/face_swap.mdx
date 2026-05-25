@@ -1,6 +1,6 @@
 ---
 title: "Face Swap API:s integration och användning"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 Face Swap API:s huvudfunktion är att byta ansiktet i en målbild med ansiktet i en källbild genom att mata in en källbild och en målbild.
@@ -9,11 +9,11 @@ Detta dokument kommer att ge en detaljerad beskrivning av integrationen av Face 
 
 ## Ansökningsprocess
 
-För att använda Face Swap API måste du först gå till ansökningssidan [Face Swap API](https://platform.acedata.cloud/documents/d10df07a-66a6-4c37-b114-3a003fc9bd55) för att ansöka om den aktuella tjänsten. När du kommer till sidan klickar du på knappen "Acquire", som visas i bilden nedan:
+För att använda Face Swap API måste du först gå till ansökningssidan [Face Swap API](https://api.xhuoapi.ai/documents/d10df07a-66a6-4c37-b114-3a003fc9bd55) för att ansöka om den aktuella tjänsten. När du kommer till sidan klickar du på knappen "Acquire", som visas i bilden nedan:
 
-![Ansökningssidan](https://cdn.acedata.cloud/rci31i.png)
+![Ansökningssidan](https://cdn.xhuoapi.ai/rci31i.png)
 
-Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till [inloggningssidan](https://platform.acedata.cloud) där du uppmanas att registrera dig och logga in. Efter att du har loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
+Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till [inloggningssidan](https://api.xhuoapi.ai) där du uppmanas att registrera dig och logga in. Efter att du har loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
 
 Vid första ansökan får du en gratis kvot som gör att du kan använda API:et kostnadsfritt.
 
@@ -21,11 +21,11 @@ Vid första ansökan får du en gratis kvot som gör att du kan använda API:et 
 
 Vi använder två bilder som exempel för att demonstrera hur man använder API:et. Anta att källbilden är den som visas nedan:
 
-<p><img src="https://cdn.acedata.cloud/n1lmd8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/n1lmd8.png" width="500" className="m-auto" /></p>
 
 Målbilden är:
 
-<p><img src="https://cdn.acedata.cloud/3np95r.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3np95r.png" width="500" className="m-auto" /></p>
 
 Näst kommer vi att demonstrera hur man byter ansiktet i målbilden med ansiktet i källbilden.
 
@@ -44,26 +44,26 @@ Näst kommer vi att demonstrera hur man byter ansiktet i målbilden med ansiktet
 
 Inställningarna visas som på bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/g7tnn1.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g7tnn1.png" width="500" className="m-auto" /></p>
 
 ### Kodexempel
 
 Det kan noteras att olika språkets kod redan har genererats automatiskt på höger sida av sidan, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/t8gsls.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/t8gsls.png" width="500" className="m-auto" /></p>
 
 Några kodexempel är som följer:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/face/swap' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/swap' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "source_image_url": "https://cdn.acedata.cloud/n1lmd8.png",
-  "target_image_url": "https://cdn.acedata.cloud/3np95r.png"
+  "source_image_url": "https://cdn.xhuoapi.ai/n1lmd8.png",
+  "target_image_url": "https://cdn.xhuoapi.ai/3np95r.png"
 }'
 ```
 
@@ -72,7 +72,7 @@ curl -X POST 'https://api.acedata.cloud/face/swap' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/swap"
+url = "https://api.xhuoapi.ai/v1/face/swap"
 
 headers = {
     "accept": "application/json",
@@ -81,8 +81,8 @@ headers = {
 }
 
 payload = {
-    "source_image_url": "https://cdn.acedata.cloud/n1lmd8.png",
-    "target_image_url": "https://cdn.acedata.cloud/3np95r.png"
+    "source_image_url": "https://cdn.xhuoapi.ai/n1lmd8.png",
+    "target_image_url": "https://cdn.xhuoapi.ai/3np95r.png"
 }
 
 response = requests.post(url, json=payload, headers=headers)
@@ -95,7 +95,7 @@ När begäran lyckas kommer API:et att returnera information om resultatet av an
 
 ```json
 {
-  "image_url": "https://platform.cdn.acedata.cloud/face/4b13bdeb-1b19-4ea5-bddf-c2da14ba72e3.png",
+  "image_url": "https://platform.cdn.xhuoapi.ai/face/4b13bdeb-1b19-4ea5-bddf-c2da14ba72e3.png",
   "image_width": 2008,
   "image_height": 1942,
   "image_size": 4006213,
@@ -113,7 +113,7 @@ Det kan ses att resultatet innehåller ett `image_url`-fält, som innehåller l�
 
 Resultatet av den genererade bilden är:
 
-<p><img src="https://cdn.acedata.cloud/soa3lk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/soa3lk.png" width="500" className="m-auto" /></p>
 
 Det kan tydligt ses att bilden framgångsrikt har bytt ansiktet i målbilden med ansiktet i källbilden.
 
@@ -127,13 +127,13 @@ Nedan kommer vi att förstå hur man gör detta genom ett exempel.
 
 Först är Webhook-återkopplingen en tjänst som kan ta emot HTTP-begärningar, utvecklaren bör ersätta med URL:en till sin egen HTTP-server. Här för att underlätta demonstration använder vi en offentlig Webhook-exempelsida https://webhook.site/, öppna denna webbplats för att få en Webhook-URL, som visas i bilden nedan:
 
-![](https://cdn.acedata.cloud/r8wyb7.png)
+![](https://cdn.xhuoapi.ai/r8wyb7.png)
 
 Kopiera denna URL så kan den användas som Webhook, exemplet här är https://webhook.site/3b76eba5-4573-432a-b607-3000b87afc06.
 
 Därefter kan vi ställa in fältet `callback_url` till ovanstående Webhook-URL och fylla i motsvarande parametrar, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/xx08i2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xx08i2.png" width="500" className="m-auto" /></p>
 
 Klicka på kör, och du kan omedelbart få ett resultat, som följer:
 
@@ -145,7 +145,7 @@ Klicka på kör, och du kan omedelbart få ett resultat, som följer:
 
 Vänta en stund, så kan vi observera resultatet av Face Swap på https://webhook.site/3b76eba5-4573-432a-b607-3000b87afc06, som visas i bilden nedan:
 
-![](https://cdn.acedata.cloud/col42s.png)
+![](https://cdn.xhuoapi.ai/col42s.png)
 
 Innehållet är som följer:
 
@@ -153,7 +153,7 @@ Innehållet är som följer:
 {
   "success": true,
   "task_id": "9cba9d36-3b14-43c9-85b6-86f6dfc3b096",
-  "image_url": "https://platform.cdn.acedata.cloud/face/9cba9d36-3b14-43c9-85b6-86f6dfc3b096.png",
+  "image_url": "https://platform.cdn.xhuoapi.ai/face/9cba9d36-3b14-43c9-85b6-86f6dfc3b096.png",
   "image_width": 2008,
   "image_height": 1942,
   "image_size": 4006481

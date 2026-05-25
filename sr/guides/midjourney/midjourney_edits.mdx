@@ -1,15 +1,15 @@
 ---
 title: "Midjourney Edits API интеграција"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 Овај документ ће представити упутство за интеграцију Midjourney Edits API, који омогућава уређивање унетих слика путем улазних упутстава.
 
 ## Процес пријаве
 
-Да бисте користили API, прво морате да одете на [Midjourney Edits API](https://platform.acedata.cloud/documents/midjourney-edits) страницу и затражите одговарајућу услугу. Када уђете на страницу, кликните на дугме „Acquire“, као што је приказано на слици:
+Да бисте користили API, прво морате да одете на [Midjourney Edits API](https://api.xhuoapi.ai/documents/midjourney-edits) страницу и затражите одговарајућу услугу. Када уђете на страницу, кликните на дугме „Acquire“, као што је приказано на слици:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Ако још нисте пријављени или регистровани, аутоматски ћете бити преусмерени на страницу за пријаву која вас позива да се региструјете и пријавите. Након пријаве или регистрације, аутоматски ћете се вратити на тренутну страницу.
 
@@ -19,7 +19,7 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 Прво, потребно је разумети основни начин коришћења, а то је унос упутства `prompt`, акције `action`, и референтне слике `image_url`, како бисте добили обрађени резултат. Прво је потребно једноставно проследити поље `action`, чија вредност је `generate`, а конкретан садржај је следећи:
 
-<p><img src="https://cdn.acedata.cloud/m44i6n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/m44i6n.png" width="500" className="m-auto" /></p>
 
 Можете видети да смо подесили Request Headers, укључујући:
 
@@ -38,7 +38,7 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 Након избора, можете приметити да је на десној страни генерисан одговарајући код, као што је приказано на слици:
 
-<p><img src="https://cdn.acedata.cloud/9wed3b.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/9wed3b.png" width="500" className="m-auto" /></p>
 
 Кликните на дугме „Try“ да бисте извршили тест, као што је приказано на горњој слици, и добићете следећи резултат:
 
@@ -79,14 +79,14 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 Ако желите да генеришете одговарајући код за интеграцију, можете га директно копирати, на пример, CURL код је следећи:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/midjourney/edits' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/edits' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "prompt": "A cat sitting on a table",
   "split_images": true,
-  "image_url": "https://cdn.acedata.cloud/jgo1cw.jpg",
+  "image_url": "https://cdn.xhuoapi.ai/jgo1cw.jpg",
   "action": "generate"
 }'
 ```
@@ -101,13 +101,13 @@ curl -X POST 'https://api.acedata.cloud/midjourney/edits' \
 
 Прво, Webhook повратно обавештење је услуга која може примати HTTP захтеве, а програмери би требало да замените URL сопственог HTTP сервера. Овде, ради лакшег демонстрирања, користићемо јавни Webhook пример са веб странице https://webhook.site/, отворите ту страницу да бисте добили Webhook URL, као што је приказано на слици:
 
-![](https://cdn.acedata.cloud/hfrbzw.png)
+![](https://cdn.xhuoapi.ai/hfrbzw.png)
 
 Копирајте овај URL и можете га користити као Webhook, а пример овде је `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`.
 
 Након тога, можемо подесити поље `callback_url` на горњи Webhook URL, а затим унети одговарајуће параметре, конкретан садржај је као на слици:
 
-<p><img src="https://cdn.acedata.cloud/q3fnhv.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q3fnhv.png" width="500" className="m-auto" /></p>
 
 Кликните на „Run“, и одмах ћете добити резултат, као што је следеће:
 
@@ -119,7 +119,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/edits' \
 
 Након кратког чекања, можете наћи резултат генерисања видеа на `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`, као што је приказано на слици:
 
-<p><img src="https://cdn.acedata.cloud/t8cupr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/t8cupr.png" width="500" className="m-auto" /></p>
 
 Садржај је следећи:
 ```json

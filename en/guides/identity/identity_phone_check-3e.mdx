@@ -1,15 +1,15 @@
 ---
 title: "Mobile Number Three Elements Verification API Integration Instructions"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 This article will introduce a Mobile Number Three Elements Verification API integration instruction, which can be used to verify the authenticity and consistency of mobile numbers, names, and ID card numbers.
 
 ## Application Process
 
-To use the API, you need to first apply for the corresponding service on the [Mobile Number Three Elements Verification API](https://platform.acedata.cloud/documents/b4c50108-dda5-4ddb-ba84-776060fb0151) page. After entering the page, click the "Acquire" button, as shown in the image:
+To use the API, you need to first apply for the corresponding service on the [Mobile Number Three Elements Verification API](https://api.xhuoapi.ai/documents/b4c50108-dda5-4ddb-ba84-776060fb0151) page. After entering the page, click the "Acquire" button, as shown in the image:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
@@ -19,7 +19,7 @@ There will be a free quota granted upon the first application, allowing you to u
 
 First, understand the basic usage method, which is to input the mobile number to obtain the processed result. You need to simply pass a `phone` field. We can then fill in the corresponding content on the interface, as shown in the image:
 
-<p><img src="https://cdn.acedata.cloud/3xbffj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3xbffj.png" width="500" className="m-auto" /></p>
 
 Here we can see that we have set the Request Headers, including:
 
@@ -36,7 +36,7 @@ Additionally, we set the Request Body, including:
 
 After selection, you can find that the corresponding code is also generated on the right side, as shown in the image:
 
-<p><img src="https://cdn.acedata.cloud/0cp9z1.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0cp9z1.png" width="500" className="m-auto" /></p>
 
 Click the "Try" button to conduct a test, as shown in the image above, and we obtained the following result:
 
@@ -69,7 +69,7 @@ It can be seen that the authenticity and consistency information of the mobile n
 Additionally, if you want to generate the corresponding integration code, you can directly copy it, for example, the CURL code is as follows:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/phone/check-3e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/phone/check-3e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -85,7 +85,7 @@ The Python integration code is as follows:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/phone/check-3e"
+url = "https://api.xhuoapi.ai/v1/identity/phone/check-3e"
 
 headers = {
     "accept": "application/json",

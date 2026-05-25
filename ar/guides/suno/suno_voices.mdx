@@ -1,6 +1,6 @@
 ---
 title: "تعليمات دمج واجهة برمجة تطبيقات استنساخ الصوت Suno"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 تسمح لنا SUNO بإنشاء شخصيات صوتية مخصصة من خلال أي ملف صوتي، لتحقيق استنساخ الصوت لاستخدامه في توليد الموسيقى. بخلاف واجهة برمجة التطبيقات Persona API الموجودة (التي تستخدم `audio_id` الذي تم إنشاؤه بواسطة Suno)، تقبل هذه الواجهة رابط `audio_url` متاحًا للعامة، وهو تسجيل صوتي بشري خاص بك. تشرح هذه الوثيقة كيفية دمج واجهة برمجة تطبيقات استنساخ الصوت.
@@ -15,7 +15,7 @@ description: "Suno Music Generation 集成指南 - Ace Data Cloud"
 - المحتوى: صوت بشري واضح لشخص واحد، مع تقليل الضوضاء الخلفية أو الموسيقى قدر الإمكان
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/voices' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/voices' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -44,12 +44,12 @@ curl -X POST 'https://api.acedata.cloud/suno/voices' \
 
 ## الخطوة الثانية: استخدام الشخصية الصوتية لتوليد الموسيقى
 
-بعد الحصول على معرف الشخصية الصوتية، يمكننا استخدام [واجهة برمجة تطبيقات توليد الصوتيات Suno](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) لتوليد الموسيقى. قم بتعيين `action` إلى `generate`، و`persona_id` إلى معرف الشخصية الصوتية الذي تم إرجاعه أعلاه، وسيتم أداء الأغنية باستخدام الصوت المستنسخ.
+بعد الحصول على معرف الشخصية الصوتية، يمكننا استخدام [واجهة برمجة تطبيقات توليد الصوتيات Suno](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) لتوليد الموسيقى. قم بتعيين `action` إلى `generate`، و`persona_id` إلى معرف الشخصية الصوتية الذي تم إرجاعه أعلاه، وسيتم أداء الأغنية باستخدام الصوت المستنسخ.
 
 > **ملاحظة:** استنساخ الصوت مدعوم فقط للنماذج `chirp-v4-5` وما فوق (مثل `chirp-v4-5`، `chirp-v5`، `chirp-v5-5`)، ولا يدعم `chirp-v4`.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

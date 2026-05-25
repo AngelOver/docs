@@ -1,9 +1,9 @@
 ---
 title: "WebExtrator Інтелектуальний API для вилучення даних – Посібник із інтеграції"
-description: "WebExtrator Web Render & Extract 集成指南 - Ace Data Cloud"
+description: "WebExtrator Web Render & Extract 集成指南 - XHuoAPI"
 ---
 
-`POST https://api.acedata.cloud/webextrator/extract`
+`POST https://api.xhuoapi.ai/v1/webextrator/extract`
 
 Виконує вилучення контенту на основі `/webextrator/render`. Окрім усіх параметрів render API, додатково підтримує:
 
@@ -41,7 +41,7 @@ description: "WebExtrator Web Render & Extract 集成指南 - Ace Data Cloud"
 ## Приклад: вилучення основного тексту статті (з увімкненим LLM)
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -54,7 +54,7 @@ curl -X POST https://api.acedata.cloud/webextrator/extract \
 ## Приклад: асинхронне вилучення + користувацька структурована витяг
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

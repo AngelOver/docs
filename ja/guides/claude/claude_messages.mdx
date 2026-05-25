@@ -1,6 +1,6 @@
 ---
 title: "Claude Messages API 申請及び使用"
-description: "Claude AI 集成指南 - Ace Data Cloud"
+description: "Claude AI 集成指南 - XHuoAPI"
 ---
 
 Anthropic Claude は非常に強力な AI 対話システムで、プロンプトを入力するだけで、数秒以内に流暢で自然な返信を生成できます。Claude Messages API は Anthropic の公式ネイティブ API フォーマットで、OpenAI の互換フォーマット（Chat Completion）とは異なり、Anthropic 独自のリクエストとレスポンス構造を採用しており、Claude の独自の能力（マルチモーダルコンテンツ入力、ツール呼び出し、深い思考（Extended Thinking）などの高度な機能）をより良く活用できます。
@@ -9,9 +9,9 @@ Anthropic Claude は非常に強力な AI 対話システムで、プロンプ�
 
 ## 申請フロー
 
-Claude Messages API を使用するには、まず [Claude Messages API](https://platform.acedata.cloud/documents/280928a2-2dce-419c-adb5-1ea835e8183a) ページにアクセスし、「Acquire」ボタンをクリックして、リクエストに必要な資格情報を取得します：
+Claude Messages API を使用するには、まず [Claude Messages API](https://api.xhuoapi.ai/documents/280928a2-2dce-419c-adb5-1ea835e8183a) ページにアクセスし、「Acquire」ボタンをクリックして、リクエストに必要な資格情報を取得します：
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 まだログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -39,7 +39,7 @@ Claude Messages API のリクエストパスは `/v1/messages` で、Anthropic �
 ### cURL の例
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/v1/messages' \
+curl -X POST 'https://api.xhuoapi.ai/v1/v1/messages' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -60,7 +60,7 @@ curl -X POST 'https://api.acedata.cloud/v1/messages' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -123,7 +123,7 @@ Claude Messages API は `system` フィールドを通じてシステムプロ�
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -155,7 +155,7 @@ print(response.json())
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -234,7 +234,7 @@ const options = {
   }),
 };
 
-const response = await fetch("https://api.acedata.cloud/v1/messages", options);
+const response = await fetch("https://api.xhuoapi.ai/v1/v1/messages", options);
 const reader = response.body.getReader();
 const decoder = new TextDecoder();
 
@@ -254,7 +254,7 @@ while (true) {
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -310,7 +310,7 @@ print(response.json())
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -381,7 +381,7 @@ print(response.json())
 import base64
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -426,7 +426,7 @@ print(response.json())
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -445,7 +445,7 @@ payload = {
                     "type": "image",
                     "source": {
                         "type": "url",
-                        "url": "https://cdn.acedata.cloud/ueugot.png"
+                        "url": "https://cdn.xhuoapi.ai/ueugot.png"
                     }
                 },
                 {
@@ -464,7 +464,7 @@ print(response.json())
 ### cURL の例
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/v1/messages' \
+curl -X POST 'https://api.xhuoapi.ai/v1/v1/messages' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -479,7 +479,7 @@ curl -X POST 'https://api.acedata.cloud/v1/messages' \
             "type": "image",
             "source": {
               "type": "url",
-              "url": "https://cdn.acedata.cloud/ueugot.png"
+              "url": "https://cdn.xhuoapi.ai/ueugot.png"
             }
           },
           {
@@ -526,7 +526,7 @@ Claude Messages API は、モデルが必要に応じて事前定義されたツ
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -645,7 +645,7 @@ print(response.json())
 
 ## Chat Completion API との違い
 
-Ace Data Cloud は、同時に二つの Claude API フォーマットを提供しており、両者の主な違いは以下の通りです：
+XHuoAPI は、同時に二つの Claude API フォーマットを提供しており、両者の主な違いは以下の通りです：
 
 | 特性       | Messages API (`/v1/messages`)    | Chat Completion API (`/v1/chat/completions`) |
 | -------- | -------------------------------- | -------------------------------------------- |

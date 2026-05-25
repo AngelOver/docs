@@ -1,15 +1,15 @@
 ---
 title: "Instrucciones para la integración de la API de anime de retratos"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 Este documento presentará una integración de la API de anime de retratos, que puede generar una imagen de anime personalizada a partir de una foto de rostro, útil para crear avatares personalizados, actividades divertidas, aplicaciones de efectos, entre otros escenarios, mejorando la experiencia de entretenimiento social.
 
 ## Proceso de solicitud
 
-Para usar la API, primero debe ir a la página correspondiente de la [API de anime de retratos](https://platform.acedata.cloud/documents/6b6313f1-f398-4d29-933d-5a652cfa1c37) para solicitar el servicio correspondiente. Una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
+Para usar la API, primero debe ir a la página correspondiente de la [API de anime de retratos](https://api.xhuoapi.ai/documents/6b6313f1-f398-4d29-933d-5a652cfa1c37) para solicitar el servicio correspondiente. Una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Si aún no ha iniciado sesión o registrado, será redirigido automáticamente a la página de inicio de sesión que lo invita a registrarse e iniciar sesión. Después de iniciar sesión o registrarse, volverá automáticamente a la página actual.
 
@@ -19,11 +19,11 @@ En la primera solicitud, se le otorgará un crédito gratuito que le permitirá 
 
 Primero, comprenda la forma básica de uso, que consiste en ingresar un enlace de imagen para obtener la imagen procesada. Primero, necesita pasar un campo `image_url`, la imagen del rostro se muestra a continuación:
 
-<p><img src="https://cdn.acedata.cloud/lrbtcn.jpg" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lrbtcn.jpg" width="500" className="m-auto" /></p>
 
 A continuación, puede completar el contenido correspondiente en la interfaz, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/gflhrl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gflhrl.png" width="500" className="m-auto" /></p>
 
 Aquí podemos ver que hemos configurado los encabezados de la solicitud, que incluyen:
 
@@ -36,7 +36,7 @@ Además, se configuró el cuerpo de la solicitud, que incluye:
 
 Después de seleccionar, puede notar que también se generó el código correspondiente a la derecha, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/rwbicp.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/rwbicp.png" width="500" className="m-auto" /></p>
 
 Haga clic en el botón "Try" para realizar la prueba, como se muestra en la imagen anterior, aquí obtuvimos el siguiente resultado:
 
@@ -48,19 +48,19 @@ Haga clic en el botón "Try" para realizar la prueba, como se muestra en la imag
 
 Como puede ver, en el resultado devuelto hay un campo `image_url`, que es la imagen de rostro en estilo caricatura. La información del rostro transformado se muestra a continuación:
 
-<p><img src="https://cdn.acedata.cloud/qkyga1.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qkyga1.png" width="500" className="m-auto" /></p>
 
 Se puede observar que la imagen del rostro ya ha generado una imagen de anime personalizada.
 
 Además, si desea generar el código de integración correspondiente, puede copiarlo directamente, por ejemplo, el código de CURL es el siguiente:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/cartoon' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/cartoon' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }'
 ```
 
@@ -69,7 +69,7 @@ El código de integración en Python es el siguiente:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/cartoon"
+url = "https://api.xhuoapi.ai/v1/face/cartoon"
 
 headers = {
     "accept": "application/json",
@@ -78,7 +78,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }
 
 response = requests.post(url, json=payload, headers=headers)

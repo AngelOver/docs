@@ -1,6 +1,6 @@
 ---
 title: "Flux Tasks API Integration and Usage"
-description: "Flux Image Generation 集成指南 - Ace Data Cloud"
+description: "Flux Image Generation 集成指南 - XHuoAPI"
 ---
 
 Die Hauptfunktion der Flux Tasks API besteht darin, den Status der Ausführung eines Auftrags anhand der von der Flux Images Generation API generierten Auftrags-ID abzufragen.
@@ -9,27 +9,27 @@ Dieses Dokument wird die Integrationsanleitung der Flux Tasks API detailliert be
 
 ## Antragsprozess
 
-Um die Flux Tasks API zu nutzen, müssen Sie zunächst auf die Anmeldeseite [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) gehen und den entsprechenden Dienst beantragen, dann kopieren Sie die Auftrags-ID der Flux Images Generation API, wie im Bild gezeigt:
+Um die Flux Tasks API zu nutzen, müssen Sie zunächst auf die Anmeldeseite [Flux Images Generation API](https://api.xhuoapi.ai/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) gehen und den entsprechenden Dienst beantragen, dann kopieren Sie die Auftrags-ID der Flux Images Generation API, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/7furhb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7furhb.png" width="500" className="m-auto" /></p>
 
-Gehen Sie schließlich zur Flux Tasks API-Seite [Flux Tasks API](https://platform.acedata.cloud/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b) und beantragen Sie den entsprechenden Dienst. Klicken Sie nach dem Betreten der Seite auf die Schaltfläche „Acquire“, wie im Bild gezeigt.
+Gehen Sie schließlich zur Flux Tasks API-Seite [Flux Tasks API](https://api.xhuoapi.ai/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b) und beantragen Sie den entsprechenden Dienst. Klicken Sie nach dem Betreten der Seite auf die Schaltfläche „Acquire“, wie im Bild gezeigt.
 
-![Anmeldeseite](https://cdn.acedata.cloud/rci31i.png)
+![Anmeldeseite](https://cdn.xhuoapi.ai/rci31i.png)
 
-Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur [Anmeldeseite](https://platform.acedata.cloud) weitergeleitet, um sich zu registrieren und anzumelden. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
+Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur [Anmeldeseite](https://api.xhuoapi.ai) weitergeleitet, um sich zu registrieren und anzumelden. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
 
 Bei der ersten Beantragung gibt es ein kostenloses Kontingent, mit dem Sie diese API kostenlos nutzen können.
 
 ## Anfragebeispiel
 
-Die Flux Tasks API kann verwendet werden, um die Ergebnisse der Flux Images Generation API abzufragen. Informationen zur Verwendung der Flux Images Generation API finden Sie im Dokument [Flux Images Generation API](https://platform.acedata.cloud/documents/flux-images-integration).
+Die Flux Tasks API kann verwendet werden, um die Ergebnisse der Flux Images Generation API abzufragen. Informationen zur Verwendung der Flux Images Generation API finden Sie im Dokument [Flux Images Generation API](https://api.xhuoapi.ai/documents/flux-images-integration).
 
 Wir nehmen als Beispiel eine von der Flux Images Generation API zurückgegebene Auftrags-ID und demonstrieren, wie man diese API verwendet. Angenommen, wir haben eine Auftrags-ID: 2db0168c-2373-4367-8d9a-9dc778802e8a, im Folgenden zeigen wir, wie man einen Auftrags-ID übergibt.
 
 ### Auftragsbeispielbild
 
-<p><img src="https://cdn.acedata.cloud/7furhb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7furhb.png" width="500" className="m-auto" /></p>
 
 ### Anfrageheader und Anfragekörper festlegen
 
@@ -45,20 +45,20 @@ Wir nehmen als Beispiel eine von der Flux Images Generation API zurückgegebene 
 
 Einstellung wie im folgenden Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/fiasxz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fiasxz.png" width="500" className="m-auto" /></p>
 
 ### Codebeispiel
 
 Es ist zu erkennen, dass auf der rechten Seite der Seite bereits automatisch Code in verschiedenen Sprachen generiert wurde, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/j6gn86.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/j6gn86.png" width="500" className="m-auto" /></p>
 
 Einige Codebeispiele sind wie folgt:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/flux/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/flux/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/tasks"
+url = "https://api.xhuoapi.ai/v1/flux/tasks"
 
 headers = {
     "accept": "application/json",
@@ -144,13 +144,13 @@ Dies ist eine Abfrage der Detailinformationen zu mehreren Auftrags-IDs, im Gegen
 
 Einstellung wie im folgenden Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/k3i9ns.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/k3i9ns.png" width="500" className="m-auto" /></p>
 
 ### Codebeispiel
 
 Es ist zu erkennen, dass auf der rechten Seite der Seite bereits automatisch Code in verschiedenen Sprachen generiert wurde, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/pt5fww.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pt5fww.png" width="500" className="m-auto" /></p>
 
 Einige Codebeispiele sind wie folgt:
 
@@ -228,7 +228,7 @@ Nach erfolgreicher Anfrage gibt die API die spezifischen Detailinformationen zu 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/flux/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -243,7 +243,7 @@ curl -X POST 'https://api.acedata.cloud/flux/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/tasks"
+url = "https://api.xhuoapi.ai/v1/flux/tasks"
 
 headers = {
     "accept": "application/json",

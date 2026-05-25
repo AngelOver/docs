@@ -1,9 +1,9 @@
 ---
 title: "AI Chat v2 API 연동 안내"
-description: "AI Dialogue 集成指南 - Ace Data Cloud"
+description: "AI Dialogue 集成指南 - XHuoAPI"
 ---
 
-AI Chat v2 API (`/aichat2/conversations`)는 차세대 대화 인터페이스로, [AI Chat API](https://platform.acedata.cloud/documents/59fb1199-6694-4afb-a222-3554d7f7d05a)의 완전한 업그레이드 버전입니다. v1의 간결하고 다중 회화 호스팅 기반에 다음과 같은 확장 기능을 더했습니다:
+AI Chat v2 API (`/aichat2/conversations`)는 차세대 대화 인터페이스로, [AI Chat API](https://api.xhuoapi.ai/documents/59fb1199-6694-4afb-a222-3554d7f7d05a)의 완전한 업그레이드 버전입니다. v1의 간결하고 다중 회화 호스팅 기반에 다음과 같은 확장 기능을 더했습니다:
 
 - **멀티모달 사용자 입력**：구조화된 `message` 필드를 통해 텍스트 + 이미지 + 파일 블록을 직접 전달, `references`를 통한 간접 첨부 필요 없음.
 - **Agent형 도구 호출**：내장된 웹 검색, 웹페이지 크롤링, 파일 읽기 등 도구 세트와 사용자 권한 부여 MCP 서버(Google Drive, Notion, Slack, GitHub 등) 연동 가능, 모델이 한 요청 내 여러 차례 자율적으로 도구를 호출하여 복잡한 작업 수행.
@@ -18,7 +18,7 @@ AI Chat v2 API (`/aichat2/conversations`)는 차세대 대화 인터페이스로
 
 ## 신청 절차
 
-API 사용을 위해 [AI Chat v2 API](https://platform.acedata.cloud/documents/e4a7c2b9-3f1d-4e8a-9b6c-a5d2f8e1b4c7) 페이지에서 서비스 신청 후, 페이지 내 「Acquire」 버튼 클릭으로 요청에 필요한 인증 정보를 획득하세요.
+API 사용을 위해 [AI Chat v2 API](https://api.xhuoapi.ai/documents/e4a7c2b9-3f1d-4e8a-9b6c-a5d2f8e1b4c7) 페이지에서 서비스 신청 후, 페이지 내 「Acquire」 버튼 클릭으로 요청에 필요한 인증 정보를 획득하세요.
 
 로그인 또는 회원가입이 필요하면 자동 전환되어 로그인 후 원래 페이지로 돌아갑니다.
 
@@ -31,13 +31,13 @@ API 사용을 위해 [AI Chat v2 API](https://platform.acedata.cloud/documents/e
 CURL 예제:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
   -d '{
     "model": "gpt-5.4",
-    "question": "AceDataCloud를 한 문장으로 소개해 주세요."
+    "question": "XHuoAPI를 한 문장으로 소개해 주세요."
   }'
 ```
 
@@ -45,7 +45,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 
 ```json
 {
-  "answer": "AceDataCloud는 주류 AI 모델과 멀티모달 서비스를 통합하는 API 플랫폼으로, 개발자는 하나의 키로 GPT, Claude, Gemini, Midjourney, Suno, Veo 등 여러 서비스를 호출할 수 있습니다.",
+  "answer": "XHuoAPI는 주류 AI 모델과 멀티모달 서비스를 통합하는 API 플랫폼으로, 개발자는 하나의 키로 GPT, Claude, Gemini, Midjourney, Suno, Veo 등 여러 서비스를 호출할 수 있습니다.",
   "id": "f2f4b3e8-0c0a-4d3a-aaa2-7ff80c0a1c44"
 }
 ```
@@ -55,7 +55,7 @@ Python 예제:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/aichat2/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat2/conversations"
 
 headers = {
     "accept": "application/json",
@@ -65,7 +65,7 @@ headers = {
 
 payload = {
     "model": "gpt-5.4",
-    "question": "AceDataCloud를 한 문장으로 소개해 주세요.",
+    "question": "XHuoAPI를 한 문장으로 소개해 주세요.",
 }
 
 response = requests.post(url, json=payload, headers=headers)
@@ -91,7 +91,7 @@ v1과 동일하게 `stateful: true` 전달 시 세션 저장 활성화, API는 `
 첫 요청 예시:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -114,7 +114,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 두 번째 요청 시 동일 `id` 포함:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -153,7 +153,7 @@ v2는 두 가지 스트리밍 포맷 지원, `accept` 헤더에 따라 선택:
 import json
 import requests
 
-url = "https://api.acedata.cloud/aichat2/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat2/conversations"
 
 headers = {
     "accept": "application/x-ndjson",
@@ -197,7 +197,7 @@ NDJSON 각 줄은 구조화된 이벤트, 가장 흔한 타입은 `text_delta`:
 브라우저에서 `EventSource`는 커스텀 요청 본문 지원 안 함, `fetch` + 수동 파싱 추천:
 
 ```javascript
-const resp = await fetch("https://api.acedata.cloud/aichat2/conversations", {
+const resp = await fetch("https://api.xhuoapi.ai/v1/aichat2/conversations", {
   method: "POST",
   headers: {
     accept: "text/event-stream",
@@ -260,7 +260,7 @@ while (true) {
   "stateful": true,
   "message": [
     { "type": "text", "text": "이 사진에 고양이가 몇 마리 있나요?" },
-    { "type": "image_url", "image_url": { "url": "https://cdn.acedata.cloud/cats.jpg" } }
+    { "type": "image_url", "image_url": { "url": "https://cdn.xhuoapi.ai/cats.jpg" } }
   ]
 }
 ```
@@ -289,7 +289,7 @@ v2 핵심 강화점은 모델이 자율적으로 도구를 호출하여 다단�
 
 - "최근 상하이 전시회 검색" → 내장 웹 검색 호출 → 결과 정리 답변.
 - "이 PDF 읽고 요약" → 파일 읽기 호출 → 요약 작성.
-- [Connections](https://platform.acedata.cloud/connections)에서 Google Drive / GitHub / Notion 등 권한 부여 시, 해당 MCP 도구 호출 가능.
+- [Connections](https://api.xhuoapi.ai/connections)에서 Google Drive / GitHub / Notion 등 권한 부여 시, 해당 MCP 도구 호출 가능.
 
 NDJSON / SSE 스트림 내 도구 호출은 `tool_use` / `tool_result` 이벤트로 표현, 예시:
 
@@ -323,7 +323,7 @@ NDJSON / SSE 스트림 내 도구 호출은 `tool_use` / `tool_result` 이벤트
 프론트엔드에서는 이 이벤트를 카드로 렌더링 후 사용자 선택 유도, 이후 같은 `id`로 답변 요청 보내기:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: text/event-stream' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -351,7 +351,7 @@ v2는 동일 엔드포인트 내 `action` 필드로 간단한 세션 관리 제�
 ### `action: retrieve` — 세션 조회
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -405,7 +405,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 
 `/aichat/conversations` 사용 중인 경우, 거의 코드 수정 없이 v2로 전환 가능:
 
-1. URL 변경: `https://api.acedata.cloud/aichat/conversations` → `https://api.acedata.cloud/aichat2/conversations`
+1. URL 변경: `https://api.xhuoapi.ai/v1/aichat/conversations` → `https://api.xhuoapi.ai/v1/aichat2/conversations`
 2. 이전에 v1 모델명 사용 시(`gpt-3.5`, `gpt-4-browsing` 등), v2에서는 최신 모델(`gpt-5.4`, `claude-opus-4-7`, `gemini-3.1-pro` 등)로 업그레이드 권장.
 3. NDJSON 스트림의 `text_delta` 이벤트는 `delta_answer`와 `id`를 계속 제공하므로 기존 클라이언트의 `delta_answer` 파싱 로직 무리 없이 유지 가능.
 

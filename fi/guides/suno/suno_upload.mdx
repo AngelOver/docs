@@ -1,21 +1,21 @@
 ---
 title: "Suno latausreferenssiäänite API -liittymisohjeet"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 SUNO sallii meidän ladata referenssiäänitteitä toissijaista luomista varten, tämä asiakirja selittää liittymismenetelmät liittyvään API:in.
 
 Tässä API:ssa on vain yksi syöttöparametri, nimittäin `audio_url`, joka on julkisesti saatavilla oleva CDN-osoite, joka tukee mp3-päätettä.
 
-Tässä syötämme `audio_url`:n, joka on `https://cdn.acedata.cloud/suno_demo.mp3`, ja se on julkisesti saatavilla oleva CDN-osoite.
+Tässä syötämme `audio_url`:n, joka on `https://cdn.xhuoapi.ai/suno_demo.mp3`, ja se on julkisesti saatavilla oleva CDN-osoite.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/upload' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/upload' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "audio_url": "https://cdn.acedata.cloud/suno_demo.mp3"
+  "audio_url": "https://cdn.xhuoapi.ai/suno_demo.mp3"
 }'
 ```
 
@@ -40,4 +40,4 @@ Tulokset ovat seuraavat:
 
 Voimme nähdä, että `data`:n `audio_id`-kenttä on ladatun kappaleen ID.
 
-Kun meillä on kappaleen ID, voimme käyttää [Suno Audios Generation API](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) mukautettujen kappaleiden luomiseen, esimerkiksi `action` syötetään `upload_extend`, samalla kun `audio_id` syötetään palautetun kappaleen ID:hen, niin voimme luoda uuden kappaleen referenssiäänitteen perusteella.
+Kun meillä on kappaleen ID, voimme käyttää [Suno Audios Generation API](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) mukautettujen kappaleiden luomiseen, esimerkiksi `action` syötetään `upload_extend`, samalla kun `audio_id` syötetään palautetun kappaleen ID:hen, niin voimme luoda uuden kappaleen referenssiäänitteen perusteella.

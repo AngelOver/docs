@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Chat Completion API Заявка и использование"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI ChatGPT — это очень мощная AI система диалога, которая может генерировать плавные и естественные ответы всего за несколько секунд, просто вводя подсказки. ChatGPT выделяется в отрасли благодаря своим выдающимся способностям к пониманию и генерации языка, и в настоящее время он широко используется в различных отраслях и сферах, его влияние становится все более значительным. Будь то повседневные беседы, креативное письмо или профессиональные консультации, программирование кода, ChatGPT может предоставить удивительную интеллектуальную помощь, значительно повышая эффективность и креативность человека.
@@ -9,9 +9,9 @@ OpenAI ChatGPT — это очень мощная AI система диалог
 
 ## Процесс заявки
 
-Чтобы использовать OpenAI Chat Completion API, сначала можно перейти на страницу [OpenAI Chat Completion API](https://platform.acedata.cloud/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) и нажать кнопку «Acquire», чтобы получить необходимые для запроса учетные данные:
+Чтобы использовать OpenAI Chat Completion API, сначала можно перейти на страницу [OpenAI Chat Completion API](https://api.xhuoapi.ai/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) и нажать кнопку «Acquire», чтобы получить необходимые для запроса учетные данные:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Если вы еще не вошли в систему или не зарегистрированы, вас автоматически перенаправят на страницу входа, пригласив зарегистрироваться и войти в систему, после чего вы автоматически вернетесь на текущую страницу.
 
@@ -21,7 +21,7 @@ OpenAI ChatGPT — это очень мощная AI система диалог
 
 Далее вы можете заполнить соответствующие поля на интерфейсе, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/jqgg1t.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jqgg1t.png" width="400" className="m-auto" /></p>
 
 При первом использовании этого интерфейса нам необходимо заполнить как минимум три поля: одно из них — `authorization`, которое можно выбрать прямо из выпадающего списка. Другой параметр — `model`, `model` — это категория модели, которую мы выбираем для использования на официальном сайте OpenAI ChatGPT, здесь у нас в основном есть 20 моделей, подробности можно посмотреть в предоставленных моделях. Последний параметр — `messages`, `messages` — это массив наших вопросов, который представляет собой массив, позволяющий одновременно загружать несколько вопросов, каждый из которых содержит `role` и `content`, где `role` обозначает роль задающего вопрос, мы предоставили три роли: `user`, `assistant`, `system`. Другой `content` — это конкретное содержание нашего вопроса.
 
@@ -34,7 +34,7 @@ OpenAI ChatGPT — это очень мощная AI система диалог
 - `n`: сколько вариантов ответа генерировать за раз.
 - `response_format`: настройки формата ответа.
 
-<p><img src="https://cdn.acedata.cloud/mthuu2.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mthuu2.png" width="400" className="m-auto" /></p>
 
 После вызова мы обнаруживаем, что возвращаемый результат выглядит следующим образом:
 
@@ -85,7 +85,7 @@ OpenAI ChatGPT — это очень мощная AI система диалог
 
 Где `choices` содержит информацию о ответах ChatGPT, внутри которой можно увидеть, как показано на изображении.
 
-<p><img src="https://cdn.acedata.cloud/4t1ev7.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4t1ev7.png" width="400" className="m-auto" /></p>
 
 Можно увидеть, что поле `content` внутри `choices` содержит конкретное содержание ответа ChatGPT.
 
@@ -97,7 +97,7 @@ OpenAI ChatGPT — это очень мощная AI система диалог
 
 Изменение показано на изображении, однако код вызова должен быть соответствующим образом изменен, чтобы поддерживать потоковые ответы.
 
-<p><img src="https://cdn.acedata.cloud/24scd4.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/24scd4.png" width="400" className="m-auto" /></p>
 
 После изменения `stream` на `true`, API будет возвращать соответствующие JSON данные построчно, на уровне кода нам нужно внести соответствующие изменения, чтобы получить построчные результаты.
 
@@ -106,7 +106,7 @@ OpenAI ChatGPT — это очень мощная AI система диалог
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -179,7 +179,7 @@ const options = {
   }),
 };
 
-fetch("https://api.acedata.cloud/openai/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/openai/chat/completions", options)
   .then((response) => response.json())
   .then((response) => console.log(response))
   .catch((err) => console.error(err));
@@ -195,7 +195,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/openai/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/openai/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -213,13 +213,13 @@ System.out.print(response.body!!.string())
 
 Если вы хотите интегрировать функцию многоуровневого диалога, вам нужно загрузить несколько вопросов в поле `messages`, конкретные примеры нескольких вопросов приведены на изображении ниже:
 
-<p><img src="https://cdn.acedata.cloud/oz4mar.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/oz4mar.png" width="400" className="m-auto" /></p>
 
 Пример кода вызова на Python:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -278,7 +278,7 @@ print(response.text)
 
 ```json
 OPENAI_API_KEY="sk-xxx"
-OPENAI_BASE_URL="https://api.acedata.cloud/openai"  # Напоминаем: если вы используете ключ OpenAI с официального сайта, не используйте этот адрес.
+OPENAI_BASE_URL="https://api.xhuoapi.ai/v1/openai"  # Напоминаем: если вы используете ключ OpenAI с официального сайта, не используйте этот адрес.
 ```
 
 Замените `sk-xxx` на свой ключ. `OPENAI_BASE_URL` — это прокси-интерфейс для доступа к OpenAI.
@@ -322,11 +322,11 @@ print(response.text)
 
 Модели gpt-3.5-browsing и gpt-4-browsing отличаются от других моделей тем, что они могут выполнять поиск в интернете на основе вопросов и возвращать результаты поиска с соответствующими корректировками. В этой статье будет представлен конкретный пример демонстрации функции подключения к интернету, после чего можно будет заполнить соответствующее содержимое на интерфейсе OpenAI Chat Completion API, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/249829.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/249829.png" width="400" className="m-auto" /></p>
 
 Также вы можете заметить, что справа есть соответствующий сгенерированный код вызова, вы можете скопировать код и запустить его, или просто нажать кнопку «Попробовать» для тестирования.
 
-<p><img src="https://cdn.acedata.cloud/s8gxoo.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/s8gxoo.png" width="400" className="m-auto" /></p>
 
 После вызова мы обнаружили, что возвращаемый результат следующий:
 
@@ -368,7 +368,7 @@ gpt-4o — это многомодальная большая языковая �
 - Способ с использованием Curl
 
 ```
-curl -X POST 'https://api.acedata.cloud/openai/chat/completions' \
+curl -X POST 'https://api.xhuoapi.ai/v1/openai/chat/completions' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -399,7 +399,7 @@ curl -X POST 'https://api.acedata.cloud/openai/chat/completions' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -481,7 +481,7 @@ print(response.text)
         {
           "type": "file_url",
           "file_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]

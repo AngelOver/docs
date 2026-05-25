@@ -1,21 +1,21 @@
 ---
 title: "Suno 上传参考音ф音 API 对接说明"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 SUNO允许 нас да отпремо референтни аудио за другу креацију, овај документ објашњава методе интеграције релевантних API.
 
 Овај API има само један улазни параметар, а то је `audio_url`, који је јавна CDN адреса, подржава mp3 екстензију.
 
-Овде уносимо `audio_url` као `https://cdn.acedata.cloud/suno_demo.mp3`, што је јавна CDN адреса.
+Овде уносимо `audio_url` као `https://cdn.xhuoapi.ai/suno_demo.mp3`, што је јавна CDN адреса.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/upload' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/upload' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "audio_url": "https://cdn.acedata.cloud/suno_demo.mp3"
+  "audio_url": "https://cdn.xhuoapi.ai/suno_demo.mp3"
 }'
 ```
 
@@ -40,4 +40,4 @@ curl -X POST 'https://api.acedata.cloud/suno/upload' \
 
 Можемо видети да је `data` поље `audio_id` идентификатор песме након отпреме.
 
-Када имамо идентификатор песме, можемо користити [Suno Audios Generation API](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) за генерисање прилагођених песама, на пример, `action` преносимо као `upload_extend`, а `audio_id` преносимо као враћени идентификатор песме, тако можемо генерисати нову песму на основу референтног аудио.
+Када имамо идентификатор песме, можемо користити [Suno Audios Generation API](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) за генерисање прилагођених песама, на пример, `action` преносимо као `upload_extend`, а `audio_id` преносимо као враћени идентификатор песме, тако можемо генерисати нову песму на основу референтног аудио.

@@ -1,6 +1,6 @@
 ---
 title: "ADSL Proxy Integration Instructions"
-description: "ADSL rotating proxy 集成指南 - Ace Data Cloud"
+description: "ADSL rotating proxy 集成指南 - XHuoAPI"
 ---
 
 In the escalating battle between web crawlers and anti-crawling measures, the risk control detection of major websites and apps has become increasingly stringent, one of which is IP banning.
@@ -21,21 +21,21 @@ This proxy service is backed by a large-scale ADSL proxy pool, mainly covering C
 
 ## Application Method
 
-To use the ADSL service, you can first go to the "[Application Page](https://platform.acedata.cloud/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)" to apply. The first application comes with a free quota of 1 point, approximately 17.5MB.
+To use the ADSL service, you can first go to the "[Application Page](https://api.xhuoapi.ai/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)" to apply. The first application comes with a free quota of 1 point, approximately 17.5MB.
 
-![](https://cdn.acedata.cloud/a2inin.png)
+![](https://cdn.xhuoapi.ai/a2inin.png)
 
 If you are not logged in, you will be automatically redirected to the login page. After logging in, you can continue with the application.
 
 Once the application is completed, you can check your application results in the "Console," as shown in the image:
 
-![](https://cdn.acedata.cloud/hc400a.png)
+![](https://cdn.xhuoapi.ai/hc400a.png)
 
 Click on "Credentials" to view the username and password for using the ADSL proxy service, separated by a colon, where the username is 8 characters long and the password is 32 characters long, as shown in the image:
 
-![](https://cdn.acedata.cloud/cej7m2.png)
+![](https://cdn.xhuoapi.ai/cej7m2.png)
 
-This ADSL proxy is a rotating proxy, so when using it, you only need to set a fixed proxy address and port. The proxy address and port are adsl.proxy.acedata.cloud and 30005, respectively, and it supports HTTP/HTTPS/SOCKS protocols, which can be used to access websites using HTTP and HTTPS protocols.
+This ADSL proxy is a rotating proxy, so when using it, you only need to set a fixed proxy address and port. The proxy address and port are adsl.proxy.xhuoapi.ai and 30005, respectively, and it supports HTTP/HTTPS/SOCKS protocols, which can be used to access websites using HTTP and HTTPS protocols.
 
 ## Command Testing
 
@@ -44,7 +44,7 @@ Once you have the proxy username and password, the easiest way to test is throug
 If the current proxy username and password are `1f78266a:eff0896726224fa2a99fe82dd1f07562`, you can test it using the following curl command:
 
 ```shell
-curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@adsl.proxy.acedata.cloud:30005 https://ipinfo.io
+curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@adsl.proxy.xhuoapi.ai:30005 https://ipinfo.io
 ```
 
 Here, we use curl's `-x` parameter to specify the proxy address. The default proxy protocol is HTTP/HTTPS, and the requested URL is [https://ipinfo.io](https://ipinfo.io), which can return the real IP address and the geographical location of the IP making the request.
@@ -72,7 +72,7 @@ Below is an example of how to set up the proxy using Python:
 ```python
 import requests
 
-proxy = 'https://{proxy_username}:{proxy_password}@adsl.proxy.acedata.cloud:30005'
+proxy = 'https://{proxy_username}:{proxy_password}@adsl.proxy.xhuoapi.ai:30005'
 
 proxies = {
     'http': proxy,
@@ -138,7 +138,7 @@ In fact, the above code is equivalent to setting an additional header - Proxy Au
 import requests
 import base64
 
-proxy_host = 'adsl.proxy.acedata.cloud'
+proxy_host = 'adsl.proxy.xhuoapi.ai'
 proxy_port = '30005'
 proxy_username = '{proxy_username}' # 8-character username
 proxy_password = '{proxy_password}' # 32-character password
@@ -170,7 +170,7 @@ For other languages, such as JavaScript's axios, a similar setup method can also
 const axios = require("axios");
 const base64 = require("base64");
 
-const proxy_host = "adsl.proxy.acedata.cloud";
+const proxy_host = "adsl.proxy.xhuoapi.ai";
 const proxy_port = "30005";
 const proxy_username = "{proxy_username}"; // 8-character username
 const proxy_password = "{proxy_password}"; // 32-character password
@@ -202,4 +202,4 @@ For the setup methods of other languages, please refer to the above text for sel
 
 If your plan has been exhausted, you need to purchase more to continue using the proxy service.
 
-To purchase more, please go to the "[Application Page](https://platform.acedata.cloud/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)" and directly click the "Purchase More" button to select, the more you purchase at once, the cheaper the unit price.
+To purchase more, please go to the "[Application Page](https://api.xhuoapi.ai/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)" and directly click the "Purchase More" button to select, the more you purchase at once, the cheaper the unit price.

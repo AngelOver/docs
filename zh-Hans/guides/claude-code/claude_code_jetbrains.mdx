@@ -1,17 +1,17 @@
 ---
 title: "Claude Code for JetBrains IDE 使用教程"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code 是 Anthropic 推出的一款 **Agentic Coding** 工具，也被称为世界最强编程 Agent 之一。Claude Code 提供了 JetBrains IDE 专用插件，支持 IntelliJ IDEA、PyCharm、WebStorm、GoLand、PhpStorm、Android Studio 等全系列 JetBrains IDE。
 
-本文档主要介绍如何通过 AceData Cloud 的代理服务，在 JetBrains IDE 中配置和使用 Claude Code。
+本文档主要介绍如何通过 XHuoAPI 的代理服务，在 JetBrains IDE 中配置和使用 Claude Code。
 
 ## 申请流程
 
-要使用 Claude Code，首先可以到 [Claude Messages 服务页面](https://platform.acedata.cloud/documents/claude-messages) 点击「Acquire」按钮，获取请求所需要的凭证：
+要使用 Claude Code，首先可以到 [Claude Messages 服务页面](https://api.xhuoapi.ai/documents/claude-messages) 点击「Acquire」按钮，获取请求所需要的凭证：
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 如果你尚未登录或注册，会自动跳转到登录页面邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
@@ -53,7 +53,7 @@ claude --version
 
 ### 安装插件
 
-![JetBrains Marketplace 中的 Claude Code 插件](https://cdn.acedata.cloud/de78fd305b.png)
+![JetBrains Marketplace 中的 Claude Code 插件](https://cdn.xhuoapi.ai/de78fd305b.png)
 
 1. 打开 JetBrains IDE
 2. 进入 **Settings** → **Plugins** → **Marketplace**
@@ -65,7 +65,7 @@ claude --version
 
 > **重要**：安装插件后需要**完全重启 IDE**（可能需要重启多次）才能生效。
 
-## 配置 AceData Cloud API
+## 配置 XHuoAPI API
 
 Claude Code JetBrains 插件通过集成终端运行 `claude` 命令，因此环境变量配置方式与 CLI 相同。
 
@@ -99,9 +99,9 @@ mkdir -p ~/.claude && echo '{"primaryApiKey": "self"}' > ~/.claude/config.json
 将以下内容添加到你的 `~/.zshrc` 或 `~/.bashrc` 中，将 `{token}` 替换为你的 API 令牌：
 
 ```bash
-# AceData Cloud - Claude Code 代理配置
+# XHuoAPI - Claude Code 代理配置
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 修改后执行 `source ~/.zshrc` 使配置生效，然后**重启 JetBrains IDE**。
@@ -114,12 +114,12 @@ export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **提示**：API 令牌可在 [AceData Cloud 控制台](https://platform.acedata.cloud/console) 中查看。
+> **提示**：API 令牌可在 [XHuoAPI 控制台](https://api.xhuoapi.ai/console) 中查看。
 
 ## 基本使用
 
@@ -186,7 +186,7 @@ wsl -d Ubuntu -- bash -lic "claude"
 
 1. 检查 `~/.claude/config.json` 文件是否正确创建
 2. 确认环境变量已正确设置
-3. 确认 API 令牌有效（可在 [控制台](https://platform.acedata.cloud/console) 查看）
+3. 确认 API 令牌有效（可在 [控制台](https://api.xhuoapi.ai/console) 查看）
 4. 重启 JetBrains IDE 后重试
 
 ### 插件不工作？
@@ -213,10 +213,10 @@ wsl -d Ubuntu -- bash -lic "claude"
 
 ### 如何查看剩余额度？
 
-登录 [AceData Cloud 控制台](https://platform.acedata.cloud/console)，即可查看当前账户的剩余额度和使用情况。
+登录 [XHuoAPI 控制台](https://api.xhuoapi.ai/console)，即可查看当前账户的剩余额度和使用情况。
 
 ## 了解更多
 
 - 📖 [Claude Code JetBrains 官方文档](https://code.claude.com/docs/en/jetbrains)
-- 🔧 [AceData Cloud Claude Code 服务](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code 服务](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 如有任何问题，欢迎通过平台客服联系我们

@@ -1,15 +1,15 @@
 ---
 title: "Проверка трех элементов номера телефона API: инструкция по интеграции"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 В этой статье будет представлена инструкция по интеграции API проверки трех элементов номера телефона, который можно использовать для проверки подлинности и согласованности номера телефона, имени и номера удостоверения личности.
 
 ## Процесс подачи заявки
 
-Чтобы использовать API, сначала необходимо перейти на соответствующую страницу [API проверки трех элементов номера телефона](https://platform.acedata.cloud/documents/b4c50108-dda5-4ddb-ba84-776060fb0151) и подать заявку на соответствующую услугу. После перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
+Чтобы использовать API, сначала необходимо перейти на соответствующую страницу [API проверки трех элементов номера телефона](https://api.xhuoapi.ai/documents/b4c50108-dda5-4ddb-ba84-776060fb0151) и подать заявку на соответствующую услугу. После перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Если вы еще не вошли в систему или не зарегистрированы, вас автоматически перенаправят на страницу входа, чтобы пригласить вас зарегистрироваться и войти в систему. После входа или регистрации вы автоматически вернетесь на текущую страницу.
 
@@ -19,7 +19,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 Сначала ознакомьтесь с основным способом использования, который заключается в том, что нужно ввести номер телефона, чтобы получить обработанный результат. Сначала необходимо просто передать поле `phone`. Далее мы можем заполнить соответствующие данные на интерфейсе, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/3xbffj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3xbffj.png" width="500" className="m-auto" /></p>
 
 Как видно, здесь мы настроили заголовки запроса, включая:
 
@@ -36,7 +36,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 После выбора можно заметить, что справа также сгенерирован соответствующий код, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/0cp9z1.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0cp9z1.png" width="500" className="m-auto" /></p>
 
 Нажмите кнопку «Try», чтобы провести тестирование, как показано на изображении выше, и мы получили следующий результат:
 
@@ -69,7 +69,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 Кроме того, если вы хотите сгенерировать соответствующий код интеграции, вы можете просто скопировать его, например, код CURL выглядит следующим образом:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/phone/check-3e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/phone/check-3e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -85,7 +85,7 @@ curl -X POST 'https://api.acedata.cloud/identity/phone/check-3e' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/phone/check-3e"
+url = "https://api.xhuoapi.ai/v1/identity/phone/check-3e"
 
 headers = {
     "accept": "application/json",

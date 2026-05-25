@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Embeddings API Antrag und Nutzung"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI Wortvektor-Dienst, um Wortvektor-Ergebnisse zu generieren, die den eingegebenen Text darstellen.
@@ -9,9 +9,9 @@ Dieses Dokument beschreibt hauptsächlich den Ablauf der Nutzung der OpenAI Embe
 
 ## Antragsprozess
 
-Um die OpenAI Embeddings API zu nutzen, können Sie zunächst auf die Seite [OpenAI Embeddings API](https://platform.acedata.cloud/documents/0f2e63fa-5890-4bdd-84f0-1706b5c9a387) gehen und auf die Schaltfläche „Acquire“ klicken, um die erforderlichen Anmeldeinformationen zu erhalten:
+Um die OpenAI Embeddings API zu nutzen, können Sie zunächst auf die Seite [OpenAI Embeddings API](https://api.xhuoapi.ai/documents/0f2e63fa-5890-4bdd-84f0-1706b5c9a387) gehen und auf die Schaltfläche „Acquire“ klicken, um die erforderlichen Anmeldeinformationen zu erhalten:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur Anmeldeseite weitergeleitet, die Sie zur Registrierung und Anmeldung einlädt. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
 
@@ -21,7 +21,7 @@ Bei der ersten Antragstellung gibt es ein kostenloses Kontingent, mit dem Sie di
 
 Als Nächstes können Sie die entsprechenden Inhalte im Interface ausfüllen, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/4qtbvr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4qtbvr.png" width="500" className="m-auto" /></p>
 
 Bei der ersten Nutzung dieser Schnittstelle müssen wir mindestens drei Inhalte ausfüllen: einer ist `authorization`, den Sie einfach aus der Dropdown-Liste auswählen können. Ein weiterer Parameter ist `model`, `model` ist die Modellkategorie, die wir von der OpenAI-Website auswählen. Hier haben wir hauptsächlich 3 Modelle, die Details können Sie in den von uns bereitgestellten Modellen einsehen. Der letzte Parameter ist `input`, `input` ist der Text, den wir in einen Wortvektor umwandeln möchten.
 
@@ -32,14 +32,14 @@ Optionale Parameter:
 - `dimensions`: Zuschneiden der Vektordimensionen, standardmäßig wird die vollständige Dimension ausgegeben.
 - `encoding_format`: Rückgabeformat, wahlweise `float` oder `base64`.
 
-<p><img src="https://cdn.acedata.cloud/gqulm9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gqulm9.png" width="500" className="m-auto" /></p>
 
 Python-Beispielaufrufcode:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/embeddings"
+url = "https://api.xhuoapi.ai/v1/openai/embeddings"
 
 headers = {
     "accept": "application/json",

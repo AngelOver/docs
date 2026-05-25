@@ -1,6 +1,6 @@
 ---
 title: "Veo Tasks API Integration and Usage"
-description: "Veo Video Generation 集成指南 - Ace Data Cloud"
+description: "Veo Video Generation 集成指南 - XHuoAPI"
 ---
 
 Die Hauptfunktion der Veo Tasks API besteht darin, den Status der Ausführung eines Tasks abzufragen, indem die Task-ID eingegeben wird, die durch die Veo Videos Generation API generiert wurde.
@@ -9,27 +9,27 @@ Dieses Dokument wird die Integrationsanleitung der Veo Tasks API detailliert bes
 
 ## Antragsprozess
 
-Um die Veo Tasks API zu nutzen, müssen Sie zunächst auf die Anmeldeseite [Veo Videos Generation API](https://platform.acedata.cloud/documents/63e01dc3-eb21-499e-8049-3025c460058f) gehen und den entsprechenden Service beantragen, dann kopieren Sie die Task-ID der Veo Videos Generation API, wie im Bild gezeigt:
+Um die Veo Tasks API zu nutzen, müssen Sie zunächst auf die Anmeldeseite [Veo Videos Generation API](https://api.xhuoapi.ai/documents/63e01dc3-eb21-499e-8049-3025c460058f) gehen und den entsprechenden Service beantragen, dann kopieren Sie die Task-ID der Veo Videos Generation API, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/txlg6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/txlg6g.png" width="500" className="m-auto" /></p>
 
-Gehen Sie schließlich zur Tasks API-Seite [Veo Tasks API](https://platform.acedata.cloud/documents/52778f8b-93ce-4db3-a62c-bcf0a92e5f3c) und beantragen Sie den entsprechenden Service. Klicken Sie nach dem Betreten der Seite auf die Schaltfläche „Acquire“, wie im Bild gezeigt:
+Gehen Sie schließlich zur Tasks API-Seite [Veo Tasks API](https://api.xhuoapi.ai/documents/52778f8b-93ce-4db3-a62c-bcf0a92e5f3c) und beantragen Sie den entsprechenden Service. Klicken Sie nach dem Betreten der Seite auf die Schaltfläche „Acquire“, wie im Bild gezeigt:
 
-![Anmeldeseite](https://cdn.acedata.cloud/rci31i.png)
+![Anmeldeseite](https://cdn.xhuoapi.ai/rci31i.png)
 
-Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur [Anmeldeseite](https://platform.acedata.cloud) weitergeleitet, die Sie zur Registrierung und Anmeldung einlädt. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
+Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur [Anmeldeseite](https://api.xhuoapi.ai) weitergeleitet, die Sie zur Registrierung und Anmeldung einlädt. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
 
 Bei der ersten Beantragung gibt es ein kostenloses Kontingent, mit dem Sie die API kostenlos nutzen können.
 
 ## Anfragebeispiel
 
-Die Veo Tasks API kann verwendet werden, um die Ergebnisse der Veo Videos Generation API abzufragen. Informationen zur Nutzung der Veo Videos Generation API finden Sie im Dokument [Veo Videos Generation API](https://platform.acedata.cloud/documents/63e01dc3-eb21-499e-8049-3025c460058f).
+Die Veo Tasks API kann verwendet werden, um die Ergebnisse der Veo Videos Generation API abzufragen. Informationen zur Nutzung der Veo Videos Generation API finden Sie im Dokument [Veo Videos Generation API](https://api.xhuoapi.ai/documents/63e01dc3-eb21-499e-8049-3025c460058f).
 
 Wir nehmen eine von der Veo Videos Generation API zurückgegebene Task-ID als Beispiel und demonstrieren, wie man diese API verwendet. Angenommen, wir haben eine Task-ID: 1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed, im Folgenden zeigen wir, wie man durch Eingabe einer Task-ID vorgeht.
 
 ### Task-Beispielbild
 
-<p><img src="https://cdn.acedata.cloud/txlg6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/txlg6g.png" width="500" className="m-auto" /></p>
 
 ### Anfrageheader und Anfragekörper festlegen
 
@@ -45,20 +45,20 @@ Wir nehmen eine von der Veo Videos Generation API zurückgegebene Task-ID als Be
 
 Einstellung wie im folgenden Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/xztiqi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xztiqi.png" width="500" className="m-auto" /></p>
 
 ### Codebeispiel
 
 Es kann festgestellt werden, dass auf der rechten Seite der Seite bereits automatisch Code in verschiedenen Sprachen generiert wurde, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/bsqh3i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bsqh3i.png" width="500" className="m-auto" /></p>
 
 Einige Codebeispiele sind wie folgt:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/veo/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/veo/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/veo/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/veo/tasks"
+url = "https://api.xhuoapi.ai/v1/veo/tasks"
 
 headers = {
     "accept": "application/json",
@@ -118,7 +118,7 @@ Nach erfolgreicher Anfrage gibt die API die Detailinformationen zu diesem Video-
     "data": [
       {
         "id": "2f43ceed37944b4d836e1a1899dad0a1",
-        "video_url": "https://platform.cdn.acedata.cloud/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
+        "video_url": "https://platform.cdn.xhuoapi.ai/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
         "created_at": "2025-07-25 17:19:20",
         "complete_at": "2025-07-25 17:21:45",
         "state": "succeeded"
@@ -145,13 +145,13 @@ Dies ist eine Abfrage der Details von Videoaufgaben für mehrere Task-IDs. Im Ge
 
 Einstellung wie im folgenden Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/4p5uvq.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4p5uvq.png" width="500" className="m-auto" /></p>
 
 ### Codebeispiel
 
 Es kann festgestellt werden, dass auf der rechten Seite der Seite bereits automatisch Code in verschiedenen Sprachen generiert wurde, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/g3b7g6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g3b7g6.png" width="500" className="m-auto" /></p>
 
 Einige Codebeispiele sind wie folgt:
 
@@ -184,7 +184,7 @@ Nach erfolgreicher Anfrage gibt die API die spezifischen Detailinformationen zu 
         "data": [
           {
             "id": "2f43ceed37944b4d836e1a1899dad0a1",
-            "video_url": "https://platform.cdn.acedata.cloud/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
+            "video_url": "https://platform.cdn.xhuoapi.ai/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
             "created_at": "2025-07-25 17:19:20",
             "complete_at": "2025-07-25 17:21:45",
             "state": "succeeded"
@@ -215,7 +215,7 @@ Nach erfolgreicher Anfrage gibt die API die spezifischen Detailinformationen zu 
         "data": [
           {
             "id": "2f43ceed37944b4d836e1a1899dad0a1",
-            "video_url": "https://platform.cdn.acedata.cloud/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
+            "video_url": "https://platform.cdn.xhuoapi.ai/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
             "created_at": "2025-07-25 17:19:20",
             "complete_at": "2025-07-25 17:21:45",
             "state": "succeeded"
@@ -231,7 +231,7 @@ Nach erfolgreicher Anfrage gibt die API die spezifischen Detailinformationen zu 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/veo/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/veo/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

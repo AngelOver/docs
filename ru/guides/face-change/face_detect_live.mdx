@@ -1,15 +1,15 @@
 ---
 title: "Статическое обнаружение живого лица (высокоточная версия) API Инструкция по интеграции"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 В этой статье будет представлена инструкция по интеграции API статического обнаружения живого лица (высокоточная версия), который можно использовать для проверки загруженных пользователем статических изображений на наличие подделок.
 
 ## Процесс подачи заявки
 
-Чтобы использовать API, сначала необходимо перейти на соответствующую страницу [API статического обнаружения живого лица (высокоточная версия)](https://platform.acedata.cloud/documents/df41d411-6ba8-41d3-a56f-3f6ec9acaa36) и подать заявку на соответствующую услугу. После перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
+Чтобы использовать API, сначала необходимо перейти на соответствующую страницу [API статического обнаружения живого лица (высокоточная версия)](https://api.xhuoapi.ai/documents/df41d411-6ba8-41d3-a56f-3f6ec9acaa36) и подать заявку на соответствующую услугу. После перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Если вы еще не вошли в систему или не зарегистрированы, вас автоматически перенаправит на страницу входа, где вам будет предложено зарегистрироваться и войти в систему. После регистрации и входа вы автоматически вернетесь на текущую страницу.
 
@@ -19,11 +19,11 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 Сначала ознакомьтесь с основным способом использования, который заключается в том, что нужно ввести ссылку на изображение, чтобы получить обработанное изображение. Сначала необходимо просто передать поле `image_url`, изображение лица показано на следующем изображении:
 
-<p><img src="https://cdn.acedata.cloud/lrbtcn.jpg" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lrbtcn.jpg" width="500" className="m-auto" /></p>
 
 Далее мы можем заполнить соответствующие поля на интерфейсе, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/c975uf.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/c975uf.png" width="500" className="m-auto" /></p>
 
 Здесь мы настроили заголовки запроса, включая:
 
@@ -37,7 +37,7 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 После выбора можно заметить, что справа также сгенерирован соответствующий код, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/nkcvet.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nkcvet.png" width="500" className="m-auto" /></p>
 
 Нажмите кнопку «Try», чтобы провести тестирование, как показано на изображении, и мы получим следующий результат:
 
@@ -58,12 +58,12 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 Если вы хотите сгенерировать соответствующий код интеграции, вы можете просто скопировать его, например, код CURL выглядит следующим образом:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/detect-live' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/detect-live' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }'
 ```
 
@@ -72,7 +72,7 @@ curl -X POST 'https://api.acedata.cloud/face/detect-live' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/detect-live"
+url = "https://api.xhuoapi.ai/v1/face/detect-live"
 
 headers = {
     "accept": "application/json",
@@ -81,7 +81,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }
 
 response = requests.post(url, json=payload, headers=headers)

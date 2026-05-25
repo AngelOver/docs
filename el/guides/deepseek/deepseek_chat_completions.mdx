@@ -1,6 +1,6 @@
 ---
 title: "DeepSeek Chat Completion API Αίτηση και Χρήση"
-description: "DeepSeek AI 集成指南 - Ace Data Cloud"
+description: "DeepSeek AI 集成指南 - XHuoAPI"
 ---
 
 Το DeepSeek είναι ένα πολύ ισχυρό σύστημα AI συνομιλίας, το οποίο μπορεί να παράγει ομαλές και φυσικές απαντήσεις σε λίγα δευτερόλεπτα απλά εισάγοντας λέξεις-κλειδιά. Το DeepSeek-V3 ξεχωρίζει στη βιομηχανία για την εξαιρετική του ικανότητα κατανόησης και παραγωγής γλώσσας, και σήμερα, το DeepSeek-V3 έχει ήδη ευρέως εφαρμοστεί σε διάφορους τομείς και βιομηχανίες, με την επιρροή του να γίνεται ολοένα και πιο σημαντική. Είτε πρόκειται για καθημερινές συνομιλίες, δημιουργική γραφή, είτε για επαγγελματική συμβουλευτική και προγραμματισμό κώδικα, το DeepSeek-V3 μπορεί να προσφέρει εκπληκτική έξυπνη βοήθεια, αυξάνοντας σημαντικά την παραγωγικότητα και τη δημιουργικότητα των ανθρώπων.
@@ -9,9 +9,9 @@ description: "DeepSeek AI 集成指南 - Ace Data Cloud"
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το DeepSeek Chat Completion API, μπορείτε πρώτα να επισκεφθείτε τη σελίδα [DeepSeek Chat Completion API](https://platform.acedata.cloud/documents/2d6a9bae-9a70-4aaa-bd72-28e5bd60fa67) και να κάνετε κλικ στο κουμπί «Acquire» για να αποκτήσετε τα απαραίτητα διαπιστευτήρια:
+Για να χρησιμοποιήσετε το DeepSeek Chat Completion API, μπορείτε πρώτα να επισκεφθείτε τη σελίδα [DeepSeek Chat Completion API](https://api.xhuoapi.ai/documents/2d6a9bae-9a70-4aaa-bd72-28e5bd60fa67) και να κάνετε κλικ στο κουμπί «Acquire» για να αποκτήσετε τα απαραίτητα διαπιστευτήρια:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη σελίδα σύνδεσης για να σας προσκαλέσουν να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και τη σύνδεση, θα επιστρέψετε αυτόματα στη σελίδα.
 
@@ -21,7 +21,7 @@ description: "DeepSeek AI 集成指南 - Ace Data Cloud"
 
 Στη συνέχεια, μπορείτε να συμπληρώσετε τα αντίστοιχα περιεχόμενα στην οθόνη, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/m9kxkz.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/m9kxkz.png" width="400" className="m-auto" /></p>
 
 Κατά την πρώτη χρήση αυτού του API, πρέπει τουλάχιστον να συμπληρώσουμε τρία περιεχόμενα: το ένα είναι το `authorization`, το οποίο μπορείτε να επιλέξετε απευθείας από τη λίστα. Ένα άλλο παράμετρο είναι το `model`, το οποίο είναι η κατηγορία μοντέλου που επιλέγουμε να χρησιμοποιήσουμε από την επίσημη ιστοσελίδα του DeepSeek. Εδώ έχουμε κυρίως 4 μοντέλα, οι λεπτομέρειες μπορούν να βρεθούν στα μοντέλα που παρέχουμε. Η τελευταία παράμετρος είναι το `messages`, το οποίο είναι ο πίνακας των ερωτήσεων που εισάγουμε. Είναι ένας πίνακας που επιτρέπει την ταυτόχρονη αποστολή πολλών ερωτήσεων, κάθε ερώτηση περιλαμβάνει το `role` και το `content`, όπου το `role` δηλώνει τον ρόλο του ερωτώντος. Παρέχουμε τρεις ταυτότητες: `user`, `assistant`, `system`. Το άλλο `content` είναι το συγκεκριμένο περιεχόμενο της ερώτησής μας.
 
@@ -34,7 +34,7 @@ description: "DeepSeek AI 集成指南 - Ace Data Cloud"
 - `n`: πόσες υποψήφιες απαντήσεις θα παραχθούν ταυτόχρονα.
 - `response_format`: ρύθμιση της μορφής επιστροφής.
 
-<p><img src="https://cdn.acedata.cloud/93k4xi.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/93k4xi.png" width="400" className="m-auto" /></p>
 
 Μετά την κλήση, παρατηρούμε ότι το αποτέλεσμα επιστροφής είναι το εξής:
 
@@ -75,7 +75,7 @@ description: "DeepSeek AI 集成指南 - Ace Data Cloud"
 
 Το `choices` περιλαμβάνει τις πληροφορίες απάντησης του DeepSeek, όπου μπορείτε να δείτε τις απαντήσεις του DeepSeek, όπως φαίνεται στην εικόνα.
 
-<p><img src="https://cdn.acedata.cloud/0pd4q5.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0pd4q5.png" width="400" className="m-auto" /></p>
 
 Μπορείτε να δείτε ότι το πεδίο `content` μέσα στο `choices` περιλαμβάνει το συγκεκριμένο περιεχόμενο της απάντησης του DeepSeek.
 
@@ -87,7 +87,7 @@ description: "DeepSeek AI 集成指南 - Ace Data Cloud"
 
 Η αλλαγή είναι όπως φαίνεται στην εικόνα, αλλά ο κώδικας κλήσης χρειάζεται να έχει τις αντίστοιχες αλλαγές για να υποστηρίξει τη ροή απόκρισης.
 
-<p><img src="https://cdn.acedata.cloud/dsoiqw.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dsoiqw.png" width="400" className="m-auto" /></p>
 
 Αφού αλλάξετε το `stream` σε `true`, το API θα επιστρέφει γραμμή προς γραμμή τα αντίστοιχα δεδομένα JSON, και σε επίπεδο κώδικα θα χρειαστεί να κάνουμε τις κατάλληλες αλλαγές για να αποκτήσουμε τα αποτελέσματα γραμμή προς γραμμή.
 
@@ -96,7 +96,7 @@ description: "DeepSeek AI 集成指南 - Ace Data Cloud"
 ```python
 import requests
 
-url = "https://api.acedata.cloud/deepseek/chat/completions"
+url = "https://api.xhuoapi.ai/v1/deepseek/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -164,7 +164,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/deepseek/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/deepseek/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -180,7 +180,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/deepseek/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/deepseek/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -197,14 +197,14 @@ System.out.print(response.body!!.string())
 ## Πολλαπλοί γύροι συνομιλίας
 
 Αν θέλετε να συνδέσετε τη λειτουργία πολλαπλών γύρων συνομιλίας, πρέπει να ανεβάσετε πολλαπλές ερωτήσεις στο πεδίο `messages`, οι συγκεκριμένες παραδείγματα πολλαπλών ερωτήσεων φαίνονται στην παρακάτω εικόνα:
-<p><img src="https://cdn.acedata.cloud/7yyhl4.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7yyhl4.png" width="400" className="m-auto" /></p>
 
 Python δείγμα κώδικα κλήσης:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/deepseek/chat/completions"
+url = "https://api.xhuoapi.ai/v1/deepseek/chat/completions"
 
 headers = {
     "accept": "application/json",

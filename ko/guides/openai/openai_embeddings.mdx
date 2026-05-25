@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Embeddings API 신청 및 사용"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI 단어 벡터 서비스는 입력 텍스트를 나타내는 단어 벡터 결과를 생성하는 데 사용됩니다.
@@ -9,9 +9,9 @@ OpenAI 단어 벡터 서비스는 입력 텍스트를 나타내는 단어 벡터
 
 ## 신청 프로세스
 
-OpenAI Embeddings API를 사용하려면 먼저 [OpenAI Embeddings API](https://platform.acedata.cloud/documents/0f2e63fa-5890-4bdd-84f0-1706b5c9a387) 페이지에서 "Acquire" 버튼을 클릭하여 요청에 필요한 자격 증명을 얻습니다:
+OpenAI Embeddings API를 사용하려면 먼저 [OpenAI Embeddings API](https://api.xhuoapi.ai/documents/0f2e63fa-5890-4bdd-84f0-1706b5c9a387) 페이지에서 "Acquire" 버튼을 클릭하여 요청에 필요한 자격 증명을 얻습니다:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 로그인 또는 등록이 되어 있지 않은 경우 자동으로 로그인 페이지로 리디렉션되어 등록 및 로그인을 초대합니다. 로그인 및 등록 후에는 자동으로 현재 페이지로 돌아옵니다.
 
@@ -21,7 +21,7 @@ OpenAI Embeddings API를 사용하려면 먼저 [OpenAI Embeddings API](https://
 
 다음으로 인터페이스에 해당 내용을 입력할 수 있습니다. 아래 그림과 같이:
 
-<p><img src="https://cdn.acedata.cloud/4qtbvr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4qtbvr.png" width="500" className="m-auto" /></p>
 
 이 인터페이스를 처음 사용할 때는 최소한 세 가지 내용을 입력해야 합니다. 하나는 `authorization`으로, 드롭다운 목록에서 선택하면 됩니다. 다른 매개변수는 `model`이며, `model`은 OpenAI 공식 모델 카테고리를 선택하는 것입니다. 여기에는 주로 3가지 모델이 있으며, 자세한 내용은 제공된 모델을 참조할 수 있습니다. 마지막 매개변수는 `input`으로, `input`은 변환할 단어 벡터 텍스트입니다.
 
@@ -32,14 +32,14 @@ OpenAI Embeddings API를 사용하려면 먼저 [OpenAI Embeddings API](https://
 - `dimensions`: 벡터 차원 자르기, 기본적으로 전체 차원을 출력합니다.
 - `encoding_format`: 반환 형식, 선택 사항으로 `float` 또는 `base64`가 있습니다.
 
-<p><img src="https://cdn.acedata.cloud/gqulm9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gqulm9.png" width="500" className="m-auto" /></p>
 
 Python 샘플 호출 코드:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/embeddings"
+url = "https://api.xhuoapi.ai/v1/openai/embeddings"
 
 headers = {
     "accept": "application/json",

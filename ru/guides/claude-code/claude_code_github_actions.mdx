@@ -1,17 +1,17 @@
 ---
 title: "Claude Code GitHub Actions Использование Руководство"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code — это инструмент **Agentic Coding**, выпущенный компанией Anthropic, также известный как один из самых мощных программных агентов в мире. Claude Code GitHub Actions позволяет интегрировать возможности AI программирования в ваш рабочий процесс GitHub, просто упомянув `@claude` в PR или Issue, и Claude автоматически проанализирует код, создаст PR, реализует функции и исправит ошибки.
 
-Этот документ в основном описывает, как настроить и использовать Claude Code GitHub Actions через прокси-сервис AceData Cloud.
+Этот документ в основном описывает, как настроить и использовать Claude Code GitHub Actions через прокси-сервис XHuoAPI.
 
 ## Процесс подачи заявки
 
-Чтобы использовать Claude Code, сначала перейдите на [страницу сервиса Claude Messages](https://platform.acedata.cloud/documents/claude-messages) и нажмите кнопку «Acquire», чтобы получить необходимые учетные данные:
+Чтобы использовать Claude Code, сначала перейдите на [страницу сервиса Claude Messages](https://api.xhuoapi.ai/documents/claude-messages) и нажмите кнопку «Acquire», чтобы получить необходимые учетные данные:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Если вы еще не вошли в систему или не зарегистрированы, вы будете автоматически перенаправлены на страницу входа, где вас пригласят зарегистрироваться и войти в систему. После входа в систему вы будете автоматически возвращены на текущую страницу.
 
@@ -30,7 +30,7 @@ Claude Code — это инструмент **Agentic Coding**, выпущенн
 
 Перейдите на [https://github.com/apps/claude](https://github.com/apps/claude) и установите приложение Claude GitHub в ваш репозиторий.
 
-![Страница установки приложения GitHub Claude](https://cdn.acedata.cloud/ba4b8df66d.png)
+![Страница установки приложения GitHub Claude](https://cdn.xhuoapi.ai/ba4b8df66d.png)
 
 Это приложение требует следующие разрешения на репозиторий:
 
@@ -42,14 +42,14 @@ Claude Code — это инструмент **Agentic Coding**, выпущенн
 
 ### Шаг второй: Добавление API ключа
 
-Добавьте API ключ AceData Cloud в качестве секрета репозитория:
+Добавьте API ключ XHuoAPI в качестве секрета репозитория:
 
 1. Перейдите в **Settings** → **Secrets and variables** → **Actions**
 2. Нажмите **New repository secret**
-3. В поле Name укажите `ANTHROPIC_API_KEY`, в поле Value введите токен API, полученный в AceData Cloud
+3. В поле Name укажите `ANTHROPIC_API_KEY`, в поле Value введите токен API, полученный в XHuoAPI
 4. Нажмите **Add secret** для сохранения
 
-> **Подсказка**: Токен API можно просмотреть в [консоли AceData Cloud](https://platform.acedata.cloud/console).
+> **Подсказка**: Токен API можно просмотреть в [консоли XHuoAPI](https://api.xhuoapi.ai/console).
 
 ### Шаг третий: Создание файла Workflow
 
@@ -76,7 +76,7 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 ```
 
-Если необходимо использовать прокси API конечную точку AceData Cloud, также нужно установить переменные окружения в Workflow:
+Если необходимо использовать прокси API конечную точку XHuoAPI, также нужно установить переменные окружения в Workflow:
 
 ```yaml
 name: Claude Code
@@ -94,7 +94,7 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
         env:
-          ANTHROPIC_BASE_URL: "https://api.acedata.cloud"
+          ANTHROPIC_BASE_URL: "https://api.xhuoapi.ai/v1"
 ```
 
 ## Способы использования
@@ -130,7 +130,7 @@ jobs:
           prompt: "/review"
           claude_args: "--max-turns 5"
         env:
-          ANTHROPIC_BASE_URL: "https://api.acedata.cloud"
+          ANTHROPIC_BASE_URL: "https://api.xhuoapi.ai/v1"
 ```
 
 ### Автоматизация по расписанию
@@ -152,7 +152,7 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: "Сгенерируйте сводку по коммитам за вчера и отчет по незакрытым Issue"
         env:
-          ANTHROPIC_BASE_URL: "https://api.acedata.cloud"
+          ANTHROPIC_BASE_URL: "https://api.xhuoapi.ai/v1"
 ```
 
 ## Описание параметров Action
@@ -215,12 +215,12 @@ claude_args: "--max-turns 5 --model claude-sonnet-4-5-20250929"
 
 ### Как посмотреть оставшийся лимит?
 
-Войдите в [консоль AceData Cloud](https://platform.acedata.cloud/console), чтобы увидеть текущий остаток и использование вашего аккаунта.
+Войдите в [консоль XHuoAPI](https://api.xhuoapi.ai/console), чтобы увидеть текущий остаток и использование вашего аккаунта.
 
 ## Узнать больше
 
 - 📖 [Официальная документация Claude Code GitHub Actions](https://code.claude.com/docs/en/github-actions)
 - 📂 [Репозиторий claude-code-action](https://github.com/anthropics/claude-code-action)
 - 📋 [Примеры рабочих процессов](https://github.com/anthropics/claude-code-action/tree/main/examples)
-- 🔧 [Служба Claude Code AceData Cloud](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [Служба Claude Code XHuoAPI](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 Если у вас есть вопросы, пожалуйста, свяжитесь с нами через службу поддержки платформы

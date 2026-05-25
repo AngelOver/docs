@@ -1,6 +1,6 @@
 ---
 title: "Kling Tasks API 的对接和使用"
-description: "Kling video generation 集成指南 - Ace Data Cloud"
+description: "Kling video generation 集成指南 - XHuoAPI"
 ---
 
 Kling Tasks API 的主要功能是通过输入 Kling Videos Generation API 生成的任务ID来查询该任务的执行情况。
@@ -9,27 +9,27 @@ Kling Tasks API 的主要功能是通过输入 Kling Videos Generation API 生�
 
 ## 申请流程
 
-要使用 Kling Tasks API，需要先到 申请页面 [Kling Videos Generation API ](https://platform.acedata.cloud/documents/3b921a16-a411-4557-8335-53f21d3f9e46)申请相应的服务，然后复制 Kling Videos Generation API的任务ID，如图所示：
+要使用 Kling Tasks API，需要先到 申请页面 [Kling Videos Generation API ](https://api.xhuoapi.ai/documents/3b921a16-a411-4557-8335-53f21d3f9e46)申请相应的服务，然后复制 Kling Videos Generation API的任务ID，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
-最后进入Tasks API页面 [Kling Tasks API ](https://platform.acedata.cloud/documents/6b43ff7b-8298-49c8-a390-83df85c2c5e5)申请相应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
+最后进入Tasks API页面 [Kling Tasks API ](https://api.xhuoapi.ai/documents/6b43ff7b-8298-49c8-a390-83df85c2c5e5)申请相应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
 
-![申请页面](https://cdn.acedata.cloud/rci31i.png)
+![申请页面](https://cdn.xhuoapi.ai/rci31i.png)
 
-如果您尚未登录或注册，会自动跳转到[登录页面](https://platform.acedata.cloud)邀请您来注册和登录，登录注册之后会自动返回当前页面。
+如果您尚未登录或注册，会自动跳转到[登录页面](https://api.xhuoapi.ai)邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
 首次申请时会有免费额度赠送，可以免费使用该 API。
 
 ## 请求示例
 
-Kling Tasks API 可以用于查询 Kling Videos Generation API 的结果。关于怎样使用 Kling Videos Generation API，请参考文档 [Kling Videos Generation API ](https://platform.acedata.cloud/documents/3b921a16-a411-4557-8335-53f21d3f9e46)。
+Kling Tasks API 可以用于查询 Kling Videos Generation API 的结果。关于怎样使用 Kling Videos Generation API，请参考文档 [Kling Videos Generation API ](https://api.xhuoapi.ai/documents/3b921a16-a411-4557-8335-53f21d3f9e46)。
 
 我们以 Kling Videos Generation API 服务返回的任务ID一个为例，演示如何使用该 API。假设我们有一个任务ID：20068983-0cc9-4c6a-aeb6-9c6a3c668be0，接下来演示如何通过传入一个任务ID来。
 
 ### 任务示例图
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 ### 设置请求头和请求体
 
@@ -45,20 +45,20 @@ Kling Tasks API 可以用于查询 Kling Videos Generation API 的结果。关�
 
 设置如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/xztiqi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xztiqi.png" width="500" className="m-auto" /></p>
 
 ### 代码示例
 
 可以发现，在页面右侧已经自动生成了各种语言的代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/bsqh3i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bsqh3i.png" width="500" className="m-auto" /></p>
 
 部分代码示例如下：
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/kling/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/kling/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kling/tasks"
+url = "https://api.xhuoapi.ai/v1/kling/tasks"
 
 headers = {
     "accept": "application/json",
@@ -142,20 +142,20 @@ print(response.text)
 
 设置如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/4p5uvq.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4p5uvq.png" width="500" className="m-auto" /></p>
 
 ### 代码示例
 
 可以发现，在页面右侧已经自动生成了各种语言的代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/g3b7g6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g3b7g6.png" width="500" className="m-auto" /></p>
 
 部分代码示例如下：
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/kling/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

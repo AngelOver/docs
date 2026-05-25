@@ -1,15 +1,15 @@
 ---
 title: "Hailuo Videos Generation API Documentation"
-description: "Hailuo Video Generation 集成指南 - Ace Data Cloud"
+description: "Hailuo Video Generation 集成指南 - XHuoAPI"
 ---
 
 Cet article présentera une documentation sur l'intégration de l'API Hailuo Videos Generation, qui permet de générer des vidéos officielles de Hailuo en entrant des paramètres personnalisés.
 
 ## Processus de demande
 
-Pour utiliser l'API, vous devez d'abord vous rendre sur la page correspondante de [Hailuo Videos Generation API](https://platform.acedata.cloud/documents/ee06377b-9185-438f-ac84-3376bcb1275e) pour demander le service correspondant. Une fois sur la page, cliquez sur le bouton « Acquire », comme indiqué dans l'image ci-dessous :
+Pour utiliser l'API, vous devez d'abord vous rendre sur la page correspondante de [Hailuo Videos Generation API](https://api.xhuoapi.ai/documents/ee06377b-9185-438f-ac84-3376bcb1275e) pour demander le service correspondant. Une fois sur la page, cliquez sur le bouton « Acquire », comme indiqué dans l'image ci-dessous :
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Si vous n'êtes pas encore connecté ou inscrit, vous serez automatiquement redirigé vers la page de connexion pour vous inviter à vous inscrire et à vous connecter. Après vous être connecté ou inscrit, vous serez automatiquement renvoyé à la page actuelle.
 
@@ -19,7 +19,7 @@ Lors de la première demande, un quota gratuit sera offert, vous permettant d'ut
 
 Tout d'abord, comprenons la méthode d'utilisation de base, qui consiste à entrer le mot-clé `prompt`, l'action `action`, l'image de référence de la première image `first_image_url` et le modèle `model`, afin d'obtenir le résultat traité. Vous devez d'abord transmettre un champ `action`, dont la valeur est `generate`. Ensuite, nous devons également entrer le modèle, qui comprend principalement le modèle d'image à vidéo `minimax-i2v` et le modèle de texte à vidéo `minimax-t2v`, les détails sont les suivants :
 
-<p><img src="https://cdn.acedata.cloud/7jyu0n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7jyu0n.png" width="500" className="m-auto" /></p>
 
 Nous pouvons voir ici que nous avons défini les en-têtes de requête, y compris :
 
@@ -36,7 +36,7 @@ De plus, nous avons défini le corps de la requête, y compris :
 
 Après avoir fait votre choix, vous pouvez constater que le code correspondant a également été généré à droite, comme indiqué dans l'image ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/8psuxw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8psuxw.png" width="500" className="m-auto" /></p>
 
 Cliquez sur le bouton « Try » pour effectuer un test, comme indiqué ci-dessus, et nous avons obtenu le résultat suivant :
 
@@ -74,7 +74,7 @@ Nous pouvons voir que nous avons obtenu des informations vidéo satisfaisantes, 
 De plus, si vous souhaitez générer le code d'intégration correspondant, vous pouvez le copier directement, par exemple, le code CURL est le suivant :
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/hailuo/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/hailuo/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -94,13 +94,13 @@ Voyons maintenant un exemple pour comprendre comment procéder.
 
 Tout d'abord, le rappel Webhook est un service capable de recevoir des requêtes HTTP, les développeurs doivent le remplacer par l'URL de leur propre serveur HTTP. Pour des raisons de démonstration, nous utiliserons un site Web de Webhook public https://webhook.site/, en ouvrant ce site, vous obtiendrez une URL Webhook, comme indiqué dans l'image ci-dessous :
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 Copiez cette URL, qui peut être utilisée comme Webhook, l'exemple ici est `https://webhook.site/580b81f5-596e-4321-b03f-606770b0bb83`.
 
 Ensuite, nous pouvons définir le champ `callback_url` sur l'URL Webhook ci-dessus, tout en remplissant les paramètres correspondants, les détails sont comme indiqué dans l'image ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/odabh3.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/odabh3.png" width="500" className="m-auto" /></p>
 
 Cliquez sur Exécuter, et vous constaterez que vous obtiendrez immédiatement un résultat, comme suit :
 
@@ -112,7 +112,7 @@ Cliquez sur Exécuter, et vous constaterez que vous obtiendrez immédiatement un
 
 Après un moment, vous pourrez observer le résultat de la vidéo générée sur `https://webhook.site/580b81f5-596e-4321-b03f-606770b0bb83`, comme indiqué dans l'image ci-dessous :
 
-![](https://cdn.acedata.cloud/7jngb4.png)
+![](https://cdn.xhuoapi.ai/7jngb4.png)
 
 Le contenu est le suivant :
 

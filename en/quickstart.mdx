@@ -1,13 +1,13 @@
 ---
 title: "Quickstart"
-description: "Get your first Ace Data Cloud API call running in 5 minutes."
+description: "Get your first XHuoAPI API call running in 5 minutes."
 ---
 
 This walkthrough uses **Midjourney text-to-image** as the example: sign up → get a Token → call the API → read the result.
 
 ## 1. Sign up and grab credit
 
-1. Register at [platform.acedata.cloud](https://platform.acedata.cloud)
+1. Register at [platform.xhuoapi.ai](https://api.xhuoapi.ai)
 2. Open the **Midjourney** service detail page and purchase a package or claim a trial
 3. On the **Credentials** tab, click **Create** and copy the returned Token
 
@@ -20,7 +20,7 @@ This walkthrough uses **Midjourney text-to-image** as the example: sign up → g
 Export your Token:
 
 ```bash
-export ACEDATACLOUD_API_TOKEN="your-token-here"
+export XHuoAPI_API_TOKEN="your-token-here"
 ```
 
 Call text-to-image:
@@ -28,9 +28,9 @@ Call text-to-image:
 <CodeGroup>
 
 ```bash cURL
-curl https://api.acedata.cloud/midjourney/imagine \
+curl https://api.xhuoapi.ai/v1/midjourney/imagine \
   -X POST \
-  -H "Authorization: Bearer $ACEDATACLOUD_API_TOKEN" \
+  -H "Authorization: Bearer $XHuoAPI_API_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
     "prompt": "A cute cat sitting on a wooden table, soft lighting"
@@ -41,9 +41,9 @@ curl https://api.acedata.cloud/midjourney/imagine \
 import os, requests
 
 resp = requests.post(
-    "https://api.acedata.cloud/midjourney/imagine",
+    "https://api.xhuoapi.ai/v1/midjourney/imagine",
     headers={
-        "Authorization": f"Bearer {os.environ['ACEDATACLOUD_API_TOKEN']}",
+        "Authorization": f"Bearer {os.environ['XHuoAPI_API_TOKEN']}",
         "Content-Type": "application/json",
     },
     json={"prompt": "A cute cat sitting on a wooden table, soft lighting"},
@@ -53,10 +53,10 @@ print(resp.json())
 ```
 
 ```javascript Node.js
-const res = await fetch("https://api.acedata.cloud/midjourney/imagine", {
+const res = await fetch("https://api.xhuoapi.ai/v1/midjourney/imagine", {
   method: "POST",
   headers: {
-    "Authorization": `Bearer ${process.env.ACEDATACLOUD_API_TOKEN}`,
+    "Authorization": `Bearer ${process.env.XHuoAPI_API_TOKEN}`,
     "Content-Type": "application/json",
   },
   body: JSON.stringify({
@@ -77,7 +77,7 @@ console.log(await res.json());
   "success": true,
   "task_id": "27a1128f-14b5-440e-a82d-510c81e6fcd4",
   "image_id": "1211290228438868029",
-  "image_url": "https://midjourney.cdn.acedata.cloud/.../image.png",
+  "image_url": "https://midjourney.cdn.xhuoapi.ai/.../image.png",
   "image_width": 1024,
   "image_height": 1024,
   "actions": ["upscale1", "upscale2", "variation1", "variation2", "..."]

@@ -1,17 +1,17 @@
 ---
 title: "Claude Code за VS Code упутство за коришћење"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code је алат за **Agentic Coding** који је представио Anthropic, и сматра се једним од најмоћнијих програмских агената на свету. VS Code екстензија за Claude Code нуди нативни графички интерфејс, подржава инлајн Diff преглед, `@`-mentions референце, планирање прегледа и друге функције, и представља препоручени начин коришћења Claude Code у VS Code-у.
 
-Овај документ углавном описује како да конфигуришете и користите Claude Code екстензију у VS Code-у преко прокси услуге AceData Cloud.
+Овај документ углавном описује како да конфигуришете и користите Claude Code екстензију у VS Code-у преко прокси услуге XHuoAPI.
 
 ## Процес пријаве
 
-Да бисте користили Claude Code, прво можете отићи на [Claude Messages услужну страницу](https://platform.acedata.cloud/documents/claude-messages) и кликнути на дугме „Acquire“ да бисте добили потребне креденцијале:
+Да бисте користили Claude Code, прво можете отићи на [Claude Messages услужну страницу](https://api.xhuoapi.ai/documents/claude-messages) и кликнути на дугме „Acquire“ да бисте добили потребне креденцијале:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Ако нисте пријављени или регистровани, аутоматски ћете бити преусмерени на страницу за пријаву која вас позива да се региструјете и пријавите, а након пријаве или регистрације, аутоматски ћете се вратити на тренутну страницу.
 
@@ -27,7 +27,7 @@ Claude Code је алат за **Agentic Coding** који је представ
 
 У VS Code / Cursor екстензионном тржишту, притисните `Cmd+Shift+X` (Mac) или `Ctrl+Shift+X` (Windows/Linux) да отворите преглед екстензија, потражите **Claude Code**, пронађите званични додатак који је објавио Anthropic и кликните на „Install“ да бисте инсталирали:
 
-![Claude Code додатак у VS Code Marketplace](https://cdn.acedata.cloud/10ddf71320.png)
+![Claude Code додатак у VS Code Marketplace](https://cdn.xhuoapi.ai/10ddf71320.png)
 
 Такође можете директно инсталирати преко следећих линкова:
 
@@ -38,9 +38,9 @@ Claude Code је алат за **Agentic Coding** који је представ
 
 > Ако се додатак не појави након инсталације, поново покрените VS Code или извршите „Developer: Reload Window“ у командној табели.
 
-## Конфигурација AceData Cloud API
+## Конфигурација XHuoAPI API
 
-Када први пут отворите додатак, биће вам предложено да се пријавите на званични Anthropic налог. Можете прескочити званичну пријаву и користити конфигурацију AceData Cloud прокси API, **без званичне претплате**.
+Када први пут отворите додатак, биће вам предложено да се пријавите на званични Anthropic налог. Можете прескочити званичну пријаву и користити конфигурацију XHuoAPI прокси API, **без званичне претплате**.
 
 ### Степен 1: Конфигурисање променљивих окружења
 
@@ -48,13 +48,13 @@ Claude Code је алат за **Agentic Coding** који је представ
 
 **Опција А: Конфигурација на нивоу корисника (погодно за све пројекте)**
 
-Уредите `~/.claude/settings.json` (ако не постоји, креирајте) и додајте `env` конфигурацију, замените `{token}` са API токеном који сте добили у AceData Cloud конзоли:
+Уредите `~/.claude/settings.json` (ако не постоји, креирајте) и додајте `env` конфигурацију, замените `{token}` са API токеном који сте добили у XHuoAPI конзоли:
 
 ```json
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
@@ -67,12 +67,12 @@ Claude Code је алат за **Agentic Coding** који је представ
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **Напомена**: API токен можете видети у [AceData Cloud конзоли](https://platform.acedata.cloud/console). Вредност `ANTHROPIC_AUTH_TOKEN` ће бити аутоматски додата `Bearer` префикс и послата серверу. Конфигурација на нивоу пројекта има већи приоритет од конфигурације на нивоу корисника. Препоручује се да у тимским пројектима користите `.claude/settings.json` за заједничку конфигурацију, а личне осетљиве информације ставите у `.claude/settings.local.json`.
+> **Напомена**: API токен можете видети у [XHuoAPI конзоли](https://api.xhuoapi.ai/console). Вредност `ANTHROPIC_AUTH_TOKEN` ће бити аутоматски додата `Bearer` префикс и послата серверу. Конфигурација на нивоу пројекта има већи приоритет од конфигурације на нивоу корисника. Препоручује се да у тимским пројектима користите `.claude/settings.json` за заједничку конфигурацију, а личне осетљиве информације ставите у `.claude/settings.local.json`.
 
 ### Степен 2: Онемогућите упит за пријаву (опционално)
 
@@ -95,7 +95,7 @@ Claude Code је алат за **Agentic Coding** који је представ
 
 За разлику од алата као што су Cursor / Copilot који користе бочну траку, Claude Code подразумевано користи **поглед у едитору** као област за ћаскање, што пружа већи видни простор и богатије приказивање садржаја. Такође можете повући панел у бочну траку или на друго место.
 
-![Claude Code панел у VS Code](https://cdn.acedata.cloud/b84b878420.jpg)
+![Claude Code панел у VS Code](https://cdn.xhuoapi.ai/b84b878420.jpg)
 
 ## Основна употреба
 
@@ -110,7 +110,7 @@ Claude Code је алат за **Agentic Coding** који је представ
 
 Claude Code ће аутоматски разумети контекст вашег кода, анализирати и уредити преко датотека. Када Claude треба да измени датотеку, биће приказан Diff преглед, а ви можете изабрати да прихватите или одбијете измене.
 
-![Дијалог и упутства у Claude Code у VS Code](https://cdn.acedata.cloud/650377f5cc.png)
+![Дијалог и упутства у Claude Code у VS Code](https://cdn.xhuoapi.ai/650377f5cc.png)
 
 ### Референце у контексту
 
@@ -146,7 +146,7 @@ Claude Code ће аутоматски разумети контекст ваше
 ### Преглед промене кода
 
 Када Claude треба да измени датотеку, биће приказан Diff преглед, који показује поређење изворног кода и измена. Можете изабрати да прихватите или одбијете сваку измену, или можете рећи Claude-у какве промене желите:
-![VS Code у Diff поређењу](https://cdn.acedata.cloud/c42381ea9f.png)
+![VS Code у Diff поређењу](https://cdn.xhuoapi.ai/c42381ea9f.png)
 
 ### Режим дозвола
 
@@ -186,8 +186,8 @@ Claude Code подржава прелазак на различите модел
 ### Шта да радим ако се не могу повезати?
 
 1. Уверите се да су конфигурације у `~/.claude/settings.json` или `.claude/settings.json` исправне, посебно `ANTHROPIC_AUTH_TOKEN` и `ANTHROPIC_BASE_URL`
-2. Уверите се да је API токен важећи (можете проверити на [конзоли](https://platform.acedata.cloud/console))
-3. Проверите да ли је интернет веза нормална, уверите се да можете приступити `https://api.acedata.cloud`
+2. Уверите се да је API токен важећи (можете проверити на [конзоли](https://api.xhuoapi.ai/console))
+3. Проверите да ли је интернет веза нормална, уверите се да можете приступити `https://api.xhuoapi.ai/v1`
 4. Поново покрените VS Code и покушајте поново
 
 ### Шта ако се Spark икона не појави?
@@ -199,11 +199,11 @@ Claude Code подржава прелазак на различите модел
 
 ### Како да проверим преостали кредит?
 
-Пријавите се на [AceData Cloud конзолу](https://platform.acedata.cloud/console) да бисте видели преостали кредит и коришћење вашег налога.
+Пријавите се на [XHuoAPI конзолу](https://api.xhuoapi.ai/console) да бисте видели преостали кредит и коришћење вашег налога.
 
 ## Сазнајте више
 
 - 📖 [Claude Code VS Code званична документација](https://code.claude.com/docs/en/vs-code)
 - ⌨️ [VS Code команде и пречице](https://code.claude.com/docs/en/vs-code#vs-code-commands-and-shortcuts)
-- 🔧 [AceData Cloud Claude Code услуга](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code услуга](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 Уколико имате било каква питања, слободно нас контактирајте преко платформе за корисничку подршку

@@ -1,6 +1,6 @@
 ---
 title: "Инструкция по интеграции Google SERP API"
-description: "Search Engine 集成指南 - Ace Data Cloud"
+description: "Search Engine 集成指南 - XHuoAPI"
 ---
 
 Google SERP (страница результатов поисковой системы) — это страница результатов, которую пользователи видят после ввода запроса в поисковой системе Google. Она отображает естественные результаты поиска, рекламу, специальные выписки, графики знаний, а также различные виды контента, такие как изображения и видео, с целью предоставить пользователям наиболее релевантную информацию.
@@ -11,9 +11,9 @@ Google SERP (страница результатов поисковой сист
 
 ## Процесс подачи заявки
 
-Чтобы использовать Google SERP API, необходимо сначала перейти на соответствующую страницу [Google SERP API](https://platform.acedata.cloud/documents/44c86226-8eaa-49bf-85f3-1fae8d2e23f1) и подать заявку на соответствующую услугу. После перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
+Чтобы использовать Google SERP API, необходимо сначала перейти на соответствующую страницу [Google SERP API](https://api.xhuoapi.ai/documents/44c86226-8eaa-49bf-85f3-1fae8d2e23f1) и подать заявку на соответствующую услугу. После перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Если вы еще не вошли в систему или не зарегистрированы, вас автоматически перенаправит на страницу входа, где вам будет предложено зарегистрироваться и войти в систему. После регистрации и входа вы автоматически вернетесь на текущую страницу.
 
@@ -25,7 +25,7 @@ Google SERP (страница результатов поисковой сист
 
 Например, чтобы найти информацию о «apple inc», мы можем заполнить соответствующее содержимое на интерфейсе, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/lnqiye.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lnqiye.png" width="500" className="m-auto" /></p>
 
 Как видно, здесь мы настроили заголовки запроса, включая:
 
@@ -44,7 +44,7 @@ Google SERP (страница результатов поисковой сист
 
 После выбора вы можете заметить, что справа также сгенерирован соответствующий код, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/1j81zr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1j81zr.png" width="500" className="m-auto" /></p>
 
 Нажмите кнопку «Try», чтобы провести тестирование, как показано на изображении, и вы получите следующие результаты:
 ```json
@@ -180,12 +180,12 @@ Google SERP (страница результатов поисковой сист
   ]
 }
 ```
-<p><img src="https://cdn.acedata.cloud/czlt12.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/czlt12.png" width="500" className="m-auto" /></p>
 
 Соответствующий код выглядит следующим образом:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -307,7 +307,7 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 
 Этот интерфейс также поддерживает ограничение результатов поиска по стране, мы можем добавить параметр `country`, чтобы ограничить страну, вводимый параметр — это сокращение для страны, например, cn (Китай), us (Соединенные Штаты), в этой статье мы возьмем Китай в качестве примера, ниже приведена конкретная информация:
 
-<p><img src="https://cdn.acedata.cloud/gztpwi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gztpwi.png" width="500" className="m-auto" /></p>
 
 Вывод будет следующим:
 ```json
@@ -408,12 +408,12 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 ```
 我们还可以自定义搜索结果的语言，这里我们额外添加 `language` 字段，内容为 `zh-cn`，其中它指的是简体中文的语言，同时还支持其他语言，但必须输入的语言的简写，比如 en（English）、fr（French）、zh-cn（Chinese（Simplified））等语言，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/yyrssp.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yyrssp.png" width="500" className="m-auto" /></p>
 
 对应代码如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -585,12 +585,12 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 ## 自定义搜索结果时间范围
 本文还可以自定义 поиск результатов времени диапазон, включая пять видов, а именно `qdr:h` (последний час), `qdr:d` (последний день), `qdr:w` (последняя неделя), `qdr:m` (последний месяц), по умолчанию без ограничений, мы можем передать соответствующий временной диапазон через `range`, например, здесь установлено `qdr:d`, что означает поиск результатов за последний день, поэтому вводим следующее:
 
-<p><img src="https://cdn.acedata.cloud/qccfib.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qccfib.png" width="500" className="m-auto" /></p>
 
 Соответствующий код выглядит следующим образом:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -744,13 +744,13 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 
 Этот API также поддерживает настройку пагинации результатов поиска, `number` и `page` обозначают размер страницы и номер страницы, в этой статье будет установлено, что на одной странице будет 20 результатов поиска для пагинации, конкретная информация, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/dqla1e.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dqla1e.png" width="500" className="m-auto" /></p>
 
 > Обратите внимание: когда количество результатов на странице превышает 10, списываемые баллы удваиваются.
 
 Код выглядит следующим образом:
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

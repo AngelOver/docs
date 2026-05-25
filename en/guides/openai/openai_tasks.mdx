@@ -1,6 +1,6 @@
 ---
 title: "Integration and Use of OpenAI Tasks API"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 The OpenAI Tasks API lets you query tasks that were previously submitted to an OpenAI image API in **callback mode**. Use it to retrieve the final result of an image generation or edit request when you cannot wait for the synchronous HTTP response, or when you want to look up a task later.
@@ -11,14 +11,14 @@ In callback mode the original image endpoint **returns a `task_id` to you synchr
 
 ## Application Process
 
-The OpenAI Tasks API is bundled with the existing OpenAI service. If you already have access to [OpenAI Images Generations](https://platform.acedata.cloud/services/06f2acb7-3a85-4b5a-bda8-2d9bbe2b4c8f) you can call this endpoint with the same authorization token — no additional application is required.
+The OpenAI Tasks API is bundled with the existing OpenAI service. If you already have access to [OpenAI Images Generations](https://api.xhuoapi.ai/services/06f2acb7-3a85-4b5a-bda8-2d9bbe2b4c8f) you can call this endpoint with the same authorization token — no additional application is required.
 
 There is a free quota available for first-time users, allowing you to use the API for free.
 
 ## Endpoint
 
 ```
-POST https://api.acedata.cloud/openai/tasks
+POST https://api.xhuoapi.ai/v1/openai/tasks
 ```
 
 Supported actions on the request body:
@@ -51,7 +51,7 @@ At least one of `id` or `trace_id` must be provided. The normal flow is to use t
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/openai/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/openai/tasks' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -66,7 +66,7 @@ curl -X POST 'https://api.acedata.cloud/openai/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/tasks"
+url = "https://api.xhuoapi.ai/v1/openai/tasks"
 headers = {
     "accept": "application/json",
     "authorization": "Bearer {token}",
@@ -105,7 +105,7 @@ When the task is found:
   "response": {
     "created": 1763142637,
     "data": [
-      { "url": "https://platform.cdn.acedata.cloud/openai/...png" }
+      { "url": "https://platform.cdn.xhuoapi.ai/openai/...png" }
     ],
     "success": true
   }
@@ -150,7 +150,7 @@ You should provide **one** of: `ids`, `trace_ids`, `application_id`, `user_id`, 
 ### CURL Example
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/openai/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/openai/tasks' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
   -d '{
@@ -186,9 +186,9 @@ The Tasks API is most useful in callback mode. In callback mode the submit endpo
 ```python
 import os, time, requests
 
-API = "https://api.acedata.cloud"
+API = "https://api.xhuoapi.ai/v1"
 HEADERS = {
-    "authorization": f"Bearer {os.environ['ACEDATA_API_KEY']}",
+    "authorization": f"Bearer {os.environ['XHuoAPI_API_KEY']}",
     "content-type": "application/json",
 }
 

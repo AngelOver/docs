@@ -1,17 +1,17 @@
 ---
 title: "Nano Banana Images API Integração e Uso"
-description: "Nano Banana Image Generation 集成指南 - Ace Data Cloud"
+description: "Nano Banana Image Generation 集成指南 - XHuoAPI"
 ---
 
 Este documento apresenta a integração e uso da API Nano Banana Images. Esta interface suporta duas funcionalidades: **geração de imagens (generate)** e **edição de imagens (edit)**.
 
 ## Processo de Solicitação
 
-Antes de usar, acesse a [API Nano Banana Images](https://platform.acedata.cloud/documents/23985a11-d713-41d1-ad84-24b021805b3d) na plataforma Ace Data Cloud e clique em Adquirir para solicitar a ativação. A primeira solicitação geralmente terá uma cota gratuita disponível. Após a ativação, você poderá obter o Bearer Token necessário para chamar a API na plataforma.
+Antes de usar, acesse a [API Nano Banana Images](https://api.xhuoapi.ai/documents/23985a11-d713-41d1-ad84-24b021805b3d) na plataforma XHuoAPI e clique em Adquirir para solicitar a ativação. A primeira solicitação geralmente terá uma cota gratuita disponível. Após a ativação, você poderá obter o Bearer Token necessário para chamar a API na plataforma.
 
 ## Visão Geral da Interface
 
-- **Base URL**: `https://api.acedata.cloud`
+- **Base URL**: `https://api.xhuoapi.ai/v1`
 - **Endpoint**: `POST /nano-banana/images`
 - **Método de Autenticação**: Inclua `authorization: Bearer {token}` no cabeçalho HTTP
 - **Cabeçalhos da Solicitação**:
@@ -34,7 +34,7 @@ Quando você deseja gerar uma imagem diretamente com base em um prompt, defina `
 ### Exemplo de Solicitação (cURL)
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/images' \
   -H 'authorization: Bearer {token}' \
   -H 'accept: application/json' \
   -H 'content-type: application/json' \
@@ -50,7 +50,7 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/nano-banana/images"
+url = "https://api.xhuoapi.ai/v1/nano-banana/images"
 headers = {
     "authorization": "Bearer {token}",
     "accept": "application/json",
@@ -82,7 +82,7 @@ print(resp.json())
   "data": [
     {
       "prompt": "Um retrato fotorealista em close de um ceramista japonês idoso com rugas profundas, marcadas pelo sol, e um sorriso caloroso e conhecedor. Ele está inspecionando cuidadosamente uma tigela de chá recém-esmalte. O cenário é sua oficina rústica, banhada pelo sol. A cena é iluminada por uma luz suave do final da tarde que entra pela janela, destacando a fina textura do barro. Capturado com uma lente de retrato de 85mm, resultando em um fundo suave e desfocado (bokeh). O clima geral é sereno e magistral. Orientação vertical do retrato.",
-      "image_url": "https://platform.cdn.acedata.cloud/nanobanana/69790adb-c85d-4362-ad9e-0c9ba4352cf4.png"
+      "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/69790adb-c85d-4362-ad9e-0c9ba4352cf4.png"
     }
   ]
 }
@@ -108,7 +108,7 @@ Por exemplo, se fornecermos uma foto de uma pessoa e uma foto de uma roupa, pode
 ### Exemplo de Solicitação (cURL)
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/images' \
   -H 'authorization: Bearer {token}' \
   -H 'accept: application/json' \
   -H 'content-type: application/json' \
@@ -116,8 +116,8 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
     "action": "edit",
     "prompt": "deixe este homem vestir esta camiseta",
     "image_urls": [
-      "https://cdn.acedata.cloud/v8073y.png",
-      "https://cdn.acedata.cloud/44xlah.png"
+      "https://cdn.xhuoapi.ai/v8073y.png",
+      "https://cdn.xhuoapi.ai/44xlah.png"
     ],
     "count": 1
   }'
@@ -128,7 +128,7 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/nano-banana/images"
+url = "https://api.xhuoapi.ai/v1/nano-banana/images"
 headers = {
     "authorization": "Bearer {token}",
     "accept": "application/json",
@@ -138,8 +138,8 @@ payload = {
     "action": "edit",
     "prompt": "deixe este homem vestir esta camiseta",
     "image_urls": [
-        "https://cdn.acedata.cloud/v8073y.png",
-        "https://cdn.acedata.cloud/44xlah.png"
+        "https://cdn.xhuoapi.ai/v8073y.png",
+        "https://cdn.xhuoapi.ai/44xlah.png"
     ],
     "count": 1
 }
@@ -157,7 +157,7 @@ print(resp.json())
   "data": [
     {
       "prompt": "deixe este homem vestir esta camiseta",
-      "image_url": "https://platform.cdn.acedata.cloud/nanobanana/8e9e0253-26f4-45b9-b3f8-ac1aed1c284b.png"
+      "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/8e9e0253-26f4-45b9-b3f8-ac1aed1c284b.png"
     }
   ]
 }
@@ -187,7 +187,7 @@ Gerar ou editar pode levar algum tempo. Para evitar que conexões longas ocupem 
   "data": [
     {
       "prompt": "um gato siames branco",
-      "image_url": "https://platform.cdn.acedata.cloud/nanobanana/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.png"
+      "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.png"
     }
   ]
 }

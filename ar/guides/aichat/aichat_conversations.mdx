@@ -1,19 +1,19 @@
 ---
 title: "واجهة برمجة تطبيقات الدردشة بالذكاء الاصطناعي - تعليمات الدمج"
-description: "AI Dialogue 集成指南 - Ace Data Cloud"
+description: "AI Dialogue 集成指南 - XHuoAPI"
 ---
 
 نحن نعلم أن دمج بعض واجهات برمجة التطبيقات للإجابة على الأسئلة في السوق ليس سهلاً نسبيًا، مثل واجهة برمجة التطبيقات الخاصة بـ OpenAI للدردشة، التي تحتوي على حقل `messages`. إذا أردنا إكمال محادثة مستمرة، نحتاج إلى تمرير كل تاريخ السياق، كما نحتاج أيضًا إلى معالجة مشكلة تجاوز حد الرموز.
 
-تقدم AceDataCloud واجهة برمجة تطبيقات الإجابة على الأسئلة بالذكاء الاصطناعي التي تم تحسينها لهذه الحالات، حيث تم تغليف تنفيذ المحادثات المستمرة مع الحفاظ على فعالية الإجابة، مما يعني أنه لا داعي للقلق بشأن تمرير الرسائل أو مشكلة تجاوز حد الرموز (تمت معالجتها تلقائيًا داخل واجهة برمجة التطبيقات). كما توفر أيضًا ميزات استعلام وتعديل المحادثات، مما يبسط عملية الدمج بشكل كبير.
+تقدم XHuoAPI واجهة برمجة تطبيقات الإجابة على الأسئلة بالذكاء الاصطناعي التي تم تحسينها لهذه الحالات، حيث تم تغليف تنفيذ المحادثات المستمرة مع الحفاظ على فعالية الإجابة، مما يعني أنه لا داعي للقلق بشأن تمرير الرسائل أو مشكلة تجاوز حد الرموز (تمت معالجتها تلقائيًا داخل واجهة برمجة التطبيقات). كما توفر أيضًا ميزات استعلام وتعديل المحادثات، مما يبسط عملية الدمج بشكل كبير.
 
 ستتناول هذه الوثيقة تعليمات دمج واجهة برمجة تطبيقات الإجابة على الأسئلة بالذكاء الاصطناعي.
 
 ## عملية التقديم
 
-لاستخدام واجهة برمجة التطبيقات، تحتاج أولاً إلى زيارة صفحة [واجهة برمجة تطبيقات الإجابة على الأسئلة بالذكاء الاصطناعي](https://platform.acedata.cloud/documents/59fb1199-6694-4afb-a222-3554d7f7d05a) وتقديم طلب للحصول على الخدمة المناسبة. بعد دخول الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
+لاستخدام واجهة برمجة التطبيقات، تحتاج أولاً إلى زيارة صفحة [واجهة برمجة تطبيقات الإجابة على الأسئلة بالذكاء الاصطناعي](https://api.xhuoapi.ai/documents/59fb1199-6694-4afb-a222-3554d7f7d05a) وتقديم طلب للحصول على الخدمة المناسبة. بعد دخول الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، وبعد تسجيل الدخول، سيتم إرجاعك تلقائيًا إلى الصفحة الحالية.
 
@@ -25,7 +25,7 @@ description: "AI Dialogue 集成指南 - Ace Data Cloud"
 
 على سبيل المثال، إذا سألت: "What's your name؟"، يمكننا بعد ذلك ملء المحتوى المقابل على الواجهة، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/xqxda4.png)
+![](https://cdn.xhuoapi.ai/xqxda4.png)
 
 يمكنك أن ترى أننا قمنا بتعيين رؤوس الطلب، بما في ذلك:
 
@@ -39,7 +39,7 @@ description: "AI Dialogue 集成指南 - Ace Data Cloud"
 
 بعد الاختيار، يمكنك أن تلاحظ أن الجانب الأيمن قد أنشأ الكود المقابل، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/dvkps6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dvkps6.png" width="500" className="m-auto" /></p>
 
 انقر على زر "Try" لإجراء الاختبار، كما هو موضح في الصورة أعلاه، وهنا حصلنا على النتيجة التالية:
 
@@ -56,7 +56,7 @@ description: "AI Dialogue 集成指南 - Ace Data Cloud"
 بالإضافة إلى ذلك، إذا كنت ترغب في توليد الكود المقابل للدمج، يمكنك نسخه مباشرة، على سبيل المثال، كود CURL كما يلي:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -71,7 +71,7 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/aichat/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat/conversations"
 
 headers = {
     "accept": "application/json",
@@ -96,12 +96,12 @@ print(response.text)
 
 في الطلب الأول، قم بتعيين معلمة `stateful` إلى `true`، ومرر بشكل طبيعي معلمات `model` و `question`، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/fn4bi9.png)
+![](https://cdn.xhuoapi.ai/fn4bi9.png)
 
 الكود المقابل كما يلي:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -123,12 +123,12 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 
 في الطلب الثاني، قم بتمرير حقل `id` الذي تم إرجاعه من الطلب الأول كمعلمة، مع الحفاظ على معلمة `stateful` كـ `true`، واسأل "What I asked you just now؟"، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/46a6kd.png)
+![](https://cdn.xhuoapi.ai/46a6kd.png)
 
 الكود المقابل كما يلي:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -159,7 +159,7 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 
 التعديل كما هو موضح في الصورة، ولكن يجب أن يكون هناك تغييرات في كود الاستدعاء لدعم الاستجابة المتدفقة.
 
-![](https://cdn.acedata.cloud/axt1aa.png)
+![](https://cdn.xhuoapi.ai/axt1aa.png)
 
 بعد تغيير `accept` إلى `application/x-ndjson`، ستقوم واجهة برمجة التطبيقات بإرجاع بيانات JSON المقابلة سطرًا بسطر، وعلى مستوى الكود، نحتاج إلى إجراء التعديلات اللازمة للحصول على النتائج سطرًا بسطر.
 
@@ -167,7 +167,7 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/aichat/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat/conversations"
 
 headers = {
     "accept": "application/x-ndjson",
@@ -208,7 +208,7 @@ JavaScript أيضًا مدعوم، على سبيل المثال، كود الا�
 ```javascript
 const axios = require("axios");
 
-const url = "https://api.acedata.cloud/aichat/conversations";
+const url = "https://api.xhuoapi.ai/v1/aichat/conversations";
 const headers = {
   "Content-Type": "application/json",
   Accept: "application/x-ndjson",
@@ -236,7 +236,7 @@ axios
 مثال كود Java:
 
 ```java
-String url = "https://api.acedata.cloud/aichat/conversations";
+String url = "https://api.xhuoapi.ai/v1/aichat/conversations";
 OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, "{\"question\": \"مرحبًا\", \"stateful\": true, \"model\": \"gpt-3.5\"}");
@@ -276,12 +276,12 @@ client.newCall(request).enqueue(new Callback() {
 
 هنا نضيف حقل `preset` إضافي، المحتوى هو `أنت فنان محترف`، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/ird6i9.png)
+![](https://cdn.xhuoapi.ai/ird6i9.png)
 
 الكود المقابل كما يلي:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -307,23 +307,23 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 
 يمكن لهذا AI أيضًا دعم إضافة مرفقات لإجراء التعرف على الصور، من خلال تمرير روابط الصور المقابلة عبر `references`، على سبيل المثال، لدي هنا صورة لتفاح، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/ht05g0.png)
+![](https://cdn.xhuoapi.ai/ht05g0.png)
 
-رابط الصورة هو [https://cdn.acedata.cloud/ht05g0.png](https://cdn.acedata.cloud/ht05g0.png)، نقوم بتمريره مباشرة كمعامل `references`، مع ملاحظة أنه يجب اختيار نموذج يدعم التعرف على الصور، والنموذج المدعوم حاليًا هو `gpt-4-vision`، لذا الإدخال كما يلي:
+رابط الصورة هو [https://cdn.xhuoapi.ai/ht05g0.png](https://cdn.xhuoapi.ai/ht05g0.png)، نقوم بتمريره مباشرة كمعامل `references`، مع ملاحظة أنه يجب اختيار نموذج يدعم التعرف على الصور، والنموذج المدعوم حاليًا هو `gpt-4-vision`، لذا الإدخال كما يلي:
 
-![](https://cdn.acedata.cloud/cstrbq.png)
+![](https://cdn.xhuoapi.ai/cstrbq.png)
 
 الكود المقابل كما يلي:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "model": "gpt-4-vision",
   "question": "كم عدد التفاح في الصورة؟",
-  "references": ["https://cdn.acedata.cloud/ht05g0.png"]
+  "references": ["https://cdn.xhuoapi.ai/ht05g0.png"]
 }'
 ```
 
@@ -341,12 +341,12 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 
 تدعم هذه الواجهة أيضًا نماذج متصلة بالإنترنت، بما في ذلك GPT-3.5 وGPT-4، حيث يوجد عملية بحث تلقائية على الإنترنت وتلخيص، يمكننا اختيار النموذج ليكون `gpt-3.5-browsing` لتجربته، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/x5i8np.png)
+![](https://cdn.xhuoapi.ai/x5i8np.png)
 
 الكود كما يلي:
 ```
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

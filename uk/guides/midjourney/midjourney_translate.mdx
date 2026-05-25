@@ -1,6 +1,6 @@
 ---
 title: "Інтеграція та використання Midjourney Translate API"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 Основна функція Midjourney Translate API полягає в отриманні англійських описів на основі введених китайських описів.
@@ -9,11 +9,11 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 ## Процес подачі заявки
 
-Щоб використовувати Midjourney Translate API, спочатку потрібно перейти на сторінку подачі заявки [Midjourney Translate API](https://platform.acedata.cloud/documents/e067d19b-7a66-4458-a45f-0fe88c1d5d34) для отримання відповідних послуг. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
+Щоб використовувати Midjourney Translate API, спочатку потрібно перейти на сторінку подачі заявки [Midjourney Translate API](https://api.xhuoapi.ai/documents/e067d19b-7a66-4458-a45f-0fe88c1d5d34) для отримання відповідних послуг. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
 
-![Сторінка подачі заявки](https://cdn.acedata.cloud/rci31i.png)
+![Сторінка подачі заявки](https://cdn.xhuoapi.ai/rci31i.png)
 
-Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на [сторінку входу](https://platform.acedata.cloud), щоб запросити реєстрацію та вхід. Після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
+Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на [сторінку входу](https://api.xhuoapi.ai), щоб запросити реєстрацію та вхід. Після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
 
 При першій подачі заявки вам буде надано безкоштовний ліміт, який дозволяє безкоштовно використовувати цей API.
 
@@ -36,20 +36,20 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 Налаштування, як показано на малюнку:
 
-![](https://cdn.acedata.cloud/db8lrn.png)
+![](https://cdn.xhuoapi.ai/db8lrn.png)
 
 ### Приклад коду
 
 Можна помітити, що на правій стороні сторінки вже автоматично згенеровано код на різних мовах, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/oj1cck.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/oj1cck.png" width="500" className="m-auto" /></p>
 
 Деякі приклади коду наведені нижче:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/translate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/translate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -63,7 +63,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/translate' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/translate"
+url = "https://api.xhuoapi.ai/v1/midjourney/translate"
 
 headers = {
     "accept": "application/json",

@@ -1,15 +1,15 @@
 ---
 title: "Kling Videos Generation API 接続説明"
-description: "Kling video generation 集成指南 - Ace Data Cloud"
+description: "Kling video generation 集成指南 - XHuoAPI"
 ---
 
 本稿では、カスタムパラメータを入力してKling公式の動画を生成できるKling Videos Generation APIの接続方法について説明します。
 
 ## 申請手順
 
-APIを使用するには、まず [Kling Videos Generation API](https://platform.acedata.cloud/documents/3b921a16-a411-4557-8335-53f21d3f9e46) の該当ページでサービスを申請する必要があります。ページにアクセスしたら、「Acquire」ボタンをクリックします。以下の図のように表示されます：
+APIを使用するには、まず [Kling Videos Generation API](https://api.xhuoapi.ai/documents/3b921a16-a411-4557-8335-53f21d3f9e46) の該当ページでサービスを申請する必要があります。ページにアクセスしたら、「Acquire」ボタンをクリックします。以下の図のように表示されます：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 ログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録・ログイン後に元のページに戻ります。
 
@@ -19,7 +19,7 @@ APIを使用するには、まず [Kling Videos Generation API](https://platform
 
 まず基本的な使い方を理解しましょう。入力するのはプロンプト `prompt`、生成動作 `action`、初期フレームの参照画像URL `start_image_url`、およびモデル `model` です。これらを入力することで処理結果を得られます。最初に `action` フィールドを簡単に渡します。値は `text2video` で、主に3つの動作を含みます：テキストから動画生成（`text2video`）、画像から動画生成（`image2video`）、動画の拡張（`extend`）。次にモデル `model` を指定します。現在利用可能なモデルは `kling-v1`, `kling-v1-6`, `kling-v2-master`, `kling-v2-1-master`, `kling-v2-5-turbo`, `kling-v2-6`, `kling-v3`, `kling-v3-omni`, `kling-video-o1` です。具体的な内容は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/ke1bok.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ke1bok.png" width="500" className="m-auto" /></p>
 
 ここではRequest Headersを設定しています：
 
@@ -46,7 +46,7 @@ APIを使用するには、まず [Kling Videos Generation API](https://platform
 
 選択すると右側に対応するコードが生成されます。以下の図の通りです：
 
-<p><img src="https://cdn.acedata.cloud/3yjql0.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3yjql0.png" width="500" className="m-auto" /></p>
 
 「Try」ボタンをクリックするとテストを実行できます。上図のように以下の結果が得られます：
 
@@ -75,7 +75,7 @@ APIを使用するには、まず [Kling Videos Generation API](https://platform
 また、対応する接続コードを生成したい場合は、直接コピー可能です。例えばCURLコードは以下の通りです：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/kling/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -117,7 +117,7 @@ curl -X POST 'https://api.acedata.cloud/kling/videos' \
 
 既に生成したKling動画をさらに生成したい場合は、パラメータ `action` を `extend` に設定し、続きの動画を生成したい動画IDを入力します。動画IDは基本的な使い方で取得可能です。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 動画IDは以下のように表示されます：
 
@@ -137,18 +137,18 @@ curl -X POST 'https://api.acedata.cloud/kling/videos' \
 
 入力例は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/ejimqy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ejimqy.png" width="500" className="m-auto" /></p>
 
 入力完了後、自動で以下のコードが生成されます：
 
-<p><img src="https://cdn.acedata.cloud/52x4u5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/52x4u5.png" width="500" className="m-auto" /></p>
 
 対応するPythonコード：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kling/videos"
+url = "https://api.xhuoapi.ai/v1/kling/videos"
 
 headers = {
     "accept": "application/json",
@@ -193,13 +193,13 @@ Kling Videos Generation APIの生成時間は比較的長く、約1～2分かか
 
 まずWebhookコールバックはHTTPリクエストを受け取るサービスで、開発者は自身のHTTPサーバーURLに置き換えてください。ここではデモ用に公開Webhookサイト https://webhook.site/ を利用します。サイトを開くとWebhook URLが取得できます。以下の図の通りです：
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 このURLをコピーし、Webhookとして使用します。例：`https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`
 
 次に、`callback_url` フィールドに上記Webhook URLを設定し、その他のパラメータを入力します。内容は以下の図の通りです：
 
-<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vdx12s.png" width="500" className="m-auto" /></p>
 
 実行すると即座に以下の結果が得られます：
 
@@ -211,7 +211,7 @@ Kling Videos Generation APIの生成時間は比較的長く、約1～2分かか
 
 しばらく待つと、`https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3` で生成動画結果を確認できます。以下の図の通りです：
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 内容は以下の通りです：
 

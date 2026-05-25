@@ -1,15 +1,15 @@
 ---
 title: "Kling Motion Generation API - Integraatio-ohjeet"
-description: "Kling video generation 集成指南 - Ace Data Cloud"
+description: "Kling video generation 集成指南 - XHuoAPI"
 ---
 
 Tässä artikkelissa esitellään Kling Motion Generation API -integraatio-ohjeet, jonka avulla voidaan syöttää mukautettuja parametreja Klingin virallisten videoiden luomiseksi.
 
 ## Hakuprosessi
 
-API:n käyttämiseksi on ensin mentävä [Kling Motion Generation API](https://platform.acedata.cloud/documents/d3f2c369-102d-4856-9565-702ac5f2df63) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
+API:n käyttämiseksi on ensin mentävä [Kling Motion Generation API](https://api.xhuoapi.ai/documents/d3f2c369-102d-4856-9565-702ac5f2df63) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -19,7 +19,7 @@ Ensimmäisellä hakukerralla saat ilmaisia krediittejä, joiden avulla voit käy
 
 Ensinnäkin on hyvä ymmärtää peruskäyttötapa, eli syöttää kehotussana `prompt`, viittauskuva `image_url` sekä viittausvideon linkki `video_url`, jolloin saat käsitellyn tuloksen. Lisäksi meidän on syötettävä malli `mode`, joka on tällä hetkellä pääasiassa `std` ja `pro`, tarkat tiedot ovat seuraavat:
 
-<p><img src="https://cdn.acedata.cloud/5qlpjt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5qlpjt.png" width="500" className="m-auto" /></p>
 
 Voit nähdä, että olemme asettaneet Request Headers, mukaan lukien:
 
@@ -38,7 +38,7 @@ Lisäksi olemme asettaneet Request Body:n, joka sisältää:
 
 Valinnan jälkeen voit huomata, että oikealle puolelle on myös luotu vastaava koodi, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/buwczd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/buwczd.png" width="500" className="m-auto" /></p>
 
 Napsauta "Try" -painiketta testataksesi, kuten yllä olevassa kuvassa näkyy, ja saamme seuraavanlaisen tuloksen:
 
@@ -67,13 +67,13 @@ Voimme nähdä, että olemme saaneet tyydyttävää videoinformaatiota, ja meid�
 Jos haluat luoda vastaavan integraatiokoodin, voit kopioida sen suoraan, esimerkiksi CURL-koodi on seuraava:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/kling/motion' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/motion' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "image_url": "https://sourceyoya.wenge.com/2025/06/03/683e9f76e4b0684509ab1aca.jpg",
-  "video_url": "https://cdn.acedata.cloud/odwfm5.mp4",
+  "video_url": "https://cdn.xhuoapi.ai/odwfm5.mp4",
   "prompt": "让画面生动起来",
   "mode": "std",
   "character_orientation": "image"
@@ -90,12 +90,12 @@ Katsotaanpa esimerkin avulla, miten toiminta tapahtuu.
 
 Ensinnäkin, Webhook-palaute on palvelu, joka voi vastaanottaa HTTP-pyyntöjä, ja kehittäjän tulisi korvata se omalla HTTP-palvelimensa URL-osoitteella. Tässä esimerkissä käytämme julkista Webhook-esimerkkisivustoa https://webhook.site/, avaa tämä sivusto saadaksesi Webhook URL:n, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 Kopioi tämä URL, niin voit käyttää sitä Webhookina, tässä esimerkki on `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`.
 
 Seuraavaksi voimme asettaa kentän `callback_url` yllä olevaan Webhook URL:iin ja täyttää vastaavat parametrit, tarkat tiedot näkyvät kuvassa:
 
-<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vdx12s.png" width="500" className="m-auto" /></p>
 
 Klikkaa suorita, niin huomaat, että saat heti tuloksen, kuten alla:
 
@@ -107,7 +107,7 @@ Klikkaa suorita, niin huomaat, että saat heti tuloksen, kuten alla:
 
 Odota hetki, niin voimme tarkkailla generoidun videon tulosta osoitteessa `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 Sisältö on seuraava:
 

@@ -1,15 +1,15 @@
 ---
 title: "Consulta de estado de número de teléfono API Integración"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Este documento presentará una integración de API para la consulta de estado de número de teléfono, que se puede utilizar para verificar el estado de un número de teléfono móvil, puede ingresar el número de teléfono para realizar la consulta.
 
 ## Proceso de solicitud
 
-Para utilizar la API, primero debe ir a la página correspondiente de [Consulta de estado de número de teléfono API](https://platform.acedata.cloud/documents/037e2b5b-d0c0-425c-9e13-955ac64d1e07) para solicitar el servicio correspondiente, una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
+Para utilizar la API, primero debe ir a la página correspondiente de [Consulta de estado de número de teléfono API](https://api.xhuoapi.ai/documents/037e2b5b-d0c0-425c-9e13-955ac64d1e07) para solicitar el servicio correspondiente, una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Si aún no ha iniciado sesión o registrado, será redirigido automáticamente a la página de inicio de sesión que lo invita a registrarse e iniciar sesión, después de iniciar sesión o registrarse, volverá automáticamente a la página actual.
 
@@ -19,7 +19,7 @@ En la primera solicitud, se otorgará un límite gratuito, que le permitirá uti
 
 Primero, comprenda la forma básica de uso, que consiste en ingresar el número de teléfono móvil para obtener el resultado procesado, primero necesita pasar un campo `mobile`. A continuación, podemos completar el contenido correspondiente en la interfaz, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/r17llo.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/r17llo.png" width="500" className="m-auto" /></p>
 
 Aquí podemos ver que hemos configurado los Request Headers, que incluyen:
 
@@ -33,7 +33,7 @@ Además, se ha configurado el Request Body, que incluye:
 
 Después de seleccionar, se puede observar que también se ha generado el código correspondiente a la derecha, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/dpun55.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dpun55.png" width="500" className="m-auto" /></p>
 
 Haga clic en el botón "Try" para realizar la prueba, como se muestra en la imagen anterior, aquí hemos obtenido el siguiente resultado:
 
@@ -68,7 +68,7 @@ Se puede ver que el estado de este número de teléfono ya ha sido consultado.
 Además, si desea generar el código de integración correspondiente, puede copiarlo directamente, por ejemplo, el código CURL es el siguiente:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/phone/check-1e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/phone/check-1e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -82,7 +82,7 @@ El código de integración en Python es el siguiente:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/phone/check-1e"
+url = "https://api.xhuoapi.ai/v1/identity/phone/check-1e"
 
 headers = {
     "accept": "application/json",

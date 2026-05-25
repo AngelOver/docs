@@ -1,6 +1,6 @@
 ---
 title: "Producer Tasks API:n integrointi ja käyttö"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 Producer Tasks API:n päätoiminto on kysyä tehtävän suoritustilaa syöttämällä Producer Audios Generation API:n tuottama tehtävä-ID.
@@ -9,27 +9,27 @@ Tässä asiakirjassa käsitellään yksityiskohtaisesti Producer Tasks API:n int
 
 ## Hakuprosessi
 
-Käyttääksesi Producer Tasks API:a, sinun on ensin mentävä hakusivulle [Producer Audios Generation API](https://platform.acedata.cloud/documents/producer-audios) ja haettava vastaavaa palvelua, sitten kopioi Producer Audios Generation API:n tehtävä-ID, kuten kuvassa näkyy:
+Käyttääksesi Producer Tasks API:a, sinun on ensin mentävä hakusivulle [Producer Audios Generation API](https://api.xhuoapi.ai/documents/producer-audios) ja haettava vastaavaa palvelua, sitten kopioi Producer Audios Generation API:n tehtävä-ID, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
-Lopuksi siirry Tasks API -sivulle [Producer Tasks API](https://platform.acedata.cloud/documents/622626b1-30a7-4799-a772-4946e1df3ac0) ja hae vastaavaa palvelua, siirryttyäsi sivulle, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
+Lopuksi siirry Tasks API -sivulle [Producer Tasks API](https://api.xhuoapi.ai/documents/622626b1-30a7-4799-a772-4946e1df3ac0) ja hae vastaavaa palvelua, siirryttyäsi sivulle, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
 
-![Hakusivu](https://cdn.acedata.cloud/rci31i.png)
+![Hakusivu](https://cdn.xhuoapi.ai/rci31i.png)
 
-Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti [kirjautumissivulle](https://platform.acedata.cloud), joka kutsuu sinua rekisteröitymään ja kirjautumaan sisään, ja kirjautumisen jälkeen palaat automaattisesti nykyiselle sivulle.
+Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti [kirjautumissivulle](https://api.xhuoapi.ai), joka kutsuu sinua rekisteröitymään ja kirjautumaan sisään, ja kirjautumisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
 Ensimmäisellä hakukerralla saat ilmaisia krediittejä, joiden avulla voit käyttää tätä API:a ilmaiseksi.
 
 ## Pyyntöesimerkki
 
-Producer Tasks API:a voidaan käyttää Producer Audios Generation API:n tulosten tarkistamiseen. Lisätietoja siitä, miten käyttää Producer Audios Generation API:a, katso asiakirja [Producer Audios Generation API](https://platform.acedata.cloud/documents/producer-audios-integration).
+Producer Tasks API:a voidaan käyttää Producer Audios Generation API:n tulosten tarkistamiseen. Lisätietoja siitä, miten käyttää Producer Audios Generation API:a, katso asiakirja [Producer Audios Generation API](https://api.xhuoapi.ai/documents/producer-audios-integration).
 
 Otetaan esimerkki yhdestä Producer Audios Generation API:n palauttamasta tehtävä-ID:stä ja näytetään, miten tätä API:a käytetään. Oletetaan, että meillä on tehtävä-ID: 1a6ac2ad-10f2-4e2b-b500-66ec27fe82ad, seuraavaksi näytetään, miten syötetään tämä tehtävä-ID.
 
 ### Tehtäväesimerkkikuva
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 ### Pyyntöotsikon ja -kehon asettaminen
 
@@ -45,20 +45,20 @@ Otetaan esimerkki yhdestä Producer Audios Generation API:n palauttamasta tehtä
 
 Aseta kuten alla olevassa kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/bfe4ww.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bfe4ww.png" width="500" className="m-auto" /></p>
 
 ### Koodiesimerkki
 
 Voit huomata, että sivun oikealla puolella on automaattisesti luotu koodia eri kielillä, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/u4pb2f.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/u4pb2f.png" width="500" className="m-auto" /></p>
 
 Osittainen koodiesimerkki on seuraava:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -134,13 +134,13 @@ Tämä on tarkoitettu useiden tehtävä-ID:iden kyselyyn tehtävän yksityiskoht
 
 Asetukset ovat seuraavat:
 
-<p><img src="https://cdn.acedata.cloud/jlkoma.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jlkoma.png" width="500" className="m-auto" /></p>
 
 ### Koodiesimerkki
 
 Voit huomata, että sivun oikealla puolella on automaattisesti luotu erilaisia kielikoodeja, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/emw66n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/emw66n.png" width="500" className="m-auto" /></p>
 
 Osittainen koodiesimerkki on seuraava:
 
@@ -252,7 +252,7 @@ Palautetut tulokset sisältävät useita kenttiä, joista items sisältää erä
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

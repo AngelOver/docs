@@ -1,6 +1,6 @@
 ---
 title: "异步任务模型"
-description: "Ace Data Cloud 长耗时任务（图像/视频/音乐）的轮询与 Webhook 回调机制。"
+description: "XHuoAPI 长耗时任务（图像/视频/音乐）的轮询与 Webhook 回调机制。"
 ---
 
 聊天类 API（LLM）是**同步**的——一次请求返回完整结果。但**图像 / 视频 / 音乐**生成都需要数秒到数分钟，走**异步任务**模式。
@@ -43,7 +43,7 @@ POST 提交后**同步返回** `200`，主体里含 `task_id`：
 ```python
 import time, requests
 
-API = "https://api.acedata.cloud"
+API = "https://api.xhuoapi.ai/v1"
 headers = {"Authorization": "Bearer YOUR_API_TOKEN"}
 
 # 1. 创建任务

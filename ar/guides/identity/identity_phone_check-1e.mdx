@@ -1,15 +1,15 @@
 ---
 title: "واجهة برمجة التطبيقات للتحقق من حالة رقم الهاتف"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 ستقدم هذه الوثيقة شرحًا حول واجهة برمجة التطبيقات للتحقق من حالة رقم الهاتف، والتي يمكن استخدامها للتحقق من حالة رقم الهاتف، يمكنك إدخال رقم الهاتف لإجراء الاستعلام.
 
 ## عملية التقديم
 
-لاستخدام واجهة برمجة التطبيقات، يجب أولاً الذهاب إلى [واجهة برمجة التطبيقات للتحقق من حالة رقم الهاتف](https://platform.acedata.cloud/documents/037e2b5b-d0c0-425c-9e13-955ac64d1e07) وتقديم طلب الخدمة المناسبة، بعد الدخول إلى الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
+لاستخدام واجهة برمجة التطبيقات، يجب أولاً الذهاب إلى [واجهة برمجة التطبيقات للتحقق من حالة رقم الهاتف](https://api.xhuoapi.ai/documents/037e2b5b-d0c0-425c-9e13-955ac64d1e07) وتقديم طلب الخدمة المناسبة، بعد الدخول إلى الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، سيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول والتسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
@@ -19,7 +19,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 أولاً، يجب أن نفهم طريقة الاستخدام الأساسية، وهي إدخال رقم الهاتف، للحصول على النتيجة المعالجة، تحتاج أولاً إلى تمرير حقل `mobile` ببساطة. بعد ذلك، يمكننا ملء المحتوى المقابل على الواجهة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/r17llo.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/r17llo.png" width="500" className="m-auto" /></p>
 
 يمكنك أن ترى أننا قمنا بتعيين رؤوس الطلب، بما في ذلك:
 
@@ -33,7 +33,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 بعد الاختيار، يمكنك أن تلاحظ أن الجانب الأيمن قد أنشأ أيضًا الكود المقابل، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/dpun55.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dpun55.png" width="500" className="m-auto" /></p>
 
 انقر على زر "Try" لإجراء الاختبار، كما هو موضح في الصورة أعلاه، هنا حصلنا على النتيجة التالية:
 
@@ -68,7 +68,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 بالإضافة إلى ذلك، إذا كنت ترغب في إنشاء الكود المقابل للتكامل، يمكنك نسخه مباشرة، على سبيل المثال، كود CURL كما يلي:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/phone/check-1e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/phone/check-1e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -82,7 +82,7 @@ curl -X POST 'https://api.acedata.cloud/identity/phone/check-1e' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/phone/check-1e"
+url = "https://api.xhuoapi.ai/v1/identity/phone/check-1e"
 
 headers = {
     "accept": "application/json",

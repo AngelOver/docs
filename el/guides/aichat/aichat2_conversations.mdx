@@ -1,9 +1,9 @@
 ---
 title: "Οδηγίες Ενσωμάτωσης AI Chat v2 API"
-description: "AI Dialogue 集成指南 - Ace Data Cloud"
+description: "AI Dialogue 集成指南 - XHuoAPI"
 ---
 
-Το AI Chat v2 API (`/aichat2/conversations`) είναι η νέα γενιά διεπαφής διαλόγου, μια πλήρης αναβάθμιση του [AI Chat API](https://platform.acedata.cloud/documents/59fb1199-6694-4afb-a222-3554d7f7d05a). Βασιζόμενο στην απλότητα και τη διαχείριση πολλαπλών γύρων διαλόγου της έκδοσης v1, επεκτείνει τις δυνατότητες με:
+Το AI Chat v2 API (`/aichat2/conversations`) είναι η νέα γενιά διεπαφής διαλόγου, μια πλήρης αναβάθμιση του [AI Chat API](https://api.xhuoapi.ai/documents/59fb1199-6694-4afb-a222-3554d7f7d05a). Βασιζόμενο στην απλότητα και τη διαχείριση πολλαπλών γύρων διαλόγου της έκδοσης v1, επεκτείνει τις δυνατότητες με:
 
 - **Πολυτροπική είσοδο χρήστη**: Μέσω του δομημένου πεδίου `message` μπορείτε να στείλετε απευθείας κείμενο + εικόνες + αρχεία, χωρίς να χρειάζεται να χρησιμοποιήσετε το `references` ως ενδιάμεσο.
 - **Κλήση εργαλείων με Agent**: Περιλαμβάνει ενσωματωμένα εργαλεία όπως διαδικτυακή αναζήτηση, web scraping, ανάγνωση αρχείων, και μπορεί να συνδεθεί με εξουσιοδοτημένους MCP servers (Google Drive, Notion, Slack, GitHub κ.ά.), επιτρέποντας στο μοντέλο να καλεί εργαλεία αυτόνομα σε πολλαπλούς γύρους μέσα σε ένα αίτημα για ολοκλήρωση σύνθετων εργασιών.
@@ -18,7 +18,7 @@ description: "AI Dialogue 集成指南 - Ace Data Cloud"
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το API, επισκεφθείτε τη σελίδα του [AI Chat v2 API](https://platform.acedata.cloud/documents/e4a7c2b9-3f1d-4e8a-9b6c-a5d2f8e1b4c7) και κάντε κλικ στο κουμπί «Acquire» για να λάβετε τα διαπιστευτήρια που απαιτούνται για τα αιτήματα.
+Για να χρησιμοποιήσετε το API, επισκεφθείτε τη σελίδα του [AI Chat v2 API](https://api.xhuoapi.ai/documents/e4a7c2b9-3f1d-4e8a-9b6c-a5d2f8e1b4c7) και κάντε κλικ στο κουμπί «Acquire» για να λάβετε τα διαπιστευτήρια που απαιτούνται για τα αιτήματα.
 
 Αν δεν έχετε συνδεθεί ή εγγραφεί, θα ανακατευθυνθείτε αυτόματα στη σελίδα σύνδεσης. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη σελίδα.
 
@@ -31,13 +31,13 @@ description: "AI Dialogue 集成指南 - Ace Data Cloud"
 Παράδειγμα CURL:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
   -d '{
     "model": "gpt-5.4",
-    "question": "用一句话介绍下 AceDataCloud。"
+    "question": "用一句话介绍下 XHuoAPI。"
   }'
 ```
 
@@ -45,7 +45,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 
 ```json
 {
-  "answer": "AceDataCloud 是一个聚合主流 AI 模型与多模态服务的统一 API 平台，开发者通过一个密钥即可调用 GPT、Claude、Gemini、Midjourney、Suno、Veo 等多家服务。",
+  "answer": "XHuoAPI 是一个聚合主流 AI 模型与多模态服务的统一 API 平台，开发者通过一个密钥即可调用 GPT、Claude、Gemini、Midjourney、Suno、Veo 等多家服务。",
   "id": "f2f4b3e8-0c0a-4d3a-aaa2-7ff80c0a1c44"
 }
 ```
@@ -55,7 +55,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/aichat2/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat2/conversations"
 
 headers = {
     "accept": "application/json",
@@ -65,7 +65,7 @@ headers = {
 
 payload = {
     "model": "gpt-5.4",
-    "question": "用一句话介绍下 AceDataCloud。",
+    "question": "用一句话介绍下 XHuoAPI。",
 }
 
 response = requests.post(url, json=payload, headers=headers)
@@ -91,7 +91,7 @@ print(response.json())
 Πρώτο αίτημα:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -114,7 +114,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 Δεύτερο αίτημα με το ίδιο `id`:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -153,7 +153,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 import json
 import requests
 
-url = "https://api.acedata.cloud/aichat2/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat2/conversations"
 
 headers = {
     "accept": "application/x-ndjson",
@@ -197,7 +197,7 @@ with requests.post(url, json=payload, headers=headers, stream=True) as resp:
 Στον browser, το `EventSource` δεν υποστηρίζει προσαρμοσμένο σώμα αιτήματος, προτείνεται χρήση `fetch` με χειροκίνητη ανάλυση κατά `\n\n`:
 
 ```javascript
-const resp = await fetch("https://api.acedata.cloud/aichat2/conversations", {
+const resp = await fetch("https://api.xhuoapi.ai/v1/aichat2/conversations", {
   method: "POST",
   headers: {
     accept: "text/event-stream",
@@ -260,7 +260,7 @@ while (true) {
   "stateful": true,
   "message": [
     { "type": "text", "text": "这张图片里有几只猫？" },
-    { "type": "image_url", "image_url": { "url": "https://cdn.acedata.cloud/cats.jpg" } }
+    { "type": "image_url", "image_url": { "url": "https://cdn.xhuoapi.ai/cats.jpg" } }
   ]
 }
 ```
@@ -289,7 +289,7 @@ while (true) {
 
 - Ο χρήστης ρωτά «Βρες μου πρόσφατες εκθέσεις στη Σαγκάη» → το μοντέλο καλεί την ενσωματωμένη αναζήτηση web → συνθέτει απάντηση.
 - Ο χρήστης ζητά «Διάβασε αυτό το PDF και γράψε περίληψη» → το μοντέλο καλεί file_read → δημιουργεί περίληψη.
-- Ο χρήστης έχει εξουσιοδοτήσει Google Drive / GitHub / Notion κ.ά. μέσω [Connections](https://platform.acedata.cloud/connections) → το μοντέλο καλεί τα αντίστοιχα MCP εργαλεία για ανάγνωση/εγγραφή.
+- Ο χρήστης έχει εξουσιοδοτήσει Google Drive / GitHub / Notion κ.ά. μέσω [Connections](https://api.xhuoapi.ai/connections) → το μοντέλο καλεί τα αντίστοιχα MCP εργαλεία για ανάγνωση/εγγραφή.
 
 Στο NDJSON / SSE stream, η κλήση εργαλείων εμφανίζεται με γεγονότα `tool_use` και `tool_result`, π.χ.:
 
@@ -323,7 +323,7 @@ while (true) {
 Στο frontend, εμφανίστε αυτό το γεγονός ως κάρτα για επιλογή απάντησης από τον χρήστη. Στη συνέχεια, στείλτε νέο αίτημα με το ίδιο `id`, επιστρέφοντας την απάντηση μέσω `tool_results`:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: text/event-stream' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -351,7 +351,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 ### `action: retrieve` — Ανάκτηση συνομιλίας
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -403,9 +403,9 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 
 ## Ομαλή Μετάβαση από v1
 
-Αν ήδη χρησιμοποιείτε [`/aichat/conversations`](https://platform.acedata.cloud/documents/59fb1199-6694-4afb-a222-3554d7f7d05a), η μετάβαση σε v2 απαιτεί ελάχιστες αλλαγές:
+Αν ήδη χρησιμοποιείτε [`/aichat/conversations`](https://api.xhuoapi.ai/documents/59fb1199-6694-4afb-a222-3554d7f7d05a), η μετάβαση σε v2 απαιτεί ελάχιστες αλλαγές:
 
-1. Αλλάξτε το URL από `https://api.acedata.cloud/aichat/conversations` σε `https://api.acedata.cloud/aichat2/conversations`.
+1. Αλλάξτε το URL από `https://api.xhuoapi.ai/v1/aichat/conversations` σε `https://api.xhuoapi.ai/v1/aichat2/conversations`.
 2. Αν χρησιμοποιούσατε μοντέλα v1 (π.χ. `gpt-3.5`, `gpt-4-browsing`), προτείνεται αναβάθμιση σε σύγχρονα μοντέλα v2 (π.χ. `gpt-5.4`, `claude-opus-4-7`, `gemini-3.1-pro`).
 3. Τα πεδία του NDJSON stream παραμένουν συμβατά: κάθε `text_delta` περιέχει ακόμα `delta_answer` και `id`, οπότε οι πελάτες που αναλύουν `delta_answer` ανά γραμμή δεν χρειάζεται να αλλάξουν.
 

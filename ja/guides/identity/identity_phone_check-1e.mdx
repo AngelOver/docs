@@ -1,15 +1,15 @@
 ---
 title: "電話番号の状態確認 API 接続説明"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 本文では、電話番号の状態確認 API 接続説明を紹介します。これは電話番号の状態を検証するために使用でき、電話番号を入力して確認できます。
 
 ## 申請プロセス
 
-APIを使用するには、まず [電話番号の状態確認 API](https://platform.acedata.cloud/documents/037e2b5b-d0c0-425c-9e13-955ac64d1e07) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
+APIを使用するには、まず [電話番号の状態確認 API](https://api.xhuoapi.ai/documents/037e2b5b-d0c0-425c-9e13-955ac64d1e07) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 まだログインまたは登録していない場合、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -19,7 +19,7 @@ APIを使用するには、まず [電話番号の状態確認 API](https://plat
 
 まず基本的な使用方法を理解します。電話番号を入力することで処理された結果を得ることができます。まず、`mobile` フィールドを簡単に渡す必要があります。次に、インターフェースに対応する内容を記入できます。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/r17llo.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/r17llo.png" width="500" className="m-auto" /></p>
 
 ここでは、Request Headers を設定しました。含まれるのは：
 
@@ -33,7 +33,7 @@ APIを使用するには、まず [電話番号の状態確認 API](https://plat
 
 選択後、右側にも対応するコードが生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/dpun55.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dpun55.png" width="500" className="m-auto" /></p>
 
 「Try」ボタンをクリックするとテストができます。上の図のように、以下の結果が得られました：
 
@@ -68,7 +68,7 @@ APIを使用するには、まず [電話番号の状態確認 API](https://plat
 また、対応する接続コードを生成したい場合は、生成されたものを直接コピーできます。例えば、CURL のコードは以下の通りです：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/phone/check-1e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/phone/check-1e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -82,7 +82,7 @@ Python の接続コードは以下の通りです：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/phone/check-1e"
+url = "https://api.xhuoapi.ai/v1/identity/phone/check-1e"
 
 headers = {
     "accept": "application/json",

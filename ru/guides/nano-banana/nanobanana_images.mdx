@@ -1,17 +1,17 @@
 ---
 title: "Nano Banana Images API Инструкция по интеграции"
-description: "Nano Banana Image Generation 集成指南 - Ace Data Cloud"
+description: "Nano Banana Image Generation 集成指南 - XHuoAPI"
 ---
 
 В данной статье представлена информация о интеграции и использовании Nano Banana Images API. Этот интерфейс поддерживает две функции: **генерация изображений (generate)** и **редактирование изображений (edit)**.
 
 ## Процесс подачи заявки
 
-Перед использованием, пожалуйста, перейдите на платформу Ace Data Cloud в [Nano Banana Images API](https://platform.acedata.cloud/documents/23985a11-d713-41d1-ad84-24b021805b3d) и нажмите Acquire для подачи заявки на активацию. При первой подаче заявки обычно доступен бесплатный лимит. После завершения активации вы сможете получить Bearer Token для вызова API на платформе.
+Перед использованием, пожалуйста, перейдите на платформу XHuoAPI в [Nano Banana Images API](https://api.xhuoapi.ai/documents/23985a11-d713-41d1-ad84-24b021805b3d) и нажмите Acquire для подачи заявки на активацию. При первой подаче заявки обычно доступен бесплатный лимит. После завершения активации вы сможете получить Bearer Token для вызова API на платформе.
 
 ## Обзор интерфейса
 
-- **Базовый URL**: `https://api.acedata.cloud`
+- **Базовый URL**: `https://api.xhuoapi.ai/v1`
 - **Конечная точка**: `POST /nano-banana/images`
 - **Метод аутентификации**: HTTP заголовок содержит `authorization: Bearer {token}`
 - **Заголовки запроса**:
@@ -34,7 +34,7 @@ description: "Nano Banana Image Generation 集成指南 - Ace Data Cloud"
 ### Пример запроса (cURL)
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/images' \
   -H 'authorization: Bearer {token}' \
   -H 'accept: application/json' \
   -H 'content-type: application/json' \
@@ -50,7 +50,7 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/nano-banana/images"
+url = "https://api.xhuoapi.ai/v1/nano-banana/images"
 headers = {
     "authorization": "Bearer {token}",
     "accept": "application/json",
@@ -83,7 +83,7 @@ print(resp.json())
   "data": [
     {
       "prompt": "Фотореалистичный крупный план портрета пожилого японского керамиста с глубокими, солнечными морщинами и теплой, знающей улыбкой. Он внимательно осматривает только что глазурованный чайный бокал. Обстановка - его деревенская, залитая солнцем мастерская. Сцена освещена мягким светом золотого часа, проникающим через окно, подчеркивающим тонкую текстуру глины. Снято с помощью портретного объектива 85 мм, что приводит к мягкому, размытым фону (боке). Общая атмосфера спокойная и мастерская. Вертикальная ориентация портрета.",
-      "image_url": "https://platform.cdn.acedata.cloud/nanobanana/69790adb-c85d-4362-ad9e-0c9ba4352cf4.png"
+      "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/69790adb-c85d-4362-ad9e-0c9ba4352cf4.png"
     }
   ]
 }
@@ -109,7 +109,7 @@ print(resp.json())
 ### Пример запроса (cURL)
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/images' \
   -H 'authorization: Bearer {token}' \
   -H 'accept: application/json' \
   -H 'content-type: application/json' \
@@ -117,8 +117,8 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
     "action": "edit",
     "prompt": "пусть этот человек наденет эту футболку",
     "image_urls": [
-      "https://cdn.acedata.cloud/v8073y.png",
-      "https://cdn.acedata.cloud/44xlah.png"
+      "https://cdn.xhuoapi.ai/v8073y.png",
+      "https://cdn.xhuoapi.ai/44xlah.png"
     ],
     "count": 1
   }'
@@ -129,7 +129,7 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/images' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/nano-banana/images"
+url = "https://api.xhuoapi.ai/v1/nano-banana/images"
 headers = {
     "authorization": "Bearer {token}",
     "accept": "application/json",
@@ -139,8 +139,8 @@ payload = {
     "action": "edit",
     "prompt": "пусть этот человек наденет эту футболку",
     "image_urls": [
-        "https://cdn.acedata.cloud/v8073y.png",
-        "https://cdn.acedata.cloud/44xlah.png"
+        "https://cdn.xhuoapi.ai/v8073y.png",
+        "https://cdn.xhuoapi.ai/44xlah.png"
     ],
     "count": 1
 }
@@ -158,7 +158,7 @@ print(resp.json())
   "data": [
     {
       "prompt": "пусть этот человек наденет эту футболку",
-      "image_url": "https://platform.cdn.acedata.cloud/nanobanana/8e9e0253-26f4-45b9-b3f8-ac1aed1c284b.png"
+      "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/8e9e0253-26f4-45b9-b3f8-ac1aed1c284b.png"
     }
   ]
 }
@@ -188,7 +188,7 @@ print(resp.json())
   "data": [
     {
       "prompt": "белый сиамский кот",
-      "image_url": "https://platform.cdn.acedata.cloud/nanobanana/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.png"
+      "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.png"
     }
   ]
 }

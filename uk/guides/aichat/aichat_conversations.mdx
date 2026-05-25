@@ -1,19 +1,19 @@
 ---
 title: "AI Chat API інтеграція"
-description: "AI Dialogue 集成指南 - Ace Data Cloud"
+description: "AI Dialogue 集成指南 - XHuoAPI"
 ---
 
 Ми знаємо, що інтеграція деяких API для запитів і відповідей на ринку не є такою простою, наприклад, API Chat Completions від OpenAI, який має поле `messages`. Якщо потрібно завершити безперервний діалог, нам потрібно передати всю історію контексту, а також вирішити проблему перевищення обмеження токенів.
 
-AI API для запитів і відповідей від AceDataCloud оптимізовано для вищезазначених ситуацій, забезпечуючи збереження якості запитів і відповідей, при цьому реалізація безперервного діалогу була упакована, і під час інтеграції не потрібно більше турбуватися про передачу messages, а також про проблему перевищення обмеження токенів (внутрішньо API автоматично обробляє це), також надаються функції запиту, зміни діалогу тощо, що значно спрощує загальну інтеграцію.
+AI API для запитів і відповідей від XHuoAPI оптимізовано для вищезазначених ситуацій, забезпечуючи збереження якості запитів і відповідей, при цьому реалізація безперервного діалогу була упакована, і під час інтеграції не потрібно більше турбуватися про передачу messages, а також про проблему перевищення обмеження токенів (внутрішньо API автоматично обробляє це), також надаються функції запиту, зміни діалогу тощо, що значно спрощує загальну інтеграцію.
 
 Цей документ представить інструкції щодо інтеграції AI API для запитів і відповідей.
 
 ## Процес подачі заявки
 
-Щоб використовувати API, спочатку потрібно перейти на відповідну сторінку [AI API для запитів і відповідей](https://platform.acedata.cloud/documents/59fb1199-6694-4afb-a222-3554d7f7d05a) для подачі заявки на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
+Щоб використовувати API, спочатку потрібно перейти на відповідну сторінку [AI API для запитів і відповідей](https://api.xhuoapi.ai/documents/59fb1199-6694-4afb-a222-3554d7f7d05a) для подачі заявки на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, запрошуючи вас зареєструватися та увійти. Після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
 
@@ -25,7 +25,7 @@ AI API для запитів і відповідей від AceDataCloud опт�
 
 Наприклад, запитуючи: «What's your name?», ми можемо заповнити відповідний вміст на інтерфейсі, як показано на малюнку:
 
-![](https://cdn.acedata.cloud/xqxda4.png)
+![](https://cdn.xhuoapi.ai/xqxda4.png)
 
 Ми бачимо, що тут ми налаштували заголовки запиту, включаючи:
 
@@ -39,7 +39,7 @@ AI API для запитів і відповідей від AceDataCloud опт�
 
 Після вибору ви можете помітити, що праворуч також згенерувався відповідний код, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/dvkps6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dvkps6.png" width="500" className="m-auto" /></p>
 
 Натисніть кнопку «Try», щоб провести тестування, як показано на малюнку, тут ми отримали наступний результат:
 
@@ -56,7 +56,7 @@ AI API для запитів і відповідей від AceDataCloud опт�
 Крім того, якщо ви хочете згенерувати відповідний код інтеграції, ви можете просто скопіювати його, наприклад, код CURL виглядає так:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -71,7 +71,7 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/aichat/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat/conversations"
 
 headers = {
     "accept": "application/json",
@@ -96,12 +96,12 @@ print(response.text)
 
 Перший запит, встановлюючи параметр `stateful` в `true`, і нормально передаючи параметри `model` і `question`, як показано на малюнку:
 
-![](https://cdn.acedata.cloud/fn4bi9.png)
+![](https://cdn.xhuoapi.ai/fn4bi9.png)
 
 Відповідний код виглядає так:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -123,12 +123,12 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 
 Другий запит, передаючи поле `id`, яке повернулося з першого запиту, як параметр, при цьому параметр `stateful` все ще встановлений в `true`, запитуючи «What I asked you just now?», як показано на малюнку:
 
-![](https://cdn.acedata.cloud/46a6kd.png)
+![](https://cdn.xhuoapi.ai/46a6kd.png)
 
 Відповідний код виглядає так:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -159,7 +159,7 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 
 Зміна, як показано на малюнку, але код виклику потребує відповідних змін, щоб підтримувати потокову відповідь.
 
-![](https://cdn.acedata.cloud/axt1aa.png)
+![](https://cdn.xhuoapi.ai/axt1aa.png)
 
 Після зміни `accept` на `application/x-ndjson`, API буде повертати відповідні JSON дані по рядках, і на рівні коду нам потрібно буде внести відповідні зміни, щоб отримати результати по рядках.
 
@@ -167,7 +167,7 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/aichat/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat/conversations"
 
 headers = {
     "accept": "application/x-ndjson",
@@ -208,7 +208,7 @@ JavaScript також підтримується, наприклад, код д�
 ```javascript
 const axios = require("axios");
 
-const url = "https://api.acedata.cloud/aichat/conversations";
+const url = "https://api.xhuoapi.ai/v1/aichat/conversations";
 const headers = {
   "Content-Type": "application/json",
   Accept: "application/x-ndjson",
@@ -236,7 +236,7 @@ axios
 Приклад коду на Java:
 
 ```java
-String url = "https://api.acedata.cloud/aichat/conversations";
+String url = "https://api.xhuoapi.ai/v1/aichat/conversations";
 OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, "{\"question\": \"Привіт\", \"stateful\": true, \"model\": \"gpt-3.5\"}");
@@ -276,12 +276,12 @@ client.newCall(request).enqueue(new Callback() {
 
 Тут ми додатково додаємо поле `preset`, вміст якого - `Ви професійний художник`, як показано на малюнку:
 
-![](https://cdn.acedata.cloud/ird6i9.png)
+![](https://cdn.xhuoapi.ai/ird6i9.png)
 
 Відповідний код виглядає так:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -307,23 +307,23 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 
 Цей AI також може підтримувати додавання вкладень для розпізнавання зображень, передаючи відповідні посилання на зображення через `references`, наприклад, у мене є зображення яблука, як показано на малюнку:
 
-![](https://cdn.acedata.cloud/ht05g0.png)
+![](https://cdn.xhuoapi.ai/ht05g0.png)
 
-Посилання на це зображення - [https://cdn.acedata.cloud/ht05g0.png](https://cdn.acedata.cloud/ht05g0.png), ми просто передаємо його як параметр `references`, при цьому потрібно звернути увагу, що модель повинна бути вибрана з підтримкою візуального розпізнавання, наразі підтримується `gpt-4-vision`, тому введення виглядає так:
+Посилання на це зображення - [https://cdn.xhuoapi.ai/ht05g0.png](https://cdn.xhuoapi.ai/ht05g0.png), ми просто передаємо його як параметр `references`, при цьому потрібно звернути увагу, що модель повинна бути вибрана з підтримкою візуального розпізнавання, наразі підтримується `gpt-4-vision`, тому введення виглядає так:
 
-![](https://cdn.acedata.cloud/cstrbq.png)
+![](https://cdn.xhuoapi.ai/cstrbq.png)
 
 Відповідний код виглядає так:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "model": "gpt-4-vision",
   "question": "Скільки яблук на зображенні?",
-  "references": ["https://cdn.acedata.cloud/ht05g0.png"]
+  "references": ["https://cdn.xhuoapi.ai/ht05g0.png"]
 }'
 ```
 
@@ -341,12 +341,12 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 
 Цей API також підтримує моделі, що підключаються до Інтернету, включаючи GPT-3.5, GPT-4, які можуть підтримувати, за API є автоматичний процес пошуку в Інтернеті та підсумовування, ми можемо вибрати модель `gpt-3.5-browsing`, щоб спробувати, як показано на малюнку:
 
-![](https://cdn.acedata.cloud/x5i8np.png)
+![](https://cdn.xhuoapi.ai/x5i8np.png)
 
 Код виглядає так:
 ```
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

@@ -1,6 +1,6 @@
 ---
 title: "Grok Chat Completion API Solicitação e Uso"
-description: "Grok 集成指南 - Ace Data Cloud"
+description: "Grok 集成指南 - XHuoAPI"
 ---
 
 xAI Grok é um sistema de diálogo AI muito poderoso, que gera respostas fluentes e naturais em apenas alguns segundos ao inserir uma palavra-chave. Grok se destaca na indústria com seu estilo humorístico único e capacidade de obter informações em tempo real da web, e hoje, Grok já se destacou em vários campos inovadores, sua influência está se expandindo rapidamente. Seja em conversas diárias, escrita criativa, ou análise técnica e depuração de código, Grok pode fornecer assistência inteligente perspicaz, trazendo um novo suporte para as decisões e criações dos usuários.
@@ -9,9 +9,9 @@ Este documento apresenta principalmente o fluxo de uso da API Grok Chat Completi
 
 ## Fluxo de Solicitação
 
-Para usar a API Grok Chat Completion, primeiro você pode acessar a página [Grok Chat Completion API](https://platform.acedata.cloud/documents/faf08b59-36aa-4d26-b5d9-a18f113cc2be) e clicar no botão "Adquirir" para obter as credenciais necessárias para a solicitação:
+Para usar a API Grok Chat Completion, primeiro você pode acessar a página [Grok Chat Completion API](https://api.xhuoapi.ai/documents/faf08b59-36aa-4d26-b5d9-a18f113cc2be) e clicar no botão "Adquirir" para obter as credenciais necessárias para a solicitação:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Se você ainda não estiver logado ou registrado, será redirecionado automaticamente para a página de login, convidando-o a se registrar e fazer login. Após o registro e login, você será redirecionado de volta para a página atual.
 
@@ -21,7 +21,7 @@ Na primeira solicitação, haverá um crédito gratuito disponível, permitindo 
 
 Em seguida, você pode preencher o conteúdo correspondente na interface, como mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/vunnjf.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vunnjf.png" width="400" className="m-auto" /></p>
 
 Na primeira vez que usar essa interface, precisamos preencher pelo menos três conteúdos: um é `authorization`, que pode ser selecionado diretamente na lista suspensa. O outro parâmetro é `model`, que é a categoria do modelo que escolhemos usar no site do Grok; aqui temos principalmente 8 tipos de modelos, e você pode ver os detalhes dos modelos que fornecemos. O último parâmetro é `messages`, que é um array de palavras-chave que inserimos, representando a possibilidade de enviar várias palavras-chave ao mesmo tempo, onde cada palavra-chave contém `role` e `content`, sendo que `role` representa o papel do questionador, e oferecemos três identidades: `user`, `assistant`, `system`. O outro `content` é o conteúdo específico da nossa pergunta.
 
@@ -33,7 +33,7 @@ Parâmetros opcionais comuns:
 - `temperature`: gera aleatoriedade, entre 0-2, quanto maior o valor, mais disperso.
 - `n`: quantas respostas candidatas gerar de uma vez.
 
-<p><img src="https://cdn.acedata.cloud/d7iwun.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d7iwun.png" width="400" className="m-auto" /></p>
 
 Após a chamada, encontramos o resultado retornado como segue:
 
@@ -84,7 +84,7 @@ O resultado retornado contém vários campos, descritos a seguir:
 
 Entre eles, `choices` contém as informações de resposta do Grok, onde `choices` é a informação específica da resposta do Grok, como mostrado na imagem.
 
-<p><img src="https://cdn.acedata.cloud/p8vupk.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/p8vupk.png" width="400" className="m-auto" /></p>
 
 Pode-se ver que o campo `content` dentro de `choices` contém o conteúdo específico da resposta do Grok.
 
@@ -96,7 +96,7 @@ Se você deseja retornar a resposta em fluxo, pode alterar o parâmetro `stream`
 
 A modificação é mostrada na imagem, mas o código de chamada precisa ter as alterações correspondentes para suportar a resposta em fluxo.
 
-<p><img src="https://cdn.acedata.cloud/k883qa.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/k883qa.png" width="400" className="m-auto" /></p>
 
 Após alterar `stream` para `true`, a API retornará os dados JSON correspondentes linha por linha, e no nível do código, precisamos fazer as modificações necessárias para obter os resultados linha por linha.
 
@@ -105,7 +105,7 @@ Exemplo de código de chamada em Python:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/grok/chat/completions"
+url = "https://api.xhuoapi.ai/v1/grok/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -199,7 +199,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/grok/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/grok/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -215,7 +215,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/grok/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/grok/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -233,14 +233,14 @@ Outras linguagens podem ser reescritas de forma semelhante, o princípio é o me
 
 Se você deseja integrar a funcionalidade de diálogo em várias rodadas, precisa enviar vários termos de pergunta no campo `messages`, exemplos específicos de vários termos de pergunta são mostrados na imagem abaixo:
 
-<p><img src="https://cdn.acedata.cloud/t8cya8.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/t8cya8.png" width="400" className="m-auto" /></p>
 
 Exemplo de código de chamada em Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/grok/chat/completions"
+url = "https://api.xhuoapi.ai/v1/grok/chat/completions"
 
 headers = {
     "accept": "application/json",

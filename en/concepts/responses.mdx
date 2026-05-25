@@ -3,7 +3,7 @@ title: "Unified Response Format"
 description: "Synchronous response and Webhook callback envelopes, error codes, and HTTP status codes."
 ---
 
-Ace Data Cloud's response shape differs by **call type**:
+XHuoAPI's response shape differs by **call type**:
 
 1. **Synchronous HTTP responses** — direct return of `POST /xxx`
 2. **Webhook callback bodies** — POSTed to your `callback_url` once an async task finishes
@@ -21,7 +21,7 @@ Example (Midjourney `/midjourney/imagine`):
   "success": true,
   "task_id": "27a1128f-14b5-440e-a82d-510c81e6fcd4",
   "image_id": "1211290228438868029",
-  "image_url": "https://midjourney.cdn.acedata.cloud/.../image.png",
+  "image_url": "https://midjourney.cdn.xhuoapi.ai/.../image.png",
   "image_width": 1024,
   "image_height": 1024,
   "actions": ["upscale1", "upscale2", "variation1", "variation2", ...]
@@ -126,4 +126,4 @@ Always include:
 2. Request URL, headers (mask the Token), and body
 3. Response status and body
 
-Channels: [platform.acedata.cloud](https://platform.acedata.cloud) ticket / `support@acedata.cloud` / [status page](https://status.acedata.cloud).
+Channels: [platform.xhuoapi.ai](https://api.xhuoapi.ai) ticket / `support@xhuoapi.ai` / [status page](https://xhuoapi.ai).

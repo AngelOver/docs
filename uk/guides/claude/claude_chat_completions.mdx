@@ -1,6 +1,6 @@
 ---
 title: "Claude Chat Completion API заявка та використання"
-description: "Claude AI 集成指南 - Ace Data Cloud"
+description: "Claude AI 集成指南 - XHuoAPI"
 ---
 
 Anthropic Claude — це дуже потужна AI система діалогу, яка може генерувати плавні та природні відповіді всього за кілька секунд, просто ввівши підказку. Claude вирізняється своєю видатною здатністю до розуміння та генерації мови, і сьогодні його широко використовують у різних галузях та сферах, його вплив стає все більш помітним. Незалежно від того, чи це повсякденні розмови, креативне письмо, чи професійні консультації, чи програмування коду, Claude може надати вражаючу інтелектуальну допомогу, значно підвищуючи продуктивність та креативність людей.
@@ -9,9 +9,9 @@ Anthropic Claude — це дуже потужна AI система діалог
 
 ## Процес заявки
 
-Щоб використовувати Claude Chat Completion API, спочатку можна перейти на сторінку [Claude Chat Completion API](https://platform.acedata.cloud/documents/280928a2-2dce-419c-adb5-1ea835e8183a) та натиснути кнопку «Acquire», щоб отримати необхідні для запиту облікові дані:
+Щоб використовувати Claude Chat Completion API, спочатку можна перейти на сторінку [Claude Chat Completion API](https://api.xhuoapi.ai/documents/280928a2-2dce-419c-adb5-1ea835e8183a) та натиснути кнопку «Acquire», щоб отримати необхідні для запиту облікові дані:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, запрошуючи вас зареєструватися та увійти, після входу або реєстрації ви автоматично повернетеся на цю сторінку.
 
@@ -21,7 +21,7 @@ Anthropic Claude — це дуже потужна AI система діалог
 
 Далі ви можете заповнити відповідні поля на інтерфейсі, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/ejeq57.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ejeq57.png" width="400" className="m-auto" /></p>
 
 При першому використанні цього інтерфейсу нам потрібно заповнити принаймні три поля: одне з них — `authorization`, яке можна вибрати безпосередньо зі списку. Інший параметр — `model`, `model` — це категорія моделі, яку ми вибираємо для використання з офіційного сайту Claude, тут у нас є 20 моделей, деталі можна переглянути в наданих моделях. Останній параметр — `messages`, `messages` — це масив запитів, який представляє можливість одночасно завантажувати кілька запитів, кожен запит містить `role` та `content`, де `role` вказує на роль запитувача, ми надали три ідентичності: `user`, `assistant`, `system`. Інший `content` — це конкретний зміст нашого запиту.
 
@@ -34,7 +34,7 @@ Anthropic Claude — це дуже потужна AI система діалог
 - `n`: скільки кандидатних відповідей генерувати за один раз.
 - `response_format`: налаштування формату відповіді.
 
-<p><img src="https://cdn.acedata.cloud/v6lbjo.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/v6lbjo.png" width="400" className="m-auto" /></p>
 
 Після виклику ми отримуємо наступний результат:
 
@@ -87,7 +87,7 @@ Anthropic Claude — це дуже потужна AI система діалог
 
 Серед `choices` міститься інформація про відповіді Claude, в якій `choices` — це конкретна інформація про відповіді Claude, як показано на малюнку.
 
-<p><img src="https://cdn.acedata.cloud/2ulyhw.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2ulyhw.png" width="400" className="m-auto" /></p>
 
 Можна побачити, що поле `content` в `choices` містить конкретний зміст відповіді Claude.
 
@@ -99,7 +99,7 @@ Anthropic Claude — це дуже потужна AI система діалог
 
 Зміна, як показано на малюнку, але код виклику потребує відповідних змін, щоб підтримувати потокову відповідь.
 
-<p><img src="https://cdn.acedata.cloud/ueugot.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ueugot.png" width="400" className="m-auto" /></p>
 
 Після зміни `stream` на `true`, API буде повертати відповідні JSON дані по рядках, на рівні коду нам потрібно внести відповідні зміни, щоб отримати результати по рядках.
 
@@ -108,7 +108,7 @@ Anthropic Claude — це дуже потужна AI система діалог
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/chat/completions"
+url = "https://api.xhuoapi.ai/v1/v1/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -168,7 +168,7 @@ const options = {
   }),
 };
 
-fetch("https://api.acedata.cloud/v1/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/v1/chat/completions", options)
   .then((response) => response.json())
   .then((response) => console.log(response))
   .catch((err) => console.error(err));
@@ -184,7 +184,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/v1/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/v1/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -202,14 +202,14 @@ System.out.print(response.body!!.string())
 
 Якщо ви хочете інтегрувати функцію багатокрокового діалогу, вам потрібно завантажити кілька запитів у поле `messages`, приклад кількох запитів наведено на зображенні нижче:
 
-<p><img src="https://cdn.acedata.cloud/odwx82.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/odwx82.png" width="400" className="m-auto" /></p>
 
 Приклад коду на Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/chat/completions"
+url = "https://api.xhuoapi.ai/v1/v1/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -273,11 +273,11 @@ print(response.text)
 
 claude-opus-4-20250514-thinking та claude-sonnet-4-20250514-thinking моделі відрізняються від інших моделей, вони можуть проводити глибоке мислення для відповіді на запитання, а також повертати результати процесу мислення, ця стаття продемонструє функцію глибокого мислення на конкретному прикладі, далі можна заповнити відповідний зміст на інтерфейсі Claude Chat Completion API, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/d1a4wq.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d1a4wq.png" width="400" className="m-auto" /></p>
 
 Також ви можете помітити, що праворуч є відповідний код виклику, ви можете скопіювати код і запустити його, або просто натиснути кнопку «Спробувати» для тестування.
 
-<p><img src="https://cdn.acedata.cloud/21nmzq.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/21nmzq.png" width="400" className="m-auto" /></p>
 
 Після виклику ми виявили, що результат повертається наступним чином:
 
@@ -324,7 +324,7 @@ claude-sonnet-4-20250514 - це багатомодальна велика мов
 - Curl скрипт
 
 ```
-curl -X POST 'https://api.acedata.cloud/v1/chat/completions' \
+curl -X POST 'https://api.xhuoapi.ai/v1/v1/chat/completions' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -341,7 +341,7 @@ curl -X POST 'https://api.acedata.cloud/v1/chat/completions' \
           {
             "type": "image_url",
             "image_url": {
-              "url": "https://cdn.acedata.cloud/ueugot.png"
+              "url": "https://cdn.xhuoapi.ai/ueugot.png"
             }
           }
         ]
@@ -355,7 +355,7 @@ curl -X POST 'https://api.acedata.cloud/v1/chat/completions' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/chat/completions"
+url = "https://api.xhuoapi.ai/v1/v1/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -375,7 +375,7 @@ payload = {
                 {
                     "type": "image_url",
                     "image_url": {
-                        "url": "https://cdn.acedata.cloud/ueugot.png"
+                        "url": "https://cdn.xhuoapi.ai/ueugot.png"
                     }
                 },
             ],

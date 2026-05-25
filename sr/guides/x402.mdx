@@ -1,20 +1,20 @@
 ---
-title: "AceDataCloud x402 Uputstvo za plaćanje"
-description: "x402 集成指南 - Ace Data Cloud"
+title: "XHuoAPI x402 Uputstvo za plaćanje"
+description: "x402 集成指南 - XHuoAPI"
 ---
 
-x402 je onlajn plaćanje protokol zasnovan na HTTP 402 Payment Required standardu, koji omogućava pozivaocima da izvrše onlajn obračun u trenutku kada pokreću API zahtev, što ga čini idealnim za scenarije naplate po pozivu između automatizovanih programa, AI agenata i mikroservisa. Kroz ovo uputstvo, možete programatski izvršiti plaćanje AceDataCloud narudžbina u svom sistemu, ostvarujući iskustvo „plaćanja na zahtev“.
+x402 je onlajn plaćanje protokol zasnovan na HTTP 402 Payment Required standardu, koji omogućava pozivaocima da izvrše onlajn obračun u trenutku kada pokreću API zahtev, što ga čini idealnim za scenarije naplate po pozivu između automatizovanih programa, AI agenata i mikroservisa. Kroz ovo uputstvo, možete programatski izvršiti plaćanje XHuoAPI narudžbina u svom sistemu, ostvarujući iskustvo „plaćanja na zahtev“.
 
 Zvanična dokumentacija:
 
 - x402 Pregled dokumentacije: [https://docs.cdp.coinbase.com/x402/docs/overview](https://docs.cdp.coinbase.com/x402/docs/overview)
 - x402 Open Source primer: [https://github.com/coinbase/x402](https://github.com/coinbase/x402)
 
-Ovaj dokument je namenjen developerima koji žele da integrišu x402 plaćanje AceDataCloud platforme u svoje poslovanje, predstavljajući kompletan proces od pripreme okruženja do završetka poziva za plaćanje, uz primere koda za Axios, Fetch, Python requests i httpx. Ključne tačke:
+Ovaj dokument je namenjen developerima koji žele da integrišu x402 plaćanje XHuoAPI platforme u svoje poslovanje, predstavljajući kompletan proces od pripreme okruženja do završetka poziva za plaćanje, uz primere koda za Axios, Fetch, Python requests i httpx. Ključne tačke:
 
 - Plaćanje se vrši na **Base glavnoj mreži**, a sredstva koriste **USDC**;
 - Potrebno je koristiti **EVM privatni ključ** novčanika za generisanje `X-PAYMENT` potpisnog zaglavlja;
-- Svi API-ji se nalaze pod domenom `https://platform.acedata.cloud`, a `Authorization` zaglavlje mora sadržati **Platform Token**.
+- Svi API-ji se nalaze pod domenom `https://api.xhuoapi.ai`, a `Authorization` zaglavlje mora sadržati **Platform Token**.
 
 ---
 
@@ -22,7 +22,7 @@ Ovaj dokument je namenjen developerima koji žele da integrišu x402 plaćanje A
 
 ### 1. Pregledajte narudžbinu i zabeležite informacije o uplati
 
-Prijavite se na konzolu [https://platform.acedata.cloud](https://platform.acedata.cloud), u listi narudžbina ili na stranici detalja narudžbine možete videti narudžbinu koja zahteva uplatu. Detalji narudžbine će prikazati:
+Prijavite se na konzolu [https://api.xhuoapi.ai](https://api.xhuoapi.ai), u listi narudžbina ili na stranici detalja narudžbine možete videti narudžbinu koja zahteva uplatu. Detalji narudžbine će prikazati:
 
 - ID narudžbine (na primer `7744945e-5e77-4dcc-a9c4-528692d17b34`);
 - Adresa za uplatu `pay_to` (takođe će biti vraćena u 402 odgovoru, preporučuje se da se oslonite na informacije sa stranice).
@@ -40,11 +40,11 @@ Zabeležite ID narudžbine i potvrdite `pay_to` adresu, jer će biti potrebna pr
 
 Platform Token se koristi za pozivanje platformskih API-ja, funkcioniše slično kao korisnički Token koji se koristi u pretraživaču nakon prijavljivanja, ali ne ističe. Molimo vas da pratite sledeće korake za kreiranje:
 
-1. Otvorite stranicu konzole [https://platform.acedata.cloud/console/platform-tokens](https://platform.acedata.cloud/console/platform-tokens);
+1. Otvorite stranicu konzole [https://api.xhuoapi.ai/console/platform-tokens](https://api.xhuoapi.ai/console/platform-tokens);
 2. Kliknite na „Kreiraj Token“, popunite informacije o belešci prema uputstvima i generišite;
 3. Kopirajte generisani Token (na primer `platform-v1-xxxx`), čuvajte ga kao `platform_token`.
 
-![platform-token](https://cdn.acedata.cloud/6g86oz.png)
+![platform-token](https://cdn.xhuoapi.ai/6g86oz.png)
 
 U svim budućim pozivima API-ja zaglavlje mora sadržati:
 
@@ -54,7 +54,7 @@ Authorization: Bearer {platform_token}
 
 ### 4. Zatražite osnovne informacije
 
-- Osnovni domen API-ja: `https://platform.acedata.cloud`
+- Osnovni domen API-ja: `https://api.xhuoapi.ai`
 - Putanja zahteva za plaćanje: `/api/v1/orders/{order_id}/pay/`
 - Zahtevi i odgovori koriste JSON, kodirani su u UTF-8.
 
@@ -75,7 +75,7 @@ Authorization: Bearer {platform_token}
 ### 1. Prvi zahtev (pokreće 402)
 
 ```http
-POST https://platform.acedata.cloud/api/v1/orders/{order_id}/pay/
+POST https://api.xhuoapi.ai/api/v1/orders/{order_id}/pay/
 Authorization: Bearer {platform_token}
 Content-Type: application/json
 
@@ -127,7 +127,7 @@ Ako želite da implementirate ručno, molimo vas da se oslonite na zvaničnu dok
 ### 3. Ponovo pokušajte sa potpisom
 
 ```http
-POST https://platform.acedata.cloud/api/v1/orders/{order_id}/pay/
+POST https://api.xhuoapi.ai/api/v1/orders/{order_id}/pay/
 Authorization: Bearer {platform_token}
 Content-Type: application/json
 X-PAYMENT: {base64_signed_payload}
@@ -162,7 +162,7 @@ import { Hex } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
 import { buildPaymentHeader, decodePaymentResponse } from "x402-js";
 
-const baseURL = "https://platform.acedata.cloud";
+const baseURL = "https://api.xhuoapi.ai";
 const orderId = process.env.ACE_X402_ORDER_ID!;
 const platformToken = process.env.ACE_PLATFORM_TOKEN!;
 const privateKey = process.env.ACE_X402_PRIVATE_KEY as Hex;
@@ -228,7 +228,7 @@ const orderId = process.env.ACE_X402_ORDER_ID!;
 const fetchWithPayment = wrapFetchWithPayment(fetch, account);
 
 async function payOrder() {
-  const url = `https://platform.acedata.cloud/api/v1/orders/${orderId}/pay/`;
+  const url = `https://api.xhuoapi.ai/api/v1/orders/${orderId}/pay/`;
 
   const response = await fetchWithPayment(url, {
     method: "POST",
@@ -273,7 +273,7 @@ session = x402_requests(
 )
 
 response = session.post(
-    f"https://platform.acedata.cloud/api/v1/orders/{order_id}/pay/",
+    f"https://api.xhuoapi.ai/api/v1/orders/{order_id}/pay/",
     json={"pay_way": "X402"},
     headers={"Authorization": f"Bearer {platform_token}"},
 )
@@ -300,7 +300,7 @@ async def pay_order() -> None:
 
     async with x402HttpxClient(
         account=account,
-        base_url="https://platform.acedata.cloud",
+        base_url="https://api.xhuoapi.ai",
         headers={"Authorization": f"Bearer {platform_token}"},
         payment_requirements_selector=lambda accepts, **_: next(
             req for req in accepts if req.network == "base"
@@ -324,8 +324,8 @@ asyncio.run(pay_order())
 
 ## Pet, verifikacija nakon uspešnog plaćanja
 
-- **Verifikacija na konzoli**: Posetite stranicu sa detaljima narudžbine `https://platform.acedata.cloud/console/orders/{order_id}`, ako stranica prikazuje „plaćanje uspešno“ ili je status narudžbine promenjen u plaćeno/završeno, to znači da je onlajn obračun završen.
-- **API verifikacija**: Pozovite `GET https://platform.acedata.cloud/api/v1/orders/{order_id}/` i priložite `Authorization: Bearer {platform_token}`, proverite polje `state` u odgovoru ( `PAID` ili `FINISHED` označava uspešno plaćanje).
+- **Verifikacija na konzoli**: Posetite stranicu sa detaljima narudžbine `https://api.xhuoapi.ai/console/orders/{order_id}`, ako stranica prikazuje „plaćanje uspešno“ ili je status narudžbine promenjen u plaćeno/završeno, to znači da je onlajn obračun završen.
+- **API verifikacija**: Pozovite `GET https://api.xhuoapi.ai/api/v1/orders/{order_id}/` i priložite `Authorization: Bearer {platform_token}`, proverite polje `state` u odgovoru ( `PAID` ili `FINISHED` označava uspešno plaćanje).
 - **Povratni header**: U odgovoru nakon uspešnog plaćanja pročitajte `X-PAYMENT-RESPONSE`, može se dekodirati kao konačni dokaz o onlajn transakciji; preporučuje se da se ta informacija sačuva u sistemskom logu radi usklađivanja.
 
 ---
@@ -343,7 +343,7 @@ asyncio.run(pay_order())
 ## Sedam, dodatna pomoć
 
 - Online dokumentacija i česta pitanja: Navigacija „Dokumentacija“ na vrhu platforme konzole.
-- Podnošenje zahteva i korisnička podrška: [https://platform.acedata.cloud/support](https://platform.acedata.cloud/support)
-- Zajednica: Discord [https://discord.gg/f9GRuKCmRc](https://discord.gg/f9GRuKCmRc), X (Twitter) [https://x.com/acedatacloud](https://x.com/acedatacloud)
-- Ostali kanali: Email `office@acedata.cloud`, `office@germey.tech`; adresa kompanije 651 N Broad St, Suite 201, Middletown, Delaware, USA; WeChat korisnička podrška, molimo pogledajte najnoviji QR kod na stranici podrške.
+- Podnošenje zahteva i korisnička podrška: [https://api.xhuoapi.ai/support](https://api.xhuoapi.ai/support)
+- Zajednica: Discord [https://discord.gg/f9GRuKCmRc](https://discord.gg/f9GRuKCmRc), X (Twitter) [https://x.com/XHuoAPI](https://x.com/XHuoAPI)
+- Ostali kanali: Email `office@xhuoapi.ai`, `office@germey.tech`; adresa kompanije 651 N Broad St, Suite 201, Middletown, Delaware, USA; WeChat korisnička podrška, molimo pogledajte najnoviji QR kod na stranici podrške.
 - Povratne informacije i predlozi: Dobrodošli da nas obavestite o potrebama za poboljšanjem putem bilo kojeg od navedenih kanala.

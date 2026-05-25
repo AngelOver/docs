@@ -1,6 +1,6 @@
 ---
 title: "Midjourney Translate API Integration and Usage"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 The main function of the Midjourney Translate API is to obtain English descriptive terms by inputting Chinese descriptive terms content.
@@ -9,11 +9,11 @@ This document will provide detailed instructions on integrating the Midjourney T
 
 ## Application Process
 
-To use the Midjourney Translate API, you first need to apply for the corresponding service on the application page [Midjourney Translate API](https://platform.acedata.cloud/documents/e067d19b-7a66-4458-a45f-0fe88c1d5d34). After entering the page, click the "Acquire" button, as shown in the image:
+To use the Midjourney Translate API, you first need to apply for the corresponding service on the application page [Midjourney Translate API](https://api.xhuoapi.ai/documents/e067d19b-7a66-4458-a45f-0fe88c1d5d34). After entering the page, click the "Acquire" button, as shown in the image:
 
-![Application Page](https://cdn.acedata.cloud/rci31i.png)
+![Application Page](https://cdn.xhuoapi.ai/rci31i.png)
 
-If you are not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
+If you are not logged in or registered, you will be automatically redirected to the [login page](https://api.xhuoapi.ai) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
 A free quota will be provided for first-time applicants, allowing you to use the API for free.
 
@@ -36,20 +36,20 @@ Let's take a Chinese descriptive term as an example to demonstrate how to use th
 
 Set it as shown in the image below:
 
-![](https://cdn.acedata.cloud/db8lrn.png)
+![](https://cdn.xhuoapi.ai/db8lrn.png)
 
 ### Code Example
 
 You can see that various language codes have been automatically generated on the right side of the page, as shown in the image:
 
-<p><img src="https://cdn.acedata.cloud/oj1cck.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/oj1cck.png" width="500" className="m-auto" /></p>
 
 Some code examples are as follows:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/translate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/translate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -63,7 +63,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/translate' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/translate"
+url = "https://api.xhuoapi.ai/v1/midjourney/translate"
 
 headers = {
     "accept": "application/json",

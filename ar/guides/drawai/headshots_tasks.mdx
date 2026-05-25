@@ -1,6 +1,6 @@
 ---
 title: "واجهة برمجة تطبيقات مهام صور الهوية AI"
-description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
+description: "AI ID Photo Production 集成指南 - XHuoAPI"
 ---
 
 الوظيفة الرئيسية لواجهة برمجة تطبيقات مهام صور الهوية AI هي استعلام حالة تنفيذ المهمة من خلال إدخال معرف المهمة الذي تم إنشاؤه بواسطة واجهة برمجة تطبيقات إنتاج صور الهوية AI.
@@ -9,27 +9,27 @@ description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
 
 ## عملية التقديم
 
-لاستخدام واجهة برمجة تطبيقات مهام صور الهوية AI، يجب أولاً الذهاب إلى صفحة التقديم [واجهة برمجة تطبيقات إنتاج صور الهوية AI](https://platform.acedata.cloud/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) لتقديم الطلب للخدمة المناسبة، ثم نسخ معرف المهمة من واجهة برمجة تطبيقات إنتاج صور الهوية AI، كما هو موضح في الصورة:
+لاستخدام واجهة برمجة تطبيقات مهام صور الهوية AI، يجب أولاً الذهاب إلى صفحة التقديم [واجهة برمجة تطبيقات إنتاج صور الهوية AI](https://api.xhuoapi.ai/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) لتقديم الطلب للخدمة المناسبة، ثم نسخ معرف المهمة من واجهة برمجة تطبيقات إنتاج صور الهوية AI، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/7ezmmn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7ezmmn.png" width="500" className="m-auto" /></p>
 
-أخيرًا، انتقل إلى صفحة واجهة برمجة تطبيقات المهام [واجهة برمجة تطبيقات مهام صور الهوية AI](https://platform.acedata.cloud/documents/3a23ee34-8689-406b-9042-7954224348ad) لتقديم الطلب للخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
+أخيرًا، انتقل إلى صفحة واجهة برمجة تطبيقات المهام [واجهة برمجة تطبيقات مهام صور الهوية AI](https://api.xhuoapi.ai/documents/3a23ee34-8689-406b-9042-7954224348ad) لتقديم الطلب للخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
 
-![صفحة التقديم](https://cdn.acedata.cloud/rci31i.png)
+![صفحة التقديم](https://cdn.xhuoapi.ai/rci31i.png)
 
-إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى [صفحة تسجيل الدخول](https://platform.acedata.cloud) لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول أو التسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
+إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى [صفحة تسجيل الدخول](https://api.xhuoapi.ai) لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول أو التسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
 عند التقديم لأول مرة، سيكون هناك حد مجاني متاح، يمكنك استخدام هذه الواجهة مجانًا.
 
 ## مثال على الطلب
 
-يمكن استخدام واجهة برمجة تطبيقات مهام صور الهوية AI لاستعلام نتائج واجهة برمجة تطبيقات إنتاج صور الهوية AI. لمزيد من المعلومات حول كيفية استخدام واجهة برمجة تطبيقات إنتاج صور الهوية AI، يرجى الرجوع إلى الوثيقة [واجهة برمجة تطبيقات إنتاج صور الهوية AI](https://platform.acedata.cloud/documents/d6ea75a4-836e-490a-aee5-7ca911a808fd).
+يمكن استخدام واجهة برمجة تطبيقات مهام صور الهوية AI لاستعلام نتائج واجهة برمجة تطبيقات إنتاج صور الهوية AI. لمزيد من المعلومات حول كيفية استخدام واجهة برمجة تطبيقات إنتاج صور الهوية AI، يرجى الرجوع إلى الوثيقة [واجهة برمجة تطبيقات إنتاج صور الهوية AI](https://api.xhuoapi.ai/documents/d6ea75a4-836e-490a-aee5-7ca911a808fd).
 
 سنأخذ مثالاً على معرف المهمة الذي تم إرجاعه من خدمة واجهة برمجة تطبيقات إنتاج صور الهوية AI، لنوضح كيفية استخدام هذه الواجهة. لنفترض أن لدينا معرف مهمة: `16f96e95-d95c-46ef-b183-139b9bd1aebd`، وسنوضح كيفية تمرير معرف المهمة.
 
 ### مثال على المهمة
 
-<p><img src="https://cdn.acedata.cloud/7ezmmn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7ezmmn.png" width="500" className="m-auto" /></p>
 
 ### إعداد رأس الطلب وجسم الطلب
 
@@ -45,20 +45,20 @@ description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
 
 الإعداد كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/ezsyyd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ezsyyd.png" width="500" className="m-auto" /></p>
 
 ### مثال على الكود
 
 يمكن ملاحظة أنه تم إنشاء أكواد بلغات مختلفة تلقائيًا على الجانب الأيمن من الصفحة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/x99wu2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/x99wu2.png" width="500" className="m-auto" /></p>
 
 بعض أمثلة الكود كما يلي:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/headshots/tasks"
+url = "https://api.xhuoapi.ai/v1/headshots/tasks"
 
 headers = {
     "accept": "application/json",
@@ -118,12 +118,12 @@ print(response.text)
     "data": [
       {
         "id": "202411032022077381",
-        "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
         "template": "男形象照"
       },
       {
         "id": "202411032022079194",
-        "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
         "template": "男形象照"
       }
     ]
@@ -148,13 +148,13 @@ print(response.text)
 
 الإعداد كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/8vynq9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8vynq9.png" width="500" className="m-auto" /></p>
 
 ### مثال على الكود
 
 يمكن ملاحظة أنه تم إنشاء أكواد بلغات مختلفة تلقائيًا على الجانب الأيمن من الصفحة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/5jexyn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5jexyn.png" width="500" className="m-auto" /></p>
 
 بعض أمثلة الكود كما يلي:
 
@@ -187,12 +187,12 @@ print(response.text)
         "data": [
           {
             "id": "202411032022077381",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
             "template": "男形象照"
           },
           {
             "id": "202411032022079194",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
             "template": "男形象照"
           }
         ]
@@ -234,7 +234,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -249,7 +249,7 @@ curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/headshots/tasks"
+url = "https://api.xhuoapi.ai/v1/headshots/tasks"
 
 headers = {
     "accept": "application/json",

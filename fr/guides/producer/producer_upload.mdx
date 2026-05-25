@@ -1,21 +1,21 @@
 ---
 title: "Producteur Upload Référence Audio API Intégration"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 Le Producteur nous permet de télécharger des audio de référence pour une création secondaire, ce document explique la méthode d'intégration de l'API associée.
 
 Cette API n'a qu'un seul paramètre d'entrée, qui est `audio_url`, c'est une adresse CDN accessible publiquement, prenant en charge l'extension mp3.
 
-Ici, notre `audio_url` est `https://cdn.acedata.cloud/suno_demo.mp3`, qui est une adresse CDN accessible publiquement.
+Ici, notre `audio_url` est `https://cdn.xhuoapi.ai/suno_demo.mp3`, qui est une adresse CDN accessible publiquement.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/upload' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/upload' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "audio_url": "https://cdn.acedata.cloud/suno_demo.mp3"
+  "audio_url": "https://cdn.xhuoapi.ai/suno_demo.mp3"
 }'
 ```
 
@@ -35,4 +35,4 @@ Le résultat est le suivant :
 
 On peut voir que le champ `audio_id` dans `data` est l'ID de la chanson après le téléchargement.
 
-Avec l'ID de la chanson, nous pouvons utiliser l'[API de Génération de Chansons du Producteur](https://platform.acedata.cloud/documents/producer-audios-integration) pour générer des chansons personnalisées, par exemple, en passant `action` comme `upload_extend`, tout en passant `audio_id` comme l'ID de la chanson retourné, nous pouvons générer une nouvelle chanson basée sur l'audio de référence.
+Avec l'ID de la chanson, nous pouvons utiliser l'[API de Génération de Chansons du Producteur](https://api.xhuoapi.ai/documents/producer-audios-integration) pour générer des chansons personnalisées, par exemple, en passant `action` comme `upload_extend`, tout en passant `audio_id` comme l'ID de la chanson retourné, nous pouvons générer une nouvelle chanson basée sur l'audio de référence.

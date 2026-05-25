@@ -1,6 +1,6 @@
 ---
 title: "Kimi Chat Completion API申请及使用"
-description: "Kimi 集成指南 - Ace Data Cloud"
+description: "Kimi 集成指南 - XHuoAPI"
 ---
 
 Kimi je veoma moćan AI sistem za razgovor, samo unesite ključne reči i u samo nekoliko sekundi generiše tečne i prirodne odgovore. Kimi može pružiti zapanjujuću inteligentnu pomoć, značajno povećavajući ljudsku radnu efikasnost i kreativnost.
@@ -9,9 +9,9 @@ Ovaj dokument uglavnom opisuje proces korišćenja Kimi Chat Completion API, kor
 
 ## Proces prijave
 
-Da biste koristili Gemini Chat Completion API, prvo možete otići na [Kimi Chat Completion API](https://platform.acedata.cloud/documents/b23bbfa3-c820-47ee-b307-6c6dedc9d0cf) stranicu i kliknuti na dugme „Acquire“ da dobijete potrebne akreditive za zahtev:
+Da biste koristili Gemini Chat Completion API, prvo možete otići na [Kimi Chat Completion API](https://api.xhuoapi.ai/documents/b23bbfa3-c820-47ee-b307-6c6dedc9d0cf) stranicu i kliknuti na dugme „Acquire“ da dobijete potrebne akreditive za zahtev:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Ako još niste prijavljeni ili registrovani, automatski ćete biti preusmereni na stranicu za prijavu koja vas poziva da se registrujete i prijavite, a nakon prijave i registracije automatski ćete se vratiti na trenutnu stranicu.
 
@@ -21,13 +21,13 @@ Prilikom prve prijave dobićete besplatnu kvotu koja vam omogućava besplatno ko
 
 Sledeće možete popuniti odgovarajući sadržaj na interfejsu, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/ej5ozg.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ej5ozg.png" width="400" className="m-auto" /></p>
 
 Prilikom prvog korišćenja ovog interfejsa, potrebno je da popunite najmanje tri sadržaja, jedan je `authorization`, koji možete direktno odabrati iz padajuće liste. Drugi parametar je `model`, `model` je kategorija modela koju biramo da koristimo sa Kimi zvanične stranice, ovde imamo 7 vrsta modela, detalje možete pogledati u modelima koje pružamo. Poslednji parametar je `messages`, `messages` je niz naših unetih pitanja, to je niz koji može istovremeno preneti više pitanja, svako pitanje sadrži `role` i `content`, gde `role` označava ulogu postavljača pitanja, pružili smo tri identiteta: `user`, `assistant`, `system`. Drugi `content` je konkretan sadržaj našeg pitanja.
 
 Takođe možete primetiti da se sa desne strane generiše odgovarajući kod za pozivanje, možete kopirati kod i direktno ga pokrenuti, ili jednostavno kliknuti na dugme „Try“ za testiranje.
 
-<p><img src="https://cdn.acedata.cloud/six7e3.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/six7e3.png" width="400" className="m-auto" /></p>
 
 Nakon poziva, otkrili smo da je rezultat vraćen kao što je prikazano u nastavku:
 
@@ -73,7 +73,7 @@ Vraćeni rezultat ima više polja, opisana su kao što sledi:
 
 Gde `choices` sadrži Kimi-ove informacije o odgovorima, unutar `choices` su konkretne informacije o Kimi-ovim odgovorima, što možete primetiti na slici.
 
-<p><img src="https://cdn.acedata.cloud/tv9rul.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tv9rul.png" width="400" className="m-auto" /></p>
 
 Možete primetiti da `content` polje unutar `choices` sadrži konkretan sadržaj Gemini-ovog odgovora.
 
@@ -85,7 +85,7 @@ Ako želite da odgovor bude u toku, možete promeniti `stream` parametar u zagla
 
 Izmena je prikazana na slici, ali kod poziva mora imati odgovarajuće izmene da bi podržao tok odgovora.
 
-<p><img src="https://cdn.acedata.cloud/a3nzpw.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a3nzpw.png" width="400" className="m-auto" /></p>
 
 Nakon što promenite `stream` na `true`, API će vraćati odgovarajući JSON podatak red po red, a na kodnom nivou moramo napraviti odgovarajuće izmene da bismo dobili rezultate red po red.
 
@@ -94,7 +94,7 @@ Python uzorak koda za poziv:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kimi/chat/completions"
+url = "https://api.xhuoapi.ai/v1/kimi/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -173,7 +173,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/kimi/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/kimi/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -189,7 +189,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/kimi/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/kimi/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -207,14 +207,14 @@ Ostale jezike možete prepraviti sami, princip je isti.
 
 Ako želite da povežete funkciju višekratnog razgovora, potrebno je da u `messages` polje pošaljete više pitanja, a konkretni primeri više pitanja su prikazani na sledećoj slici:
 
-<p><img src="https://cdn.acedata.cloud/g85v2a.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g85v2a.png" width="400" className="m-auto" /></p>
 
 Python uzorak pozivanja koda:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kimi/chat/completions"
+url = "https://api.xhuoapi.ai/v1/kimi/chat/completions"
 
 headers = {
     "accept": "application/json",

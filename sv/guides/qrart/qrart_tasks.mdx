@@ -1,6 +1,6 @@
 ---
 title: "Integration och användning av Artistic QR Tasks API"
-description: "Art QR Code Generation 集成指南 - Ace Data Cloud"
+description: "Art QR Code Generation 集成指南 - XHuoAPI"
 ---
 
 Huvudfunktionen för Artistic QR Tasks API är att möjliggöra förfrågningar om statusen för en uppgift genom att ange uppgifts-ID som genererats av Artistic QR Generation API.
@@ -9,27 +9,27 @@ Detta dokument kommer att ge en detaljerad beskrivning av integrationen av Artis
 
 ## Ansökningsprocess
 
-För att använda Artistic QR Tasks API måste du först gå till ansökningssidan [Artistic QR Generation API](https://platform.acedata.cloud/documents/ee085d2a-a0b9-4f0e-8b4d-8da407345138) för att ansöka om den aktuella tjänsten, och sedan kopiera uppgifts-ID från Artistic QR Generation API, som visas i bilden nedan:
+För att använda Artistic QR Tasks API måste du först gå till ansökningssidan [Artistic QR Generation API](https://api.xhuoapi.ai/documents/ee085d2a-a0b9-4f0e-8b4d-8da407345138) för att ansöka om den aktuella tjänsten, och sedan kopiera uppgifts-ID från Artistic QR Generation API, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/2wicjy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2wicjy.png" width="500" className="m-auto" /></p>
 
-Slutligen går du till Artistic QR Tasks API-sidan [Artistic QR Tasks API](https://platform.acedata.cloud/documents/21de9d76-6e39-4ac3-b8b9-20e7194c02b4) för att ansöka om den aktuella tjänsten. När du kommer till sidan, klicka på "Acquire"-knappen, som visas i bilden nedan:
+Slutligen går du till Artistic QR Tasks API-sidan [Artistic QR Tasks API](https://api.xhuoapi.ai/documents/21de9d76-6e39-4ac3-b8b9-20e7194c02b4) för att ansöka om den aktuella tjänsten. När du kommer till sidan, klicka på "Acquire"-knappen, som visas i bilden nedan:
 
-![Ansökningssidan](https://cdn.acedata.cloud/rci31i.png)
+![Ansökningssidan](https://cdn.xhuoapi.ai/rci31i.png)
 
-Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till [inloggningssidan](https://platform.acedata.cloud) för att registrera dig och logga in. Efter att du har loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
+Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till [inloggningssidan](https://api.xhuoapi.ai) för att registrera dig och logga in. Efter att du har loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
 
 Vid första ansökan kommer det att finnas en gratis kvot som du kan använda för att kostnadsfritt använda detta API.
 
 ## Förfrågningsexempel
 
-Artistic QR Tasks API kan användas för att fråga om resultatet av en API-förfrågan från Artistic QR Generation API. För information om hur du använder Artistic QR Generation API, se dokumentet [Artistic QR Generation API](https://platform.acedata.cloud/documents/ee085d2a-a0b9-4f0e-8b4d-8da407345138).
+Artistic QR Tasks API kan användas för att fråga om resultatet av en API-förfrågan från Artistic QR Generation API. För information om hur du använder Artistic QR Generation API, se dokumentet [Artistic QR Generation API](https://api.xhuoapi.ai/documents/ee085d2a-a0b9-4f0e-8b4d-8da407345138).
 
 Vi tar ett exempel med ett uppgifts-ID som returnerats av Artistic QR Generation API och visar hur man använder detta API. Anta att vi har ett uppgifts-ID: e2c65b20-a970-431e-99c1-76721e799df8, och vi visar hur man gör en förfrågan med detta uppgifts-ID.
 
 ### Uppgifts exempelbild
 
-<p><img src="https://cdn.acedata.cloud/2wicjy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2wicjy.png" width="500" className="m-auto" /></p>
 
 ### Ställ in begärningshuvuden och begärningskropp
 
@@ -45,20 +45,20 @@ Vi tar ett exempel med ett uppgifts-ID som returnerats av Artistic QR Generation
 
 Inställningarna visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/use825.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/use825.png" width="500" className="m-auto" /></p>
 
 ### Kodexempel
 
 Det kan noteras att olika språkets kod redan har genererats automatiskt på höger sida av sidan, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/jejwy6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jejwy6.png" width="500" className="m-auto" /></p>
 
 Några kodexempel är som följer:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/qrart/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/qrart/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/qrart/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/qrart/tasks"
+url = "https://api.xhuoapi.ai/v1/qrart/tasks"
 
 headers = {
     "accept": "application/json",
@@ -104,7 +104,7 @@ När förfrågan lyckas kommer API:et att returnera detaljerad information om QR
   "request": {
     "aspect_ratio": "1:1",
     "callback_url": null,
-    "content": "https://platform.acedata.cloud",
+    "content": "https://api.xhuoapi.ai",
     "content_image_url": null,
     "ecl": "H",
     "image_origin": null,
@@ -128,7 +128,7 @@ När förfrågan lyckas kommer API:et att returnera detaljerad information om QR
     "type": "link"
   },
   "response": {
-    "image_url": "https://platform.cdn.acedata.cloud/qrart/e2c65b20-a970-431e-99c1-76721e799df8.png",
+    "image_url": "https://platform.cdn.xhuoapi.ai/qrart/e2c65b20-a970-431e-99c1-76721e799df8.png",
     "image_width": 768,
     "image_height": 768,
     "seed": 5324369603686616,
@@ -154,13 +154,13 @@ Detta är för att fråga detaljerna för flera QR-koduppgifter, och till skilln
 
 Inställningarna visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/mrbxmr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mrbxmr.png" width="500" className="m-auto" /></p>
 
 ### Kodexempel
 
 Det kan noteras att olika språkets kod redan har genererats automatiskt på höger sida av sidan, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/u3b61d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/u3b61d.png" width="500" className="m-auto" /></p>
 
 Några kodexempel är som följer:
 
@@ -203,7 +203,7 @@ När förfrågan lyckas kommer API:et att returnera detaljerad information om al
         "type": "link"
       },
       "response": {
-        "image_url": "https://platform.cdn.acedata.cloud/qrart/8c89e97b-6a79-4406-b2ce-e00f92540b4e.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/qrart/8c89e97b-6a79-4406-b2ce-e00f92540b4e.png",
         "image_width": 768,
         "image_height": 768,
         "seed": 2701847236953402,
@@ -219,7 +219,7 @@ När förfrågan lyckas kommer API:et att returnera detaljerad information om al
       "request": {
         "aspect_ratio": "1:1",
         "callback_url": null,
-        "content": "https://platform.acedata.cloud",
+        "content": "https://api.xhuoapi.ai",
         "content_image_url": null,
         "ecl": "H",
         "image_origin": null,
@@ -243,7 +243,7 @@ När förfrågan lyckas kommer API:et att returnera detaljerad information om al
         "type": "link"
       },
       "response": {
-        "image_url": "https://platform.cdn.acedata.cloud/qrart/e2c65b20-a970-431e-99c1-76721e799df8.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/qrart/e2c65b20-a970-431e-99c1-76721e799df8.png",
         "image_width": 768,
         "image_height": 768,
         "seed": 5324369603686616,
@@ -258,7 +258,7 @@ När förfrågan lyckas kommer API:et att returnera detaljerad information om al
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/qrart/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/qrart/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -273,7 +273,7 @@ curl -X POST 'https://api.acedata.cloud/qrart/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/qrart/tasks"
+url = "https://api.xhuoapi.ai/v1/qrart/tasks"
 
 headers = {
     "accept": "application/json",

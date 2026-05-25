@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Chat Completion API Antrag und Nutzung"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI ChatGPT ist ein sehr leistungsstarkes KI-Dialogsystem, das in nur wenigen Sekunden flüssige und natürliche Antworten generieren kann, sobald ein Eingabewort eingegeben wird. ChatGPT hebt sich durch seine hervorragenden Sprachverständnis- und Generierungsfähigkeiten in der Branche hervor. Heute wird ChatGPT bereits in verschiedenen Branchen und Bereichen weit verbreitet eingesetzt, und sein Einfluss wird immer deutlicher. Egal ob bei alltäglichen Gesprächen, kreativem Schreiben oder professioneller Beratung und Programmierung, ChatGPT kann erstaunliche intelligente Unterstützung bieten und die Effizienz und Kreativität der Menschen erheblich steigern.
@@ -9,9 +9,9 @@ Dieses Dokument beschreibt hauptsächlich den Ablauf der Nutzung der OpenAI Chat
 
 ## Antragsprozess
 
-Um die OpenAI Chat Completion API zu nutzen, können Sie zunächst auf die Seite [OpenAI Chat Completion API](https://platform.acedata.cloud/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) gehen und auf die Schaltfläche „Acquire“ klicken, um die benötigten Anmeldeinformationen zu erhalten:
+Um die OpenAI Chat Completion API zu nutzen, können Sie zunächst auf die Seite [OpenAI Chat Completion API](https://api.xhuoapi.ai/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) gehen und auf die Schaltfläche „Acquire“ klicken, um die benötigten Anmeldeinformationen zu erhalten:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur Anmeldeseite weitergeleitet, um sich zu registrieren und anzumelden. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
 
@@ -21,7 +21,7 @@ Bei der ersten Antragstellung gibt es ein kostenloses Kontingent, mit dem Sie di
 
 Als Nächstes können Sie die entsprechenden Inhalte im Interface ausfüllen, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/jqgg1t.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jqgg1t.png" width="400" className="m-auto" /></p>
 
 Bei der ersten Nutzung dieser Schnittstelle müssen wir mindestens drei Inhalte ausfüllen: einer ist `authorization`, den Sie einfach aus der Dropdown-Liste auswählen können. Ein weiterer Parameter ist `model`, `model` ist die Modellkategorie, die wir für die Nutzung des OpenAI ChatGPT auf der offiziellen Website auswählen. Hier haben wir hauptsächlich 20 Modelle zur Auswahl, die Details können Sie in den bereitgestellten Modellen einsehen. Der letzte Parameter ist `messages`, `messages` ist das Array der von uns eingegebenen Fragen, es handelt sich um ein Array, das mehrere Fragen gleichzeitig hochladen kann, wobei jede Frage `role` und `content` enthält, wobei `role` die Rolle des Fragestellers angibt. Wir bieten drei Identitäten an: `user`, `assistant`, `system`. Das andere `content` ist der spezifische Inhalt unserer Frage.
 
@@ -34,7 +34,7 @@ Häufig verwendete optionale Parameter:
 - `n`: Anzahl der zu generierenden Antwortvorschläge auf einmal.
 - `response_format`: Einstellung des Rückgabeformats.
 
-<p><img src="https://cdn.acedata.cloud/mthuu2.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mthuu2.png" width="400" className="m-auto" /></p>
 
 Nach dem Aufruf stellen wir fest, dass das Rückgabeergebnis wie folgt aussieht:
 
@@ -85,7 +85,7 @@ Das Rückgabeergebnis enthält mehrere Felder, die wie folgt beschrieben werden:
 
 Dabei ist `choices` das, was die Antwortinformationen von ChatGPT enthält, und innerhalb von `choices` können wir sehen, wie im Bild gezeigt.
 
-<p><img src="https://cdn.acedata.cloud/4t1ev7.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4t1ev7.png" width="400" className="m-auto" /></p>
 
 Wie zu sehen ist, enthält das Feld `content` innerhalb von `choices` den spezifischen Inhalt der Antwort von ChatGPT.
 
@@ -97,7 +97,7 @@ Wenn Sie eine Stream-Antwort zurückgeben möchten, können Sie den `stream`-Par
 
 Die Änderung ist wie im Bild gezeigt, jedoch muss der Aufrufcode entsprechend geändert werden, um Stream-Antworten zu unterstützen.
 
-<p><img src="https://cdn.acedata.cloud/24scd4.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/24scd4.png" width="400" className="m-auto" /></p>
 
 Nachdem Sie `stream` auf `true` geändert haben, gibt die API die entsprechenden JSON-Daten zeilenweise zurück. Auf der Code-Ebene müssen wir entsprechende Änderungen vornehmen, um die zeilenweisen Ergebnisse zu erhalten.
 
@@ -106,7 +106,7 @@ Beispielaufrufcode in Python:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -177,7 +177,7 @@ const options = {
   }),
 };
 
-fetch("https://api.acedata.cloud/openai/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/openai/chat/completions", options)
   .then((response) => response.json())
   .then((response) => console.log(response))
   .catch((err) => console.error(err));
@@ -193,7 +193,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/openai/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/openai/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -211,13 +211,13 @@ Andere Sprachen können entsprechend umgeschrieben werden, das Prinzip ist dasse
 
 Wenn Sie die Funktion für mehrere Runden im Dialog integrieren möchten, müssen Sie mehrere Fragen im Feld `messages` hochladen. Ein konkretes Beispiel für mehrere Fragen ist im folgenden Bild dargestellt:
 
-<p><img src="https://cdn.acedata.cloud/oz4mar.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/oz4mar.png" width="400" className="m-auto" /></p>
 
 Python-Beispielaufrufcode:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -276,7 +276,7 @@ Der OpenAI Chat Completion API-Dienst wird von dem offiziellen OpenAI-Dienst ber
 
 ```json
 OPENAI_API_KEY="sk-xxx"
-OPENAI_BASE_URL="https://api.acedata.cloud/openai"  # Nochmals zur Erinnerung: Wenn Sie den Key von der offiziellen OpenAI verwenden, verwenden Sie diese Adresse nicht.
+OPENAI_BASE_URL="https://api.xhuoapi.ai/v1/openai"  # Nochmals zur Erinnerung: Wenn Sie den Key von der offiziellen OpenAI verwenden, verwenden Sie diese Adresse nicht.
 ```
 
 Ersetzen Sie `sk-xxx` durch Ihren eigenen Key. `OPENAI_BASE_URL` ist die Proxy-Schnittstelle zum Zugriff auf OpenAI.
@@ -320,11 +320,11 @@ print(response.text)
 
 Die Modelle gpt-3.5-browsing und gpt-4-browsing unterscheiden sich von anderen Modellen, da sie basierend auf den Fragen eine Online-Suche durchführen können und die Ergebnisse der Online-Suche entsprechend anpassen und zurückgeben. In diesem Artikel wird ein konkretes Beispiel zur Demonstration der Online-Funktionalität gegeben, und Sie können die entsprechenden Inhalte im OpenAI Chat Completion API-Bereich ausfüllen, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/249829.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/249829.png" width="400" className="m-auto" /></p>
 
 Gleichzeitig können Sie auf der rechten Seite den entsprechenden generierten Code sehen, den Sie direkt ausführen oder auf die Schaltfläche „Try“ klicken können, um einen Test durchzuführen.
 
-<p><img src="https://cdn.acedata.cloud/s8gxoo.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/s8gxoo.png" width="400" className="m-auto" /></p>
 
 Nach dem Aufruf stellen wir fest, dass das Rückgabeergebnis wie folgt aussieht:
 
@@ -366,7 +366,7 @@ Die Bildverarbeitungsfähigkeiten des gpt-4o-Modells werden hauptsächlich durch
 - Curl-Skript-Methode
 
 ```
-curl -X POST 'https://api.acedata.cloud/openai/chat/completions' \
+curl -X POST 'https://api.xhuoapi.ai/v1/openai/chat/completions' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -397,7 +397,7 @@ curl -X POST 'https://api.acedata.cloud/openai/chat/completions' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -479,7 +479,7 @@ Beispielanfrage:
         {
           "type": "file_url",
           "file_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]

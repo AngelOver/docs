@@ -1,6 +1,6 @@
 ---
 title: "Producer Tasks API 的對接和使用"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 Producer Tasks API 的主要功能是通過輸入 Producer Audios Generation API 生成的任務ID來查詢該任務的執行情況。
@@ -9,27 +9,27 @@ Producer Tasks API 的主要功能是通過輸入 Producer Audios Generation API
 
 ## 申請流程
 
-要使用 Producer Tasks API，需要先到 申請頁面 [Producer Audios Generation API ](https://platform.acedata.cloud/documents/producer-audios)申請相應的服務，然後複製 Producer Audios Generation API的任務ID，如圖所示：
+要使用 Producer Tasks API，需要先到 申請頁面 [Producer Audios Generation API ](https://api.xhuoapi.ai/documents/producer-audios)申請相應的服務，然後複製 Producer Audios Generation API的任務ID，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
-最後進入Tasks API頁面 [Producer Tasks API ](https://platform.acedata.cloud/documents/622626b1-30a7-4799-a772-4946e1df3ac0)申請相應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
+最後進入Tasks API頁面 [Producer Tasks API ](https://api.xhuoapi.ai/documents/622626b1-30a7-4799-a772-4946e1df3ac0)申請相應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
 
-![申請頁面](https://cdn.acedata.cloud/rci31i.png)
+![申請頁面](https://cdn.xhuoapi.ai/rci31i.png)
 
-如果您尚未登錄或註冊，會自動跳轉到[登錄頁面](https://platform.acedata.cloud)邀請您來註冊和登錄，登錄註冊之後會自動返回當前頁面。
+如果您尚未登錄或註冊，會自動跳轉到[登錄頁面](https://api.xhuoapi.ai)邀請您來註冊和登錄，登錄註冊之後會自動返回當前頁面。
 
 首次申請時會有免費額度贈送，可以免費使用該 API。
 
 ## 請求示例
 
-Producer Tasks API 可以用於查詢 Producer Audios Generation API 的結果。關於怎樣使用 Producer Audios Generation API，請參考文檔 [Producer Audios Generation API ](https://platform.acedata.cloud/documents/producer-audios-integration)。
+Producer Tasks API 可以用於查詢 Producer Audios Generation API 的結果。關於怎樣使用 Producer Audios Generation API，請參考文檔 [Producer Audios Generation API ](https://api.xhuoapi.ai/documents/producer-audios-integration)。
 
 我們以 Producer Audios Generation API 服務返回的任務ID一個為例，演示如何使用該 API。假設我們有一個任務ID：1a6ac2ad-10f2-4e2b-b500-66ec27fe82ad，接下來演示如何通過傳入一個任務ID來。
 
 ### 任務示例圖
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 ### 設置請求頭和請求體
 
@@ -45,20 +45,20 @@ Producer Tasks API 可以用於查詢 Producer Audios Generation API 的結果�
 
 設置如下圖所示：
 
-<p><img src="https://cdn.acedata.cloud/bfe4ww.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bfe4ww.png" width="500" className="m-auto" /></p>
 
 ### 代碼示例
 
 可以發現，在頁面右側已經自動生成了各種語言的代碼，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/u4pb2f.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/u4pb2f.png" width="500" className="m-auto" /></p>
 
 部分代碼示例如下：
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -134,13 +134,13 @@ curl -X POST 'https://api.acedata.cloud/producer/tasks' \
 
 設置如下圖所示：
 
-<p><img src="https://cdn.acedata.cloud/jlkoma.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jlkoma.png" width="500" className="m-auto" /></p>
 
 ### 代碼示例
 
 可以發現，在頁面右側已經自動生成了各種語言的代碼，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/emw66n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/emw66n.png" width="500" className="m-auto" /></p>
 
 部分代碼示例如下：
 
@@ -251,7 +251,7 @@ curl -X POST 'https://api.acedata.cloud/producer/tasks' \
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

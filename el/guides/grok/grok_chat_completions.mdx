@@ -1,6 +1,6 @@
 ---
 title: "Grok Chat Completion API Αίτηση και Χρήση"
-description: "Grok 集成指南 - Ace Data Cloud"
+description: "Grok 集成指南 - XHuoAPI"
 ---
 
 xAI Grok είναι ένα πολύ ισχυρό σύστημα AI συνομιλίας, απλά εισάγοντας λέξεις-κλειδιά, μπορεί να δημιουργήσει ομαλές και φυσικές απαντήσεις σε λίγα δευτερόλεπτα. Το Grok ξεχωρίζει στη βιομηχανία με το μοναδικό του χιούμορ και την ικανότητά του να αποκτά πληροφορίες σε πραγματικό χρόνο από το διαδίκτυο, και σήμερα, το Grok έχει αναδειχθεί σε πολλούς καινοτόμους τομείς, με την επιρροή του να επεκτείνεται γρήγορα. Είτε πρόκειται για καθημερινές συνομιλίες, δημιουργική γραφή, είτε για τεχνική ανάλυση και αποσφαλμάτωση κώδικα, το Grok μπορεί να προσφέρει διορατική και έξυπνη βοήθεια, παρέχοντας στους χρήστες υποστήριξη σε νέες διαστάσεις για τις αποφάσεις και τις δημιουργίες τους.
@@ -9,9 +9,9 @@ xAI Grok είναι ένα πολύ ισχυρό σύστημα AI συνομι�
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το Grok Chat Completion API, μπορείτε πρώτα να επισκεφθείτε τη σελίδα [Grok Chat Completion API](https://platform.acedata.cloud/documents/faf08b59-36aa-4d26-b5d9-a18f113cc2be) και να κάνετε κλικ στο κουμπί «Acquire» για να αποκτήσετε τα απαραίτητα διαπιστευτήρια:
+Για να χρησιμοποιήσετε το Grok Chat Completion API, μπορείτε πρώτα να επισκεφθείτε τη σελίδα [Grok Chat Completion API](https://api.xhuoapi.ai/documents/faf08b59-36aa-4d26-b5d9-a18f113cc2be) και να κάνετε κλικ στο κουμπί «Acquire» για να αποκτήσετε τα απαραίτητα διαπιστευτήρια:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη σελίδα σύνδεσης για να σας προσκαλέσει να εγγραφείτε και να συνδεθείτε, και μετά την εγγραφή και σύνδεση θα επιστρέψετε αυτόματα στη σελίδα.
 
@@ -21,7 +21,7 @@ xAI Grok είναι ένα πολύ ισχυρό σύστημα AI συνομι�
 
 Στη συνέχεια, μπορείτε να συμπληρώσετε τα αντίστοιχα περιεχόμενα στην οθόνη, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/vunnjf.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vunnjf.png" width="400" className="m-auto" /></p>
 
 Κατά την πρώτη χρήση αυτού του API, πρέπει τουλάχιστον να συμπληρώσουμε τρία περιεχόμενα, ένα είναι το `authorization`, το οποίο μπορείτε να επιλέξετε απευθείας από τη λίστα. Ένα άλλο παράμετρο είναι το `model`, το `model` είναι η κατηγορία μοντέλου που επιλέγουμε να χρησιμοποιήσουμε από την επίσημη ιστοσελίδα του Grok, εδώ έχουμε κυρίως 8 μοντέλα, περισσότερες λεπτομέρειες μπορείτε να δείτε στα μοντέλα που παρέχουμε. Η τελευταία παράμετρος είναι το `messages`, το `messages` είναι ο πίνακας των ερωτήσεων που εισάγουμε, είναι ένας πίνακας που δηλώνει ότι μπορείτε να ανεβάσετε πολλές ερωτήσεις ταυτόχρονα, κάθε ερώτηση περιλαμβάνει το `role` και το `content`, όπου το `role` δηλώνει το ρόλο του ερωτώντος, παρέχουμε τρεις ταυτότητες, δηλαδή `user`, `assistant`, `system`. Το άλλο `content` είναι το συγκεκριμένο περιεχόμενο της ερώτησής μας.
 
@@ -33,7 +33,7 @@ xAI Grok είναι ένα πολύ ισχυρό σύστημα AI συνομι�
 - `temperature`: δημιουργεί τυχαιότητα, μεταξύ 0-2, όσο μεγαλύτερη είναι η τιμή, τόσο πιο διασκορπισμένες είναι οι απαντήσεις.
 - `n`: πόσες υποψήφιες απαντήσεις θα παραχθούν ταυτόχρονα.
 
-<p><img src="https://cdn.acedata.cloud/d7iwun.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d7iwun.png" width="400" className="m-auto" /></p>
 
 Μετά την κλήση, διαπιστώνουμε ότι το αποτέλεσμα επιστροφής είναι το εξής:
 
@@ -84,7 +84,7 @@ xAI Grok είναι ένα πολύ ισχυρό σύστημα AI συνομι�
 
 Όπου το `choices` περιλαμβάνει τις πληροφορίες απάντησης του Grok, μπορείτε να δείτε τις συγκεκριμένες πληροφορίες απάντησης του Grok όπως φαίνεται στην εικόνα.
 
-<p><img src="https://cdn.acedata.cloud/p8vupk.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/p8vupk.png" width="400" className="m-auto" /></p>
 
 Μπορείτε να δείτε ότι το πεδίο `content` μέσα στο `choices` περιλαμβάνει το συγκεκριμένο περιεχόμενο της απάντησης του Grok.
 
@@ -96,7 +96,7 @@ xAI Grok είναι ένα πολύ ισχυρό σύστημα AI συνομι�
 
 Η αλλαγή είναι όπως φαίνεται στην εικόνα, αλλά ο κώδικας κλήσης χρειάζεται να έχει τις αντίστοιχες αλλαγές για να υποστηρίξει τη ροή απόκρισης.
 
-<p><img src="https://cdn.acedata.cloud/k883qa.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/k883qa.png" width="400" className="m-auto" /></p>
 
 Αφού αλλάξετε το `stream` σε `true`, το API θα επιστρέφει γραμμή προς γραμμή τα αντίστοιχα δεδομένα JSON, και σε επίπεδο κώδικα θα χρειαστεί να κάνουμε τις αντίστοιχες αλλαγές για να αποκτήσουμε τα αποτελέσματα γραμμή προς γραμμή.
 
@@ -105,7 +105,7 @@ xAI Grok είναι ένα πολύ ισχυρό σύστημα AI συνομι�
 ```python
 import requests
 
-url = "https://api.acedata.cloud/grok/chat/completions"
+url = "https://api.xhuoapi.ai/v1/grok/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -199,7 +199,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/grok/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/grok/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -215,7 +215,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/grok/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/grok/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -233,14 +233,14 @@ System.out.print(response.body!!.string())
 
 Αν θέλετε να συνδέσετε τη λειτουργία πολυδιάστατου διαλόγου, πρέπει να ανεβάσετε πολλαπλές ερωτήσεις στο πεδίο `messages`, τα παραδείγματα πολλαπλών ερωτήσεων φαίνονται παρακάτω:
 
-<p><img src="https://cdn.acedata.cloud/t8cya8.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/t8cya8.png" width="400" className="m-auto" /></p>
 
 Παράδειγμα κώδικα Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/grok/chat/completions"
+url = "https://api.xhuoapi.ai/v1/grok/chat/completions"
 
 headers = {
     "accept": "application/json",

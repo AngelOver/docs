@@ -1,15 +1,15 @@
 ---
 title: "携帯番号三要素確認 API 接続説明"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 本文では、携帯番号三要素確認 API 接続説明について紹介します。これは、携帯番号、氏名、及び身分証明書番号の真実性と一貫性を確認するために使用できます。
 
 ## 申請プロセス
 
-API を使用するには、まず [携帯番号三要素確認 API](https://platform.acedata.cloud/documents/b4c50108-dda5-4ddb-ba84-776060fb0151) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
+API を使用するには、まず [携帯番号三要素確認 API](https://api.xhuoapi.ai/documents/b4c50108-dda5-4ddb-ba84-776060fb0151) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 まだログインまたは登録していない場合、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -19,7 +19,7 @@ API を使用するには、まず [携帯番号三要素確認 API](https://pla
 
 まず、基本的な使用方法を理解します。携帯番号を入力することで、処理された結果を得ることができます。最初に `phone` フィールドを簡単に渡す必要があります。次に、画面上に対応する内容を記入できます。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/3xbffj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3xbffj.png" width="500" className="m-auto" /></p>
 
 ここでは、リクエストヘッダーを設定しました。内容は以下の通りです：
 
@@ -36,7 +36,7 @@ API を使用するには、まず [携帯番号三要素確認 API](https://pla
 
 選択後、右側にも対応するコードが生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/0cp9z1.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0cp9z1.png" width="500" className="m-auto" /></p>
 
 「Try」ボタンをクリックするとテストが行えます。上の図のように、以下の結果が得られました：
 
@@ -69,7 +69,7 @@ API を使用するには、まず [携帯番号三要素確認 API](https://pla
 また、対応する接続コードを生成したい場合は、生成されたものを直接コピーできます。例えば、CURL のコードは以下の通りです：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/phone/check-3e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/phone/check-3e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -85,7 +85,7 @@ Python の接続コードは以下の通りです：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/phone/check-3e"
+url = "https://api.xhuoapi.ai/v1/identity/phone/check-3e"
 
 headers = {
     "accept": "application/json",

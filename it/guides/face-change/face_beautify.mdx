@@ -1,15 +1,15 @@
 ---
 title: "Documentazione per l'integrazione dell'API di bellezza del volto"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 Questo documento introduce una guida per l'integrazione dell'API di bellezza del volto, che può elaborare un'immagine del volto caricata dall'utente (in grado di gestire fino a cinque volti in un'unica immagine), localizzando con precisione i tratti del viso e realizzando funzioni di bellezza come la levigatura della pelle, l'illuminazione della pelle e la rimozione dell'acne.
 
 ## Procedura di richiesta
 
-Per utilizzare l'API, è necessario prima richiedere il servizio corrispondente sulla pagina [API di bellezza del volto](https://platform.acedata.cloud/documents/29641bfa-8e71-4d63-8b35-7c9e647c18ba). Dopo essere entrati nella pagina, cliccare sul pulsante "Acquire", come mostrato nell'immagine:
+Per utilizzare l'API, è necessario prima richiedere il servizio corrispondente sulla pagina [API di bellezza del volto](https://api.xhuoapi.ai/documents/29641bfa-8e71-4d63-8b35-7c9e647c18ba). Dopo essere entrati nella pagina, cliccare sul pulsante "Acquire", come mostrato nell'immagine:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Se non si è ancora effettuato il login o la registrazione, si verrà automaticamente reindirizzati alla pagina di login per registrarsi e accedere. Dopo aver effettuato il login o la registrazione, si tornerà automaticamente alla pagina corrente.
 
@@ -19,11 +19,11 @@ Alla prima richiesta, verrà fornito un credito gratuito, che consente di utiliz
 
 Innanzitutto, è importante comprendere il modo di utilizzo di base, che consiste nell'inserire il link dell'immagine e le informazioni di bellezza, per ottenere l'immagine elaborata. È necessario semplicemente trasmettere un campo `image_url`, l'immagine del volto è mostrata nell'immagine sottostante:
 
-<p><img src="https://cdn.acedata.cloud/ohgrs3.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ohgrs3.png" width="500" className="m-auto" /></p>
 
 Dopodiché, è necessario caricare i parametri delle informazioni di bellezza del volto, come indicato nelle informazioni del corpo della richiesta qui sotto. Possiamo quindi compilare i contenuti corrispondenti nell'interfaccia, come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/gjzkwv.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gjzkwv.png" width="500" className="m-auto" /></p>
 
 Si può notare che qui abbiamo impostato le intestazioni della richiesta, tra cui:
 
@@ -40,7 +40,7 @@ Inoltre, abbiamo impostato il corpo della richiesta, che include:
 
 Dopo aver effettuato le scelte, si può notare che a destra è stato generato il codice corrispondente, come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/nhq282.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nhq282.png" width="500" className="m-auto" /></p>
 
 Cliccando sul pulsante "Try" è possibile effettuare un test, come mostrato nell'immagine sopra, e si ottiene il seguente risultato:
 
@@ -52,19 +52,19 @@ Cliccando sul pulsante "Try" è possibile effettuare un test, come mostrato nell
 
 Si può notare che nel risultato restituito c'è un campo `image_url`, che rappresenta l'immagine del volto dopo le modifiche di bellezza in base all'input. Le informazioni sul volto modificate sono mostrate nell'immagine sottostante:
 
-<p><img src="https://cdn.acedata.cloud/g809b1.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g809b1.png" width="500" className="m-auto" /></p>
 
 Si può notare che il volto nell'immagine è cambiato in base alle informazioni di bellezza fornite.
 
 Inoltre, se si desidera generare il codice di integrazione corrispondente, è possibile copiarlo direttamente, ad esempio il codice CURL è il seguente:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/beautify' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/beautify' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg",
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg",
   "smoothing": 50,
   "whitening": 50,
   "face_lifting": 50,
@@ -77,7 +77,7 @@ Il codice di integrazione in Python è il seguente:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/beautify"
+url = "https://api.xhuoapi.ai/v1/face/beautify"
 
 headers = {
     "accept": "application/json",
@@ -86,7 +86,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg",
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg",
     "smoothing": 50,
     "whitening": 50,
     "face_lifting": 50,

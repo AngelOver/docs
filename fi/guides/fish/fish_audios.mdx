@@ -1,15 +1,15 @@
 ---
 title: "Fish Audios Generation API -liittymisohjeet"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 Tässä artikkelissa esitellään Fish Audios Generation API -liittymisohjeet, jonka avulla voit kloonata oman äänesi syöttämällä vihjeitä.
 
 ## Hakuprosessi
 
-API:n käyttämiseksi sinun on ensin mentävä [Fish Audios Generation API](https://platform.acedata.cloud/documents/e681b715-54fd-4464-a59a-d7f14500e095) -sivulle ja haettava vastaavaa palvelua. Kun olet sivulla, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
+API:n käyttämiseksi sinun on ensin mentävä [Fish Audios Generation API](https://api.xhuoapi.ai/documents/e681b715-54fd-4464-a59a-d7f14500e095) -sivulle ja haettava vastaavaa palvelua. Kun olet sivulla, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -19,7 +19,7 @@ Ensimmäisellä hakemiskerralla saat ilmaisia krediittejä, joiden avulla voit k
 
 Ensinnäkin on hyvä ymmärtää peruskäyttötapa, joka sisältää vihjeen `prompt`, kloonaustoiminnan `action`, äänentunnuksen `voice_id` sekä mallin `model`, jotta saat käsitellyn tuloksen. Ensinnäkin sinun on yksinkertaisesti välitettävä `action`-kenttä, jonka arvo on `generate`, ja sitten meidän on syötettävä malli `model`, joka on tällä hetkellä pääasiassa `fish-tts`-malli, tarkat tiedot ovat seuraavat:
 
-<p><img src="https://cdn.acedata.cloud/0jnfqb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0jnfqb.png" width="500" className="m-auto" /></p>
 
 Voit nähdä, että olemme asettaneet Request Headers -tiedot, mukaan lukien:
 
@@ -36,7 +36,7 @@ Lisäksi olemme asettaneet Request Body -tiedot, mukaan lukien:
 
 Valinnan jälkeen voit huomata, että oikealla puolella on myös luotu vastaava koodi, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/8uyos2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8uyos2.png" width="500" className="m-auto" /></p>
 
 Napsauta "Try" -painiketta testataksesi, kuten yllä olevassa kuvassa näkyy, ja saamme seuraavan tuloksen:
 
@@ -64,7 +64,7 @@ Voit nähdä, että olemme saaneet tyydyttävän äänen tiedot, ja meidän tarv
 Jos haluat luoda vastaavan liittymiskoodin, voit kopioida sen suoraan, esimerkiksi CURL-koodi on seuraava:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -86,13 +86,13 @@ Katsotaanpa esimerkin avulla, miten tämä toimii.
 
 Ensinnäkin Webhook-palaute on palvelu, joka voi vastaanottaa HTTP-pyyntöjä, ja kehittäjän tulisi korvata se omalla HTTP-palvelimensa URL-osoitteella. Tässä esimerkin vuoksi käytämme julkista Webhook-esimerkkisivustoa https://webhook.site/, avaa tämä sivusto saadaksesi Webhook URL:n, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Kopioi tämä URL, niin voit käyttää sitä Webhookina, tässä esimerkki on `https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34`.
 
 Seuraavaksi voimme asettaa kentän `callback_url` yllä mainituksi Webhook URL:ksi ja täyttää vastaavat parametrit, tarkat tiedot ovat seuraavat, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/8rv4te.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8rv4te.png" width="500" className="m-auto" /></p>
 
 Napsauta Suorita, ja huomaat, että saat heti tuloksen, kuten seuraavassa:
 
@@ -104,7 +104,7 @@ Napsauta Suorita, ja huomaat, että saat heti tuloksen, kuten seuraavassa:
 
 Odota hetki, ja voit tarkastella luotujen tehtävien tuloksia osoitteessa `https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34`, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/9utzve.png)
+![](https://cdn.xhuoapi.ai/9utzve.png)
 
 Sisältö on seuraava:
 

@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Chat Completion API 申请及使用"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI ChatGPT 是一款非常强大的 AI 对话系统，只要输入提示词，就能在短短几秒内生成流畅自然的回复。ChatGPT 以其出色的语言理解和生成能力在业界独树一帜，如今，ChatGPT 早已在各个行业和领域广泛应用，其影响力愈发显著。无论是日常对话、创意写作，还是专业咨询、代码编程，ChatGPT 都能提供令人惊叹的智能协助，极大地提高了人类的工作效率和创造力。
@@ -9,9 +9,9 @@ OpenAI ChatGPT 是一款非常强大的 AI 对话系统，只要输入提示词�
 
 ## 申请流程
 
-要使用 OpenAI Chat Completion API，首先可以到 [OpenAI Chat Completion API](https://platform.acedata.cloud/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) 页面点击「Acquire」按钮，获取请求所需要的凭证：
+要使用 OpenAI Chat Completion API，首先可以到 [OpenAI Chat Completion API](https://api.xhuoapi.ai/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) 页面点击「Acquire」按钮，获取请求所需要的凭证：
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 如果你尚未登录或注册，会自动跳转到登录页面邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
@@ -21,7 +21,7 @@ OpenAI ChatGPT 是一款非常强大的 AI 对话系统，只要输入提示词�
 
 接下来就可以在界面上填写对应的内容，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/jqgg1t.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jqgg1t.png" width="400" className="m-auto" /></p>
 
 在第一次使用该接口时，我们至少需要填写三个内容，一个是 `authorization`，直接在下拉列表里面选择即可。另一个参数是 `model`， `model` 就是我们选择使用 OpenAI ChatGPT 官网模型类别，这里我们主要有 20 种模型，详情可以看我们提供的模型。最后一个参数是`messages`，`messages`是我们输入的提问词数组，它是一个数组，表示可以同时上传多个提问词，每个提问词包含了 `role` 和 `content`，其中 `role` 表示提问者的角色，我们提供了三种身份，分别为 `user` 、`assistant`、`system` 。另一个 `content` 就是我们提问的具体内容。
 
@@ -34,7 +34,7 @@ OpenAI ChatGPT 是一款非常强大的 AI 对话系统，只要输入提示词�
 - `n`：一次生成多少条候选回复。
 - `response_format`：返回格式设置。
 
-<p><img src="https://cdn.acedata.cloud/mthuu2.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mthuu2.png" width="400" className="m-auto" /></p>
 
 调用之后，我们发现返回结果如下：
 
@@ -85,7 +85,7 @@ OpenAI ChatGPT 是一款非常强大的 AI 对话系统，只要输入提示词�
 
 其中 `choices` 是包含了 ChatGPT 的回答信息，它里面的 `choices` 是 ChatGPT，可以发现如图所示。
 
-<p><img src="https://cdn.acedata.cloud/4t1ev7.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4t1ev7.png" width="400" className="m-auto" /></p>
 
 可以看到，`choices` 里面的 `content` 字段包含了 ChatGPT 回复的具体内容。
 
@@ -97,7 +97,7 @@ OpenAI ChatGPT 是一款非常强大的 AI 对话系统，只要输入提示词�
 
 修改如图所示，不过调用代码需要有对应的更改才能支持流式响应。
 
-<p><img src="https://cdn.acedata.cloud/24scd4.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/24scd4.png" width="400" className="m-auto" /></p>
 
 将 `stream` 修改为 `true` 之后，API 将逐行返回对应的 JSON 数据，在代码层面我们需要做相应的修改来获得逐行的结果。
 
@@ -106,7 +106,7 @@ Python 样例调用代码：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -180,7 +180,7 @@ const options = {
   }),
 };
 
-fetch("https://api.acedata.cloud/openai/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/openai/chat/completions", options)
   .then((response) => response.json())
   .then((response) => console.log(response))
   .catch((err) => console.error(err));
@@ -196,7 +196,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/openai/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/openai/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -214,14 +214,14 @@ System.out.print(response.body!!.string())
 
 如果您想要对接多轮对话功能，需要对 `messages` 字段上传多个提问词，多个提问词的具体示例如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/oz4mar.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/oz4mar.png" width="400" className="m-auto" /></p>
 
 Python 样例调用代码：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -280,7 +280,7 @@ OpenAI Chat Completion API 服务的上游是官方的 OpenAI 服务，具体可
 
 ```json
 OPENAI_API_KEY="sk-xxx"
-OPENAI_BASE_URL="https://api.acedata.cloud/openai"  # 再次提醒：如果你使用官网OpenAI的key，不要用这个地址。
+OPENAI_BASE_URL="https://api.xhuoapi.ai/v1/openai"  # 再次提醒：如果你使用官网OpenAI的key，不要用这个地址。
 ```
 
 `sk-xxx` 使用自己的 key 替换。`OPENAI_BASE_URL` 是访问 OpenAI 的代理接口。
@@ -325,11 +325,11 @@ print(response.text)
 
 gpt-3.5-browsing 和 gpt-4-browsing 模型与其它模型不同，它可以根据提问词来进行联网搜索，并且将联网搜索的结果进行适当的调整返回给你，本文将通过一个具体示例来演示联网功能，接下来就可以在 OpenAI Chat Completion API 界面上填写对应的内容，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/249829.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/249829.png" width="400" className="m-auto" /></p>
 
 同时您可以注意到右侧有对应的调用代码生成，您可以复制代码直接运行，也可以直接点击「Try」按钮进行测试。
 
-<p><img src="https://cdn.acedata.cloud/s8gxoo.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/s8gxoo.png" width="400" className="m-auto" /></p>
 
 调用之后，我们发现返回结果如下：
 
@@ -371,7 +371,7 @@ gpt-4o 是 OpenAI 开发的多模态大型语言模型,它在 GPT-4 的基础上
 - Curl 脚本方式
 
 ```
-curl -X POST 'https://api.acedata.cloud/openai/chat/completions' \
+curl -X POST 'https://api.xhuoapi.ai/v1/openai/chat/completions' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -402,7 +402,7 @@ curl -X POST 'https://api.acedata.cloud/openai/chat/completions' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -484,7 +484,7 @@ print(response.text)
         {
           "type": "file_url",
           "file_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]

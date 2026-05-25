@@ -1,6 +1,6 @@
 ---
 title: "Інтеграція та використання Nano Banana Tasks API"
-description: "Nano Banana Image Generation 集成指南 - Ace Data Cloud"
+description: "Nano Banana Image Generation 集成指南 - XHuoAPI"
 ---
 
 Основна функція Nano Banana Tasks API полягає в тому, щоб за допомогою введеного ID завдання, згенерованого Nano Banana Images API, перевіряти стан виконання цього завдання.
@@ -9,13 +9,13 @@ description: "Nano Banana Image Generation 集成指南 - Ace Data Cloud"
 
 ## Приклад запиту
 
-Nano Banana Tasks API можна використовувати для перевірки результатів Nano Banana Images API. Щоб дізнатися, як використовувати Nano Banana Images API, будь ласка, зверніться до документа [Nano Banana Images API](https://platform.acedata.cloud/documents/63e01dc3-eb21-499e-8049-3025c460058f).
+Nano Banana Tasks API можна використовувати для перевірки результатів Nano Banana Images API. Щоб дізнатися, як використовувати Nano Banana Images API, будь ласка, зверніться до документа [Nano Banana Images API](https://api.xhuoapi.ai/documents/63e01dc3-eb21-499e-8049-3025c460058f).
 
 Розглянемо приклад з ID завдання, яке повертає сервіс Nano Banana Images API. Припустимо, у нас є ID завдання: 4d320ead-4af4-4a55-8f3e-f2afebdf4fd0, далі демонструємо, як передати цей ID завдання.
 
 ### Приклад завдання
 
-<p><img src="https://cdn.acedata.cloud/nuiuth.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nuiuth.png" width="500" className="m-auto" /></p>
 
 ### Налаштування заголовків запиту та тіла запиту
 
@@ -31,20 +31,20 @@ Nano Banana Tasks API можна використовувати для пере�
 
 Налаштування, як показано на малюнку нижче:
 
-<p><img src="https://cdn.acedata.cloud/nuiuth.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nuiuth.png" width="500" className="m-auto" /></p>
 
 ### Приклад коду
 
 Можна помітити, що на правій стороні сторінки вже автоматично згенеровано код на різних мовах, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/r1u4vl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/r1u4vl.png" width="500" className="m-auto" /></p>
 
 Деякі приклади коду наведені нижче:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -59,7 +59,7 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/nano-banana/tasks"
+url = "https://api.xhuoapi.ai/v1/nano-banana/tasks"
 
 headers = {
     "accept": "application/json",
@@ -102,7 +102,7 @@ print(response.text)
     "data": [
       {
         "prompt": "a white siamese cat",
-        "image_url": "https://platform.cdn.acedata.cloud/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
+        "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
       }
     ]
   }
@@ -127,7 +127,7 @@ print(response.text)
 Приклад наведено нижче:
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -165,7 +165,7 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
         "data": [
           {
             "prompt": "a white siamese cat",
-            "image_url": "https://platform.cdn.acedata.cloud/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
+            "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
           }
         ]
       }

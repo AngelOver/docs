@@ -1,6 +1,6 @@
 ---
 title: "Instrucciones para la integración de la API Suno Wav"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 SUNO nos permite obtener archivos de música en formato wav. Este documento explica el método para integrar la API correspondiente.
@@ -12,7 +12,7 @@ Aquí el `audio_id` que usamos es `4e43116a-bf09-472c-8e1c-655eabf02682`.
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/wav"
+url = "https://api.xhuoapi.ai/v1/suno/wav"
 
 headers = {
     "accept": "application/json",
@@ -37,7 +37,7 @@ El resultado es el siguiente:
   "trace_id": "3fa70e81-6bb7-4ca8-b718-dd16a4eda7e8",
   "data": [
     {
-      "file_url": "https://platform.cdn.acedata.cloud/suno/6a5a2099-d6d3-4930-9709-a30ac5dc7de5.wav"
+      "file_url": "https://platform.cdn.xhuoapi.ai/suno/6a5a2099-d6d3-4930-9709-a30ac5dc7de5.wav"
     }
   ]
 }
@@ -48,6 +48,6 @@ Se puede observar que el campo `file_url` dentro de `data` es el archivo de mús
 > **Sobre la persistencia y vigencia del enlace WAV**
 >
 > Los archivos WAV en el CDN de Suno upstream (`https://cdn1.suno.ai/{audio_id}.wav`) solo se mantienen por unos días, luego son eliminados y al acceder retornan un error 403.
-> Para evitar que el enlace expire, esta API automáticamente copia el archivo WAV upstream a nuestro propio CDN (`https://platform.cdn.acedata.cloud/suno/{task_id}.wav`) antes de devolver la respuesta. El `file_url` retornado es la dirección estable del archivo copiado, que no expirará inmediatamente por la caducidad del CDN upstream.
+> Para evitar que el enlace expire, esta API automáticamente copia el archivo WAV upstream a nuestro propio CDN (`https://platform.cdn.xhuoapi.ai/suno/{task_id}.wav`) antes de devolver la respuesta. El `file_url` retornado es la dirección estable del archivo copiado, que no expirará inmediatamente por la caducidad del CDN upstream.
 > La vigencia del enlace copiado es de **30 días**; después de ese periodo el archivo será limpiado periódicamente, por lo que se recomienda descargarlo y almacenarlo adecuadamente en su propio sistema cuanto antes.
 > En casos muy raros en que la copia falle, se devolverá el URL original upstream, manteniendo el comportamiento histórico.

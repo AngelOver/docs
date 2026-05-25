@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Chat Completion API Ansökan och Användning"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI ChatGPT är ett mycket kraftfullt AI-dialogsystem som kan generera flytande och naturliga svar på bara några sekunder genom att mata in en prompt. ChatGPT utmärker sig i branschen med sin enastående språkförståelse och genereringsförmåga, och idag används ChatGPT redan i många olika branscher och områden, med en alltmer framträdande påverkan. Oavsett om det handlar om vardagliga samtal, kreativt skrivande eller professionell rådgivning och kodprogrammering, kan ChatGPT erbjuda imponerande intelligent assistans, vilket avsevärt ökar människors arbetsproduktivitet och kreativitet.
@@ -9,9 +9,9 @@ Detta dokument beskriver huvudsakligen användningsflödet för OpenAI Chat Comp
 
 ## Ansökningsprocess
 
-För att använda OpenAI Chat Completion API kan du först gå till [OpenAI Chat Completion API](https://platform.acedata.cloud/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) sidan och klicka på "Acquire" knappen för att få de nödvändiga autentiseringsuppgifterna:
+För att använda OpenAI Chat Completion API kan du först gå till [OpenAI Chat Completion API](https://api.xhuoapi.ai/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) sidan och klicka på "Acquire" knappen för att få de nödvändiga autentiseringsuppgifterna:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till inloggningssidan där du uppmanas att registrera dig och logga in. Efter att du har loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
 
@@ -21,7 +21,7 @@ Vid första ansökan kommer det att finnas en gratis kvot som ges, så att du ka
 
 Därefter kan du fylla i motsvarande innehåll på gränssnittet, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/jqgg1t.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jqgg1t.png" width="400" className="m-auto" /></p>
 
 Vid första användningen av detta gränssnitt behöver vi fylla i minst tre fält, ett är `authorization`, som du enkelt kan välja från rullgardinsmenyn. Den andra parametern är `model`, `model` är den kategori av OpenAI ChatGPT-modeller som vi väljer att använda, här har vi huvudsakligen 20 olika modeller, detaljer kan ses i de modeller vi tillhandahåller. Den sista parametern är `messages`, `messages` är en array av våra inmatade frågor, den är en array som gör det möjligt att ladda upp flera frågor samtidigt, varje fråga innehåller `role` och `content`, där `role` representerar frågeställarens roll, vi har tre olika roller: `user`, `assistant`, `system`. Den andra `content` är det specifika innehållet i vår fråga.
 
@@ -34,7 +34,7 @@ Vanliga valfria parametrar:
 - `n`: Hur många kandidatsvar som ska genereras åt gången.
 - `response_format`: Inställningar för returformat.
 
-<p><img src="https://cdn.acedata.cloud/mthuu2.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mthuu2.png" width="400" className="m-auto" /></p>
 
 Efter anropet upptäckte vi att returresultatet ser ut som följer:
 
@@ -85,7 +85,7 @@ Returresultatet innehåller flera fält, som beskrivs nedan:
 
 Där `choices` innehåller ChatGPT:s svarsinformation, och i den finns `choices` från ChatGPT, som kan ses i bilden.
 
-<p><img src="https://cdn.acedata.cloud/4t1ev7.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4t1ev7.png" width="400" className="m-auto" /></p>
 
 Det kan ses att `content` fältet i `choices` innehåller det specifika innehållet i ChatGPT:s svar.
 
@@ -97,7 +97,7 @@ Om du vill ha strömmande svar kan du ändra `stream` parametern i begärningshu
 
 Ändringen visas i bilden, men anropskoden behöver göras motsvarande ändringar för att stödja strömmande svar.
 
-<p><img src="https://cdn.acedata.cloud/24scd4.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/24scd4.png" width="400" className="m-auto" /></p>
 
 När `stream` ändras till `true` kommer API:et att returnera motsvarande JSON-data rad för rad, och på kodnivå behöver vi göra nödvändiga ändringar för att få radresultaten.
 
@@ -106,7 +106,7 @@ Python exempel på anropskod:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -179,7 +179,7 @@ const options = {
   }),
 };
 
-fetch("https://api.acedata.cloud/openai/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/openai/chat/completions", options)
   .then((response) => response.json())
   .then((response) => console.log(response))
   .catch((err) => console.error(err));
@@ -195,7 +195,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/openai/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/openai/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -213,13 +213,13 @@ Andra språk kan skrivas om på egen hand, principen är densamma.
 
 Om du vill koppla fler rundor av dialogfunktionalitet, behöver du ladda upp flera frågor i `messages`-fältet, specifika exempel på flera frågor visas nedan:
 
-<p><img src="https://cdn.acedata.cloud/oz4mar.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/oz4mar.png" width="400" className="m-auto" /></p>
 
 Python exempel anropskod:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -278,7 +278,7 @@ OpenAI Chat Completion API-tjänstens upstream är den officiella OpenAI-tjänst
 
 ```json
 OPENAI_API_KEY="sk-xxx"
-OPENAI_BASE_URL="https://api.acedata.cloud/openai"  # Återigen påminner jag: om du använder officiella OpenAI-nyckeln, använd inte denna adress.
+OPENAI_BASE_URL="https://api.xhuoapi.ai/v1/openai"  # Återigen påminner jag: om du använder officiella OpenAI-nyckeln, använd inte denna adress.
 ```
 
 Ersätt `sk-xxx` med din egen nyckel. `OPENAI_BASE_URL` är proxygränssnittet för att få tillgång till OpenAI.
@@ -322,11 +322,11 @@ print(response.text)
 
 gpt-3.5-browsing och gpt-4-browsing modellerna skiljer sig från andra modeller, de kan utföra nätverkssökningar baserat på frågorna och justera resultaten av nätverkssökningen för att returnera dem till dig. Denna artikel kommer att demonstrera nätverksfunktionen genom ett konkret exempel, och du kan fylla i motsvarande innehåll på OpenAI Chat Completion API-gränssnittet, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/249829.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/249829.png" width="400" className="m-auto" /></p>
 
 Samtidigt kan du notera att det finns motsvarande kodgenerering till höger, du kan kopiera koden för att köra den direkt, eller klicka på "Prova"-knappen för att testa.
 
-<p><img src="https://cdn.acedata.cloud/s8gxoo.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/s8gxoo.png" width="400" className="m-auto" /></p>
 
 Efter anropet upptäckte vi att det returnerade resultatet ser ut som följer:
 
@@ -368,7 +368,7 @@ Användningen av gpt-4o-modellens bildbehandlingskapacitet sker huvudsakligen ge
 - Curl-skriptmetod
 
 ```
-curl -X POST 'https://api.acedata.cloud/openai/chat/completions' \
+curl -X POST 'https://api.xhuoapi.ai/v1/openai/chat/completions' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -399,7 +399,7 @@ curl -X POST 'https://api.acedata.cloud/openai/chat/completions' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -481,7 +481,7 @@ Exempel på begäran:
         {
           "type": "file_url",
           "file_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]

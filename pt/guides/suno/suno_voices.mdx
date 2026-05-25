@@ -1,6 +1,6 @@
 ---
 title: "Instruções para Integração da API de Clonagem de Voz Suno"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 SUNO permite criar personagens de voz personalizados a partir de qualquer arquivo de áudio, realizando clonagem de voz para geração musical. Diferente da Persona API existente (que usa `audio_id` gerado pelo Suno), esta API aceita um `audio_url` publicamente acessível, ou seja, sua própria gravação vocal. Este documento explica como integrar a API de clonagem de voz.
@@ -15,7 +15,7 @@ Esta API possui três parâmetros de entrada: `audio_url` (obrigatório), que de
 - Conteúdo: voz clara de uma única pessoa, com o mínimo possível de ruído de fundo ou música
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/voices' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/voices' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -44,12 +44,12 @@ Note que o campo `persona_id` dentro de `data` é o ID do personagem de voz cria
 
 ## Passo 2: Gerar Música Usando o Personagem de Voz
 
-Com o ID do personagem de voz, podemos usar a [Suno Audios Generation API](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) para gerar música. Defina `action` como `generate` e `persona_id` como o ID retornado acima; a música gerada será cantada com a voz clonada.
+Com o ID do personagem de voz, podemos usar a [Suno Audios Generation API](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) para gerar música. Defina `action` como `generate` e `persona_id` como o ID retornado acima; a música gerada será cantada com a voz clonada.
 
 > **Atenção:** A clonagem de voz suporta apenas modelos `chirp-v4-5` e superiores (como `chirp-v4-5`, `chirp-v5`, `chirp-v5-5`), não suportando `chirp-v4`.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

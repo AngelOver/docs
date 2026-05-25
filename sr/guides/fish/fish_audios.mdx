@@ -1,15 +1,15 @@
 ---
 title: "Fish Audios Generation API интеграција"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 Овај документ ће представити упутство за интеграцију Fish Audios Generation API, који може клонирати ваш глас уношењем кључних речи.
 
 ## Процес пријаве
 
-Да бисте користили API, прво морате да одете на страницу [Fish Audios Generation API](https://platform.acedata.cloud/documents/e681b715-54fd-4464-a59a-d7f14500e095) и затражите одговарајућу услугу. Када уђете на страницу, кликните на дугме „Acquire“, као што је приказано на слици:
+Да бисте користили API, прво морате да одете на страницу [Fish Audios Generation API](https://api.xhuoapi.ai/documents/e681b715-54fd-4464-a59a-d7f14500e095) и затражите одговарајућу услугу. Када уђете на страницу, кликните на дугме „Acquire“, као што је приказано на слици:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Ако се још нисте пријавили или регистровали, аутоматски ћете бити преусмерени на страницу за пријаву која вас позива да се региструјете и пријавите. Након пријаве или регистрације, аутоматски ћете се вратити на тренутну страницу.
 
@@ -19,7 +19,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 
 Прво, потребно је да разумете основни начин коришћења, а то је уношење кључне речи `prompt`, акције `action`, ID-а гласа `voice_id` и модела `model`, како бисте добили обрађени резултат. Прво, потребно је да једноставно пренесете поље `action`, чија вредност је `generate`, а затим треба да унесете модел `model`, који тренутно укључује модел `fish-tts`, а конкретни садржај је следећи:
 
-<p><img src="https://cdn.acedata.cloud/0jnfqb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0jnfqb.png" width="500" className="m-auto" /></p>
 
 Можете видети да смо овде подесили Request Headers, укључујући:
 
@@ -36,7 +36,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 
 Након избора, можете приметити да је на десној страни генерисан одговарајући код, као што је приказано на слици:
 
-<p><img src="https://cdn.acedata.cloud/8uyos2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8uyos2.png" width="500" className="m-auto" /></p>
 
 Кликните на дугме „Try“ да бисте тестирали, као што је приказано на горњој слици, и добићете следећи резултат:
 
@@ -64,7 +64,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 Ако желите да генеришете одговарајући код за интеграцију, можете га директно копирати, на пример, CURL код је следећи:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -86,13 +86,13 @@ curl -X POST 'https://api.acedata.cloud/fish/audios' \
 
 Прво, Webhook повратни позив је услуга која може примати HTTP захтеве, а програмери би требало да замените URL своје HTTP серверске инсталације. Овде, ради лакшег демонстрирања, користићемо јавни Webhook пример са веб странице https://webhook.site/, отворите ту страницу и добићете Webhook URL, као што је приказано на слици:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Копирајте овај URL и можете га користити као Webhook, а пример овде је `https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34`.
 
 Након тога, можемо подесити поље `callback_url` на горњи Webhook URL, а затим унети одговарајуће параметре, конкретан садржај је приказан на слици:
 
-<p><img src="https://cdn.acedata.cloud/8rv4te.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8rv4te.png" width="500" className="m-auto" /></p>
 
 Кликните на „Run“, и одмах ћете добити резултат, као што је следеће:
 
@@ -104,7 +104,7 @@ curl -X POST 'https://api.acedata.cloud/fish/audios' \
 
 Након кратког чекања, можете наћи резултат генерисања задатка на `https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34`, као што је приказано на слици:
 
-![](https://cdn.acedata.cloud/9utzve.png)
+![](https://cdn.xhuoapi.ai/9utzve.png)
 
 Садржај је следећи:
 

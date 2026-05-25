@@ -1,21 +1,21 @@
 ---
 title: "Producer 업로드 참조 오디오 API 연동 설명"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 Producer는 우리가 참조 오디오를 업로드하여 2차 창작을 할 수 있도록 허용합니다. 본 문서는 관련 API의 연동 방법을 설명합니다.
 
 이 API는 단 하나의 입력 매개변수인 `audio_url`을 가지고 있으며, 이는 공개적으로 접근 가능한 CDN 주소로 mp3 확장자를 지원합니다.
 
-여기서 입력하는 `audio_url`은 `https://cdn.acedata.cloud/suno_demo.mp3`로, 공개적으로 접근 가능한 CDN 주소입니다.
+여기서 입력하는 `audio_url`은 `https://cdn.xhuoapi.ai/suno_demo.mp3`로, 공개적으로 접근 가능한 CDN 주소입니다.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/upload' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/upload' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "audio_url": "https://cdn.acedata.cloud/suno_demo.mp3"
+  "audio_url": "https://cdn.xhuoapi.ai/suno_demo.mp3"
 }'
 ```
 
@@ -35,4 +35,4 @@ curl -X POST 'https://api.acedata.cloud/producer/upload' \
 
 `data`의 `audio_id` 필드는 업로드 후의 곡 ID입니다.
 
-곡 ID를 얻은 후, 우리는 [Producer Audios Generation API](https://platform.acedata.cloud/documents/producer-audios-integration)를 사용하여 사용자 정의 곡 생성을 할 수 있습니다. 예를 들어, `action`에 `upload_extend`를 전달하고, `audio_id`에 반환된 곡 ID를 전달하면 참조 오디오에 따라 새로운 곡을 생성할 수 있습니다.
+곡 ID를 얻은 후, 우리는 [Producer Audios Generation API](https://api.xhuoapi.ai/documents/producer-audios-integration)를 사용하여 사용자 정의 곡 생성을 할 수 있습니다. 예를 들어, `action`에 `upload_extend`를 전달하고, `audio_id`에 반환된 곡 ID를 전달하면 참조 오디오에 따라 새로운 곡을 생성할 수 있습니다.

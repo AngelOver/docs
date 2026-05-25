@@ -1,15 +1,15 @@
 ---
 title: "Digital English Captcha Recognition API Integration Instructions"
-description: "Recognition of English numerical verification codes 集成指南 - Ace Data Cloud"
+description: "Recognition of English numerical verification codes 集成指南 - XHuoAPI"
 ---
 
 This document will introduce a Digital English Captcha Recognition API integration guide, which is based on deep learning technology and can be used to recognize variable-length English numeric captchas. Input the content of the captcha image and output the captcha result.
 
 ## Application Process
 
-To use the API, you need to first apply for the corresponding service on the [Digital English Captcha Recognition API](https://platform.acedata.cloud/documents/cd1f56dc-e9c9-4293-9c68-80fa560c9087) page. After entering the page, click the "Acquire" button, as shown in the image:
+To use the API, you need to first apply for the corresponding service on the [Digital English Captcha Recognition API](https://api.xhuoapi.ai/documents/cd1f56dc-e9c9-4293-9c68-80fa560c9087) page. After entering the page, click the "Acquire" button, as shown in the image:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will automatically return to the current page.
 
@@ -19,19 +19,19 @@ Upon your first application, there will be a free quota available for you to use
 
 First, understand the basic usage method, which is to input the variable-length English numeric captcha image that needs to be processed to obtain the processed result. You need to simply pass a `image` field, which is the specific English numeric captcha image, as shown in the image:
 
-<p><img src="https://cdn.acedata.cloud/c50hi9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/c50hi9.png" width="500" className="m-auto" /></p>
 
 Then, we need to convert the captcha image to a Base64 encoded captcha image. It is recommended to use the Google Chrome extension FeHelper for the conversion. The specific usage method can be referenced in the following images:
 
-<p><img src="https://cdn.acedata.cloud/zy2jwh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zy2jwh.png" width="500" className="m-auto" /></p>
 
-<p><img src="https://cdn.acedata.cloud/pr73gn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pr73gn.png" width="500" className="m-auto" /></p>
 
-<p><img src="https://cdn.acedata.cloud/ic4dbw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ic4dbw.png" width="500" className="m-auto" /></p>
 
 After that, you can copy the Base64 encoding obtained from the Google Chrome extension FeHelper, remembering that it does not include the prefix data:image/png;base64. The specific content is as follows:
 
-<p><img src="https://cdn.acedata.cloud/5h4x4w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5h4x4w.png" width="500" className="m-auto" /></p>
 
 Here we can see that we have set the Request Headers, including:
 
@@ -44,7 +44,7 @@ Additionally, we set the Request Body, including:
 
 After selection, you can find that the corresponding code is also generated on the right side, as shown in the image:
 
-<p><img src="https://cdn.acedata.cloud/202y3d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/202y3d.png" width="500" className="m-auto" /></p>
 
 Click the "Try" button to test, as shown in the image above, and we obtained the following result:
 
@@ -63,7 +63,7 @@ We can see that we have obtained the verification result for processing the vari
 Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/captcha/recognition/image2text' \
+curl -X POST 'https://api.xhuoapi.ai/v1/captcha/recognition/image2text' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -77,7 +77,7 @@ The Python integration code is as follows:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/captcha/recognition/image2text"
+url = "https://api.xhuoapi.ai/v1/captcha/recognition/image2text"
 
 headers = {
     "accept": "application/json",

@@ -1,15 +1,15 @@
 ---
 title: "واجهة برمجة تطبيقات توليد صور Flux - تعليمات الدمج"
-description: "Flux Image Generation 集成指南 - Ace Data Cloud"
+description: "Flux Image Generation 集成指南 - XHuoAPI"
 ---
 
 ستتناول هذه المقالة تعليمات دمج واجهة برمجة تطبيقات توليد صور Flux، والتي يمكن من خلالها إدخال معلمات مخصصة لتوليد صور رسمية من Flux.
 
 ## عملية التقديم
 
-لاستخدام واجهة برمجة التطبيقات، يجب أولاً زيارة صفحة [واجهة برمجة تطبيقات توليد صور Flux](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) للتقدم للحصول على الخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
+لاستخدام واجهة برمجة التطبيقات، يجب أولاً زيارة صفحة [واجهة برمجة تطبيقات توليد صور Flux](https://api.xhuoapi.ai/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) للتقدم للحصول على الخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول والتسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
@@ -19,7 +19,7 @@ description: "Flux Image Generation 集成指南 - Ace Data Cloud"
 
 أولاً، يجب أن نفهم طريقة الاستخدام الأساسية، وهي إدخال كلمة التلميح `prompt`، وسلوك التوليد `action`، وحجم الصورة `size`، للحصول على النتيجة المعالجة، أولاً نحتاج إلى تمرير حقل `action`، وقيمته هي `generate`، ثم نحتاج أيضًا إلى إدخال كلمة التلميح، المحتوى المحدد كما يلي:
 
-<p><img src="https://cdn.acedata.cloud/wz85jt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wz85jt.png" width="500" className="m-auto" /></p>
 
 يمكننا أن نرى هنا أننا قمنا بتعيين رؤوس الطلب، بما في ذلك:
 
@@ -52,7 +52,7 @@ description: "Flux Image Generation 集成指南 - Ace Data Cloud"
 
 بعد الاختيار، يمكنك أن تلاحظ أن الكود المقابل تم توليده على الجانب الأيمن، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/8q7aux.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8q7aux.png" width="500" className="m-auto" /></p>
 
 انقر على زر "Try" لإجراء الاختبار، كما هو موضح في الصورة أعلاه، هنا حصلنا على النتيجة التالية:
 
@@ -90,7 +90,7 @@ description: "Flux Image Generation 集成指南 - Ace Data Cloud"
 بالإضافة إلى ذلك، إذا كنت ترغب في توليد الكود المقابل للدمج، يمكنك نسخه مباشرة، على سبيل المثال، كود CURL كما يلي:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/flux/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/images' \
 -H 'authorization: Bearer {token}' \
 -H 'accept: application/json' \
 -H 'content-type: application/json' \
@@ -111,18 +111,18 @@ curl -X POST 'https://api.acedata.cloud/flux/images' \
 
 مثال على كيفية التعبئة كما يلي:
 
-<p><img src="https://cdn.acedata.cloud/jn9da5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jn9da5.png" width="500" className="m-auto" /></p>
 
 بعد الانتهاء من التعبئة، تم توليد الكود تلقائيًا كما يلي:
 
-<p><img src="https://cdn.acedata.cloud/6cwxb8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/6cwxb8.png" width="500" className="m-auto" /></p>
 
 الكود المقابل:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/images"
+url = "https://api.xhuoapi.ai/v1/flux/images"
 
 headers = {
     "accept": "application/json",
@@ -134,7 +134,7 @@ payload = {
     "action": "edit",
     "prompt": "a white siamese cat",
     "model": "flux-kontext-pro",
-    "image_url": "https://cdn.acedata.cloud/ytj2qy.png"
+    "image_url": "https://cdn.xhuoapi.ai/ytj2qy.png"
 }
 
 response = requests.post(url, json=payload, headers=headers)
@@ -169,13 +169,13 @@ print(response.text)
 
 首先，Webhook回调是一个可以接收HTTP请求的服务，开发者应该替换为自己搭建的HTTP服务器的URL。此处为了方便演示，使用一个公开的Webhook样例网站https://webhook.site/，打开该网站即可得到一个Webhook URL，如图所示：
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 将此URL复制下来，就可以作为Webhook来使用，此处的样例为`https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`。
 
 接下来，我们可以设置字段`callback_url`为上述Webhook URL，同时填入相应的参数，具体的内容如图所示：
 
-<p><img src="https://cdn.acedata.cloud/wm6caw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wm6caw.png" width="500" className="m-auto" /></p>
 
 点击运行，可以发现会立即得到一个结果，如下：
 
@@ -187,7 +187,7 @@ print(response.text)
 
 稍等片刻，我们可以在`https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`上观察到生成图片的结果，如图所示：
 
-![](https://cdn.acedata.cloud/v23lot.png)
+![](https://cdn.xhuoapi.ai/v23lot.png)
 
 内容如下：
 

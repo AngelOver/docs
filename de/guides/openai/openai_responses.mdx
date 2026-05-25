@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Responses API Antrag und Nutzung"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI hat kürzlich eine Schnittstelle zur Erstellung von Modellantworten bereitgestellt. Sie ermöglicht die Bereitstellung von Text- oder Bild-Eingaben zur Generierung von Text- oder Bild-Ausgaben. Lassen Sie das Modell Ihren eigenen benutzerdefinierten Code aufrufen oder verwenden Sie integrierte Tools wie Websuche oder Dateisuche, um Ihre eigenen Daten als Eingabe für die Modellantwort zu verwenden.
@@ -9,9 +9,9 @@ Dieses Dokument beschreibt hauptsächlich den Ablauf der Nutzung der OpenAI Resp
 
 ## Antragsprozess
 
-Um die OpenAI Responses API zu nutzen, können Sie zunächst auf die Seite [OpenAI Responses API](https://platform.acedata.cloud/documents/81e285a6-d010-4a2d-a3a8-ca113d4ef82a) gehen und auf die Schaltfläche „Acquire“ klicken, um die benötigten Anmeldeinformationen zu erhalten:
+Um die OpenAI Responses API zu nutzen, können Sie zunächst auf die Seite [OpenAI Responses API](https://api.xhuoapi.ai/documents/81e285a6-d010-4a2d-a3a8-ca113d4ef82a) gehen und auf die Schaltfläche „Acquire“ klicken, um die benötigten Anmeldeinformationen zu erhalten:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur Anmeldeseite weitergeleitet, die Sie zur Registrierung und Anmeldung einlädt. Nach der Anmeldung oder Registrierung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
 
@@ -21,7 +21,7 @@ Bei der ersten Antragstellung gibt es ein kostenloses Kontingent, mit dem Sie di
 
 Als Nächstes können Sie im Interface die entsprechenden Inhalte ausfüllen, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/8lu8di.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8lu8di.png" width="400" className="m-auto" /></p>
 
 Bei der ersten Nutzung dieser Schnittstelle müssen wir mindestens drei Inhalte ausfüllen: einer ist `authorization`, den Sie einfach aus der Dropdown-Liste auswählen können. Ein weiterer Parameter ist `model`, `model` ist die Modellkategorie, die wir von der offiziellen OpenAI ChatGPT-Website auswählen. Hier haben wir hauptsächlich 20 Modelle zur Auswahl, die Details können Sie in den von uns bereitgestellten Modellen einsehen. Der letzte Parameter ist `input`, `input` ist unser Array von Fragen, das ein Array darstellt, das mehrere Fragen gleichzeitig hochladen kann. Jede Frage enthält `role` und `content`, wobei `role` die Rolle des Fragestellers angibt. Wir bieten drei Identitäten an: `user`, `assistant`, `system`. Das andere `content` ist der spezifische Inhalt unserer Frage.
 
@@ -36,7 +36,7 @@ Häufig verwendete optionale Parameter:
 - `tools`: Definition von Funktions-/Toolaufrufen.
 - `background`: Ob im Hintergrund asynchron ausgeführt werden soll.
 
-<p><img src="https://cdn.acedata.cloud/rsw47a.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/rsw47a.png" width="400" className="m-auto" /></p>
 
 Nach dem Aufruf stellen wir fest, dass das Rückgabeergebnis wie folgt aussieht:
 
@@ -114,7 +114,7 @@ Das Rückgabeergebnis hat mehrere Felder, die wie folgt beschrieben werden:
 
 Dabei ist `output` die Antwortinformation von ChatGPT, in der das `output` von ChatGPT enthalten ist, wie im Bild zu sehen.
 
-<p><img src="https://cdn.acedata.cloud/mald8o.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mald8o.png" width="400" className="m-auto" /></p>
 
 Wie Sie sehen können, enthält das `content`-Feld im `output` die spezifischen Inhalte der Antwort von ChatGPT.
 
@@ -126,7 +126,7 @@ Wenn Sie eine Streaming-Antwort zurückgeben möchten, können Sie den `stream`-
 
 Die Änderung ist wie im Bild gezeigt, jedoch muss der Aufrufcode entsprechend geändert werden, um Streaming-Antworten zu unterstützen.
 
-<p><img src="https://cdn.acedata.cloud/xidnao.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xidnao.png" width="400" className="m-auto" /></p>
 
 Nachdem Sie `stream` auf `true` geändert haben, gibt die API die entsprechenden JSON-Daten zeilenweise zurück. Auf der Code-Ebene müssen wir entsprechende Änderungen vornehmen, um die zeilenweisen Ergebnisse zu erhalten.
 
@@ -135,7 +135,7 @@ Python-Beispielaufrufcode:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/responses"
+url = "https://api.xhuoapi.ai/v1/openai/responses"
 
 headers = {
     "accept": "application/json",
@@ -223,7 +223,7 @@ const options = {
   }),
 };
 
-fetch("https://api.acedata.cloud/openai/responses", options)
+fetch("https://api.xhuoapi.ai/v1/openai/responses", options)
   .then((response) => response.json())
   .then((response) => console.log(response))
   .catch((err) => console.error(err));
@@ -239,7 +239,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/openai/responses")
+  .url("https://api.xhuoapi.ai/v1/openai/responses")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer b82d32f570bc434d9ba9923aa0e7dce0")
@@ -257,14 +257,14 @@ Andere Sprachen können ebenfalls selbst umgeschrieben werden, das Prinzip ist d
 
 Wenn Sie die Funktion für mehrere Runden im Dialog integrieren möchten, müssen Sie mehrere Fragen im `input`-Feld hochladen. Ein konkretes Beispiel für mehrere Fragen ist im folgenden Bild dargestellt:
 
-<p><img src="https://cdn.acedata.cloud/1jqwnf.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1jqwnf.png" width="400" className="m-auto" /></p>
 
 Python-Beispielaufruf:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/responses"
+url = "https://api.xhuoapi.ai/v1/openai/responses"
 
 headers = {
     "accept": "application/json",
@@ -361,7 +361,7 @@ Die Bildverarbeitungsfähigkeiten des gpt-4o-Modells werden hauptsächlich durch
 - Curl-Skriptmethode
 
 ```
-curl -X POST 'https://api.acedata.cloud/openai/responses' \
+curl -X POST 'https://api.xhuoapi.ai/v1/openai/responses' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -387,7 +387,7 @@ curl -X POST 'https://api.acedata.cloud/openai/responses' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",

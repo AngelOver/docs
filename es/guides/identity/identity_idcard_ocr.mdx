@@ -1,15 +1,15 @@
 ---
 title: "Instrucciones para la integración de la API de reconocimiento de identificación y verificación de información"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Este documento presentará una API de reconocimiento de identificación y verificación de información, que puede verificar la autenticidad y consistencia del nombre y el número de identificación ingresando una imagen de la identificación o el nombre y el número de identificación. Esta interfaz se utiliza para verificar la autenticidad y consistencia del nombre y el número de identificación, y puede proporcionar la información de verificación requerida ingresando el nombre y el número de identificación o enviando una foto del rostro de la identificación.
 
 ## Proceso de solicitud
 
-Para usar la API, primero debe ir a la página correspondiente de la [API de reconocimiento de identificación y verificación de información](https://platform.acedata.cloud/documents/67f96afa-60b8-4cbb-a4bf-0cbfcf139a23) para solicitar el servicio correspondiente. Después de ingresar a la página, haga clic en el botón "Acquire", como se muestra en la imagen:
+Para usar la API, primero debe ir a la página correspondiente de la [API de reconocimiento de identificación y verificación de información](https://api.xhuoapi.ai/documents/67f96afa-60b8-4cbb-a4bf-0cbfcf139a23) para solicitar el servicio correspondiente. Después de ingresar a la página, haga clic en el botón "Acquire", como se muestra en la imagen:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Si aún no ha iniciado sesión o registrado, será redirigido automáticamente a la página de inicio de sesión que lo invita a registrarse e iniciar sesión. Después de registrarse e iniciar sesión, será redirigido automáticamente a la página actual.
 
@@ -19,7 +19,7 @@ En la primera solicitud, se le otorgará un límite gratuito que le permitirá u
 
 Primero, comprenda la forma básica de uso, que consiste en ingresar el enlace de la imagen de la identificación para obtener el resultado de verificación procesado. Primero, necesita pasar un campo `image_url`, y luego podemos completar el contenido correspondiente en la interfaz, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/qxy9rh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qxy9rh.png" width="500" className="m-auto" /></p>
 
 Aquí podemos ver que hemos configurado los encabezados de la solicitud, que incluyen:
 
@@ -33,7 +33,7 @@ Además, se ha configurado el cuerpo de la solicitud, que incluye:
 
 Después de seleccionar, también se generará el código correspondiente a la derecha, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/uw90il.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/uw90il.png" width="500" className="m-auto" /></p>
 
 Haga clic en el botón "Try" para realizar la prueba, como se muestra en la imagen anterior, y obtendremos el siguiente resultado:
 
@@ -76,7 +76,7 @@ Se puede ver que la información del nombre y el número de identificación en l
 Además, si desea generar el código de integración correspondiente, puede copiarlo directamente, por ejemplo, el código de CURL es el siguiente:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/idcard/ocr' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/idcard/ocr' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -90,7 +90,7 @@ El código de integración en Python es el siguiente:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/idcard/ocr"
+url = "https://api.xhuoapi.ai/v1/identity/idcard/ocr"
 
 headers = {
     "accept": "application/json",
@@ -110,7 +110,7 @@ print(response.text)
 
 También ofrecemos una forma de verificación que no revela la información de la imagen de la identificación, que solo requiere ingresar el nombre `name` y el número de identificación `id_card` para verificar la autenticidad y consistencia del nombre y el número de identificación. A continuación se muestran los detalles de la información ingresada:
 
-<p><img src="https://cdn.acedata.cloud/mc5bbw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mc5bbw.png" width="500" className="m-auto" /></p>
 
 Después de hacer clic en ejecutar, se obtiene el siguiente resultado:
 

@@ -1,6 +1,6 @@
 ---
 title: "AI Услуга по созданию удостоверений Task API: интеграция и использование"
-description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
+description: "AI ID Photo Production 集成指南 - XHuoAPI"
 ---
 
 Основная функция AI Услуги по созданию удостоверений Task API заключается в том, чтобы по введенному ID задачи, сгенерированному API по созданию удостоверений, проверить статус выполнения этой задачи.
@@ -9,27 +9,27 @@ description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
 
 ## Процесс подачи заявки
 
-Чтобы использовать AI Услугу по созданию удостоверений Task API, сначала необходимо перейти на страницу заявки [API по созданию удостоверений](https://platform.acedata.cloud/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) и подать заявку на соответствующую услугу, затем скопировать ID задачи API по созданию удостоверений, как показано на рисунке:
+Чтобы использовать AI Услугу по созданию удостоверений Task API, сначала необходимо перейти на страницу заявки [API по созданию удостоверений](https://api.xhuoapi.ai/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) и подать заявку на соответствующую услугу, затем скопировать ID задачи API по созданию удостоверений, как показано на рисунке:
 
-<p><img src="https://cdn.acedata.cloud/7ezmmn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7ezmmn.png" width="500" className="m-auto" /></p>
 
-Затем перейдите на страницу Tasks API [AI Услуга по созданию удостоверений Task API](https://platform.acedata.cloud/documents/3a23ee34-8689-406b-9042-7954224348ad) и подайте заявку на соответствующую услугу, после перехода на страницу нажмите кнопку «Acquire», как показано на рисунке:
+Затем перейдите на страницу Tasks API [AI Услуга по созданию удостоверений Task API](https://api.xhuoapi.ai/documents/3a23ee34-8689-406b-9042-7954224348ad) и подайте заявку на соответствующую услугу, после перехода на страницу нажмите кнопку «Acquire», как показано на рисунке:
 
-![Страница заявки](https://cdn.acedata.cloud/rci31i.png)
+![Страница заявки](https://cdn.xhuoapi.ai/rci31i.png)
 
-Если вы еще не вошли в систему или не зарегистрированы, вы будете автоматически перенаправлены на [страницу входа](https://platform.acedata.cloud), где вам будет предложено зарегистрироваться и войти в систему. После регистрации и входа вы будете автоматически возвращены на текущую страницу.
+Если вы еще не вошли в систему или не зарегистрированы, вы будете автоматически перенаправлены на [страницу входа](https://api.xhuoapi.ai), где вам будет предложено зарегистрироваться и войти в систему. После регистрации и входа вы будете автоматически возвращены на текущую страницу.
 
 При первой подаче заявки вам будет предоставлен бесплатный лимит, который можно использовать для бесплатного доступа к этому API.
 
 ## Пример запроса
 
-AI Услуга по созданию удостоверений Task API может использоваться для проверки результатов API по созданию удостоверений. Для получения информации о том, как использовать API по созданию удостоверений, пожалуйста, обратитесь к документу [API по созданию удостоверений](https://platform.acedata.cloud/documents/d6ea75a4-836e-490a-aee5-7ca911a808fd).
+AI Услуга по созданию удостоверений Task API может использоваться для проверки результатов API по созданию удостоверений. Для получения информации о том, как использовать API по созданию удостоверений, пожалуйста, обратитесь к документу [API по созданию удостоверений](https://api.xhuoapi.ai/documents/d6ea75a4-836e-490a-aee5-7ca911a808fd).
 
 Мы возьмем в качестве примера ID задачи, возвращаемый службой API по созданию удостоверений, и продемонстрируем, как использовать этот API. Предположим, у нас есть ID задачи: `16f96e95-d95c-46ef-b183-139b9bd1aebd`, далее мы покажем, как передать этот ID задачи.
 
 ### Пример задачи
 
-<p><img src="https://cdn.acedata.cloud/7ezmmn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7ezmmn.png" width="500" className="m-auto" /></p>
 
 ### Установка заголовков запроса и тела запроса
 
@@ -45,20 +45,20 @@ AI Услуга по созданию удостоверений Task API мож
 
 Настройка, как показано на рисунке:
 
-<p><img src="https://cdn.acedata.cloud/ezsyyd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ezsyyd.png" width="500" className="m-auto" /></p>
 
 ### Пример кода
 
 Можно заметить, что на правой стороне страницы автоматически сгенерирован код на различных языках, как показано на рисунке:
 
-<p><img src="https://cdn.acedata.cloud/x99wu2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/x99wu2.png" width="500" className="m-auto" /></p>
 
 Некоторые примеры кода:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/headshots/tasks"
+url = "https://api.xhuoapi.ai/v1/headshots/tasks"
 
 headers = {
     "accept": "application/json",
@@ -118,12 +118,12 @@ print(response.text)
     "data": [
       {
         "id": "202411032022077381",
-        "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
         "template": "男形象照"
       },
       {
         "id": "202411032022079194",
-        "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
         "template": "男形象照"
       }
     ]
@@ -148,13 +148,13 @@ print(response.text)
 
 Настройка, как показано на рисунке:
 
-<p><img src="https://cdn.acedata.cloud/8vynq9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8vynq9.png" width="500" className="m-auto" /></p>
 
 ### Пример кода
 
 Можно заметить, что на правой стороне страницы автоматически сгенерирован код на различных языках, как показано на рисунке:
 
-<p><img src="https://cdn.acedata.cloud/5jexyn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5jexyn.png" width="500" className="m-auto" /></p>
 
 Некоторые примеры кода:
 
@@ -187,12 +187,12 @@ print(response.text)
         "data": [
           {
             "id": "202411032022077381",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
             "template": "男形象照"
           },
           {
             "id": "202411032022079194",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
             "template": "男形象照"
           }
         ]
@@ -229,7 +229,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -244,7 +244,7 @@ curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/headshots/tasks"
+url = "https://api.xhuoapi.ai/v1/headshots/tasks"
 
 headers = {
     "accept": "application/json",

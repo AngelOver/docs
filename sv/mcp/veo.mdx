@@ -3,7 +3,7 @@ title: "Veo MCP Integrationsguide"
 description: "veo MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) är ett modellkontextprotokoll lanserat av Anthropic som tillåter AI-modeller (som Claude, GPT med flera) att anropa externa verktyg via ett standardiserat gränssnitt. Genom Veo MCP Server som tillhandahålls av AceData Cloud kan du direkt använda Google Veo för att generera AI-videor i AI-klienter som Claude Desktop, VS Code, Cursor med flera.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) är ett modellkontextprotokoll lanserat av Anthropic som tillåter AI-modeller (som Claude, GPT med flera) att anropa externa verktyg via ett standardiserat gränssnitt. Genom Veo MCP Server som tillhandahålls av XHuoAPI kan du direkt använda Google Veo för att generera AI-videor i AI-klienter som Claude Desktop, VS Code, Cursor med flera.
 
 ## Funktionsöversikt
 
@@ -19,10 +19,10 @@ Veo MCP Server erbjuder följande kärnfunktioner:
 
 ## Förberedelser
 
-Innan användning behöver du skaffa en AceData Cloud API Token:
+Innan användning behöver du skaffa en XHuoAPI API Token:
 
-1. Registrera dig eller logga in på [AceData Cloud-plattformen](https://platform.acedata.cloud)
-2. Gå till sidan för [Veo Videos API](https://platform.acedata.cloud/documents/veo-videos)
+1. Registrera dig eller logga in på [XHuoAPI-plattformen](https://api.xhuoapi.ai)
+2. Gå till sidan för [Veo Videos API](https://api.xhuoapi.ai/documents/veo-videos)
 3. Klicka på „Acquire“ för att erhålla en API Token (första gången får du en gratis kvot)
 
 ## Installation och konfiguration
@@ -36,7 +36,7 @@ pip install mcp-veo
 ### Metod 2: Installation från källkod
 
 ```bash
-git clone https://github.com/AceDataCloud/VeoMCP.git
+git clone https://github.com/XHuoAPI/VeoMCP.git
 cd VeoMCP
 pip install -e .
 ```
@@ -58,7 +58,7 @@ Lägg till följande konfiguration:
     "veo": {
       "command": "mcp-veo",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "din API Token"
+        "XHuoAPI_API_TOKEN": "din API Token"
       }
     }
   }
@@ -74,7 +74,7 @@ Om du använder `uvx` (ingen förhandsinstallation av paket krävs):
       "command": "uvx",
       "args": ["mcp-veo"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "din API Token"
+        "XHuoAPI_API_TOKEN": "din API Token"
       }
     }
   }
@@ -93,7 +93,7 @@ Skapa `.vscode/mcp.json` i projektets rotmapp:
     "veo": {
       "command": "mcp-veo",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "din API Token"
+        "XHuoAPI_API_TOKEN": "din API Token"
       }
     }
   }
@@ -109,7 +109,7 @@ Eller använd `uvx`:
       "command": "uvx",
       "args": ["mcp-veo"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "din API Token"
+        "XHuoAPI_API_TOKEN": "din API Token"
       }
     }
   }
@@ -137,6 +137,6 @@ När konfigurationen är klar kan du direkt i AI-klienten använda naturligt spr
 
 ## Mer information
 
-- GitHub-repo: [AceDataCloud/VeoMCP](https://github.com/AceDataCloud/VeoMCP)
+- GitHub-repo: [XHuoAPI/VeoMCP](https://github.com/XHuoAPI/VeoMCP)
 - PyPI-paket: [mcp-veo](https://pypi.org/project/mcp-veo/)
-- API-dokumentation: [Veo Video Generation API](https://platform.acedata.cloud/documents/veo)
+- API-dokumentation: [Veo Video Generation API](https://api.xhuoapi.ai/documents/veo)

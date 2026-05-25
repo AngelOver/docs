@@ -1,9 +1,9 @@
 ---
 title: "WebExtrator 网页渲染 API 集成指南"
-description: "WebExtrator Web Render & Extract 集成指南 - Ace Data Cloud"
+description: "WebExtrator Web Render & Extract 集成指南 - XHuoAPI"
 ---
 
-`POST https://api.acedata.cloud/webextrator/render`
+`POST https://api.xhuoapi.ai/v1/webextrator/render`
 
 WebExtrator 网页渲染 API 是一个基于无头 Chromium 的网页渲染服务。给一个 URL，
 返回完全渲染后的 HTML（包括 JS 注入的内容）、纯文本、页面标题和最终 URL。
@@ -16,7 +16,7 @@ Render 是 WebExtrator 最底层的接口。如果你需要**结构化的**抽�
 ## 申请流程
 
 要使用 WebExtrator API，需要先到
-[WebExtrator 服务页](https://platform.acedata.cloud/service/webextrator)
+[WebExtrator 服务页](https://api.xhuoapi.ai/service/webextrator)
 申请对应服务，点击「Acquire」按钮获取调用所需的凭证。首次申请会有免费额度赠送。
 
 ## 鉴权
@@ -149,7 +149,7 @@ Content-Type:  application/json
 ### cURL
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/render \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/render \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -164,10 +164,10 @@ curl -X POST https://api.acedata.cloud/webextrator/render \
 ```python
 import os, requests
 
-API_KEY = os.environ["ACEDATA_API_KEY"]
+API_KEY = os.environ["XHuoAPI_API_KEY"]
 
 resp = requests.post(
-    "https://api.acedata.cloud/webextrator/render",
+    "https://api.xhuoapi.ai/v1/webextrator/render",
     headers={
         "Authorization": f"Bearer {API_KEY}",
         "Content-Type": "application/json",
@@ -187,9 +187,9 @@ print(data["title"], data["status"], len(data["html"]))
 ### Node.js (fetch)
 
 ```js
-const apiKey = process.env.ACEDATA_API_KEY;
+const apiKey = process.env.XHuoAPI_API_KEY;
 
-const res = await fetch('https://api.acedata.cloud/webextrator/render', {
+const res = await fetch('https://api.xhuoapi.ai/v1/webextrator/render', {
   method: 'POST',
   headers: {
     Authorization: `Bearer ${apiKey}`,
@@ -208,7 +208,7 @@ console.log(data.title, data.status, data.html.length);
 ### 异步 + 回调
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/render \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/render \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -224,7 +224,7 @@ curl -X POST https://api.acedata.cloud/webextrator/render \
 ### 强制绕过缓存
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/render \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/render \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

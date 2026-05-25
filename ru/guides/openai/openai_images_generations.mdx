@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Images Generations API: заявка и использование"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI Images Generations API в настоящее время поддерживает несколько моделей генерации изображений, включая классическую `dall-e-3`, модель с улучшенными возможностями рендеринга текста `gpt-image-1`, новейшее поколение **`gpt-image-2`**, а также серию моделей **`nano-banana` / `nano-banana-2` / `nano-banana-pro`**, подключенных через тот же интерфейс. Все они способны создавать высококачественные изображения на основе текстовых описаний.
@@ -9,9 +9,9 @@ OpenAI Images Generations API в настоящее время поддержи�
 
 ## Процесс подачи заявки
 
-Для использования OpenAI Images Generations API сначала перейдите на страницу [OpenAI Images Generations API](https://platform.acedata.cloud/documents/fd932485-90c7-45d6-8394-1e14b6f07b2b) и нажмите кнопку «Acquire», чтобы получить необходимые для запросов креденшелы:
+Для использования OpenAI Images Generations API сначала перейдите на страницу [OpenAI Images Generations API](https://api.xhuoapi.ai/documents/fd932485-90c7-45d6-8394-1e14b6f07b2b) и нажмите кнопку «Acquire», чтобы получить необходимые для запросов креденшелы:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Если вы не вошли в систему или не зарегистрированы, произойдет автоматический переход на страницу входа, где вы сможете зарегистрироваться и войти. После входа вы автоматически вернетесь на текущую страницу.
 
@@ -26,7 +26,7 @@ OpenAI Images Generations API в настоящее время поддержи�
 - **Более богатое стилевое исполнение**: нативная поддержка различных стилей, включая кинематографичные портреты, винтажные постеры, детские иллюстрации, продуктовую фотографию, инфографику.
 - **Поддержка нескольких соотношений и высоких разрешений**: 5 соотношений сторон (1:1, 4:3, 3:4, 16:9, 9:16) и 3 уровня разрешения (1K / 2K / 4K).
 
-Вызов API идентичен другим моделям, достаточно указать поле `model` со значением `gpt-image-2`. В ответе поле `url` содержит постоянную ссылку на изображение, размещённое на `platform.cdn.acedata.cloud`, которую можно открыть в браузере или встроить на веб-страницу.
+Вызов API идентичен другим моделям, достаточно указать поле `model` со значением `gpt-image-2`. В ответе поле `url` содержит постоянную ссылку на изображение, размещённое на `platform.cdn.xhuoapi.ai`, которую можно открыть в браузере или встроить на веб-страницу.
 
 ### Поддерживаемые значения `size` и уровни тарификации
 
@@ -66,7 +66,7 @@ OpenAI Images Generations API в настоящее время поддержи�
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -94,7 +94,7 @@ print(response.text)
   "data": [
     {
       "revised_prompt": "A cinematic portrait of a young woman standing in a convenience store at night, illuminated by soft pink and cyan neon signs through the window. Shot on 35mm film, shallow depth of field, slight grain, melancholic mood.",
-      "url": "https://platform.cdn.acedata.cloud/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png"
+      "url": "https://platform.cdn.xhuoapi.ai/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png"
     }
   ]
 }
@@ -102,7 +102,7 @@ print(response.text)
 
 Сгенерированное изображение:
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png" width="500" className="m-auto" /></p>
 
 ### Сценарий 2: Винтажный туристический постер (с рендерингом текста)
 
@@ -118,7 +118,7 @@ payload = {
 
 Изображение по ссылке из поля `url`:
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/c6061f92-3fae-498e-af8e-688e7f415ba3_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/c6061f92-3fae-498e-af8e-688e7f415ba3_0.png" width="500" className="m-auto" /></p>
 
 Модель точно воспроизвела визуальный стиль Art Deco, заголовки `AMALFI` и `ITALIA 1958` четко и корректно отрисованы.
 
@@ -136,7 +136,7 @@ payload = {
 
 Сгенерированное изображение:
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/64a3b932-a082-4cad-9f85-9d30474b104d_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/64a3b932-a082-4cad-9f85-9d30474b104d_0.png" width="500" className="m-auto" /></p>
 
 Количество книг на трёх полках (1 / 3 / 7) полностью соответствует подсказке — это сложно стабильно получить в эпоху `dall-e-3`.
 
@@ -154,7 +154,7 @@ payload = {
 
 Сгенерированное горизонтальное изображение:
 
-![](https://platform.cdn.acedata.cloud/gpt-image/6cd57e69-d237-4cc1-a666-759a93964a08_0.png)
+![](https://platform.cdn.xhuoapi.ai/gpt-image/6cd57e69-d237-4cc1-a666-759a93964a08_0.png)
 
 ### Асинхронность и обратные вызовы
 
@@ -186,7 +186,7 @@ payload = {
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -211,7 +211,7 @@ print(response.text)
   "created": 0,
   "data": [
     {
-      "url": "https://platform.cdn.acedata.cloud/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png",
+      "url": "https://platform.cdn.xhuoapi.ai/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png",
       "revised_prompt": "a small red apple on a white table, photoreal"
     }
   ]
@@ -220,7 +220,7 @@ print(response.text)
 
 Сгенерированное изображение доступно по ссылке из поля `url`:
 
-<p><img src="https://platform.cdn.acedata.cloud/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png" width="500" className="m-auto" /></p>
 
 ### Обновление до флагманской модели `nano-banana-pro`
 
@@ -241,14 +241,14 @@ payload = {
   "created": 0,
   "data": [
     {
-      "url": "https://platform.cdn.acedata.cloud/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png",
+      "url": "https://platform.cdn.xhuoapi.ai/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png",
       "revised_prompt": "abstract painting"
     }
   ]
 }
 ```
 
-<p><img src="https://platform.cdn.acedata.cloud/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png" width="500" className="m-auto" /></p>
 
 ### Асинхронный обратный вызов
 
@@ -258,20 +258,20 @@ payload = {
 
 Далее можно заполнить соответствующие поля в интерфейсе, как показано на скриншоте:
 
-<p><img src="https://cdn.acedata.cloud/zv58ug.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zv58ug.png" width="500" className="m-auto" /></p>
 
 При первом использовании API необходимо заполнить минимум три поля: `authorization` — выбирается из выпадающего списка, `model` — выбирается модель OpenAI DALL-E, подробности о моделях приведены выше, и `prompt` — текст подсказки для генерации изображения.
 
 Справа отображается сгенерированный код вызова, который можно скопировать и запустить, либо нажать кнопку «Try» для теста.
 
-<p><img src="https://cdn.acedata.cloud/pbss4f.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pbss4f.png" width="500" className="m-auto" /></p>
 
 Пример вызова на Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -309,7 +309,7 @@ print(response.text)
 
 В `data` находится конкретная информация о сгенерированном изображении, поле `url` содержит ссылку на изображение.
 
-<p><img src="https://cdn.acedata.cloud/dz7u0x.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dz7u0x.png" width="500" className="m-auto" /></p>
 
 ## Параметр качества изображения `quality`
 
@@ -317,18 +317,18 @@ print(response.text)
 
 Пример установки параметра качества в `standard`:
 
-<p><img src="https://cdn.acedata.cloud/1q303w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1q303w.png" width="500" className="m-auto" /></p>
 
 Справа отображается сгенерированный код вызова, который можно скопировать или протестировать кнопкой «Try».
 
-<p><img src="https://cdn.acedata.cloud/c0ps6i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/c0ps6i.png" width="500" className="m-auto" /></p>
 
 Пример вызова на Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -362,11 +362,11 @@ print(response.text)
 
 Изображение с параметром качества `standard`:
 
-<p><img src="https://cdn.acedata.cloud/j5v15b.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/j5v15b.png" width="500" className="m-auto" /></p>
 
 Аналогично, установив `quality` в `hd`, получаем изображение с более детализированными и согласованными деталями:
 
-<p><img src="https://cdn.acedata.cloud/vjpbqr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vjpbqr.png" width="500" className="m-auto" /></p>
 
 ## Параметр размера изображения `size`
 
@@ -374,18 +374,18 @@ print(response.text)
 
 Пример установки размера `1024x1024`:
 
-<p><img src="https://cdn.acedata.cloud/dx5rwh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dx5rwh.png" width="500" className="m-auto" /></p>
 
 Справа отображается сгенерированный код вызова, который можно скопировать или протестировать кнопкой «Try».
 
-<p><img src="https://cdn.acedata.cloud/0sbybl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0sbybl.png" width="500" className="m-auto" /></p>
 
 Пример вызова на Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -419,11 +419,11 @@ print(response.text)
 
 Изображение с размером `1024x1024`:
 
-<p><img src="https://cdn.acedata.cloud/o4pvvx.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/o4pvvx.png" width="500" className="m-auto" /></p>
 
 Аналогично, размер `1792x1024` даёт изображение с другим соотношением:
 
-![](https://cdn.acedata.cloud/4pilae.png)
+![](https://cdn.xhuoapi.ai/4pilae.png)
 
 Можно задавать и другие размеры, подробности см. в документации на сайте.
 
@@ -433,18 +433,18 @@ print(response.text)
 
 Пример установки `style` в `vivid`:
 
-<p><img src="https://cdn.acedata.cloud/609l9i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/609l9i.png" width="500" className="m-auto" /></p>
 
 Справа отображается сгенерированный код вызова, который можно скопировать или протестировать кнопкой «Try».
 
-<p><img src="https://cdn.acedata.cloud/ee3u9o.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ee3u9o.png" width="500" className="m-auto" /></p>
 
 Пример вызова на Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -478,11 +478,11 @@ print(response.text)
 
 Изображение с параметром стиля `vivid`:
 
-<p><img src="https://cdn.acedata.cloud/e0rpc3.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/e0rpc3.png" width="500" className="m-auto" /></p>
 
 Аналогично, параметр `natural` даёт более естественное изображение:
 
-<p><img src="https://cdn.acedata.cloud/q9tqwu.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q9tqwu.png" width="500" className="m-auto" /></p>
 
 `vivid` даёт более живую и насыщенную картинку по сравнению с `natural`.
 
@@ -492,18 +492,18 @@ print(response.text)
 
 Пример установки `response_format` в `url`:
 
-<p><img src="https://cdn.acedata.cloud/2zbgrg.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2zbgrg.png" width="500" className="m-auto" /></p>
 
 Справа отображается сгенерированный код вызова, который можно скопировать или протестировать кнопкой «Try».
 
-<p><img src="https://cdn.acedata.cloud/a9exmp.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a9exmp.png" width="500" className="m-auto" /></p>
 
 Пример вызова на Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -537,7 +537,7 @@ print(response.text)
 
 Ссылка из поля `url` доступна для прямого просмотра: [ссылка на изображение](https://dalleprodsec.blob.core.windows.net/private/images/87792c5f-8b6d-412e-81dd-f1a1baa19bd2/generated_00.png?se=2024-07-23T08%3A39%3A47Z&sig=zzRAn30TqIKHdLVqZPUUuSJdjCYpoJdaGU6BeoA76Jo%3D&ske=2024-07-23T13%3A32%3A13Z&skoid=e52d5ed7-0657-4f62-bc12-7e5dbb260a96&sks=b&skt=2024-07-16T13%3A32%3A13Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02)
 
-<p><img src="https://cdn.acedata.cloud/33hs4z.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/33hs4z.png" width="500" className="m-auto" /></p>
 
 Аналогично, при установке `response_format` в `b64_json` возвращается Base64-кодированное изображение:
 
@@ -563,7 +563,7 @@ print(response.text)
 
 Webhook — это HTTP-сервис, принимающий запросы. Для демонстрации можно использовать публичный сервис https://webhook.site/, где после открытия сайта вы получите уникальный URL Webhook, например:
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 Скопируйте URL, например `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`.
 
@@ -572,7 +572,7 @@ Webhook — это HTTP-сервис, принимающий запросы. Д�
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",

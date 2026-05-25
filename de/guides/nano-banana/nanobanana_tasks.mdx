@@ -1,6 +1,6 @@
 ---
 title: "Nano Banana Tasks API Integration und Nutzung"
-description: "Nano Banana Image Generation 集成指南 - Ace Data Cloud"
+description: "Nano Banana Image Generation 集成指南 - XHuoAPI"
 ---
 
 Die Hauptfunktion der Nano Banana Tasks API besteht darin, den Status der Ausführung eines Tasks abzufragen, indem die Task-ID eingegeben wird, die von der Nano Banana Images API generiert wurde.
@@ -9,13 +9,13 @@ Dieses Dokument wird die Integrationsanleitung für die Nano Banana Tasks API de
 
 ## Anfragebeispiel
 
-Die Nano Banana Tasks API kann verwendet werden, um die Ergebnisse der Nano Banana Images API abzufragen. Informationen zur Nutzung der Nano Banana Images API finden Sie in der Dokumentation [Nano Banana Images API](https://platform.acedata.cloud/documents/63e01dc3-eb21-499e-8049-3025c460058f).
+Die Nano Banana Tasks API kann verwendet werden, um die Ergebnisse der Nano Banana Images API abzufragen. Informationen zur Nutzung der Nano Banana Images API finden Sie in der Dokumentation [Nano Banana Images API](https://api.xhuoapi.ai/documents/63e01dc3-eb21-499e-8049-3025c460058f).
 
 Wir nehmen als Beispiel eine von der Nano Banana Images API zurückgegebene Task-ID und demonstrieren, wie man diese API verwendet. Angenommen, wir haben eine Task-ID: 4d320ead-4af4-4a55-8f3e-f2afebdf4fd0, im Folgenden zeigen wir, wie man durch Eingabe einer Task-ID vorgeht.
 
 ### Task-Beispielbild
 
-<p><img src="https://cdn.acedata.cloud/nuiuth.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nuiuth.png" width="500" className="m-auto" /></p>
 
 ### Anfrageheader und Anfragekörper festlegen
 
@@ -31,20 +31,20 @@ Wir nehmen als Beispiel eine von der Nano Banana Images API zurückgegebene Task
 
 Einstellung wie im folgenden Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/nuiuth.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nuiuth.png" width="500" className="m-auto" /></p>
 
 ### Codebeispiel
 
 Es ist zu erkennen, dass auf der rechten Seite der Seite bereits automatisch Code in verschiedenen Sprachen generiert wurde, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/r1u4vl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/r1u4vl.png" width="500" className="m-auto" /></p>
 
 Einige Codebeispiele sind wie folgt:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -59,7 +59,7 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/nano-banana/tasks"
+url = "https://api.xhuoapi.ai/v1/nano-banana/tasks"
 
 headers = {
     "accept": "application/json",
@@ -102,7 +102,7 @@ Nach erfolgreicher Anfrage gibt die API die Details zu dieser Task zurück. Zum 
     "data": [
       {
         "prompt": "eine weiße Siamkatze",
-        "image_url": "https://platform.cdn.acedata.cloud/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
+        "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
       }
     ]
   }
@@ -127,7 +127,7 @@ Dies ist eine Abfrage der Taskdetails für mehrere Task-IDs. Im Gegensatz zu obe
 Beispiel wie folgt:
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -165,7 +165,7 @@ Nach erfolgreicher Anfrage gibt die API die spezifischen Details aller Batch-Tas
         "data": [
           {
             "prompt": "eine weiße Siamkatze",
-            "image_url": "https://platform.cdn.acedata.cloud/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
+            "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
           }
         ]
       }

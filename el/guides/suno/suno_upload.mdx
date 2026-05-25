@@ -1,21 +1,21 @@
 ---
 title: "Suno ανέβασμα αναφοράς ήχου API διασύνδεση οδηγίες"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 Το SUNO μας επιτρέπει να ανεβάσουμε αναφορά ήχου για δευτερεύουσα δημιουργία, αυτό το έγγραφο εξηγεί τη μέθοδο διασύνδεσης σχετικών API.
 
 Αυτό το API έχει μόνο μία παράμετρο εισόδου, δηλαδή το `audio_url`, το οποίο είναι μια διεύθυνση CDN που μπορεί να προσπελαστεί δημόσια και υποστηρίζει κατάληξη mp3.
 
-Εδώ η εισαγωγή μας για το `audio_url` είναι το `https://cdn.acedata.cloud/suno_demo.mp3`, που είναι μια διεύθυνση CDN που μπορεί να προσπελαστεί δημόσια.
+Εδώ η εισαγωγή μας για το `audio_url` είναι το `https://cdn.xhuoapi.ai/suno_demo.mp3`, που είναι μια διεύθυνση CDN που μπορεί να προσπελαστεί δημόσια.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/upload' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/upload' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "audio_url": "https://cdn.acedata.cloud/suno_demo.mp3"
+  "audio_url": "https://cdn.xhuoapi.ai/suno_demo.mp3"
 }'
 ```
 
@@ -40,4 +40,4 @@ curl -X POST 'https://api.acedata.cloud/suno/upload' \
 
 Μπορούμε να δούμε ότι το πεδίο `audio_id` του `data` είναι το ID του τραγουδιού μετά την ανέβασή του.
 
-Με το ID του τραγουδιού, μπορούμε να χρησιμοποιήσουμε το [Suno Audios Generation API](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) για να δημιουργήσουμε προσαρμοσμένα τραγούδια, για παράδειγμα, αν περάσουμε το `action` ως `upload_extend`, ενώ το `audio_id` ως το επιστρεφόμενο ID του τραγουδιού, μπορούμε να δημιουργήσουμε νέο τραγούδι με βάση την αναφορά ήχου.
+Με το ID του τραγουδιού, μπορούμε να χρησιμοποιήσουμε το [Suno Audios Generation API](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) για να δημιουργήσουμε προσαρμοσμένα τραγούδια, για παράδειγμα, αν περάσουμε το `action` ως `upload_extend`, ενώ το `audio_id` ως το επιστρεφόμενο ID του τραγουδιού, μπορούμε να δημιουργήσουμε νέο τραγούδι με βάση την αναφορά ήχου.

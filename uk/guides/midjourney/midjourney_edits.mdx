@@ -1,15 +1,15 @@
 ---
 title: "Midjourney Edits API інтеграційна інструкція"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 Цей документ представить інтеграційну інструкцію для Midjourney Edits API, яка дозволяє редагувати вхідні зображення за допомогою введення підказок.
 
 ## Процес подачі заявки
 
-Щоб використовувати API, спочатку потрібно перейти на сторінку [Midjourney Edits API](https://platform.acedata.cloud/documents/midjourney-edits) для подачі заявки на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
+Щоб використовувати API, спочатку потрібно перейти на сторінку [Midjourney Edits API](https://api.xhuoapi.ai/documents/midjourney-edits) для подачі заявки на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, запрошуючи вас зареєструватися та увійти. Після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
 
@@ -19,7 +19,7 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 Спочатку потрібно ознайомитися з основним способом використання, а саме: введення підказки `prompt`, дії `action`, посилання на зображення `image_url`, щоб отримати оброблений результат. Спочатку потрібно просто передати поле `action`, значення якого буде `generate`, конкретний зміст виглядає так:
 
-<p><img src="https://cdn.acedata.cloud/m44i6n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/m44i6n.png" width="500" className="m-auto" /></p>
 
 Ми можемо бачити, що тут ми налаштували заголовки запиту, включаючи:
 
@@ -38,7 +38,7 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 Після вибору ви можете помітити, що праворуч також згенеровано відповідний код, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/9wed3b.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/9wed3b.png" width="500" className="m-auto" /></p>
 
 Натисніть кнопку «Try», щоб провести тестування, як показано на малюнку, тут ми отримали наступний результат:
 
@@ -79,14 +79,14 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 Крім того, якщо ви хочете згенерувати відповідний код інтеграції, ви можете просто скопіювати його, наприклад, код CURL виглядає так:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/midjourney/edits' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/edits' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "prompt": "A cat sitting on a table",
   "split_images": true,
-  "image_url": "https://cdn.acedata.cloud/jgo1cw.jpg",
+  "image_url": "https://cdn.xhuoapi.ai/jgo1cw.jpg",
   "action": "generate"
 }'
 ```
@@ -101,13 +101,13 @@ curl -X POST 'https://api.acedata.cloud/midjourney/edits' \
 
 По-перше, зворотний виклик Webhook - це служба, яка може приймати HTTP запити, розробники повинні замінити на URL свого власного HTTP сервера. Для зручності демонстрації використовується публічний сайт зразка Webhook https://webhook.site/, відкривши цей сайт, ви отримаєте URL Webhook, як показано на малюнку:
 
-![](https://cdn.acedata.cloud/hfrbzw.png)
+![](https://cdn.xhuoapi.ai/hfrbzw.png)
 
 Скопіюйте цей URL, і ви зможете використовувати його як Webhook, приклад тут: `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`.
 
 Далі ми можемо налаштувати поле `callback_url` на вказаний Webhook URL, одночасно заповнивши відповідні параметри, конкретний зміст виглядає так, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/q3fnhv.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q3fnhv.png" width="500" className="m-auto" /></p>
 
 Натиснувши «Запустити», ви відразу отримаєте результат, як показано нижче:
 
@@ -119,7 +119,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/edits' \
 
 Після деякого часу ми можемо спостерігати результати генерації на `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/t8cupr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/t8cupr.png" width="500" className="m-auto" /></p>
 
 Зміст виглядає так:
 ```json

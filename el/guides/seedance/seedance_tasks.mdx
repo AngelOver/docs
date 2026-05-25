@@ -1,6 +1,6 @@
 ---
 title: "Διεπαφή και Χρήση του SeeDance Tasks API"
-description: "ByteDance Seedance Video Generation 集成指南 - Ace Data Cloud"
+description: "ByteDance Seedance Video Generation 集成指南 - XHuoAPI"
 ---
 
 Η κύρια λειτουργία του SeeDance Tasks API είναι να ελέγχει την κατάσταση εκτέλεσης ενός έργου μέσω του ID έργου που δημιουργήθηκε από το SeeDance Video Generation API.
@@ -9,27 +9,27 @@ description: "ByteDance Seedance Video Generation 集成指南 - Ace Data Cloud"
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το SeeDance Tasks API, πρέπει πρώτα να επισκεφθείτε τη σελίδα αίτησης [SeeDance Video Generation API](https://platform.acedata.cloud/documents/seedance-videos) για να ζητήσετε την αντίστοιχη υπηρεσία και στη συνέχεια να αντιγράψετε το ID έργου του SeeDance Video Generation API, όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε το SeeDance Tasks API, πρέπει πρώτα να επισκεφθείτε τη σελίδα αίτησης [SeeDance Video Generation API](https://api.xhuoapi.ai/documents/seedance-videos) για να ζητήσετε την αντίστοιχη υπηρεσία και στη συνέχεια να αντιγράψετε το ID έργου του SeeDance Video Generation API, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
-Τέλος, επισκεφθείτε τη σελίδα Tasks API [SeeDance Tasks API](https://platform.acedata.cloud/documents/seedance-tasks) για να ζητήσετε την αντίστοιχη υπηρεσία. Αφού εισέλθετε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
+Τέλος, επισκεφθείτε τη σελίδα Tasks API [SeeDance Tasks API](https://api.xhuoapi.ai/documents/seedance-tasks) για να ζητήσετε την αντίστοιχη υπηρεσία. Αφού εισέλθετε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
 
-![Σελίδα Αίτησης](https://cdn.acedata.cloud/rci31i.png)
+![Σελίδα Αίτησης](https://cdn.xhuoapi.ai/rci31i.png)
 
-Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη [σελίδα σύνδεσης](https://platform.acedata.cloud) για να σας προσκαλέσει να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
+Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη [σελίδα σύνδεσης](https://api.xhuoapi.ai) για να σας προσκαλέσει να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
 
 Κατά την πρώτη αίτηση, θα λάβετε δωρεάν πιστώσεις, ώστε να μπορείτε να χρησιμοποιήσετε δωρεάν αυτό το API.
 
 ## Παράδειγμα Αίτησης
 
-Το SeeDance Tasks API μπορεί να χρησιμοποιηθεί για να ελέγξει τα αποτελέσματα του SeeDance Video Generation API. Για πληροφορίες σχετικά με το πώς να χρησιμοποιήσετε το SeeDance Video Generation API, ανατρέξτε στο έγγραφο [SeeDance Video Generation API](https://platform.acedata.cloud/documents/seedance-videos-integration).
+Το SeeDance Tasks API μπορεί να χρησιμοποιηθεί για να ελέγξει τα αποτελέσματα του SeeDance Video Generation API. Για πληροφορίες σχετικά με το πώς να χρησιμοποιήσετε το SeeDance Video Generation API, ανατρέξτε στο έγγραφο [SeeDance Video Generation API](https://api.xhuoapi.ai/documents/seedance-videos-integration).
 
 Θα χρησιμοποιήσουμε ένα παράδειγμα με ένα ID έργου που επιστρέφεται από την υπηρεσία SeeDance Video Generation API. Ας υποθέσουμε ότι έχουμε ένα ID έργου: 20068983-0cc9-4c6a-aeb6-9c6a3c668be0, και στη συνέχεια θα δείξουμε πώς να το χρησιμοποιήσουμε περνώντας ένα ID έργου.
 
 ### Παράδειγμα Έργου
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 ### Ρύθμιση Επικεφαλίδων και Σώματος Αίτησης
 
@@ -45,20 +45,20 @@ description: "ByteDance Seedance Video Generation 集成指南 - Ace Data Cloud"
 
 Ρυθμίστε όπως φαίνεται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/yuyte9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yuyte9.png" width="500" className="m-auto" /></p>
 
 ### Παράδειγμα Κώδικα
 
 Μπορείτε να παρατηρήσετε ότι στη δεξιά πλευρά της σελίδας έχουν δημιουργηθεί αυτόματα διάφορες γλώσσες κώδικα, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/b0wt0d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/b0wt0d.png" width="500" className="m-auto" /></p>
 
 Ορισμένα παραδείγματα κώδικα είναι τα εξής:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/seedance/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/seedance/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -100,7 +100,7 @@ curl -X POST 'https://api.acedata.cloud/seedance/tasks' \
         "data": {
             "task_id": "cgt-20251221230356-sxgt7",
             "status": "succeeded",
-            "video_url": "https://platform.cdn.acedata.cloud/seedance/d1c2e49e-d854-4a2e-b0c0-88e520f82e2e.mp4",
+            "video_url": "https://platform.cdn.xhuoapi.ai/seedance/d1c2e49e-d854-4a2e-b0c0-88e520f82e2e.mp4",
             "last_frame_url": null,
             "model": "doubao-seedance-1-0-pro-250528"
         }
@@ -125,13 +125,13 @@ curl -X POST 'https://api.acedata.cloud/seedance/tasks' \
 
 Ρυθμίστε όπως φαίνεται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/ycc4th.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ycc4th.png" width="500" className="m-auto" /></p>
 
 ### Παράδειγμα Κώδικα
 
 Μπορείτε να παρατηρήσετε ότι στη δεξιά πλευρά της σελίδας έχουν δημιουργηθεί αυτόματα διάφορες γλώσσες κώδικα, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/u6bt64.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/u6bt64.png" width="500" className="m-auto" /></p>
 
 Ορισμένα παραδείγματα κώδικα είναι τα εξής:
 
@@ -168,7 +168,7 @@ curl -X POST 'https://api.acedata.cloud/seedance/tasks' \
                 "data": {
                     "task_id": "cgt-20251221230356-sxgt7",
                     "status": "succeeded",
-                    "video_url": "https://platform.cdn.acedata.cloud/seedance/d1c2e49e-d854-4a2e-b0c0-88e520f82e2e.mp4",
+                    "video_url": "https://platform.cdn.xhuoapi.ai/seedance/d1c2e49e-d854-4a2e-b0c0-88e520f82e2e.mp4",
                     "last_frame_url": null,
                     "model": "doubao-seedance-1-0-pro-250528"
                 }
@@ -201,7 +201,7 @@ curl -X POST 'https://api.acedata.cloud/seedance/tasks' \
                 "data": {
                     "task_id": "cgt-20251221231109-cnkhp",
                     "status": "succeeded",
-                    "video_url": "https://platform.cdn.acedata.cloud/seedance/eb99ba03-178c-4616-8d19-e625fee2e884.mp4",
+                    "video_url": "https://platform.cdn.xhuoapi.ai/seedance/eb99ba03-178c-4616-8d19-e625fee2e884.mp4",
                     "last_frame_url": null,
                     "model": "doubao-seedance-1-0-pro-250528"
                 }
@@ -220,7 +220,7 @@ curl -X POST 'https://api.acedata.cloud/seedance/tasks' \
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/seedance/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/seedance/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

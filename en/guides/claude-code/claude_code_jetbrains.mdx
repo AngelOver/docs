@@ -1,17 +1,17 @@
 ---
 title: "Claude Code for JetBrains IDE User Guide"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code is an **Agentic Coding** tool launched by Anthropic, also known as one of the world's most powerful programming agents. Claude Code provides a dedicated plugin for JetBrains IDEs, supporting the entire series of JetBrains IDEs including IntelliJ IDEA, PyCharm, WebStorm, GoLand, PhpStorm, and Android Studio.
 
-This document mainly introduces how to configure and use Claude Code in JetBrains IDE through the proxy service of AceData Cloud.
+This document mainly introduces how to configure and use Claude Code in JetBrains IDE through the proxy service of XHuoAPI.
 
 ## Application Process
 
-To use Claude Code, you can first go to the [Claude Messages service page](https://platform.acedata.cloud/documents/claude-messages) and click the "Acquire" button to obtain the credentials needed for the request:
+To use Claude Code, you can first go to the [Claude Messages service page](https://api.xhuoapi.ai/documents/claude-messages) and click the "Acquire" button to obtain the credentials needed for the request:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
@@ -53,7 +53,7 @@ claude --version
 
 ### Install Plugin
 
-![Claude Code Plugin in JetBrains Marketplace](https://cdn.acedata.cloud/de78fd305b.png)
+![Claude Code Plugin in JetBrains Marketplace](https://cdn.xhuoapi.ai/de78fd305b.png)
 
 1. Open JetBrains IDE
 2. Go to **Settings** → **Plugins** → **Marketplace**
@@ -65,7 +65,7 @@ Alternatively, you can directly visit the [JetBrains Marketplace](https://plugin
 
 > **Important**: After installing the plugin, you need to **completely restart the IDE** (it may require multiple restarts) for it to take effect.
 
-## Configure AceData Cloud API
+## Configure XHuoAPI API
 
 The Claude Code JetBrains plugin runs the `claude` command through an integrated terminal, so the environment variable configuration method is the same as for the CLI.
 
@@ -99,9 +99,9 @@ mkdir -p ~/.claude && echo '{"primaryApiKey": "self"}' > ~/.claude/config.json
 Add the following content to your `~/.zshrc` or `~/.bashrc`, replacing `{token}` with your API token:
 
 ```bash
-# AceData Cloud - Claude Code Proxy Configuration
+# XHuoAPI - Claude Code Proxy Configuration
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 After modifying, execute `source ~/.zshrc` to make the configuration effective, then **restart JetBrains IDE**.
@@ -114,12 +114,12 @@ Edit `~/.claude/settings.json` (create it if it does not exist):
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **Tip**: The API token can be viewed in the [AceData Cloud Console](https://platform.acedata.cloud/console).
+> **Tip**: The API token can be viewed in the [XHuoAPI Console](https://api.xhuoapi.ai/console).
 
 ## Basic Usage
 
@@ -186,7 +186,7 @@ wsl -d Ubuntu -- bash -lic "claude"
 
 1. Check if the `~/.claude/config.json` file is created correctly
 2. Confirm that the environment variables are set correctly
-3. Confirm that the API token is valid (can be viewed in the [console](https://platform.acedata.cloud/console))
+3. Confirm that the API token is valid (can be viewed in the [console](https://api.xhuoapi.ai/console))
 4. Restart JetBrains IDE and try again
 
 ### What if the plugin does not work?
@@ -212,10 +212,10 @@ If clicking the Claude icon prompts "command not found":
 3. WSL users use the above WSL command format
 ### How to check the remaining quota?
 
-Log in to the [AceData Cloud Console](https://platform.acedata.cloud/console) to view the current account's remaining quota and usage.
+Log in to the [XHuoAPI Console](https://api.xhuoapi.ai/console) to view the current account's remaining quota and usage.
 
 ## Learn more
 
 - 📖 [Claude Code JetBrains Official Documentation](https://code.claude.com/docs/en/jetbrains)
-- 🔧 [AceData Cloud Claude Code Service](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code Service](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 If you have any questions, feel free to contact us through the platform's customer service.

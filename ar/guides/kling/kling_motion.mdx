@@ -1,15 +1,15 @@
 ---
 title: "توضيح تكامل واجهة برمجة تطبيقات توليد حركة كلينغ"
-description: "Kling video generation 集成指南 - Ace Data Cloud"
+description: "Kling video generation 集成指南 - XHuoAPI"
 ---
 
 ستتناول هذه المقالة توضيح تكامل واجهة برمجة تطبيقات توليد حركة كلينغ، والتي يمكن من خلالها إدخال معلمات مخصصة لتوليد مقاطع الفيديو الرسمية من كلينغ.
 
 ## عملية التقديم
 
-لاستخدام واجهة برمجة التطبيقات، يجب أولاً الذهاب إلى [واجهة برمجة تطبيقات توليد حركة كلينغ](https://platform.acedata.cloud/documents/d3f2c369-102d-4856-9565-702ac5f2df63) وتقديم طلب للحصول على الخدمة المناسبة. بعد الدخول إلى الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
+لاستخدام واجهة برمجة التطبيقات، يجب أولاً الذهاب إلى [واجهة برمجة تطبيقات توليد حركة كلينغ](https://api.xhuoapi.ai/documents/d3f2c369-102d-4856-9565-702ac5f2df63) وتقديم طلب للحصول على الخدمة المناسبة. بعد الدخول إلى الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، وبعد تسجيل الدخول والتسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
@@ -19,7 +19,7 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 
 أولاً، يجب أن نفهم طريقة الاستخدام الأساسية، وهي إدخال كلمة التلميح `prompt`، وصورة مرجعية `image_url`، ورابط فيديو مرجعي `video_url`، للحصول على النتيجة المعالجة. ثم نحتاج أيضًا إلى إدخال النموذج `mode`، حيث يوجد حاليًا نموذجين رئيسيين هما `std` و `pro`، والمحتوى المحدد كما يلي:
 
-<p><img src="https://cdn.acedata.cloud/5qlpjt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5qlpjt.png" width="500" className="m-auto" /></p>
 
 يمكننا أن نرى هنا أننا قمنا بتعيين رؤوس الطلب، بما في ذلك:
 
@@ -38,7 +38,7 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 
 بعد الاختيار، يمكنك أن ترى أن الكود المقابل قد تم إنشاؤه على الجانب الأيمن، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/buwczd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/buwczd.png" width="500" className="m-auto" /></p>
 
 انقر على زر "Try" لإجراء الاختبار، كما هو موضح في الصورة أعلاه، وهنا حصلنا على النتيجة التالية:
 
@@ -67,13 +67,13 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 بالإضافة إلى ذلك، إذا كنت ترغب في توليد الكود المقابل للتكامل، يمكنك نسخه مباشرة، مثل كود CURL كما يلي:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/kling/motion' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/motion' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "image_url": "https://sourceyoya.wenge.com/2025/06/03/683e9f76e4b0684509ab1aca.jpg",
-  "video_url": "https://cdn.acedata.cloud/odwfm5.mp4",
+  "video_url": "https://cdn.xhuoapi.ai/odwfm5.mp4",
   "prompt": "让画面生动起来",
   "mode": "std",
   "character_orientation": "image"
@@ -90,12 +90,12 @@ curl -X POST 'https://api.acedata.cloud/kling/motion' \
 
 أولاً، يعد استدعاء Webhook خدمة يمكنها استقبال طلبات HTTP، يجب على المطور استبدالها بعنوان URL الخاص بالخادم HTTP الذي قام بإنشائه. هنا، لتسهيل العرض، نستخدم موقع ويب عينة Webhook عام https://webhook.site/، افتح هذا الموقع للحصول على عنوان URL لـ Webhook، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 انسخ هذا الرابط لاستخدامه كـ Webhook، المثال هنا هو `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`.
 
 بعد ذلك، يمكننا تعيين الحقل `callback_url` إلى عنوان Webhook المذكور أعلاه، مع ملء المعلمات المناسبة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vdx12s.png" width="500" className="m-auto" /></p>
 
 انقر على تشغيل، وستلاحظ أنك ستحصل على نتيجة على الفور، كما يلي:
 
@@ -107,7 +107,7 @@ curl -X POST 'https://api.acedata.cloud/kling/motion' \
 
 انتظر لحظة، يمكنك ملاحظة نتيجة الفيديو المولد على `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 المحتوى كما يلي:
 

@@ -1,6 +1,6 @@
 ---
 title: "Интеграция и использование Hailuo Tasks API"
-description: "Hailuo Video Generation 集成指南 - Ace Data Cloud"
+description: "Hailuo Video Generation 集成指南 - XHuoAPI"
 ---
 
 Основная функция Hailuo Tasks API заключается в том, чтобы запрашивать статус выполнения задачи, используя ID задачи, сгенерированный Hailuo Videos Generation API.
@@ -9,27 +9,27 @@ description: "Hailuo Video Generation 集成指南 - Ace Data Cloud"
 
 ## Процесс подачи заявки
 
-Чтобы использовать Hailuo Tasks API, сначала необходимо перейти на страницу заявки [Hailuo Videos Generation API](https://platform.acedata.cloud/documents/ee06377b-9185-438f-ac84-3376bcb1275e) и подать заявку на соответствующую услугу, затем скопировать ID задачи Hailuo Videos Generation API, как показано на изображении:
+Чтобы использовать Hailuo Tasks API, сначала необходимо перейти на страницу заявки [Hailuo Videos Generation API](https://api.xhuoapi.ai/documents/ee06377b-9185-438f-ac84-3376bcb1275e) и подать заявку на соответствующую услугу, затем скопировать ID задачи Hailuo Videos Generation API, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/4f9d95.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4f9d95.png" width="500" className="m-auto" /></p>
 
-Затем перейдите на страницу Tasks API [Hailuo Tasks API](https://platform.acedata.cloud/documents/4b1ccdbc-b8ed-4171-9a14-48e10970ba04) и подайте заявку на соответствующую услугу, после входа на страницу нажмите кнопку «Acquire», как показано на изображении:
+Затем перейдите на страницу Tasks API [Hailuo Tasks API](https://api.xhuoapi.ai/documents/4b1ccdbc-b8ed-4171-9a14-48e10970ba04) и подайте заявку на соответствующую услугу, после входа на страницу нажмите кнопку «Acquire», как показано на изображении:
 
-![Страница заявки](https://cdn.acedata.cloud/rci31i.png)
+![Страница заявки](https://cdn.xhuoapi.ai/rci31i.png)
 
-Если вы еще не вошли в систему или не зарегистрированы, вы будете автоматически перенаправлены на [страницу входа](https://platform.acedata.cloud), где вас пригласят зарегистрироваться и войти в систему. После регистрации и входа вы будете автоматически возвращены на текущую страницу.
+Если вы еще не вошли в систему или не зарегистрированы, вы будете автоматически перенаправлены на [страницу входа](https://api.xhuoapi.ai), где вас пригласят зарегистрироваться и войти в систему. После регистрации и входа вы будете автоматически возвращены на текущую страницу.
 
 При первой подаче заявки предоставляется бесплатный лимит, который позволяет бесплатно использовать этот API.
 
 ## Пример запроса
 
-Hailuo Tasks API можно использовать для запроса результатов Hailuo Videos Generation API. Для получения информации о том, как использовать Hailuo Videos Generation API, пожалуйста, обратитесь к документу [Hailuo Videos Generation API](https://platform.acedata.cloud/documents/d2fc9087-2996-4573-bfe5-8b1c828fdfc7).
+Hailuo Tasks API можно использовать для запроса результатов Hailuo Videos Generation API. Для получения информации о том, как использовать Hailuo Videos Generation API, пожалуйста, обратитесь к документу [Hailuo Videos Generation API](https://api.xhuoapi.ai/documents/d2fc9087-2996-4573-bfe5-8b1c828fdfc7).
 
 Мы возьмем один из ID задач, возвращенных службой Hailuo Videos Generation API, в качестве примера, чтобы продемонстрировать, как использовать этот API. Предположим, у нас есть ID задачи: 58cc618b-9639-4ee7-add2-d2fcf260d9a3, далее мы покажем, как передать этот ID задачи.
 
 ### Пример задачи
 
-<p><img src="https://cdn.acedata.cloud/4f9d95.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4f9d95.png" width="500" className="m-auto" /></p>
 
 ### Установка заголовков запроса и тела запроса
 
@@ -45,20 +45,20 @@ Hailuo Tasks API можно использовать для запроса ре�
 
 Настройка, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/e9btl5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/e9btl5.png" width="500" className="m-auto" /></p>
 
 ### Пример кода
 
 Можно заметить, что на правой стороне страницы автоматически сгенерирован код на различных языках, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/tfn261.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tfn261.png" width="500" className="m-auto" /></p>
 
 Некоторые примеры кода:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/hailuo/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/hailuo/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/hailuo/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/hailuo/tasks"
+url = "https://api.xhuoapi.ai/v1/hailuo/tasks"
 
 headers = {
     "accept": "application/json",
@@ -143,13 +143,13 @@ print(response.text)
 
 Настройка, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/i023y9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/i023y9.png" width="500" className="m-auto" /></p>
 
 ### Пример кода
 
 Можно заметить, что на правой стороне страницы автоматически сгенерирован код на различных языках, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/3sxeeh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3sxeeh.png" width="500" className="m-auto" /></p>
 
 Некоторые примеры кода:
 
@@ -225,7 +225,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/hailuo/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/hailuo/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -240,7 +240,7 @@ curl -X POST 'https://api.acedata.cloud/hailuo/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/hailuo/tasks"
+url = "https://api.xhuoapi.ai/v1/hailuo/tasks"
 
 headers = {
     "accept": "application/json",

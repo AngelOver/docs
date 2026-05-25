@@ -3,7 +3,7 @@ title: "Sora MCP 对接指南"
 description: "sora MCP 服务器集成"
 ---
 
-[MCP（Model Context Protocol）](https://modelcontextprotocol.io) 是由 Anthropic 推出的模型上下文协议，允许 AI 模型（如 Claude、GPT 等）通过标准化接口调用外部工具。通过 AceData Cloud 提供的 Sora MCP Server，你可以在 Claude Desktop、VS Code、Cursor 等 AI 客户端中直接使用 OpenAI Sora 生成 AI 视频。
+[MCP（Model Context Protocol）](https://modelcontextprotocol.io) 是由 Anthropic 推出的模型上下文协议，允许 AI 模型（如 Claude、GPT 等）通过标准化接口调用外部工具。通过 XHuoAPI 提供的 Sora MCP Server，你可以在 Claude Desktop、VS Code、Cursor 等 AI 客户端中直接使用 OpenAI Sora 生成 AI 视频。
 
 ## 功能概览
 
@@ -18,18 +18,18 @@ Sora MCP Server 提供以下核心功能：
 
 ## 前置准备
 
-使用前，你需要获取 AceData Cloud API Token：
+使用前，你需要获取 XHuoAPI API Token：
 
-1. 注册或登录 [AceData Cloud 平台](https://platform.acedata.cloud)
-2. 前往 [Sora Videos API](https://platform.acedata.cloud/documents/sora-videos) 页面
+1. 注册或登录 [XHuoAPI 平台](https://api.xhuoapi.ai)
+2. 前往 [Sora Videos API](https://api.xhuoapi.ai/documents/sora-videos) 页面
 3. 点击「Acquire」获取 API Token（首次申请赠送免费额度）
 
 ## 方式一：使用托管 MCP Server（推荐，零安装）
 
-AceData Cloud 已经把 **Sora MCP Server** 托管在云端，**无需本地安装任何依赖**，直接在 AI 客户端里填写下面这个 URL 就能用：
+XHuoAPI 已经把 **Sora MCP Server** 托管在云端，**无需本地安装任何依赖**，直接在 AI 客户端里填写下面这个 URL 就能用：
 
 ```
-https://sora.mcp.acedata.cloud/mcp
+https://sora.mcp.xhuoapi.ai/mcp
 ```
 
 认证方式：在请求头中加上 `Authorization: Bearer 你的API Token` 即可（Claude.ai 通过 OAuth 自动完成，无需手动填 Token）。
@@ -37,8 +37,8 @@ https://sora.mcp.acedata.cloud/mcp
 ### Claude.ai（网页版，OAuth 登录，最简单）
 
 1. 打开 [Claude.ai](https://claude.ai) → 左下角 **Customize** → **Connectors** → **Add More**
-2. 在 URL 处填入：`https://sora.mcp.acedata.cloud/mcp`
-3. 完成 OAuth 授权登录（自动跳转 AceData Cloud 登录页）
+2. 在 URL 处填入：`https://sora.mcp.xhuoapi.ai/mcp`
+3. 完成 OAuth 授权登录（自动跳转 XHuoAPI 登录页）
 4. 回到对话界面，工具即可使用
 
 ### Claude Desktop
@@ -53,7 +53,7 @@ https://sora.mcp.acedata.cloud/mcp
   "mcpServers": {
     "sora": {
       "type": "http",
-      "url": "https://sora.mcp.acedata.cloud/mcp",
+      "url": "https://sora.mcp.xhuoapi.ai/mcp",
       "headers": {
         "Authorization": "Bearer 你的API Token"
       }
@@ -67,7 +67,7 @@ https://sora.mcp.acedata.cloud/mcp
 ### Claude Code（终端命令行）
 
 ```bash
-claude mcp add sora --transport http https://sora.mcp.acedata.cloud/mcp \
+claude mcp add sora --transport http https://sora.mcp.xhuoapi.ai/mcp \
   -H "Authorization: Bearer 你的API Token"
 ```
 
@@ -80,7 +80,7 @@ claude mcp add sora --transport http https://sora.mcp.acedata.cloud/mcp \
   "servers": {
     "sora": {
       "type": "http",
-      "url": "https://sora.mcp.acedata.cloud/mcp",
+      "url": "https://sora.mcp.xhuoapi.ai/mcp",
       "headers": {
         "Authorization": "Bearer 你的API Token"
       }
@@ -97,7 +97,7 @@ claude mcp add sora --transport http https://sora.mcp.acedata.cloud/mcp \
 {
   "mcpServers": {
     "sora": {
-      "url": "https://sora.mcp.acedata.cloud/mcp",
+      "url": "https://sora.mcp.xhuoapi.ai/mcp",
       "headers": {
         "Authorization": "Bearer 你的API Token"
       }
@@ -110,7 +110,7 @@ claude mcp add sora --transport http https://sora.mcp.acedata.cloud/mcp \
 
 任何支持 MCP Streamable HTTP 协议的客户端（Windsurf、Cline、ChatGPT Connectors、Gemini CLI、JetBrains AI Assistant 等）都可以通过填写以下两项接入：
 
-- **URL**：`https://sora.mcp.acedata.cloud/mcp`
+- **URL**：`https://sora.mcp.xhuoapi.ai/mcp`
 - **Header**：`Authorization: Bearer 你的API Token`
 
 ## 方式二：本地运行（pip / uvx 安装）
@@ -128,7 +128,7 @@ pip install mcp-sora
 或源码安装：
 
 ```bash
-git clone https://github.com/AceDataCloud/SoraMCP.git
+git clone https://github.com/XHuoAPI/SoraMCP.git
 cd SoraMCP
 pip install -e .
 ```
@@ -150,7 +150,7 @@ pip install -e .
     "sora": {
       "command": "mcp-sora",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -166,7 +166,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-sora"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -185,7 +185,7 @@ pip install -e .
     "sora": {
       "command": "mcp-sora",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -201,7 +201,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-sora"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -230,6 +230,6 @@ pip install -e .
 
 ## 更多信息
 
-- GitHub 仓库：[AceDataCloud/SoraMCP](https://github.com/AceDataCloud/SoraMCP)
+- GitHub 仓库：[XHuoAPI/SoraMCP](https://github.com/XHuoAPI/SoraMCP)
 - PyPI 包：[mcp-sora](https://pypi.org/project/mcp-sora/)
-- API 文档：[Sora 视频生成 API](https://platform.acedata.cloud/documents/sora)
+- API 文档：[Sora 视频生成 API](https://api.xhuoapi.ai/documents/sora)

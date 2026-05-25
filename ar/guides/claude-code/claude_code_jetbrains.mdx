@@ -1,17 +1,17 @@
 ---
 title: "دليل استخدام Claude Code لـ JetBrains IDE"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code هو أداة **Agentic Coding** أطلقتها شركة Anthropic، ويعتبر واحدًا من أقوى وكلاء البرمجة في العالم. يوفر Claude Code ملحقًا خاصًا بـ JetBrains IDE، ويدعم IntelliJ IDEA وPyCharm وWebStorm وGoLand وPhpStorm وAndroid Studio وغيرها من سلسلة JetBrains IDE.
 
-تتناول هذه الوثيقة كيفية تكوين واستخدام Claude Code في JetBrains IDE من خلال خدمة الوكيل AceData Cloud.
+تتناول هذه الوثيقة كيفية تكوين واستخدام Claude Code في JetBrains IDE من خلال خدمة الوكيل XHuoAPI.
 
 ## عملية التقديم
 
-لاستخدام Claude Code، يمكنك أولاً زيارة [صفحة خدمة Claude Messages](https://platform.acedata.cloud/documents/claude-messages) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة:
+لاستخدام Claude Code، يمكنك أولاً زيارة [صفحة خدمة Claude Messages](https://api.xhuoapi.ai/documents/claude-messages) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل، فسيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، وبعد تسجيل الدخول، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
@@ -53,7 +53,7 @@ claude --version
 
 ### تثبيت الملحق
 
-![ملحق Claude Code في JetBrains Marketplace](https://cdn.acedata.cloud/de78fd305b.png)
+![ملحق Claude Code في JetBrains Marketplace](https://cdn.xhuoapi.ai/de78fd305b.png)
 
 1. افتح JetBrains IDE
 2. انتقل إلى **Settings** → **Plugins** → **Marketplace**
@@ -65,7 +65,7 @@ claude --version
 
 > **مهم**: بعد تثبيت الملحق، تحتاج إلى **إعادة تشغيل IDE بالكامل** (قد تحتاج إلى إعادة التشغيل عدة مرات) لتفعيل التغييرات.
 
-## تكوين AceData Cloud API
+## تكوين XHuoAPI API
 
 يعمل ملحق Claude Code لـ JetBrains من خلال تشغيل أمر `claude` في الطرفية المدمجة، لذا فإن طريقة تكوين متغيرات البيئة هي نفسها كما في CLI.
 
@@ -99,9 +99,9 @@ mkdir -p ~/.claude && echo '{"primaryApiKey": "self"}' > ~/.claude/config.json
 أضف المحتوى التالي إلى `~/.zshrc` أو `~/.bashrc`، واستبدل `{token}` برمز API الخاص بك:
 
 ```bash
-# تكوين وكيل Claude Code - AceData Cloud
+# تكوين وكيل Claude Code - XHuoAPI
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 بعد التعديل، نفذ `source ~/.zshrc` لتفعيل التكوين، ثم **أعد تشغيل JetBrains IDE**.
@@ -114,12 +114,12 @@ export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **تلميح**: يمكنك العثور على رمز API في [لوحة تحكم AceData Cloud](https://platform.acedata.cloud/console).
+> **تلميح**: يمكنك العثور على رمز API في [لوحة تحكم XHuoAPI](https://api.xhuoapi.ai/console).
 
 ## الاستخدام الأساسي
 
@@ -186,7 +186,7 @@ wsl -d Ubuntu -- bash -lic "claude"
 
 1. تحقق مما إذا كان ملف `~/.claude/config.json` قد تم إنشاؤه بشكل صحيح
 2. تأكد من أن متغيرات البيئة تم إعدادها بشكل صحيح
-3. تأكد من أن رمز API صالح (يمكنك التحقق في [اللوحة](https://platform.acedata.cloud/console))
+3. تأكد من أن رمز API صالح (يمكنك التحقق في [اللوحة](https://api.xhuoapi.ai/console))
 4. أعد تشغيل JetBrains IDE وحاول مرة أخرى
 
 ### ماذا أفعل إذا لم يعمل الملحق؟
@@ -212,10 +212,10 @@ wsl -d Ubuntu -- bash -lic "claude"
 3. لمستخدمي WSL، استخدم تنسيق الأمر المذكور أعلاه لـ WSL
 ### كيفية查看 الرصيد المتبقي؟
 
-قم بتسجيل الدخول إلى [وحدة تحكم AceData Cloud](https://platform.acedata.cloud/console) ، يمكنك من خلالها الاطلاع على الرصيد المتبقي الحالي وحالة الاستخدام.
+قم بتسجيل الدخول إلى [وحدة تحكم XHuoAPI](https://api.xhuoapi.ai/console) ، يمكنك من خلالها الاطلاع على الرصيد المتبقي الحالي وحالة الاستخدام.
 
 ## لمعرفة المزيد
 
 - 📖 [وثائق Claude Code JetBrains الرسمية](https://code.claude.com/docs/en/jetbrains)
-- 🔧 [خدمة AceData Cloud Claude Code](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [خدمة XHuoAPI Claude Code](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 إذا كان لديك أي استفسارات، لا تتردد في الاتصال بنا عبر خدمة العملاء على المنصة

@@ -1,6 +1,6 @@
 ---
 title: "Grok Chat Completion API Ansökan och Användning"
-description: "Grok 集成指南 - Ace Data Cloud"
+description: "Grok 集成指南 - XHuoAPI"
 ---
 
 xAI Grok är ett mycket kraftfullt AI-dialogsystem som kan generera flytande och naturliga svar på bara några sekunder genom att ange en prompt. Grok utmärker sig i branschen med sin unika humorstil och förmåga att hämta information i realtid från nätet. Idag har Grok gjort sig ett namn inom flera innovativa områden och dess inflytande växer snabbt. Oavsett om det handlar om vardagliga samtal, kreativt skrivande eller teknisk analys och kodavlusning, kan Grok erbjuda insiktsfullt och intelligent stöd som ger användarnas beslut och skapande en ny dimension.
@@ -9,9 +9,9 @@ Detta dokument beskriver huvudsakligen användningsflödet för Grok Chat Comple
 
 ## Ansökningsprocess
 
-För att använda Grok Chat Completion API kan du först gå till [Grok Chat Completion API](https://platform.acedata.cloud/documents/faf08b59-36aa-4d26-b5d9-a18f113cc2be) sidan och klicka på "Acquire"-knappen för att få de nödvändiga autentiseringsuppgifterna:
+För att använda Grok Chat Completion API kan du först gå till [Grok Chat Completion API](https://api.xhuoapi.ai/documents/faf08b59-36aa-4d26-b5d9-a18f113cc2be) sidan och klicka på "Acquire"-knappen för att få de nödvändiga autentiseringsuppgifterna:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till inloggningssidan där du uppmanas att registrera dig och logga in. Efter att du har loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
 
@@ -21,7 +21,7 @@ Vid första ansökan kommer det att finnas en gratis kvot som gör att du kan an
 
 Därefter kan du fylla i motsvarande innehåll på gränssnittet, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/vunnjf.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vunnjf.png" width="400" className="m-auto" /></p>
 
 Vid första användningen av detta gränssnitt behöver vi fylla i minst tre fält, ett är `authorization`, som du enkelt kan välja från rullgardinsmenyn. Den andra parametern är `model`, där `model` är den Grok-modellkategori vi väljer att använda från Groks officiella webbplats. Här har vi huvudsakligen 8 olika modeller, mer information kan ses i de modeller vi tillhandahåller. Den sista parametern är `messages`, där `messages` är en array av våra frågeord, vilket innebär att vi kan ladda upp flera frågeord samtidigt. Varje frågeord innehåller `role` och `content`, där `role` representerar frågeställarens roll. Vi erbjuder tre olika roller: `user`, `assistant`, `system`. Den andra `content` är det specifika innehållet i vår fråga.
 
@@ -33,7 +33,7 @@ Vanliga valfria parametrar:
 - `temperature`: Genererar slumpmässighet, mellan 0-2, där ett högre värde ger mer spridda resultat.
 - `n`: Hur många kandidatsvar som ska genereras åt gången.
 
-<p><img src="https://cdn.acedata.cloud/d7iwun.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d7iwun.png" width="400" className="m-auto" /></p>
 
 Efter anropet ser vi att returresultatet ser ut som följer:
 
@@ -84,7 +84,7 @@ Returresultatet innehåller flera fält, som beskrivs nedan:
 
 Där `choices` innehåller Groks svarsinformation, och `choices` inuti den innehåller den specifika informationen om Groks svar, vilket kan ses i bilden.
 
-<p><img src="https://cdn.acedata.cloud/p8vupk.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/p8vupk.png" width="400" className="m-auto" /></p>
 
 Det kan ses att `content`-fältet i `choices` innehåller det specifika innehållet i Groks svar.
 
@@ -96,7 +96,7 @@ Om du vill ha strömmande svar kan du ändra `stream`-parametern i begärningshu
 
 Ändringen visas i bilden, men anropskoden behöver också ändras för att stödja strömmande svar.
 
-<p><img src="https://cdn.acedata.cloud/k883qa.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/k883qa.png" width="400" className="m-auto" /></p>
 
 När `stream` ändras till `true` kommer API:et att returnera motsvarande JSON-data rad för rad, och på kodnivå behöver vi göra nödvändiga ändringar för att få radresultaten.
 
@@ -105,7 +105,7 @@ Python-exempel på anropskod:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/grok/chat/completions"
+url = "https://api.xhuoapi.ai/v1/grok/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -199,7 +199,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/grok/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/grok/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -215,7 +215,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/grok/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/grok/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -233,14 +233,14 @@ Andra språk kan skrivas om på egen hand, principen är densamma.
 
 Om du vill koppla flera rundor av dialogfunktionalitet behöver du ladda upp flera frågor i `messages`-fältet, specifika exempel på flera frågor visas nedan:
 
-<p><img src="https://cdn.acedata.cloud/t8cya8.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/t8cya8.png" width="400" className="m-auto" /></p>
 
 Python-exempelkod:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/grok/chat/completions"
+url = "https://api.xhuoapi.ai/v1/grok/chat/completions"
 
 headers = {
     "accept": "application/json",

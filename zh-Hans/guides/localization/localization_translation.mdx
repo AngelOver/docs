@@ -1,6 +1,6 @@
 ---
 title: "Localization Translate API 的对接和使用"
-description: "Localization translation 集成指南 - Ace Data Cloud"
+description: "Localization translation 集成指南 - XHuoAPI"
 ---
 
 Localization Translate API 的主要功能是通过输入需要翻译的文本来获取翻译后的文本，同时翻译后的语言可以自定义，并且翻译结果可以采用 `json` ， `markdown` 俩种主流的方法来输出。
@@ -9,11 +9,11 @@ Localization Translate API 的主要功能是通过输入需要翻译的文本�
 
 ## 申请流程
 
-要使用 Localization Translate API，需要先到 申请页面 [Localization Translate API ](https://platform.acedata.cloud/documents/6dcc60d0-a973-4ad2-92d8-11f4d3775532)申请相应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
+要使用 Localization Translate API，需要先到 申请页面 [Localization Translate API ](https://api.xhuoapi.ai/documents/6dcc60d0-a973-4ad2-92d8-11f4d3775532)申请相应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
 
-![申请页面](https://cdn.acedata.cloud/rci31i.png)
+![申请页面](https://cdn.xhuoapi.ai/rci31i.png)
 
-如果您尚未登录或注册，会自动跳转到[登录页面](https://platform.acedata.cloud)邀请您来注册和登录，登录注册之后会自动返回当前页面。
+如果您尚未登录或注册，会自动跳转到[登录页面](https://api.xhuoapi.ai)邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
 首次申请时会有免费额度赠送，可以免费使用该 API。
 
@@ -37,20 +37,20 @@ Localization Translate API 的主要功能是通过输入需要翻译的文本�
 
 设置如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/d4uqst.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d4uqst.png" width="500" className="m-auto" /></p>
 
 ### 代码示例
 
 可以发现，在页面右侧已经自动生成了各种语言的代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/tn5nno.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tn5nno.png" width="500" className="m-auto" /></p>
 
 部分代码示例如下：
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/localization/translate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/localization/translate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -66,7 +66,7 @@ curl -X POST 'https://api.acedata.cloud/localization/translate' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/localization/translate"
+url = "https://api.xhuoapi.ai/v1/localization/translate"
 
 headers = {
     "accept": "application/json",

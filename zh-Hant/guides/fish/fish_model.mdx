@@ -1,6 +1,6 @@
 ---
 title: "Fish Model API 對接說明"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 本文將介紹 Fish Model API 的對接說明，該介面與 [Fish Audio 官方 OpenAPI](https://docs.fish.audio/resources/api-reference/model) 完全相容，包含：
@@ -10,7 +10,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 
 ## 申請流程
 
-要使用 API，需要先到 [Fish Model API](https://platform.acedata.cloud/services/caf99abc-ddcf-4714-b2a5-862d9b469509) 對應頁面申請對應的服務，進入頁面之後，點擊「Acquire」按鈕。
+要使用 API，需要先到 [Fish Model API](https://api.xhuoapi.ai/services/caf99abc-ddcf-4714-b2a5-862d9b469509) 對應頁面申請對應的服務，進入頁面之後，點擊「Acquire」按鈕。
 
 如果你尚未登入或註冊，會自動跳轉到登入頁面邀請您來註冊和登入，登入註冊之後會自動返回當前頁面。
 
@@ -27,7 +27,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 最小建立請求需要 `title` 與 `voices` 兩個欄位。`voices` 是音頻樣本 URL 列表，建議每個檔案 30 秒以上，取樣率 16k 及以上。
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/model' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/model' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -77,7 +77,7 @@ curl -X POST 'https://api.acedata.cloud/fish/model' \
 ## 查詢音色列表（GET /fish/model）
 
 ```shell
-curl -G 'https://api.acedata.cloud/fish/model' \
+curl -G 'https://api.xhuoapi.ai/v1/fish/model' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   --data-urlencode 'page_size=10' \
@@ -146,4 +146,4 @@ curl -G 'https://api.acedata.cloud/fish/model' \
 
 ## 結論
 
-Fish Model API 與 Fish Audio 官方 OpenAPI 的 ModelEntity 介面完全相容，可在零程式碼改動的前提下遷移已有的克隆音色管理程式碼。建立出的音色 `_id` 可以直接餵給 [Fish TTS API](https://platform.acedata.cloud/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) 的 `reference_id` 欄位進行語音合成。
+Fish Model API 與 Fish Audio 官方 OpenAPI 的 ModelEntity 介面完全相容，可在零程式碼改動的前提下遷移已有的克隆音色管理程式碼。建立出的音色 `_id` 可以直接餵給 [Fish TTS API](https://api.xhuoapi.ai/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) 的 `reference_id` 欄位進行語音合成。

@@ -1,17 +1,17 @@
 ---
 title: "Claude Code GitHub Actions användarhandbok"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code är ett **Agentic Coding**-verktyg som lanserats av Anthropic, och det kallas också en av världens mest kraftfulla programmeringsagenter. Claude Code GitHub Actions kan integrera AI-programmeringsförmåga i din GitHub-arbetsflöde, bara genom att `@claude` i PR eller Issue, så kan Claude automatiskt analysera koden, skapa PR, implementera funktioner och fixa buggar.
 
-Detta dokument beskriver huvudsakligen hur man konfigurerar och använder Claude Code GitHub Actions genom AceData Clouds proxyservice.
+Detta dokument beskriver huvudsakligen hur man konfigurerar och använder Claude Code GitHub Actions genom XHuoAPIs proxyservice.
 
 ## Ansökningsprocess
 
-För att använda Claude Code kan du först gå till [Claude Messages tjänstsida](https://platform.acedata.cloud/documents/claude-messages) och klicka på "Acquire"-knappen för att få de nödvändiga autentiseringsuppgifterna:
+För att använda Claude Code kan du först gå till [Claude Messages tjänstsida](https://api.xhuoapi.ai/documents/claude-messages) och klicka på "Acquire"-knappen för att få de nödvändiga autentiseringsuppgifterna:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till inloggningssidan för att registrera dig och logga in, och efter inloggning kommer du automatiskt att återvända till den aktuella sidan.
 
@@ -30,7 +30,7 @@ Vid första ansökan kommer det att finnas en gratis kvot som gör att du kan pr
 
 Gå till [https://github.com/apps/claude](https://github.com/apps/claude) för att installera Claude GitHub App i ditt repository.
 
-![GitHub Claude App installationssida](https://cdn.acedata.cloud/ba4b8df66d.png)
+![GitHub Claude App installationssida](https://cdn.xhuoapi.ai/ba4b8df66d.png)
 
 Appen kräver följande repository-behörigheter:
 
@@ -42,14 +42,14 @@ Appen kräver följande repository-behörigheter:
 
 ### Steg två: Lägg till API-nyckel
 
-Lägg till AceData Clouds API-nyckel som repository-hemlighet:
+Lägg till XHuoAPIs API-nyckel som repository-hemlighet:
 
 1. Gå till repository **Inställningar** → **Hemligheter och variabler** → **Åtgärder**
 2. Klicka på **Ny repository-hemlighet**
-3. Fyll i Namn som `ANTHROPIC_API_KEY`, och Value med API-token du fått från AceData Cloud
+3. Fyll i Namn som `ANTHROPIC_API_KEY`, och Value med API-token du fått från XHuoAPI
 4. Klicka på **Lägg till hemlighet** för att spara
 
-> **Tips**: API-token kan ses i [AceData Cloud-konsolen](https://platform.acedata.cloud/console).
+> **Tips**: API-token kan ses i [XHuoAPI-konsolen](https://api.xhuoapi.ai/console).
 
 ### Steg tre: Skapa Workflow-fil
 
@@ -76,7 +76,7 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 ```
 
-Om du behöver använda AceData Clouds proxy-API-slutpunkt, måste du också ställa in miljövariabeln i Workflow:
+Om du behöver använda XHuoAPIs proxy-API-slutpunkt, måste du också ställa in miljövariabeln i Workflow:
 
 ```yaml
 name: Claude Code
@@ -94,7 +94,7 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
         env:
-          ANTHROPIC_BASE_URL: "https://api.acedata.cloud"
+          ANTHROPIC_BASE_URL: "https://api.xhuoapi.ai/v1"
 ```
 
 ## Användningssätt
@@ -130,7 +130,7 @@ jobs:
           prompt: "/review"
           claude_args: "--max-turns 5"
         env:
-          ANTHROPIC_BASE_URL: "https://api.acedata.cloud"
+          ANTHROPIC_BASE_URL: "https://api.xhuoapi.ai/v1"
 ```
 
 ### Schemalagda automatiseringar
@@ -152,7 +152,7 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: "Generera en sammanfattning av gårdagens commits och rapport om öppna Issues"
         env:
-          ANTHROPIC_BASE_URL: "https://api.acedata.cloud"
+          ANTHROPIC_BASE_URL: "https://api.xhuoapi.ai/v1"
 ```
 
 ## Action-parametrar
@@ -215,12 +215,12 @@ Skapa en `CLAUDE.md`-fil i rotkatalogen av repositoryt för att definiera kodsti
 
 ### Hur ser jag kvarvarande kvot?
 
-Logga in på [AceData Cloud-konsolen](https://platform.acedata.cloud/console) för att se den aktuella kontots kvarvarande kvot och användning.
+Logga in på [XHuoAPI-konsolen](https://api.xhuoapi.ai/console) för att se den aktuella kontots kvarvarande kvot och användning.
 
 ## Lär dig mer
 
 - 📖 [Claude Code GitHub Actions officiella dokumentation](https://code.claude.com/docs/en/github-actions)
 - 📂 [claude-code-action-repo](https://github.com/anthropics/claude-code-action)
 - 📋 [Workflow-exempel](https://github.com/anthropics/claude-code-action/tree/main/examples)
-- 🔧 [AceData Cloud Claude Code-tjänst](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code-tjänst](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 Om du har några frågor, tveka inte att kontakta oss via plattformens kundtjänst

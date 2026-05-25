@@ -1,6 +1,6 @@
 ---
 title: "Richiesta e utilizzo dell'API di completamento chat di Claude"
-description: "Claude AI 集成指南 - Ace Data Cloud"
+description: "Claude AI 集成指南 - XHuoAPI"
 ---
 
 Anthropic Claude è un sistema di dialogo AI molto potente, in grado di generare risposte fluide e naturali in pochi secondi semplicemente inserendo un prompt. Claude si distingue nel settore per la sua eccellente comprensione e capacità di generazione del linguaggio, ed è ormai ampiamente utilizzato in vari settori e ambiti, la sua influenza è sempre più significativa. Che si tratti di conversazioni quotidiane, scrittura creativa, consulenze professionali o programmazione di codice, Claude può fornire un'assistenza intelligente sorprendente, aumentando notevolmente l'efficienza e la creatività umana.
@@ -9,9 +9,9 @@ Questo documento descrive principalmente il processo di utilizzo dell'API di com
 
 ## Processo di richiesta
 
-Per utilizzare l'API di completamento chat di Claude, è possibile visitare la pagina [API di completamento chat di Claude](https://platform.acedata.cloud/documents/280928a2-2dce-419c-adb5-1ea835e8183a) e fare clic sul pulsante "Acquire" per ottenere le credenziali necessarie per la richiesta:
+Per utilizzare l'API di completamento chat di Claude, è possibile visitare la pagina [API di completamento chat di Claude](https://api.xhuoapi.ai/documents/280928a2-2dce-419c-adb5-1ea835e8183a) e fare clic sul pulsante "Acquire" per ottenere le credenziali necessarie per la richiesta:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Se non si è ancora registrati o loggati, si verrà automaticamente reindirizzati alla pagina di accesso per registrarsi e accedere. Dopo aver effettuato la registrazione e l'accesso, si verrà riportati automaticamente alla pagina corrente.
 
@@ -21,7 +21,7 @@ Alla prima richiesta, verrà fornito un credito gratuito, che consente di utiliz
 
 Successivamente, è possibile compilare i contenuti corrispondenti nell'interfaccia, come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/ejeq57.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ejeq57.png" width="400" className="m-auto" /></p>
 
 Quando si utilizza per la prima volta questa interfaccia, è necessario compilare almeno tre contenuti: uno è `authorization`, che può essere selezionato direttamente dal menu a discesa. Un altro parametro è `model`, che rappresenta la categoria del modello di Claude che si desidera utilizzare; qui abbiamo principalmente 20 modelli, i dettagli possono essere consultati nei modelli forniti. L'ultimo parametro è `messages`, che è un array di domande che inseriamo, rappresenta un array che consente di caricare più domande contemporaneamente, ogni domanda contiene `role` e `content`, dove `role` indica il ruolo del richiedente; abbiamo fornito tre identità: `user`, `assistant`, `system`. L'altro `content` è il contenuto specifico della nostra domanda.
 
@@ -34,7 +34,7 @@ Parametri opzionali comuni:
 - `n`: quante risposte candidate generare in una volta.
 - `response_format`: impostazione del formato di ritorno.
 
-<p><img src="https://cdn.acedata.cloud/v6lbjo.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/v6lbjo.png" width="400" className="m-auto" /></p>
 
 Dopo la chiamata, scopriamo che il risultato restituito è il seguente:
 
@@ -87,7 +87,7 @@ Il risultato restituito contiene diversi campi, descritti di seguito:
 
 Tra cui `choices` contiene le informazioni di risposta di Claude, all'interno di `choices` ci sono i dettagli specifici della risposta di Claude, come mostrato nell'immagine.
 
-<p><img src="https://cdn.acedata.cloud/2ulyhw.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2ulyhw.png" width="400" className="m-auto" /></p>
 
 Si può notare che il campo `content` all'interno di `choices` contiene il contenuto specifico della risposta di Claude.
 
@@ -99,7 +99,7 @@ Se si desidera restituire una risposta in streaming, è possibile modificare il 
 
 La modifica è mostrata nell'immagine, ma il codice di chiamata deve essere adeguatamente modificato per supportare la risposta in streaming.
 
-<p><img src="https://cdn.acedata.cloud/ueugot.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ueugot.png" width="400" className="m-auto" /></p>
 
 Dopo aver modificato `stream` in `true`, l'API restituirà i dati JSON riga per riga; a livello di codice, è necessario apportare le modifiche necessarie per ottenere i risultati riga per riga.
 
@@ -108,7 +108,7 @@ Esempio di codice di chiamata in Python:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/chat/completions"
+url = "https://api.xhuoapi.ai/v1/v1/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -168,7 +168,7 @@ const options = {
   }),
 };
 
-fetch("https://api.acedata.cloud/v1/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/v1/chat/completions", options)
   .then((response) => response.json())
   .then((response) => console.log(response))
   .catch((err) => console.error(err));
@@ -184,7 +184,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/v1/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/v1/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -202,14 +202,14 @@ Altre lingue possono essere riscritte separatamente, il principio è lo stesso.
 
 Se desideri integrare la funzionalità di dialogo a più turni, devi caricare più domande nel campo `messages`, un esempio specifico di più domande è mostrato nell'immagine sottostante:
 
-<p><img src="https://cdn.acedata.cloud/odwx82.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/odwx82.png" width="400" className="m-auto" /></p>
 
 Esempio di codice Python per la chiamata:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/chat/completions"
+url = "https://api.xhuoapi.ai/v1/v1/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -273,11 +273,11 @@ Si può vedere che le informazioni contenute in `choices` sono coerenti con i co
 
 I modelli claude-opus-4-20250514-thinking e claude-sonnet-4-20250514-thinking sono diversi dagli altri modelli, in quanto possono rispondere a domande attraverso un pensiero profondo e restituire il risultato del processo di pensiero. Questo articolo dimostrerà la funzionalità di pensiero profondo attraverso un esempio concreto, e successivamente si possono compilare i contenuti corrispondenti nell'interfaccia API di Claude Chat Completion, come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/d1a4wq.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d1a4wq.png" width="400" className="m-auto" /></p>
 
 Allo stesso tempo, si può notare che a destra c'è il codice di chiamata corrispondente generato, che può essere copiato e eseguito direttamente, oppure si può semplicemente cliccare sul pulsante "Try" per effettuare un test.
 
-<p><img src="https://cdn.acedata.cloud/21nmzq.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/21nmzq.png" width="400" className="m-auto" /></p>
 
 Dopo la chiamata, abbiamo scoperto che il risultato restituito è il seguente:
 
@@ -324,7 +324,7 @@ L'uso della capacità di elaborazione delle immagini del modello claude-sonnet-4
 - Metodo Curl
 
 ```
-curl -X POST 'https://api.acedata.cloud/v1/chat/completions' \
+curl -X POST 'https://api.xhuoapi.ai/v1/v1/chat/completions' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -341,7 +341,7 @@ curl -X POST 'https://api.acedata.cloud/v1/chat/completions' \
           {
             "type": "image_url",
             "image_url": {
-              "url": "https://cdn.acedata.cloud/ueugot.png"
+              "url": "https://cdn.xhuoapi.ai/ueugot.png"
             }
           }
         ]
@@ -355,7 +355,7 @@ curl -X POST 'https://api.acedata.cloud/v1/chat/completions' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/chat/completions"
+url = "https://api.xhuoapi.ai/v1/v1/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -375,7 +375,7 @@ payload = {
                 {
                     "type": "image_url",
                     "image_url": {
-                        "url": "https://cdn.acedata.cloud/ueugot.png"
+                        "url": "https://cdn.xhuoapi.ai/ueugot.png"
                     }
                 },
             ],

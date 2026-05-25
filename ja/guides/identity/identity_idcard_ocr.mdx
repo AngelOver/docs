@@ -1,15 +1,15 @@
 ---
 title: "身分証識別及び情報検証 API 接続説明"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 本文では、身分証識別及び情報検証 API 接続説明を紹介します。これは、身分証の画像または名前と身分証番号を入力することで、名前と身分証番号の真実性と一致性を検証することができます。本インターフェースは、名前と身分証番号の真実性と一致性を検証するために使用され、名前と身分証番号を入力するか、身分証の肖像面の写真を提供することで必要な検証情報を提供できます。
 
 ## 申請プロセス
 
-API を使用するには、まず [身分証識別及び情報検証 API](https://platform.acedata.cloud/documents/67f96afa-60b8-4cbb-a4bf-0cbfcf139a23) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
+API を使用するには、まず [身分証識別及び情報検証 API](https://api.xhuoapi.ai/documents/67f96afa-60b8-4cbb-a4bf-0cbfcf139a23) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 まだログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -19,7 +19,7 @@ API を使用するには、まず [身分証識別及び情報検証 API](https
 
 まず、基本的な使用方法を理解します。身分証の画像リンクを入力するだけで、処理後の検証結果を得ることができます。まず、`image_url` フィールドを簡単に渡す必要があります。次に、画面上に対応する内容を記入できます。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/qxy9rh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qxy9rh.png" width="500" className="m-auto" /></p>
 
 ここでは、Request Headers を設定しています。これには以下が含まれます：
 
@@ -33,7 +33,7 @@ API を使用するには、まず [身分証識別及び情報検証 API](https
 
 選択後、右側にも対応するコードが生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/uw90il.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/uw90il.png" width="500" className="m-auto" /></p>
 
 「Try」ボタンをクリックするとテストが実行され、上の図のように以下の結果が得られます：
 
@@ -76,7 +76,7 @@ API を使用するには、まず [身分証識別及び情報検証 API](https
 さらに、対応する接続コードを生成したい場合は、生成されたものを直接コピーできます。例えば、CURL のコードは以下の通りです：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/idcard/ocr' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/idcard/ocr' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -90,7 +90,7 @@ Python の接続コードは以下の通りです：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/idcard/ocr"
+url = "https://api.xhuoapi.ai/v1/identity/idcard/ocr"
 
 headers = {
     "accept": "application/json",
@@ -110,7 +110,7 @@ print(response.text)
 
 私たちは、身分証の画像情報を漏らさずに検証する方法も提供しています。名前 `name` と身分証番号 `id_card` を入力するだけで、姓名と身分証番号の真実性と一致性を検証できます。以下は具体的な情報を入力したものです：
 
-<p><img src="https://cdn.acedata.cloud/mc5bbw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mc5bbw.png" width="500" className="m-auto" /></p>
 
 実行をクリックすると、以下の結果が得られます：
 

@@ -1,15 +1,15 @@
 ---
 title: "واجهة برمجة تطبيقات Hailuo لتوليد الفيديوهات - تعليمات الدمج"
-description: "Hailuo Video Generation 集成指南 - Ace Data Cloud"
+description: "Hailuo Video Generation 集成指南 - XHuoAPI"
 ---
 
 ستتناول هذه المقالة تعليمات دمج واجهة برمجة تطبيقات Hailuo لتوليد الفيديوهات، والتي يمكن استخدامها لتوليد فيديوهات رسمية من Hailuo من خلال إدخال معلمات مخصصة.
 
 ## عملية التقديم
 
-لاستخدام واجهة برمجة التطبيقات، يجب أولاً زيارة صفحة [واجهة برمجة تطبيقات Hailuo لتوليد الفيديوهات](https://platform.acedata.cloud/documents/ee06377b-9185-438f-ac84-3376bcb1275e) للتقدم للحصول على الخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire" كما هو موضح في الصورة:
+لاستخدام واجهة برمجة التطبيقات، يجب أولاً زيارة صفحة [واجهة برمجة تطبيقات Hailuo لتوليد الفيديوهات](https://api.xhuoapi.ai/documents/ee06377b-9185-438f-ac84-3376bcb1275e) للتقدم للحصول على الخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire" كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول أو التسجيل، سيتم إرجاعك تلقائيًا إلى الصفحة الحالية.
 
@@ -19,7 +19,7 @@ description: "Hailuo Video Generation 集成指南 - Ace Data Cloud"
 
 أولاً، يجب أن نفهم طريقة الاستخدام الأساسية، وهي إدخال كلمة التلميح `prompt`، وسلوك التوليد `action`، وصورة الإطار الأول المرجعية `first_image_url`، والنموذج `model`، للحصول على النتائج المعالجة. أولاً، نحتاج ببساطة إلى تمرير حقل `action`، وقيمته هي `generate`، ثم نحتاج أيضًا إلى إدخال النموذج، والذي يتضمن حاليًا نموذج توليد الفيديو من الصور `minimax-i2v` ونموذج توليد الفيديو من النصوص `minimax-t2v`، المحتوى المحدد كما يلي:
 
-<p><img src="https://cdn.acedata.cloud/7jyu0n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7jyu0n.png" width="500" className="m-auto" /></p>
 
 يمكننا أن نرى هنا أننا قمنا بتعيين رؤوس الطلب، بما في ذلك:
 
@@ -36,7 +36,7 @@ description: "Hailuo Video Generation 集成指南 - Ace Data Cloud"
 
 بعد الاختيار، يمكننا أن نرى أن الجانب الأيمن قد تم توليد الكود المقابل، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/8psuxw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8psuxw.png" width="500" className="m-auto" /></p>
 
 انقر على زر "Try" لإجراء اختبار، كما هو موضح في الصورة أعلاه، هنا حصلنا على النتيجة التالية:
 
@@ -74,7 +74,7 @@ description: "Hailuo Video Generation 集成指南 - Ace Data Cloud"
 بالإضافة إلى ذلك، إذا كنت ترغب في توليد الكود المقابل، يمكنك نسخه مباشرة، على سبيل المثال، كود CURL كما يلي:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/hailuo/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/hailuo/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -94,13 +94,13 @@ curl -X POST 'https://api.acedata.cloud/hailuo/videos' \
 
 أولاً، يعد استدعاء Webhook خدمة يمكنها استقبال طلبات HTTP، يجب على المطور استبدالها بعنوان URL الخاص بخادم HTTP الذي قام بإنشائه. هنا، لتسهيل العرض، نستخدم موقع Webhook عام https://webhook.site/، عند فتح هذا الموقع، ستحصل على عنوان URL لـ Webhook، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 انسخ هذا العنوان URL، يمكنك استخدامه كـ Webhook، والعينة هنا هي `https://webhook.site/580b81f5-596e-4321-b03f-606770b0bb83`.
 
 بعد ذلك، يمكننا تعيين حقل `callback_url` إلى عنوان URL الخاص بـ Webhook المذكور أعلاه، مع ملء المعلمات المناسبة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/odabh3.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/odabh3.png" width="500" className="m-auto" /></p>
 
 انقر على تشغيل، وستلاحظ أنك ستحصل على نتيجة على الفور، كما يلي:
 
@@ -112,7 +112,7 @@ curl -X POST 'https://api.acedata.cloud/hailuo/videos' \
 
 بعد قليل، يمكنك ملاحظة نتيجة توليد الفيديو على `https://webhook.site/580b81f5-596e-4321-b03f-606770b0bb83`، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/7jngb4.png)
+![](https://cdn.xhuoapi.ai/7jngb4.png)
 
 المحتوى كما يلي:
 

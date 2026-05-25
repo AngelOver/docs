@@ -1,15 +1,15 @@
 ---
 title: "Fish Audios Generation API 对接说明"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 本文将介绍一种 Fish Audios Generation API 对接说明，它是可以通过输入提示词来克隆自己的音色。
 
 ## 申请流程
 
-要使用 API，需要先到 [Fish Audios Generation API](https://platform.acedata.cloud/documents/e681b715-54fd-4464-a59a-d7f14500e095) 对应页面申请对应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
+要使用 API，需要先到 [Fish Audios Generation API](https://api.xhuoapi.ai/documents/e681b715-54fd-4464-a59a-d7f14500e095) 对应页面申请对应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 如果你尚未登录或注册，会自动跳转到登录页面邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
@@ -19,7 +19,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 
 首先先了解下基本的使用方式，就是输入提示词 `prompt`、 克隆行为 `action`、音色ID `voice_id` 以及模型 `model`，便可获得处理后的结果，首先需要简单地传递一个 `action` 字段，它的值为 `generate`，然后我们还需要输入模型 `model`，目前主要有 `fish-tts` 模型，具体的内容如下：
 
-<p><img src="https://cdn.acedata.cloud/0jnfqb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0jnfqb.png" width="500" className="m-auto" /></p>
 
 可以看到这里我们设置了 Request Headers，包括：
 
@@ -36,7 +36,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 
 选择之后，可以发现右侧也生成了对应代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/8uyos2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8uyos2.png" width="500" className="m-auto" /></p>
 
 点击「Try」按钮即可进行测试，如上图所示，这里我们就得到了如下结果：
 
@@ -65,7 +65,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 另外如果想生成对应的对接代码，可以直接复制生成，例如 CURL 的代码如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -87,13 +87,13 @@ curl -X POST 'https://api.acedata.cloud/fish/audios' \
 
 首先，Webhook 回调是一个可以接收 HTTP 请求的服务，开发者应该替换为自己搭建的 HTTP 服务器的 URL。此处为了方便演示，使用一个公开的 Webhook 样例网站 https://webhook.site/，打开该网站即可得到一个 Webhook URL，如图所示：
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 将此 URL 复制下来，就可以作为 Webhook 来使用，此处的样例为 `https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34`。
 
 接下来，我们可以设置字段 `callback_url` 为上述 Webhook URL，同时填入相应的参数，具体的内容如图所示：
 
-<p><img src="https://cdn.acedata.cloud/8rv4te.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8rv4te.png" width="500" className="m-auto" /></p>
 
 点击运行，可以发现会立即得到一个结果，如下：
 
@@ -105,7 +105,7 @@ curl -X POST 'https://api.acedata.cloud/fish/audios' \
 
 稍等片刻，我们可以在 `https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34` 上观察到生成任务的结果，如图所示：
 
-![](https://cdn.acedata.cloud/9utzve.png)
+![](https://cdn.xhuoapi.ai/9utzve.png)
 
 内容如下：
 

@@ -1,6 +1,6 @@
 ---
 title: "Intégration et utilisation de l'API Task de photo d'identité AI"
-description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
+description: "AI ID Photo Production 集成指南 - XHuoAPI"
 ---
 
 La principale fonctionnalité de l'API Task de photo d'identité AI est de permettre la consultation de l'état d'exécution d'une tâche en entrant l'ID de tâche généré par l'API de création de photo d'identité AI.
@@ -9,27 +9,27 @@ Ce document détaillera les instructions d'intégration de l'API Task de photo d
 
 ## Processus de demande
 
-Pour utiliser l'API Task de photo d'identité AI, vous devez d'abord vous rendre sur la page de demande [API de création de photo d'identité AI](https://platform.acedata.cloud/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) pour demander le service correspondant, puis copier l'ID de tâche de l'API de création de photo d'identité AI, comme illustré ci-dessous :
+Pour utiliser l'API Task de photo d'identité AI, vous devez d'abord vous rendre sur la page de demande [API de création de photo d'identité AI](https://api.xhuoapi.ai/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) pour demander le service correspondant, puis copier l'ID de tâche de l'API de création de photo d'identité AI, comme illustré ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/7ezmmn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7ezmmn.png" width="500" className="m-auto" /></p>
 
-Enfin, accédez à la page de l'API Tasks [API Task de photo d'identité AI](https://platform.acedata.cloud/documents/3a23ee34-8689-406b-9042-7954224348ad) pour demander le service correspondant. Une fois sur la page, cliquez sur le bouton « Acquire », comme illustré ci-dessous :
+Enfin, accédez à la page de l'API Tasks [API Task de photo d'identité AI](https://api.xhuoapi.ai/documents/3a23ee34-8689-406b-9042-7954224348ad) pour demander le service correspondant. Une fois sur la page, cliquez sur le bouton « Acquire », comme illustré ci-dessous :
 
-![Page de demande](https://cdn.acedata.cloud/rci31i.png)
+![Page de demande](https://cdn.xhuoapi.ai/rci31i.png)
 
-Si vous n'êtes pas encore connecté ou inscrit, vous serez automatiquement redirigé vers la [page de connexion](https://platform.acedata.cloud) vous invitant à vous inscrire et à vous connecter. Après vous être connecté ou inscrit, vous serez automatiquement renvoyé à la page actuelle.
+Si vous n'êtes pas encore connecté ou inscrit, vous serez automatiquement redirigé vers la [page de connexion](https://api.xhuoapi.ai) vous invitant à vous inscrire et à vous connecter. Après vous être connecté ou inscrit, vous serez automatiquement renvoyé à la page actuelle.
 
 Lors de votre première demande, un quota gratuit sera offert, vous permettant d'utiliser cette API gratuitement.
 
 ## Exemple de demande
 
-L'API Task de photo d'identité AI peut être utilisée pour interroger les résultats de l'API de création de photo d'identité AI. Pour savoir comment utiliser l'API de création de photo d'identité AI, veuillez consulter le document [API de création de photo d'identité AI](https://platform.acedata.cloud/documents/d6ea75a4-836e-490a-aee5-7ca911a808fd).
+L'API Task de photo d'identité AI peut être utilisée pour interroger les résultats de l'API de création de photo d'identité AI. Pour savoir comment utiliser l'API de création de photo d'identité AI, veuillez consulter le document [API de création de photo d'identité AI](https://api.xhuoapi.ai/documents/d6ea75a4-836e-490a-aee5-7ca911a808fd).
 
 Prenons un exemple avec un ID de tâche retourné par le service de création de photo d'identité AI. Supposons que nous ayons un ID de tâche : `16f96e95-d95c-46ef-b183-139b9bd1aebd`, nous allons maintenant démontrer comment procéder en passant cet ID de tâche.
 
 ### Exemple de tâche
 
-<p><img src="https://cdn.acedata.cloud/7ezmmn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7ezmmn.png" width="500" className="m-auto" /></p>
 
 ### Configuration des en-têtes de requête et du corps de requête
 
@@ -45,20 +45,20 @@ Prenons un exemple avec un ID de tâche retourné par le service de création de
 
 Configurer comme illustré ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/ezsyyd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ezsyyd.png" width="500" className="m-auto" /></p>
 
 ### Exemple de code
 
 Vous pouvez constater que divers langages de code ont déjà été générés automatiquement sur le côté droit de la page, comme illustré ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/x99wu2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/x99wu2.png" width="500" className="m-auto" /></p>
 
 Voici quelques exemples de code :
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/headshots/tasks"
+url = "https://api.xhuoapi.ai/v1/headshots/tasks"
 
 headers = {
     "accept": "application/json",
@@ -118,12 +118,12 @@ Après une demande réussie, l'API renverra les détails de la tâche de photo d
     "data": [
       {
         "id": "202411032022077381",
-        "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
         "template": "男形象照"
       },
       {
         "id": "202411032022079194",
-        "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
         "template": "男形象照"
       }
     ]
@@ -148,13 +148,13 @@ Ceci est destiné à interroger les détails des tâches de photo d'identité po
 
 Configurer comme illustré ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/8vynq9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8vynq9.png" width="500" className="m-auto" /></p>
 
 ### Exemple de code
 
 Vous pouvez constater que divers langages de code ont déjà été générés automatiquement sur le côté droit de la page, comme illustré ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/5jexyn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5jexyn.png" width="500" className="m-auto" /></p>
 
 Voici quelques exemples de code :
 
@@ -187,12 +187,12 @@ Après une demande réussie, l'API renverra les détails spécifiques de toutes 
         "data": [
           {
             "id": "202411032022077381",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
             "template": "男形象照"
           },
           {
             "id": "202411032022079194",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
             "template": "男形象照"
           }
         ]
@@ -229,7 +229,7 @@ Après une demande réussie, l'API renverra les détails spécifiques de toutes 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -244,7 +244,7 @@ curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/headshots/tasks"
+url = "https://api.xhuoapi.ai/v1/headshots/tasks"
 
 headers = {
     "accept": "application/json",

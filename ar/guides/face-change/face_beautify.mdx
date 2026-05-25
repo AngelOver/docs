@@ -1,15 +1,15 @@
 ---
 title: "واجهة برمجة تطبيقات تحسين الوجه"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 ستقدم هذه الوثيقة شرحًا لواجهة برمجة تطبيقات تحسين الوجه، التي يمكنها من خلال رفع المستخدم لصورة وجه واحدة (يمكن معالجة أكبر خمس وجوه في صورة واحدة)، تحديد ملامح الوجه بدقة، وتحقيق وظائف تحسين البشرة، وتفتيح البشرة، وإزالة حب الشباب.
 
 ## عملية التقديم
 
-لاستخدام واجهة برمجة التطبيقات، يجب أولاً الذهاب إلى صفحة [واجهة برمجة تطبيقات تحسين الوجه](https://platform.acedata.cloud/documents/29641bfa-8e71-4d63-8b35-7c9e647c18ba) للتقدم للحصول على الخدمة المناسبة، بعد الدخول إلى الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
+لاستخدام واجهة برمجة التطبيقات، يجب أولاً الذهاب إلى صفحة [واجهة برمجة تطبيقات تحسين الوجه](https://api.xhuoapi.ai/documents/29641bfa-8e71-4d63-8b35-7c9e647c18ba) للتقدم للحصول على الخدمة المناسبة، بعد الدخول إلى الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، سيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول والتسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
@@ -19,11 +19,11 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 أولاً، يجب أن نفهم طريقة الاستخدام الأساسية، وهي إدخال رابط الصورة ومعلومات تحسين الوجه، للحصول على صورة النتائج المعالجة، أولاً نحتاج إلى تمرير حقل `image_url`، صورة الوجه كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/ohgrs3.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ohgrs3.png" width="500" className="m-auto" /></p>
 
 ثم نحتاج أيضًا إلى رفع معلومات معلمات تحسين الوجه، التفاصيل موجودة في معلومات جسم الطلب أدناه. بعد ذلك، يمكننا ملء المحتوى المناسب في الواجهة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/gjzkwv.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gjzkwv.png" width="500" className="m-auto" /></p>
 
 يمكننا أن نرى هنا أننا قمنا بتعيين رؤوس الطلب، بما في ذلك:
 
@@ -40,7 +40,7 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 بعد الاختيار، يمكن ملاحظة أنه تم توليد الكود المقابل على الجانب الأيمن، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/nhq282.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nhq282.png" width="500" className="m-auto" /></p>
 
 انقر على زر "Try" لإجراء الاختبار، كما هو موضح في الصورة أعلاه، هنا حصلنا على النتيجة التالية:
 
@@ -52,19 +52,19 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 يمكننا أن نرى أن النتيجة التي تم إرجاعها تحتوي على حقل `image_url`، وهو صورة الوجه بعد التغييرات الناتجة عن تحسين الوجه المدخل. حيث أن معلومات الوجه بعد التغيير كما هو موضح أدناه:
 
-<p><img src="https://cdn.acedata.cloud/g809b1.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g809b1.png" width="500" className="m-auto" /></p>
 
 يمكننا أن نرى أن الوجه في الصورة قد تغير بناءً على معلومات تحسين الوجه المدخلة.
 
 بالإضافة إلى ذلك، إذا كنت ترغب في توليد الكود المقابل، يمكنك نسخه مباشرة، على سبيل المثال، كود CURL كما يلي:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/beautify' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/beautify' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg",
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg",
   "smoothing": 50,
   "whitening": 50,
   "face_lifting": 50,
@@ -77,7 +77,7 @@ curl -X POST 'https://api.acedata.cloud/face/beautify' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/beautify"
+url = "https://api.xhuoapi.ai/v1/face/beautify"
 
 headers = {
     "accept": "application/json",
@@ -86,7 +86,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg",
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg",
     "smoothing": 50,
     "whitening": 50,
     "face_lifting": 50,

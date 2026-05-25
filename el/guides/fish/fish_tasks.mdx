@@ -1,6 +1,6 @@
 ---
 title: "Fish Tasks API της διασύνδεσης και χρήσης"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 Η κύρια λειτουργία του Fish Tasks API είναι να ελέγχει την κατάσταση εκτέλεσης ενός έργου μέσω του ID έργου που παράγεται από το Fish Audios Generation API.
@@ -9,27 +9,27 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 
 ## Διαδικασία αίτησης
 
-Για να χρησιμοποιήσετε το Fish Tasks API, πρέπει πρώτα να επισκεφθείτε τη σελίδα αίτησης [Fish Audios Generation API](https://platform.acedata.cloud/documents/e681b715-54fd-4464-a59a-d7f14500e095) για να ζητήσετε την αντίστοιχη υπηρεσία και στη συνέχεια να αντιγράψετε το ID έργου του Fish Audios Generation API, όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε το Fish Tasks API, πρέπει πρώτα να επισκεφθείτε τη σελίδα αίτησης [Fish Audios Generation API](https://api.xhuoapi.ai/documents/e681b715-54fd-4464-a59a-d7f14500e095) για να ζητήσετε την αντίστοιχη υπηρεσία και στη συνέχεια να αντιγράψετε το ID έργου του Fish Audios Generation API, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/jxvue8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jxvue8.png" width="500" className="m-auto" /></p>
 
-Τέλος, επισκεφθείτε τη σελίδα Tasks API [Fish Tasks API](https://platform.acedata.cloud/documents/44c93949-1419-4a45-8db5-8a8335de7151) για να ζητήσετε την αντίστοιχη υπηρεσία. Αφού εισέλθετε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
+Τέλος, επισκεφθείτε τη σελίδα Tasks API [Fish Tasks API](https://api.xhuoapi.ai/documents/44c93949-1419-4a45-8db5-8a8335de7151) για να ζητήσετε την αντίστοιχη υπηρεσία. Αφού εισέλθετε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
 
-![Σελίδα αίτησης](https://cdn.acedata.cloud/rci31i.png)
+![Σελίδα αίτησης](https://cdn.xhuoapi.ai/rci31i.png)
 
-Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη [σελίδα σύνδεσης](https://platform.acedata.cloud) για να σας προσκαλέσει να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
+Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη [σελίδα σύνδεσης](https://api.xhuoapi.ai) για να σας προσκαλέσει να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
 
 Κατά την πρώτη αίτηση, θα υπάρχει δωρεάν πίστωση που μπορείτε να χρησιμοποιήσετε δωρεάν για αυτό το API.
 
 ## Παράδειγμα αιτήματος
 
-Το Fish Tasks API μπορεί να χρησιμοποιηθεί για να ελέγξει τα αποτελέσματα του Fish Audios Generation API. Για πληροφορίες σχετικά με το πώς να χρησιμοποιήσετε το Fish Audios Generation API, ανατρέξτε στο έγγραφο [Fish Videos Generation API](https://platform.acedata.cloud/documents/fish-audios-integration).
+Το Fish Tasks API μπορεί να χρησιμοποιηθεί για να ελέγξει τα αποτελέσματα του Fish Audios Generation API. Για πληροφορίες σχετικά με το πώς να χρησιμοποιήσετε το Fish Audios Generation API, ανατρέξτε στο έγγραφο [Fish Videos Generation API](https://api.xhuoapi.ai/documents/fish-audios-integration).
 
 Θα χρησιμοποιήσουμε ένα παράδειγμα με το ID έργου που επιστρέφεται από την υπηρεσία Fish Audios Generation API. Ας υποθέσουμε ότι έχουμε ένα ID έργου: 2725a2d3-f87e-4905-9c53-9988d5a7b2f5, και στη συνέχεια θα δείξουμε πώς να το χρησιμοποιήσουμε περνώντας ένα ID έργου.
 
 ### Παράδειγμα έργου
 
-<p><img src="https://cdn.acedata.cloud/jxvue8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jxvue8.png" width="500" className="m-auto" /></p>
 
 ### Ρύθμιση κεφαλίδων αιτήματος και σώματος αιτήματος
 
@@ -45,20 +45,20 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 
 Ρυθμίστε όπως φαίνεται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/xc5ejq.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xc5ejq.png" width="500" className="m-auto" /></p>
 
 ### Παράδειγμα κώδικα
 
 Μπορείτε να παρατηρήσετε ότι στη δεξιά πλευρά της σελίδας έχουν ήδη παραχθεί αυτόματα κώδικες σε διάφορες γλώσσες, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/851zv2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/851zv2.png" width="500" className="m-auto" /></p>
 
 Ορισμένα παραδείγματα κώδικα είναι τα εξής:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/fish/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -120,13 +120,13 @@ curl -X POST 'https://api.acedata.cloud/fish/tasks' \
 
 Ρυθμίστε όπως φαίνεται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/64lid9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/64lid9.png" width="500" className="m-auto" /></p>
 
 ### Παράδειγμα κώδικα
 
 Μπορείτε να παρατηρήσετε ότι στη δεξιά πλευρά της σελίδας έχουν ήδη παραχθεί αυτόματα κώδικες σε διάφορες γλώσσες, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/ezkzmw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ezkzmw.png" width="500" className="m-auto" /></p>
 
 Ορισμένα παραδείγματα κώδικα είναι τα εξής:
 
@@ -205,7 +205,7 @@ curl -X POST 'https://api.acedata.cloud/fish/tasks' \
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/fish/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

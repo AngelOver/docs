@@ -1,17 +1,17 @@
 ---
 title: "Claude Code for VS Code User Guide"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code is an **Agentic Coding** tool launched by Anthropic, also known as one of the world's strongest programming agents. The Claude Code extension for VS Code provides a native graphical interface, supporting inline Diff views, `@`-mentions, plan reviews, and more, making it the recommended way to use Claude Code in VS Code.
 
-This document mainly introduces how to configure and use the Claude Code extension in VS Code through the AceData Cloud proxy service.
+This document mainly introduces how to configure and use the Claude Code extension in VS Code through the XHuoAPI proxy service.
 
 ## Application Process
 
-To use Claude Code, you can first go to the [Claude Messages service page](https://platform.acedata.cloud/documents/claude-messages) and click the "Acquire" button to obtain the credentials needed for the request:
+To use Claude Code, you can first go to the [Claude Messages service page](https://api.xhuoapi.ai/documents/claude-messages) and click the "Acquire" button to obtain the credentials needed for the request:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
@@ -27,7 +27,7 @@ There is a free quota available for first-time applicants, allowing you to exper
 
 In the VS Code / Cursor extension marketplace, press `Cmd+Shift+X` (Mac) or `Ctrl+Shift+X` (Windows/Linux) to open the extension view, search for **Claude Code**, find the plugin published by Anthropic, and click "Install":
 
-![Claude Code Plugin in VS Code Marketplace](https://cdn.acedata.cloud/10ddf71320.png)
+![Claude Code Plugin in VS Code Marketplace](https://cdn.xhuoapi.ai/10ddf71320.png)
 
 You can also install directly via the following links:
 
@@ -38,9 +38,9 @@ After installation, select trust in the pop-up information prompt to complete th
 
 > If the extension does not appear after installation, please restart VS Code or execute "Developer: Reload Window" in the command palette.
 
-## Configure AceData Cloud API
+## Configure XHuoAPI API
 
-The first time you open the plugin, you will be prompted to log in to the official Anthropic account. You can skip the official login and use the AceData Cloud proxy API configuration instead, **without an official subscription**.
+The first time you open the plugin, you will be prompted to log in to the official Anthropic account. You can skip the official login and use the XHuoAPI proxy API configuration instead, **without an official subscription**.
 
 ### Step 1: Configure Environment Variables
 
@@ -48,13 +48,13 @@ You can choose to configure environment variables in any of the following locati
 
 **Option A: User-level Configuration (Applicable to all projects)**
 
-Edit `~/.claude/settings.json` (create it if it does not exist), add the `env` configuration, and replace `{token}` with the API token obtained from the AceData Cloud console:
+Edit `~/.claude/settings.json` (create it if it does not exist), add the `env` configuration, and replace `{token}` with the API token obtained from the XHuoAPI console:
 
 ```json
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
@@ -67,12 +67,12 @@ Create `.claude/settings.json` (shared configuration) or `.claude/settings.local
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **Tip**: The API token can be viewed in the [AceData Cloud console](https://platform.acedata.cloud/console). The value of `ANTHROPIC_AUTH_TOKEN` will automatically have the `Bearer` prefix added when sent to the server. Project-level configuration takes precedence over user-level configuration. It is recommended to use `.claude/settings.json` for shared configurations in team projects, while personal sensitive information should be placed in `.claude/settings.local.json`.
+> **Tip**: The API token can be viewed in the [XHuoAPI console](https://api.xhuoapi.ai/console). The value of `ANTHROPIC_AUTH_TOKEN` will automatically have the `Bearer` prefix added when sent to the server. Project-level configuration takes precedence over user-level configuration. It is recommended to use `.claude/settings.json` for shared configurations in team projects, while personal sensitive information should be placed in `.claude/settings.local.json`.
 
 ### Step 2: Disable Login Prompt (Optional)
 
@@ -95,7 +95,7 @@ After installation and configuration, there are multiple ways to open Claude Cod
 
 Unlike tools like Cursor / Copilot that use a sidebar, Claude Code defaults to an **editor view** as the chat area, providing a larger visible area and richer content display. You can also drag the panel to the sidebar or other locations.
 
-![Claude Code Panel in VS Code](https://cdn.acedata.cloud/b84b878420.jpg)
+![Claude Code Panel in VS Code](https://cdn.xhuoapi.ai/b84b878420.jpg)
 
 ## Basic Usage
 
@@ -110,7 +110,7 @@ You can directly input natural language in the Claude Code panel to interact wit
 
 Claude Code will automatically understand the context of your codebase, analyzing and editing across files. When Claude needs to modify a file, a Diff comparison view will be displayed, allowing you to choose to accept or reject the changes.
 
-![Claude Code Conversation and Prompts in VS Code](https://cdn.acedata.cloud/650377f5cc.png)
+![Claude Code Conversation and Prompts in VS Code](https://cdn.xhuoapi.ai/650377f5cc.png)
 
 ### Contextual References
 
@@ -146,7 +146,7 @@ Click the dropdown menu at the top of the panel to view the history of conversat
 ### Review Code Changes
 
 When Claude needs to modify a file, a Diff comparison view will be displayed, showing the comparison between the original code and the modified version. You can choose to accept or reject each modification, or tell Claude what different approach you want:
-![Diff comparison view in VS Code](https://cdn.acedata.cloud/c42381ea9f.png)
+![Diff comparison view in VS Code](https://cdn.xhuoapi.ai/c42381ea9f.png)
 
 ### Permission Modes
 
@@ -186,8 +186,8 @@ If you prefer a command-line style, you can check **Use Terminal** in the VS Cod
 ### What to do if the connection fails?
 
 1. Ensure that the environment variable configuration in `~/.claude/settings.json` or `.claude/settings.json` is correct, especially `ANTHROPIC_AUTH_TOKEN` and `ANTHROPIC_BASE_URL`
-2. Confirm that the API token is valid (can be checked in the [console](https://platform.acedata.cloud/console))
-3. Check if the network connection is normal and ensure access to `https://api.acedata.cloud`
+2. Confirm that the API token is valid (can be checked in the [console](https://api.xhuoapi.ai/console))
+3. Check if the network connection is normal and ensure access to `https://api.xhuoapi.ai/v1`
 4. Restart VS Code and try again
 
 ### Why is the Spark icon not appearing?
@@ -199,11 +199,11 @@ If you prefer a command-line style, you can check **Use Terminal** in the VS Cod
 
 ### How to check the remaining quota?
 
-Log in to the [AceData Cloud console](https://platform.acedata.cloud/console) to view the current account's remaining quota and usage.
+Log in to the [XHuoAPI console](https://api.xhuoapi.ai/console) to view the current account's remaining quota and usage.
 
 ## Learn More
 
 - 📖 [Claude Code VS Code Official Documentation](https://code.claude.com/docs/en/vs-code)
 - ⌨️ [VS Code Commands and Shortcuts Reference](https://code.claude.com/docs/en/vs-code#vs-code-commands-and-shortcuts)
-- 🔧 [AceData Cloud Claude Code Service](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code Service](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 If you have any questions, feel free to contact us through the platform's customer service

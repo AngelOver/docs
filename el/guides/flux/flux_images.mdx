@@ -1,15 +1,15 @@
 ---
 title: "Οδηγίες Σύνδεσης API Δημιουργίας Εικόνων Flux"
-description: "Flux Image Generation 集成指南 - Ace Data Cloud"
+description: "Flux Image Generation 集成指南 - XHuoAPI"
 ---
 
 Αυτό το έγγραφο θα παρουσιάσει μια μέθοδο σύνδεσης με το API Δημιουργίας Εικόνων Flux, το οποίο μπορεί να δημιουργήσει εικόνες της Flux μέσω της εισαγωγής προσαρμοσμένων παραμέτρων.
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [Flux Images Generation API](https://api.xhuoapi.ai/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη σελίδα σύνδεσης για να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και τη σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
 
@@ -19,7 +19,7 @@ description: "Flux Image Generation 集成指南 - Ace Data Cloud"
 
 Αρχικά, πρέπει να κατανοήσετε τη βασική μέθοδο χρήσης, δηλαδή να εισάγετε τη λέξη-κλειδί `prompt`, τη δράση `action`, και τις διαστάσεις της εικόνας `size`, για να λάβετε το επεξεργασμένο αποτέλεσμα. Πρώτα, πρέπει να περάσετε ένα πεδίο `action`, του οποίου η τιμή είναι `generate`, και στη συνέχεια πρέπει να εισάγουμε τη λέξη-κλειδί, οι λεπτομέρειες είναι οι εξής:
 
-<p><img src="https://cdn.acedata.cloud/wz85jt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wz85jt.png" width="500" className="m-auto" /></p>
 
 Μπορείτε να δείτε ότι έχουμε ρυθμίσει τα Request Headers, που περιλαμβάνουν:
 
@@ -52,7 +52,7 @@ description: "Flux Image Generation 集成指南 - Ace Data Cloud"
 
 Αφού επιλέξετε, μπορείτε να δείτε ότι στα δεξιά έχει παραχθεί ο αντίστοιχος κώδικας, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/8q7aux.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8q7aux.png" width="500" className="m-auto" /></p>
 
 Κάντε κλικ στο κουμπί «Try» για να δοκιμάσετε, όπως φαίνεται στην παραπάνω εικόνα, και εδώ έχουμε λάβει το εξής αποτέλεσμα:
 
@@ -90,7 +90,7 @@ description: "Flux Image Generation 集成指南 - Ace Data Cloud"
 Επιπλέον, εάν θέλετε να δημιουργήσετε τον αντίστοιχο κώδικα σύνδεσης, μπορείτε να τον αντιγράψετε απευθείας, όπως ο παρακάτω κώδικας CURL:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/flux/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/images' \
 -H 'authorization: Bearer {token}' \
 -H 'accept: application/json' \
 -H 'content-type: application/json' \
@@ -111,18 +111,18 @@ curl -X POST 'https://api.acedata.cloud/flux/images' \
 
 Το παράδειγμα συμπλήρωσης είναι ως εξής:
 
-<p><img src="https://cdn.acedata.cloud/jn9da5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jn9da5.png" width="500" className="m-auto" /></p>
 
 Αφού συμπληρωθεί, έχει παραχθεί αυτόματα ο παρακάτω κώδικας:
 
-<p><img src="https://cdn.acedata.cloud/6cwxb8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/6cwxb8.png" width="500" className="m-auto" /></p>
 
 Ο αντίστοιχος κώδικας:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/images"
+url = "https://api.xhuoapi.ai/v1/flux/images"
 
 headers = {
     "accept": "application/json",
@@ -134,7 +134,7 @@ payload = {
     "action": "edit",
     "prompt": "a white siamese cat",
     "model": "flux-kontext-pro",
-    "image_url": "https://cdn.acedata.cloud/ytj2qy.png"
+    "image_url": "https://cdn.xhuoapi.ai/ytj2qy.png"
 }
 
 response = requests.post(url, json=payload, headers=headers)
@@ -169,13 +169,13 @@ print(response.text)
 
 Αρχικά, η κλήση Webhook είναι μια υπηρεσία που μπορεί να δέχεται HTTP αιτήματα, οι προγραμματιστές θα πρέπει να την αντικαταστήσουν με το URL του HTTP διακομιστή που έχουν δημιουργήσει. Για λόγους ευκολίας, χρησιμοποιούμε έναν δημόσιο ιστότοπο παραδείγματος Webhook https://webhook.site/, ανοίγοντας αυτόν τον ιστότοπο μπορείτε να αποκτήσετε ένα Webhook URL, όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 Αντιγράψτε αυτό το URL και μπορείτε να το χρησιμοποιήσετε ως Webhook, το παρακάτω παράδειγμα είναι `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`.
 
 Στη συνέχεια, μπορούμε να ρυθμίσουμε το πεδίο `callback_url` στο παραπάνω Webhook URL, ενώ συμπληρώνουμε τις αντίστοιχες παραμέτρους, οι λεπτομέρειες φαίνονται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/wm6caw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wm6caw.png" width="500" className="m-auto" /></p>
 
 Κάνοντας κλικ στην εκτέλεση, μπορούμε να δούμε ότι θα λάβουμε αμέσως ένα αποτέλεσμα, όπως παρακάτω:
 
@@ -187,7 +187,7 @@ print(response.text)
 
 Μετά από λίγο, μπορούμε να παρατηρήσουμε το αποτέλεσμα της δημιουργίας εικόνας στο `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`, όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/v23lot.png)
+![](https://cdn.xhuoapi.ai/v23lot.png)
 
 Το περιεχόμενο είναι το εξής:
 

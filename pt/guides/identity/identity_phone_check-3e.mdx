@@ -1,15 +1,15 @@
 ---
 title: "Verificação de Três Elementos do Número de Telefone API Integração"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Este documento apresentará uma descrição da integração da API de verificação de três elementos do número de telefone, que pode ser usada para verificar a autenticidade e a consistência do número de telefone, nome e número de identidade.
 
 ## Processo de Solicitação
 
-Para usar a API, você precisa primeiro acessar a página correspondente da [API de Verificação de Três Elementos do Número de Telefone](https://platform.acedata.cloud/documents/b4c50108-dda5-4ddb-ba84-776060fb0151) para solicitar o serviço correspondente. Após entrar na página, clique no botão "Adquirir", como mostrado na imagem:
+Para usar a API, você precisa primeiro acessar a página correspondente da [API de Verificação de Três Elementos do Número de Telefone](https://api.xhuoapi.ai/documents/b4c50108-dda5-4ddb-ba84-776060fb0151) para solicitar o serviço correspondente. Após entrar na página, clique no botão "Adquirir", como mostrado na imagem:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Se você ainda não estiver logado ou registrado, será redirecionado automaticamente para a página de login, convidando-o a se registrar e fazer login. Após o registro e login, você será redirecionado de volta para a página atual.
 
@@ -19,7 +19,7 @@ Na primeira solicitação, haverá um limite gratuito disponível, permitindo o 
 
 Primeiro, entenda a forma básica de uso, que é inserir o número de telefone para obter o resultado processado. Primeiro, você precisa passar um campo `phone`. Em seguida, podemos preencher o conteúdo correspondente na interface, como mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/3xbffj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3xbffj.png" width="500" className="m-auto" /></p>
 
 Podemos ver que aqui configuramos os Headers da Solicitação, incluindo:
 
@@ -36,7 +36,7 @@ Além disso, configuramos o Corpo da Solicitação, incluindo:
 
 Após a seleção, podemos ver que o código correspondente também foi gerado à direita, como mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/0cp9z1.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0cp9z1.png" width="500" className="m-auto" /></p>
 
 Clique no botão "Tentar" para realizar o teste, como mostrado na imagem acima, e aqui obtivemos o seguinte resultado:
 
@@ -69,7 +69,7 @@ Pode-se ver que as informações sobre a autenticidade e a consistência do núm
 Além disso, se você quiser gerar o código de integração correspondente, pode copiá-lo diretamente, por exemplo, o código CURL é o seguinte:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/phone/check-3e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/phone/check-3e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -85,7 +85,7 @@ O código de integração em Python é o seguinte:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/phone/check-3e"
+url = "https://api.xhuoapi.ai/v1/identity/phone/check-3e"
 
 headers = {
     "accept": "application/json",

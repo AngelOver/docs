@@ -1,15 +1,15 @@
 ---
 title: "Οδηγίες Σύνδεσης API Γεννήτριας Κίνησης Kling"
-description: "Kling video generation 集成指南 - Ace Data Cloud"
+description: "Kling video generation 集成指南 - XHuoAPI"
 ---
 
 Αυτό το έγγραφο θα παρουσιάσει τις οδηγίες σύνδεσης του API Γεννήτριας Κίνησης Kling, το οποίο μπορεί να δημιουργήσει βίντεο από την επίσημη Kling μέσω εισαγωγής προσαρμοσμένων παραμέτρων.
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [API Γεννήτριας Κίνησης Kling](https://platform.acedata.cloud/documents/d3f2c369-102d-4856-9565-702ac5f2df63) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [API Γεννήτριας Κίνησης Kling](https://api.xhuoapi.ai/documents/d3f2c369-102d-4856-9565-702ac5f2df63) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη σελίδα σύνδεσης για να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
 
@@ -19,7 +19,7 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 
 Αρχικά, πρέπει να κατανοήσετε τη βασική μέθοδο χρήσης, δηλαδή να εισάγετε τις λέξεις-κλειδιά `prompt`, τη διεύθυνση εικόνας `image_url` και τον σύνδεσμο βίντεο `video_url`, για να λάβετε το επεξεργασμένο αποτέλεσμα. Στη συνέχεια, πρέπει να εισάγουμε το μοντέλο `mode`, το οποίο αυτή τη στιγμή περιλαμβάνει κυρίως τα μοντέλα `std` και `pro`, με τις λεπτομέρειες όπως παρακάτω:
 
-<p><img src="https://cdn.acedata.cloud/5qlpjt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5qlpjt.png" width="500" className="m-auto" /></p>
 
 Μπορείτε να δείτε ότι έχουμε ρυθμίσει τα Request Headers, που περιλαμβάνουν:
 
@@ -38,7 +38,7 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 
 Αφού επιλέξετε, μπορείτε να δείτε ότι έχει παραχθεί ο αντίστοιχος κώδικας στα δεξιά, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/buwczd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/buwczd.png" width="500" className="m-auto" /></p>
 
 Κάντε κλικ στο κουμπί «Try» για να κάνετε δοκιμή, όπως φαίνεται στην παραπάνω εικόνα, και θα λάβετε το εξής αποτέλεσμα:
 
@@ -67,13 +67,13 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 Επιπλέον, εάν θέλετε να δημιουργήσετε τον αντίστοιχο κώδικα σύνδεσης, μπορείτε να τον αντιγράψετε απευθείας, όπως ο παρακάτω κώδικας CURL:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/kling/motion' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/motion' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "image_url": "https://sourceyoya.wenge.com/2025/06/03/683e9f76e4b0684509ab1aca.jpg",
-  "video_url": "https://cdn.acedata.cloud/odwfm5.mp4",
+  "video_url": "https://cdn.xhuoapi.ai/odwfm5.mp4",
   "prompt": "让画面生动起来",
   "mode": "std",
   "character_orientation": "image"
@@ -90,12 +90,12 @@ curl -X POST 'https://api.acedata.cloud/kling/motion' \
 
 Αρχικά, η επιστροφή Webhook είναι μια υπηρεσία που μπορεί να δέχεται HTTP αιτήματα. Οι προγραμματιστές θα πρέπει να αντικαταστήσουν με τη διεύθυνση URL του HTTP διακομιστή που έχουν δημιουργήσει. Για ευκολία, χρησιμοποιούμε έναν δημόσιο ιστότοπο παραδείγματος Webhook https://webhook.site/, ανοίγοντας αυτόν τον ιστότοπο μπορείτε να λάβετε μια διεύθυνση Webhook URL, όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 Αντιγράψτε αυτό το URL, ώστε να το χρησιμοποιήσετε ως Webhook, το παρακάτω παράδειγμα είναι `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`.
 
 Στη συνέχεια, μπορούμε να ρυθμίσουμε το πεδίο `callback_url` στο παραπάνω Webhook URL, ενώ ταυτόχρονα να συμπληρώσουμε τις αντίστοιχες παραμέτρους, οι λεπτομέρειες είναι όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vdx12s.png" width="500" className="m-auto" /></p>
 
 Κάνοντας κλικ στην εκτέλεση, μπορούμε να παρατηρήσουμε ότι θα λάβουμε αμέσως ένα αποτέλεσμα, όπως παρακάτω:
 
@@ -107,7 +107,7 @@ curl -X POST 'https://api.acedata.cloud/kling/motion' \
 
 Μετά από λίγο, μπορούμε να παρατηρήσουμε το αποτέλεσμα της δημιουργίας του βίντεο στο `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`, όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 Το περιεχόμενο είναι το εξής:
 

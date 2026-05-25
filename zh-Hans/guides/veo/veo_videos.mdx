@@ -1,15 +1,15 @@
 ---
 title: "Veo Videos Generation API 对接说明"
-description: "Veo Video Generation 集成指南 - Ace Data Cloud"
+description: "Veo Video Generation 集成指南 - XHuoAPI"
 ---
 
 本文将介绍一种 Veo Videos Generation API 对接说明，它是可以通过输入自定义参数来生成Veo官方的视频。
 
 ## 申请流程
 
-要使用 API，需要先到 [Veo Videos Generation API](https://platform.acedata.cloud/documents/63e01dc3-eb21-499e-8049-3025c460058f) 对应页面申请对应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
+要使用 API，需要先到 [Veo Videos Generation API](https://api.xhuoapi.ai/documents/63e01dc3-eb21-499e-8049-3025c460058f) 对应页面申请对应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 如果你尚未登录或注册，会自动跳转到登录页面邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
@@ -19,7 +19,7 @@ description: "Veo Video Generation 集成指南 - Ace Data Cloud"
 
 首先先了解下基本的使用方式，就是输入提示词 `prompt`、 生成行为 `action`、首尾帧参考图片数组 `image_urls` 以及模型 `model`，便可获得处理后的结果，首先需要简单地传递一个 `action` 字段，它的值为 `text2video`，它主要包含三种行为：文生视频（`text2video`）、图生视频（`image2video`）、获取1080p视频（`get1080p`），然后我们还需要输入模型 `model`，目前主要有 `veo2` 、`veo2-fast`、`veo3`、`veo31`、`veo31-fast`、`veo31-fast-ingredients` 和 `veo3-fast` 模型，具体的内容如下：
 
-<p><img src="https://cdn.acedata.cloud/vv5pe8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vv5pe8.png" width="500" className="m-auto" /></p>
 
 可以看到这里我们设置了 Request Headers，包括：
 
@@ -74,7 +74,7 @@ description: "Veo Video Generation 集成指南 - Ace Data Cloud"
 
 选择之后，可以发现右侧也生成了对应代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/pmwh4y.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pmwh4y.png" width="500" className="m-auto" /></p>
 
 点击「Try」按钮即可进行测试，如上图所示，这里我们就得到了如下结果：
 
@@ -86,7 +86,7 @@ description: "Veo Video Generation 集成指南 - Ace Data Cloud"
   "data": [
     {
       "id": "253eedc47f1c4eb2a370ed2312168f4b",
-      "video_url": "https://platform.cdn.acedata.cloud/veo/dd01fc69-e1f7-4b68-aa8c-463f6b748d11.mp4",
+      "video_url": "https://platform.cdn.xhuoapi.ai/veo/dd01fc69-e1f7-4b68-aa8c-463f6b748d11.mp4",
       "created_at": "2025-07-25 16:07:43",
       "complete_at": "2025-07-25 16:10:28",
       "state": "succeeded"
@@ -111,7 +111,7 @@ description: "Veo Video Generation 集成指南 - Ace Data Cloud"
 另外如果想生成对应的对接代码，可以直接复制生成，例如 CURL 的代码如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/veo/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/veo/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -133,18 +133,18 @@ curl -X POST 'https://api.acedata.cloud/veo/videos' \
 
 填写样例如下：
 
-<p><img src="https://cdn.acedata.cloud/8wvlqd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8wvlqd.png" width="500" className="m-auto" /></p>
 
 填写完毕之后自动生成了代码如下：
 
-<p><img src="https://cdn.acedata.cloud/tgzfxi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tgzfxi.png" width="500" className="m-auto" /></p>
 
 对应的 Python 代码：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/veo/videos"
+url = "https://api.xhuoapi.ai/v1/veo/videos"
 
 headers = {
     "accept": "application/json",
@@ -156,7 +156,7 @@ payload = {
     "action": "image2video",
     "model": "veo2",
     "prompt": "Let it dance",
-    "image_urls": ["https://cdn.acedata.cloud/7p1jhy.png"]
+    "image_urls": ["https://cdn.xhuoapi.ai/7p1jhy.png"]
 }
 
 response = requests.post(url, json=payload, headers=headers)
@@ -173,7 +173,7 @@ print(response.text)
   "data": [
     {
       "id": "59f12222b1fa4fbe9331ff2400ad1583",
-      "video_url": "https://platform.cdn.acedata.cloud/veo/98e309f3-35bc-438d-8cb3-4015fc864b87.mp4",
+      "video_url": "https://platform.cdn.xhuoapi.ai/veo/98e309f3-35bc-438d-8cb3-4015fc864b87.mp4",
       "created_at": "2025-07-25 16:13:07",
       "complete_at": "2025-07-25 16:16:12",
       "state": "succeeded"
@@ -188,7 +188,7 @@ print(response.text)
 
 如果想对已经生成的Veo视频获取1080p的话，可以将参数 `action` 设置为 `get1080p` ，并且输入需要获取1080p的视频的 ID，视频 ID 的获取是根据基本使用来获取，如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/hacabc.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/hacabc.png" width="500" className="m-auto" /></p>
 
 这时候可以看到视频的 ID 为：
 
@@ -205,11 +205,11 @@ print(response.text)
 
 填写样例如下：
 
-<p><img src="https://cdn.acedata.cloud/k56fhn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/k56fhn.png" width="500" className="m-auto" /></p>
 
 填写完毕之后自动生成了代码如下：
 
-<p><img src="https://cdn.acedata.cloud/8gn4cr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8gn4cr.png" width="500" className="m-auto" /></p>
 
 点击运行，可以发现会得到一个结果，如下：
 
@@ -221,7 +221,7 @@ print(response.text)
   "data": [
     {
       "id": "59f12222b1fa4fbe9331ff2400ad1583",
-      "video_url": "https://platform.cdn.acedata.cloud/veo/47a51cfe-2e24-4aba-93b3-546c2dc52984.mp4",
+      "video_url": "https://platform.cdn.xhuoapi.ai/veo/47a51cfe-2e24-4aba-93b3-546c2dc52984.mp4",
       "created_at": "2025-07-25 16:13:07",
       "complete_at": "2025-07-25 16:16:12",
       "state": "succeeded"
@@ -241,11 +241,11 @@ print(response.text)
 - `translation`：是否开启提示词的自动翻译，默认是 `false`。
 填写样例如下：
 
-<p><img src="https://cdn.acedata.cloud/xau4cm.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xau4cm.png" width="500" className="m-auto" /></p>
 
 填写完毕之后自动生成了代码如下：
 
-<p><img src="https://cdn.acedata.cloud/55r589.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/55r589.png" width="500" className="m-auto" /></p>
 
 点击运行，可以发现会得到一个结果，如下：
 
@@ -257,7 +257,7 @@ print(response.text)
   "data": [
     {
       "id": "fc667e7d3b8f44beaa61a3c339af0e50",
-      "video_url": "https://platform.cdn.acedata.cloud/veo/d2b93290-ab0e-4d20-ae45-60c062a32687.mp4",
+      "video_url": "https://platform.cdn.xhuoapi.ai/veo/d2b93290-ab0e-4d20-ae45-60c062a32687.mp4",
       "created_at": "2025-08-24 20:09:06",
       "complete_at": "2025-08-24 20:10:45",
       "state": "succeeded"
@@ -278,13 +278,13 @@ print(response.text)
 
 首先，Webhook 回调是一个可以接收 HTTP 请求的服务，开发者应该替换为自己搭建的 HTTP 服务器的 URL。此处为了方便演示，使用一个公开的 Webhook 样例网站 https://webhook.site/，打开该网站即可得到一个 Webhook URL，如图所示：
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 将此 URL 复制下来，就可以作为 Webhook 来使用，此处的样例为 `https://webhook.site/aed5cd28-f8aa-4dca-9480-8ec9b42137dc`。
 
 接下来，我们可以设置字段 `callback_url` 为上述 Webhook URL，同时填入相应的参数，具体的内容如图所示：
 
-<p><img src="https://cdn.acedata.cloud/rgivs2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/rgivs2.png" width="500" className="m-auto" /></p>
 
 点击运行，可以发现会立即得到一个结果，如下：
 
@@ -296,7 +296,7 @@ print(response.text)
 
 稍等片刻，我们可以在 `https://webhook.site/aed5cd28-f8aa-4dca-9480-8ec9b42137dc` 上观察到生成视频的结果，如图所示：
 
-![](https://cdn.acedata.cloud/238i32.png)
+![](https://cdn.xhuoapi.ai/238i32.png)
 
 内容如下：
 
@@ -308,7 +308,7 @@ print(response.text)
   "data": [
     {
       "id": "2f43ceed37944b4d836e1a1899dad0a1",
-      "video_url": "https://platform.cdn.acedata.cloud/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
+      "video_url": "https://platform.cdn.xhuoapi.ai/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
       "created_at": "2025-07-25 17:19:20",
       "complete_at": "2025-07-25 17:21:45",
       "state": "succeeded"

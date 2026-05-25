@@ -1,15 +1,15 @@
 ---
 title: "Wan Videos Generation API интеграция"
-description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
+description: "Tongyi Wansiang Video Generation 集成指南 - XHuoAPI"
 ---
 
 В этой статье будет представлено руководство по интеграции Wan Videos Generation API, который позволяет генерировать видео с помощью пользовательских параметров.
 
 ## Процесс подачи заявки
 
-Чтобы использовать API, сначала необходимо перейти на страницу [Wan Videos Generation API](https://platform.acedata.cloud/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c) и подать заявку на соответствующую услугу. После перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
+Чтобы использовать API, сначала необходимо перейти на страницу [Wan Videos Generation API](https://api.xhuoapi.ai/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c) и подать заявку на соответствующую услугу. После перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Если вы еще не вошли в систему или не зарегистрированы, вас автоматически перенаправит на страницу входа, чтобы пригласить вас зарегистрироваться и войти. После входа или регистрации вы автоматически вернетесь на текущую страницу.
 
@@ -19,7 +19,7 @@ description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
 
 Сначала необходимо понять основные способы использования, а именно ввести подсказку `prompt`, действие `action`, ссылку на изображение для первого кадра `image_url` и модель `model`, чтобы получить обработанный результат. Сначала нужно просто передать поле `action`, значение которого будет `text2video`. Оно включает два типа действий: создание видео из текста (`text2video`) и создание видео из изображения (`image2video`). Затем нам также нужно ввести модель `model`, в настоящее время доступны следующие модели: `wan2.6-i2v`, `wan2.6-r2v`, `wan2.6-i2v-flash`, `wan2.6-t2v`, конкретное содержание представлено ниже:
 
-<p><img src="https://cdn.acedata.cloud/03gqdz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/03gqdz.png" width="500" className="m-auto" /></p>
 
 Здесь мы видим, что мы настроили заголовки запроса, включая:
 
@@ -45,7 +45,7 @@ description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
 
 После выбора можно увидеть, что справа также сгенерирован соответствующий код, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/03gqdz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/03gqdz.png" width="500" className="m-auto" /></p>
 
 Нажмите кнопку «Try», чтобы протестировать, как показано на изображении, и мы получили следующий результат:
 
@@ -70,7 +70,7 @@ description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
 Кроме того, если вы хотите сгенерировать соответствующий код интеграции, вы можете просто скопировать его, например, код CURL будет следующим:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/wan/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/wan/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -92,18 +92,18 @@ curl -X POST 'https://api.acedata.cloud/wan/videos' \
 
 填写样例如下：
 
-<p><img src="https://cdn.acedata.cloud/94l0kk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/94l0kk.png" width="500" className="m-auto" /></p>
 
 填写完毕之后自动生成了代码如下：
 
-<p><img src="https://cdn.acedata.cloud/b5q8tt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/b5q8tt.png" width="500" className="m-auto" /></p>
 
 对应的 Python 代码：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/wan/videos"
+url = "https://api.xhuoapi.ai/v1/wan/videos"
 
 headers = {
     "accept": "application/json",
@@ -116,7 +116,7 @@ payload = {
     "model": "wan2.6-i2v",
     "prompt": "Astronauts shuttle from space to volcano",
     "duration": 5,
-    "image_url": "https://cdn.acedata.cloud/r9vsv9.png",
+    "image_url": "https://cdn.xhuoapi.ai/r9vsv9.png",
     "callback_url": "https://www.baidu.com/"
 }
 
@@ -147,13 +147,13 @@ print(response.text)
 
 首先，Webhook 回调是一个可以接收 HTTP 请求的服务，开发者应该替换为自己搭建的 HTTP 服务器的 URL。此处为了方便演示，使用一个公开的 Webhook 样例网站 https://webhook.site/，打开该网站即可得到一个 Webhook URL，如图所示：
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 将此 URL 复制下来，就可以作为 Webhook 来使用，此处的样例为 `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`。
 
 接下来，我们可以设置字段 `callback_url` 为上述 Webhook URL，同时填入相应的参数，具体的内容如图所示：
 
-<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vdx12s.png" width="500" className="m-auto" /></p>
 
 点击运行，可以发现会立即得到一个结果，如下：
 
@@ -165,7 +165,7 @@ print(response.text)
 
 稍等片刻，我们可以在 `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3` 上观察到生成视频的结果，如图所示：
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 内容如下：
 

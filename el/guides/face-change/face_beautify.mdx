@@ -1,15 +1,15 @@
 ---
 title: "API Σύνδεσης Ομορφιάς Προσώπου"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 Αυτό το έγγραφο θα παρουσιάσει μια μέθοδο σύνδεσης με το API ομορφιάς προσώπου, το οποίο μπορεί να εντοπίσει με ακρίβεια τα χαρακτηριστικά του προσώπου μέσω της ανάρτησης μιας εικόνας προσώπου από τον χρήστη (μπορεί να επεξεργαστεί έως πέντε πρόσωπα στην ίδια εικόνα), επιτυγχάνοντας λειτουργίες ομορφιάς όπως η βελτίωση της επιδερμίδας, η φωτεινότητα και η αφαίρεση ακμής.
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα του [API Ομορφιάς Προσώπου](https://platform.acedata.cloud/documents/29641bfa-8e71-4d63-8b35-7c9e647c18ba) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού εισέλθετε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα του [API Ομορφιάς Προσώπου](https://api.xhuoapi.ai/documents/29641bfa-8e71-4d63-8b35-7c9e647c18ba) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού εισέλθετε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα ανακατευθυνθείτε αυτόματα στη σελίδα σύνδεσης για να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και τη σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
 
@@ -19,11 +19,11 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 Αρχικά, πρέπει να κατανοήσετε τη βασική μέθοδο χρήσης, δηλαδή να εισάγετε τον σύνδεσμο της εικόνας και τις πληροφορίες ομορφιάς, για να αποκτήσετε την επεξεργασμένη εικόνα. Πρέπει πρώτα να μεταβιβάσετε ένα πεδίο `image_url`, η εικόνα προσώπου φαίνεται παρακάτω:
 
-<p><img src="https://cdn.acedata.cloud/ohgrs3.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ohgrs3.png" width="500" className="m-auto" /></p>
 
 Στη συνέχεια, πρέπει να ανεβάσουμε τις παραμέτρους πληροφοριών ομορφιάς προσώπου, οι οποίες αναφέρονται παρακάτω στο σώμα του αιτήματος. Μπορούμε να συμπληρώσουμε τα αντίστοιχα περιεχόμενα στην οθόνη, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/gjzkwv.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gjzkwv.png" width="500" className="m-auto" /></p>
 
 Μπορείτε να δείτε ότι εδώ έχουμε ρυθμίσει τις Επικεφαλίδες Αιτήματος, οι οποίες περιλαμβάνουν:
 
@@ -40,7 +40,7 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 Αφού επιλέξετε, μπορείτε να δείτε ότι έχει παραχθεί ο αντίστοιχος κώδικας στα δεξιά, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/nhq282.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nhq282.png" width="500" className="m-auto" /></p>
 
 Κάντε κλικ στο κουμπί «Try» για να κάνετε δοκιμή, όπως φαίνεται στην παραπάνω εικόνα, και εδώ έχουμε λάβει το εξής αποτέλεσμα:
 
@@ -52,19 +52,19 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 Μπορείτε να δείτε ότι το αποτέλεσμα που επιστρέφεται περιλαμβάνει ένα πεδίο `image_url`, το οποίο είναι η εικόνα προσώπου μετά τις αλλαγές ομορφιάς που εισάγατε. Οι πληροφορίες του προσώπου μετά τις αλλαγές φαίνονται παρακάτω:
 
-<p><img src="https://cdn.acedata.cloud/g809b1.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g809b1.png" width="500" className="m-auto" /></p>
 
 Μπορείτε να δείτε ότι το πρόσωπο στην εικόνα έχει αλλάξει σύμφωνα με τις πληροφορίες ομορφιάς που εισάγατε.
 
 Επιπλέον, εάν θέλετε να δημιουργήσετε τον αντίστοιχο κώδικα σύνδεσης, μπορείτε να τον αντιγράψετε απευθείας, όπως ο κώδικας CURL παρακάτω:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/beautify' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/beautify' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg",
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg",
   "smoothing": 50,
   "whitening": 50,
   "face_lifting": 50,
@@ -77,7 +77,7 @@ curl -X POST 'https://api.acedata.cloud/face/beautify' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/beautify"
+url = "https://api.xhuoapi.ai/v1/face/beautify"
 
 headers = {
     "accept": "application/json",
@@ -86,7 +86,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg",
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg",
     "smoothing": 50,
     "whitening": 50,
     "face_lifting": 50,

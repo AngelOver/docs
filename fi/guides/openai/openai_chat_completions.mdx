@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Chat Completion API - Hakeminen ja käyttö"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI ChatGPT on erittäin tehokas AI-keskustelujärjestelmä, joka pystyy tuottamaan sujuvia ja luonnollisia vastauksia vain syöttämällä kehotussanoja muutamassa sekunnissa. ChatGPT erottuu alalla erinomaisella kielentunnistus- ja -tuotantokyvyllään, ja nykyään ChatGPT:tä käytetään laajasti eri toimialoilla ja alueilla, ja sen vaikutus on yhä merkittävämpi. Olipa kyseessä päivittäinen keskustelu, luova kirjoittaminen tai ammatillinen konsultointi, koodaus, ChatGPT voi tarjota hämmästyttävää älykästä apua, mikä parantaa merkittävästi ihmisten työtehoa ja luovuutta.
@@ -9,9 +9,9 @@ Tässä asiakirjassa esitellään pääasiassa OpenAI Chat Completion API:n käy
 
 ## Hakuprosessi
 
-Käyttääksesi OpenAI Chat Completion API:a, voit ensin siirtyä [OpenAI Chat Completion API](https://platform.acedata.cloud/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) -sivulle ja napsauttaa "Acquire" -painiketta saadaksesi tarvittavat todisteet pyyntöä varten:
+Käyttääksesi OpenAI Chat Completion API:a, voit ensin siirtyä [OpenAI Chat Completion API](https://api.xhuoapi.ai/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) -sivulle ja napsauttaa "Acquire" -painiketta saadaksesi tarvittavat todisteet pyyntöä varten:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -21,7 +21,7 @@ Ensimmäisellä hakemiskerralla saat ilmaisia krediittejä, joiden avulla voit k
 
 Seuraavaksi voit täyttää vastaavat tiedot käyttöliittymässä, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/jqgg1t.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jqgg1t.png" width="400" className="m-auto" /></p>
 
 Kun käytät tätä rajapintaa ensimmäistä kertaa, sinun on täytettävä vähintään kolme tietoa: yksi on `authorization`, jonka voit valita suoraan avattavasta valikosta. Toinen parametri on `model`, joka tarkoittaa, että valitsemme OpenAI ChatGPT:n virallisen mallikategorian. Täällä meillä on pääasiassa 20 erilaista mallia, tarkemmat tiedot voit katsoa tarjoamastamme mallista. Viimeinen parametri on `messages`, joka on kysymysmerkkien taulukko, joka tarkoittaa, että voit ladata useita kysymyksiä samanaikaisesti. Jokainen kysymys sisältää `role` ja `content`, jossa `role` tarkoittaa kysyjän roolia. Olemme tarjonneet kolme identiteettiä: `user`, `assistant`, `system`. Toinen `content` on kysymyksen tarkka sisältö.
 
@@ -34,7 +34,7 @@ Yleisesti käytettävät valinnaiset parametrit:
 - `n`: kuinka monta ehdokasvastausta luodaan kerralla.
 - `response_format`: palautusmuodon asetukset.
 
-<p><img src="https://cdn.acedata.cloud/mthuu2.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mthuu2.png" width="400" className="m-auto" /></p>
 
 Kun kutsu on tehty, huomaamme, että palautustulos on seuraava:
 
@@ -85,7 +85,7 @@ Palautustuloksessa on useita kenttiä, jotka esitellään seuraavasti:
 
 `choices` sisältää ChatGPT:n vastaustiedot, ja sen sisällä `choices` on ChatGPT, kuten kuvasta näkyy.
 
-<p><img src="https://cdn.acedata.cloud/4t1ev7.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4t1ev7.png" width="400" className="m-auto" /></p>
 
 Voit nähdä, että `choices`-kentän `content` sisältää ChatGPT:n antaman tarkemman sisällön.
 
@@ -97,7 +97,7 @@ Jos haluat virtaavan palautteen, voit muuttaa pyyntöotsikossa `stream`-parametr
 
 Muutokset näkyvät kuvassa, mutta kutsukoodin on myös muututtava, jotta se tukee virtaavaa vastausta.
 
-<p><img src="https://cdn.acedata.cloud/24scd4.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/24scd4.png" width="400" className="m-auto" /></p>
 
 Kun `stream` on muutettu arvoksi `true`, API palauttaa vastaavat JSON-tiedot rivi kerrallaan, ja kooditasolla meidän on tehtävä vastaavat muutokset saadaksemme rivikohtaiset tulokset.
 
@@ -106,7 +106,7 @@ Python-esimerkkikutsukoodi:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -177,7 +177,7 @@ const options = {
   }),
 };
 
-fetch("https://api.acedata.cloud/openai/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/openai/chat/completions", options)
   .then((response) => response.json())
   .then((response) => console.log(response))
   .catch((err) => console.error(err));
@@ -193,7 +193,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/openai/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/openai/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -211,13 +211,13 @@ Muita kieliä voidaan muokata erikseen, periaate on sama.
 
 Jos haluat yhdistää monivaiheisen keskustelutoiminnon, sinun on ladattava useita kysymyksiä `messages`-kenttään, useiden kysymysten tarkka esimerkki on alla olevassa kuvassa:
 
-<p><img src="https://cdn.acedata.cloud/oz4mar.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/oz4mar.png" width="400" className="m-auto" /></p>
 
 Python-esimerkkikutsukoodi:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -276,7 +276,7 @@ OpenAI Chat Completion API -palvelun yläpuolella on virallinen OpenAI-palvelu, 
 
 ```json
 OPENAI_API_KEY="sk-xxx"
-OPENAI_BASE_URL="https://api.acedata.cloud/openai"  # Muistutuksena: jos käytät virallista OpenAI-avainta, älä käytä tätä osoitetta.
+OPENAI_BASE_URL="https://api.xhuoapi.ai/v1/openai"  # Muistutuksena: jos käytät virallista OpenAI-avainta, älä käytä tätä osoitetta.
 ```
 
 Korvaa `sk-xxx` omalla avaimellasi. `OPENAI_BASE_URL` on OpenAI:n välityspalvelun käyttöliittymä.
@@ -320,11 +320,11 @@ print(response.text)
 
 gpt-3.5-browsing ja gpt-4-browsing mallit eroavat muista malleista, sillä ne voivat tehdä verkkohakuja kysymysten perusteella ja palauttaa verkkohakujen tulokset asianmukaisesti muokattuina. Tässä artikkelissa esitellään verkkotoiminto käytännön esimerkin avulla, ja seuraavaksi voit täyttää vastaavat tiedot OpenAI Chat Completion API -käyttöliittymässä, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/249829.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/249829.png" width="400" className="m-auto" /></p>
 
 Voit myös huomata, että oikealla puolella on vastaava kutsukoodin generointi, voit kopioida koodin suoraan suoritettavaksi tai napsauttaa "Try" -painiketta testataksesi.
 
-<p><img src="https://cdn.acedata.cloud/s8gxoo.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/s8gxoo.png" width="400" className="m-auto" /></p>
 
 Kutsun jälkeen huomaamme, että palautettu tulos on seuraava:
 
@@ -366,7 +366,7 @@ gpt-4o-mallin kuvankäsittelykykyjä käytetään pääasiassa lisäämällä al
 - Curl-skripti
 
 ```
-curl -X POST 'https://api.acedata.cloud/openai/chat/completions' \
+curl -X POST 'https://api.xhuoapi.ai/v1/openai/chat/completions' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -397,7 +397,7 @@ curl -X POST 'https://api.acedata.cloud/openai/chat/completions' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -479,7 +479,7 @@ Pyyntöesimerkki:
         {
           "type": "file_url",
           "file_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]

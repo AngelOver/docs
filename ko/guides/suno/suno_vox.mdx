@@ -1,6 +1,6 @@
 ---
 title: "Suno Vox API 연동 설명"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 SUNO는 우리가 새로운 버전의 Persona-v2-vox: 가수 스타일을 생성할 수 있도록 허용하며, 이전 버전과는 다르게 먼저 `vox_audio_id`를 얻어야 합니다. 이 문서에서는 새로운 버전의 Persona-v2-vox를 생성하는 방법을 설명합니다.
@@ -12,7 +12,7 @@ SUNO는 우리가 새로운 버전의 Persona-v2-vox: 가수 스타일을 생성
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/vox"
+url = "https://api.xhuoapi.ai/v1/suno/vox"
 
 headers = {
     "accept": "application/json",
@@ -102,12 +102,12 @@ print(response.text)
 }
 ```
 
-`data`의 `id` 필드가 우리가 원하는 `vox_audio_id`임을 확인할 수 있으며, 이후 [Persona API](https://platform.acedata.cloud/documents/78bb6c62-6ce0-490f-a7df-e89d80ec0583)를 통해 새로운 버전의 Persona-v2-vox: 가수 스타일을 생성합니다. 구체적인 입력은 다음과 같습니다:
+`data`의 `id` 필드가 우리가 원하는 `vox_audio_id`임을 확인할 수 있으며, 이후 [Persona API](https://api.xhuoapi.ai/documents/78bb6c62-6ce0-490f-a7df-e89d80ec0583)를 통해 새로운 버전의 Persona-v2-vox: 가수 스타일을 생성합니다. 구체적인 입력은 다음과 같습니다:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/persona"
+url = "https://api.xhuoapi.ai/v1/suno/persona"
 
 headers = {
     "accept": "application/json",
@@ -139,4 +139,4 @@ print(response.text)
 }
 ```
 
-그 후 우리는 위의 `persona_id` 값을 바탕으로 새로운 버전의 Persona-v2-vox: 가수 스타일로 창작을 진행할 수 있으며, 구체적인 창작 방법은 [Suno 곡 생성 API 연동 설명](https://platform.acedata.cloud/documents/suno-audios-integration#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%AD%8C%E6%89%8B%E9%A3%8E%E6%A0%BC%E7%94%9F%E6%88%90%E5%8A%9F%E8%83%BD)과 동일합니다. 마지막으로 우리는 Suno Vox API를 통해 새로운 버전의 Persona-v2-vox: 가수 스타일로 곡을 창작할 수 있습니다.
+그 후 우리는 위의 `persona_id` 값을 바탕으로 새로운 버전의 Persona-v2-vox: 가수 스타일로 창작을 진행할 수 있으며, 구체적인 창작 방법은 [Suno 곡 생성 API 연동 설명](https://api.xhuoapi.ai/documents/suno-audios-integration#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%AD%8C%E6%89%8B%E9%A3%8E%E6%A0%BC%E7%94%9F%E6%88%90%E5%8A%9F%E8%83%BD)과 동일합니다. 마지막으로 우리는 Suno Vox API를 통해 새로운 버전의 Persona-v2-vox: 가수 스타일로 곡을 창작할 수 있습니다.

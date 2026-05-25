@@ -1,15 +1,15 @@
 ---
 title: "واجهة برمجة التطبيقات لتغيير عمر الوجه - تعليمات الدمج"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 ستقدم هذه الوثيقة شرحًا حول واجهة برمجة التطبيقات لتغيير عمر الوجه، والتي يمكن من خلالها تغيير عمر الوجه في الصورة المدخلة بناءً على الصورة والعمر المدخل. الاستخدام الأساسي هو أن يقوم المستخدم بتحميل صورة وجه، وبناءً على خوارزميات تحرير الوجه وتوليده، يتم إخراج صورة لوجه أكبر سنًا أو أصغر سنًا، مما يدعم تحقيق تغييرات في أعمار الوجه المختلفة.
 
 ## عملية التقديم
 
-لاستخدام واجهة برمجة التطبيقات، يجب أولاً زيارة صفحة [واجهة برمجة التطبيقات لتغيير عمر الوجه](https://platform.acedata.cloud/documents/0c5b4165-25ba-4dc2-8f02-e3cd74ab4238) للتقدم للحصول على الخدمة المناسبة. بعد الدخول إلى الصفحة، انقر على زر "Acquire" كما هو موضح في الصورة:
+لاستخدام واجهة برمجة التطبيقات، يجب أولاً زيارة صفحة [واجهة برمجة التطبيقات لتغيير عمر الوجه](https://api.xhuoapi.ai/documents/0c5b4165-25ba-4dc2-8f02-e3cd74ab4238) للتقدم للحصول على الخدمة المناسبة. بعد الدخول إلى الصفحة، انقر على زر "Acquire" كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، سيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، وبعد تسجيل الدخول، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
@@ -19,11 +19,11 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 أولاً، يجب أن نفهم طريقة الاستخدام الأساسية، وهي إدخال رابط الصورة ومعلومات العمر، للحصول على صورة النتيجة المعالجة. أولاً، تحتاج إلى تمرير حقل `image_url` ببساطة، وصورة الوجه كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/f5687u.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/f5687u.png" width="500" className="m-auto" /></p>
 
 ثم نحتاج أيضًا إلى تحميل معلومات عمر الوجه كمعامل `age_infos`، وهو مصفوفة، يمكننا تمرير عدة معلومات. بعد ذلك، يمكننا ملء المحتوى المقابل في الواجهة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/cn95e8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/cn95e8.png" width="500" className="m-auto" /></p>
 
 يمكنك أن ترى أننا قمنا بتعيين رؤوس الطلب، بما في ذلك:
 
@@ -37,7 +37,7 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 بعد الاختيار، يمكنك أن تلاحظ أن الجانب الأيمن قد أنشأ أيضًا كودًا مطابقًا، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/zk8qkl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zk8qkl.png" width="500" className="m-auto" /></p>
 
 انقر على زر "Try" لإجراء الاختبار، كما هو موضح في الصورة أعلاه، وهنا حصلنا على النتيجة التالية:
 
@@ -49,20 +49,20 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 يمكنك أن ترى أن النتيجة التي تم إرجاعها تحتوي على حقل `image_url`، وهو صورة الوجه التي تغيرت بناءً على العمر المدخل. حيث أن معلومات الوجه بعد التغيير كما هو موضح أدناه:
 
-<p><img src="https://cdn.acedata.cloud/01rmiv.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/01rmiv.png" width="500" className="m-auto" /></p>
 
 يمكنك أن ترى أن وجه الصورة قد تغير بناءً على العمر المدخل.
 
 بالإضافة إلى ذلك، إذا كنت ترغب في توليد كود الدمج المقابل، يمكنك نسخه مباشرة، على سبيل المثال، كود CURL كما يلي:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/change-age' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/change-age' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "age_infos": [{"age":60}],
-  "image_url": "https://cdn.acedata.cloud/f5687u.png"
+  "image_url": "https://cdn.xhuoapi.ai/f5687u.png"
 }'
 ```
 
@@ -71,7 +71,7 @@ curl -X POST 'https://api.acedata.cloud/face/change-age' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/change-age"
+url = "https://api.xhuoapi.ai/v1/face/change-age"
 
 headers = {
     "accept": "application/json",
@@ -81,7 +81,7 @@ headers = {
 
 payload = {
     "age_infos": [{"age":60}],
-    "image_url": "https://cdn.acedata.cloud/f5687u.png"
+    "image_url": "https://cdn.xhuoapi.ai/f5687u.png"
 }
 
 response = requests.post(url, json=payload, headers=headers)

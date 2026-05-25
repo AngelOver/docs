@@ -1,6 +1,6 @@
 ---
 title: "Google SERP API -liittymisohjeet"
-description: "Search Engine 集成指南 - Ace Data Cloud"
+description: "Search Engine 集成指南 - XHuoAPI"
 ---
 
 Google SERP (Search Engine Results Page) on tulossivu, jonka käyttäjä näkee syöttäessään kyselyn Google-hakukoneeseen. Se näyttää luonnolliset hakutulokset, mainokset, ominaisuudella varustetut tiivistelmät, tietopankit sekä kuvia, videoita ja muita sisältötyyppejä, joiden tarkoituksena on tarjota käyttäjilleen merkityksellisin tieto.
@@ -11,9 +11,9 @@ Tässä asiakirjassa esitellään Google SERP API:n liittymisohjeet.
 
 ## Hakuprosessi
 
-Google SERP API:n käyttämiseksi sinun on ensin mentävä [Google SERP API](https://platform.acedata.cloud/documents/44c86226-8eaa-49bf-85f3-1fae8d2e23f1) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire"-painiketta, kuten kuvassa on esitetty:
+Google SERP API:n käyttämiseksi sinun on ensin mentävä [Google SERP API](https://api.xhuoapi.ai/documents/44c86226-8eaa-49bf-85f3-1fae8d2e23f1) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire"-painiketta, kuten kuvassa on esitetty:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -25,7 +25,7 @@ Ensinnäkin on hyvä ymmärtää peruskäyttötapa, eli syöttämällä hakuresu
 
 Esimerkiksi etsiessäsi tietoa "apple inc":stä, voit täyttää vastaavat tiedot käyttöliittymässä, kuten kuvassa on esitetty:
 
-<p><img src="https://cdn.acedata.cloud/lnqiye.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lnqiye.png" width="500" className="m-auto" /></p>
 
 Voit nähdä, että olemme asettaneet Request Headers -asetukset, mukaan lukien:
 
@@ -44,7 +44,7 @@ Lisäksi olemme asettaneet Request Body -asetukset, mukaan lukien:
 
 Valinnan jälkeen voit huomata, että oikealle puolelle on myös luotu vastaava koodi, kuten kuvassa on esitetty:
 
-<p><img src="https://cdn.acedata.cloud/1j81zr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1j81zr.png" width="500" className="m-auto" /></p>
 
 Napsauta "Try"-painiketta testataksesi, kuten yllä olevassa kuvassa on esitetty, ja saimme seuraavat tulokset:
 ```json
@@ -193,7 +193,7 @@ Napsauta "Try"-painiketta testataksesi, kuten yllä olevassa kuvassa on esitetty
 另外如果想生成对应的对接代码，可以直接复制生成，例如 CURL 的代码如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -207,7 +207,7 @@ Python 的对接代码如下：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/serp/google"
+url = "https://api.xhuoapi.ai/v1/serp/google"
 
 headers = {
     "accept": "application/json",
@@ -230,12 +230,12 @@ Jos haluat mukauttaa hakuresurssin tyyppiä, voimme muuttaa parametria `type`, j
 Seuraavaksi näytämme tarkat toimenpiteet.
 
 Ensinnäkin, aseta `type`-parametri arvoksi `videos` ja siirrä `query`-parametri normaalisti, kuten kuvassa näkyy:
-<p><img src="https://cdn.acedata.cloud/czlt12.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/czlt12.png" width="500" className="m-auto" /></p>
 
 Vastaava koodi on seuraava:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -357,7 +357,7 @@ Voimme nähdä, että palautetussa tuloksessa on `videos`-kenttä, joka sisält�
 
 Tämä rajapinta tukee myös hakutulosten rajaamista sijaintimaan mukaan, voimme lisätä `country`-parametrin rajaamaan maata, syötettävä parametri on maan lyhenne, kuten cn (Kiina), us (Yhdysvallat), tässä artikkelissa käytetään Kiinaa seuraavana esimerkkinä, alla on tarkat tiedot:
 
-<p><img src="https://cdn.acedata.cloud/gztpwi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gztpwi.png" width="500" className="m-auto" /></p>
 
 Tulostus näyttää tältä:
 ```json
@@ -458,12 +458,12 @@ Tulostus näyttää tältä:
 ```
 我们还可以自定义搜索结果的语言，这里我们额外添加 `language` 字段，内容为 `zh-cn`，其中它指的是简体中文的语言，同时还支持其他语言，但必须输入的语言的简写，比如 en（English）、fr（French）、zh-cn（Chinese（Simplified））等语言，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/yyrssp.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yyrssp.png" width="500" className="m-auto" /></p>
 
 对应代码如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -635,12 +635,12 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 ## 自定义搜索结果时间范围
 本文 vielä voidaan mukauttaa hakutulosten aikarajaa, joka sisältää viisi vaihtoehtoa, nimittäin `qdr:h` (viimeisen tunnin aikana), `qdr:d` (viimeisen päivän aikana), `qdr:w` (viimeisen viikon aikana), `qdr:m` (viimeisen kuukauden aikana), oletuksena rajoittamaton, voimme siirtää vastaavan aikarajan `range`-parametrin kautta, esimerkiksi tässä asetetaan `qdr:d`, mikä tarkoittaa hakutulosten saamista viimeiseltä päivältä, joten syötetään seuraavasti:
 
-<p><img src="https://cdn.acedata.cloud/qccfib.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qccfib.png" width="500" className="m-auto" /></p>
 
 Vastaava koodi on seuraava:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -794,13 +794,13 @@ Voimme nähdä, että olemme onnistuneesti saaneet viimeisen päivän hakutuloks
 
 Tämä API tukee myös mukautettuja hakutulosten sivutuksia, `number` ja `page` tarkoittavat sivutuksen sivukokoa ja sivun numeroa, tässä artikkelissa asetetaan, että yhdessä sivussa on 20 hakutulosta, tarkat tiedot näkyvät kuvassa:
 
-<p><img src="https://cdn.acedata.cloud/dqla1e.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dqla1e.png" width="500" className="m-auto" /></p>
 
 > Huomaa: Kun jokaisella sivulla on yli 10 tulosta, vähennettävä pisteet kaksinkertaistuvat.
 
 Koodi on seuraava:
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

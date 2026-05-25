@@ -1,15 +1,15 @@
 ---
 title: "Kling Videos Generation API Integrationsinstruktioner"
-description: "Kling video generation 集成指南 - Ace Data Cloud"
+description: "Kling video generation 集成指南 - XHuoAPI"
 ---
 
 Den här dokumentationen beskriver hur man integrerar Kling Videos Generation API, vilket gör det möjligt att generera officiella Kling-videor genom att mata in anpassade parametrar.
 
 ## Ansökningsprocess
 
-För att använda API:et måste du först ansöka om tjänsten på motsvarande sida för [Kling Videos Generation API](https://platform.acedata.cloud/documents/3b921a16-a411-4557-8335-53f21d3f9e46). När du är på sidan klickar du på knappen “Acquire”, som visas nedan:
+För att använda API:et måste du först ansöka om tjänsten på motsvarande sida för [Kling Videos Generation API](https://api.xhuoapi.ai/documents/3b921a16-a411-4557-8335-53f21d3f9e46). När du är på sidan klickar du på knappen “Acquire”, som visas nedan:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Om du inte är inloggad eller inte har konto kommer du automatiskt att omdirigeras till inloggningssidan där du kan registrera dig och logga in. Efter inloggning återgår du automatiskt till aktuell sida.
 
@@ -25,7 +25,7 @@ Sedan specificerar du vilken modell du vill använda, med modeller som `kling-v1
 
 Det huvudsakliga innehållet är som följer:
 
-<p><img src="https://cdn.acedata.cloud/ke1bok.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ke1bok.png" width="500" className="m-auto" /></p>
 
 Du kan ställa in request headers inklusive:
 
@@ -52,7 +52,7 @@ Request body innehåller bland annat:
 
 När du har fyllt i fälten visas kod för exempelvis CURL som genereras till höger, som visar hur du kan testa:
 
-<p><img src="https://cdn.acedata.cloud/3yjql0.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3yjql0.png" width="500" className="m-auto" /></p>
 
 Klicka på “Try” för att testa. Resultatet ser ut så här:
 
@@ -81,7 +81,7 @@ Från resultatet kan du enkelt hämta videon via den angivna `video_url`.
 För att kopiera exempelvis CURL-koden kan du göra detta:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/kling/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -125,7 +125,7 @@ För att fortsätta generera en redan skapad Kling-video, sätt `action` till `e
 
 Video-ID kan hämtas exempelvis så här:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 Där ser du att videons ID är:
 ```
@@ -143,14 +143,14 @@ För att fortsätta skapa utifrån tidigare video använder du följande exempel
 
 Exempel:
 
-<p><img src="https://cdn.acedata.cloud/ejimqy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ejimqy.png" width="500" className="m-auto" /></p>
 
 Den automatiskte genererade koden i Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kling/videos"
+url = "https://api.xhuoapi.ai/v1/kling/videos"
 
 headers = {
     "accept": "application/json",
@@ -205,7 +205,7 @@ Efter att ha angett URL:n och skickat förfrågan kommer du att få ett svar:
 
 När videon är klar kan du se resultatet på den angivna webhook-adressen, exempelvis:
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 Innehåll i resultatet:
 

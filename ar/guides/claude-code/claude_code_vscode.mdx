@@ -1,17 +1,17 @@
 ---
 title: "دليل استخدام Claude Code لـ VS Code"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code هو أداة **Agentic Coding** أطلقتها شركة Anthropic، ويعتبر واحدًا من أقوى وكلاء البرمجة في العالم. يوفر امتداد Claude Code لـ VS Code واجهة رسومية أصلية، تدعم عرض Diff المضمن، وإشارات `@`، ومراجعة الخطط، وغيرها من الميزات، وهو الطريقة الموصى بها لاستخدام Claude Code في VS Code.
 
-تتناول هذه الوثيقة كيفية تكوين واستخدام امتداد Claude Code في VS Code من خلال خدمة الوكيل من AceData Cloud.
+تتناول هذه الوثيقة كيفية تكوين واستخدام امتداد Claude Code في VS Code من خلال خدمة الوكيل من XHuoAPI.
 
 ## عملية التقديم
 
-لاستخدام Claude Code، يمكنك أولاً زيارة [صفحة خدمة Claude Messages](https://platform.acedata.cloud/documents/claude-messages) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة:
+لاستخدام Claude Code، يمكنك أولاً زيارة [صفحة خدمة Claude Messages](https://api.xhuoapi.ai/documents/claude-messages) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل، فسيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، وبعد تسجيل الدخول، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
@@ -27,7 +27,7 @@ Claude Code هو أداة **Agentic Coding** أطلقتها شركة Anthropic،
 
 في سوق الإضافات لـ VS Code / Cursor، اضغط على `Cmd+Shift+X` (Mac) أو `Ctrl+Shift+X` (Windows/Linux) لفتح عرض الإضافات، وابحث عن **Claude Code**، ثم ابحث عن الإضافة التي أصدرتها Anthropic وانقر على "Install" للتثبيت:
 
-![إضافة Claude Code في سوق VS Code](https://cdn.acedata.cloud/10ddf71320.png)
+![إضافة Claude Code في سوق VS Code](https://cdn.xhuoapi.ai/10ddf71320.png)
 
 يمكنك أيضًا تثبيتها مباشرة من خلال الروابط التالية:
 
@@ -38,9 +38,9 @@ Claude Code هو أداة **Agentic Coding** أطلقتها شركة Anthropic،
 
 > إذا لم تظهر الإضافة بعد التثبيت، يرجى إعادة تشغيل VS Code أو تنفيذ "Developer: Reload Window" من لوحة الأوامر.
 
-## تكوين واجهة برمجة التطبيقات لـ AceData Cloud
+## تكوين واجهة برمجة التطبيقات لـ XHuoAPI
 
-عند فتح الإضافة لأول مرة، سيُطلب منك تسجيل الدخول إلى حساب Anthropic الرسمي. يمكنك تخطي تسجيل الدخول الرسمي، واستخدام واجهة برمجة التطبيقات الخاصة بـ AceData Cloud من خلال تكوينها، **دون الحاجة إلى اشتراك رسمي**.
+عند فتح الإضافة لأول مرة، سيُطلب منك تسجيل الدخول إلى حساب Anthropic الرسمي. يمكنك تخطي تسجيل الدخول الرسمي، واستخدام واجهة برمجة التطبيقات الخاصة بـ XHuoAPI من خلال تكوينها، **دون الحاجة إلى اشتراك رسمي**.
 
 ### الخطوة الأولى: تكوين متغيرات البيئة
 
@@ -48,13 +48,13 @@ Claude Code هو أداة **Agentic Coding** أطلقتها شركة Anthropic،
 
 **الخيار A: تكوين على مستوى المستخدم (ينطبق على جميع المشاريع)**
 
-قم بتحرير `~/.claude/settings.json` (إذا لم يكن موجودًا، قم بإنشائه)، وأضف تكوين `env`، واستبدل `{token}` بالتوكن الخاص بك الذي حصلت عليه من لوحة تحكم AceData Cloud:
+قم بتحرير `~/.claude/settings.json` (إذا لم يكن موجودًا، قم بإنشائه)، وأضف تكوين `env`، واستبدل `{token}` بالتوكن الخاص بك الذي حصلت عليه من لوحة تحكم XHuoAPI:
 
 ```json
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
@@ -67,12 +67,12 @@ Claude Code هو أداة **Agentic Coding** أطلقتها شركة Anthropic،
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **تلميح**: يمكنك عرض توكن API في [لوحة تحكم AceData Cloud](https://platform.acedata.cloud/console). سيتم إضافة قيمة `ANTHROPIC_AUTH_TOKEN` تلقائيًا مع بادئة `Bearer` المرسلة إلى الخادم. تكوين المشروع له أولوية أعلى من تكوين المستخدم. يُنصح باستخدام `.claude/settings.json` للتكوين المشترك في المشاريع الجماعية، بينما يتم وضع المعلومات الحساسة الشخصية في `.claude/settings.local.json`.
+> **تلميح**: يمكنك عرض توكن API في [لوحة تحكم XHuoAPI](https://api.xhuoapi.ai/console). سيتم إضافة قيمة `ANTHROPIC_AUTH_TOKEN` تلقائيًا مع بادئة `Bearer` المرسلة إلى الخادم. تكوين المشروع له أولوية أعلى من تكوين المستخدم. يُنصح باستخدام `.claude/settings.json` للتكوين المشترك في المشاريع الجماعية، بينما يتم وضع المعلومات الحساسة الشخصية في `.claude/settings.local.json`.
 
 ### الخطوة الثانية: تعطيل إشعار تسجيل الدخول (اختياري)
 
@@ -95,7 +95,7 @@ Claude Code هو أداة **Agentic Coding** أطلقتها شركة Anthropic،
 
 على عكس الأدوات مثل Cursor / Copilot التي تستخدم الشريط الجانبي، تعتمد Claude Code بشكل افتراضي على **عرض منطقة التحرير** كمنطقة دردشة، مما يوفر مساحة مرئية أكبر وعرض محتوى أكثر ثراءً. يمكنك أيضًا سحب اللوحة إلى الشريط الجانبي أو أي مكان آخر.
 
-![لوحة Claude Code في VS Code](https://cdn.acedata.cloud/b84b878420.jpg)
+![لوحة Claude Code في VS Code](https://cdn.xhuoapi.ai/b84b878420.jpg)
 
 ## الاستخدام الأساسي
 
@@ -110,7 +110,7 @@ Claude Code هو أداة **Agentic Coding** أطلقتها شركة Anthropic،
 
 سيفهم Claude Code تلقائيًا سياق مكتبة الشيفرة الخاصة بك، ويقوم بالتحليل والتحرير عبر الملفات. عندما يحتاج Claude إلى تعديل الملفات، سيظهر عرض مقارنة Diff، ويمكنك اختيار قبول أو رفض التعديل.
 
-![التفاعل والتنبيهات في Claude Code في VS Code](https://cdn.acedata.cloud/650377f5cc.png)
+![التفاعل والتنبيهات في Claude Code في VS Code](https://cdn.xhuoapi.ai/650377f5cc.png)
 
 ### الإشارات السياقية
 
@@ -146,7 +146,7 @@ Claude Code هو أداة **Agentic Coding** أطلقتها شركة Anthropic،
 ### مراجعة تغييرات الشيفرة
 
 عندما يحتاج Claude إلى تعديل الملفات، سيظهر عرض مقارنة Diff، يعرض مقارنة بين الشيفرة الأصلية والتعديلات. يمكنك اختيار قبول أو رفض كل تعديل، أو يمكنك إخبار Claude بالطريقة المختلفة التي ترغب بها:
-![عرض مقارنة Diff في VS Code](https://cdn.acedata.cloud/c42381ea9f.png)
+![عرض مقارنة Diff في VS Code](https://cdn.xhuoapi.ai/c42381ea9f.png)
 
 ### وضع الأذونات
 
@@ -186,8 +186,8 @@ Claude Code هو أداة **Agentic Coding** أطلقتها شركة Anthropic،
 ### ماذا أفعل إذا فشل الاتصال؟
 
 1. تأكد من أن إعدادات المتغيرات البيئية في `~/.claude/settings.json` أو `.claude/settings.json` صحيحة، خاصةً `ANTHROPIC_AUTH_TOKEN` و `ANTHROPIC_BASE_URL`
-2. تأكد من أن رمز API صالح (يمكنك التحقق منه في [اللوحة](https://platform.acedata.cloud/console))
-3. تحقق من أن الاتصال بالإنترنت يعمل بشكل صحيح، وتأكد من إمكانية الوصول إلى `https://api.acedata.cloud`
+2. تأكد من أن رمز API صالح (يمكنك التحقق منه في [اللوحة](https://api.xhuoapi.ai/console))
+3. تحقق من أن الاتصال بالإنترنت يعمل بشكل صحيح، وتأكد من إمكانية الوصول إلى `https://api.xhuoapi.ai/v1`
 4. أعد تشغيل VS Code وحاول مرة أخرى
 
 ### لماذا لم يظهر رمز Spark؟
@@ -199,11 +199,11 @@ Claude Code هو أداة **Agentic Coding** أطلقتها شركة Anthropic،
 
 ### كيف يمكنني رؤية الرصيد المتبقي؟
 
-قم بتسجيل الدخول إلى [لوحة تحكم AceData Cloud](https://platform.acedata.cloud/console) لرؤية الرصيد المتبقي الحالي وحالة الاستخدام.
+قم بتسجيل الدخول إلى [لوحة تحكم XHuoAPI](https://api.xhuoapi.ai/console) لرؤية الرصيد المتبقي الحالي وحالة الاستخدام.
 
 ## لمعرفة المزيد
 
 - 📖 [وثائق Claude Code VS Code الرسمية](https://code.claude.com/docs/en/vs-code)
 - ⌨️ [مرجع أوامر VS Code واختصاراته](https://code.claude.com/docs/en/vs-code#vs-code-commands-and-shortcuts)
-- 🔧 [خدمة Claude Code من AceData Cloud](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [خدمة Claude Code من XHuoAPI](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 إذا كان لديك أي استفسارات، فلا تتردد في الاتصال بنا عبر خدمة العملاء على المنصة

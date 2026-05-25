@@ -1,13 +1,13 @@
 ---
 title: "Fish TTS API -liitännän ohjeet"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
-Tässä dokumentissa esitellään Fish TTS API:n liitäntäohjeet. Tämä rajapinta on täysin yhteensopiva [Fish Audio virallisen OpenAPI:n](https://docs.fish.audio/text-to-speech/text-to-speech) kanssa, ja voit siirtää koodisi, joka aiemmin kutsui `https://api.fish.audio/v1/tts`, suoraan osoitteeseen `https://api.acedata.cloud/fish/tts` vaihtamalla vain tunnistautumistiedot ilman, että pyyntökehon rakennetta tarvitsee muuttaa.
+Tässä dokumentissa esitellään Fish TTS API:n liitäntäohjeet. Tämä rajapinta on täysin yhteensopiva [Fish Audio virallisen OpenAPI:n](https://docs.fish.audio/text-to-speech/text-to-speech) kanssa, ja voit siirtää koodisi, joka aiemmin kutsui `https://api.fish.audio/v1/tts`, suoraan osoitteeseen `https://api.xhuoapi.ai/v1/fish/tts` vaihtamalla vain tunnistautumistiedot ilman, että pyyntökehon rakennetta tarvitsee muuttaa.
 
 ## Hakuprosessi
 
-API:n käyttämiseksi sinun tulee ensin hakea palvelua vastaavalta sivulta [Fish TTS API](https://platform.acedata.cloud/services/caf99abc-ddcf-4714-b2a5-862d9b469509). Sivulle siirryttyäsi klikkaa "Acquire"-painiketta.
+API:n käyttämiseksi sinun tulee ensin hakea palvelua vastaavalta sivulta [Fish TTS API](https://api.xhuoapi.ai/services/caf99abc-ddcf-4714-b2a5-862d9b469509). Sivulle siirryttyäsi klikkaa "Acquire"-painiketta.
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle rekisteröitymään tai kirjautumaan sisään. Kirjautumisen jälkeen palaat automaattisesti tälle sivulle.
 
@@ -29,7 +29,7 @@ Muiden kenttien (`text`, `reference_id`, `references`, `prosody`, `format`, `sam
 Vähimmäispyyntö sisältää vain `text`-kentän. Esimerkki CURL-komennosta:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -55,7 +55,7 @@ Vastaus sisältää suoraan Fishin viralliset kentät, kuten:
 Jos haluat käyttää kloonattua ääntä, voit lisätä pyyntöön `reference_id`-kentän:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -77,7 +77,7 @@ Käyttöprosessi on seuraava: asiakas lisää pyyntöön `callback_url`-kentän,
 Esimerkkipyyntö:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -106,7 +106,7 @@ Hetken kuluttua `callback_url` saa täydellisen tuloksen:
 }
 ```
 
-Voit myös käyttää [Fish Tasks API:a](https://platform.acedata.cloud/documents/fc541fac-a941-47fd-b6f7-48d6cb9da523) tarkistaaksesi tehtävän tilan aktiivisesti `task_id`:llä.
+Voit myös käyttää [Fish Tasks API:a](https://api.xhuoapi.ai/documents/fc541fac-a941-47fd-b6f7-48d6cb9da523) tarkistaaksesi tehtävän tilan aktiivisesti `task_id`:llä.
 
 ## Virheenkäsittely
 

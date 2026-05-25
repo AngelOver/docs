@@ -1,15 +1,15 @@
 ---
 title: "توضيح واجهة برمجة التطبيقات للتعرف على بطاقة الهوية والتحقق من المعلومات"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 ستقدم هذه الوثيقة توضيحًا لواجهة برمجة التطبيقات للتعرف على بطاقة الهوية والتحقق من المعلومات، والتي يمكن استخدامها للتحقق من صحة وتوافق الاسم ورقم الهوية من خلال إدخال صورة بطاقة الهوية أو الاسم ورقم الهوية. تُستخدم هذه الواجهة للتحقق من صحة وتوافق الاسم ورقم الهوية، ويمكنك تقديم المعلومات المطلوبة من خلال إدخال الاسم ورقم الهوية أو إرسال صورة الوجه لبطاقة الهوية.
 
 ## عملية التقديم
 
-لاستخدام واجهة برمجة التطبيقات، يجب أولاً زيارة صفحة [واجهة برمجة التطبيقات للتعرف على بطاقة الهوية والتحقق من المعلومات](https://platform.acedata.cloud/documents/67f96afa-60b8-4cbb-a4bf-0cbfcf139a23) للتقدم للحصول على الخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire" كما هو موضح في الصورة:
+لاستخدام واجهة برمجة التطبيقات، يجب أولاً زيارة صفحة [واجهة برمجة التطبيقات للتعرف على بطاقة الهوية والتحقق من المعلومات](https://api.xhuoapi.ai/documents/67f96afa-60b8-4cbb-a4bf-0cbfcf139a23) للتقدم للحصول على الخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire" كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، وبعد تسجيل الدخول، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
@@ -19,7 +19,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 أولاً، يجب أن نفهم طريقة الاستخدام الأساسية، وهي إدخال رابط صورة بطاقة الهوية، للحصول على نتائج التحقق بعد المعالجة، يجب أولاً تمرير حقل `image_url` ببساطة، ثم يمكننا ملء المحتوى المقابل في الواجهة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/qxy9rh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qxy9rh.png" width="500" className="m-auto" /></p>
 
 يمكنك أن ترى هنا أننا قمنا بتعيين رؤوس الطلب، بما في ذلك:
 
@@ -33,7 +33,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 بعد الاختيار، يمكنك أن تلاحظ أن الجانب الأيمن قد تم إنشاء كود مطابق، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/uw90il.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/uw90il.png" width="500" className="m-auto" /></p>
 
 انقر على زر "Try" لإجراء اختبار، كما هو موضح في الصورة أعلاه، هنا حصلنا على النتائج التالية:
 
@@ -76,7 +76,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 بالإضافة إلى ذلك، إذا كنت ترغب في توليد كود التكامل المقابل، يمكنك نسخه مباشرة، على سبيل المثال، كود CURL كما يلي:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/idcard/ocr' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/idcard/ocr' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -90,7 +90,7 @@ curl -X POST 'https://api.acedata.cloud/identity/idcard/ocr' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/idcard/ocr"
+url = "https://api.xhuoapi.ai/v1/identity/idcard/ocr"
 
 headers = {
     "accept": "application/json",
@@ -110,7 +110,7 @@ print(response.text)
 
 نحن نقدم أيضًا طريقة للتحقق دون تسريب معلومات صورة بطاقة الهوية، حيث يمكنك فقط إدخال الاسم `name` ورقم الهوية `id_card` للتحقق من صحة وتوافق الاسم ورقم الهوية، فيما يلي المعلومات المحددة المدخلة:
 
-<p><img src="https://cdn.acedata.cloud/mc5bbw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mc5bbw.png" width="500" className="m-auto" /></p>
 
 بعد النقر على التشغيل، حصلنا على النتائج التالية:
 

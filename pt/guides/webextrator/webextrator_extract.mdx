@@ -1,9 +1,9 @@
 ---
 title: "Guia de Integração da API de Extração Inteligente WebExtrator"
-description: "WebExtrator Web Render & Extract 集成指南 - Ace Data Cloud"
+description: "WebExtrator Web Render & Extract 集成指南 - XHuoAPI"
 ---
 
-`POST https://api.acedata.cloud/webextrator/extract`
+`POST https://api.xhuoapi.ai/v1/webextrator/extract`
 
 Realiza extração de conteúdo com base em `/webextrator/render`. Além de todos os parâmetros da interface render, suporta adicionalmente:
 
@@ -41,7 +41,7 @@ O modo assíncrono, códigos de erro e regras de cobrança são idênticos a `/w
 ## Exemplo: Extração do corpo do artigo (com LLM ativado)
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -54,7 +54,7 @@ curl -X POST https://api.acedata.cloud/webextrator/extract \
 ## Exemplo: Assíncrono + extração estruturada personalizada
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

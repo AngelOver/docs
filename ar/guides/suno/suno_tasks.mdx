@@ -1,6 +1,6 @@
 ---
 title: "واجهة برمجة تطبيقات مهام Suno والتكامل والاستخدام"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 الوظيفة الرئيسية لواجهة برمجة تطبيقات مهام Suno هي استعلام حالة تنفيذ المهمة من خلال إدخال معرف المهمة الذي تم إنشاؤه بواسطة واجهة برمجة تطبيقات توليد الصوتيات Suno أو واجهة برمجة تطبيقات توليد الكلمات Suno.
@@ -9,27 +9,27 @@ description: "Suno Music Generation 集成指南 - Ace Data Cloud"
 
 ## عملية التقديم
 
-لاستخدام واجهة برمجة تطبيقات مهام Suno، يجب أولاً زيارة صفحة التقديم [واجهة برمجة تطبيقات توليد الصوتيات Suno](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) لتقديم الطلب للخدمة المناسبة، ثم نسخ معرف المهمة من واجهة برمجة تطبيقات توليد الصوتيات Suno، كما هو موضح في الصورة:
+لاستخدام واجهة برمجة تطبيقات مهام Suno، يجب أولاً زيارة صفحة التقديم [واجهة برمجة تطبيقات توليد الصوتيات Suno](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) لتقديم الطلب للخدمة المناسبة، ثم نسخ معرف المهمة من واجهة برمجة تطبيقات توليد الصوتيات Suno، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/bc6754.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bc6754.png" width="500" className="m-auto" /></p>
 
-أخيرًا، انتقل إلى صفحة واجهة برمجة تطبيقات المهام [واجهة برمجة تطبيقات مهام Suno](https://platform.acedata.cloud/documents/b0dd9823-0e01-4c75-af83-5a6e2e05bfed) لتقديم الطلب للخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
+أخيرًا، انتقل إلى صفحة واجهة برمجة تطبيقات المهام [واجهة برمجة تطبيقات مهام Suno](https://api.xhuoapi.ai/documents/b0dd9823-0e01-4c75-af83-5a6e2e05bfed) لتقديم الطلب للخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
 
-![صفحة التقديم](https://cdn.acedata.cloud/rci31i.png)
+![صفحة التقديم](https://cdn.xhuoapi.ai/rci31i.png)
 
-إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى [صفحة تسجيل الدخول](https://platform.acedata.cloud) لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول أو التسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
+إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى [صفحة تسجيل الدخول](https://api.xhuoapi.ai) لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول أو التسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
 عند التقديم لأول مرة، سيكون هناك حد مجاني متاح، يمكنك استخدام هذه الواجهة مجانًا.
 
 ## مثال على الطلب
 
-يمكن استخدام واجهة برمجة تطبيقات مهام Suno لاستعلام نتائج واجهتي برمجة تطبيقات توليد الصوتيات Suno وتوليد الكلمات Suno. لمزيد من المعلومات حول كيفية استخدام واجهة برمجة تطبيقات توليد الصوتيات Suno، يرجى الرجوع إلى الوثيقة [واجهة برمجة تطبيقات توليد الصوتيات Suno](https://platform.acedata.cloud/documents/d016ee3f-421b-4b6e-989a-8beba8701701). لمزيد من المعلومات حول كيفية استخدام واجهة برمجة تطبيقات توليد الكلمات Suno، يرجى الرجوع إلى [واجهة برمجة تطبيقات توليد الكلمات Suno](https://platform.acedata.cloud/documents/f1c66741-a488-43ca-91fc-e53fbbda639a).
+يمكن استخدام واجهة برمجة تطبيقات مهام Suno لاستعلام نتائج واجهتي برمجة تطبيقات توليد الصوتيات Suno وتوليد الكلمات Suno. لمزيد من المعلومات حول كيفية استخدام واجهة برمجة تطبيقات توليد الصوتيات Suno، يرجى الرجوع إلى الوثيقة [واجهة برمجة تطبيقات توليد الصوتيات Suno](https://api.xhuoapi.ai/documents/d016ee3f-421b-4b6e-989a-8beba8701701). لمزيد من المعلومات حول كيفية استخدام واجهة برمجة تطبيقات توليد الكلمات Suno، يرجى الرجوع إلى [واجهة برمجة تطبيقات توليد الكلمات Suno](https://api.xhuoapi.ai/documents/f1c66741-a488-43ca-91fc-e53fbbda639a).
 
 سنأخذ مثالاً على معرف المهمة الذي تم إرجاعه من خدمة واجهة برمجة تطبيقات توليد الصوتيات Suno، لنوضح كيفية استخدام هذه الواجهة. لنفترض أن لدينا معرف مهمة: eae26f89-b64b-404d-a80c-761996660b1c، وسنوضح بعد ذلك كيفية تمرير معرف المهمة.
 
 ### مثال على المهمة
 
-<p><img src="https://cdn.acedata.cloud/bc6754.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bc6754.png" width="500" className="m-auto" /></p>
 
 ### إعداد رأس الطلب وجسم الطلب
 
@@ -45,20 +45,20 @@ description: "Suno Music Generation 集成指南 - Ace Data Cloud"
 
 الإعداد كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/uo7t6n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/uo7t6n.png" width="500" className="m-auto" /></p>
 
 ### مثال على الكود
 
 يمكن ملاحظة أنه تم إنشاء أكواد بلغات مختلفة تلقائيًا على الجانب الأيمن من الصفحة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/p6vi9o.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/p6vi9o.png" width="500" className="m-auto" /></p>
 
 بعض أمثلة الكود كما يلي:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/suno/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/tasks"
+url = "https://api.xhuoapi.ai/v1/suno/tasks"
 
 headers = {
     "accept": "application/json",
@@ -159,13 +159,13 @@ print(response.text)
 
 设置如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/dqeknz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dqeknz.png" width="500" className="m-auto" /></p>
 
 ### 代码示例
 
 يمكنك أن ترى أنه في الجانب الأيمن تم إنشاء أكواد مختلفة تلقائيًا، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/1yk792.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1yk792.png" width="500" className="m-auto" /></p>
 
 部分代码示例如下：
 
@@ -276,7 +276,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -291,7 +291,7 @@ curl -X POST 'https://api.acedata.cloud/suno/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/tasks"
+url = "https://api.xhuoapi.ai/v1/suno/tasks"
 
 headers = {
     "accept": "application/json",

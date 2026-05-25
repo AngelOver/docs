@@ -1,15 +1,15 @@
 ---
 title: "Инструкция по интеграции Fish Audios Generation API"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 В этой статье будет представлена инструкция по интеграции Fish Audios Generation API, который позволяет клонировать свой голос с помощью ввода подсказок.
 
 ## Процесс подачи заявки
 
-Чтобы использовать API, сначала необходимо перейти на соответствующую страницу [Fish Audios Generation API](https://platform.acedata.cloud/documents/e681b715-54fd-4464-a59a-d7f14500e095) и подать заявку на соответствующую услугу. После перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
+Чтобы использовать API, сначала необходимо перейти на соответствующую страницу [Fish Audios Generation API](https://api.xhuoapi.ai/documents/e681b715-54fd-4464-a59a-d7f14500e095) и подать заявку на соответствующую услугу. После перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Если вы еще не вошли в систему или не зарегистрировались, вас автоматически перенаправит на страницу входа, чтобы пригласить вас зарегистрироваться и войти в систему. После входа в систему вы автоматически вернетесь на текущую страницу.
 
@@ -19,7 +19,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 
 Сначала ознакомьтесь с основным способом использования, который включает ввод подсказки `prompt`, действия `action`, ID голоса `voice_id` и модели `model`, чтобы получить обработанный результат. Сначала необходимо передать поле `action`, значение которого равно `generate`, затем нам также нужно ввести модель `model`, в настоящее время основная модель — это `fish-tts`, конкретное содержание представлено ниже:
 
-<p><img src="https://cdn.acedata.cloud/0jnfqb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0jnfqb.png" width="500" className="m-auto" /></p>
 
 Мы видим, что здесь мы настроили заголовки запроса, включая:
 
@@ -36,7 +36,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 
 После выбора вы можете заметить, что справа также сгенерирован соответствующий код, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/8uyos2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8uyos2.png" width="500" className="m-auto" /></p>
 
 Нажмите кнопку «Try», чтобы провести тестирование, как показано на изображении, и мы получим следующий результат:
 
@@ -64,7 +64,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 Кроме того, если вы хотите сгенерировать соответствующий код интеграции, вы можете просто скопировать его, например, код CURL выглядит следующим образом:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -86,13 +86,13 @@ curl -X POST 'https://api.acedata.cloud/fish/audios' \
 
 Во-первых, Webhook обратный вызов — это служба, которая может принимать HTTP-запросы, разработчик должен заменить его на URL своего HTTP-сервера. Для удобства демонстрации используется публичный сайт примера Webhook https://webhook.site/, открыв этот сайт, вы получите URL Webhook, как показано на изображении:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Скопируйте этот URL, и вы сможете использовать его в качестве Webhook, пример здесь: `https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34`.
 
 Далее мы можем установить поле `callback_url` на указанный Webhook URL, а также заполнить соответствующие параметры, конкретное содержание представлено на изображении:
 
-<p><img src="https://cdn.acedata.cloud/8rv4te.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8rv4te.png" width="500" className="m-auto" /></p>
 
 Нажмите «Запустить», и вы сразу получите результат, как показано ниже:
 
@@ -104,7 +104,7 @@ curl -X POST 'https://api.acedata.cloud/fish/audios' \
 
 Через некоторое время мы можем наблюдать результат генерации задачи на `https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34`, как показано на изображении:
 
-![](https://cdn.acedata.cloud/9utzve.png)
+![](https://cdn.xhuoapi.ai/9utzve.png)
 
 Содержимое следующее:
 

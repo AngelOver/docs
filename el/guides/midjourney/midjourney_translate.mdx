@@ -1,6 +1,6 @@
 ---
 title: "Midjourney Translate API της διασύνδεσης και χρήσης"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 Η κύρια λειτουργία του Midjourney Translate API είναι να αποκτά αγγλικές περιγραφές μέσω της εισαγωγής κινεζικών περιγραφικών λέξεων.
@@ -9,11 +9,11 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 ## Διαδικασία αίτησης
 
-Για να χρησιμοποιήσετε το Midjourney Translate API, πρέπει πρώτα να επισκεφθείτε τη σελίδα αίτησης [Midjourney Translate API](https://platform.acedata.cloud/documents/e067d19b-7a66-4458-a45f-0fe88c1d5d34) για να ζητήσετε την αντίστοιχη υπηρεσία. Αφού εισέλθετε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε το Midjourney Translate API, πρέπει πρώτα να επισκεφθείτε τη σελίδα αίτησης [Midjourney Translate API](https://api.xhuoapi.ai/documents/e067d19b-7a66-4458-a45f-0fe88c1d5d34) για να ζητήσετε την αντίστοιχη υπηρεσία. Αφού εισέλθετε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
 
-![Σελίδα αίτησης](https://cdn.acedata.cloud/rci31i.png)
+![Σελίδα αίτησης](https://cdn.xhuoapi.ai/rci31i.png)
 
-Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα ανακατευθυνθείτε αυτόματα στη [σελίδα σύνδεσης](https://platform.acedata.cloud) για να σας προσκαλέσει να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
+Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα ανακατευθυνθείτε αυτόματα στη [σελίδα σύνδεσης](https://api.xhuoapi.ai) για να σας προσκαλέσει να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
 
 Κατά την πρώτη αίτηση, θα υπάρχει δωρεάν πίστωση που μπορείτε να χρησιμοποιήσετε δωρεάν για αυτό το API.
 
@@ -36,20 +36,20 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 Ρυθμίστε όπως φαίνεται στην παρακάτω εικόνα:
 
-![](https://cdn.acedata.cloud/db8lrn.png)
+![](https://cdn.xhuoapi.ai/db8lrn.png)
 
 ### Παράδειγμα κώδικα
 
 Μπορείτε να παρατηρήσετε ότι στη δεξιά πλευρά της σελίδας έχουν παραχθεί αυτόματα διάφορες γλώσσες κώδικα, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/oj1cck.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/oj1cck.png" width="500" className="m-auto" /></p>
 
 Ορισμένα παραδείγματα κώδικα είναι τα εξής:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/translate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/translate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -63,7 +63,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/translate' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/translate"
+url = "https://api.xhuoapi.ai/v1/midjourney/translate"
 
 headers = {
     "accept": "application/json",

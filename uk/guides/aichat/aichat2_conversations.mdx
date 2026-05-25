@@ -1,9 +1,9 @@
 ---
 title: "Інструкція з інтеграції AI Chat v2 API"
-description: "AI Dialogue 集成指南 - Ace Data Cloud"
+description: "AI Dialogue 集成指南 - XHuoAPI"
 ---
 
-AI Chat v2 API (`/aichat2/conversations`) — це нове покоління інтерфейсу для діалогів, повна модернізація [AI Chat API](https://platform.acedata.cloud/documents/59fb1199-6694-4afb-a222-3554d7f7d05a). Воно розширює можливості v1, який був простим і підтримував багатокрокові діалоги, за рахунок:
+AI Chat v2 API (`/aichat2/conversations`) — це нове покоління інтерфейсу для діалогів, повна модернізація [AI Chat API](https://api.xhuoapi.ai/documents/59fb1199-6694-4afb-a222-3554d7f7d05a). Воно розширює можливості v1, який був простим і підтримував багатокрокові діалоги, за рахунок:
 
 - **Багатомодального введення користувача**: через структуроване поле `message` можна безпосередньо передавати текст + зображення + файли, без необхідності додавати їх через `references`.
 - **Виклик інструментів у режимі агента**: вбудований набір інструментів для пошуку в мережі, скрапінгу веб-сторінок, читання файлів тощо, а також можливість підключення MCP-серверів користувача (Google Drive, Notion, Slack, GitHub тощо). Модель може в одному запиті багаторазово викликати інструменти для виконання складних завдань.
@@ -18,7 +18,7 @@ AI Chat v2 API (`/aichat2/conversations`) — це нове покоління �
 
 ## Процес отримання доступу
 
-Щоб користуватися API, потрібно подати заявку на відповідний сервіс на сторінці [AI Chat v2 API](https://platform.acedata.cloud/documents/e4a7c2b9-3f1d-4e8a-9b6c-a5d2f8e1b4c7). Після переходу натисніть кнопку «Acquire», щоб отримати необхідні облікові дані для запитів.
+Щоб користуватися API, потрібно подати заявку на відповідний сервіс на сторінці [AI Chat v2 API](https://api.xhuoapi.ai/documents/e4a7c2b9-3f1d-4e8a-9b6c-a5d2f8e1b4c7). Після переходу натисніть кнопку «Acquire», щоб отримати необхідні облікові дані для запитів.
 
 Якщо ви не увійшли або не зареєстровані, вас автоматично перенаправить на сторінку входу. Після реєстрації та входу ви повернетесь на цю сторінку.
 
@@ -31,13 +31,13 @@ AI Chat v2 API (`/aichat2/conversations`) — це нове покоління �
 Приклад CURL:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
   -d '{
     "model": "gpt-5.4",
-    "question": "用一句话介绍下 AceDataCloud。"
+    "question": "用一句话介绍下 XHuoAPI。"
   }'
 ```
 
@@ -45,7 +45,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 
 ```json
 {
-  "answer": "AceDataCloud 是一个聚合主流 AI 模型与多模态服务的统一 API 平台，开发者通过一个密钥即可调用 GPT、Claude、Gemini、Midjourney、Suno、Veo 等多家服务。",
+  "answer": "XHuoAPI 是一个聚合主流 AI 模型与多模态服务的统一 API 平台，开发者通过一个密钥即可调用 GPT、Claude、Gemini、Midjourney、Suno、Veo 等多家服务。",
   "id": "f2f4b3e8-0c0a-4d3a-aaa2-7ff80c0a1c44"
 }
 ```
@@ -55,7 +55,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/aichat2/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat2/conversations"
 
 headers = {
     "accept": "application/json",
@@ -65,7 +65,7 @@ headers = {
 
 payload = {
     "model": "gpt-5.4",
-    "question": "用一句话介绍下 AceDataCloud。",
+    "question": "用一句话介绍下 XHuoAPI。",
 }
 
 response = requests.post(url, json=payload, headers=headers)
@@ -91,7 +91,7 @@ print(response.json())
 Перший запит:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -114,7 +114,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 Другий запит із тим самим `id`:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -153,7 +153,7 @@ v2 підтримує два формати потокової передачі,
 import json
 import requests
 
-url = "https://api.acedata.cloud/aichat2/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat2/conversations"
 
 headers = {
     "accept": "application/x-ndjson",
@@ -197,7 +197,7 @@ with requests.post(url, json=payload, headers=headers, stream=True) as resp:
 У браузері `EventSource` не підтримує кастомний body запиту, тому рекомендується використовувати `fetch` з ручним парсингом по `\n\n`:
 
 ```javascript
-const resp = await fetch("https://api.acedata.cloud/aichat2/conversations", {
+const resp = await fetch("https://api.xhuoapi.ai/v1/aichat2/conversations", {
   method: "POST",
   headers: {
     accept: "text/event-stream",
@@ -260,7 +260,7 @@ while (true) {
   "stateful": true,
   "message": [
     { "type": "text", "text": "这张图片里有几只猫？" },
-    { "type": "image_url", "image_url": { "url": "https://cdn.acedata.cloud/cats.jpg" } }
+    { "type": "image_url", "image_url": { "url": "https://cdn.xhuoapi.ai/cats.jpg" } }
   ]
 }
 ```
@@ -289,7 +289,7 @@ while (true) {
 
 - Користувач питає: «Пошукай, які нові виставки в Шанхаї» → модель викликає вбудований web search → формує відповідь.
 - Користувач: «Прочитай цей PDF і напиши резюме» → модель викликає file_read → створює резюме.
-- Користувач уже авторизував Google Drive / GitHub / Notion у [Connections](https://platform.acedata.cloud/connections) → модель може читати/писати через відповідні MCP-інструменти.
+- Користувач уже авторизував Google Drive / GitHub / Notion у [Connections](https://api.xhuoapi.ai/connections) → модель може читати/писати через відповідні MCP-інструменти.
 
 У потоках NDJSON / SSE виклики інструментів відображаються подіями `tool_use` і `tool_result`, наприклад:
 
@@ -323,7 +323,7 @@ while (true) {
 На фронтенді цю подію можна відобразити як картку для вибору відповіді користувачем. Потім наступним запитом з тим самим `id` передайте відповідь у `tool_results`:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: text/event-stream' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -351,7 +351,7 @@ v2 на тому ж endpoint через поле `action` надає легки�
 ### `action: retrieve` — отримати сесію
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -403,9 +403,9 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 
 ## Плавна міграція з v1
 
-Якщо ви вже використовуєте [`/aichat/conversations`](https://platform.acedata.cloud/documents/59fb1199-6694-4afb-a222-3554d7f7d05a), перехід на v2 майже не вимагає змін у коді:
+Якщо ви вже використовуєте [`/aichat/conversations`](https://api.xhuoapi.ai/documents/59fb1199-6694-4afb-a222-3554d7f7d05a), перехід на v2 майже не вимагає змін у коді:
 
-1. Змініть URL з `https://api.acedata.cloud/aichat/conversations` на `https://api.acedata.cloud/aichat2/conversations`.
+1. Змініть URL з `https://api.xhuoapi.ai/v1/aichat/conversations` на `https://api.xhuoapi.ai/v1/aichat2/conversations`.
 2. Якщо раніше використовували моделі v1 (наприклад, `gpt-3.5`, `gpt-4-browsing`), рекомендується оновити до сучасних моделей v2 (`gpt-5.4`, `claude-opus-4-7`, `gemini-3.1-pro` тощо).
 3. Потокові поля NDJSON залишаються сумісними: кожна подія `text_delta` має `delta_answer` і `id`, тому клієнти, які парсили `delta_answer` по рядках, працюватимуть без змін.
 

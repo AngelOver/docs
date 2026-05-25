@@ -1,6 +1,6 @@
 ---
 title: "Інтеграція та використання Midjourney Tasks API"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 Основна функція Midjourney Tasks API полягає в тому, щоб за допомогою введеного ID завдання, згенерованого через Midjourney Imagine API або Midjourney Describe API, запитувати стан виконання цього завдання.
@@ -9,27 +9,27 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 ## Процес подачі заявки
 
-Щоб використовувати Midjourney Tasks API, спочатку потрібно перейти на сторінку подачі заявки [Midjourney Imagine API](https://platform.acedata.cloud/documents/e52c028d-897a-4d51-b110-60fccbe6118d) для отримання відповідної послуги, а потім скопіювати ID завдання Imagine API, як показано на малюнку:
+Щоб використовувати Midjourney Tasks API, спочатку потрібно перейти на сторінку подачі заявки [Midjourney Imagine API](https://api.xhuoapi.ai/documents/e52c028d-897a-4d51-b110-60fccbe6118d) для отримання відповідної послуги, а потім скопіювати ID завдання Imagine API, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/lx4mwb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lx4mwb.png" width="500" className="m-auto" /></p>
 
-Нарешті, перейдіть на сторінку Tasks API [Midjourney Tasks API](https://platform.acedata.cloud/documents/58ea7cc1-c685-40c3-a619-f29f9ac5d8f4) для отримання відповідної послуги, після входу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
+Нарешті, перейдіть на сторінку Tasks API [Midjourney Tasks API](https://api.xhuoapi.ai/documents/58ea7cc1-c685-40c3-a619-f29f9ac5d8f4) для отримання відповідної послуги, після входу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
 
-![Сторінка подачі заявки](https://cdn.acedata.cloud/rci31i.png)
+![Сторінка подачі заявки](https://cdn.xhuoapi.ai/rci31i.png)
 
-Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на [сторінку входу](https://platform.acedata.cloud), щоб запросити реєстрацію та вхід. Після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
+Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на [сторінку входу](https://api.xhuoapi.ai), щоб запросити реєстрацію та вхід. Після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
 
 При першій подачі заявки вам буде надано безкоштовний ліміт, який дозволяє безкоштовно використовувати цей API.
 
 ## Приклад запиту
 
-Midjourney Tasks API можна використовувати для запиту результатів як Midjourney Imagine API, так і Midjourney Describe API. Щоб дізнатися, як використовувати Midjourney Imagine API, зверніться до документа [Midjourney Imagine API](https://platform.acedata.cloud/documents/b0e32002-2707-41cc-b103-a15b1f1efdc1). Щоб дізнатися, як використовувати Midjourney Describe, зверніться до [Midjourney Describe API](https://platform.acedata.cloud/documents/d2a04242-507c-4a49-a17a-01bc382c5756).
+Midjourney Tasks API можна використовувати для запиту результатів як Midjourney Imagine API, так і Midjourney Describe API. Щоб дізнатися, як використовувати Midjourney Imagine API, зверніться до документа [Midjourney Imagine API](https://api.xhuoapi.ai/documents/b0e32002-2707-41cc-b103-a15b1f1efdc1). Щоб дізнатися, як використовувати Midjourney Describe, зверніться до [Midjourney Describe API](https://api.xhuoapi.ai/documents/d2a04242-507c-4a49-a17a-01bc382c5756).
 
 Розглянемо приклад з ID завдання, повернутим сервісом Midjourney Imagine API. Припустимо, у нас є ID завдання: 7489df4c-ef03-4de0-b598-e9a590793434, далі продемонструємо, як передати ID завдання.
 
 ### Приклад завдання
 
-<p><img src="https://cdn.acedata.cloud/lx4mwb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lx4mwb.png" width="500" className="m-auto" /></p>
 
 ### Налаштування заголовків запиту та тіла запиту
 
@@ -46,20 +46,20 @@ Midjourney Tasks API можна використовувати для запит
 
 Налаштування, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/ybek58.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ybek58.png" width="500" className="m-auto" /></p>
 
 ### Приклад коду
 
 Можна помітити, що на правій стороні сторінки вже автоматично згенеровано код на різних мовах, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/46ookb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/46ookb.png" width="500" className="m-auto" /></p>
 
 Деякі приклади коду наведені нижче:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -74,7 +74,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/tasks"
+url = "https://api.xhuoapi.ai/v1/midjourney/tasks"
 
 headers = {
     "accept": "application/json",
@@ -112,7 +112,7 @@ print(response.text)
   "image_id": "1259525319472185344",
   "job_id": "da317da6-f500-48e6-bf32-dd48b3e6f84f",
   "response": {
-    "image_url": "https://platform.cdn.acedata.cloud/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png?imageMogr2/thumbnail/!50p",
+    "image_url": "https://platform.cdn.xhuoapi.ai/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png?imageMogr2/thumbnail/!50p",
     "image_width": 1024,
     "image_height": 1024,
     "actions": [
@@ -126,7 +126,7 @@ print(response.text)
       "variation3",
       "variation4"
     ],
-    "raw_image_url": "https://platform.cdn.acedata.cloud/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png",
+    "raw_image_url": "https://platform.cdn.xhuoapi.ai/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png",
     "raw_image_width": 2048,
     "raw_image_height": 2048,
     "progress": 100,
@@ -160,13 +160,13 @@ print(response.text)
 - `action`: спосіб виконання завдання.
 
 Налаштування, як показано на малюнку:
-<p><img src="https://cdn.acedata.cloud/ljmy8w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ljmy8w.png" width="500" className="m-auto" /></p>
 
 ### Приклад коду
 
 Можна помітити, що на правій стороні сторінки автоматично згенеровано код різними мовами, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/ljmy8w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ljmy8w.png" width="500" className="m-auto" /></p>
 
 Деякі приклади коду наведені нижче:
 
@@ -193,7 +193,7 @@ print(response.text)
       "image_id": "1259525319472185344",
       "job_id": "da317da6-f500-48e6-bf32-dd48b3e6f84f",
       "response": {
-        "image_url": "https://platform.cdn.acedata.cloud/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png?imageMogr2/thumbnail/!50p",
+        "image_url": "https://platform.cdn.xhuoapi.ai/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png?imageMogr2/thumbnail/!50p",
         "image_width": 1024,
         "image_height": 1024,
         "actions": [
@@ -207,7 +207,7 @@ print(response.text)
           "variation3",
           "variation4"
         ],
-        "raw_image_url": "https://platform.cdn.acedata.cloud/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png",
+        "raw_image_url": "https://platform.cdn.xhuoapi.ai/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png",
         "raw_image_width": 2048,
         "raw_image_height": 2048,
         "progress": 100,
@@ -236,7 +236,7 @@ print(response.text)
       "image_id": "1259683790612070400",
       "job_id": "ede5c805-e231-498c-8f74-3aa76d5d6d12",
       "response": {
-        "image_url": "https://platform.cdn.acedata.cloud/midjourney/807f62de-c63e-4add-8345-7f0ae6dd18e7.png?imageMogr2/thumbnail/!50p",
+        "image_url": "https://platform.cdn.xhuoapi.ai/midjourney/807f62de-c63e-4add-8345-7f0ae6dd18e7.png?imageMogr2/thumbnail/!50p",
         "image_width": 1024,
         "image_height": 1024,
         "actions": [
@@ -250,7 +250,7 @@ print(response.text)
           "variation3",
           "variation4"
         ],
-        "raw_image_url": "https://platform.cdn.acedata.cloud/midjourney/807f62de-c63e-4add-8345-7f0ae6dd18e7.png",
+        "raw_image_url": "https://platform.cdn.xhuoapi.ai/midjourney/807f62de-c63e-4add-8345-7f0ae6dd18e7.png",
         "raw_image_width": 2048,
         "raw_image_height": 2048,
         "progress": 100,
@@ -276,7 +276,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -292,7 +292,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/tasks"
+url = "https://api.xhuoapi.ai/v1/midjourney/tasks"
 
 headers = {
     "accept": "application/json",

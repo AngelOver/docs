@@ -3,7 +3,7 @@ title: "Guide d'intégration Veo MCP"
 description: "veo MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) est un protocole de contexte de modèle développé par Anthropic, permettant aux modèles d'IA (comme Claude, GPT, etc.) d'appeler des outils externes via une interface standardisée. Grâce au Veo MCP Server fourni par AceData Cloud, vous pouvez directement utiliser Google Veo pour générer des vidéos IA dans des clients IA tels que Claude Desktop, VS Code, Cursor, etc.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) est un protocole de contexte de modèle développé par Anthropic, permettant aux modèles d'IA (comme Claude, GPT, etc.) d'appeler des outils externes via une interface standardisée. Grâce au Veo MCP Server fourni par XHuoAPI, vous pouvez directement utiliser Google Veo pour générer des vidéos IA dans des clients IA tels que Claude Desktop, VS Code, Cursor, etc.
 
 ## Aperçu des fonctionnalités
 
@@ -19,10 +19,10 @@ Le Veo MCP Server offre les fonctionnalités principales suivantes :
 
 ## Prérequis
 
-Avant utilisation, vous devez obtenir un jeton API AceData Cloud :
+Avant utilisation, vous devez obtenir un jeton API XHuoAPI :
 
-1. Inscrivez-vous ou connectez-vous sur la [plateforme AceData Cloud](https://platform.acedata.cloud)
-2. Rendez-vous sur la page [Veo Videos API](https://platform.acedata.cloud/documents/veo-videos)
+1. Inscrivez-vous ou connectez-vous sur la [plateforme XHuoAPI](https://api.xhuoapi.ai)
+2. Rendez-vous sur la page [Veo Videos API](https://api.xhuoapi.ai/documents/veo-videos)
 3. Cliquez sur « Acquire » pour obtenir un jeton API (une allocation gratuite est offerte lors de la première demande)
 
 ## Installation et configuration
@@ -36,7 +36,7 @@ pip install mcp-veo
 ### Méthode 2 : installation depuis le code source
 
 ```bash
-git clone https://github.com/AceDataCloud/VeoMCP.git
+git clone https://github.com/XHuoAPI/VeoMCP.git
 cd VeoMCP
 pip install -e .
 ```
@@ -58,7 +58,7 @@ Ajoutez la configuration suivante :
     "veo": {
       "command": "mcp-veo",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "votre jeton API"
+        "XHuoAPI_API_TOKEN": "votre jeton API"
       }
     }
   }
@@ -74,7 +74,7 @@ Si vous utilisez `uvx` (pas besoin d’installer les paquets au préalable) :
       "command": "uvx",
       "args": ["mcp-veo"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "votre jeton API"
+        "XHuoAPI_API_TOKEN": "votre jeton API"
       }
     }
   }
@@ -93,7 +93,7 @@ Créez un fichier `.vscode/mcp.json` à la racine du projet :
     "veo": {
       "command": "mcp-veo",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "votre jeton API"
+        "XHuoAPI_API_TOKEN": "votre jeton API"
       }
     }
   }
@@ -109,7 +109,7 @@ Ou utilisez `uvx` :
       "command": "uvx",
       "args": ["mcp-veo"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "votre jeton API"
+        "XHuoAPI_API_TOKEN": "votre jeton API"
       }
     }
   }
@@ -137,6 +137,6 @@ Une fois la configuration terminée, vous pouvez appeler ces fonctionnalités di
 
 ## Plus d'informations
 
-- Dépôt GitHub : [AceDataCloud/VeoMCP](https://github.com/AceDataCloud/VeoMCP)
+- Dépôt GitHub : [XHuoAPI/VeoMCP](https://github.com/XHuoAPI/VeoMCP)
 - Package PyPI : [mcp-veo](https://pypi.org/project/mcp-veo/)
-- Documentation API : [Veo vidéo génération API](https://platform.acedata.cloud/documents/veo)
+- Documentation API : [Veo vidéo génération API](https://api.xhuoapi.ai/documents/veo)

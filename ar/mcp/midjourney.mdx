@@ -3,7 +3,7 @@ title: "دليل تكامل Midjourney MCP"
 description: "midjourney MCP 服务器集成"
 ---
 
-[MCP (نموذج بروتوكول السياق)](https://modelcontextprotocol.io) هو بروتوكول سياق النموذج الذي أطلقته شركة Anthropic، والذي يسمح لنماذج الذكاء الاصطناعي (مثل Claude وGPT وغيرها) باستدعاء أدوات خارجية من خلال واجهات موحدة. من خلال خادم Midjourney MCP المقدم من AceData Cloud، يمكنك مباشرةً إنشاء وتحرير صور الذكاء الاصطناعي في عملاء الذكاء الاصطناعي مثل Claude Desktop وVS Code وCursor.
+[MCP (نموذج بروتوكول السياق)](https://modelcontextprotocol.io) هو بروتوكول سياق النموذج الذي أطلقته شركة Anthropic، والذي يسمح لنماذج الذكاء الاصطناعي (مثل Claude وGPT وغيرها) باستدعاء أدوات خارجية من خلال واجهات موحدة. من خلال خادم Midjourney MCP المقدم من XHuoAPI، يمكنك مباشرةً إنشاء وتحرير صور الذكاء الاصطناعي في عملاء الذكاء الاصطناعي مثل Claude Desktop وVS Code وCursor.
 
 ## نظرة عامة على الوظائف
 
@@ -22,10 +22,10 @@ description: "midjourney MCP 服务器集成"
 
 ## التحضيرات المسبقة
 
-قبل الاستخدام، تحتاج إلى الحصول على رمز API من AceData Cloud:
+قبل الاستخدام، تحتاج إلى الحصول على رمز API من XHuoAPI:
 
-1. سجل أو قم بتسجيل الدخول إلى [منصة AceData Cloud](https://platform.acedata.cloud)
-2. انتقل إلى صفحة [API تخيل Midjourney](https://platform.acedata.cloud/documents/midjourney-imagine)
+1. سجل أو قم بتسجيل الدخول إلى [منصة XHuoAPI](https://api.xhuoapi.ai)
+2. انتقل إلى صفحة [API تخيل Midjourney](https://api.xhuoapi.ai/documents/midjourney-imagine)
 3. انقر على "Acquire" للحصول على رمز API (تقدم أول طلب هدية مجانية)
 
 ## إعداد التثبيت
@@ -39,7 +39,7 @@ pip install mcp-midjourney
 ### الطريقة الثانية: تثبيت من المصدر
 
 ```bash
-git clone https://github.com/AceDataCloud/MidjourneyMCP.git
+git clone https://github.com/XHuoAPI/MidjourneyMCP.git
 cd MidjourneyMCP
 pip install -e .
 ```
@@ -61,7 +61,7 @@ pip install -e .
     "midjourney": {
       "command": "mcp-midjourney",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "رمز API الخاص بك"
+        "XHuoAPI_API_TOKEN": "رمز API الخاص بك"
       }
     }
   }
@@ -77,7 +77,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-midjourney"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "رمز API الخاص بك"
+        "XHuoAPI_API_TOKEN": "رمز API الخاص بك"
       }
     }
   }
@@ -96,7 +96,7 @@ pip install -e .
     "midjourney": {
       "command": "mcp-midjourney",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "رمز API الخاص بك"
+        "XHuoAPI_API_TOKEN": "رمز API الخاص بك"
       }
     }
   }
@@ -112,7 +112,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-midjourney"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "رمز API الخاص بك"
+        "XHuoAPI_API_TOKEN": "رمز API الخاص بك"
       }
     }
   }
@@ -149,6 +149,6 @@ pip install -e .
 
 ## مزيد من المعلومات
 
-- مستودع GitHub: [AceDataCloud/MidjourneyMCP](https://github.com/AceDataCloud/MidjourneyMCP)
+- مستودع GitHub: [XHuoAPI/MidjourneyMCP](https://github.com/XHuoAPI/MidjourneyMCP)
 - حزمة PyPI: [mcp-midjourney](https://pypi.org/project/mcp-midjourney/)
-- وثائق API: [API توليد Midjourney](https://platform.acedata.cloud/documents/midjourney)
+- وثائق API: [API توليد Midjourney](https://api.xhuoapi.ai/documents/midjourney)

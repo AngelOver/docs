@@ -1,6 +1,6 @@
 ---
 title: "Grok Chat Completion API 申請及使用"
-description: "Grok 集成指南 - Ace Data Cloud"
+description: "Grok 集成指南 - XHuoAPI"
 ---
 
 xAI Grok 是一款非常強大的 AI 對話系統，只要輸入提示詞，就能在短短幾秒內生成流暢自然的回覆。Grok 以其獨特的幽默風格和即時網路資訊獲取能力在業界獨樹一幟，如今，Grok 已在多個創新領域嶄露頭角，其影響力正快速擴大。無論是日常對話、創意寫作，還是技術分析、程式碼除錯，Grok 都能提供富有洞察力的智能協助，為用戶的決策和創作帶來全新維度的支持。
@@ -9,9 +9,9 @@ xAI Grok 是一款非常強大的 AI 對話系統，只要輸入提示詞，就�
 
 ## 申請流程
 
-要使用 Grok Chat Completion API，首先可以到 [Grok Chat Completion API](https://platform.acedata.cloud/documents/faf08b59-36aa-4d26-b5d9-a18f113cc2be) 頁面點擊「Acquire」按鈕，獲取請求所需要的憑證：
+要使用 Grok Chat Completion API，首先可以到 [Grok Chat Completion API](https://api.xhuoapi.ai/documents/faf08b59-36aa-4d26-b5d9-a18f113cc2be) 頁面點擊「Acquire」按鈕，獲取請求所需要的憑證：
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 如果你尚未登入或註冊，會自動跳轉到登入頁面邀請您來註冊和登入，登入註冊之後會自動返回當前頁面。
 
@@ -21,7 +21,7 @@ xAI Grok 是一款非常強大的 AI 對話系統，只要輸入提示詞，就�
 
 接下來就可以在介面上填寫對應的內容，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/vunnjf.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vunnjf.png" width="400" className="m-auto" /></p>
 
 在第一次使用該介面時，我們至少需要填寫三個內容，一個是 `authorization`，直接在下拉列表裡面選擇即可。另一個參數是 `model`， `model` 就是我們選擇使用 Grok 官網模型類別，這裡我們主要有 8 種模型，詳情可以看我們提供的模型。最後一個參數是`messages`，`messages`是我們輸入的提問詞數組，它是一個數組，表示可以同時上傳多個提問詞，每個提問詞包含了 `role` 和 `content`，其中 `role` 表示提問者的角色，我們提供了三種身份，分別為 `user` 、`assistant`、`system` 。另一個 `content` 就是我們提問的具體內容。
 
@@ -33,7 +33,7 @@ xAI Grok 是一款非常強大的 AI 對話系統，只要輸入提示詞，就�
 - `temperature`：生成隨機性，0-2 之間，值越大越發散。
 - `n`：一次生成多少條候選回覆。
 
-<p><img src="https://cdn.acedata.cloud/d7iwun.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d7iwun.png" width="400" className="m-auto" /></p>
 
 調用之後，我們發現返回結果如下：
 
@@ -84,7 +84,7 @@ xAI Grok 是一款非常強大的 AI 對話系統，只要輸入提示詞，就�
 
 其中 `choices` 是包含了 Grok 的回答資訊，它裡面的 `choices` 是 Grok回答的具體資訊，可以發現如圖所示。
 
-<p><img src="https://cdn.acedata.cloud/p8vupk.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/p8vupk.png" width="400" className="m-auto" /></p>
 
 可以看到，`choices` 裡面的 `content` 字段包含了 Grok 回覆的具體內容。
 
@@ -96,7 +96,7 @@ xAI Grok 是一款非常強大的 AI 對話系統，只要輸入提示詞，就�
 
 修改如圖所示，不過調用代碼需要有對應的更改才能支持流式響應。
 
-<p><img src="https://cdn.acedata.cloud/k883qa.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/k883qa.png" width="400" className="m-auto" /></p>
 
 將 `stream` 修改為 `true` 之後，API 將逐行返回對應的 JSON 數據，在代碼層面我們需要做相應的修改來獲得逐行的結果。
 
@@ -105,7 +105,7 @@ Python 樣例調用代碼：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/grok/chat/completions"
+url = "https://api.xhuoapi.ai/v1/grok/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -199,7 +199,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/grok/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/grok/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -215,7 +215,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/grok/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/grok/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -233,14 +233,14 @@ System.out.print(response.body!!.string())
 
 如果您想要對接多輪對話功能，需要對 `messages` 字段上傳多個提問詞，多個提問詞的具體示例如下圖所示：
 
-<p><img src="https://cdn.acedata.cloud/t8cya8.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/t8cya8.png" width="400" className="m-auto" /></p>
 
 Python 樣例調用代碼：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/grok/chat/completions"
+url = "https://api.xhuoapi.ai/v1/grok/chat/completions"
 
 headers = {
     "accept": "application/json",

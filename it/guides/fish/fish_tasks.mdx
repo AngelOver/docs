@@ -1,6 +1,6 @@
 ---
 title: "Integrazione e utilizzo dell'API Fish Tasks"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 La principale funzionalità dell'API Fish Tasks è quella di interrogare lo stato di esecuzione di un'attività utilizzando l'ID dell'attività generato dall'API Fish Audios Generation.
@@ -9,27 +9,27 @@ Questo documento fornirà una dettagliata descrizione dell'integrazione dell'API
 
 ## Processo di richiesta
 
-Per utilizzare l'API Fish Tasks, è necessario prima andare alla pagina di richiesta [Fish Audios Generation API](https://platform.acedata.cloud/documents/e681b715-54fd-4464-a59a-d7f14500e095) per richiedere il servizio corrispondente, quindi copiare l'ID dell'attività dell'API Fish Audios Generation, come mostrato nell'immagine:
+Per utilizzare l'API Fish Tasks, è necessario prima andare alla pagina di richiesta [Fish Audios Generation API](https://api.xhuoapi.ai/documents/e681b715-54fd-4464-a59a-d7f14500e095) per richiedere il servizio corrispondente, quindi copiare l'ID dell'attività dell'API Fish Audios Generation, come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/jxvue8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jxvue8.png" width="500" className="m-auto" /></p>
 
-Infine, accedi alla pagina dell'API Tasks [Fish Tasks API](https://platform.acedata.cloud/documents/44c93949-1419-4a45-8db5-8a8335de7151) per richiedere il servizio corrispondente. Una volta entrato nella pagina, fai clic sul pulsante "Acquire", come mostrato nell'immagine:
+Infine, accedi alla pagina dell'API Tasks [Fish Tasks API](https://api.xhuoapi.ai/documents/44c93949-1419-4a45-8db5-8a8335de7151) per richiedere il servizio corrispondente. Una volta entrato nella pagina, fai clic sul pulsante "Acquire", come mostrato nell'immagine:
 
-![Pagina di richiesta](https://cdn.acedata.cloud/rci31i.png)
+![Pagina di richiesta](https://cdn.xhuoapi.ai/rci31i.png)
 
-Se non hai ancora effettuato il login o la registrazione, verrai automaticamente reindirizzato alla [pagina di login](https://platform.acedata.cloud) che ti invita a registrarti e accedere. Dopo aver effettuato il login o la registrazione, verrai automaticamente riportato alla pagina corrente.
+Se non hai ancora effettuato il login o la registrazione, verrai automaticamente reindirizzato alla [pagina di login](https://api.xhuoapi.ai) che ti invita a registrarti e accedere. Dopo aver effettuato il login o la registrazione, verrai automaticamente riportato alla pagina corrente.
 
 Alla prima richiesta, verrà offerto un credito gratuito, che ti consente di utilizzare gratuitamente questa API.
 
 ## Esempio di richiesta
 
-L'API Fish Tasks può essere utilizzata per interrogare i risultati dell'API Fish Audios Generation. Per informazioni su come utilizzare l'API Fish Audios Generation, fare riferimento al documento [Fish Videos Generation API](https://platform.acedata.cloud/documents/fish-audios-integration).
+L'API Fish Tasks può essere utilizzata per interrogare i risultati dell'API Fish Audios Generation. Per informazioni su come utilizzare l'API Fish Audios Generation, fare riferimento al documento [Fish Videos Generation API](https://api.xhuoapi.ai/documents/fish-audios-integration).
 
 Prendiamo come esempio un ID di attività restituito dal servizio Fish Audios Generation API, per dimostrare come utilizzare questa API. Supponiamo di avere un ID di attività: 2725a2d3-f87e-4905-9c53-9988d5a7b2f5, e ora dimostreremo come passare un ID di attività.
 
 ### Esempio di attività
 
-<p><img src="https://cdn.acedata.cloud/jxvue8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jxvue8.png" width="500" className="m-auto" /></p>
 
 ### Impostazione dell'intestazione della richiesta e del corpo della richiesta
 
@@ -45,20 +45,20 @@ Prendiamo come esempio un ID di attività restituito dal servizio Fish Audios Ge
 
 Impostato come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/xc5ejq.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xc5ejq.png" width="500" className="m-auto" /></p>
 
 ### Esempio di codice
 
 Si può notare che, sul lato destro della pagina, sono già stati generati automaticamente codici in varie lingue, come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/851zv2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/851zv2.png" width="500" className="m-auto" /></p>
 
 Alcuni esempi di codice sono i seguenti:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/fish/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -120,13 +120,13 @@ Questa è per interrogare i dettagli di più ID di attività, a differenza di qu
 
 Impostato come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/64lid9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/64lid9.png" width="500" className="m-auto" /></p>
 
 ### Esempio di codice
 
 Si può notare che, sul lato destro della pagina, sono già stati generati automaticamente codici in varie lingue, come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/ezkzmw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ezkzmw.png" width="500" className="m-auto" /></p>
 
 Alcuni esempi di codice sono i seguenti:
 
@@ -200,7 +200,7 @@ Dopo una richiesta riuscita, l'API restituirà le informazioni dettagliate di tu
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/fish/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

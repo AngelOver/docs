@@ -1,15 +1,15 @@
 ---
 title: "Uputstvo za integraciju Kling Videos Generation API"
-description: "Kling video generation 集成指南 - Ace Data Cloud"
+description: "Kling video generation 集成指南 - XHuoAPI"
 ---
 
 Ovaj dokument predstavlja uputstvo za integraciju Kling Videos Generation API, koji omogućava generisanje zvaničnih Kling video zapisa putem unosa prilagođenih parametara.
 
 ## Proces prijave
 
-Da biste koristili API, prvo je potrebno da se prijavite za odgovarajuću uslugu na stranici [Kling Videos Generation API](https://platform.acedata.cloud/documents/3b921a16-a411-4557-8335-53f21d3f9e46). Nakon ulaska na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
+Da biste koristili API, prvo je potrebno da se prijavite za odgovarajuću uslugu na stranici [Kling Videos Generation API](https://api.xhuoapi.ai/documents/3b921a16-a411-4557-8335-53f21d3f9e46). Nakon ulaska na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Ako niste prijavljeni ili registrovani, bićete automatski preusmereni na stranicu za prijavu gde možete da se registrujete i prijavite, nakon čega ćete biti vraćeni na trenutnu stranicu.
 
@@ -19,7 +19,7 @@ Prilikom prve prijave dobijate besplatan kredit, što omogućava besplatno kori�
 
 Prvo je važno razumeti osnovni način korišćenja, koji podrazumeva unos prompta `prompt`, akcije `action`, URL početne slike `start_image_url` i modela `model`, kako biste dobili obrađeni rezultat. Potrebno je uneti polje `action` sa vrednošću `text2video`. Postoje tri osnovne akcije: generisanje videa iz teksta (`text2video`), generisanje videa iz slike (`image2video`) i proširenje videa (`extend`). Takođe, potrebno je uneti model `model`. Trenutno su dostupni modeli: `kling-v1`, `kling-v1-6`, `kling-v2-master`, `kling-v2-1-master`, `kling-v2-5-turbo`, `kling-v2-6`, `kling-v3`, `kling-v3-omni`, `kling-video-o1`. Detalji su prikazani na slici:
 
-<p><img src="https://cdn.acedata.cloud/ke1bok.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ke1bok.png" width="500" className="m-auto" /></p>
 
 Vidimo da su podešeni Request Headers, koji uključuju:
 
@@ -46,7 +46,7 @@ Takođe, Request Body uključuje:
 
 Nakon izbora, sa desne strane se generiše odgovarajući kod, kao na slici:
 
-<p><img src="https://cdn.acedata.cloud/3yjql0.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3yjql0.png" width="500" className="m-auto" /></p>
 
 Klikom na dugme „Try“ možete testirati, i dobijate sledeći rezultat:
 
@@ -75,7 +75,7 @@ Dobijeni video možete preuzeti preko `video_url` iz rezultata.
 Takođe, možete direktno kopirati generisani kod za integraciju, na primer CURL primer:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/kling/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -117,7 +117,7 @@ Napomene:
 
 Da biste nastavili generisanje na već postojećem Kling videu, podesite parametar `action` na `extend` i unesite ID videa koji želite da proširite. ID videa dobijate iz osnovne upotrebe, kao na slici:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 Primer ID videa:
 
@@ -137,18 +137,18 @@ Zatim unesite prompt za proširenje videa i ostale parametre:
 
 Primer popunjavanja:
 
-<p><img src="https://cdn.acedata.cloud/ejimqy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ejimqy.png" width="500" className="m-auto" /></p>
 
 Nakon popunjavanja automatski se generiše kod:
 
-<p><img src="https://cdn.acedata.cloud/52x4u5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/52x4u5.png" width="500" className="m-auto" /></p>
 
 Python primer koda:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kling/videos"
+url = "https://api.xhuoapi.ai/v1/kling/videos"
 
 headers = {
     "accept": "application/json",
@@ -193,13 +193,13 @@ Primer:
 
 Webhook callback je HTTP servis koji prima zahteve. Programeri treba da zamene URL sopstvenim serverom. Za demonstraciju koristi se javni Webhook sajt https://webhook.site/, gde dobijate URL, kao na slici:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Kopirajte URL, na primer `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`, i koristite ga kao `callback_url`.
 
 Unesite `callback_url` i ostale parametre, kao na slici:
 
-<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vdx12s.png" width="500" className="m-auto" /></p>
 
 Pokretanjem dobijate odmah odgovor:
 
@@ -211,7 +211,7 @@ Pokretanjem dobijate odmah odgovor:
 
 Nakon kratkog vremena, na `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3` možete videti rezultat generisanja videa:
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 Primer sadržaja:
 

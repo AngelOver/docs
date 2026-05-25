@@ -1,6 +1,6 @@
 ---
 title: "Suno Tasks API της διασύνδεσης και χρήσης"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 Η κύρια λειτουργία του Suno Tasks API είναι να ερωτά την κατάσταση εκτέλεσης ενός έργου μέσω του ID έργου που παράγεται από το Suno Audios Generation API ή το Suno Lyrics Generation API.
@@ -9,27 +9,27 @@ description: "Suno Music Generation 集成指南 - Ace Data Cloud"
 
 ## Διαδικασία αίτησης
 
-Για να χρησιμοποιήσετε το Suno Tasks API, πρέπει πρώτα να επισκεφθείτε τη σελίδα αίτησης [Suno Audios Generation API](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) για να ζητήσετε την αντίστοιχη υπηρεσία και στη συνέχεια να αντιγράψετε το ID έργου του Suno Audios Generation API, όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε το Suno Tasks API, πρέπει πρώτα να επισκεφθείτε τη σελίδα αίτησης [Suno Audios Generation API](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) για να ζητήσετε την αντίστοιχη υπηρεσία και στη συνέχεια να αντιγράψετε το ID έργου του Suno Audios Generation API, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/bc6754.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bc6754.png" width="500" className="m-auto" /></p>
 
-Τέλος, επισκεφθείτε τη σελίδα Tasks API [Suno Tasks API](https://platform.acedata.cloud/documents/b0dd9823-0e01-4c75-af83-5a6e2e05bfed) για να ζητήσετε την αντίστοιχη υπηρεσία. Αφού εισέλθετε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
+Τέλος, επισκεφθείτε τη σελίδα Tasks API [Suno Tasks API](https://api.xhuoapi.ai/documents/b0dd9823-0e01-4c75-af83-5a6e2e05bfed) για να ζητήσετε την αντίστοιχη υπηρεσία. Αφού εισέλθετε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
 
-![σελίδα αίτησης](https://cdn.acedata.cloud/rci31i.png)
+![σελίδα αίτησης](https://cdn.xhuoapi.ai/rci31i.png)
 
-Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη [σελίδα σύνδεσης](https://platform.acedata.cloud) που σας προσκαλεί να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
+Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη [σελίδα σύνδεσης](https://api.xhuoapi.ai) που σας προσκαλεί να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
 
 Κατά την πρώτη αίτηση, θα υπάρχει δωρεάν πίστωση που μπορείτε να χρησιμοποιήσετε δωρεάν για αυτό το API.
 
 ## Παράδειγμα αιτήματος
 
-Το Suno Tasks API μπορεί να χρησιμοποιηθεί για να ελέγξει τα αποτελέσματα των δύο API, Suno Audios Generation API και Suno Lyrics Generation API. Για πληροφορίες σχετικά με τη χρήση του Suno Audios Generation API, ανατρέξτε στο έγγραφο [Suno Audios Generation API](https://platform.acedata.cloud/documents/d016ee3f-421b-4b6e-989a-8beba8701701). Για πληροφορίες σχετικά με τη χρήση του Suno Lyrics Generation API, ανατρέξτε στο [Suno Lyrics Generation API](https://platform.acedata.cloud/documents/f1c66741-a488-43ca-91fc-e53fbbda639a).
+Το Suno Tasks API μπορεί να χρησιμοποιηθεί για να ελέγξει τα αποτελέσματα των δύο API, Suno Audios Generation API και Suno Lyrics Generation API. Για πληροφορίες σχετικά με τη χρήση του Suno Audios Generation API, ανατρέξτε στο έγγραφο [Suno Audios Generation API](https://api.xhuoapi.ai/documents/d016ee3f-421b-4b6e-989a-8beba8701701). Για πληροφορίες σχετικά με τη χρήση του Suno Lyrics Generation API, ανατρέξτε στο [Suno Lyrics Generation API](https://api.xhuoapi.ai/documents/f1c66741-a488-43ca-91fc-e53fbbda639a).
 
 Θα χρησιμοποιήσουμε ένα παράδειγμα με το ID έργου που επιστρέφεται από την υπηρεσία Suno Audios Generation API. Ας υποθέσουμε ότι έχουμε ένα ID έργου: eae26f89-b64b-404d-a80c-761996660b1c, και στη συνέχεια θα δείξουμε πώς να το χρησιμοποιήσουμε περνώντας ένα ID έργου.
 
 ### Παράδειγμα έργου
 
-<p><img src="https://cdn.acedata.cloud/bc6754.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bc6754.png" width="500" className="m-auto" /></p>
 
 ### Ρύθμιση κεφαλίδων αιτήματος και σώματος αιτήματος
 
@@ -45,20 +45,20 @@ description: "Suno Music Generation 集成指南 - Ace Data Cloud"
 
 Ρυθμίστε όπως φαίνεται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/uo7t6n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/uo7t6n.png" width="500" className="m-auto" /></p>
 
 ### Παράδειγμα κώδικα
 
 Μπορείτε να παρατηρήσετε ότι στη δεξιά πλευρά της σελίδας έχουν παραχθεί αυτόματα διάφορες γλώσσες κώδικα, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/p6vi9o.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/p6vi9o.png" width="500" className="m-auto" /></p>
 
 Ορισμένα παραδείγματα κώδικα είναι τα εξής:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/suno/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/tasks"
+url = "https://api.xhuoapi.ai/v1/suno/tasks"
 
 headers = {
     "accept": "application/json",
@@ -159,13 +159,13 @@ print(response.text)
 
 Ρυθμίστε όπως φαίνεται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/dqeknz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dqeknz.png" width="500" className="m-auto" /></p>
 
 ### Κωδικός παράδειγμα
 
 Μπορείτε να παρατηρήσετε ότι στη δεξιά πλευρά της σελίδας έχουν ήδη δημιουργηθεί αυτόματα διάφορες γλώσσες κώδικα, όπως φαίνεται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/1yk792.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1yk792.png" width="500" className="m-auto" /></p>
 
 Μερικά παραδείγματα κώδικα είναι τα εξής:
 
@@ -280,7 +280,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -295,7 +295,7 @@ curl -X POST 'https://api.acedata.cloud/suno/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/tasks"
+url = "https://api.xhuoapi.ai/v1/suno/tasks"
 
 headers = {
     "accept": "application/json",

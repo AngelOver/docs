@@ -3,7 +3,7 @@ title: "Przewodnik integracji ShortURL MCP"
 description: "shorturl MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) to protokół kontekstowy modelu opracowany przez Anthropic, który umożliwia modelom AI (takim jak Claude, GPT itp.) wywoływanie zewnętrznych narzędzi za pomocą ustandaryzowanego interfejsu. Dzięki ShortURL MCP Server udostępnianemu przez AceData Cloud możesz bezpośrednio generować krótkie linki w klientach AI takich jak Claude Desktop, VS Code, Cursor i innych.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) to protokół kontekstowy modelu opracowany przez Anthropic, który umożliwia modelom AI (takim jak Claude, GPT itp.) wywoływanie zewnętrznych narzędzi za pomocą ustandaryzowanego interfejsu. Dzięki ShortURL MCP Server udostępnianemu przez XHuoAPI możesz bezpośrednio generować krótkie linki w klientach AI takich jak Claude Desktop, VS Code, Cursor i innych.
 
 ## Przegląd funkcji
 
@@ -16,10 +16,10 @@ ShortURL MCP Server oferuje następujące kluczowe funkcje:
 
 ## Wymagania wstępne
 
-Przed użyciem musisz uzyskać AceData Cloud API Token:
+Przed użyciem musisz uzyskać XHuoAPI API Token:
 
-1. Zarejestruj się lub zaloguj na [platformie AceData Cloud](https://platform.acedata.cloud)
-2. Przejdź do strony [ShortURL API](https://platform.acedata.cloud/documents/short-url)
+1. Zarejestruj się lub zaloguj na [platformie XHuoAPI](https://api.xhuoapi.ai)
+2. Przejdź do strony [ShortURL API](https://api.xhuoapi.ai/documents/short-url)
 3. Kliknij „Acquire”, aby uzyskać API Token (pierwsza rejestracja daje darmowy limit)
 
 ## Instalacja i konfiguracja
@@ -33,7 +33,7 @@ pip install mcp-shorturl
 ### Metoda 2: instalacja ze źródła
 
 ```bash
-git clone https://github.com/AceDataCloud/ShortURLMCP.git
+git clone https://github.com/XHuoAPI/ShortURLMCP.git
 cd ShortURLMCP
 pip install -e .
 ```
@@ -55,7 +55,7 @@ Dodaj następującą konfigurację:
     "shorturl": {
       "command": "mcp-shorturl",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "Twój API Token"
+        "XHuoAPI_API_TOKEN": "Twój API Token"
       }
     }
   }
@@ -71,7 +71,7 @@ Jeśli używasz `uvx` (nie wymaga wcześniejszej instalacji pakietów):
       "command": "uvx",
       "args": ["mcp-shorturl"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "Twój API Token"
+        "XHuoAPI_API_TOKEN": "Twój API Token"
       }
     }
   }
@@ -90,7 +90,7 @@ W katalogu głównym projektu utwórz plik `.vscode/mcp.json`:
     "shorturl": {
       "command": "mcp-shorturl",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "Twój API Token"
+        "XHuoAPI_API_TOKEN": "Twój API Token"
       }
     }
   }
@@ -106,7 +106,7 @@ Lub użyj `uvx`:
       "command": "uvx",
       "args": ["mcp-shorturl"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "Twój API Token"
+        "XHuoAPI_API_TOKEN": "Twój API Token"
       }
     }
   }
@@ -132,6 +132,6 @@ Po konfiguracji możesz wywoływać funkcje za pomocą naturalnego języka w kli
 
 ## Dodatkowe informacje
 
-- Repozytorium GitHub: [AceDataCloud/ShortURLMCP](https://github.com/AceDataCloud/ShortURLMCP)
+- Repozytorium GitHub: [XHuoAPI/ShortURLMCP](https://github.com/XHuoAPI/ShortURLMCP)
 - Pakiet PyPI: [mcp-shorturl](https://pypi.org/project/mcp-shorturl/)
-- Dokumentacja API: [短链接生成 API](https://platform.acedata.cloud/documents/short-url)
+- Dokumentacja API: [短链接生成 API](https://api.xhuoapi.ai/documents/short-url)

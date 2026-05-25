@@ -3,7 +3,7 @@ title: "Руководство по интеграции Google Search MCP"
 description: "serp MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) — это протокол контекста модели, разработанный компанией Anthropic, который позволяет AI моделям (таким как Claude, GPT и др.) вызывать внешние инструменты через стандартизированный интерфейс. С помощью SERP MCP Server, предоставляемого AceData Cloud, вы можете выполнять поиск в Google прямо в AI-клиентах, таких как Claude Desktop, VS Code, Cursor и получать результаты поиска веб-страниц, изображений, новостей, видео, мест и т.д.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) — это протокол контекста модели, разработанный компанией Anthropic, который позволяет AI моделям (таким как Claude, GPT и др.) вызывать внешние инструменты через стандартизированный интерфейс. С помощью SERP MCP Server, предоставляемого XHuoAPI, вы можете выполнять поиск в Google прямо в AI-клиентах, таких как Claude Desktop, VS Code, Cursor и получать результаты поиска веб-страниц, изображений, новостей, видео, мест и т.д.
 
 ## Обзор функций
 
@@ -20,10 +20,10 @@ SERP MCP Server предоставляет следующие основные �
 
 ## Предварительная подготовка
 
-Перед использованием вам необходимо получить токен API AceData Cloud:
+Перед использованием вам необходимо получить токен API XHuoAPI:
 
-1. Зарегистрируйтесь или войдите на [платформу AceData Cloud](https://platform.acedata.cloud)
-2. Перейдите на страницу [Google SERP API](https://platform.acedata.cloud/documents/serp-google)
+1. Зарегистрируйтесь или войдите на [платформу XHuoAPI](https://api.xhuoapi.ai)
+2. Перейдите на страницу [Google SERP API](https://api.xhuoapi.ai/documents/serp-google)
 3. Нажмите «Acquire», чтобы получить токен API (при первом запросе предоставляется бесплатный лимит)
 
 ## Установка и настройка
@@ -37,7 +37,7 @@ pip install mcp-serp
 ### Способ 2: Установка из исходного кода
 
 ```bash
-git clone https://github.com/AceDataCloud/SerpMCP.git
+git clone https://github.com/XHuoAPI/SerpMCP.git
 cd SerpMCP
 pip install -e .
 ```
@@ -59,7 +59,7 @@ pip install -e .
     "serp": {
       "command": "mcp-serp",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API токен"
+        "XHuoAPI_API_TOKEN": "ваш API токен"
       }
     }
   }
@@ -75,7 +75,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-serp"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API токен"
+        "XHuoAPI_API_TOKEN": "ваш API токен"
       }
     }
   }
@@ -94,7 +94,7 @@ pip install -e .
     "serp": {
       "command": "mcp-serp",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API токен"
+        "XHuoAPI_API_TOKEN": "ваш API токен"
       }
     }
   }
@@ -110,7 +110,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-serp"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API токен"
+        "XHuoAPI_API_TOKEN": "ваш API токен"
       }
     }
   }
@@ -140,6 +140,6 @@ pip install -e .
 
 ## Дополнительная информация
 
-- Репозиторий на GitHub: [AceDataCloud/SerpMCP](https://github.com/AceDataCloud/SerpMCP)
+- Репозиторий на GitHub: [XHuoAPI/SerpMCP](https://github.com/XHuoAPI/SerpMCP)
 - Пакет PyPI: [mcp-serp](https://pypi.org/project/mcp-serp/)
-- Документация API: [API поисковых систем](https://platform.acedata.cloud/documents/serp)
+- Документация API: [API поисковых систем](https://api.xhuoapi.ai/documents/serp)

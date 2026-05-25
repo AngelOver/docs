@@ -3,7 +3,7 @@ title: "Nano Banana MCP Liitäntäopas"
 description: "nanobanana MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) on Anthropicin kehittämä mallin konteksti-protokolla, joka mahdollistaa AI-mallien (kuten Claude, GPT jne.) kutsuvan ulkoisia työkaluja standardoitujen rajapintojen kautta. AceData Cloudin tarjoaman Nano Banana MCP Serverin avulla voit suoraan luoda ja muokata AI-kuvia Claude Desktopissa, VS Codessa, Cursorissa ja muissa AI-asiakkaissa.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) on Anthropicin kehittämä mallin konteksti-protokolla, joka mahdollistaa AI-mallien (kuten Claude, GPT jne.) kutsuvan ulkoisia työkaluja standardoitujen rajapintojen kautta. XHuoAPIin tarjoaman Nano Banana MCP Serverin avulla voit suoraan luoda ja muokata AI-kuvia Claude Desktopissa, VS Codessa, Cursorissa ja muissa AI-asiakkaissa.
 
 ## Toimintojen yleiskatsaus
 
@@ -18,10 +18,10 @@ Nano Banana MCP Server tarjoaa seuraavat keskeiset toiminnot:
 
 ## Esivalmistelut
 
-Ennen käyttöä sinun on hankittava AceData Cloud API Token:
+Ennen käyttöä sinun on hankittava XHuoAPI API Token:
 
-1. Rekisteröidy tai kirjaudu sisään [AceData Cloud -alustalle](https://platform.acedata.cloud)
-2. Siirry [Nano Banana Images API](https://platform.acedata.cloud/documents/nano-banana-images) -sivulle
+1. Rekisteröidy tai kirjaudu sisään [XHuoAPI -alustalle](https://api.xhuoapi.ai)
+2. Siirry [Nano Banana Images API](https://api.xhuoapi.ai/documents/nano-banana-images) -sivulle
 3. Napsauta "Acquire" saadaksesi API Token (ensimmäinen hakemus antaa ilmaisen määrän)
 
 ## Asennus ja konfigurointi
@@ -35,7 +35,7 @@ pip install mcp-nanobanana-pro
 ### Tapa 2: Lähdekoodin asennus
 
 ```bash
-git clone https://github.com/AceDataCloud/NanoBananaMCP.git
+git clone https://github.com/XHuoAPI/NanoBananaMCP.git
 cd NanoBananaMCP
 pip install -e .
 ```
@@ -57,7 +57,7 @@ Lisää seuraava konfiguraatio:
     "nanobanana": {
       "command": "mcp-nanobanana-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": " sinun API Token"
+        "XHuoAPI_API_TOKEN": " sinun API Token"
       }
     }
   }
@@ -73,7 +73,7 @@ Jos käytät `uvx` (ei tarvitse asentaa paketteja etukäteen):
       "command": "uvx",
       "args": ["mcp-nanobanana-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": " sinun API Token"
+        "XHuoAPI_API_TOKEN": " sinun API Token"
       }
     }
   }
@@ -92,7 +92,7 @@ Luo projektin juurihakemistoon tiedosto `.vscode/mcp.json`:
     "nanobanana": {
       "command": "mcp-nanobanana-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": " sinun API Token"
+        "XHuoAPI_API_TOKEN": " sinun API Token"
       }
     }
   }
@@ -108,7 +108,7 @@ Tai käytä `uvx`:
       "command": "uvx",
       "args": ["mcp-nanobanana-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": " sinun API Token"
+        "XHuoAPI_API_TOKEN": " sinun API Token"
       }
     }
   }
@@ -135,6 +135,6 @@ Kun konfiguraatio on valmis, voit suoraan kutsua näitä toimintoja luonnollisel
 
 ## Lisätietoja
 
-- GitHub-repositorio: [AceDataCloud/NanoBananaMCP](https://github.com/AceDataCloud/NanoBananaMCP)
+- GitHub-repositorio: [XHuoAPI/NanoBananaMCP](https://github.com/XHuoAPI/NanoBananaMCP)
 - PyPI-paketti: [mcp-nanobanana-pro](https://pypi.org/project/mcp-nanobanana-pro/)
-- API-dokumentaatio: [Nano Banana API](https://platform.acedata.cloud/documents/nano-banana)
+- API-dokumentaatio: [Nano Banana API](https://api.xhuoapi.ai/documents/nano-banana)

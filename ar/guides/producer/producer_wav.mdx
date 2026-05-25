@@ -1,6 +1,6 @@
 ---
 title: "تعليمات دمج واجهة برمجة التطبيقات لتحميل WAV"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 يسمح لنا Producer بتحميل ملفات WAV المتعلقة بالأغاني، توضح هذه الوثيقة كيفية دمج واجهة برمجة التطبيقات ذات الصلة.
@@ -10,7 +10,7 @@ description: "Producer Music Generation 集成指南 - Ace Data Cloud"
 هنا، المعرف `audio_id` المدخل هو `a54609c6-13e2-4176-be0f-4d7eebc68e1f`، وهو معرف أغنية تم إنشاؤه بواسطة Producer.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/wav' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/wav' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

@@ -1,6 +1,6 @@
 ---
 title: "이동 셀룰러 프록시 연결 설명"
-description: "Cellular Rotation Proxy 集成指南 - Ace Data Cloud"
+description: "Cellular Rotation Proxy 集成指南 - XHuoAPI"
 ---
 
 크롤러와 반크롤러 간의 싸움이 점점 치열해짐에 따라, 각 대형 웹사이트와 앱의 리스크 관리 감지가 점점 강해지고 있으며, 그 중 하나가 IP 차단입니다.
@@ -19,9 +19,9 @@ IP 차단의 문제를 해결하기 위한 효과적인 방법 중 하나는 프
 
 ## 신청 방법
 
-이동 셀룰러 프록시 서비스를 사용하려면 먼저 「[신청 페이지](https://platform.acedata.cloud/services/d8570fa7-8510-454e-913e-f1bd1b98338d)」에서 신청할 수 있으며, 최초 신청 시 1 포인트의 무료 한도가 제공됩니다.
+이동 셀룰러 프록시 서비스를 사용하려면 먼저 「[신청 페이지](https://api.xhuoapi.ai/services/d8570fa7-8510-454e-913e-f1bd1b98338d)」에서 신청할 수 있으며, 최초 신청 시 1 포인트의 무료 한도가 제공됩니다.
 
-![](https://cdn.acedata.cloud/wed8yf.png)
+![](https://cdn.xhuoapi.ai/wed8yf.png)
 
 로그인하지 않은 경우 자동으로 로그인 페이지로 리디렉션되며, 로그인 후 계속 신청할 수 있습니다.
 
@@ -29,13 +29,13 @@ IP 차단의 문제를 해결하기 위한 효과적인 방법 중 하나는 프
 
 신청이 완료된 후, 「콘솔」에서 본인의 신청 결과를 확인할 수 있습니다. 아래와 같이 표시됩니다:
 
-![](https://cdn.acedata.cloud/db1js5.png)
+![](https://cdn.xhuoapi.ai/db1js5.png)
 
 「Credentials」를 클릭하면 이동 셀룰러 프록시 서비스의 사용자 이름과 비밀번호를 확인할 수 있으며, 콜론으로 구분되어 있습니다. 사용자 이름은 8자리, 비밀번호는 32자리입니다. 아래와 같이 표시됩니다:
 
-![](https://cdn.acedata.cloud/54ffp0.png)
+![](https://cdn.xhuoapi.ai/54ffp0.png)
 
-본 이동 셀룰러 프록시는 회전 프록시이므로 사용할 때는 고정된 프록시 주소와 포트만 설정하면 됩니다. 프록시의 주소와 포트는 각각 cellular.proxy.acedata.cloud와 30000이며, 본 프록시는 HTTP/HTTPS/SOCKS 프로토콜의 프록시로, HTTP 및 HTTPS 프로토콜 웹사이트 요청에 사용할 수 있습니다.
+본 이동 셀룰러 프록시는 회전 프록시이므로 사용할 때는 고정된 프록시 주소와 포트만 설정하면 됩니다. 프록시의 주소와 포트는 각각 cellular.proxy.xhuoapi.ai와 30000이며, 본 프록시는 HTTP/HTTPS/SOCKS 프로토콜의 프록시로, HTTP 및 HTTPS 프로토콜 웹사이트 요청에 사용할 수 있습니다.
 
 ## 명령 테스트
 
@@ -44,7 +44,7 @@ IP 차단의 문제를 해결하기 위한 효과적인 방법 중 하나는 프
 현재 프록시의 사용자 이름과 비밀번호가 `1f78266a:eff0896726224fa2a99fe82dd1f07562`라고 가정하면, 다음과 같은 curl 명령으로 테스트할 수 있습니다:
 
 ```shell
-curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@cellular.proxy.acedata.cloud:30000 https://ipinfo.io
+curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@cellular.proxy.xhuoapi.ai:30000 https://ipinfo.io
 ```
 
 여기서 curl의 `-x` 매개변수를 사용하여 프록시 주소를 지정했으며, 프록시 프로토콜은 기본적으로 HTTP/HTTPS입니다. 여기서 요청하는 URL은 [https://ipinfo.io](https://ipinfo.io)이며, 이 사이트는 요청한 사이트의 실제 IP 주소와 IP가 위치한 지역을 반환할 수 있습니다.
@@ -78,7 +78,7 @@ curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@cellular.proxy.acedata.cloud:3
 ```python
 import requests
 
-proxy = 'http://{proxy_username}:{proxy_password}@cellular.proxy.acedata.cloud:30000'
+proxy = 'http://{proxy_username}:{proxy_password}@cellular.proxy.xhuoapi.ai:30000'
 
 proxies = {
     'http': proxy,
@@ -144,7 +144,7 @@ for _ in range(3):
 import requests
 import base64
 
-proxy_host = 'cellular.proxy.acedata.cloud'
+proxy_host = 'cellular.proxy.xhuoapi.ai'
 proxy_port = '30000'
 proxy_username = '{proxy_username}' # 8자리 사용자 이름
 proxy_password = '{proxy_password}' # 32자리 비밀번호
@@ -176,7 +176,7 @@ for _ in range(3):
 const axios = require("axios");
 const base64 = require("base64");
 
-const proxy_host = "cellular.proxy.acedata.cloud";
+const proxy_host = "cellular.proxy.xhuoapi.ai";
 const proxy_port = "30000";
 const proxy_username = "{proxy_username}"; // 8자리 사용자 이름
 const proxy_password = "{proxy_password}"; // 32자리 비밀번호
@@ -208,4 +208,4 @@ for (let i = 0; i < 3; i++) {
 
 귀하의 요금제가 이미 소진된 경우, 계속해서 해당 프록시 서비스를 사용하려면 더 구매해야 합니다.
 
-더 구매하려면 「[신청 페이지](https://platform.acedata.cloud/services/d8570fa7-8510-454e-913e-f1bd1b98338d)」로 가서 「더 구매하기」 버튼을 클릭하여 선택하시면 됩니다. 단일 구매 시 단가가 더 저렴합니다.
+더 구매하려면 「[신청 페이지](https://api.xhuoapi.ai/services/d8570fa7-8510-454e-913e-f1bd1b98338d)」로 가서 「더 구매하기」 버튼을 클릭하여 선택하시면 됩니다. 단일 구매 시 단가가 더 저렴합니다.

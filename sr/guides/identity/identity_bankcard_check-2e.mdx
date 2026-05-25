@@ -1,15 +1,15 @@
 ---
 title: "Упутство за интеграцију API за проверу двоје фактора банкарске картице"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Овај документ ће представити упутство за интеграцију API за проверу двоје фактора банкарске картице, које се може користити за проверу истинитости и доследности имена и броја банкарске картице.
 
 ## Процес пријаве
 
-Да бисте користили API, прво морате да одете на страницу [API за проверу двоје фактора банкарске картице](https://platform.acedata.cloud/documents/06efe2aa-5443-4dcc-af2f-28236bfb2158) и затражите одговарајућу услугу. Када уђете на страницу, кликните на дугме „Acquire“, као што је приказано на слици:
+Да бисте користили API, прво морате да одете на страницу [API за проверу двоје фактора банкарске картице](https://api.xhuoapi.ai/documents/06efe2aa-5443-4dcc-af2f-28236bfb2158) и затражите одговарајућу услугу. Када уђете на страницу, кликните на дугме „Acquire“, као што је приказано на слици:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Ако се још нисте пријавили или регистровали, аутоматски ћете бити преусмерени на страницу за пријаву која вас позива да се региструјете и пријавите. Након пријаве или регистрације, аутоматски ћете се вратити на тренутну страницу.
 
@@ -19,7 +19,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 Прво, упознајте се са основним начином коришћења, а то је уношење информација о броју банкарске картице, након чега ћете добити обрађену слику резултата. Прво је потребно једноставно проследити поље `bank_card`. Након тога можемо попунити одговарајуће садржаје на интерфејсу, као што је приказано на слици:
 
-<p><img src="https://cdn.acedata.cloud/u9bugq.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/u9bugq.png" width="500" className="m-auto" /></p>
 
 Можете видети да смо овде подесили Request Headers, укључујући:
 
@@ -34,7 +34,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 Након избора, можете приметити да је на десној страни генерисан одговарајући код, као што је приказано на слици:
 
-<p><img src="https://cdn.acedata.cloud/yn8yxf.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yn8yxf.png" width="500" className="m-auto" /></p>
 
 Кликните на дугме „Try“ да бисте извршили тест, као што је приказано на горњој слици, и добили смо следећи резултат:
 
@@ -75,7 +75,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 Ако желите да генеришете одговарајући код за интеграцију, можете га директно копирати, на пример, CURL код је следећи:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/bankcard/check-2e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/bankcard/check-2e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -88,7 +88,7 @@ curl -X POST 'https://api.acedata.cloud/identity/bankcard/check-2e' \
 Python код за интеграцију је следећи:
 
 ```python
-curl -X POST 'https://api.acedata.cloud/identity/bankcard/check-2e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/bankcard/check-2e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

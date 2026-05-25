@@ -1,15 +1,15 @@
 ---
 title: "ADSL Proxy API 申请及使用"
-description: "ADSL Direct Connection Proxy 集成指南 - Ace Data Cloud"
+description: "ADSL Direct Connection Proxy 集成指南 - XHuoAPI"
 ---
 
 Dokument ten głównie opisuje proces korzystania z ADSL Proxy API, dzięki któremu możemy łatwo wydobyć IP ADSL oraz dodać IP do białej listy ADSL Proxy.
 
 ## 申请流程
 
-Aby skorzystać z wydobywania IP ADSL i dodawania IP do białej listy ADSL Proxy, najpierw można przejść do strony [ADSL Proxy Extract API](https://platform.acedata.cloud/documents/d8426c17-d22c-449a-b6bf-0a7790928e4d) oraz [ADSL Proxy Whitelist API](https://platform.acedata.cloud/documents/c21534fe-1f62-424b-9b10-a805cb473dd1) i kliknąć przycisk „Acquire”, aby uzyskać potrzebne poświadczenia:
+Aby skorzystać z wydobywania IP ADSL i dodawania IP do białej listy ADSL Proxy, najpierw można przejść do strony [ADSL Proxy Extract API](https://api.xhuoapi.ai/documents/d8426c17-d22c-449a-b6bf-0a7790928e4d) oraz [ADSL Proxy Whitelist API](https://api.xhuoapi.ai/documents/c21534fe-1f62-424b-9b10-a805cb473dd1) i kliknąć przycisk „Acquire”, aby uzyskać potrzebne poświadczenia:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Jeśli nie jesteś zalogowany lub zarejestrowany, automatycznie zostaniesz przekierowany na stronę logowania, aby zarejestrować się i zalogować, po zalogowaniu lub rejestracji automatycznie wrócisz na bieżącą stronę.
 
@@ -17,7 +17,7 @@ Podczas pierwszej aplikacji przyznawana jest darmowa pula, dzięki której możn
 
 ## 提取 ADSL 的 IP
 
-Następnie możesz wypełnić odpowiednie treści na stronie [ADSL Proxy Extract API](https://platform.acedata.cloud/documents/d8426c17-d22c-449a-b6bf-0a7790928e4d), a poniżej pokazano, jak wydobyć IP ADSL.
+Następnie możesz wypełnić odpowiednie treści na stronie [ADSL Proxy Extract API](https://api.xhuoapi.ai/documents/d8426c17-d22c-449a-b6bf-0a7790928e4d), a poniżej pokazano, jak wydobyć IP ADSL.
 
 ### 设置请求头和请求体
 
@@ -38,20 +38,20 @@ Ustawienia parametrów `province` i `city` mają swoje wymagania, muszą być od
 {"province":"Pekin","city":"Pekin","pId":0,"cId":0},{"province":"Tianjin","city":"Tianjin","pId":1,"cId":1},{"province":"Szanghaj","city":"Szanghaj","pId":2,"cId":3},{"province":"Czongqing","city":"Czongqing","pId":3,"cId":4},{"province":"Heilongjiang","city":"Region Daxinganling","pId":4,"cId":7},{"province":"Heilongjiang","city":"Heihe","pId":4,"cId":8},{"province":"Heilongjiang","city":"Qiqihar","pId":4,"cId":9},{"province":"Heilongjiang","city":"Suihua","pId":4,"cId":10},{"province":"Heilongjiang","city":"Hegang","pId":4,"cId":11},{"province":"Heilongjiang","city":"Jiamusi","pId":4,"cId":12},{"province":"Heilongjiang","city":"Yichun","pId":4,"cId":13},{"province":"Heilongjiang","city":"Shuangyashan","pId":4,"cId":14},{"province":"Heilongjiang","city":"Harbin","pId":4,"cId":15},{"province":"Heilongjiang","city":"Jixi","pId":4,"cId":16},{"province":"Heilongjiang","city":"Daqing","pId":4,"cId":18},{"province":"Heilongjiang","city":"Qitaihe","pId":4,"cId":19},{"province":"Heilongjiang","city":"Mudanjiang","pId":4,"cId":20},{"province":"Jilin","city":"Liaoyuan","pId":5,"cId":22},{"province":"Jilin","city":"Tonghua","pId":5,"cId":23},{"province":"Jilin","city":"Baicheng","pId":5,"cId":24},{"province":"Jilin","city":"Songyuan","pId":5,"cId":25},{"province":"Jilin","city":"Changchun","pId":5,"cId":26},{"province":"Jilin","city":"Jilin City","pId":5,"cId":27},{"province":"Jilin","city":"Prefektura Autonomiczna Yanbian Koreańska","pId":5,"cId":29},{"province":"Jilin","city":"Baishan","pId":5,"cId":31},{"province":"Jilin","city":"Siping","pId":5,"cId":32},{"province":"Liaoning","city":"Huludao","pId":6,"cId":33},{"province":"Liaoning","city":"Panjin","pId":6,"cId":34},{"province":"Liaoning","city":"Liaoyang","pId":6,"cId":35},{"province":"Liaoning","city":"Tieling","pId":6,"cId":36},{"province":"Liaoning","city":"Fuxin","pId":6,"cId":37},{"province":"Liaoning","city":"Chaoyang","pId":6,"cId":38},{"province":"Liaoning","city":"Jinzhou","pId":6,"cId":39},{"province":"Liaoning","city":"Anshan","pId":6,"cId":40},{"province":"Liaoning","city":"Shenyang","pId":6,"cId":41},{"province":"Liaoning","city":"Benxi","pId":6,"cId":42},{"province":"Liaoning","city":"Fushun","pId":6,"cId":43},{"province":"Liaoning","city":"Yingkou","pId":6,"cId":44},{"province":"Liaoning","city":"Dandong","pId":6,"cId":45},{"province":"Liaoning","city":"Dalian","pId":6,"cId":47},{"province":"Mongolia Wewnętrzna","city":"Hulunbuir","pId":7,"cId":48},{"province":"Mongolia Wewnętrzna","city":"Prefektura Xingan","pId":7,"cId":49},{"province":"Mongolia Wewnętrzna","city":"Prefektura Xilin Gol","pId":7,"cId":50},{"province":"Mongolia Wewnętrzna","city":"Bayannur","pId":7,"cId":51},{"province":"Mongolia Wewnętrzna","city":"Baotou","pId":7,"cId":52},{"province":"Mongolia Wewnętrzna","city":"Hohhot","pId":7,"cId":53},{"province":"Mongolia Wewnętrzna","city":"Tongliao","pId":7,"cId":55},{"province":"Mongolia Wewnętrzna","city":"Chifeng","pId":7,"cId":56},{"province":"Mongolia Wewnętrzna","city":"Wuhai","pId":7,"cId":57},{"province":"Mongolia Wewnętrzna","city":"Ordos","pId":7,"cId":58},{"province":"Mongolia Wewnętrzna","city":"Ulanqab","pId":7,"cId":59},{"province":"Ningxia","city":"Shizuishan","pId":8,"cId":60},{"province":"Ningxia","city":"Yinchuan","pId":8,"cId":61},{"province":"Ningxia","city":"Wuzhong","pId":8,"cId":62},{"province":"Ningxia","city":"Guyuan","pId":8,"cId":63},{"province":"Gansu","city":"Zhangye","pId":9,"cId":64},{"province":"Gansu","city":"Jinchang","pId":9,"cId":65},{"province":"Gansu","city":"Wuwei","pId":9,"cId":66},{"province":"Gansu","city":"Lanzhou","pId":9,"cId":67},{"province":"Gansu","city":"Baiyin","pId":9,"cId":68},{"province":"Gansu","city":"Dingxi","pId":9,"cId":69},{"province":"Gansu","city":"Pingliang","pId":9,"cId":70},{"province":"Gansu","city":"Qingyang","pId":9,"cId":71},{"province":"Gansu","city":"Prefektura Autonomiczna Gannan Tybetańska","pId":9,"cId":72},{"province":"Gansu","city":"Prefektura Autonomiczna Linxia Hui","pId":9,"cId":73},{"province":"Gansu","city":"Tianshui","pId":9,"cId":74},{"province":"Gansu","city":"Jiayuguan","pId":9,"cId":75},{"province":"Gansu","city":"Jiuquan","pId":9,"cId":76},{"province":"Gansu","city":"Longnan","pId":9,"cId":77},{"province":"Xinjiang","city":"Prefektura Autonomiczna Changji","pId":10,"cId":78},{"province":"Xinjiang","city":"Prefektura Autonomiczna Kyzylsuu Kirgizów","pId":10,"cId":79},{"province":"Xinjiang","city":"Prefektura Autonomiczna Yili Kazachów","pId":10,"cId":80},{"province":"Xinjiang","city":"Alar","pId":10,"cId":81},{"province":"Xinjiang","city":"Karamay","pId":10,"cId":82},{"province":"Xinjiang","city":"Prefektura Autonomiczna Bortala Mongolów","pId":10,"cId":83},{"province":"Xinjiang","city":"Urumczi","pId":10,"cId":84},{"province":"Xinjiang","city":"Turfan","pId":10,"cId":85},{"province":"Xinjiang","city":"Region Aksu","pId":10,"cId":86},{"province":"Xinjiang","city":"Shihezi","pId":10,"cId":87},{"province":"Xinjiang","city":"Region Kashgar","pId":10,"cId":88},{"province":"Xinjiang","city":"Region Hotan","pId":10,"cId":89},{"province":"Xinjiang","city":"Hami","pId":10,"cId":90},{"province":"Shaanxi","city":"Yulin","pId":11,"cId":92},{"province":"Shaanxi","city":"Yanan","pId":11,"cId":93},{"province":"Shaanxi","city":"Xianyang","pId":11,"cId":94},{"province":"Shaanxi","city":"Xian","pId":11,"cId":95},{"province":"Shaanxi","city":"Weinan","pId":11,"cId":96},{"province":"Shaanxi","city":"Hanzhong","pId":11,"cId":97},{"province":"Shaanxi","city":"Shangluo","pId":11,"cId":98},{"province":"Shaanxi","city":"Ankang","pId":11,"cId":99},{"province":"Shaanxi","city":"Tongchuan","pId":11,"cId":100},{"province":"Shaanxi","city":"Baoji","pId":11,"cId":101},{"province":"Shanxi","city":"Changzhi","pId":12,"cId":102},{"province":"Shanxi","city":"Jinzhong","pId":12,"cId":103},{"province":"Shanxi","city":"Shuozhou","pId":12,"cId":104},{"province":"Shanxi","city":"Datong","pId":12,"cId":105},{"province":"Shanxi","city":"Lüliang","pId":12,"cId":106},{"province":"Shanxi","city":"Xinzhou","pId":12,"cId":107},{"province":"Shanxi","city":"Taiyuan","pId":12,"cId":108},{"province":"Shanxi","city":"Yangquan","pId":12,"cId":109},{"province":"Shanxi","city":"Linfen","pId":12,"cId":110},{"province":"Shanxi","city":"Yuncheng","pId":12,"cId":111},{"province":"Shanxi","city":"Jincheng","pId":12,"cId":112},{"province":"Shandong","city":"Dezhou","pId":13,"cId":114},{"province":"Shandong","city":"Binzhou","pId":13,"cId":115},{"province":"Shandong","city":"Yantai","pId":13,"cId":116},{"province":"Shandong","city":"Liaocheng","pId":13,"cId":117},{"province":"Shandong","city":"Jinan","pId":13,"cId":118},{"province":"Shandong","city":"Tai'an","pId":13,"cId":119},{"province":"Shandong","city":"Zibo","pId":13,"cId":120},{"province":"Shandong","city":"Weifang","pId":13,"cId":121},{"province":"Shandong","city":"Qingdao","pId":13,"cId":122},{"province":"Shandong","city":"Jining","pId":13,"cId":123},{"province":"Shandong","city":"Rizhao","pId":13,"cId":124},{"province":"Shandong","city":"Zaozhuang","pId":13,"cId":126},{"province":"Shandong","city":"Dongying","pId":13,"cId":127},{"province":"Shandong","city":"Weihai","pId":13,"cId":128},{"province":"Shandong","city":"Laiwu","pId":13,"cId":129},{"province":"Shandong","city":"Linyi","pId":13,"cId":130},{"province":"Shandong","city":"Heze","pId":13,"cId":131},{"province":"Hebei","city":"Handan","pId":14,"cId":132},{"province":"Hebei","city":"Hengshui","pId":14,"cId":133},{"province":"Hebei","city":"Shijiazhuang","pId":14,"cId":134},{"province":"Hebei","city":"Xingtai","pId":14,"cId":135},{"province":"Hebei","city":"Zhangjiakou","pId":14,"cId":136},{"province":"Hebei","city":"Chengde","pId":14,"cId":137},{"province":"Hebei","city":"Qinhuangdao","pId":14,"cId":138},{"province":"Hebei","city":"Langfang","pId":14,"cId":139},{"province":"Hebei","city":"Tangshan","pId":14,"cId":140},{"province":"Hebei","city":"Baoding","pId":14,"cId":141},{"province":"Hebei","city":"Cangzhou","pId":14,"cId":142},{"province":"Henan","city":"Anyang","pId":15,"cId":143},{"province":"Henan","city":"Sanmenxia","pId":15,"cId":144},{"province":"Henan","city":"Zhengzhou","pId":15,"cId":145},{"province":"Henan","city":"Nanyang","pId":15,"cId":146},{"province":"Henan","city":"Zhoukou","pId":15,"cId":147},{"province":"Henan","city":"Zhumadian","pId":15,"cId":148},{"province":"Henan","city":"Xinyang","pId":15,"cId":149},{"province":"Henan","city":"Kaifeng","pId":15,"cId":150},{"province":"Henan","city":"Luoyang","pId":15,"cId":151},{"province":"Henan","city":"Pingdingshan","pId":15,"cId":152},{"province":"Henan","city":"Jiaozuo","pId":15,"cId":153},{"province":"Henan","city":"Hebi","pId":15,"cId":154},{"province":"Henan","city":"Xinxiang","pId":15,"cId":155},{"province":"Henan","city":"Puyang","pId":15,"cId":156},{"province":"Henan","city":"Xuchang","pId":15,"cId":157},{"province":"Henan","city":"Luohe","pId":15,"cId":158},{"province":"Henan","city":"Shangqiu","pId":15,"cId":159},{"province":"Henan","city":"Jiyuan","pId":15,"cId":160},{"province":"Tybet","city":"Naqu","pId":16,"cId":161},{"province":"Tybet","city":"Shigatse","pId":16,"cId":162},{"province":"Tybet","city":"Lhasa","pId":16,"cId":163},{"province":"Tybet","city":"Shannan","pId":16,"cId":164},{"province":"Tybet","city":"Region Ali","pId":16,"cId":165},{"province":"Tybet","city":"Changdu","pId":16,"cId":166},{"province":"Tybet","city":"Nyingchi","pId":16,"cId":167},{"province":"Yunnan","city":"Zhaotong","pId":17,"cId":168},{"province":"Yunnan","city":"Lijiang","pId":17,"cId":169},{"province":"Yunnan","city":"Qujing","pId":17,"cId":170},{"province":"Yunnan","city":"Baoshan","pId":17,"cId":171},{"province":"Yunnan","city":"Prefektura Autonomiczna Dali Bai","pId":17,"cId":172},{"province":"Yunnan","city":"Prefektura Autonomiczna Chuxiong Yi","pId":17,"cId":173},{"province":"Yunnan","city":"Kunming","pId":17,"cId":174},{"province":"Yunnan","city":"Yuxi","pId":17,"cId":176},{"province":"Yunnan","city":"Lincang","pId":17,"cId":177},{"province":"Yunnan","city":"Pu'er","pId":17,"cId":178},{"province":"Yunnan","city":"Prefektura Autonomiczna Honghe Hani i Yi","pId":17,"cId":179},{"province":"Yunnan","city":"Prefektura Autonomiczna Wenshan Zhuang i Miao","pId":17,"cId":180},{"province":"Yunnan","city":"Prefektura Autonomiczna Xishuangbanna Dai","pId":17,"cId":181},{"province":"Yunnan","city":"Prefektura Autonomiczna Dehong Dai i Jingpo","pId":17,"cId":182},{"province":"Yunnan","city":"Prefektura Autonomiczna Nujiang Lisu","pId":17,"cId":183},{"province":"Yunnan","city":"Prefektura Autonomiczna Diqing Tybetańska","pId":17,"cId":184},{"province":"Syczuan","city":"Prefektura Autonomiczna Ganzi Tybetańska","pId":18,"cId":185},{"province":"Syczuan","city":"Prefektura Autonomiczna Aba Tybetańska i Qiang","pId":18,"cId":186},{"province":"Syczuan","city":"Prefektura Autonomiczna Liangshan Yi","pId":18,"cId":187},{"province":"Syczuan","city":"Chengdu","pId":18,"cId":188},{"province":"Syczuan","city":"Mianyang","pId":18,"cId":
 因此根据以上规则我们需要设置正确的 `province` 和 `city`，尽量选中江浙地区，因为这些地区的 IP 会多一些，具体的参数设置如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/g8remv.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/g8remv.png" width="500" class="m-auto"></p>
 
 ### 代码示例
 
 可以发现，在页面右侧已经自动生成了各种语言的代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/e2rmr0.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/e2rmr0.png" width="500" class="m-auto"></p>
 
 部分代码示例如下：
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/adsl/extract' \
+curl -X POST 'https://api.xhuoapi.ai/v1/adsl/extract' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -66,7 +66,7 @@ curl -X POST 'https://api.acedata.cloud/adsl/extract' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/adsl/extract"
+url = "https://api.xhuoapi.ai/v1/adsl/extract"
 
 headers = {
     "accept": "application/json",
@@ -217,18 +217,18 @@ if __name__ == "__main__":
 
 下面设置 IP 代理的类型为 `socks` ，具体设置如下图：
 
-<p><img src="https://cdn.acedata.cloud/h3xlwj.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/h3xlwj.png" width="500" class="m-auto"></p>
 
 同时您可以注意到右侧有对应的调用代码生成，您可以复制代码直接运行，也可以直接点击「Try」按钮进行测试。
 
-<p><img src="https://cdn.acedata.cloud/7w0d5h.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/7w0d5h.png" width="500" class="m-auto"></p>
 
 Python 样例调用代码：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/adsl/extract"
+url = "https://api.xhuoapi.ai/v1/adsl/extract"
 
 headers = {
     "accept": "application/json",
@@ -272,20 +272,20 @@ print(response.text)
 
 Następnie można wypełnić odpowiednie treści na interfejsie, jak pokazano na rysunku:
 
-<p><img src="https://cdn.acedata.cloud/wz4obo.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/wz4obo.png" width="500" class="m-auto"></p>
 
 Podczas pierwszego użycia tego interfejsu, musimy wypełnić przynajmniej trzy pola, jedno to `authorization`, które można bezpośrednio wybrać z rozwijanej listy. Drugim parametrem jest `ip`, `ip` to nasz lokalny adres sieciowy proxy IP, który został wyodrębniony powyżej. Ostatnim parametrem jest `action`, `action` to operacja, którą wykonujemy na białej liście, tutaj jest to operacja dodawania do białej listy.
 
 Jednocześnie można zauważyć, że po prawej stronie znajduje się odpowiedni kod wywołania, który można skopiować i bezpośrednio uruchomić, lub można po prostu kliknąć przycisk „Try”, aby przetestować.
 
-<p><img src="https://cdn.acedata.cloud/cs5ib2.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/cs5ib2.png" width="500" class="m-auto"></p>
 
 Przykładowy kod wywołania w Pythonie:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/adsl/whitelist"
+url = "https://api.xhuoapi.ai/v1/adsl/whitelist"
 
 headers = {
     "accept": "application/json",

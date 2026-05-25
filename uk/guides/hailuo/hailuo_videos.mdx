@@ -1,15 +1,15 @@
 ---
 title: "Інструкція з інтеграції Hailuo Videos Generation API"
-description: "Hailuo Video Generation 集成指南 - Ace Data Cloud"
+description: "Hailuo Video Generation 集成指南 - XHuoAPI"
 ---
 
 У цьому документі буде представлено інструкцію з інтеграції Hailuo Videos Generation API, яка дозволяє генерувати офіційні відео Hailuo за допомогою введення користувацьких параметрів.
 
 ## Процес подачі заявки
 
-Щоб використовувати API, спочатку потрібно перейти на сторінку [Hailuo Videos Generation API](https://platform.acedata.cloud/documents/ee06377b-9185-438f-ac84-3376bcb1275e) для подачі заявки на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
+Щоб використовувати API, спочатку потрібно перейти на сторінку [Hailuo Videos Generation API](https://api.xhuoapi.ai/documents/ee06377b-9185-438f-ac84-3376bcb1275e) для подачі заявки на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, щоб запросити реєстрацію та вхід. Після входу або реєстрації ви будете автоматично повернені на поточну сторінку.
 
@@ -19,7 +19,7 @@ description: "Hailuo Video Generation 集成指南 - Ace Data Cloud"
 
 Спочатку потрібно ознайомитися з основним способом використання, а саме: введенням підказки `prompt`, дії `action`, URL першого зображення `first_image_url` та моделі `model`, щоб отримати оброблений результат. Спочатку потрібно просто передати поле `action`, значення якого буде `generate`, потім потрібно ввести модель, наразі основними є модель для генерації відео з зображень `minimax-i2v` та модель для генерації відео з тексту `minimax-t2v`, конкретний зміст наведено нижче:
 
-<p><img src="https://cdn.acedata.cloud/7jyu0n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7jyu0n.png" width="500" className="m-auto" /></p>
 
 Ми можемо бачити, що тут ми налаштували заголовки запиту, включаючи:
 
@@ -36,7 +36,7 @@ description: "Hailuo Video Generation 集成指南 - Ace Data Cloud"
 
 Після вибору ви можете помітити, що праворуч також згенеровано відповідний код, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/8psuxw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8psuxw.png" width="500" className="m-auto" /></p>
 
 Натисніть кнопку «Try», щоб провести тестування, як показано на малюнку, ми отримали наступний результат:
 
@@ -74,7 +74,7 @@ description: "Hailuo Video Generation 集成指南 - Ace Data Cloud"
 Крім того, якщо ви хочете згенерувати відповідний код інтеграції, ви можете просто скопіювати його, наприклад, код CURL виглядає так:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/hailuo/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/hailuo/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -94,13 +94,13 @@ curl -X POST 'https://api.acedata.cloud/hailuo/videos' \
 
 По-перше, зворотний виклик Webhook - це служба, яка може приймати HTTP запити, розробники повинні замінити URL на свій власний HTTP сервер. Для зручності демонстрації використовується публічний веб-сайт з прикладом Webhook https://webhook.site/, відкривши цей сайт, ви отримаєте URL Webhook, як показано на малюнку:
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 Скопіюйте цей URL, і ви зможете використовувати його як Webhook, приклад тут: `https://webhook.site/580b81f5-596e-4321-b03f-606770b0bb83`.
 
 Далі ми можемо налаштувати поле `callback_url` на вказаний URL Webhook, одночасно заповнивши відповідні параметри, конкретний зміст наведено на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/odabh3.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/odabh3.png" width="500" className="m-auto" /></p>
 
 Натиснувши «Запустити», ви можете помітити, що відразу отримаєте результат, як показано нижче:
 
@@ -112,7 +112,7 @@ curl -X POST 'https://api.acedata.cloud/hailuo/videos' \
 
 Після кількох хвилин ми можемо спостерігати результати генерації відео на `https://webhook.site/580b81f5-596e-4321-b03f-606770b0bb83`, як показано на малюнку:
 
-![](https://cdn.acedata.cloud/7jngb4.png)
+![](https://cdn.xhuoapi.ai/7jngb4.png)
 
 Зміст виглядає так:
 

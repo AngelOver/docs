@@ -1,6 +1,6 @@
 ---
 title: "Integração e Uso da API Flux Tasks"
-description: "Flux Image Generation 集成指南 - Ace Data Cloud"
+description: "Flux Image Generation 集成指南 - XHuoAPI"
 ---
 
 A principal função da API Flux Tasks é consultar o status de execução de tarefas através do ID da tarefa gerado pela API Flux Images Generation.
@@ -9,27 +9,27 @@ Este documento irá detalhar as instruções de integração da API Flux Tasks, 
 
 ## Processo de Solicitação
 
-Para usar a API Flux Tasks, você precisa primeiro ir à página de solicitação [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) para solicitar o serviço correspondente e, em seguida, copiar o ID da tarefa da API Flux Images Generation, como mostrado na imagem:
+Para usar a API Flux Tasks, você precisa primeiro ir à página de solicitação [Flux Images Generation API](https://api.xhuoapi.ai/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) para solicitar o serviço correspondente e, em seguida, copiar o ID da tarefa da API Flux Images Generation, como mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/7furhb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7furhb.png" width="500" className="m-auto" /></p>
 
-Por fim, acesse a página da API Flux Tasks [Flux Tasks API](https://platform.acedata.cloud/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b) para solicitar o serviço correspondente. Após acessar a página, clique no botão "Acquire", como mostrado na imagem.
+Por fim, acesse a página da API Flux Tasks [Flux Tasks API](https://api.xhuoapi.ai/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b) para solicitar o serviço correspondente. Após acessar a página, clique no botão "Acquire", como mostrado na imagem.
 
-![Página de Solicitação](https://cdn.acedata.cloud/rci31i.png)
+![Página de Solicitação](https://cdn.xhuoapi.ai/rci31i.png)
 
-Se você ainda não estiver logado ou registrado, será redirecionado automaticamente para a [página de login](https://platform.acedata.cloud), convidando você a se registrar e fazer login. Após o registro e login, você será redirecionado automaticamente de volta para a página atual.
+Se você ainda não estiver logado ou registrado, será redirecionado automaticamente para a [página de login](https://api.xhuoapi.ai), convidando você a se registrar e fazer login. Após o registro e login, você será redirecionado automaticamente de volta para a página atual.
 
 Na primeira solicitação, haverá um crédito gratuito disponível, permitindo que você use a API gratuitamente.
 
 ## Exemplo de Solicitação
 
-A API Flux Tasks pode ser usada para consultar os resultados da API Flux Images Generation. Para saber como usar a API Flux Images Generation, consulte o documento [Flux Images Generation API](https://platform.acedata.cloud/documents/flux-images-integration).
+A API Flux Tasks pode ser usada para consultar os resultados da API Flux Images Generation. Para saber como usar a API Flux Images Generation, consulte o documento [Flux Images Generation API](https://api.xhuoapi.ai/documents/flux-images-integration).
 
 Usaremos um exemplo de ID de tarefa retornado pelo serviço da API Flux Images Generation. Suponha que temos um ID de tarefa: 2db0168c-2373-4367-8d9a-9dc778802e8a, a seguir, demonstraremos como passar um ID de tarefa.
 
 ### Exemplo de Tarefa
 
-<p><img src="https://cdn.acedata.cloud/7furhb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7furhb.png" width="500" className="m-auto" /></p>
 
 ### Configurando Cabeçalhos e Corpo da Solicitação
 
@@ -45,20 +45,20 @@ Usaremos um exemplo de ID de tarefa retornado pelo serviço da API Flux Images G
 
 Configuração conforme mostrado na imagem abaixo:
 
-<p><img src="https://cdn.acedata.cloud/fiasxz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fiasxz.png" width="500" className="m-auto" /></p>
 
 ### Exemplo de Código
 
 Pode-se notar que, no lado direito da página, já foram gerados automaticamente códigos em várias linguagens, como mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/j6gn86.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/j6gn86.png" width="500" className="m-auto" /></p>
 
 Alguns exemplos de código são os seguintes:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/flux/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/flux/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/tasks"
+url = "https://api.xhuoapi.ai/v1/flux/tasks"
 
 headers = {
     "accept": "application/json",
@@ -144,13 +144,13 @@ Esta operação é para consultar os detalhes das tarefas de imagem para vários
 
 Configuração conforme mostrado na imagem abaixo:
 
-<p><img src="https://cdn.acedata.cloud/k3i9ns.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/k3i9ns.png" width="500" className="m-auto" /></p>
 
 ### Exemplo de Código
 
 Pode-se notar que, no lado direito da página, já foram gerados automaticamente códigos em várias linguagens, como mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/pt5fww.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pt5fww.png" width="500" className="m-auto" /></p>
 
 Alguns exemplos de código são os seguintes:
 
@@ -228,7 +228,7 @@ Após uma solicitação bem-sucedida, a API retornará as informações detalhad
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/flux/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -243,7 +243,7 @@ curl -X POST 'https://api.acedata.cloud/flux/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/tasks"
+url = "https://api.xhuoapi.ai/v1/flux/tasks"
 
 headers = {
     "accept": "application/json",

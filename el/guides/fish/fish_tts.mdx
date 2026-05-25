@@ -1,13 +1,13 @@
 ---
 title: "Οδηγίες Ενσωμάτωσης Fish TTS API"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
-Αυτό το έγγραφο παρουσιάζει τις οδηγίες ενσωμάτωσης του Fish TTS API, το οποίο είναι πλήρως συμβατό με το [επίσημο OpenAPI του Fish Audio](https://docs.fish.audio/text-to-speech/text-to-speech). Μπορείτε να μεταφέρετε απευθείας τον υπάρχοντα κώδικα που καλεί το `https://api.fish.audio/v1/tts` στο `https://api.acedata.cloud/fish/tts`, απλά αντικαθιστώντας τα στοιχεία πιστοποίησης, χωρίς να χρειάζεται να τροποποιήσετε τη δομή του αιτήματος.
+Αυτό το έγγραφο παρουσιάζει τις οδηγίες ενσωμάτωσης του Fish TTS API, το οποίο είναι πλήρως συμβατό με το [επίσημο OpenAPI του Fish Audio](https://docs.fish.audio/text-to-speech/text-to-speech). Μπορείτε να μεταφέρετε απευθείας τον υπάρχοντα κώδικα που καλεί το `https://api.fish.audio/v1/tts` στο `https://api.xhuoapi.ai/v1/fish/tts`, απλά αντικαθιστώντας τα στοιχεία πιστοποίησης, χωρίς να χρειάζεται να τροποποιήσετε τη δομή του αιτήματος.
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το API, πρέπει πρώτα να κάνετε αίτηση για την αντίστοιχη υπηρεσία στη σελίδα του [Fish TTS API](https://platform.acedata.cloud/services/caf99abc-ddcf-4714-b2a5-862d9b469509). Μετά την είσοδο στη σελίδα, κάντε κλικ στο κουμπί «Acquire».
+Για να χρησιμοποιήσετε το API, πρέπει πρώτα να κάνετε αίτηση για την αντίστοιχη υπηρεσία στη σελίδα του [Fish TTS API](https://api.xhuoapi.ai/services/caf99abc-ddcf-4714-b2a5-862d9b469509). Μετά την είσοδο στη σελίδα, κάντε κλικ στο κουμπί «Acquire».
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα ανακατευθυνθείτε αυτόματα στη σελίδα σύνδεσης για να εγγραφείτε και να συνδεθείτε. Μετά τη σύνδεση ή εγγραφή, θα επιστρέψετε αυτόματα στην τρέχουσα σελίδα.
 
@@ -29,7 +29,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 Το ελάχιστο αίτημα απαιτεί μόνο το πεδίο `text`. Παράδειγμα CURL:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -55,7 +55,7 @@ curl -X POST 'https://api.acedata.cloud/fish/tts' \
 Για χρήση κλωνοποιημένης φωνής, προσθέστε το `reference_id` στο σώμα του αιτήματος:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -77,7 +77,7 @@ curl -X POST 'https://api.acedata.cloud/fish/tts' \
 Παράδειγμα αιτήματος:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -106,7 +106,7 @@ curl -X POST 'https://api.acedata.cloud/fish/tts' \
 }
 ```
 
-Εναλλακτικά, μπορείτε να χρησιμοποιήσετε το [Fish Tasks API](https://platform.acedata.cloud/documents/fc541fac-a941-47fd-b6f7-48d6cb9da523) για ενεργό polling της κατάστασης εργασίας μέσω `task_id`.
+Εναλλακτικά, μπορείτε να χρησιμοποιήσετε το [Fish Tasks API](https://api.xhuoapi.ai/documents/fc541fac-a941-47fd-b6f7-48d6cb9da523) για ενεργό polling της κατάστασης εργασίας μέσω `task_id`.
 
 ## Διαχείριση Σφαλμάτων
 

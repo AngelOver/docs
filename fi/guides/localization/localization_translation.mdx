@@ -1,6 +1,6 @@
 ---
 title: "Localization Translate API:n liittäminen ja käyttö"
-description: "Localization translation 集成指南 - Ace Data Cloud"
+description: "Localization translation 集成指南 - XHuoAPI"
 ---
 
 Localization Translate API:n päätoiminto on saada käännetty teksti syöttämällä käännettävä teksti, ja käännettävä kieli voidaan mukauttaa. Käännöksen tulokset voidaan esittää kahdella pääasiallisella menetelmällä, `json` ja `markdown`.
@@ -9,11 +9,11 @@ Tässä asiakirjassa esitellään yksityiskohtaisesti Translate API:n liittämis
 
 ## Hakuprosessi
 
-Käyttääksesi Localization Translate API:a, sinun on ensin mentävä hakusivulle [Localization Translate API](https://platform.acedata.cloud/documents/6dcc60d0-a973-4ad2-92d8-11f4d3775532) ja haettava tarvittavaa palvelua. Kun olet siirtynyt sivulle, napsauta "Acquire"-painiketta, kuten kuvassa näkyy:
+Käyttääksesi Localization Translate API:a, sinun on ensin mentävä hakusivulle [Localization Translate API](https://api.xhuoapi.ai/documents/6dcc60d0-a973-4ad2-92d8-11f4d3775532) ja haettava tarvittavaa palvelua. Kun olet siirtynyt sivulle, napsauta "Acquire"-painiketta, kuten kuvassa näkyy:
 
-![Hakusivu](https://cdn.acedata.cloud/rci31i.png)
+![Hakusivu](https://cdn.xhuoapi.ai/rci31i.png)
 
-Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti [kirjautumissivulle](https://platform.acedata.cloud), jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
+Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti [kirjautumissivulle](https://api.xhuoapi.ai), jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
 Ensimmäisellä hakukerralla saat ilmaisia krediittejä, joiden avulla voit käyttää tätä API:a ilmaiseksi.
 
@@ -37,20 +37,20 @@ Otetaan esimerkki englanninkielisestä syötteestä ja näytetään, kuinka tät
 
 Asetukset ovat seuraavan kuvan mukaiset:
 
-<p><img src="https://cdn.acedata.cloud/d4uqst.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d4uqst.png" width="500" className="m-auto" /></p>
 
 ### Koodiesimerkki
 
 Voit huomata, että sivun oikealla puolella on automaattisesti luotu koodia eri kielillä, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/tn5nno.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tn5nno.png" width="500" className="m-auto" /></p>
 
 Osittainen koodiesimerkki on seuraava:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/localization/translate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/localization/translate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -66,7 +66,7 @@ curl -X POST 'https://api.acedata.cloud/localization/translate' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/localization/translate"
+url = "https://api.xhuoapi.ai/v1/localization/translate"
 
 headers = {
     "accept": "application/json",

@@ -1,15 +1,15 @@
 ---
 title: "ADSL Proxy API 申请及使用"
-description: "ADSL Direct Connection Proxy 集成指南 - Ace Data Cloud"
+description: "ADSL Direct Connection Proxy 集成指南 - XHuoAPI"
 ---
 
 هذا المستند يشرح بشكل رئيسي عملية استخدام ADSL Proxy API، من خلاله يمكننا بسهولة استخراج IP الخاص بـ ADSL وإضافة IP إلى القائمة البيضاء لـ ADSL Proxy.
 
 ## 申请流程
 
-لاستخدام استخراج IP الخاص بـ ADSL وإضافة IP إلى القائمة البيضاء لـ ADSL Proxy، يمكنك أولاً الذهاب إلى صفحة [ADSL Proxy Extract API](https://platform.acedata.cloud/documents/d8426c17-d22c-449a-b6bf-0a7790928e4d) و [ADSL Proxy Whitelist API](https://platform.acedata.cloud/documents/c21534fe-1f62-424b-9b10-a805cb473dd1) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة للطلب:
+لاستخدام استخراج IP الخاص بـ ADSL وإضافة IP إلى القائمة البيضاء لـ ADSL Proxy، يمكنك أولاً الذهاب إلى صفحة [ADSL Proxy Extract API](https://api.xhuoapi.ai/documents/d8426c17-d22c-449a-b6bf-0a7790928e4d) و [ADSL Proxy Whitelist API](https://api.xhuoapi.ai/documents/c21534fe-1f62-424b-9b10-a805cb473dd1) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة للطلب:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، سيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، وبعد تسجيل الدخول والتسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
@@ -17,7 +17,7 @@ description: "ADSL Direct Connection Proxy 集成指南 - Ace Data Cloud"
 
 ## 提取 ADSL 的 IP
 
-بعد ذلك يمكنك ملء المحتوى المقابل في واجهة [ADSL Proxy Extract API](https://platform.acedata.cloud/documents/d8426c17-d22c-449a-b6bf-0a7790928e4d)، وسنوضح كيفية استخراج IP الخاص بـ ADSL.
+بعد ذلك يمكنك ملء المحتوى المقابل في واجهة [ADSL Proxy Extract API](https://api.xhuoapi.ai/documents/d8426c17-d22c-449a-b6bf-0a7790928e4d)، وسنوضح كيفية استخراج IP الخاص بـ ADSL.
 
 ### 设置请求头和请求体
 
@@ -38,20 +38,20 @@ description: "ADSL Direct Connection Proxy 集成指南 - Ace Data Cloud"
 {"province":"بكين","city":"بكين","pId":0,"cId":0},{"province":"تيانجين","city":"تيانجين","pId":1,"cId":1},{"province":"شنغهاي","city":"شنغهاي","pId":2,"cId":3},{"province":"تشونغتشينغ","city":"تشونغتشينغ","pId":3,"cId":4},{"province":"هيلونغجيانغ","city":"منطقة دا شينغ آن لينغ","pId":4,"cId":7},{"province":"هيلونغجيانغ","city":"هيخه","pId":4,"cId":8},{"province":"هيلونغجيانغ","city":"تشيتشيار","pId":4,"cId":9},{"province":"هيلونغجيانغ","city":"سويhua","pId":4,"cId":10},{"province":"هيلونغجيانغ","city":"هارغونغ","pId":4,"cId":11},{"province":"هيلونغجيانغ","city":"جياموس","pId":4,"cId":12},{"province":"هيلونغجيانغ","city":"ييتشونغ","pId":4,"cId":13},{"province":"هيلونغجيانغ","city":"شوانغياشان","pId":4,"cId":14},{"province":"هيلونغجيانغ","city":"هاربين","pId":4,"cId":15},{"province":"هيلونغجيانغ","city":"جيشي","pId":4,"cId":16},{"province":"هيلونغجيانغ","city":"دا تشينغ","pId":4,"cId":18},{"province":"هيلونغجيانغ","city":"تشيتايخه","pId":4,"cId":19},{"province":"هيلونغجيانغ","city":"مودانجيانغ","pId":4,"cId":20},{"province":"جيلين","city":"لياويوان","pId":5,"cId":22},{"province":"جيلين","city":"تونغhua","pId":5,"cId":23},{"province":"جيلين","city":"بايتشينغ","pId":5,"cId":24},{"province":"جيلين","city":"سونغيوان","pId":5,"cId":25},{"province":"جيلين","city":"تشانغتشون","pId":5,"cId":26},{"province":"جيلين","city":"مدينة جيلين","pId":5,"cId":27},{"province":"جيلين","city":"ولاية يانبيان الكورية الذاتية الحكم","pId":5,"cId":29},{"province":"جيلين","city":"بايشان","pId":5,"cId":31},{"province":"جيلين","city":"سيبينغ","pId":5,"cId":32},{"province":"لياونينغ","city":"هولوداو","pId":6,"cId":33},{"province":"لياونينغ","city":"بانجين","pId":6,"cId":34},{"province":"لياونينغ","city":"لياو يانغ","pId":6,"cId":35},{"province":"لياونينغ","city":"تيالينغ","pId":6,"cId":36},{"province":"لياونينغ","city":"فوشين","pId":6,"cId":37},{"province":"لياونينغ","city":"تشاويانغ","pId":6,"cId":38},{"province":"لياونينغ","city":"جينتشو","pId":6,"cId":39},{"province":"لياونينغ","city":"آنشان","pId":6,"cId":40},{"province":"لياونينغ","city":"شنيانغ","pId":6,"cId":41},{"province":"لياونينغ","city":"بينكسي","pId":6,"cId":42},{"province":"لياونينغ","city":"فوشون","pId":6,"cId":43},{"province":"لياونينغ","city":"ينغكو","pId":6,"cId":44},{"province":"لياونينغ","city":"دانغدونغ","pId":6,"cId":45},{"province":"لياونينغ","city":"داليان","pId":6,"cId":47},{"province":"منغوليا الداخلية","city":"هولون بوير","pId":7,"cId":48},{"province":"منغوليا الداخلية","city":"شينغ آن مانغ","pId":7,"cId":49},{"province":"منغوليا الداخلية","city":"شيليينغ غول مانغ","pId":7,"cId":50},{"province":"منغوليا الداخلية","city":"بايان نور","pId":7,"cId":51},{"province":"منغوليا الداخلية","city":"باوتو","pId":7,"cId":52},{"province":"منغوليا الداخلية","city":"هولونغو","pId":7,"cId":53},{"province":"منغوليا الداخلية","city":"تونغلياو","pId":7,"cId":55},{"province":"منغوليا الداخلية","city":"تشيفينغ","pId":7,"cId":56},{"province":"منغوليا الداخلية","city":"وهاي","pId":7,"cId":57},{"province":"منغوليا الداخلية","city":"أورادوس","pId":7,"cId":58},{"province":"منغوليا الداخلية","city":"أورلان تشاب","pId":7,"cId":59},{"province":"نينغشيا","city":"شيتزوي شان","pId":8,"cId":60},{"province":"نينغشيا","city":"ينتشوان","pId":8,"cId":61},{"province":"نينغشيا","city":"ووزونغ","pId":8,"cId":62},{"province":"نينغشيا","city":"غوييوان","pId":8,"cId":63},{"province":"قانسو","city":"تشانغيي","pId":9,"cId":64},{"province":"قانسو","city":"جين تشانغ","pId":9,"cId":65},{"province":"قانسو","city":"ووي","pId":9,"cId":66},{"province":"قانسو","city":"لانزهو","pId":9,"cId":67},{"province":"قانسو","city":"باي يين","pId":9,"cId":68},{"province":"قانسو","city":"دينغشي","pId":9,"cId":69},{"province":"قانسو","city":"بينغ ليو","pId":9,"cId":70},{"province":"قانسو","city":"تشينغ يانغ","pId":9,"cId":71},{"province":"قانسو","city":"ولاية قاننان التبتية الذاتية الحكم","pId":9,"cId":72},{"province":"قانسو","city":"ولاية لينشيا الهوي الذاتية الحكم","pId":9,"cId":73},{"province":"قانسو","city":"تيانشوي","pId":9,"cId":74},{"province":"قانسو","city":"جيايوغوان","pId":9,"cId":75},{"province":"قانسو","city":"جيوتشوان","pId":9,"cId":76},{"province":"قانسو","city":"لونغنان","pId":9,"cId":77},{"province":"شينجيانغ","city":"ولاية تشانغجي الهوي الذاتية الحكم","pId":10,"cId":78},{"province":"شينجيانغ","city":"ولاية كيزيل سو كيركيز الذاتية الحكم","pId":10,"cId":79},{"province":"شينجيانغ","city":"ولاية ييلي الكازاخية الذاتية الحكم","pId":10,"cId":80},{"province":"شينجيانغ","city":"ألار","pId":10,"cId":81},{"province":"شينجيانغ","city":"كلايماي","pId":10,"cId":82},{"province":"شينجيانغ","city":"ولاية بورتالا المنغولية الذاتية الحكم","pId":10,"cId":83},{"province":"شينجيانغ","city":"أورومتشي","pId":10,"cId":84},{"province":"شينجيانغ","city":"تولوفان","pId":10,"cId":85},{"province":"شينجيانغ","city":"منطقة أكسو","pId":10,"cId":86},{"province":"شينجيانغ","city":"شيخه زو","pId":10,"cId":87},{"province":"شينجيانغ","city":"منطقة كاشغر","pId":10,"cId":88},{"province":"شينجيانغ","city":"منطقة هوتان","pId":10,"cId":89},{"province":"شينجيانغ","city":"هامي","pId":10,"cId":90},{"province":"شنشي","city":"يولين","pId":11,"cId":92},{"province":"شنشي","city":"يانان","pId":11,"cId":93},{"province":"شنشي","city":"شيان","pId":11,"cId":94},{"province":"شنشي","city":"وي نان","pId":11,"cId":96},{"province":"شنشي","city":"هانتشونغ","pId":11,"cId":97},{"province":"شنشي","city":"شانغلو","pId":11,"cId":98},{"province":"شنشي","city":"أنكانغ","pId":11,"cId":99},{"province":"شنشي","city":"تونغتشوان","pId":11,"cId":100},{"province":"شنشي","city":"باوجي","pId":11,"cId":101},{"province":"شانشي","city":"تشونغتشينغ","pId":12,"cId":102},{"province":"شانشي","city":"جينتشونغ","pId":12,"cId":103},{"province":"شانشي","city":"شواي تشو","pId":12,"cId":104},{"province":"شانشي","city":"داتونغ","pId":12,"cId":105},{"province":"شانشي","city":"لو ليانغ","pId":12,"cId":106},{"province":"شانشي","city":"شينغ زهو","pId":12,"cId":107},{"province":"شانشي","city":"تاي يوان","pId":12,"cId":108},{"province":"شانشي","city":"يانغ تشوان","pId":12,"cId":109},{"province":"شانشي","city":"لينفن","pId":12,"cId":110},{"province":"شانشي","city":"يون تشينغ","pId":12,"cId":111},{"province":"شانشي","city":"جين تشينغ","pId":12,"cId":112},{"province":"شاندونغ","city":"دي تشو","pId":13,"cId":114},{"province":"شاندونغ","city":"بينغ زو","pId":13,"cId":115},{"province":"شاندونغ","city":"يان تاي","pId":13,"cId":116},{"province":"شاندونغ","city":"لياو تشنغ","pId":13,"cId":117},{"province":"شاندونغ","city":"جينان","pId":13,"cId":118},{"province":"شاندونغ","city":"تاي آن","pId":13,"cId":119},{"province":"شاندونغ","city":"زيبو","pId":13,"cId":120},{"province":"شاندونغ","city":"وي فنج","pId":13,"cId":121},{"province":"شاندونغ","city":"كينغداو","pId":13,"cId":122},{"province":"شاندونغ","city":"جينينغ","pId":13,"cId":123},{"province":"شاندونغ","city":"ريتشاو","pId":13,"cId":124},{"province":"شاندونغ","city":"زاوزوانغ","pId":13,"cId":126},{"province":"شاندونغ","city":"دونغ يينغ","pId":13,"cId":127},{"province":"شاندونغ","city":"ويهاي","pId":13,"cId":128},{"province":"شاندونغ","city":"لاي وو","pId":13,"cId":129},{"province":"شاندونغ","city":"لين يي","pId":13,"cId":130},{"province":"شاندونغ","city":"هوزي","pId":13,"cId":131},{"province":"خبي","city":"هاندان","pId":14,"cId":132},{"province":"خبي","city":"هينغشوي","pId":14,"cId":133},{"province":"خبي","city":"شيجيا زوانغ","pId":14,"cId":134},{"province":"خبي","city":"شينغ تاي","pId":14,"cId":135},{"province":"خبي","city":"تشانغجياكو","pId":14,"cId":136},{"province":"خبي","city":"تشينغدو","pId":14,"cId":137},{"province":"خبي","city":"تشينغوانغداو","pId":14,"cId":138},{"province":"خبي","city":"لانغفانغ","pId":14,"cId":139},{"province":"خبي","city":"تانغشان","pId":14,"cId":140},{"province":"خبي","city":"باودينغ","pId":14,"cId":141},{"province":"خبي","city":"تسانغتشو","pId":14,"cId":142},{"province":"خنان","city":"أنيانغ","pId":15,"cId":143},{"province":"خنان","city":"سانمنشيا","pId":15,"cId":144},{"province":"خنان","city":"زنجو","pId":15,"cId":145},{"province":"خنان","city":"نان يانغ","pId":15,"cId":146},{"province":"خنان","city":"تشو كاو","pId":15,"cId":147},{"province":"خنان","city":"تشومايديان","pId":15,"cId":148},{"province":"خنان","city":"شين يانغ","pId":15,"cId":149},{"province":"خنان","city":"كاي فنغ","pId":15,"cId":150},{"province":"خنان","city":"لو يانغ","pId":15,"cId":151},{"province":"خنان","city":"بينغ دينغ شان","pId":15,"cId":152},{"province":"خنان","city":"جياوزو","pId":15,"cId":153},{"province":"خنان","city":"هيبي","pId":15,"cId":154},{"province":"خنان","city":"شينغ شيا","pId":15,"cId":155},{"province":"خنان","city":"بو يانغ","pId":15,"cId":156},{"province":"خنان","city":"شيو تشانغ","pId":15,"cId":157},{"province":"خنان","city":"لوه هه","pId":15,"cId":158},{"province":"خنان","city":"شانغ كيو","pId":15,"cId":159},{"province":"خنان","city":"جي يوان","pId":15,"cId":160},{"province":"التبت","city":"نا تشو","pId":16,"cId":161},{"province":"التبت","city":"ريكا زيه","pId":16,"cId":162},{"province":"التبت","city":"لاسا","pId":16,"cId":163},{"province":"التبت","city":"شاننان","pId":16,"cId":164},{"province":"التبت","city":"منطقة علي","pId":16,"cId":165},{"province":"التبت","city":"تشانغدو","pId":16,"cId":166},{"province":"التبت","city":"لينتشي","pId":16,"cId":167},{"province":"يوننان","city":"تشاوتونغ","pId":17,"cId":168},{"province":"يوننان","city":"ليجيانغ","pId":17,"cId":169},{"province":"يوننان","city":"كيوتشينغ","pId":17,"cId":170},{"province":"يوننان","city":"باوشان","pId":17,"cId":171},{"province":"يوننان","city":"منطقة دالي ذاتية الحكم","pId":17,"cId":172},{"province":"يوننان","city":"منطقة تشوكسونغ ذاتية الحكم","pId":17,"cId":173},{"province":"يوننان","city":"كونمينغ","pId":17,"cId":174},{"province":"يوننان","city":"يوشي","pId":17,"cId":176},{"province":"يوننان","city":"لينغتشي","pId":17,"cId":177},{"province":"يوننان","city":"بويار","pId":17,"cId":178},{"province":"يوننان","city":"منطقة هونغخه ذاتية الحكم","pId":17,"cId":179},{"province":"يوننان","city":"منطقة ونشان ذاتية الحكم","pId":17,"cId":180},{"province":"يوننان","city":"منطقة شيشوان باننا ذاتية الحكم","pId":17,"cId":181},{"province":"يوننان","city":"منطقة ديهوني ذاتية الحكم","pId":17,"cId":182},{"province":"يوننان","city":"منطقة نوجيانغ ذاتية الحكم","pId":17,"
 因此根据以上规则我们需要设置正确的 `province` 和 `city`，尽量选中江浙地区，因为这些地区的 IP 会多一些，具体的参数设置如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/g8remv.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/g8remv.png" width="500" class="m-auto"></p>
 
 ### 代码示例
 
 可以发现，在页面右侧已经自动生成了各种语言的代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/e2rmr0.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/e2rmr0.png" width="500" class="m-auto"></p>
 
 部分代码示例如下：
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/adsl/extract' \
+curl -X POST 'https://api.xhuoapi.ai/v1/adsl/extract' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -66,7 +66,7 @@ curl -X POST 'https://api.acedata.cloud/adsl/extract' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/adsl/extract"
+url = "https://api.xhuoapi.ai/v1/adsl/extract"
 
 headers = {
     "accept": "application/json",
@@ -217,18 +217,18 @@ if __name__ == "__main__":
 
 下面设置 IP 代理的类型为 `socks` ，具体设置如下图：
 
-<p><img src="https://cdn.acedata.cloud/h3xlwj.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/h3xlwj.png" width="500" class="m-auto"></p>
 
 同时您可以注意到右侧有对应的调用代码生成，您可以复制代码直接运行，也可以直接点击「Try」按钮进行测试。
 
-<p><img src="https://cdn.acedata.cloud/7w0d5h.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/7w0d5h.png" width="500" class="m-auto"></p>
 
 Python 样例调用代码：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/adsl/extract"
+url = "https://api.xhuoapi.ai/v1/adsl/extract"
 
 headers = {
     "accept": "application/json",
@@ -272,20 +272,20 @@ print(response.text)
 
 接下来就可以在界面上填写对应的内容，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/wz4obo.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/wz4obo.png" width="500" class="m-auto"></p>
 
 在第一次使用该接口时，我们至少需要填写三个内容，一个是 `authorization`，直接在下拉列表里面选择即可。另一个参数是 `ip`， `ip` 就是我们需要使用上文提取到的 IP 代理的本机网络地址。最后一个参数是`action`，`action` 是我们对白名单进行的操作，这里是对白名单进行添加的操作。
 
 同时您可以注意到右侧有对应的调用代码生成，您可以复制代码直接运行，也可以直接点击「Try」按钮进行测试。
 
-<p><img src="https://cdn.acedata.cloud/cs5ib2.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/cs5ib2.png" width="500" class="m-auto"></p>
 
 Python 样例调用代码：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/adsl/whitelist"
+url = "https://api.xhuoapi.ai/v1/adsl/whitelist"
 
 headers = {
     "accept": "application/json",

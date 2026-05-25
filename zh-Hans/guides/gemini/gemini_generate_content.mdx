@@ -1,6 +1,6 @@
 ---
 title: "Gemini Generate Content API 使用说明"
-description: "Gemini AI 集成指南 - Ace Data Cloud"
+description: "Gemini AI 集成指南 - XHuoAPI"
 ---
 
 Google Gemini 是一个非常强大的 AI 对话系统，通过输入提示就能在几秒内生成流畅自然的回复。本文档主要描述 Gemini Generate Content API 的使用方法，这是 Google 官方原生 API 格式，支持 `generateContent` 和 `streamGenerateContent` 两个端点。
@@ -11,7 +11,7 @@ Gemini Generate Content API 使用 Google 官方原生请求格式（`contents` 
 
 ## 申请流程
 
-使用 Gemini Generate Content API 前，请先访问 [Gemini Generate Content API](https://platform.acedata.cloud/documents/gemini-generate-content-api) 页面，点击 "获取" 按钮来获得请求所需的凭证。
+使用 Gemini Generate Content API 前，请先访问 [Gemini Generate Content API](https://api.xhuoapi.ai/documents/gemini-generate-content-api) 页面，点击 "获取" 按钮来获得请求所需的凭证。
 
 如果尚未登录或注册，会自动跳转到登录页面。首次申请会有免费额度。
 
@@ -22,7 +22,7 @@ Gemini Generate Content API 使用 Google 官方原生请求格式（`contents` 
 发送 POST 请求到 `/v1beta/models/{model}:generateContent`：
 
 ```bash
-curl -X POST "https://api.acedata.cloud/v1beta/models/gemini-2.5-flash:generateContent" \
+curl -X POST "https://api.xhuoapi.ai/v1/v1beta/models/gemini-2.5-flash:generateContent" \
   -H "Authorization: Bearer your_token_here" \
   -H "Content-Type: application/json" \
   -d '{
@@ -71,7 +71,7 @@ curl -X POST "https://api.acedata.cloud/v1beta/models/gemini-2.5-flash:generateC
 发送 POST 请求到 `/v1beta/models/{model}:streamGenerateContent?alt=sse`：
 
 ```bash
-curl -X POST "https://api.acedata.cloud/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse" \
+curl -X POST "https://api.xhuoapi.ai/v1/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse" \
   -H "Authorization: Bearer your_token_here" \
   -H "Content-Type: application/json" \
   -d '{

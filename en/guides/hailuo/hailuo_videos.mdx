@@ -1,15 +1,15 @@
 ---
 title: "Hailuo Videos Generation API Integration Instructions"
-description: "Hailuo Video Generation 集成指南 - Ace Data Cloud"
+description: "Hailuo Video Generation 集成指南 - XHuoAPI"
 ---
 
 This article will introduce the integration instructions for the Hailuo Videos Generation API, which can generate official Hailuo videos by inputting custom parameters.
 
 ## Application Process
 
-To use the API, you need to first apply for the corresponding service on the [Hailuo Videos Generation API](https://platform.acedata.cloud/documents/ee06377b-9185-438f-ac84-3376bcb1275e) page. After entering the page, click the "Acquire" button, as shown in the image:
+To use the API, you need to first apply for the corresponding service on the [Hailuo Videos Generation API](https://api.xhuoapi.ai/documents/ee06377b-9185-438f-ac84-3376bcb1275e) page. After entering the page, click the "Acquire" button, as shown in the image:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
@@ -19,7 +19,7 @@ Upon the first application, there will be a free quota provided, allowing you to
 
 First, understand the basic usage method, which involves inputting the prompt `prompt`, the action `action`, the first frame reference image `first_image_url`, and the model `model` to obtain the processed result. You first need to simply pass a field `action` with the value `generate`, and then we also need to input the model. Currently, there are mainly two models: the image-to-video model `minimax-i2v` and the text-to-video model `minimax-t2v`. The specific content is as follows:
 
-<p><img src="https://cdn.acedata.cloud/7jyu0n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7jyu0n.png" width="500" className="m-auto" /></p>
 
 Here we can see that we have set the Request Headers, including:
 
@@ -36,7 +36,7 @@ Additionally, we set the Request Body, including:
 
 After selection, you can find that the corresponding code is also generated on the right side, as shown in the image:
 
-<p><img src="https://cdn.acedata.cloud/8psuxw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8psuxw.png" width="500" className="m-auto" /></p>
 
 Click the "Try" button to test, as shown in the above image, we obtained the following result:
 
@@ -74,7 +74,7 @@ We can see that we have obtained satisfactory video information, and we only nee
 Additionally, if you want to generate the corresponding integration code, you can directly copy the generated code, for example, the CURL code is as follows:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/hailuo/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/hailuo/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -94,13 +94,13 @@ Let’s understand how to operate specifically through an example.
 
 First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For convenience in demonstration, we use a public Webhook sample site https://webhook.site/, where you can open the site to get a Webhook URL, as shown in the image:
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 Copy this URL, and it can be used as a Webhook. The sample here is `https://webhook.site/580b81f5-596e-4321-b03f-606770b0bb83`.
 
 Next, we can set the field `callback_url` to the above Webhook URL, while filling in the corresponding parameters, as shown in the image:
 
-<p><img src="https://cdn.acedata.cloud/odabh3.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/odabh3.png" width="500" className="m-auto" /></p>
 
 Click to run, and you will immediately receive a result, as follows:
 
@@ -112,7 +112,7 @@ Click to run, and you will immediately receive a result, as follows:
 
 After a moment, we can observe the generated video result at `https://webhook.site/580b81f5-596e-4321-b03f-606770b0bb83`, as shown in the image:
 
-![](https://cdn.acedata.cloud/7jngb4.png)
+![](https://cdn.xhuoapi.ai/7jngb4.png)
 
 The content is as follows:
 

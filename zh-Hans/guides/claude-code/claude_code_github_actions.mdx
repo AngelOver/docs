@@ -1,17 +1,17 @@
 ---
 title: "Claude Code GitHub Actions 使用教程"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code 是 Anthropic 推出的一款 **Agentic Coding** 工具，也被称为世界最强编程 Agent 之一。Claude Code GitHub Actions 可以将 AI 编程能力集成到你的 GitHub 工作流中，只需在 PR 或 Issue 中 `@claude`，即可让 Claude 自动分析代码、创建 PR、实现功能、修复 Bug。
 
-本文档主要介绍如何通过 AceData Cloud 的代理服务，配置和使用 Claude Code GitHub Actions。
+本文档主要介绍如何通过 XHuoAPI 的代理服务，配置和使用 Claude Code GitHub Actions。
 
 ## 申请流程
 
-要使用 Claude Code，首先可以到 [Claude Messages 服务页面](https://platform.acedata.cloud/documents/claude-messages) 点击「Acquire」按钮，获取请求所需要的凭证：
+要使用 Claude Code，首先可以到 [Claude Messages 服务页面](https://api.xhuoapi.ai/documents/claude-messages) 点击「Acquire」按钮，获取请求所需要的凭证：
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 如果你尚未登录或注册，会自动跳转到登录页面邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
@@ -30,7 +30,7 @@ Claude Code 是 Anthropic 推出的一款 **Agentic Coding** 工具，也被称�
 
 前往 [https://github.com/apps/claude](https://github.com/apps/claude) 将 Claude GitHub App 安装到你的仓库。
 
-![GitHub Claude App 安装页面](https://cdn.acedata.cloud/ba4b8df66d.png)
+![GitHub Claude App 安装页面](https://cdn.xhuoapi.ai/ba4b8df66d.png)
 
 该 App 需要以下仓库权限：
 
@@ -42,14 +42,14 @@ Claude Code 是 Anthropic 推出的一款 **Agentic Coding** 工具，也被称�
 
 ### 步骤二：添加 API 密钥
 
-将 AceData Cloud 的 API 密钥添加为仓库 Secret：
+将 XHuoAPI 的 API 密钥添加为仓库 Secret：
 
 1. 进入仓库 **Settings** → **Secrets and variables** → **Actions**
 2. 点击 **New repository secret**
-3. Name 填写 `ANTHROPIC_API_KEY`，Value 填入你在 AceData Cloud 获取的 API 令牌
+3. Name 填写 `ANTHROPIC_API_KEY`，Value 填入你在 XHuoAPI 获取的 API 令牌
 4. 点击 **Add secret** 保存
 
-> **提示**：API 令牌可在 [AceData Cloud 控制台](https://platform.acedata.cloud/console) 中查看。
+> **提示**：API 令牌可在 [XHuoAPI 控制台](https://api.xhuoapi.ai/console) 中查看。
 
 ### 步骤三：创建 Workflow 文件
 
@@ -76,7 +76,7 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 ```
 
-如果需要使用 AceData Cloud 的代理 API 端点，还需要在 Workflow 中设置环境变量：
+如果需要使用 XHuoAPI 的代理 API 端点，还需要在 Workflow 中设置环境变量：
 
 ```yaml
 name: Claude Code
@@ -94,7 +94,7 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
         env:
-          ANTHROPIC_BASE_URL: "https://api.acedata.cloud"
+          ANTHROPIC_BASE_URL: "https://api.xhuoapi.ai/v1"
 ```
 
 ## 使用方式
@@ -130,7 +130,7 @@ jobs:
           prompt: "/review"
           claude_args: "--max-turns 5"
         env:
-          ANTHROPIC_BASE_URL: "https://api.acedata.cloud"
+          ANTHROPIC_BASE_URL: "https://api.xhuoapi.ai/v1"
 ```
 
 ### 定时任务自动化
@@ -152,7 +152,7 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: "生成昨天的提交摘要和未关闭 Issue 的报告"
         env:
-          ANTHROPIC_BASE_URL: "https://api.acedata.cloud"
+          ANTHROPIC_BASE_URL: "https://api.xhuoapi.ai/v1"
 ```
 
 ## Action 参数说明
@@ -216,12 +216,12 @@ claude_args: "--max-turns 5 --model claude-sonnet-4-5-20250929"
 
 ### 如何查看剩余额度？
 
-登录 [AceData Cloud 控制台](https://platform.acedata.cloud/console)，即可查看当前账户的剩余额度和使用情况。
+登录 [XHuoAPI 控制台](https://api.xhuoapi.ai/console)，即可查看当前账户的剩余额度和使用情况。
 
 ## 了解更多
 
 - 📖 [Claude Code GitHub Actions 官方文档](https://code.claude.com/docs/en/github-actions)
 - 📂 [claude-code-action 仓库](https://github.com/anthropics/claude-code-action)
 - 📋 [Workflow 示例](https://github.com/anthropics/claude-code-action/tree/main/examples)
-- 🔧 [AceData Cloud Claude Code 服务](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code 服务](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 如有任何问题，欢迎通过平台客服联系我们

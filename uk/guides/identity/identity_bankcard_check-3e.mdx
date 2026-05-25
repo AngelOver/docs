@@ -1,15 +1,15 @@
 ---
 title: "Верифікація трьох елементів банківської картки API"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 У цьому документі буде представлено опис інтеграції API для верифікації трьох елементів банківської картки, який може бути використаний для перевірки достовірності та узгодженості інформації про номер банківської картки, ім'я та номер документа, що підтверджує відкриття рахунку.
 
 ## Процес подачі заявки
 
-Щоб використовувати API, спочатку потрібно перейти на відповідну сторінку [API верифікації трьох елементів банківської картки](https://platform.acedata.cloud/documents/eb9c6677-68db-4549-a207-41f8a1084634) для подачі заявки на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
+Щоб використовувати API, спочатку потрібно перейти на відповідну сторінку [API верифікації трьох елементів банківської картки](https://api.xhuoapi.ai/documents/eb9c6677-68db-4549-a207-41f8a1084634) для подачі заявки на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, щоб запросити реєстрацію та вхід. Після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
 
@@ -19,7 +19,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 Спочатку потрібно ознайомитися з основним способом використання, а саме, введенням інформації про номер банківської картки, щоб отримати оброблене зображення результату. Спочатку потрібно просто передати поле `bank_card`. Далі ми можемо заповнити відповідні дані на інтерфейсі, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/3kh6i2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3kh6i2.png" width="500" className="m-auto" /></p>
 
 Ми можемо бачити, що тут ми налаштували заголовки запиту, включаючи:
 
@@ -36,7 +36,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 Після вибору ви можете помітити, що праворуч також згенеровано відповідний код, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/cpvguu.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/cpvguu.png" width="500" className="m-auto" /></p>
 
 Натисніть кнопку «Try», щоб провести тестування, як показано на малюнку, тут ми отримали наступний результат:
 
@@ -77,7 +77,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 Крім того, якщо ви хочете згенерувати відповідний код інтеграції, ви можете просто скопіювати його, наприклад, код CURL виглядає так:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/bankcard/check-3e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/bankcard/check-3e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -93,7 +93,7 @@ curl -X POST 'https://api.acedata.cloud/identity/bankcard/check-3e' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/bankcard/check-3e"
+url = "https://api.xhuoapi.ai/v1/identity/bankcard/check-3e"
 
 headers = {
     "accept": "application/json",

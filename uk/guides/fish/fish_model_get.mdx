@@ -1,15 +1,15 @@
 ---
 title: "Інструкція зі взаємодії з Fish Model Get API"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 У цій статті описано інструкцію зі взаємодії з Fish Model Get API (`GET /fish/model/{id}`), який повністю сумісний з [офіційним OpenAPI Fish Audio](https://docs.fish.audio/resources/api-reference/model) і використовується для **отримання повної інформації про окремий клонований голос за його ID**.
 
-> Для створення голосу див. [Fish Model Create API](https://platform.acedata.cloud/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a), для отримання списку з пагінацією див. [Fish Model Query API](https://platform.acedata.cloud/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d).
+> Для створення голосу див. [Fish Model Create API](https://api.xhuoapi.ai/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a), для отримання списку з пагінацією див. [Fish Model Query API](https://api.xhuoapi.ai/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d).
 
 ## Процес подачі заявки
 
-Щоб користуватися API, спочатку потрібно подати заявку на відповідний сервіс на сторінці [Fish Model API](https://platform.acedata.cloud/services/caf99abc-ddcf-4714-b2a5-862d9b469509). Після переходу на сторінку натисніть кнопку «Acquire».
+Щоб користуватися API, спочатку потрібно подати заявку на відповідний сервіс на сторінці [Fish Model API](https://api.xhuoapi.ai/services/caf99abc-ddcf-4714-b2a5-862d9b469509). Після переходу на сторінку натисніть кнопку «Acquire».
 
 Якщо ви ще не увійшли або не зареєстровані, вас автоматично перенаправить на сторінку входу, де можна зареєструватися або увійти. Після входу або реєстрації ви автоматично повернетеся на цю сторінку.
 
@@ -19,12 +19,12 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 
 - **Метод автентифікації**: використовується `Authorization: Bearer {token}`, де `{token}` — це ключ, отриманий на цій платформі.
 - **Структура відповіді**: напряму передається об’єкт ModelEntity з Fish, без додаткової обгортки платформи; у разі помилки використовується стандартна структура платформи `{success:false, error:{code,message}, trace_id}`.
-- **Параметр шляху**: `{id}` — це `_id` голосу, який повертається при створенні через [Fish Model Create API](https://platform.acedata.cloud/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a) або отримується при пагінаційному запиті через [Fish Model Query API](https://platform.acedata.cloud/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d).
+- **Параметр шляху**: `{id}` — це `_id` голосу, який повертається при створенні через [Fish Model Create API](https://api.xhuoapi.ai/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a) або отримується при пагінаційному запиті через [Fish Model Query API](https://api.xhuoapi.ai/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d).
 
 ## Приклад запиту
 
 ```shell
-curl 'https://api.acedata.cloud/fish/model/d7900c21663f485ab63ebdb7e5905036' \
+curl 'https://api.xhuoapi.ai/v1/fish/model/d7900c21663f485ab63ebdb7e5905036' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}'
 ```
@@ -73,7 +73,7 @@ curl 'https://api.acedata.cloud/fish/model/d7900c21663f485ab63ebdb7e5905036' \
 }
 ```
 
-Повернений `_id` можна використовувати як значення поля `reference_id` у наступних запитах [Fish TTS API](https://platform.acedata.cloud/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) для синтезу мови з цим клонованим голосом.
+Повернений `_id` можна використовувати як значення поля `reference_id` у наступних запитах [Fish TTS API](https://api.xhuoapi.ai/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) для синтезу мови з цим клонованим голосом.
 
 ## Інформація про тарифи
 
@@ -103,4 +103,4 @@ curl 'https://api.acedata.cloud/fish/model/d7900c21663f485ab63ebdb7e5905036' \
 
 ## Висновок
 
-Fish Model Get API надає можливість отримувати детальну інформацію про окремий голос, повністю сумісну з офіційним Fish Audio API. Після отримання ID голосу можна за допомогою цього API отримати повний об’єкт ModelEntity (включно з прикладами, станом, видимістю, статистикою тощо), а потім використовувати [Fish TTS API](https://platform.acedata.cloud/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) для повного циклу клонування та синтезу.
+Fish Model Get API надає можливість отримувати детальну інформацію про окремий голос, повністю сумісну з офіційним Fish Audio API. Після отримання ID голосу можна за допомогою цього API отримати повний об’єкт ModelEntity (включно з прикладами, станом, видимістю, статистикою тощо), а потім використовувати [Fish TTS API](https://api.xhuoapi.ai/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) для повного циклу клонування та синтезу.

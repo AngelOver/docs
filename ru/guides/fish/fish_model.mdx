@@ -1,6 +1,6 @@
 ---
 title: "Инструкция по интеграции Fish Model API"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 В этой статье описывается инструкция по интеграции Fish Model API, который полностью совместим с [официальным OpenAPI Fish Audio](https://docs.fish.audio/resources/api-reference/model). Включает:
@@ -10,7 +10,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 
 ## Процесс подачи заявки
 
-Для использования API необходимо сначала подать заявку на соответствующую услугу на странице [Fish Model API](https://platform.acedata.cloud/services/caf99abc-ddcf-4714-b2a5-862d9b469509), нажав кнопку «Acquire».
+Для использования API необходимо сначала подать заявку на соответствующую услугу на странице [Fish Model API](https://api.xhuoapi.ai/services/caf99abc-ddcf-4714-b2a5-862d9b469509), нажав кнопку «Acquire».
 
 Если вы не вошли в систему или не зарегистрированы, будет выполнен автоматический переход на страницу входа с приглашением зарегистрироваться и войти. После входа или регистрации вы автоматически вернетесь на текущую страницу.
 
@@ -27,7 +27,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 Минимальный запрос на создание требует поля `title` и `voices`. `voices` — список URL аудиопроб, рекомендуется, чтобы каждый файл был длительностью более 30 секунд с частотой дискретизации не ниже 16 кГц.
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/model' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/model' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -77,7 +77,7 @@ curl -X POST 'https://api.acedata.cloud/fish/model' \
 ## Запрос списка голосовых профилей (GET /fish/model)
 
 ```shell
-curl -G 'https://api.acedata.cloud/fish/model' \
+curl -G 'https://api.xhuoapi.ai/v1/fish/model' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   --data-urlencode 'page_size=10' \
@@ -146,4 +146,4 @@ curl -G 'https://api.acedata.cloud/fish/model' \
 
 ## Заключение
 
-Fish Model API полностью совместим с интерфейсом ModelEntity официального OpenAPI Fish Audio, что позволяет мигрировать существующий код управления клонированными голосами без изменений. Созданный голосовой профиль `_id` можно напрямую использовать в поле `reference_id` [Fish TTS API](https://platform.acedata.cloud/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) для синтеза речи.
+Fish Model API полностью совместим с интерфейсом ModelEntity официального OpenAPI Fish Audio, что позволяет мигрировать существующий код управления клонированными голосами без изменений. Созданный голосовой профиль `_id` можно напрямую использовать в поле `reference_id` [Fish TTS API](https://api.xhuoapi.ai/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) для синтеза речи.

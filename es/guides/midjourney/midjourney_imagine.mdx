@@ -1,6 +1,6 @@
 ---
 title: "Solicitud y uso de la API Imagine de Midjourney"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 Midjourney es una herramienta de dibujo AI muy poderosa, que puede generar imágenes muy elaboradas en solo uno o dos minutos al ingresar palabras clave. Midjourney se destaca en la industria por su excepcional capacidad de dibujo y, hoy en día, ya se utiliza ampliamente en diversas industrias y campos, su influencia es cada vez más notable.
@@ -9,9 +9,9 @@ Este documento describe principalmente el proceso de uso de la operación Imagin
 
 ## Proceso de solicitud
 
-Para usar la API Imagine de Midjourney, primero puedes ir a la página de [API Imagine de Midjourney](https://platform.acedata.cloud/documents/e52c028d-897a-4d51-b110-60fccbe6118d "API Imagine de Midjourney") y hacer clic en el botón "Acquire" para obtener las credenciales necesarias para la solicitud:
+Para usar la API Imagine de Midjourney, primero puedes ir a la página de [API Imagine de Midjourney](https://api.xhuoapi.ai/documents/e52c028d-897a-4d51-b110-60fccbe6118d "API Imagine de Midjourney") y hacer clic en el botón "Acquire" para obtener las credenciales necesarias para la solicitud:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Si aún no has iniciado sesión o registrado, serás redirigido automáticamente a la página de inicio de sesión que te invita a registrarte e iniciar sesión. Después de registrarte e iniciar sesión, volverás automáticamente a la página actual.
 
@@ -21,7 +21,7 @@ En la primera solicitud, se te otorgará un crédito gratuito, lo que te permiti
 
 A continuación, puedes completar el contenido correspondiente en la interfaz, como se muestra en la imagen:
 
-![](https://cdn.acedata.cloud/d01h9f.png)
+![](https://cdn.xhuoapi.ai/d01h9f.png)
 
 En la primera vez que uses esta interfaz, necesitarás completar al menos dos campos, uno es `authorization`, que puedes seleccionar directamente en la lista desplegable. El otro parámetro es `prompt`, `prompt` es la descripción de la imagen que queremos generar, se recomienda describir en inglés, ya que la imagen generada será más precisa y de mejor calidad. Aquí usamos el contenido de ejemplo `Lamborghini speeds inside a volcano`, que representa un Lamborghini volando dentro de un volcán.
 
@@ -37,17 +37,17 @@ Parámetros principales de la solicitud:
 - `action`/`image_id`: se debe especificar al continuar la operación en imágenes históricas.
 - `callback_url`: dirección de callback asíncrona.
 
-<p><img src="https://cdn.acedata.cloud/zv3db5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zv3db5.png" width="500" className="m-auto" /></p>
 
 Después de la llamada, encontramos que el resultado devuelto es el siguiente:
 
 ```json
 {
-  "image_url": "https://midjourney.cdn.acedata.cloud/attachments/1233387694839697411/1234197197067915365/36rgqit64j90qptsxnyq_Lamborghini_speeds_inside_a_volcano_id0494_f47263b6-ff92-44a3-88ee-51cf0e706aae.png?ex=662fdb36&is=662e89b6&hm=ca9be54907726937ed02517a13466bef2afb2825b7cda4b313de56a3c3310d0d&width=1024&height=1024",
+  "image_url": "https://midjourney.cdn.xhuoapi.ai/attachments/1233387694839697411/1234197197067915365/36rgqit64j90qptsxnyq_Lamborghini_speeds_inside_a_volcano_id0494_f47263b6-ff92-44a3-88ee-51cf0e706aae.png?ex=662fdb36&is=662e89b6&hm=ca9be54907726937ed02517a13466bef2afb2825b7cda4b313de56a3c3310d0d&width=1024&height=1024",
   "image_width": 1024,
   "image_height": 1024,
   "image_id": "1234197197067915365",
-  "raw_image_url": "https://midjourney.cdn.acedata.cloud/attachments/1233387694839697411/1234197197067915365/36rgqit64j90qptsxnyq_Lamborghini_speeds_inside_a_volcano_id0494_f47263b6-ff92-44a3-88ee-51cf0e706aae.png?ex=662fdb36&is=662e89b6&hm=ca9be54907726937ed02517a13466bef2afb2825b7cda4b313de56a3c3310d0d&",
+  "raw_image_url": "https://midjourney.cdn.xhuoapi.ai/attachments/1233387694839697411/1234197197067915365/36rgqit64j90qptsxnyq_Lamborghini_speeds_inside_a_volcano_id0494_f47263b6-ff92-44a3-88ee-51cf0e706aae.png?ex=662fdb36&is=662e89b6&hm=ca9be54907726937ed02517a13466bef2afb2825b7cda4b313de56a3c3310d0d&",
   "raw_image_width": 2048,
   "raw_image_height": 2048,
   "progress": 100,
@@ -81,7 +81,7 @@ El resultado devuelto tiene varios campos, que se describen a continuación:
 
 Al abrir el enlace correspondiente a `image_url` o `raw_image_url`, se puede ver como se muestra en la imagen.
 
-![](https://cdn.acedata.cloud/qr2iyj.png)
+![](https://cdn.xhuoapi.ai/qr2iyj.png)
 
 Se puede observar que se generó una vista previa de 2x2. Hasta ahora, la primera llamada a la API se ha completado.
 
@@ -89,16 +89,16 @@ Se puede observar que se generó una vista previa de 2x2. Hasta ahora, la primer
 
 A continuación, intentaremos realizar operaciones adicionales en la foto generada actualmente. Por ejemplo, si consideramos que la segunda imagen en la esquina superior derecha es bastante buena, pero queremos hacer algunos ajustes, podemos llenar `action` como `variation2` y pasar `image_id`:
 
-![](https://cdn.acedata.cloud/ia7vpw.png)
+![](https://cdn.xhuoapi.ai/ia7vpw.png)
 
 En este momento, el resultado obtenido es el siguiente:
 ```json
 {
-  "image_url": "https://midjourney.cdn.acedata.cloud/attachments/1233387694839697411/1234201336543969401/36rgqit64j90qptsxnyq_Lamborghini_speeds_inside_a_volcano_id0494_10dc56a7-ec16-4bac-878e-2338f2ae5f5d.png?ex=662fdf10&is=662e8d90&hm=9aec96bca35ae20b6f9ab536101b9c4ea255eb6216cbf7000ac554937da071f3&width=1024&height=1024",
+  "image_url": "https://midjourney.cdn.xhuoapi.ai/attachments/1233387694839697411/1234201336543969401/36rgqit64j90qptsxnyq_Lamborghini_speeds_inside_a_volcano_id0494_10dc56a7-ec16-4bac-878e-2338f2ae5f5d.png?ex=662fdf10&is=662e8d90&hm=9aec96bca35ae20b6f9ab536101b9c4ea255eb6216cbf7000ac554937da071f3&width=1024&height=1024",
   "image_width": 1024,
   "image_height": 1024,
   "image_id": "1234201336543969401",
-  "raw_image_url": "https://midjourney.cdn.acedata.cloud/attachments/1233387694839697411/1234201336543969401/36rgqit64j90qptsxnyq_Lamborghini_speeds_inside_a_volcano_id0494_10dc56a7-ec16-4bac-878e-2338f2ae5f5d.png?ex=662fdf10&is=662e8d90&hm=9aec96bca35ae20b6f9ab536101b9c4ea255eb6216cbf7000ac554937da071f3&",
+  "raw_image_url": "https://midjourney.cdn.xhuoapi.ai/attachments/1233387694839697411/1234201336543969401/36rgqit64j90qptsxnyq_Lamborghini_speeds_inside_a_volcano_id0494_10dc56a7-ec16-4bac-878e-2338f2ae5f5d.png?ex=662fdf10&is=662e8d90&hm=9aec96bca35ae20b6f9ab536101b9c4ea255eb6216cbf7000ac554937da071f3&",
   "raw_image_width": 2048,
   "raw_image_height": 2048,
   "progress": 100,
@@ -120,13 +120,13 @@ En este momento, el resultado obtenido es el siguiente:
 
 Abre `image_url`, la nueva imagen generada es la siguiente:
 
-![](https://cdn.acedata.cloud/4g6r09.png)
+![](https://cdn.xhuoapi.ai/4g6r09.png)
 
 Se puede ver que, en relación a la imagen en la esquina superior derecha, hemos obtenido nuevamente cuatro fotos similares.
 
 En este momento, podemos seleccionar una de ellas para realizar una operación de ampliación más detallada, por ejemplo, si elegimos la cuarta, entonces podemos pasar `action` como `upscale4`, y a través de `image_id` volver a pasar el ID de la imagen actual.
 
-![](https://cdn.acedata.cloud/jk9ohl.png)
+![](https://cdn.xhuoapi.ai/jk9ohl.png)
 
 > Nota: La operación `upscale` toma menos tiempo en Midjourney en comparación con `variation`.
 
@@ -134,11 +134,11 @@ El resultado devuelto es el siguiente:
 
 ```json
 {
-  "image_url": "https://midjourney.cdn.acedata.cloud/attachments/1233387694839697411/1234202545208033400/36rgqit64j90qptsxnyq_Lamborghini_speeds_inside_a_volcano_id0494_34edc3f5-2bd0-4f5b-a372-03270b02289b.png?ex=662fe031&is=662e8eb1&hm=f8006c4d33a03dfd027dffe4eb46ab0d113a4910aef07497f0b335c8998b7858&width=512&height=512",
+  "image_url": "https://midjourney.cdn.xhuoapi.ai/attachments/1233387694839697411/1234202545208033400/36rgqit64j90qptsxnyq_Lamborghini_speeds_inside_a_volcano_id0494_34edc3f5-2bd0-4f5b-a372-03270b02289b.png?ex=662fe031&is=662e8eb1&hm=f8006c4d33a03dfd027dffe4eb46ab0d113a4910aef07497f0b335c8998b7858&width=512&height=512",
   "image_width": 512,
   "image_height": 512,
   "image_id": "1234202545208033400",
-  "raw_image_url": "https://midjourney.cdn.acedata.cloud/attachments/1233387694839697411/1234202545208033400/36rgqit64j90qptsxnyq_Lamborghini_speeds_inside_a_volcano_id0494_34edc3f5-2bd0-4f5b-a372-03270b02289b.png?ex=662fe031&is=662e8eb1&hm=f8006c4d33a03dfd027dffe4eb46ab0d113a4910aef07497f0b335c8998b7858&",
+  "raw_image_url": "https://midjourney.cdn.xhuoapi.ai/attachments/1233387694839697411/1234202545208033400/36rgqit64j90qptsxnyq_Lamborghini_speeds_inside_a_volcano_id0494_34edc3f5-2bd0-4f5b-a372-03270b02289b.png?ex=662fe031&is=662e8eb1&hm=f8006c4d33a03dfd027dffe4eb46ab0d113a4910aef07497f0b335c8998b7858&",
   "raw_image_width": 1024,
   "raw_image_height": 1024,
   "progress": 100,
@@ -161,7 +161,7 @@ El resultado devuelto es el siguiente:
 
 Donde `image_url` es como se muestra en la imagen:
 
-![](https://cdn.acedata.cloud/jfndfo.png)
+![](https://cdn.xhuoapi.ai/jfndfo.png)
 
 Así hemos conseguido una foto de un Lamborghini.
 
@@ -186,28 +186,28 @@ Esta API también admite la reescritura de imágenes, comúnmente conocida como 
 
 Por ejemplo, aquí tenemos una imagen de un atardecer en la carretera, con algunos árboles y edificios al lado de la carretera, como se muestra en la imagen:
 
-![](https://cdn.acedata.cloud/mq335u.png)
+![](https://cdn.xhuoapi.ai/mq335u.png)
 
 Ahora queremos reescribirla para que sea al lado de una playa, con un coche estacionado al borde de la carretera. Podemos construir el siguiente prompt:
 
 ```bash
-https://cdn.acedata.cloud/v014oc.png una ilustración de un coche estacionado en la playa --iw 2
+https://cdn.xhuoapi.ai/v014oc.png una ilustración de un coche estacionado en la playa --iw 2
 ```
 
 Se puede ver que el comienzo de nuestro prompt es un enlace de imagen que comienza con HTTPS, seguido de un espacio, y luego el contenido del texto del prompt. Aquí también hemos utilizado algunos parámetros avanzados adicionales, como `—iw 2` para ajustar el peso de la imagen.
 
 Podemos pasar el contenido anterior como un todo al campo `prompt`, como se muestra en la imagen:
 
-![](https://cdn.acedata.cloud/pfcoy1.png)
+![](https://cdn.xhuoapi.ai/pfcoy1.png)
 
 El resultado de salida es el siguiente:
 ```bash
 {
-  "image_url": "https://midjourney.cdn.acedata.cloud/attachments/1234427310434947145/1234539663515975690/atmateosa5693_An_illustration_of_a_car_parked_on_the_beach_id26_cc8650ec-7e4b-4685-8911-78172430d8a7.png?ex=66311a28&is=662fc8a8&hm=c39707a1f22bc7f12874060ea6ed58ba37c188139ccc9a13c61ed9f37e66ea74&width=1456&height=816",
+  "image_url": "https://midjourney.cdn.xhuoapi.ai/attachments/1234427310434947145/1234539663515975690/atmateosa5693_An_illustration_of_a_car_parked_on_the_beach_id26_cc8650ec-7e4b-4685-8911-78172430d8a7.png?ex=66311a28&is=662fc8a8&hm=c39707a1f22bc7f12874060ea6ed58ba37c188139ccc9a13c61ed9f37e66ea74&width=1456&height=816",
   "image_width": 1456,
   "image_height": 816,
   "image_id": "1234539663515975690",
-  "raw_image_url": "https://midjourney.cdn.acedata.cloud/attachments/1234427310434947145/1234539663515975690/atmateosa5693_An_illustration_of_a_car_parked_on_the_beach_id26_cc8650ec-7e4b-4685-8911-78172430d8a7.png?ex=66311a28&is=662fc8a8&hm=c39707a1f22bc7f12874060ea6ed58ba37c188139ccc9a13c61ed9f37e66ea74&",
+  "raw_image_url": "https://midjourney.cdn.xhuoapi.ai/attachments/1234427310434947145/1234539663515975690/atmateosa5693_An_illustration_of_a_car_parked_on_the_beach_id26_cc8650ec-7e4b-4685-8911-78172430d8a7.png?ex=66311a28&is=662fc8a8&hm=c39707a1f22bc7f12874060ea6ed58ba37c188139ccc9a13c61ed9f37e66ea74&",
   "raw_image_width": 2912,
   "raw_image_height": 1632,
   "progress": 100,
@@ -230,7 +230,7 @@ El resultado de salida es el siguiente:
 
 En este momento hemos obtenido la siguiente imagen generada:
 
-![](https://cdn.acedata.cloud/1vwkuv.png)
+![](https://cdn.xhuoapi.ai/1vwkuv.png)
 
 Se puede ver que, manteniendo el estilo y la composición general de la imagen original, toda la escena se ha transformado en una playa, y además ha aparecido un coche en la carretera, esto es Prompt with Image.
 
@@ -240,27 +240,27 @@ Esta API también soporta la fusión de imágenes, podemos enviar múltiples im�
 
 Por ejemplo, aquí tenemos dos imágenes, una es un oso de peluche y la otra es una motosierra, como se muestra a continuación:
 
-<p><img src="https://cdn.acedata.cloud/8fapzl.png" width="300" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8fapzl.png" width="300" className="m-auto" /></p>
 
-<p><img src="https://cdn.acedata.cloud/c1igbw.png" width="300" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/c1igbw.png" width="300" className="m-auto" /></p>
 
 Ahora queremos fusionar ambas, haciendo que este oso sostenga la motosierra, ¿cómo lo hacemos?
 
 Podemos construir el siguiente prompt:
 
 ```bash
-https://cdn.acedata.cloud/8fapzl.png https://cdn.acedata.cloud/c1igbw.png The bear is holding the chainsaw --iw 2
+https://cdn.xhuoapi.ai/8fapzl.png https://cdn.xhuoapi.ai/c1igbw.png The bear is holding the chainsaw --iw 2
 ```
 
 Se puede notar que, al igual que en Image with Prompt, aquí hemos colocado múltiples URLs de imágenes al principio del prompt, separadas por espacios, y al final añadimos el texto del prompt, pasando todo el contenido como un todo al parámetro `prompt`, el efecto de ejecución es el siguiente:
 
 ```bash
 {
-  "image_url": "https://midjourney.cdn.acedata.cloud/attachments/1234291876639674388/1234547236830973972/kcisok_The_bear_is_holding_the_chainsaw_id8873344_ad605bc4-ba19-4807-b94f-367dab672f7a.png?ex=66312136&is=662fcfb6&hm=0fb1e2261c9a30b04de9da9b23b7562eb73677f1bbda1fae52c7243b12d25aac&width=1024&height=1024",
+  "image_url": "https://midjourney.cdn.xhuoapi.ai/attachments/1234291876639674388/1234547236830973972/kcisok_The_bear_is_holding_the_chainsaw_id8873344_ad605bc4-ba19-4807-b94f-367dab672f7a.png?ex=66312136&is=662fcfb6&hm=0fb1e2261c9a30b04de9da9b23b7562eb73677f1bbda1fae52c7243b12d25aac&width=1024&height=1024",
   "image_width": 1024,
   "image_height": 1024,
   "image_id": "1234547236830973972",
-  "raw_image_url": "https://midjourney.cdn.acedata.cloud/attachments/1234291876639674388/1234547236830973972/kcisok_The_bear_is_holding_the_chainsaw_id8873344_ad605bc4-ba19-4807-b94f-367dab672f7a.png?ex=66312136&is=662fcfb6&hm=0fb1e2261c9a30b04de9da9b23b7562eb73677f1bbda1fae52c7243b12d25aac&",
+  "raw_image_url": "https://midjourney.cdn.xhuoapi.ai/attachments/1234291876639674388/1234547236830973972/kcisok_The_bear_is_holding_the_chainsaw_id8873344_ad605bc4-ba19-4807-b94f-367dab672f7a.png?ex=66312136&is=662fcfb6&hm=0fb1e2261c9a30b04de9da9b23b7562eb73677f1bbda1fae52c7243b12d25aac&",
   "raw_image_width": 2048,
   "raw_image_height": 2048,
   "progress": 100,
@@ -283,7 +283,7 @@ Se puede notar que, al igual que en Image with Prompt, aquí hemos colocado múl
 
 Hemos obtenido el siguiente resultado:
 
-![](https://cdn.acedata.cloud/vjtzdo.png)
+![](https://cdn.xhuoapi.ai/vjtzdo.png)
 
 Se puede ver que hemos logrado con éxito la fusión de imágenes.
 
@@ -295,7 +295,7 @@ Esta API también soporta la función de dibujo local de imágenes, pero solo ad
 
 Por ejemplo, aquí tenemos una imagen generada sobre un gato:
 
-<p><img src="https://cdn.acedata.cloud/t1tdf9.png" width="300" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/t1tdf9.png" width="300" className="m-auto" /></p>
 
 Ahora queremos redibujar la cara de este gato, ¿cómo lo hacemos?
 
@@ -423,10 +423,10 @@ if __name__ == '__main__':
 A través del código anterior, se puede obtener la imagen de la máscara. En este proceso, debemos tener en cuenta que la imagen de la máscara debe tener el mismo tamaño que la imagen original, y la región blanca en la imagen de la máscara es la que necesita ser redibujada. A continuación, se muestra la comparación entre la imagen del gato que necesita ser redibujada y la imagen original:
 
 Imagen original:
-<p><img src="https://cdn.acedata.cloud/t1tdf9.png" width="300" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/t1tdf9.png" width="300" class="m-auto"></p>
 
 Imagen de la máscara:
-<p><img src="https://cdn.acedata.cloud/bjnrra.png" width="300" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/bjnrra.png" width="300" class="m-auto"></p>
 
 Finalmente, también necesitamos convertir la imagen de la máscara en una codificación basada en Base64. A continuación, se proporciona el código para convertir a Base64:
 
@@ -457,13 +457,13 @@ A través del código anterior, hemos obtenido la máscara que necesita ser redi
 
 Por lo tanto, según las reglas anteriores, necesitamos establecer los parámetros correctos. El parámetro `prompt` es un parámetro no obligatorio, aquí para facilitar la comparación, se establece el `prompt` de la región de la máscara como `Un gato lindo`, la configuración de parámetros específica se muestra en la imagen a continuación:
 
-<p><img src="https://cdn.acedata.cloud/p0hwrf.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/p0hwrf.png" width="500" class="m-auto"></p>
 
 ### Ejemplo de código
 
 Se puede observar que en el lado derecho de la página ya se han generado automáticamente códigos en varios idiomas, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/1ttiuk.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/1ttiuk.png" width="500" class="m-auto"></p>
 
 A continuación se muestra un ejemplo de parte del código:
 
@@ -473,7 +473,7 @@ Después de que la solicitud se realice con éxito, la API devolverá la informa
 
 ```json
 {
-  "image_url": "https://platform.cdn.acedata.cloud/midjourney/6c9450d8-1c22-4f85-a527-e7a7bfb4a61b.png?imageMogr2/thumbnail/!50p",
+  "image_url": "https://platform.cdn.xhuoapi.ai/midjourney/6c9450d8-1c22-4f85-a527-e7a7bfb4a61b.png?imageMogr2/thumbnail/!50p",
   "image_width": 1024,
   "image_height": 1024,
   "actions": [
@@ -487,7 +487,7 @@ Después de que la solicitud se realice con éxito, la API devolverá la informa
     "variation3",
     "variation4"
   ],
-  "raw_image_url": "https://platform.cdn.acedata.cloud/midjourney/6c9450d8-1c22-4f85-a527-e7a7bfb4a61b.png",
+  "raw_image_url": "https://platform.cdn.xhuoapi.ai/midjourney/6c9450d8-1c22-4f85-a527-e7a7bfb4a61b.png",
   "raw_image_width": 2048,
   "raw_image_height": 2048,
   "progress": 100,
@@ -499,13 +499,13 @@ Después de que la solicitud se realice con éxito, la API devolverá la informa
 
 Se puede observar que se ha realizado una operación de redibujo en la imagen de la región de la máscara, y el resultado devuelto es consistente con el anterior, como se muestra en la imagen a continuación:
 
-![](https://cdn.acedata.cloud/8vslhq.png)
+![](https://cdn.xhuoapi.ai/8vslhq.png)
 
 Se puede ver que hemos logrado realizar un redibujo parcial en la región personalizada de la imagen generada.
 
 #### CURL
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/imagine' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/imagine' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -519,7 +519,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/imagine' \
 ```python
 import requests 
 
-url = "https://api.acedata.cloud/midjourney/imagine" 
+url = "https://api.xhuoapi.ai/v1/midjourney/imagine" 
 
 headers = {
     "accept": "application/json",
@@ -546,21 +546,21 @@ A continuación se muestra el flujo de llamada específico.
 
 Primero, el callback de Webhook es un servicio que puede recibir solicitudes HTTP, los desarrolladores deben reemplazarlo con la URL de su propio servidor HTTP. Para facilitar la demostración, se utiliza un sitio web de muestra de Webhook público [https://webhook.site/](https://webhook.site/ "https://webhook.site/"), al abrir este sitio se obtiene una URL de Webhook, como se muestra en la imagen:
 
-![](https://cdn.acedata.cloud/srf3tq.png)
+![](https://cdn.xhuoapi.ai/srf3tq.png)
 
 Copie esta URL y podrá usarla como Webhook, el ejemplo aquí es [https://webhook.site/995d0a91-d737-40a7-a3b9-5baf68ed924c](https://webhook.site/995d0a91-d737-40a7-a3b9-5baf68ed924c "https://webhook.site/995d0a91-d737-40a7-a3b9-5baf68ed924c").
 
 A continuación, podemos establecer el campo `callback_url` a la URL de Webhook mencionada anteriormente, al mismo tiempo que llenamos `prompt`, como se muestra en la imagen:
 
-![](https://cdn.acedata.cloud/hclosy.png)
+![](https://cdn.xhuoapi.ai/hclosy.png)
 
 Después de hacer clic en probar, se recibirá inmediatamente una respuesta con un `task_id`, que se utiliza para identificar el ID de la tarea de generación actual, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/vkr32a.png" width="300" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/vkr32a.png" width="300" class="m-auto"></p>
 
 Después de un momento, cuando la imagen se haya generado, se puede descubrir que la URL de Webhook ha recibido una solicitud HTTP, como se muestra en la imagen:
 
-![](https://cdn.acedata.cloud/6znvgq.png)
+![](https://cdn.xhuoapi.ai/6znvgq.png)
 
 El resultado es el resultado de la tarea actual, el contenido es el siguiente:
 
@@ -568,11 +568,11 @@ El resultado es el resultado de la tarea actual, el contenido es el siguiente:
 {
   "success": true,
   "task_id": "f6e39eaf-652a-4bf5-a15c-79d8b143b80a",
-  "image_url": "https://midjourney.cdn.acedata.cloud/attachments/1234291876639674388/1234551030549839932/kcisok_A_cat_sitting_on_a_table_id2724480_591c5c85-ec80-42ab-9fe5-9adfbed192e4.png?ex=663124be&is=662fd33e&hm=da725eb74aae375d60beec38b4cd26c5a7b373b1662f222ff838a8ea6fd5e798&width=1024&height=1024",
+  "image_url": "https://midjourney.cdn.xhuoapi.ai/attachments/1234291876639674388/1234551030549839932/kcisok_A_cat_sitting_on_a_table_id2724480_591c5c85-ec80-42ab-9fe5-9adfbed192e4.png?ex=663124be&is=662fd33e&hm=da725eb74aae375d60beec38b4cd26c5a7b373b1662f222ff838a8ea6fd5e798&width=1024&height=1024",
   "image_width": 1024,
   "image_height": 1024,
   "image_id": "1234551030549839932",
-  "raw_image_url": "https://midjourney.cdn.acedata.cloud/attachments/1234291876639674388/1234551030549839932/kcisok_A_cat_sitting_on_a_table_id2724480_591c5c85-ec80-42ab-9fe5-9adfbed192e4.png?ex=663124be&is=662fd33e&hm=da725eb74aae375d60beec38b4cd26c5a7b373b1662f222ff838a8ea6fd5e798&",
+  "raw_image_url": "https://midjourney.cdn.xhuoapi.ai/attachments/1234291876639674388/1234551030549839932/kcisok_A_cat_sitting_on_a_table_id2724480_591c5c85-ec80-42ab-9fe5-9adfbed192e4.png?ex=663124be&is=662fd33e&hm=da725eb74aae375d60beec38b4cd26c5a7b373b1662f222ff838a8ea6fd5e798&",
   "raw_image_width": 2048,
   "raw_image_height": 2048,
   "progress": 100,
@@ -624,7 +624,7 @@ Ejemplo de código en Python:
 ```python
 import requests
 
-url = 'https://api.acedata.cloud/midjourney/imagine'
+url = 'https://api.xhuoapi.ai/v1/midjourney/imagine'
 headers = {
     'content-type': 'application/json',
     'accept': 'application/x-ndjson',
@@ -641,9 +641,9 @@ for line in r.iter_lines():
 Resultado de la ejecución:
 ```
 ```json
-{"image_url":"https://midjourney.cdn.acedata.cloud/attachments/1234291876639674388/1234558451443699803/eae94f0f-0ba5-4b3c-9bad-59fb33ac2cbc_grid_0.webp?ex=66312ba7&is=662fda27&hm=4625d5f12158bffc07c4faaf6ce75af6f1396122f148b33b91f3e20b48fecc8b&width=256&height=256","image_width":256,"image_height":256,"image_id":"1234558451443699803","raw_image_url":"https://midjourney.cdn.acedata.cloud/attachments/1234291876639674388/1234558451443699803/eae94f0f-0ba5-4b3c-9bad-59fb33ac2cbc_grid_0.webp?ex=66312ba7&is=662fda27&hm=4625d5f12158bffc07c4faaf6ce75af6f1396122f148b33b91f3e20b48fecc8b&","raw_image_width":512,"raw_image_height":512,"progress":35,"actions":[],"task_id":"49589d2c-b6b3-4fbf-9f82-93068509c76f","success":true}
-{"image_url":"https://midjourney.cdn.acedata.cloud/attachments/1234291876639674388/1234558458595115149/eae94f0f-0ba5-4b3c-9bad-59fb33ac2cbc_grid_0.webp?ex=66312ba9&is=662fda29&hm=9af53fa645127131a88dfbb3930add7abda710c12a3d6c30c457d6a067b36bab&width=256&height=256","image_width":256,"image_height":256,"image_id":"1234558458595115149","raw_image_url":"https://midjourney.cdn.acedata.cloud/attachments/1234291876639674388/1234558458595115149/eae94f0f-0ba5-4b3c-9bad-59fb33ac2cbc_grid_0.webp?ex=66312ba9&is=662fda29&hm=9af53fa645127131a88dfbb3930add7abda710c12a3d6c30c457d6a067b36bab&","raw_image_width":512,"raw_image_height":512,"progress":75,"actions":[],"task_id":"49589d2c-b6b3-4fbf-9f82-93068509c76f","success":true}
-{"image_url":"https://midjourney.cdn.acedata.cloud/attachments/1234291876639674388/1234558483408490566/kcisok_A_landscape_painting_of_a_beautiful_sunset_id5963392_eae94f0f-0ba5-4b3c-9bad-59fb33ac2cbc.png?ex=66312baf&is=662fda2f&hm=185ea8f130806bf8bd96911bd251808455fd65596edcdb459f9b3cfd7860387c&width=1024&height=1024","image_width":1024,"image_height":1024,"image_id":"1234558483408490566","raw_image_url":"https://midjourney.cdn.acedata.cloud/attachments/1234291876639674388/1234558483408490566/kcisok_A_landscape_painting_of_a_beautiful_sunset_id5963392_eae94f0f-0ba5-4b3c-9bad-59fb33ac2cbc.png?ex=66312baf&is=662fda2f&hm=185ea8f130806bf8bd96911bd251808455fd65596edcdb459f9b3cfd7860387c&","raw_image_width":2048,"raw_image_height":2048,"progress":100,"actions":["upscale1","upscale2","upscale3","upscale4","reroll","variation1","variation2","variation3","variation4"],"task_id":"49589d2c-b6b3-4fbf-9f82-93068509c76f","success":true}
+{"image_url":"https://midjourney.cdn.xhuoapi.ai/attachments/1234291876639674388/1234558451443699803/eae94f0f-0ba5-4b3c-9bad-59fb33ac2cbc_grid_0.webp?ex=66312ba7&is=662fda27&hm=4625d5f12158bffc07c4faaf6ce75af6f1396122f148b33b91f3e20b48fecc8b&width=256&height=256","image_width":256,"image_height":256,"image_id":"1234558451443699803","raw_image_url":"https://midjourney.cdn.xhuoapi.ai/attachments/1234291876639674388/1234558451443699803/eae94f0f-0ba5-4b3c-9bad-59fb33ac2cbc_grid_0.webp?ex=66312ba7&is=662fda27&hm=4625d5f12158bffc07c4faaf6ce75af6f1396122f148b33b91f3e20b48fecc8b&","raw_image_width":512,"raw_image_height":512,"progress":35,"actions":[],"task_id":"49589d2c-b6b3-4fbf-9f82-93068509c76f","success":true}
+{"image_url":"https://midjourney.cdn.xhuoapi.ai/attachments/1234291876639674388/1234558458595115149/eae94f0f-0ba5-4b3c-9bad-59fb33ac2cbc_grid_0.webp?ex=66312ba9&is=662fda29&hm=9af53fa645127131a88dfbb3930add7abda710c12a3d6c30c457d6a067b36bab&width=256&height=256","image_width":256,"image_height":256,"image_id":"1234558458595115149","raw_image_url":"https://midjourney.cdn.xhuoapi.ai/attachments/1234291876639674388/1234558458595115149/eae94f0f-0ba5-4b3c-9bad-59fb33ac2cbc_grid_0.webp?ex=66312ba9&is=662fda29&hm=9af53fa645127131a88dfbb3930add7abda710c12a3d6c30c457d6a067b36bab&","raw_image_width":512,"raw_image_height":512,"progress":75,"actions":[],"task_id":"49589d2c-b6b3-4fbf-9f82-93068509c76f","success":true}
+{"image_url":"https://midjourney.cdn.xhuoapi.ai/attachments/1234291876639674388/1234558483408490566/kcisok_A_landscape_painting_of_a_beautiful_sunset_id5963392_eae94f0f-0ba5-4b3c-9bad-59fb33ac2cbc.png?ex=66312baf&is=662fda2f&hm=185ea8f130806bf8bd96911bd251808455fd65596edcdb459f9b3cfd7860387c&width=1024&height=1024","image_width":1024,"image_height":1024,"image_id":"1234558483408490566","raw_image_url":"https://midjourney.cdn.xhuoapi.ai/attachments/1234291876639674388/1234558483408490566/kcisok_A_landscape_painting_of_a_beautiful_sunset_id5963392_eae94f0f-0ba5-4b3c-9bad-59fb33ac2cbc.png?ex=66312baf&is=662fda2f&hm=185ea8f130806bf8bd96911bd251808455fd65596edcdb459f9b3cfd7860387c&","raw_image_width":2048,"raw_image_height":2048,"progress":100,"actions":["upscale1","upscale2","upscale3","upscale4","reroll","variation1","variation2","variation3","variation4"],"task_id":"49589d2c-b6b3-4fbf-9f82-93068509c76f","success":true}
 ```
 
 Se puede ver que, al habilitar la salida en flujo, el resultado devuelto es JSON línea por línea.
@@ -653,7 +653,7 @@ En un entorno de Node.js, el código se puede escribir de la siguiente manera:
 ```javascript
 const axios = require("axios");
 
-const url = "https://api.acedata.cloud/midjourney/imagine";
+const url = "https://api.xhuoapi.ai/v1/midjourney/imagine";
 const headers = {
   "content-type": "application/json",
   accept: "application/x-ndjson",

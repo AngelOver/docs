@@ -1,15 +1,15 @@
 ---
 title: "Documentation de l'API de reconnaissance d'images Recaptcha2"
-description: "Recaptcha verification code recognition service 集成指南 - Ace Data Cloud"
+description: "Recaptcha verification code recognition service 集成指南 - XHuoAPI"
 ---
 
 Cet article présente une documentation sur l'intégration de l'API de reconnaissance d'images Recaptcha2, qui peut identifier le contenu saisi par l'utilisateur et l'image du captcha Recaptcha2, puis renvoyer les coordonnées des petites images à cliquer pour compléter la vérification.
 
 ## Processus de demande
 
-Pour utiliser l'API, vous devez d'abord vous rendre sur la page correspondante de l'[API de reconnaissance d'images Recaptcha2](https://platform.acedata.cloud/documents/b9bf7d07-b178-4881-ae45-a852ec40f53e) pour demander le service correspondant. Une fois sur la page, cliquez sur le bouton « Acquire », comme illustré ci-dessous :
+Pour utiliser l'API, vous devez d'abord vous rendre sur la page correspondante de l'[API de reconnaissance d'images Recaptcha2](https://api.xhuoapi.ai/documents/b9bf7d07-b178-4881-ae45-a852ec40f53e) pour demander le service correspondant. Une fois sur la page, cliquez sur le bouton « Acquire », comme illustré ci-dessous :
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Si vous n'êtes pas encore connecté ou inscrit, vous serez automatiquement redirigé vers la page de connexion pour vous inviter à vous inscrire et à vous connecter. Après vous être connecté ou inscrit, vous serez automatiquement renvoyé à la page actuelle.
 
@@ -19,11 +19,11 @@ Lors de la première demande, un quota gratuit sera offert, vous permettant d'ut
 
 Tout d'abord, comprenons les méthodes d'utilisation de base. Nous devons capturer l'image du captcha Recaptcha2 à partir du site web, l'URL de l'exemple de site est : `https://www.google.com/recaptcha/api2/demo`, la page spécifique est illustrée ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/3mgkjk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3mgkjk.png" width="500" className="m-auto" /></p>
 
 Nous devons cliquer sur la case à cocher du captcha pour que l'image du captcha apparaisse. Dans l'image ci-dessus, la flèche jaune pointe vers un texte, ce texte est la valeur de `question` mentionnée ci-dessous. Nous devons d'abord transmettre un champ `image`, qui est l'image spécifique du captcha Recaptcha2, cette image est celle pointée par la flèche rouge dans l'image ci-dessus. De plus, l'image doit être redimensionnée à une taille standard (100x100, 300x300, 450x450), afin que le service puisse déterminer le type d'image. La compression de l'image doit être effectuée par vos soins. Cet article recommande un [site de compression](https://www.photopea.com/), où vous pouvez compresser la taille et les dimensions de l'image. Le résultat compressé est illustré ci-dessous :
 
-![](https://cdn.acedata.cloud/l7aotl.png)
+![](https://cdn.xhuoapi.ai/l7aotl.png)
 
 Il est également nécessaire d'entrer le paramètre de contenu de reconnaissance lié à l'image du captcha `question`. Nous avons seulement fourni le tableau de contenu ci-dessous, qui peut servir de référence :
 
@@ -77,7 +77,7 @@ Il est également nécessaire d'entrer le paramètre de contenu de reconnaissanc
 
 D'après ce qui précède, nous définissons le paramètre `question` comme étant le `/m/01pns0` correspondant à l'hydrant, le contenu spécifique est comme suit :
 
-<p><img src="https://cdn.acedata.cloud/d53oc3.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d53oc3.png" width="500" className="m-auto" /></p>
 
 Nous pouvons voir que nous avons défini les en-têtes de requête, y compris :
 
@@ -91,7 +91,7 @@ De plus, nous avons défini le corps de la requête, y compris :
 
 Après avoir fait votre sélection, vous pouvez constater que le code correspondant a également été généré à droite, comme illustré ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/bsp8g9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bsp8g9.png" width="500" className="m-auto" /></p>
 
 Cliquez sur le bouton « Try » pour effectuer un test, comme montré ci-dessus, nous avons obtenu le résultat suivant :
 
@@ -132,14 +132,14 @@ Le résultat de retour contient plusieurs champs, décrits comme suit :
 
 Nous pouvons voir que nous avons obtenu le résultat de vérification du traitement de l'image du captcha Recaptcha2. Nous avons d'abord divisé l'image du captcha en zones, comme illustré ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/2d6qhx.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2d6qhx.png" width="500" className="m-auto" /></p>
 
 Nous pouvons voir que les zones commencent toutes à partir de 0. À partir du résultat `objects`, nous avons obtenu 2, 5, 7, nous devons simplement simuler un clic sur ces trois zones du captcha pour passer la vérification.
 
 De plus, si vous souhaitez générer le code d'intégration correspondant, vous pouvez le copier directement, par exemple, le code CURL est comme suit :
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/captcha/recognition/recaptcha2' \
+curl -X POST 'https://api.xhuoapi.ai/v1/captcha/recognition/recaptcha2' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -153,7 +153,7 @@ Le code d'intégration en Python est comme suit :
 ```python
 import requests
 
-url = "https://api.acedata.cloud/captcha/recognition/recaptcha2"
+url = "https://api.xhuoapi.ai/v1/captcha/recognition/recaptcha2"
 
 headers = {
     "accept": "application/json",

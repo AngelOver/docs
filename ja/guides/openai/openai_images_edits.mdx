@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Images Edits API 申請および使用方法"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAIの画像編集サービスは、任意の枚数の画像と指示を入力として受け取り、編集後の画像を出力します。現在、このAPIは `dall-e-2`、`gpt-image-1`、最新の **`gpt-image-2`**、および同一インターフェースで接続されている **`nano-banana` / `nano-banana-2` / `nano-banana-pro`** シリーズのモデルをサポートしています。
@@ -9,9 +9,9 @@ OpenAIの画像編集サービスは、任意の枚数の画像と指示を入�
 
 ## 申請手順
 
-OpenAI Images Edits APIを使用するには、まず [OpenAI Images Edits API](https://platform.acedata.cloud/documents/251f1efa-aaa6-462e-8af4-66854b1bc94d) ページで「Acquire」ボタンをクリックし、リクエストに必要な認証トークンを取得してください：
+OpenAI Images Edits APIを使用するには、まず [OpenAI Images Edits API](https://api.xhuoapi.ai/documents/251f1efa-aaa6-462e-8af4-66854b1bc94d) ページで「Acquire」ボタンをクリックし、リクエストに必要な認証トークンを取得してください：
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 未ログインまたは未登録の場合は、自動的にログインページにリダイレクトされ、登録・ログイン後に元のページに戻ります。
 
@@ -57,17 +57,17 @@ OpenAI Images Edits APIを使用するには、まず [OpenAI Images Edits API](
 
 例えば、以下の元画像は `gpt-image-2` で生成された科学解説の図鑑です：
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/5c9fa635-8794-4c6d-88f8-584d7f4716c6_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/5c9fa635-8794-4c6d-88f8-584d7f4716c6_0.png" width="500" className="m-auto" /></p>
 
 これを「夜間モード」配色に変更したい場合、以下のように呼び出します：
 
 ```shell
-curl -X POST "https://api.acedata.cloud/openai/images/edits" \
+curl -X POST "https://api.xhuoapi.ai/v1/openai/images/edits" \
   -H "Authorization: Bearer {token}" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "gpt-image-2",
-    "image": "https://platform.cdn.acedata.cloud/gpt-image/5c9fa635-8794-4c6d-88f8-584d7f4716c6_0.png",
+    "image": "https://platform.cdn.xhuoapi.ai/gpt-image/5c9fa635-8794-4c6d-88f8-584d7f4716c6_0.png",
     "prompt": "Convert this infographic to dark mode: dark navy background, light cream text, deep gray rounded module cards with soft shadows. Keep all layout, structure, and module arrangement identical — only invert the color scheme.",
     "size": "1024x1536"
   }'
@@ -78,7 +78,7 @@ curl -X POST "https://api.acedata.cloud/openai/images/edits" \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/edits"
+url = "https://api.xhuoapi.ai/v1/openai/images/edits"
 
 headers = {
     "accept": "application/json",
@@ -88,7 +88,7 @@ headers = {
 
 payload = {
     "model": "gpt-image-2",
-    "image": "https://platform.cdn.acedata.cloud/gpt-image/5c9fa635-8794-4c6d-88f8-584d7f4716c6_0.png",
+    "image": "https://platform.cdn.xhuoapi.ai/gpt-image/5c9fa635-8794-4c6d-88f8-584d7f4716c6_0.png",
     "prompt": "Convert this infographic to dark mode: dark navy background, light cream text, deep gray rounded module cards with soft shadows. Keep all layout, structure, and module arrangement identical — only invert the color scheme.",
     "size": "1024x1536"
 }
@@ -108,7 +108,7 @@ print(response.text)
   "data": [
     {
       "revised_prompt": "Convert this infographic to dark mode: dark navy background, light cream text, deep gray rounded module cards with soft shadows. Keep all layout, structure, and module arrangement identical — only invert the color scheme.",
-      "url": "https://platform.cdn.acedata.cloud/gpt-image/cb104e35-af1f-45be-9fac-b62e2b256753_0.png"
+      "url": "https://platform.cdn.xhuoapi.ai/gpt-image/cb104e35-af1f-45be-9fac-b62e2b256753_0.png"
     }
   ],
   "elapsed": 83.859
@@ -117,7 +117,7 @@ print(response.text)
 
 編集後の画像：
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/cb104e35-af1f-45be-9fac-b62e2b256753_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/cb104e35-af1f-45be-9fac-b62e2b256753_0.png" width="500" className="m-auto" /></p>
 
 モジュール構造、情報区分、フォント配置が厳密に保持され、配色のみがダークテーマに反転されていることがわかります。
 
@@ -146,14 +146,14 @@ payload = {
 
 元画像（`gpt-image-2` 生成の木製本棚）：
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/141970f0-65fb-4ec8-ab7d-9be173641350_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/141970f0-65fb-4ec8-ab7d-9be173641350_0.png" width="500" className="m-auto" /></p>
 
 呼び出し：
 
 ```python
 payload = {
     "model": "gpt-image-2",
-    "image": "https://platform.cdn.acedata.cloud/gpt-image/141970f0-65fb-4ec8-ab7d-9be173641350_0.png",
+    "image": "https://platform.cdn.xhuoapi.ai/gpt-image/141970f0-65fb-4ec8-ab7d-9be173641350_0.png",
     "prompt": "Replace the wooden bookshelf with a sleek modern white floating shelf mounted on a pastel blue wall. Keep the exact same arrangement of books (1 book on top, 3 in middle, 7 on bottom). Add a small potted succulent on the top shelf next to the book. Bright airy daylight from the left.",
     "size": "1024x1024"
 }
@@ -161,7 +161,7 @@ payload = {
 
 編集結果（`task_id`: `e9544dba-727e-44a2-81e1-223d49869380`）：
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/e9544dba-727e-44a2-81e1-223d49869380_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/e9544dba-727e-44a2-81e1-223d49869380_0.png" width="500" className="m-auto" /></p>
 
 スタイルと環境は指示通り完全に置き換えられていますが、各段の本の数（1 / 3 / 7）は厳密に保持され、さらにトップ棚に小さな多肉植物が追加されています。
 
@@ -186,10 +186,10 @@ with open("edited.png", "wb") as f:
     f.write(image_bytes)
 ```
 
-SDK利用時は環境変数を2つ設定してください。`OPENAI_BASE_URL` は `https://api.acedata.cloud/openai`、`OPENAI_API_KEY` は取得したトークンを設定します：
+SDK利用時は環境変数を2つ設定してください。`OPENAI_BASE_URL` は `https://api.xhuoapi.ai/v1/openai`、`OPENAI_API_KEY` は取得したトークンを設定します：
 
 ```shell
-export OPENAI_BASE_URL=https://api.acedata.cloud/openai
+export OPENAI_BASE_URL=https://api.xhuoapi.ai/v1/openai
 export OPENAI_API_KEY={token}
 ```
 
@@ -214,11 +214,11 @@ export OPENAI_API_KEY={token}
 ### フォーム＋画像URLでの呼び出し
 
 ```shell
-curl -X POST "https://api.acedata.cloud/openai/images/edits" \
+curl -X POST "https://api.xhuoapi.ai/v1/openai/images/edits" \
   -H "Authorization: Bearer {token}" \
   -F "model=nano-banana" \
   -F "prompt=add a green leaf on top of the apple" \
-  -F "image=https://platform.cdn.acedata.cloud/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png"
+  -F "image=https://platform.cdn.xhuoapi.ai/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png"
 ```
 
 返却例：
@@ -228,7 +228,7 @@ curl -X POST "https://api.acedata.cloud/openai/images/edits" \
   "created": 0,
   "data": [
     {
-      "url": "https://platform.cdn.acedata.cloud/nanobanana/311e95b6-5eb1-4c4a-8ee6-0cb03ee44f61.jpeg",
+      "url": "https://platform.cdn.xhuoapi.ai/nanobanana/311e95b6-5eb1-4c4a-8ee6-0cb03ee44f61.jpeg",
       "revised_prompt": "add a green leaf on top of the apple"
     }
   ]
@@ -237,14 +237,14 @@ curl -X POST "https://api.acedata.cloud/openai/images/edits" \
 
 編集後の画像：
 
-<p><img src="https://platform.cdn.acedata.cloud/nanobanana/311e95b6-5eb1-4c4a-8ee6-0cb03ee44f61.jpeg" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/nanobanana/311e95b6-5eb1-4c4a-8ee6-0cb03ee44f61.jpeg" width="500" className="m-auto" /></p>
 
 ### フォーム＋ローカルファイルでの呼び出し
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/edits"
+url = "https://api.xhuoapi.ai/v1/openai/images/edits"
 
 headers = {
     "authorization": "Bearer {token}"
@@ -273,7 +273,7 @@ print(response.text)
 ```curl
 curl -s -D >(grep -i x-request-id >&2) \
   -o >(jq -r '.data[0].b64_json' | base64 --decode > gift-basket.png) \
-  -X POST "https://api.acedata.cloud/v1/images/edits" \
+  -X POST "https://api.xhuoapi.ai/v1/v1/images/edits" \
   -H "Authorization: Bearer {token}" \
   -F "model=gpt-image-1" \
   -F "image[]=@test.png" \
@@ -282,7 +282,7 @@ curl -s -D >(grep -i x-request-id >&2) \
 
 初回利用時は少なくとも4つの項目を指定する必要があります。1つは `authorization` で、ドロップダウンから選択可能です。もう1つは `model` で、OpenAI公式のモデルカテゴリを選択します。ここでは主に1種類のモデルがあり、詳細は提供モデルを参照してください。さらに `prompt` は生成したい画像の指示文です。最後に `image` は編集対象の画像パスで、以下のような画像を指定します：
 
-<p><img src="https://cdn.acedata.cloud/jw9iwu.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jw9iwu.png" width="500" className="m-auto" /></p>
 
 同様の呼び出しをPythonで行う例：
 
@@ -313,16 +313,16 @@ with open("gift-basket.png", "wb") as f:
     f.write(image_bytes)
 ```
 
-Pythonで呼び出す際は、環境変数を2つ設定してください。`OPENAI_BASE_URL` は `https://api.acedata.cloud/openai`、`OPENAI_API_KEY` は認証トークンです。Mac OSの場合、以下のコマンドで設定可能です：
+Pythonで呼び出す際は、環境変数を2つ設定してください。`OPENAI_BASE_URL` は `https://api.xhuoapi.ai/v1/openai`、`OPENAI_API_KEY` は認証トークンです。Mac OSの場合、以下のコマンドで設定可能です：
 
 ```shell
-export OPENAI_BASE_URL=https://api.acedata.cloud/openai
+export OPENAI_BASE_URL=https://api.xhuoapi.ai/v1/openai
 export OPENAI_API_KEY={token} 
 ```
 
 呼び出し後、カレントディレクトリに `gift-basket.png` という画像が生成されます。結果は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/574s8h.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/574s8h.png" width="500" className="m-auto" /></p>
 
 これで画像編集操作が完了しました。現在Editsインターフェースは3種類のモデルをサポートしています：`dall-e-2`、`gpt-image-1`、`gpt-image-2`。その中で `gpt-image-2` が推奨モデルです。詳細は上記の [GPT-Image-2 モデル](#gpt-image-2-モデル) 節を参照してください。
 
@@ -336,14 +336,14 @@ OpenAI Images Edits APIは画像編集に時間がかかる場合があり、API
 
 まずWebhookコールバックはHTTPリクエストを受け取れるサービスで、開発者は自身で構築したHTTPサーバーのURLを指定してください。ここではデモ用に公開Webhookサイト https://webhook.site/ を使います。サイトを開くとWebhook URLが取得できます：
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 このURLをコピーし、Webhookとして利用します。例：`https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`
 
 次に `callback_url` に上記URLを指定し、他のパラメータとともにリクエストします：
 
 ```shell
-curl -X POST "https://api.acedata.cloud/v1/images/edits" \
+curl -X POST "https://api.xhuoapi.ai/v1/v1/images/edits" \
   -H "Authorization: Bearer {token}" \
   -F "model=gpt-image-1" \
   -F "image[]=@test.png" \

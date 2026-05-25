@@ -1,15 +1,15 @@
 ---
 title: "Recaptcha2 API de reconnaissance de protocole Documentation"
-description: "Recaptcha verification code recognition service 集成指南 - Ace Data Cloud"
+description: "Recaptcha verification code recognition service 集成指南 - XHuoAPI"
 ---
 
 Cet article présentera une documentation sur l'intégration de l'API de reconnaissance de protocole Recaptcha2, qui permet aux utilisateurs de ne pas avoir à reconnaître et cliquer sur les images de captcha Recaptcha2, mais simplement de soumettre la clé du site Web pour permettre un décodage automatique en arrière-plan et compléter la vérification.
 
 ## Processus de demande
 
-Pour utiliser l'API, vous devez d'abord vous rendre sur la page correspondante de l'[API de reconnaissance de protocole Recaptcha2](https://platform.acedata.cloud/documents/597b8f11-26d8-4a1d-9a83-8d33bc4b8af7) pour demander le service correspondant. Une fois sur la page, cliquez sur le bouton « Acquire », comme indiqué ci-dessous :
+Pour utiliser l'API, vous devez d'abord vous rendre sur la page correspondante de l'[API de reconnaissance de protocole Recaptcha2](https://api.xhuoapi.ai/documents/597b8f11-26d8-4a1d-9a83-8d33bc4b8af7) pour demander le service correspondant. Une fois sur la page, cliquez sur le bouton « Acquire », comme indiqué ci-dessous :
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Si vous n'êtes pas encore connecté ou inscrit, vous serez automatiquement redirigé vers la page de connexion vous invitant à vous inscrire et à vous connecter. Après vous être connecté ou inscrit, vous serez automatiquement renvoyé à la page actuelle.
 
@@ -19,11 +19,11 @@ Lors de la première demande, un quota gratuit sera offert, vous permettant d'ut
 
 Tout d'abord, comprenons la méthode d'utilisation de base, qui consiste à entrer l'URL du site Web nécessitant le traitement du captcha, ce qui vous permettra d'obtenir le résultat traité. Vous devez d'abord transmettre un champ `website_url`. Notre site d'exemple est : `https://www.google.com/recaptcha/api2/demo`. Nous devons obtenir la `website_key` sur la page `website_url`. Ouvrez cette page, appuyez sur F12 pour accéder à la console, puis effectuez une recherche globale dans l'onglet Éléments pour `recaptcha-demo`. Nous pouvons obtenir le résultat suivant :
 
-<p><img src="https://cdn.acedata.cloud/hvx41c.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/hvx41c.png" width="500" className="m-auto" /></p>
 
 La chaîne de caractères correspondant à `data-sitekey` est la valeur de `website_key`. Voici les résultats des paramètres spécifiques :
 
-<p><img src="https://cdn.acedata.cloud/8oowyw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8oowyw.png" width="500" className="m-auto" /></p>
 
 Nous pouvons voir ici que nous avons défini les en-têtes de requête, y compris :
 
@@ -37,7 +37,7 @@ De plus, nous avons défini le corps de la requête, y compris :
 
 Après avoir fait votre sélection, vous pouvez constater que le code correspondant a également été généré à droite, comme indiqué ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/pudujk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pudujk.png" width="500" className="m-auto" /></p>
 
 Cliquez sur le bouton « Try » pour effectuer un test, comme indiqué sur l'image ci-dessus, et nous avons obtenu le résultat suivant :
 ```json
@@ -56,14 +56,14 @@ Tout d'abord, nous devons comprendre comment le site envoie la requête POST, af
 
 - D'abord, passer la vérification manuellement, comme illustré ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/gwiflr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gwiflr.png" width="500" className="m-auto" /></p>
 
 - Ensuite, cliquez sur soumettre, et observez les changements dans le réseau de la console, comme illustré ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/6hm5kj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/6hm5kj.png" width="500" className="m-auto" /></p>
 
 - Analysez la construction de la requête POST soumise, puis faites un clic droit sur cette requête pour copier le code CURL, comme illustré ci-dessous :
-<p><img src="https://cdn.acedata.cloud/m7y35w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/m7y35w.png" width="500" className="m-auto" /></p>
 
 由上图分析可知，此次POST请求的URL为：`https://www.google.com/recaptcha/api2/demo`，我们仅需要提交参数 `g-recaptcha-response`，然后我们只需要将处理后的token传入下面的data中即可，调用token进行验证的具体的CURL代码如下：
 
@@ -92,14 +92,14 @@ if response.status_code:
 
 然后我们运行后代码观察控制台变得了这样的结果：
 
-<p><img src="https://cdn.acedata.cloud/ku22tk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ku22tk.png" width="500" className="m-auto" /></p>
 
 最后我们就通过了Recaptcha2验证码的协议验证。
 
 另外如果想生成对应的对接代码，可以直接复制生成，例如 CURL 的代码如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/captcha/token/recaptcha2' \
+curl -X POST 'https://api.xhuoapi.ai/v1/captcha/token/recaptcha2' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -114,7 +114,7 @@ Python 的对接代码如下：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/captcha/token/recaptcha2"
+url = "https://api.xhuoapi.ai/v1/captcha/token/recaptcha2"
 
 headers = {
     "accept": "application/json",

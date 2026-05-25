@@ -1,19 +1,19 @@
 ---
 title: "Claude Code 桌面应用使用教程"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code 是 Anthropic 推出的一款 **Agentic Coding** 工具，也被称为世界最强编程 Agent 之一。Claude Code 桌面应用提供了独立的图形化界面，支持 Diff 审查、并行会话（通过 Git Worktree 隔离）、远程会话等功能，无需依赖任何 IDE。
 
-本文档主要介绍如何通过 AceData Cloud 的代理服务，在 Claude Code 桌面应用中配置和使用。
+本文档主要介绍如何通过 XHuoAPI 的代理服务，在 Claude Code 桌面应用中配置和使用。
 
 > **注意**：Claude Code 桌面应用目前处于预览阶段（Preview），仅支持 macOS 和 Windows。
 
 ## 申请流程
 
-要使用 Claude Code，首先可以到 [Claude Messages 服务页面](https://platform.acedata.cloud/documents/claude-messages) 点击「Acquire」按钮，获取请求所需要的凭证：
+要使用 Claude Code，首先可以到 [Claude Messages 服务页面](https://api.xhuoapi.ai/documents/claude-messages) 点击「Acquire」按钮，获取请求所需要的凭证：
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 如果你尚未登录或注册，会自动跳转到登录页面邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
@@ -34,13 +34,13 @@ Claude Code 是 Anthropic 推出的一款 **Agentic Coding** 工具，也被称�
 - **Windows x64**：下载 `.exe` 安装包，按提示安装
 - **Windows ARM64**：下载 ARM64 版本（注意：ARM64 不支持本地会话，需使用远程会话）
 
-![Claude 桌面应用下载页面](https://cdn.acedata.cloud/c3c8c57264.png)
+![Claude 桌面应用下载页面](https://cdn.xhuoapi.ai/c3c8c57264.png)
 
 安装完成后，从 Applications 文件夹（macOS）或开始菜单（Windows）启动 Claude。
 
-## 配置 AceData Cloud API
+## 配置 XHuoAPI API
 
-桌面应用启动后需要登录 Anthropic 账号。我们可以通过配置环境变量来使用 AceData Cloud 的代理 API，**无需官方订阅**。
+桌面应用启动后需要登录 Anthropic 账号。我们可以通过配置环境变量来使用 XHuoAPI 的代理 API，**无需官方订阅**。
 
 桌面应用从你的 Shell 环境中读取环境变量，因此需要在 Shell 配置文件中进行设置。
 
@@ -51,9 +51,9 @@ Claude Code 是 Anthropic 推出的一款 **Agentic Coding** 工具，也被称�
 将以下内容添加到 `~/.zshrc`（或 `~/.bashrc`）中，将 `{token}` 替换为你的 API 令牌：
 
 ```bash
-# AceData Cloud - Claude Code 代理配置
+# XHuoAPI - Claude Code 代理配置
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 保存后执行：
@@ -69,13 +69,13 @@ source ~/.zshrc
 | 变量名 | 值 |
 |--------|-----|
 | `ANTHROPIC_AUTH_TOKEN` | `{token}`（替换为你的 API 令牌） |
-| `ANTHROPIC_BASE_URL` | `https://api.acedata.cloud` |
+| `ANTHROPIC_BASE_URL` | `https://api.xhuoapi.ai/v1` |
 
 或者使用 PowerShell：
 
 ```powershell
 [System.Environment]::SetEnvironmentVariable("ANTHROPIC_AUTH_TOKEN", "{token}", "User")
-[System.Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.acedata.cloud", "User")
+[System.Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.xhuoapi.ai/v1", "User")
 ```
 
 **也可以通过 settings.json 配置**
@@ -86,12 +86,12 @@ source ~/.zshrc
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **提示**：API 令牌可在 [AceData Cloud 控制台](https://platform.acedata.cloud/console) 中查看。配置完成后需要**重启桌面应用**使环境变量生效。
+> **提示**：API 令牌可在 [XHuoAPI 控制台](https://api.xhuoapi.ai/console) 中查看。配置完成后需要**重启桌面应用**使环境变量生效。
 
 ## 基本使用
 
@@ -162,7 +162,7 @@ Worktree 默认存储在 `~/.claude-worktrees/` 目录。
 
 1. 检查 `~/.claude/config.json` 文件是否正确创建
 2. 确认环境变量已正确设置（重启桌面应用使之生效）
-3. 确认 API 令牌有效（可在 [控制台](https://platform.acedata.cloud/console) 查看）
+3. 确认 API 令牌有效（可在 [控制台](https://api.xhuoapi.ai/console) 查看）
 4. 如果使用 `settings.json` 配置环境变量，确认文件格式正确
 
 ### 找不到安装的工具？
@@ -175,10 +175,10 @@ Worktree 默认存储在 `~/.claude-worktrees/` 目录。
 
 ### 如何查看剩余额度？
 
-登录 [AceData Cloud 控制台](https://platform.acedata.cloud/console)，即可查看当前账户的剩余额度和使用情况。
+登录 [XHuoAPI 控制台](https://api.xhuoapi.ai/console)，即可查看当前账户的剩余额度和使用情况。
 
 ## 了解更多
 
 - 📖 [Claude Code 桌面应用官方文档](https://code.claude.com/docs/en/desktop)
-- 🔧 [AceData Cloud Claude Code 服务](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code 服务](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 如有任何问题，欢迎通过平台客服联系我们

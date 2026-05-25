@@ -3,7 +3,7 @@ title: "Midjourney MCP 연결 가이드"
 description: "midjourney MCP 服务器集成"
 ---
 
-[MCP(모델 컨텍스트 프로토콜)](https://modelcontextprotocol.io)은 Anthropic에서 출시한 모델 컨텍스트 프로토콜로, AI 모델(예: Claude, GPT 등)이 표준화된 인터페이스를 통해 외부 도구를 호출할 수 있도록 합니다. AceData Cloud에서 제공하는 Midjourney MCP 서버를 통해 Claude Desktop, VS Code, Cursor 등 AI 클라이언트에서 직접 AI 이미지를 생성하고 편집할 수 있습니다.
+[MCP(모델 컨텍스트 프로토콜)](https://modelcontextprotocol.io)은 Anthropic에서 출시한 모델 컨텍스트 프로토콜로, AI 모델(예: Claude, GPT 등)이 표준화된 인터페이스를 통해 외부 도구를 호출할 수 있도록 합니다. XHuoAPI에서 제공하는 Midjourney MCP 서버를 통해 Claude Desktop, VS Code, Cursor 등 AI 클라이언트에서 직접 AI 이미지를 생성하고 편집할 수 있습니다.
 
 ## 기능 개요
 
@@ -22,10 +22,10 @@ Midjourney MCP 서버는 다음과 같은 핵심 기능을 제공합니다:
 
 ## 사전 준비
 
-사용하기 전에 AceData Cloud API 토큰을 확보해야 합니다:
+사용하기 전에 XHuoAPI API 토큰을 확보해야 합니다:
 
-1. [AceData Cloud 플랫폼](https://platform.acedata.cloud)에서 등록 또는 로그인
-2. [Midjourney Imagine API](https://platform.acedata.cloud/documents/midjourney-imagine) 페이지로 이동
+1. [XHuoAPI 플랫폼](https://api.xhuoapi.ai)에서 등록 또는 로그인
+2. [Midjourney Imagine API](https://api.xhuoapi.ai/documents/midjourney-imagine) 페이지로 이동
 3. 「Acquire」를 클릭하여 API 토큰을 획득(첫 신청 시 무료 크레딧 제공)
 
 ## 설치 구성
@@ -39,7 +39,7 @@ pip install mcp-midjourney
 ### 방법 2: 소스 코드 설치
 
 ```bash
-git clone https://github.com/AceDataCloud/MidjourneyMCP.git
+git clone https://github.com/XHuoAPI/MidjourneyMCP.git
 cd MidjourneyMCP
 pip install -e .
 ```
@@ -61,7 +61,7 @@ Claude Desktop 구성 파일을 편집합니다:
     "midjourney": {
       "command": "mcp-midjourney",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "당신의 API 토큰"
+        "XHuoAPI_API_TOKEN": "당신의 API 토큰"
       }
     }
   }
@@ -77,7 +77,7 @@ Claude Desktop 구성 파일을 편집합니다:
       "command": "uvx",
       "args": ["mcp-midjourney"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "당신의 API 토큰"
+        "XHuoAPI_API_TOKEN": "당신의 API 토큰"
       }
     }
   }
@@ -96,7 +96,7 @@ Claude Desktop 구성 파일을 편집합니다:
     "midjourney": {
       "command": "mcp-midjourney",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "당신의 API 토큰"
+        "XHuoAPI_API_TOKEN": "당신의 API 토큰"
       }
     }
   }
@@ -112,7 +112,7 @@ Claude Desktop 구성 파일을 편집합니다:
       "command": "uvx",
       "args": ["mcp-midjourney"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "당신의 API 토큰"
+        "XHuoAPI_API_TOKEN": "당신의 API 토큰"
       }
     }
   }
@@ -149,6 +149,6 @@ Claude Desktop 구성 파일을 편집합니다:
 
 ## 추가 정보
 
-- GitHub 저장소: [AceDataCloud/MidjourneyMCP](https://github.com/AceDataCloud/MidjourneyMCP)
+- GitHub 저장소: [XHuoAPI/MidjourneyMCP](https://github.com/XHuoAPI/MidjourneyMCP)
 - PyPI 패키지: [mcp-midjourney](https://pypi.org/project/mcp-midjourney/)
-- API 문서: [Midjourney 생성 API](https://platform.acedata.cloud/documents/midjourney)
+- API 문서: [Midjourney 생성 API](https://api.xhuoapi.ai/documents/midjourney)

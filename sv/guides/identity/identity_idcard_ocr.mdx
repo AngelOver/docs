@@ -1,15 +1,15 @@
 ---
 title: "ID-kortsigenkänning och informationsverifiering API-integration"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Denna artikel kommer att introducera en ID-kortsigenkänning och informationsverifiering API-integration, som kan verifiera äktheten och överensstämmelsen av namn och ID-nummer genom att ange en bild av ID-kortet eller namn och ID-nummer. Detta gränssnitt används för att verifiera äktheten och överensstämmelsen av namn och ID-nummer, och du kan ange namn och ID-nummer eller skicka en bild av ID-kortets framsida för att tillhandahålla den nödvändiga verifieringsinformationen.
 
 ## Ansökningsprocess
 
-För att använda API:et måste du först gå till [ID-kortsigenkänning och informationsverifiering API](https://platform.acedata.cloud/documents/67f96afa-60b8-4cbb-a4bf-0cbfcf139a23) motsvarande sida för att ansöka om den tjänst som behövs. När du kommer till sidan, klicka på knappen "Acquire", som visas i bilden nedan:
+För att använda API:et måste du först gå till [ID-kortsigenkänning och informationsverifiering API](https://api.xhuoapi.ai/documents/67f96afa-60b8-4cbb-a4bf-0cbfcf139a23) motsvarande sida för att ansöka om den tjänst som behövs. När du kommer till sidan, klicka på knappen "Acquire", som visas i bilden nedan:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till inloggningssidan där du blir inbjuden att registrera dig och logga in. Efter att ha loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
 
@@ -19,7 +19,7 @@ Vid första ansökan kommer det att finnas en gratis kvot som ges, så att du ka
 
 Först och främst, låt oss förstå den grundläggande användningsmetoden, vilket är att ange en länk till ID-kortsbilden för att få verifieringsresultatet efter bearbetning. Först behöver vi enkelt skicka ett `image_url`-fält, och vi kan sedan fylla i motsvarande innehåll på gränssnittet, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/qxy9rh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qxy9rh.png" width="500" className="m-auto" /></p>
 
 Här kan vi se att vi har ställt in Request Headers, inklusive:
 
@@ -33,7 +33,7 @@ Dessutom har vi ställt in Request Body, inklusive:
 
 När du har valt kan du se att motsvarande kod också har genererats till höger, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/uw90il.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/uw90il.png" width="500" className="m-auto" /></p>
 
 Klicka på knappen "Try" för att utföra ett test, som visas i bilden ovan, och vi får följande resultat:
 
@@ -76,7 +76,7 @@ Det kan ses att namnet och ID-numret i ID-kortet är överensstämmande och gilt
 Om du vill generera motsvarande integrationskod kan du direkt kopiera den som genererats, till exempel CURL-koden nedan:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/idcard/ocr' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/idcard/ocr' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -90,7 +90,7 @@ Python-integrationskoden ser ut så här:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/idcard/ocr"
+url = "https://api.xhuoapi.ai/v1/identity/idcard/ocr"
 
 headers = {
     "accept": "application/json",
@@ -110,7 +110,7 @@ print(response.text)
 
 Vi erbjuder också ett sätt att verifiera utan att avslöja ID-kortsbildens information, där du endast kan ange namn `name` och ID-nummer `id_card` för att verifiera äktheten och överensstämmelsen av namn och ID-nummer. Här är de specifika uppgifterna som fyllts i:
 
-<p><img src="https://cdn.acedata.cloud/mc5bbw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mc5bbw.png" width="500" className="m-auto" /></p>
 
 När du klickar på körning får du följande resultat:
 

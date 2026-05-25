@@ -3,7 +3,7 @@ title: "Flux MCP 接続ガイド"
 description: "flux MCP 服务器集成"
 ---
 
-[MCP（Model Context Protocol）](https://modelcontextprotocol.io) は Anthropic が開発したモデルコンテキストプロトコルで、Claude や GPT などの AI モデルが標準化されたインターフェースを通じて外部ツールを呼び出すことを可能にします。AceData Cloud が提供する Flux MCP Server を利用することで、Claude Desktop、VS Code、Cursor などの AI クライアント上で直接 AI 画像の生成や編集が行えます。
+[MCP（Model Context Protocol）](https://modelcontextprotocol.io) は Anthropic が開発したモデルコンテキストプロトコルで、Claude や GPT などの AI モデルが標準化されたインターフェースを通じて外部ツールを呼び出すことを可能にします。XHuoAPI が提供する Flux MCP Server を利用することで、Claude Desktop、VS Code、Cursor などの AI クライアント上で直接 AI 画像の生成や編集が行えます。
 
 ## 機能概要
 
@@ -17,10 +17,10 @@ Flux MCP Server は以下の主要機能を提供します：
 
 ## 事前準備
 
-利用前に AceData Cloud API トークンを取得してください：
+利用前に XHuoAPI API トークンを取得してください：
 
-1. [AceData Cloud プラットフォーム](https://platform.acedata.cloud) に登録またはログイン
-2. [Flux Images API](https://platform.acedata.cloud/documents/flux-images) ページへ移動
+1. [XHuoAPI プラットフォーム](https://api.xhuoapi.ai) に登録またはログイン
+2. [Flux Images API](https://api.xhuoapi.ai/documents/flux-images) ページへ移動
 3. 「Acquire」をクリックして API トークンを取得（初回申請時に無料クレジット付与）
 
 ## インストールと設定
@@ -34,7 +34,7 @@ pip install mcp-flux-pro
 ### 方法2：ソースコードからインストール
 
 ```bash
-git clone https://github.com/AceDataCloud/FluxMCP.git
+git clone https://github.com/XHuoAPI/FluxMCP.git
 cd FluxMCP
 pip install -e .
 ```
@@ -56,7 +56,7 @@ Claude Desktop の設定ファイルを編集：
     "flux": {
       "command": "mcp-flux-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "あなたのAPIトークン"
+        "XHuoAPI_API_TOKEN": "あなたのAPIトークン"
       }
     }
   }
@@ -72,7 +72,7 @@ Claude Desktop の設定ファイルを編集：
       "command": "uvx",
       "args": ["mcp-flux-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "あなたのAPIトークン"
+        "XHuoAPI_API_TOKEN": "あなたのAPIトークン"
       }
     }
   }
@@ -91,7 +91,7 @@ Claude Desktop の設定ファイルを編集：
     "flux": {
       "command": "mcp-flux-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "あなたのAPIトークン"
+        "XHuoAPI_API_TOKEN": "あなたのAPIトークン"
       }
     }
   }
@@ -107,7 +107,7 @@ Claude Desktop の設定ファイルを編集：
       "command": "uvx",
       "args": ["mcp-flux-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "あなたのAPIトークン"
+        "XHuoAPI_API_TOKEN": "あなたのAPIトークン"
       }
     }
   }
@@ -136,6 +136,6 @@ Claude Desktop の設定ファイルを編集：
 
 ## 追加情報
 
-- GitHub リポジトリ：[AceDataCloud/FluxMCP](https://github.com/AceDataCloud/FluxMCP)
+- GitHub リポジトリ：[XHuoAPI/FluxMCP](https://github.com/XHuoAPI/FluxMCP)
 - PyPI パッケージ：[mcp-flux-pro](https://pypi.org/project/mcp-flux-pro/)
-- API ドキュメント：[Flux 画像生成 API](https://platform.acedata.cloud/documents/flux)
+- API ドキュメント：[Flux 画像生成 API](https://api.xhuoapi.ai/documents/flux)

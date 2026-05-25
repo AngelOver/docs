@@ -1,6 +1,6 @@
 ---
 title: "Producer laulujen generointi API:n liittämisohjeet"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 Producer sallii meidän luoda laulujen sanoituksia vihjeiden avulla, tämä asiakirja selittää liittymismenetelmät API:iin.
@@ -10,7 +10,7 @@ Tässä API:ssa on vain yksi syöttöparametri, joka on `prompt`, se on laulujen
 Tässä syötämme `prompt`-arvoksi `A song about winter`, joka on laulujen sanoitusten luomisen vihje.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/lyrics' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/lyrics' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

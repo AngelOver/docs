@@ -1,6 +1,6 @@
 ---
 title: "OpenAI 이미지 생성 API 신청 및 사용"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI 이미지 생성 API는 현재 클래식 `dall-e-3`, 텍스트 렌더링 능력이 더 뛰어난 `gpt-image-1`, 최신 세대의 **`gpt-image-2`** 모델과 동일한 인터페이스로 접속 가능한 **`nano-banana` / `nano-banana-2` / `nano-banana-pro`** 시리즈 모델 등 다양한 이미지 생성 모델을 지원합니다. 이들 모델은 모두 텍스트 설명에 따라 고품질 이미지를 생성할 수 있습니다.
@@ -9,9 +9,9 @@ OpenAI 이미지 생성 API는 현재 클래식 `dall-e-3`, 텍스트 렌더링 
 
 ## 신청 절차
 
-OpenAI 이미지 생성 API를 사용하려면 먼저 [OpenAI Images Generations API](https://platform.acedata.cloud/documents/fd932485-90c7-45d6-8394-1e14b6f07b2b) 페이지에서 「Acquire」 버튼을 클릭하여 요청에 필요한 인증 정보를 획득하세요:
+OpenAI 이미지 생성 API를 사용하려면 먼저 [OpenAI Images Generations API](https://api.xhuoapi.ai/documents/fd932485-90c7-45d6-8394-1e14b6f07b2b) 페이지에서 「Acquire」 버튼을 클릭하여 요청에 필요한 인증 정보를 획득하세요:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 로그인 또는 회원가입이 되어 있지 않은 경우 자동으로 로그인 페이지로 이동하며, 로그인 또는 회원가입 후 현재 페이지로 자동 복귀합니다.
 
@@ -26,7 +26,7 @@ OpenAI 이미지 생성 API를 사용하려면 먼저 [OpenAI Images Generations
 - **풍부한 스타일 표현**: 영화 감성 인물, 빈티지 포스터, 아동 일러스트, 제품 사진, 인포그래픽 등 다양한 스타일을 기본 지원합니다.
 - **다중 비율 및 고해상도 기본 지원**: 5가지 비율(1:1, 4:3, 3:4, 16:9, 9:16)과 3단계 해상도(1K / 2K / 4K)를 포함합니다.
 
-호출 방식은 다른 모델과 완전히 동일하며, `model` 필드만 `gpt-image-2`로 설정하면 됩니다. 반환 결과의 `url`은 `platform.cdn.acedata.cloud`에 영구 호스팅된 이미지 링크로, 브라우저에서 직접 열거나 웹페이지에 삽입할 수 있습니다.
+호출 방식은 다른 모델과 완전히 동일하며, `model` 필드만 `gpt-image-2`로 설정하면 됩니다. 반환 결과의 `url`은 `platform.cdn.xhuoapi.ai`에 영구 호스팅된 이미지 링크로, 브라우저에서 직접 열거나 웹페이지에 삽입할 수 있습니다.
 
 ### 지원하는 `size` 값 및 요금 구간
 
@@ -66,7 +66,7 @@ Python 예시 호출 코드:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -94,7 +94,7 @@ print(response.text)
   "data": [
     {
       "revised_prompt": "A cinematic portrait of a young woman standing in a convenience store at night, illuminated by soft pink and cyan neon signs through the window. Shot on 35mm film, shallow depth of field, slight grain, melancholic mood.",
-      "url": "https://platform.cdn.acedata.cloud/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png"
+      "url": "https://platform.cdn.xhuoapi.ai/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png"
     }
   ]
 }
@@ -102,7 +102,7 @@ print(response.text)
 
 생성된 이미지는 다음과 같습니다:
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png" width="500" className="m-auto" /></p>
 
 ### 사례 2: 빈티지 여행 포스터 (텍스트 렌더링 포함)
 
@@ -118,7 +118,7 @@ payload = {
 
 반환된 `url` 필드의 이미지는 다음과 같습니다:
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/c6061f92-3fae-498e-af8e-688e7f415ba3_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/c6061f92-3fae-498e-af8e-688e7f415ba3_0.png" width="500" className="m-auto" /></p>
 
 모델이 Art Deco 포스터 시각 스타일을 정확히 재현했으며, 제목 텍스트 `AMALFI`와 `ITALIA 1958`이 선명하고 올바르게 렌더링된 것을 확인할 수 있습니다.
 
@@ -136,7 +136,7 @@ payload = {
 
 생성된 이미지는 다음과 같습니다:
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/64a3b932-a082-4cad-9f85-9d30474b104d_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/64a3b932-a082-4cad-9f85-9d30474b104d_0.png" width="500" className="m-auto" /></p>
 
 세 개 선반에 각각 1권, 3권, 7권의 책이 정확히 배치되어 있으며, 이는 `dall-e-3` 시절에는 안정적으로 구현하기 어려웠던 성능입니다.
 
@@ -154,7 +154,7 @@ payload = {
 
 생성된 가로형 일러스트는 다음과 같습니다:
 
-![](https://platform.cdn.acedata.cloud/gpt-image/6cd57e69-d237-4cc1-a666-759a93964a08_0.png)
+![](https://platform.cdn.xhuoapi.ai/gpt-image/6cd57e69-d237-4cc1-a666-759a93964a08_0.png)
 
 ### 비동기 및 콜백
 
@@ -186,7 +186,7 @@ payload = {
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -211,7 +211,7 @@ print(response.text)
   "created": 0,
   "data": [
     {
-      "url": "https://platform.cdn.acedata.cloud/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png",
+      "url": "https://platform.cdn.xhuoapi.ai/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png",
       "revised_prompt": "a small red apple on a white table, photoreal"
     }
   ]
@@ -220,7 +220,7 @@ print(response.text)
 
 생성된 이미지는 반환된 `url` 필드로 직접 접근 가능합니다:
 
-<p><img src="https://platform.cdn.acedata.cloud/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png" width="500" className="m-auto" /></p>
 
 ### 플래그십 모델 `nano-banana-pro`로 업그레이드
 
@@ -241,14 +241,14 @@ payload = {
   "created": 0,
   "data": [
     {
-      "url": "https://platform.cdn.acedata.cloud/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png",
+      "url": "https://platform.cdn.xhuoapi.ai/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png",
       "revised_prompt": "abstract painting"
     }
   ]
 }
 ```
 
-<p><img src="https://platform.cdn.acedata.cloud/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png" width="500" className="m-auto" /></p>
 
 ### 비동기 콜백
 
@@ -258,20 +258,20 @@ payload = {
 
 이제 인터페이스에서 아래와 같이 내용을 입력할 수 있습니다:
 
-<p><img src="https://cdn.acedata.cloud/zv58ug.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zv58ug.png" width="500" className="m-auto" /></p>
 
 처음 API를 사용할 때는 최소 세 가지를 입력해야 합니다. 하나는 `authorization`으로, 드롭다운 목록에서 선택할 수 있습니다. 또 하나는 `model`로, OpenAI DALL-E 공식 모델 카테고리를 선택하며, 여기서는 주로 1가지 모델을 사용합니다(자세한 내용은 제공된 모델 목록 참고). 마지막은 `prompt`로, 생성할 이미지에 대한 텍스트 설명입니다.
 
 오른쪽에는 호출 코드가 자동 생성되어 복사하여 바로 실행하거나 「Try」 버튼을 눌러 테스트할 수 있습니다.
 
-<p><img src="https://cdn.acedata.cloud/pbss4f.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pbss4f.png" width="500" className="m-auto" /></p>
 
 Python 예시 호출 코드:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -309,7 +309,7 @@ print(response.text)
 
 `data` 내부의 `url`은 생성된 이미지 상세 링크이며, 아래 그림과 같이 확인할 수 있습니다.
 
-<p><img src="https://cdn.acedata.cloud/dz7u0x.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dz7u0x.png" width="500" className="m-auto" /></p>
 
 ## 이미지 품질 파라미터 `quality`
 
@@ -317,18 +317,18 @@ print(response.text)
 
 아래는 이미지 품질을 `standard`로 설정한 예시입니다:
 
-<p><img src="https://cdn.acedata.cloud/1q303w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1q303w.png" width="500" className="m-auto" /></p>
 
 오른쪽에 호출 코드가 자동 생성되며, 복사하여 실행하거나 「Try」 버튼으로 테스트할 수 있습니다.
 
-<p><img src="https://cdn.acedata.cloud/c0ps6i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/c0ps6i.png" width="500" className="m-auto" /></p>
 
 Python 예시 호출 코드:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -362,11 +362,11 @@ print(response.text)
 
 반환 결과는 기본 사용법과 동일하며, `standard` 품질로 생성된 이미지는 아래와 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/j5v15b.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/j5v15b.png" width="500" className="m-auto" /></p>
 
 동일한 절차에서 이미지 품질을 `hd`로 설정하면 다음과 같은 이미지가 생성됩니다:
 
-<p><img src="https://cdn.acedata.cloud/vjpbqr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vjpbqr.png" width="500" className="m-auto" /></p>
 
 `hd`가 `standard`보다 더 정교한 디테일과 높은 일관성을 가진 이미지를 생성함을 확인할 수 있습니다.
 
@@ -374,18 +374,18 @@ print(response.text)
 
 생성 이미지의 크기도 설정할 수 있습니다. 아래는 이미지 크기를 `1024 * 1024`로 설정한 예시입니다:
 
-<p><img src="https://cdn.acedata.cloud/dx5rwh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dx5rwh.png" width="500" className="m-auto" /></p>
 
 오른쪽에 호출 코드가 자동 생성되며, 복사하여 실행하거나 「Try」 버튼으로 테스트할 수 있습니다.
 
-<p><img src="https://cdn.acedata.cloud/0sbybl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0sbybl.png" width="500" className="m-auto" /></p>
 
 Python 예시 호출 코드:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -419,11 +419,11 @@ print(response.text)
 
 반환 결과는 기본 사용법과 동일하며, `1024 * 1024` 크기로 생성된 이미지는 다음과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/o4pvvx.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/o4pvvx.png" width="500" className="m-auto" /></p>
 
 동일한 절차에서 이미지 크기를 `1792 * 1024`로 설정하면 다음과 같은 이미지가 생성됩니다:
 
-![](https://cdn.acedata.cloud/4pilae.png)
+![](https://cdn.xhuoapi.ai/4pilae.png)
 
 이미지 크기가 명확히 다름을 확인할 수 있으며, 더 다양한 크기 설정은 공식 문서를 참고하세요.
 
@@ -433,18 +433,18 @@ print(response.text)
 
 아래는 스타일을 `vivid`로 설정한 예시입니다:
 
-<p><img src="https://cdn.acedata.cloud/609l9i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/609l9i.png" width="500" className="m-auto" /></p>
 
 오른쪽에 호출 코드가 자동 생성되며, 복사하여 실행하거나 「Try」 버튼으로 테스트할 수 있습니다.
 
-<p><img src="https://cdn.acedata.cloud/ee3u9o.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ee3u9o.png" width="500" className="m-auto" /></p>
 
 Python 예시 호출 코드:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -478,11 +478,11 @@ print(response.text)
 
 반환 결과는 기본 사용법과 동일하며, `vivid` 스타일로 생성된 이미지는 다음과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/e0rpc3.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/e0rpc3.png" width="500" className="m-auto" /></p>
 
 동일한 절차에서 스타일을 `natural`로 설정하면 다음과 같은 이미지가 생성됩니다:
 
-<p><img src="https://cdn.acedata.cloud/q9tqwu.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q9tqwu.png" width="500" className="m-auto" /></p>
 
 `vivid`가 `natural`보다 더 생생하고 사실적인 이미지를 생성함을 확인할 수 있습니다.
 
@@ -492,18 +492,18 @@ print(response.text)
 
 아래는 `url` 형식으로 설정한 예시입니다:
 
-<p><img src="https://cdn.acedata.cloud/2zbgrg.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2zbgrg.png" width="500" className="m-auto" /></p>
 
 오른쪽에 호출 코드가 자동 생성되며, 복사하여 실행하거나 「Try」 버튼으로 테스트할 수 있습니다.
 
-<p><img src="https://cdn.acedata.cloud/a9exmp.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a9exmp.png" width="500" className="m-auto" /></p>
 
 Python 예시 호출 코드:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -537,7 +537,7 @@ print(response.text)
 
 반환 결과는 기본 사용법과 동일하며, `url` 형식으로 생성된 이미지 링크는 [이미지 URL](https://dalleprodsec.blob.core.windows.net/private/images/87792c5f-8b6d-412e-81dd-f1a1baa19bd2/generated_00.png?se=2024-07-23T08%3A39%3A47Z&sig=zzRAn30TqIKHdLVqZPUUuSJdjCYpoJdaGU6BeoA76Jo%3D&ske=2024-07-23T13%3A32%3A13Z&skoid=e52d5ed7-0657-4f62-bc12-7e5dbb260a96&sks=b&skt=2024-07-16T13%3A32%3A13Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02)로 직접 접근 가능하며, 이미지 내용은 아래와 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/33hs4z.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/33hs4z.png" width="500" className="m-auto" /></p>
 
 동일한 절차에서 `response_format`을 `b64_json`으로 설정하면 Base64 인코딩된 이미지 링크가 반환됩니다. 결과 예시는 다음과 같습니다:
 
@@ -563,7 +563,7 @@ OpenAI 이미지 생성 API는 이미지 생성에 시간이 다소 소요될 �
 
 먼저, Webhook 콜백은 HTTP 요청을 받을 수 있는 서비스여야 하며, 개발자는 직접 구축한 HTTP 서버 URL을 지정해야 합니다. 데모를 위해 공개 Webhook 사이트 https://webhook.site/를 사용합니다. 사이트 접속 시 Webhook URL을 얻을 수 있습니다:
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 이 URL을 복사하여 Webhook으로 사용합니다. 예시 URL은 `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`입니다.
 
@@ -572,7 +572,7 @@ OpenAI 이미지 생성 API는 이미지 생성에 시간이 다소 소요될 �
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",

@@ -1,6 +1,6 @@
 ---
 title: "Инструкция по подключению мобильного сотового прокси"
-description: "Cellular Rotation Proxy 集成指南 - Ace Data Cloud"
+description: "Cellular Rotation Proxy 集成指南 - XHuoAPI"
 ---
 
 В условиях нарастающей борьбы между веб-скрейперами и системами защиты от скрейпинга, контроль и проверка рисков на крупных сайтах и в приложениях становятся все более жесткими, одной из мер является блокировка IP-адресов.
@@ -19,9 +19,9 @@ description: "Cellular Rotation Proxy 集成指南 - Ace Data Cloud"
 
 ## Способ подачи заявки
 
-Чтобы использовать службу сотового прокси, сначала перейдите на «[страницу заявки](https://platform.acedata.cloud/services/d8570fa7-8510-454e-913e-f1bd1b98338d)» для подачи заявки, при первой подаче заявки предоставляется 1 бесплатный кредит.
+Чтобы использовать службу сотового прокси, сначала перейдите на «[страницу заявки](https://api.xhuoapi.ai/services/d8570fa7-8510-454e-913e-f1bd1b98338d)» для подачи заявки, при первой подаче заявки предоставляется 1 бесплатный кредит.
 
-![](https://cdn.acedata.cloud/wed8yf.png)
+![](https://cdn.xhuoapi.ai/wed8yf.png)
 
 Если вы еще не вошли в систему, вас автоматически перенаправит на страницу входа, после входа продолжите подачу заявки.
 
@@ -29,13 +29,13 @@ description: "Cellular Rotation Proxy 集成指南 - Ace Data Cloud"
 
 После подачи заявки вы можете проверить результаты своей заявки в «консоли», как показано на изображении:
 
-![](https://cdn.acedata.cloud/db1js5.png)
+![](https://cdn.xhuoapi.ai/db1js5.png)
 
 Нажмите «Credentials», чтобы увидеть имя пользователя и пароль для использования службы сотового прокси, разделенные двоеточием, где имя пользователя состоит из 8 символов, а пароль — из 32 символов, как показано на изображении:
 
-![](https://cdn.acedata.cloud/54ffp0.png)
+![](https://cdn.xhuoapi.ai/54ffp0.png)
 
-Данный мобильный сотовый прокси является ротационным прокси, поэтому при использовании достаточно установить фиксированный адрес и порт прокси, адрес и порт прокси — это cellular.proxy.acedata.cloud и 30000, данный прокси поддерживает протоколы HTTP/HTTPS/SOCKS и может использоваться для запросов к сайтам с протоколами HTTP и HTTPS.
+Данный мобильный сотовый прокси является ротационным прокси, поэтому при использовании достаточно установить фиксированный адрес и порт прокси, адрес и порт прокси — это cellular.proxy.xhuoapi.ai и 30000, данный прокси поддерживает протоколы HTTP/HTTPS/SOCKS и может использоваться для запросов к сайтам с протоколами HTTP и HTTPS.
 
 ## Тестирование команд
 
@@ -44,7 +44,7 @@ description: "Cellular Rotation Proxy 集成指南 - Ace Data Cloud"
 Если текущие имя пользователя и пароль прокси — это `1f78266a:eff0896726224fa2a99fe82dd1f07562`, мы можем использовать следующую команду curl для тестирования:
 
 ```shell
-curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@cellular.proxy.acedata.cloud:30000 https://ipinfo.io
+curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@cellular.proxy.xhuoapi.ai:30000 https://ipinfo.io
 ```
 
 Здесь мы используем параметр `-x` для указания адреса прокси, протокол прокси по умолчанию — HTTP/HTTPS, URL запроса — [https://ipinfo.io](https://ipinfo.io), этот сайт может вернуть реальный IP-адрес и регион, откуда был сделан запрос.
@@ -78,7 +78,7 @@ curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@cellular.proxy.acedata.cloud:3
 ```python
 import requests
 
-proxy = 'http://{proxy_username}:{proxy_password}@cellular.proxy.acedata.cloud:30000'
+proxy = 'http://{proxy_username}:{proxy_password}@cellular.proxy.xhuoapi.ai:30000'
 
 proxies = {
     'http': proxy,
@@ -144,7 +144,7 @@ for _ in range(3):
 import requests
 import base64
 
-proxy_host = 'cellular.proxy.acedata.cloud'
+proxy_host = 'cellular.proxy.xhuoapi.ai'
 proxy_port = '30000'
 proxy_username = '{proxy_username}' # 8-значное имя пользователя
 proxy_password = '{proxy_password}' # 32-значный пароль
@@ -176,7 +176,7 @@ for _ in range(3):
 const axios = require("axios");
 const base64 = require("base64");
 
-const proxy_host = "cellular.proxy.acedata.cloud";
+const proxy_host = "cellular.proxy.xhuoapi.ai";
 const proxy_port = "30000";
 const proxy_username = "{proxy_username}"; // 8-значное имя пользователя
 const proxy_password = "{proxy_password}"; // 32-значный пароль
@@ -208,4 +208,4 @@ for (let i = 0; i < 3; i++) {
 
 Если ваш пакет уже исчерпан, вам нужно купить больше, чтобы продолжить использовать этот прокси-сервис.
 
-Чтобы купить больше, перейдите на «[страницу заявки](https://platform.acedata.cloud/services/d8570fa7-8510-454e-913e-f1bd1b98338d)» и просто нажмите кнопку «Купить больше», чтобы выбрать, чем больше вы покупаете за раз, тем дешевле цена за единицу.
+Чтобы купить больше, перейдите на «[страницу заявки](https://api.xhuoapi.ai/services/d8570fa7-8510-454e-913e-f1bd1b98338d)» и просто нажмите кнопку «Купить больше», чтобы выбрать, чем больше вы покупаете за раз, тем дешевле цена за единицу.

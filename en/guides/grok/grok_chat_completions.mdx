@@ -1,6 +1,6 @@
 ---
 title: "Grok Chat Completion API Application and Usage"
-description: "Grok 集成指南 - Ace Data Cloud"
+description: "Grok 集成指南 - XHuoAPI"
 ---
 
 xAI Grok is a very powerful AI dialogue system that can generate smooth and natural replies in just a few seconds by inputting prompts. Grok stands out in the industry with its unique humorous style and real-time web information retrieval capabilities. Today, Grok has emerged in multiple innovative fields, and its influence is rapidly expanding. Whether for daily conversations, creative writing, or technical analysis and code debugging, Grok can provide insightful intelligent assistance, bringing a new dimension of support to users' decision-making and creation.
@@ -9,9 +9,9 @@ This document mainly introduces the usage process of the Grok Chat Completion AP
 
 ## Application Process
 
-To use the Grok Chat Completion API, you can first visit the [Grok Chat Completion API](https://platform.acedata.cloud/documents/faf08b59-36aa-4d26-b5d9-a18f113cc2be) page and click the "Acquire" button to obtain the credentials needed for the request:
+To use the Grok Chat Completion API, you can first visit the [Grok Chat Completion API](https://api.xhuoapi.ai/documents/faf08b59-36aa-4d26-b5d9-a18f113cc2be) page and click the "Acquire" button to obtain the credentials needed for the request:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
@@ -21,7 +21,7 @@ Upon the first application, there will be a free quota provided, allowing you to
 
 Next, you can fill in the corresponding content on the interface, as shown in the figure:
 
-<p><img src="https://cdn.acedata.cloud/vunnjf.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vunnjf.png" width="400" className="m-auto" /></p>
 
 When using this interface for the first time, we need to fill in at least three pieces of content: one is `authorization`, which can be selected directly from the dropdown list. The other parameter is `model`, which is the category of the Grok official model we choose to use. Here we mainly have 8 types of models; details can be found in the models we provide. The last parameter is `messages`, which is an array of our input questions. It is an array that allows multiple questions to be uploaded simultaneously, with each question containing `role` and `content`. The `role` indicates the role of the questioner, and we provide three identities: `user`, `assistant`, and `system`. The other `content` is the specific content of our question.
 
@@ -33,7 +33,7 @@ Common optional parameters:
 - `temperature`: Generates randomness, between 0-2, with larger values being more divergent.
 - `n`: How many candidate replies to generate at once.
 
-<p><img src="https://cdn.acedata.cloud/d7iwun.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d7iwun.png" width="400" className="m-auto" /></p>
 
 After the call, we find the returned result as follows:
 
@@ -84,7 +84,7 @@ The returned result contains multiple fields, described as follows:
 
 Among them, `choices` contains the response information from Grok, and the `choices` inside it shows the specific information of Grok's response, as can be seen in the figure.
 
-<p><img src="https://cdn.acedata.cloud/p8vupk.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/p8vupk.png" width="400" className="m-auto" /></p>
 
 It can be seen that the `content` field inside `choices` contains the specific content of Grok's reply.
 
@@ -96,7 +96,7 @@ If you want to return responses in a streaming manner, you can change the `strea
 
 Modify as shown in the figure, but the calling code needs to have corresponding changes to support streaming responses.
 
-<p><img src="https://cdn.acedata.cloud/k883qa.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/k883qa.png" width="400" className="m-auto" /></p>
 
 After changing `stream` to `true`, the API will return the corresponding JSON data line by line, and we need to make corresponding modifications at the code level to obtain the line-by-line results.
 
@@ -105,7 +105,7 @@ Python sample calling code:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/grok/chat/completions"
+url = "https://api.xhuoapi.ai/v1/grok/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -199,7 +199,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/grok/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/grok/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -215,7 +215,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/grok/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/grok/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -233,14 +233,14 @@ Other languages can be rewritten accordingly; the principle is the same.
 
 If you want to integrate multi-turn conversation functionality, you need to upload multiple question words in the `messages` field. The specific example of multiple question words is shown in the image below:
 
-<p><img src="https://cdn.acedata.cloud/t8cya8.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/t8cya8.png" width="400" className="m-auto" /></p>
 
 Python sample call code:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/grok/chat/completions"
+url = "https://api.xhuoapi.ai/v1/grok/chat/completions"
 
 headers = {
     "accept": "application/json",

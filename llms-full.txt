@@ -1,20 +1,20 @@
-# Ace Data Cloud — Full Documentation
+# XHuoAPI — Full Documentation
 
 > Unified AI API platform — One API key for 100+ AI services including LLM chat, image generation, video generation, music creation, web search, and more.
 
-Ace Data Cloud provides developer-friendly REST APIs for AI services that are otherwise hard to access programmatically. All APIs use Bearer token authentication, return JSON responses, and have OpenAPI specifications. The platform supports OpenAI-compatible interfaces, meaning you can use the official OpenAI Python/JavaScript SDK to access Claude, Gemini, Grok, Kimi, and 50+ other models by simply changing the base URL. The platform also offers MCP (Model Context Protocol) servers published on PyPI for AI agent integration with Claude Desktop, Cursor, VS Code, and other MCP-compatible clients.
+XHuoAPI provides developer-friendly REST APIs for AI services that are otherwise hard to access programmatically. All APIs use Bearer token authentication, return JSON responses, and have OpenAPI specifications. The platform supports OpenAI-compatible interfaces, meaning you can use the official OpenAI Python/JavaScript SDK to access Claude, Gemini, Grok, Kimi, and 50+ other models by simply changing the base URL. The platform also offers MCP (Model Context Protocol) servers published on PyPI for AI agent integration with Claude Desktop, Cursor, VS Code, and other MCP-compatible clients.
 
-**Base URL:** `https://api.acedata.cloud`
+**Base URL:** `https://api.xhuoapi.ai/v1`
 **Authentication:** Bearer token in Authorization header
-**Documentation:** https://docs.acedata.cloud
-**Platform:** https://platform.acedata.cloud
+**Documentation:** https://docs.XHuoAPI.cloud
+**Platform:** https://api.xhuoapi.ai
 
 ---
 
 ## Getting Started
 
 ### Quick Start
-1. Register at https://platform.acedata.cloud
+1. Register at https://api.xhuoapi.ai
 2. Subscribe to a service (e.g., Claude, Midjourney, Suno)
 3. Create API credentials (Bearer token)
 4. Make your first API call
@@ -26,33 +26,33 @@ Authorization: Bearer YOUR_API_TOKEN
 ```
 Each token is bound to a specific service subscription. Rate limits vary by service.
 
-Full guide: https://docs.acedata.cloud/en/authentication
+Full guide: https://docs.XHuoAPI.cloud/en/authentication
 
 ---
 
 ## AI Chat APIs (OpenAI-Compatible)
 
-All chat APIs support the OpenAI `/v1/chat/completions` endpoint format. Use the official `openai` Python or JavaScript SDK by setting `base_url="https://api.acedata.cloud"`.
+All chat APIs support the OpenAI `/v1/chat/completions` endpoint format. Use the official `openai` Python or JavaScript SDK by setting `base_url="https://api.xhuoapi.ai/v1"`.
 
 ### Claude API
 - **Features:** Chat completions, streaming, tool use, vision (image input)
-- **Guide:** https://docs.acedata.cloud/en/guides/claude/claude_chat_completions
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/claude/claude_chat_completions
 
 ### OpenAI API
 - **Features:** Chat completions, streaming, tool use, vision, embeddings
-- **Guide:** https://docs.acedata.cloud/en/guides/openai/openai_chat_completions
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/openai/openai_chat_completions
 
 ### Gemini API
 - **Features:** Chat completions, streaming, vision
-- **Guide:** https://docs.acedata.cloud/en/guides/gemini/gemini_chat_completions
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/gemini/gemini_chat_completions
 
 ### Grok API
 - **Features:** Chat completions, streaming, vision
-- **Guide:** https://docs.acedata.cloud/en/guides/grok/grok_chat_completions
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/grok/grok_chat_completions
 
 ### Kimi API
 - **Features:** Chat completions, streaming, long context
-- **Guide:** https://docs.acedata.cloud/en/guides/kimi/kimi_chat_completions
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/kimi/kimi_chat_completions
 
 ---
 
@@ -61,23 +61,23 @@ All chat APIs support the OpenAI `/v1/chat/completions` endpoint format. Use the
 ### Midjourney API
 - **Features:** Text-to-image (imagine), image editing (vary, upscale, pan, zoom), describe, seed, translate, video
 - **Async:** Submit task → poll for results
-- **Guide:** https://docs.acedata.cloud/en/guides/midjourney/midjourney_imagine
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/midjourney/midjourney_imagine
 
 ### Flux API
 - **Features:** Text-to-image with multiple quality/speed options
-- **Guide:** https://docs.acedata.cloud/en/guides/flux/flux_images
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/flux/flux_images
 
 ### Seedream API (ByteDance)
 - **Features:** Text-to-image generation and image editing
-- **Guide:** https://docs.acedata.cloud/en/guides/seedream/seedream_images
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/seedream/seedream_images
 
 ### Nano Banana API
 - **Features:** Gemini-based image generation
-- **Guide:** https://docs.acedata.cloud/en/guides/nano-banana/nanobanana_images
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/nano-banana/nanobanana_images
 
 ### QR Art API
 - **Features:** Generate artistic AI QR codes combining design with functionality
-- **Guide:** https://docs.acedata.cloud/en/guides/qrart/qrart_generate
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/qrart/qrart_generate
 
 ---
 
@@ -87,31 +87,31 @@ All video APIs use async processing: submit a generation task, then poll for res
 
 ### Sora API (OpenAI)
 - **Features:** Text-to-video, image-to-video
-- **Guide:** https://docs.acedata.cloud/en/guides/sora/sora_videos
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/sora/sora_videos
 
 ### Veo API (Google)
 - **Features:** Text-to-video, image-to-video
-- **Guide:** https://docs.acedata.cloud/en/guides/veo/veo_videos
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/veo/veo_videos
 
 ### Luma Dream Machine API
 - **Features:** Text-to-video, image-to-video
-- **Guide:** https://docs.acedata.cloud/en/guides/luma/luma_videos
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/luma/luma_videos
 
 ### Kling API (Kuaishou)
 - **Features:** Text-to-video, image-to-video
-- **Guide:** https://docs.acedata.cloud/en/guides/kling/kling_videos
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/kling/kling_videos
 
 ### Hailuo API (MiniMax)
 - **Features:** Text-to-video, image-to-video
-- **Guide:** https://docs.acedata.cloud/en/guides/hailuo/hailuo_videos
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/hailuo/hailuo_videos
 
 ### Seedance API (ByteDance)
 - **Features:** Text-to-video, image-to-video
-- **Guide:** https://docs.acedata.cloud/en/guides/seedance/seedance_videos
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/seedance/seedance_videos
 
 ### Wan API (Tongyi Wanxiang)
 - **Features:** Text-to-video, image-to-video
-- **Guide:** https://docs.acedata.cloud/en/guides/wan/wan_videos
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/wan/wan_videos
 
 ---
 
@@ -119,15 +119,15 @@ All video APIs use async processing: submit a generation task, then poll for res
 
 ### Suno API
 - **Features:** Text-to-music generation, custom lyrics, song extension, covers, stems separation
-- **Guide:** https://docs.acedata.cloud/en/guides/suno/suno_audios
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/suno/suno_audios
 
 ### Fish Audio API
 - **Features:** Text-to-speech with voice cloning, multiple voices and languages
-- **Guide:** https://docs.acedata.cloud/en/guides/fish/fish_audios
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/fish/fish_audios
 
 ### Producer API
 - **Features:** AI music production
-- **Guide:** https://docs.acedata.cloud/en/guides/producer/producer_audios
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/producer/producer_audios
 
 ---
 
@@ -135,15 +135,15 @@ All video APIs use async processing: submit a generation task, then poll for res
 
 ### SERP API (Google Search)
 - **Features:** Web search, image search, news, shopping, maps, places
-- **Guide:** https://docs.acedata.cloud/en/guides/serp/serp_google
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/serp/serp_google
 
 ### Short URL API
 - **Features:** URL shortening with batch support
-- **Guide:** https://docs.acedata.cloud/en/guides/shorturl/short_url
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/shorturl/short_url
 
 ### Localization API
 - **Features:** Translate JSON content into any language
-- **Guide:** https://docs.acedata.cloud/en/guides/localization/localization_translation
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/localization/localization_translation
 
 ---
 
@@ -151,7 +151,7 @@ All video APIs use async processing: submit a generation task, then poll for res
 
 ### hCaptcha API
 - **Features:** hCaptcha recognition and token generation
-- **Guide:** https://docs.acedata.cloud/en/guides/hcaptcha/captcha_recognition_hcaptcha
+- **Guide:** https://docs.XHuoAPI.cloud/en/guides/hcaptcha/captcha_recognition_hcaptcha
 
 ---
 
@@ -161,19 +161,19 @@ Model Context Protocol servers for AI agent integration. Install via pip. Compat
 
 | Server | PyPI Package | Description |
 |--------|-------------|-------------|
-| [SunoMCP](https://docs.acedata.cloud/en/mcp/suno) | mcp-suno | AI music generation (Suno) |
-| [MidjourneyMCP](https://docs.acedata.cloud/en/mcp/midjourney) | mcp-midjourney | AI image generation (Midjourney) |
-| [SerpMCP](https://docs.acedata.cloud/en/mcp/serp) | mcp-serp | Google SERP search |
-| [LumaMCP](https://docs.acedata.cloud/en/mcp/luma) | mcp-luma | AI video (Luma Dream Machine) |
-| [SoraMCP](https://docs.acedata.cloud/en/mcp/sora) | mcp-sora | AI video (OpenAI Sora) |
-| [VeoMCP](https://docs.acedata.cloud/en/mcp/veo) | mcp-veo | AI video (Google Veo) |
-| [FluxMCP](https://docs.acedata.cloud/en/mcp/flux) | mcp-flux | AI image (Flux) |
-| [SeedreamMCP](https://docs.acedata.cloud/en/mcp/seedream) | mcp-seedream | AI image (Seedream) |
-| [SeedanceMCP](https://docs.acedata.cloud/en/mcp/seedance) | mcp-seedance | AI video (Seedance) |
-| [NanoBananaMCP](https://docs.acedata.cloud/en/mcp/nanobanana) | mcp-nanobanana | AI image (Gemini-based) |
-| [ShortURLMCP](https://docs.acedata.cloud/en/mcp/shorturl) | mcp-shorturl | URL shortening |
+| [SunoMCP](https://docs.XHuoAPI.cloud/en/mcp/suno) | mcp-suno | AI music generation (Suno) |
+| [MidjourneyMCP](https://docs.XHuoAPI.cloud/en/mcp/midjourney) | mcp-midjourney | AI image generation (Midjourney) |
+| [SerpMCP](https://docs.XHuoAPI.cloud/en/mcp/serp) | mcp-serp | Google SERP search |
+| [LumaMCP](https://docs.XHuoAPI.cloud/en/mcp/luma) | mcp-luma | AI video (Luma Dream Machine) |
+| [SoraMCP](https://docs.XHuoAPI.cloud/en/mcp/sora) | mcp-sora | AI video (OpenAI Sora) |
+| [VeoMCP](https://docs.XHuoAPI.cloud/en/mcp/veo) | mcp-veo | AI video (Google Veo) |
+| [FluxMCP](https://docs.XHuoAPI.cloud/en/mcp/flux) | mcp-flux | AI image (Flux) |
+| [SeedreamMCP](https://docs.XHuoAPI.cloud/en/mcp/seedream) | mcp-seedream | AI image (Seedream) |
+| [SeedanceMCP](https://docs.XHuoAPI.cloud/en/mcp/seedance) | mcp-seedance | AI video (Seedance) |
+| [NanoBananaMCP](https://docs.XHuoAPI.cloud/en/mcp/nanobanana) | mcp-nanobanana | AI image (Gemini-based) |
+| [ShortURLMCP](https://docs.XHuoAPI.cloud/en/mcp/shorturl) | mcp-shorturl | URL shortening |
 
-All servers: https://github.com/AceDataCloud — MIT licensed, open source.
+All servers: https://github.com/XHuoAPI — MIT licensed, open source.
 
 ---
 
@@ -181,13 +181,13 @@ All servers: https://github.com/AceDataCloud — MIT licensed, open source.
 
 Pay-as-you-go with no monthly subscription. Each API call deducts credits based on the model, parameters, and output size. The platform supports payment via Stripe, Alipay, WeChat Pay, and X402 crypto protocol (USDC on Solana / Base).
 
-Pricing details and credit packages: https://platform.acedata.cloud
+Pricing details and credit packages: https://api.xhuoapi.ai
 
 ---
 
 ## Links
 
-- **Platform:** https://platform.acedata.cloud — Developer portal, key management, pricing
-- **GitHub:** https://github.com/AceDataCloud — Open source MCP servers and API clients
-- **Documentation:** https://docs.acedata.cloud — Full API reference and guides
-- **Support:** https://docs.acedata.cloud/en/resources/support — Contact and support
+- **Platform:** https://api.xhuoapi.ai — Developer portal, key management, pricing
+- **GitHub:** https://github.com/XHuoAPI — Open source MCP servers and API clients
+- **Documentation:** https://docs.XHuoAPI.cloud — Full API reference and guides
+- **Support:** https://docs.XHuoAPI.cloud/en/resources/support — Contact and support

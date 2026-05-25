@@ -3,7 +3,7 @@ title: "Suno MCP -integraatio-opas"
 description: "suno MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) on Anthropicin kehittämä mallin konteksti-protokolla, joka mahdollistaa AI-mallien (kuten Claude, GPT jne.) kutsuvan ulkoisia työkaluja standardoitujen rajapintojen kautta. AceData Cloudin tarjoaman Suno MCP Serverin avulla voit suoraan luoda musiikkia, sanoituksia ja hallita ääniprojekteja Claude Desktopissa, VS Codessa, Cursorissa ja muissa AI-asiakkaissa.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) on Anthropicin kehittämä mallin konteksti-protokolla, joka mahdollistaa AI-mallien (kuten Claude, GPT jne.) kutsuvan ulkoisia työkaluja standardoitujen rajapintojen kautta. XHuoAPIin tarjoaman Suno MCP Serverin avulla voit suoraan luoda musiikkia, sanoituksia ja hallita ääniprojekteja Claude Desktopissa, VS Codessa, Cursorissa ja muissa AI-asiakkaissa.
 
 ## Toimintojen yleiskatsaus
 
@@ -21,10 +21,10 @@ Suno MCP Server tarjoaa seuraavat keskeiset toiminnot:
 
 ## Esivalmistelut
 
-Ennen käyttöä sinun on hankittava AceData Cloud API Token:
+Ennen käyttöä sinun on hankittava XHuoAPI API Token:
 
-1. Rekisteröidy tai kirjaudu sisään [AceData Cloud -alustalle](https://platform.acedata.cloud)
-2. Siirry [Suno Audios API](https://platform.acedata.cloud/documents/suno-audios) -sivulle
+1. Rekisteröidy tai kirjaudu sisään [XHuoAPI -alustalle](https://api.xhuoapi.ai)
+2. Siirry [Suno Audios API](https://api.xhuoapi.ai/documents/suno-audios) -sivulle
 3. Napsauta "Acquire" saadaksesi API Token (ensimmäinen hakemus antaa ilmaisen määrän)
 
 ## Asennus ja konfigurointi
@@ -38,7 +38,7 @@ pip install mcp-suno
 ### Tapa 2: Lähdekoodin asennus
 
 ```bash
-git clone https://github.com/AceDataCloud/SunoMCP.git
+git clone https://github.com/XHuoAPI/SunoMCP.git
 cd SunoMCP
 pip install -e .
 ```
@@ -60,7 +60,7 @@ Lisää seuraava konfiguraatio:
     "suno": {
       "command": "mcp-suno",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "API Tokenisi"
+        "XHuoAPI_API_TOKEN": "API Tokenisi"
       }
     }
   }
@@ -76,7 +76,7 @@ Jos käytät `uvx` (ei tarvitse asentaa paketteja etukäteen):
       "command": "uvx",
       "args": ["mcp-suno"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "API Tokenisi"
+        "XHuoAPI_API_TOKEN": "API Tokenisi"
       }
     }
   }
@@ -95,7 +95,7 @@ Luo projektin juurihakemistoon tiedosto `.vscode/mcp.json`:
     "suno": {
       "command": "mcp-suno",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "API Tokenisi"
+        "XHuoAPI_API_TOKEN": "API Tokenisi"
       }
     }
   }
@@ -111,7 +111,7 @@ Tai käytä `uvx`:
       "command": "uvx",
       "args": ["mcp-suno"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "API Tokenisi"
+        "XHuoAPI_API_TOKEN": "API Tokenisi"
       }
     }
   }
@@ -160,6 +160,6 @@ Kun konfiguraatio on valmis, voit suoraan käyttää näitä toimintoja luonnoll
 
 ## Lisätietoja
 
-- GitHub-repositorio: [AceDataCloud/SunoMCP](https://github.com/AceDataCloud/SunoMCP)
+- GitHub-repositorio: [XHuoAPI/SunoMCP](https://github.com/XHuoAPI/SunoMCP)
 - PyPI-paketti: [mcp-suno](https://pypi.org/project/mcp-suno/)
-- API-dokumentaatio: [Suno musiikin luonti API](https://platform.acedata.cloud/documents/suno)
+- API-dokumentaatio: [Suno musiikin luonti API](https://api.xhuoapi.ai/documents/suno)

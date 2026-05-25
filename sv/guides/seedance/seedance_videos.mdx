@@ -1,15 +1,15 @@
 ---
 title: "SeeDance Videos Generation API Integrationsbeskrivning"
-description: "ByteDance Seedance Video Generation 集成指南 - Ace Data Cloud"
+description: "ByteDance Seedance Video Generation 集成指南 - XHuoAPI"
 ---
 
 Detta dokument kommer att introducera en SeeDance Videos Generation API integrationsbeskrivning, som kan generera officiella SeeDance-videor genom att ange anpassade parametrar.
 
 ## Ansökningsprocess
 
-För att använda API:et måste du först gå till [SeeDance Videos Generation API](https://platform.acedata.cloud/documents/seedance-videos) motsvarande sida för att ansöka om den tjänst som behövs. När du kommer till sidan, klicka på knappen "Acquire", som visas i bilden nedan:
+För att använda API:et måste du först gå till [SeeDance Videos Generation API](https://api.xhuoapi.ai/documents/seedance-videos) motsvarande sida för att ansöka om den tjänst som behövs. När du kommer till sidan, klicka på knappen "Acquire", som visas i bilden nedan:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till inloggningssidan där du uppmanas att registrera dig och logga in. Efter att ha loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
 
@@ -19,7 +19,7 @@ Vid första ansökan kommer det att finnas en gratis kvot som ges, så att du ka
 
 Först bör du förstå den grundläggande användningsmetoden, vilket innebär att du anger prompten `content.text`, typen `content.type=text` samt modellen `model`, för att få det bearbetade resultatet. Det specifika innehållet är som följer:
 
-<p><img src="https://cdn.acedata.cloud/seedance_parameters.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedance_parameters.png" width="500" className="m-auto" /></p>
 
 Här kan vi se att vi har ställt in Request Headers, inklusive:
 
@@ -44,7 +44,7 @@ Dessutom har vi ställt in Request Body, inklusive:
 
 När du har valt kan du se att motsvarande kod också har genererats till höger, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/seedance_request.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedance_request.png" width="500" className="m-auto" /></p>
 
 Klicka på knappen "Try" för att testa, som visas i bilden ovan, här fick vi följande resultat:
 
@@ -56,7 +56,7 @@ Klicka på knappen "Try" för att testa, som visas i bilden ovan, här fick vi f
   "data": {
     "task_id": "cgt-20251222005129-62fhb",
     "status": "succeeded",
-    "video_url": "https://platform.cdn.acedata.cloud/seedance/f592800a-b87c-4705-8796-cbb8018cae35.mp4",
+    "video_url": "https://platform.cdn.xhuoapi.ai/seedance/f592800a-b87c-4705-8796-cbb8018cae35.mp4",
     "model": "doubao-seedance-1-0-pro-250528"
   }
 }
@@ -78,7 +78,7 @@ Vi kan se att vi har fått tillfredsställande videoinformation, vi behöver bar
 Om du vill generera motsvarande integrationskod kan du direkt kopiera den som genererats, till exempel CURL-koden nedan:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/seedance/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/seedance/videos' \
 -H 'authorization: Bearer ${bearer_token}' \
 -H 'accept: application/json' \
 -H 'content-type: application/json' \
@@ -136,7 +136,7 @@ Motsvarande kod:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/seedance/videos"
+url = "https://api.xhuoapi.ai/v1/seedance/videos"
 
 headers = {
     "accept": "application/json",
@@ -174,7 +174,7 @@ När du klickar på kör kan du se att du omedelbart får ett resultat, som föl
     "data": {
         "task_id": "cgt-20251222072003-x2259",
         "status": "succeeded",
-        "video_url": "https://platform.cdn.acedata.cloud/seedance/6afb78b8-5ba8-424f-adcd-69423a700b50.mp4",
+        "video_url": "https://platform.cdn.xhuoapi.ai/seedance/6afb78b8-5ba8-424f-adcd-69423a700b50.mp4",
         "model": "doubao-seedance-1-0-pro-250528"
     }
 }
@@ -196,7 +196,7 @@ Motsvarande kod:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/seedance/videos"
+url = "https://api.xhuoapi.ai/v1/seedance/videos"
 
 headers = {
     "accept": "application/json",
@@ -242,7 +242,7 @@ När du klickar på kör kan du se att du omedelbart får ett resultat, som föl
     "data": {
         "task_id": "cgt-20251222073134-54qcw",
         "status": "succeeded",
-        "video_url": "https://platform.cdn.acedata.cloud/seedance/95f9f5f0-fc50-4c71-bc6f-e154582c141e.mp4",
+        "video_url": "https://platform.cdn.xhuoapi.ai/seedance/95f9f5f0-fc50-4c71-bc6f-e154582c141e.mp4",
         "model": "doubao-seedance-1-0-pro-250528"
     }
 }
@@ -272,7 +272,7 @@ När uppgiften är klar, är innehållet som plattformen skickar till `callback_
   "data": {
     "task_id": "cgt-20251222073134-54qcw",
     "status": "succeeded",
-    "video_url": "https://platform.cdn.acedata.cloud/seedance/95f9f5f0-fc50-4c71-bc6f-e154582c141e.mp4",
+    "video_url": "https://platform.cdn.xhuoapi.ai/seedance/95f9f5f0-fc50-4c71-bc6f-e154582c141e.mp4",
     "model": "doubao-seedance-1-0-pro-250528"
   }
 }

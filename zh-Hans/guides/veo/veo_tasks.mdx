@@ -1,6 +1,6 @@
 ---
 title: "Veo Tasks API 的对接和使用"
-description: "Veo Video Generation 集成指南 - Ace Data Cloud"
+description: "Veo Video Generation 集成指南 - XHuoAPI"
 ---
 
 Veo Tasks API 的主要功能是通过输入 Veo Videos Generation API 生成的任务ID来查询该任务的执行情况。
@@ -9,26 +9,26 @@ Veo Tasks API 的主要功能是通过输入 Veo Videos Generation API 生成的
 本文档将详细介绍  Veo Tasks API  的对接说明，帮助您轻松集成并充分利用该 API 的强大功能。通过  Veo Tasks API ，您可以轻松实现查询  Veo Videos Generation API 的任务执行情况。
 
 ## 申请流程
-要使用 Veo Tasks API，需要先到 申请页面 [Veo Videos Generation API ](https://platform.acedata.cloud/documents/63e01dc3-eb21-499e-8049-3025c460058f)申请相应的服务，然后复制 Veo Videos Generation API的任务ID，如图所示：
+要使用 Veo Tasks API，需要先到 申请页面 [Veo Videos Generation API ](https://api.xhuoapi.ai/documents/63e01dc3-eb21-499e-8049-3025c460058f)申请相应的服务，然后复制 Veo Videos Generation API的任务ID，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/txlg6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/txlg6g.png" width="500" className="m-auto" /></p>
 
-最后进入Tasks API页面 [Veo Tasks API ](https://platform.acedata.cloud/documents/52778f8b-93ce-4db3-a62c-bcf0a92e5f3c)申请相应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
+最后进入Tasks API页面 [Veo Tasks API ](https://api.xhuoapi.ai/documents/52778f8b-93ce-4db3-a62c-bcf0a92e5f3c)申请相应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
 
-![申请页面](https://cdn.acedata.cloud/rci31i.png)
+![申请页面](https://cdn.xhuoapi.ai/rci31i.png)
 
-如果您尚未登录或注册，会自动跳转到[登录页面](https://platform.acedata.cloud)邀请您来注册和登录，登录注册之后会自动返回当前页面。
+如果您尚未登录或注册，会自动跳转到[登录页面](https://api.xhuoapi.ai)邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
 首次申请时会有免费额度赠送，可以免费使用该 API。
 
 ## 请求示例
-Veo Tasks API 可以用于查询 Veo Videos Generation API 的结果。关于怎样使用 Veo Videos Generation API，请参考文档 [Veo Videos Generation API ](https://platform.acedata.cloud/documents/63e01dc3-eb21-499e-8049-3025c460058f)。
+Veo Tasks API 可以用于查询 Veo Videos Generation API 的结果。关于怎样使用 Veo Videos Generation API，请参考文档 [Veo Videos Generation API ](https://api.xhuoapi.ai/documents/63e01dc3-eb21-499e-8049-3025c460058f)。
 
 我们以 Veo Videos Generation API 服务返回的任务ID一个为例，演示如何使用该 API。假设我们有一个任务ID：1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed，接下来演示如何通过传入一个任务ID来。
 
 ### 任务示例图
 
-<p><img src="https://cdn.acedata.cloud/txlg6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/txlg6g.png" width="500" className="m-auto" /></p>
 
 ### 设置请求头和请求体
 
@@ -44,20 +44,20 @@ Veo Tasks API 可以用于查询 Veo Videos Generation API 的结果。关于怎
 
 设置如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/xztiqi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xztiqi.png" width="500" className="m-auto" /></p>
 
 ### 代码示例
 
 可以发现，在页面右侧已经自动生成了各种语言的代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/bsqh3i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bsqh3i.png" width="500" className="m-auto" /></p>
 
 部分代码示例如下：
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/veo/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/veo/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -72,7 +72,7 @@ curl -X POST 'https://api.acedata.cloud/veo/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/veo/tasks"
+url = "https://api.xhuoapi.ai/v1/veo/tasks"
 
 headers = {
     "accept": "application/json",
@@ -117,7 +117,7 @@ print(response.text)
     "data": [
       {
         "id": "2f43ceed37944b4d836e1a1899dad0a1",
-        "video_url": "https://platform.cdn.acedata.cloud/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
+        "video_url": "https://platform.cdn.xhuoapi.ai/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
         "created_at": "2025-07-25 17:19:20",
         "complete_at": "2025-07-25 17:21:45",
         "state": "succeeded"
@@ -144,20 +144,20 @@ print(response.text)
 
 设置如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/4p5uvq.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4p5uvq.png" width="500" className="m-auto" /></p>
 
 ### 代码示例
 
 可以发现，在页面右侧已经自动生成了各种语言的代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/g3b7g6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g3b7g6.png" width="500" className="m-auto" /></p>
 
 部分代码示例如下：
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/veo/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/veo/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -197,7 +197,7 @@ curl -X POST 'https://api.acedata.cloud/veo/tasks' \
         "data": [
           {
             "id": "2f43ceed37944b4d836e1a1899dad0a1",
-            "video_url": "https://platform.cdn.acedata.cloud/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
+            "video_url": "https://platform.cdn.xhuoapi.ai/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
             "created_at": "2025-07-25 17:19:20",
             "complete_at": "2025-07-25 17:21:45",
             "state": "succeeded"
@@ -228,7 +228,7 @@ curl -X POST 'https://api.acedata.cloud/veo/tasks' \
         "data": [
           {
             "id": "2f43ceed37944b4d836e1a1899dad0a1",
-            "video_url": "https://platform.cdn.acedata.cloud/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
+            "video_url": "https://platform.cdn.xhuoapi.ai/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
             "created_at": "2025-07-25 17:19:20",
             "complete_at": "2025-07-25 17:21:45",
             "state": "succeeded"

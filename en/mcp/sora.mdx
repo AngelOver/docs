@@ -3,7 +3,7 @@ title: "Sora MCP Integration Guide"
 description: "sora MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) is a model context protocol launched by Anthropic that allows AI models (such as Claude, GPT, etc.) to call external tools through standardized interfaces. With the Sora MCP Server provided by AceData Cloud, you can directly use OpenAI Sora to generate AI videos in AI clients like Claude Desktop, VS Code, Cursor, etc.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) is a model context protocol launched by Anthropic that allows AI models (such as Claude, GPT, etc.) to call external tools through standardized interfaces. With the Sora MCP Server provided by XHuoAPI, you can directly use OpenAI Sora to generate AI videos in AI clients like Claude Desktop, VS Code, Cursor, etc.
 
 ## Feature Overview
 
@@ -18,10 +18,10 @@ The Sora MCP Server provides the following core functionalities:
 
 ## Prerequisites
 
-Before using, you need to obtain an AceData Cloud API Token:
+Before using, you need to obtain an XHuoAPI API Token:
 
-1. Register or log in to the [AceData Cloud platform](https://platform.acedata.cloud)
-2. Go to the [Sora Videos API](https://platform.acedata.cloud/documents/sora-videos) page
+1. Register or log in to the [XHuoAPI platform](https://api.xhuoapi.ai)
+2. Go to the [Sora Videos API](https://api.xhuoapi.ai/documents/sora-videos) page
 3. Click "Acquire" to get the API Token (first-time applicants receive free credits)
 
 ## Installation Configuration
@@ -35,7 +35,7 @@ pip install mcp-sora
 ### Method 2: Source Installation
 
 ```bash
-git clone https://github.com/AceDataCloud/SoraMCP.git
+git clone https://github.com/XHuoAPI/SoraMCP.git
 cd SoraMCP
 pip install -e .
 ```
@@ -57,7 +57,7 @@ Add the following configuration:
     "sora": {
       "command": "mcp-sora",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "Your API Token"
+        "XHuoAPI_API_TOKEN": "Your API Token"
       }
     }
   }
@@ -73,7 +73,7 @@ If using `uvx` (no need to install the package in advance):
       "command": "uvx",
       "args": ["mcp-sora"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "Your API Token"
+        "XHuoAPI_API_TOKEN": "Your API Token"
       }
     }
   }
@@ -92,7 +92,7 @@ Create a `.vscode/mcp.json` in the project root directory:
     "sora": {
       "command": "mcp-sora",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "Your API Token"
+        "XHuoAPI_API_TOKEN": "Your API Token"
       }
     }
   }
@@ -108,7 +108,7 @@ Or use `uvx`:
       "command": "uvx",
       "args": ["mcp-sora"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "Your API Token"
+        "XHuoAPI_API_TOKEN": "Your API Token"
       }
     }
   }
@@ -137,6 +137,6 @@ After configuration, you can directly call these functions in the AI client usin
 
 ## More Information
 
-- GitHub Repository: [AceDataCloud/SoraMCP](https://github.com/AceDataCloud/SoraMCP)
+- GitHub Repository: [XHuoAPI/SoraMCP](https://github.com/XHuoAPI/SoraMCP)
 - PyPI Package: [mcp-sora](https://pypi.org/project/mcp-sora/)
-- API Documentation: [Sora Video Generation API](https://platform.acedata.cloud/documents/sora)
+- API Documentation: [Sora Video Generation API](https://api.xhuoapi.ai/documents/sora)

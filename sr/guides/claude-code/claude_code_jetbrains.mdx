@@ -1,17 +1,17 @@
 ---
 title: "Claude Code за JetBrains IDE Упутство за коришћење"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code је алат за **Agentic Coding** који је представио Anthropic, а такође се сматра једним од најмоћнијих програмских агената на свету. Claude Code нуди додатак специјално за JetBrains IDE, подржавајући целу серију JetBrains IDE, укључујући IntelliJ IDEA, PyCharm, WebStorm, GoLand, PhpStorm, Android Studio и друге.
 
-Овај документ углавном описује како да конфигуришете и користите Claude Code у JetBrains IDE преко прокси услуге AceData Cloud.
+Овај документ углавном описује како да конфигуришете и користите Claude Code у JetBrains IDE преко прокси услуге XHuoAPI.
 
 ## Процес пријаве
 
-Да бисте користили Claude Code, прво можете отићи на [Claude Messages услужну страницу](https://platform.acedata.cloud/documents/claude-messages) и кликнути на дугме „Acquire“ да бисте добили потребне креденцијале:
+Да бисте користили Claude Code, прво можете отићи на [Claude Messages услужну страницу](https://api.xhuoapi.ai/documents/claude-messages) и кликнути на дугме „Acquire“ да бисте добили потребне креденцијале:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Ако се још нисте пријавили или регистровали, аутоматски ћете бити преусмерени на страницу за пријаву која вас позива да се региструјете и пријавите, а након пријаве и регистрације, аутоматски ћете се вратити на тренутну страницу.
 
@@ -53,7 +53,7 @@ claude --version
 
 ### Инсталација додатка
 
-![Claude Code додатак у JetBrains Marketplace](https://cdn.acedata.cloud/de78fd305b.png)
+![Claude Code додатак у JetBrains Marketplace](https://cdn.xhuoapi.ai/de78fd305b.png)
 
 1. Отворите JetBrains IDE
 2. Идите на **Settings** → **Plugins** → **Marketplace**
@@ -65,7 +65,7 @@ claude --version
 
 > **Важно**: Након инсталације додатка потребно је **потпуно рестартовати IDE** (можда ће бити потребно више пута рестартовати) да би се активирао.
 
-## Конфигурација AceData Cloud API
+## Конфигурација XHuoAPI API
 
 Claude Code JetBrains додатак покреће `claude` команду преко интегрисаног терминала, тако да је конфигурација променљивих окружења иста као и за CLI.
 
@@ -99,9 +99,9 @@ mkdir -p ~/.claude && echo '{"primaryApiKey": "self"}' > ~/.claude/config.json
 Додајте следећи садржај у ваш `~/.zshrc` или `~/.bashrc`, замените `{token}` вашим API токеном:
 
 ```bash
-# AceData Cloud - Claude Code прокси конфигурација
+# XHuoAPI - Claude Code прокси конфигурација
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 Након измене извршите `source ~/.zshrc` да бисте активирали конфигурацију, а затим **рестартујте JetBrains IDE**.
@@ -114,12 +114,12 @@ export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **Напомена**: API токен можете видети у [AceData Cloud конзоли](https://platform.acedata.cloud/console).
+> **Напомена**: API токен можете видети у [XHuoAPI конзоли](https://api.xhuoapi.ai/console).
 
 ## Основна употреба
 
@@ -186,7 +186,7 @@ wsl -d Ubuntu -- bash -lic "claude"
 
 1. Проверите да ли је датотека `~/.claude/config.json` исправно креирана
 2. Уверите се да су променљиве окружења исправно подешене
-3. Уверите се да је API токен важећи (можете га видети у [конзоли](https://platform.acedata.cloud/console))
+3. Уверите се да је API токен важећи (можете га видети у [конзоли](https://api.xhuoapi.ai/console))
 4. Рестартујте JetBrains IDE и покушајте поново
 
 ### Шта ако додатак не ради?
@@ -212,10 +212,10 @@ wsl -d Ubuntu -- bash -lic "claude"
 3. WSL корисници користите горњу WSL команду формата
 ### Како да проверим преостали кредит?
 
-Пријавите се на [AceData Cloud контролни панел](https://platform.acedata.cloud/console) да бисте видели тренутни преостали кредит и коришћење.
+Пријавите се на [XHuoAPI контролни панел](https://api.xhuoapi.ai/console) да бисте видели тренутни преостали кредит и коришћење.
 
 ## Сазнајте више
 
 - 📖 [Claude Code JetBrains званична документација](https://code.claude.com/docs/en/jetbrains)
-- 🔧 [AceData Cloud Claude Code услуга](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code услуга](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 Уколико имате било каква питања, слободно нас контактирајте преко платформе за корисничку подршку

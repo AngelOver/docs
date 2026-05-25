@@ -1,15 +1,15 @@
 ---
 title: "人脸性别转换 API 对接说明"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 本文将介绍一种 人脸性别转换 API 对接说明，它可以通过用户上传一张人脸图片，基于人脸编辑与生成算法，输出一张人脸性别转换的图片。男变女可实现美颜、淡妆、加刘海和长发的效果；女变男可实现加胡须、变短发的效果。
 
 ## 申请流程
 
-要使用 API，需要先到 [人脸性别转换 API](https://platform.acedata.cloud/documents/0e4e5318-060e-4976-8d3a-171301240f8c) 对应页面申请对应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
+要使用 API，需要先到 [人脸性别转换 API](https://api.xhuoapi.ai/documents/0e4e5318-060e-4976-8d3a-171301240f8c) 对应页面申请对应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 如果你尚未登录或注册，会自动跳转到登录页面邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
@@ -19,11 +19,11 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 首先先了解下基本的使用方式，就是输入图片链接以及性别信息，便可获得处理后结果图片，首先需要简单地传递一个 `image_url` 字段，人脸图片如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/lrbtcn.jpg" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lrbtcn.jpg" width="500" className="m-auto" /></p>
 
 然后我们还需上传关于人脸性别信息参数 `gender_infos` ，它是一个数组，我们可以传多个信息，我们接下来就可以在界面上填写对应的内容，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/j22eg4.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/j22eg4.png" width="500" className="m-auto" /></p>
 
 可以看到这里我们设置了 Request Headers，包括：
 
@@ -37,7 +37,7 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 选择之后，可以发现右侧也生成了对应代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/5kwudj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5kwudj.png" width="500" className="m-auto" /></p>
 
 点击「Try」按钮即可进行测试，如上图所示，这里我们就得到了如下结果：
 
@@ -49,19 +49,19 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 可以看到，这里返回的结果中有一个 `image_url` 字段，就是根据输入性别变化参数而变化后的人脸图片。其中变化后人脸信息如下所示：
 
-<p><img src="https://cdn.acedata.cloud/hm7w44.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/hm7w44.png" width="500" className="m-auto" /></p>
 
 可以看到图片中人脸是根据输入的性别发生了变化。
 
 另外如果想生成对应的对接代码，可以直接复制生成，例如 CURL 的代码如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/change-gender' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/change-gender' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg",
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg",
   "gender_infos": [{"gender":1}]
 }'
 ```
@@ -71,7 +71,7 @@ Python 的对接代码如下：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/change-gender"
+url = "https://api.xhuoapi.ai/v1/face/change-gender"
 
 headers = {
     "accept": "application/json",
@@ -80,7 +80,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg",
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg",
     "gender_infos": [{"gender":1}]
 }
 

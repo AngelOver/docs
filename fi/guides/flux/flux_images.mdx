@@ -1,15 +1,15 @@
 ---
 title: "Flux Images Generation API - Integraatio-ohjeet"
-description: "Flux Image Generation 集成指南 - Ace Data Cloud"
+description: "Flux Image Generation 集成指南 - XHuoAPI"
 ---
 
 Tässä artikkelissa esitellään Flux Images Generation API -integraatio-ohjeet, jonka avulla voidaan luoda Fluxin virallisia kuvia syöttämällä mukautettuja parametreja.
 
 ## Hakuprosessi
 
-API:n käyttämiseksi sinun on ensin mentävä [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire" -painiketta, kuten kuvassa on esitetty:
+API:n käyttämiseksi sinun on ensin mentävä [Flux Images Generation API](https://api.xhuoapi.ai/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire" -painiketta, kuten kuvassa on esitetty:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen sinut ohjataan automaattisesti takaisin nykyiselle sivulle.
 
@@ -19,7 +19,7 @@ Ensimmäisellä hakukerralla saat ilmaisia krediittejä, joiden avulla voit käy
 
 Ensinnäkin on hyvä ymmärtää peruskäyttötapa, joka koostuu syötteistä `prompt`, generointitoiminnosta `action` ja kuvan koosta `size`, jotta saat käsitellyn tuloksen. Ensinnäkin sinun on yksinkertaisesti välitettävä `action`-kenttä, jonka arvo on `generate`, ja sitten meidän on syötettävä myös kehotus, tarkat tiedot ovat seuraavat:
 
-<p><img src="https://cdn.acedata.cloud/wz85jt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wz85jt.png" width="500" className="m-auto" /></p>
 
 Voit nähdä, että olemme asettaneet Request Headers, mukaan lukien:
 
@@ -52,7 +52,7 @@ Viittauskuvasuhteet: "1:1", "16:9", "21:9", "3:2", "2:3", "4:5", "5:4", "3:4", "
 
 Valinnan jälkeen voit huomata, että oikealla puolella on myös luotu vastaava koodi, kuten kuvassa on esitetty:
 
-<p><img src="https://cdn.acedata.cloud/8q7aux.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8q7aux.png" width="500" className="m-auto" /></p>
 
 Napsauta "Try" -painiketta testataksesi, kuten yllä olevassa kuvassa on esitetty, ja saamme seuraavan tuloksen:
 
@@ -90,7 +90,7 @@ Voit nähdä, että olemme saaneet tyydyttävää kuvaa koskevat tiedot, ja meid
 Lisäksi, jos haluat luoda vastaavan integraatiokoodin, voit kopioida sen suoraan, esimerkiksi CURL-koodi on seuraava:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/flux/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/images' \
 -H 'authorization: Bearer {token}' \
 -H 'accept: application/json' \
 -H 'content-type: application/json' \
@@ -111,18 +111,18 @@ Jos haluat muokata tiettyä kuvaa, sinun on ensin syötettävä `image_url`, jok
 
 Esimerkkitäyttö on seuraava:
 
-<p><img src="https://cdn.acedata.cloud/jn9da5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jn9da5.png" width="500" className="m-auto" /></p>
 
 Kun täyttö on valmis, se luo automaattisesti seuraavan koodin:
 
-<p><img src="https://cdn.acedata.cloud/6cwxb8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/6cwxb8.png" width="500" className="m-auto" /></p>
 
 Vastaava koodi:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/images"
+url = "https://api.xhuoapi.ai/v1/flux/images"
 
 headers = {
     "accept": "application/json",
@@ -134,7 +134,7 @@ payload = {
     "action": "edit",
     "prompt": "a white siamese cat",
     "model": "flux-kontext-pro",
-    "image_url": "https://cdn.acedata.cloud/ytj2qy.png"
+    "image_url": "https://cdn.xhuoapi.ai/ytj2qy.png"
 }
 
 response = requests.post(url, json=payload, headers=headers)
@@ -169,13 +169,13 @@ Seuraavaksi tarkastellaan esimerkin avulla, miten toimia.
 
 Ensinnäkin, Webhook-palaute on palvelu, joka voi vastaanottaa HTTP-pyyntöjä, ja kehittäjän tulisi korvata se omalla HTTP-palvelimensa URL-osoitteella. Tässä esimerkin vuoksi käytämme julkista Webhook-esimerkkisivustoa https://webhook.site/, avaa tämä sivusto saadaksesi Webhook URL:n, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 Kopioi tämä URL, niin voit käyttää sitä Webhookina, tässä esimerkki on `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`.
 
 Seuraavaksi voimme asettaa kentän `callback_url` yllä olevaan Webhook URL:iin ja täyttää vastaavat parametrit, tarkat tiedot näkyvät kuvassa:
 
-<p><img src="https://cdn.acedata.cloud/wm6caw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wm6caw.png" width="500" className="m-auto" /></p>
 
 Kun napsautat Suorita, huomaat, että saat heti tuloksen, kuten alla:
 
@@ -187,7 +187,7 @@ Kun napsautat Suorita, huomaat, että saat heti tuloksen, kuten alla:
 
 Odota hetki, niin voit tarkastella kuvan generointituloksia osoitteessa `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/v23lot.png)
+![](https://cdn.xhuoapi.ai/v23lot.png)
 
 Sisältö on seuraava:
 

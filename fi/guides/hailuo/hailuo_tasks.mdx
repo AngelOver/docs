@@ -1,6 +1,6 @@
 ---
 title: "Hailuo Tasks API:n liittäminen ja käyttö"
-description: "Hailuo Video Generation 集成指南 - Ace Data Cloud"
+description: "Hailuo Video Generation 集成指南 - XHuoAPI"
 ---
 
 Hailuo Tasks API:n päätoiminto on kysyä tehtävän suoritustilaa syöttämällä Hailuo Videos Generation API:n tuottama tehtävä-ID.
@@ -9,27 +9,27 @@ Tässä asiakirjassa käsitellään Hailuo Tasks API:n liittämistä, jotta voit
 
 ## Hakuprosessi
 
-Hailuo Tasks API:n käyttämiseksi sinun on ensin mentävä hakusivulle [Hailuo Videos Generation API](https://platform.acedata.cloud/documents/ee06377b-9185-438f-ac84-3376bcb1275e) ja haettava vastaavaa palvelua, sitten kopioitava Hailuo Videos Generation API:n tehtävä-ID, kuten kuvassa näkyy:
+Hailuo Tasks API:n käyttämiseksi sinun on ensin mentävä hakusivulle [Hailuo Videos Generation API](https://api.xhuoapi.ai/documents/ee06377b-9185-438f-ac84-3376bcb1275e) ja haettava vastaavaa palvelua, sitten kopioitava Hailuo Videos Generation API:n tehtävä-ID, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/4f9d95.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4f9d95.png" width="500" className="m-auto" /></p>
 
-Lopuksi siirry Tasks API -sivulle [Hailuo Tasks API](https://platform.acedata.cloud/documents/4b1ccdbc-b8ed-4171-9a14-48e10970ba04) ja hae vastaavaa palvelua, siirryttyäsi sivulle, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
+Lopuksi siirry Tasks API -sivulle [Hailuo Tasks API](https://api.xhuoapi.ai/documents/4b1ccdbc-b8ed-4171-9a14-48e10970ba04) ja hae vastaavaa palvelua, siirryttyäsi sivulle, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
 
-![Hakusivu](https://cdn.acedata.cloud/rci31i.png)
+![Hakusivu](https://cdn.xhuoapi.ai/rci31i.png)
 
-Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti [kirjautumissivulle](https://platform.acedata.cloud), joka kutsuu sinua rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
+Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti [kirjautumissivulle](https://api.xhuoapi.ai), joka kutsuu sinua rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
 Ensimmäisellä hakukerralla saat ilmaisia krediittejä, joita voit käyttää tämän API:n ilmaiseksi.
 
 ## Pyyntöesimerkki
 
-Hailuo Tasks API:ta voidaan käyttää Hailuo Videos Generation API:n tulosten kysymiseen. Lisätietoja Hailuo Videos Generation API:n käytöstä löytyy asiakirjasta [Hailuo Videos Generation API](https://platform.acedata.cloud/documents/d2fc9087-2996-4573-bfe5-8b1c828fdfc7).
+Hailuo Tasks API:ta voidaan käyttää Hailuo Videos Generation API:n tulosten kysymiseen. Lisätietoja Hailuo Videos Generation API:n käytöstä löytyy asiakirjasta [Hailuo Videos Generation API](https://api.xhuoapi.ai/documents/d2fc9087-2996-4573-bfe5-8b1c828fdfc7).
 
 Otetaan esimerkki Hailuo Videos Generation API:n palvelusta palautetusta tehtävä-ID:stä ja näytetään, kuinka tätä API:a käytetään. Oletetaan, että meillä on tehtävä-ID: 58cc618b-9639-4ee7-add2-d2fcf260d9a3, seuraavaksi näytetään, kuinka syötetään tämä tehtävä-ID.
 
 ### Tehtäväesimerkkikuva
 
-<p><img src="https://cdn.acedata.cloud/4f9d95.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4f9d95.png" width="500" className="m-auto" /></p>
 
 ### Pyyntöotsikon ja -kehon asettaminen
 
@@ -45,20 +45,20 @@ Otetaan esimerkki Hailuo Videos Generation API:n palvelusta palautetusta tehtäv
 
 Aseta kuten alla olevassa kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/e9btl5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/e9btl5.png" width="500" className="m-auto" /></p>
 
 ### Koodiesimerkki
 
 Voit huomata, että sivun oikealla puolella on automaattisesti luotu koodia eri kielillä, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/tfn261.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tfn261.png" width="500" className="m-auto" /></p>
 
 Osittainen koodiesimerkki on seuraava:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/hailuo/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/hailuo/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/hailuo/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/hailuo/tasks"
+url = "https://api.xhuoapi.ai/v1/hailuo/tasks"
 
 headers = {
     "accept": "application/json",
@@ -143,13 +143,13 @@ Tämä on tarkoitettu useiden tehtävä-ID:iden kyselyyn videotehtävän yksityi
 
 Aseta kuten alla olevassa kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/i023y9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/i023y9.png" width="500" className="m-auto" /></p>
 
 ### Koodiesimerkki
 
 Voit huomata, että sivun oikealla puolella on automaattisesti luotu koodia eri kielillä, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/3sxeeh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3sxeeh.png" width="500" className="m-auto" /></p>
 
 Osittainen koodiesimerkki on seuraava:
 
@@ -230,7 +230,7 @@ Kun pyyntö onnistuu, API palauttaa kaikkien massatehtävien yksityiskohtaiset t
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/hailuo/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/hailuo/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -245,7 +245,7 @@ curl -X POST 'https://api.acedata.cloud/hailuo/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/hailuo/tasks"
+url = "https://api.xhuoapi.ai/v1/hailuo/tasks"
 
 headers = {
     "accept": "application/json",

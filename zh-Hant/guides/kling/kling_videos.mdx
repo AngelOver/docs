@@ -1,15 +1,15 @@
 ---
 title: "Kling Videos Generation API 對接說明"
-description: "Kling video generation 集成指南 - Ace Data Cloud"
+description: "Kling video generation 集成指南 - XHuoAPI"
 ---
 
 本文將介紹一種 Kling Videos Generation API 對接說明，它是可以透過輸入自訂參數來生成Kling官方的影片。
 
 ## 申請流程
 
-要使用 API，需要先到 [Kling Videos Generation API](https://platform.acedata.cloud/documents/3b921a16-a411-4557-8335-53f21d3f9e46) 對應頁面申請對應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
+要使用 API，需要先到 [Kling Videos Generation API](https://api.xhuoapi.ai/documents/3b921a16-a411-4557-8335-53f21d3f9e46) 對應頁面申請對應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 如果你尚未登入或註冊，會自動跳轉到登入頁面邀請您來註冊和登入，登入註冊之後會自動返回當前頁面。
 
@@ -19,7 +19,7 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 
 首先先了解下基本的使用方式，就是輸入提示詞 `prompt`、 生成行為 `action`、首幀參考圖片 `start_image_url` 以及模型 `model`，便可獲得處理後的結果，首先需要簡單地傳遞一個 `action` 欄位，它的值為 `text2video`，它主要包含三種行為：文生影片（`text2video`）、圖生影片（`image2video`）、擴展影片（`extend`），然後我們還需要輸入模型 `model`，目前主要有 `kling-v1`, `kling-v1-6`, `kling-v2-master`, `kling-v2-1-master`, `kling-v2-5-turbo`, `kling-v2-6`, `kling-v3`, `kling-v3-omni`, `kling-video-o1` 模型，具體的內容如下：
 
-<p><img src="https://cdn.acedata.cloud/ke1bok.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ke1bok.png" width="500" className="m-auto" /></p>
 
 可以看到這裡我們設定了 Request Headers，包括：
 
@@ -46,7 +46,7 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 
 選擇之後，可以發現右側也生成了對應程式碼，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/3yjql0.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3yjql0.png" width="500" className="m-auto" /></p>
 
 點擊「Try」按鈕即可進行測試，如上圖所示，這裡我們就得到了如下結果：
 
@@ -75,7 +75,7 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 另外如果想生成對應的對接程式碼，可以直接複製生成，例如 CURL 的程式碼如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/kling/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -117,7 +117,7 @@ curl -X POST 'https://api.acedata.cloud/kling/videos' \
 
 如果想對已經生成的Kling影片進行繼續生成的話，可以將參數 `action` 設定為 `extend` ，並且輸入需要繼續生成影片的 ID，影片 ID 的取得是根據基本使用來取得，如下圖所示：
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 這時候可以看到影片的 ID 為：
 
@@ -137,18 +137,18 @@ curl -X POST 'https://api.acedata.cloud/kling/videos' \
 
 填寫範例如下：
 
-<p><img src="https://cdn.acedata.cloud/ejimqy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ejimqy.png" width="500" className="m-auto" /></p>
 
 填寫完畢之後自動生成了程式碼如下：
 
-<p><img src="https://cdn.acedata.cloud/52x4u5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/52x4u5.png" width="500" className="m-auto" /></p>
 
 對應的 Python 程式碼：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kling/videos"
+url = "https://api.xhuoapi.ai/v1/kling/videos"
 
 headers = {
     "accept": "application/json",
@@ -193,13 +193,13 @@ print(response.text)
 
 首先，Webhook 回調是一個可以接收 HTTP 請求的服務，開發者應該替換為自己搭建的 HTTP 伺服器的 URL。此處為了方便演示，使用一個公開的 Webhook 範例網站 https://webhook.site/，打開該網站即可得到一個 Webhook URL，如圖所示：
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 將此 URL 複製下來，就可以作為 Webhook 來使用，此處的範例為 `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`。
 
 接下來，我們可以設定欄位 `callback_url` 為上述 Webhook URL，同時填入相應的參數，具體的內容如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vdx12s.png" width="500" className="m-auto" /></p>
 
 點擊執行，可以發現會立即得到一個結果，如下：
 
@@ -211,7 +211,7 @@ print(response.text)
 
 稍等片刻，我們可以在 `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3` 上觀察到生成影片的結果，如圖所示：
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 內容如下：
 

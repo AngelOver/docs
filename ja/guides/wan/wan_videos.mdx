@@ -1,15 +1,15 @@
 ---
 title: "Wan Videos Generation API 接続説明"
-description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
+description: "Tongyi Wansiang Video Generation 集成指南 - XHuoAPI"
 ---
 
 本文では、カスタムパラメータを入力することで通義万相公式の動画を生成できるWan Videos Generation APIの接続説明を紹介します。
 
 ## 申請プロセス
 
-APIを使用するには、まず[Wan Videos Generation API](https://platform.acedata.cloud/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c)の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
+APIを使用するには、まず[Wan Videos Generation API](https://api.xhuoapi.ai/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c)の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 まだログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -19,7 +19,7 @@ APIを使用するには、まず[Wan Videos Generation API](https://platform.ac
 
 まず、基本的な使用方法を理解します。これは、プロンプト `prompt`、生成行動 `action`、初フレーム参照画像 `image_url`、およびモデル `model` を入力することで処理された結果を得ることができます。まず、`action` フィールドを簡単に渡す必要があります。その値は `text2video` で、主に2つの行動が含まれます：文生動画（`text2video`）、図生動画（`image2video`）。次に、モデル `model` を入力する必要があります。現在、主に `wan2.6-i2v`, `wan2.6-r2v`, `wan2.6-i2v-flash`, `wan2.6-t2v` モデルがあります。具体的な内容は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/03gqdz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/03gqdz.png" width="500" className="m-auto" /></p>
 
 ここでは、リクエストヘッダーを設定しています。これには以下が含まれます：
 
@@ -45,7 +45,7 @@ APIを使用するには、まず[Wan Videos Generation API](https://platform.ac
 
 選択後、右側にも対応するコードが生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/03gqdz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/03gqdz.png" width="500" className="m-auto" /></p>
 
 「Try」ボタンをクリックするとテストができます。上の図のように、以下の結果が得られました：
 
@@ -70,7 +70,7 @@ APIを使用するには、まず[Wan Videos Generation API](https://platform.ac
 また、対応する接続コードを生成したい場合は、生成されたものを直接コピーできます。例えば、CURLのコードは以下の通りです：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/wan/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/wan/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -92,18 +92,18 @@ curl -X POST 'https://api.acedata.cloud/wan/videos' \
 
 記入例は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/94l0kk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/94l0kk.png" width="500" className="m-auto" /></p>
 
 記入が完了すると、自動的に以下のコードが生成されます：
 
-<p><img src="https://cdn.acedata.cloud/b5q8tt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/b5q8tt.png" width="500" className="m-auto" /></p>
 
 対応する Python コード：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/wan/videos"
+url = "https://api.xhuoapi.ai/v1/wan/videos"
 
 headers = {
     "accept": "application/json",
@@ -116,7 +116,7 @@ payload = {
     "model": "wan2.6-i2v",
     "prompt": "Astronauts shuttle from space to volcano",
     "duration": 5,
-    "image_url": "https://cdn.acedata.cloud/r9vsv9.png",
+    "image_url": "https://cdn.xhuoapi.ai/r9vsv9.png",
     "callback_url": "https://www.baidu.com/"
 }
 
@@ -147,13 +147,13 @@ Wan Videos Generation API の生成時間は比較的長く、約 1-2 分かか�
 
 まず、Webhook コールバックは HTTP リクエストを受信できるサービスで、開発者は自分が構築した HTTP サーバーの URL に置き換える必要があります。ここではデモのために、公開の Webhook サンプルサイト https://webhook.site/ を使用します。このサイトを開くと、Webhook URL が得られます。以下のように示されています：
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 この URL をコピーすれば、Webhook として使用できます。このサンプルは `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3` です。
 
 次に、フィールド `callback_url` を上記の Webhook URL に設定し、対応するパラメータを入力します。具体的な内容は以下のようになります：
 
-<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vdx12s.png" width="500" className="m-auto" /></p>
 
 実行すると、すぐに以下のような結果が得られます：
 
@@ -165,7 +165,7 @@ Wan Videos Generation API の生成時間は比較的長く、約 1-2 分かか�
 
 少し待つと、`https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3` で生成された動画の結果を確認できます。以下のように示されています：
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 内容は以下の通りです：
 

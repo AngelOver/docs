@@ -1,6 +1,6 @@
 ---
 title: "طلب واستخدام واجهة برمجة تطبيقات Grok Chat Completion"
-description: "Grok 集成指南 - Ace Data Cloud"
+description: "Grok 集成指南 - XHuoAPI"
 ---
 
 xAI Grok هو نظام محادثة AI قوي للغاية، حيث يمكنه توليد ردود طبيعية وسلسة في غضون ثوانٍ قليلة بمجرد إدخال كلمات التحفيز. يتميز Grok بأسلوبه الفكاهي الفريد وقدرته على الحصول على معلومات من الإنترنت في الوقت الفعلي، مما يجعله متميزًا في الصناعة. اليوم، بدأ Grok يظهر في العديد من المجالات الابتكارية، وتأثيره يتوسع بسرعة. سواء كان ذلك في المحادثات اليومية، الكتابة الإبداعية، أو التحليل الفني، أو تصحيح الأكواد، يمكن لـ Grok تقديم مساعدة ذكية غنية بالبصيرة، مما يوفر دعمًا جديدًا لقرارات المستخدمين وإبداعاتهم.
@@ -9,9 +9,9 @@ xAI Grok هو نظام محادثة AI قوي للغاية، حيث يمكنه �
 
 ## عملية الطلب
 
-لاستخدام واجهة برمجة تطبيقات Grok Chat Completion، يمكنك أولاً زيارة صفحة [Grok Chat Completion API](https://platform.acedata.cloud/documents/faf08b59-36aa-4d26-b5d9-a18f113cc2be) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة:
+لاستخدام واجهة برمجة تطبيقات Grok Chat Completion، يمكنك أولاً زيارة صفحة [Grok Chat Completion API](https://api.xhuoapi.ai/documents/faf08b59-36aa-4d26-b5d9-a18f113cc2be) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، وبعد تسجيل الدخول، سيتم إرجاعك تلقائيًا إلى الصفحة الحالية.
 
@@ -21,7 +21,7 @@ xAI Grok هو نظام محادثة AI قوي للغاية، حيث يمكنه �
 
 بعد ذلك، يمكنك ملء المحتوى المقابل في الواجهة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/vunnjf.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vunnjf.png" width="400" className="m-auto" /></p>
 
 عند استخدام هذه الواجهة لأول مرة، نحتاج على الأقل إلى ملء ثلاثة محتويات، أحدها هو `authorization`، والذي يمكن اختياره مباشرة من القائمة المنسدلة. المعامل الآخر هو `model`، حيث يمثل `model` فئة النموذج التي نختار استخدامها من موقع Grok الرسمي، وهنا لدينا 8 نماذج رئيسية، يمكن الاطلاع على التفاصيل في النماذج المقدمة. المعامل الأخير هو `messages`، حيث أن `messages` هو مصفوفة كلمات الاستفسار التي ندخلها، وهي مصفوفة تمثل إمكانية تحميل عدة كلمات استفسار في نفس الوقت، حيث تحتوي كل كلمة استفسار على `role` و `content`، حيث يمثل `role` دور المستفسر، وقد قدمنا ثلاثة هويات، وهي `user` و `assistant` و `system`. أما `content` فهو المحتوى المحدد لاستفسارنا.
 
@@ -33,7 +33,7 @@ xAI Grok هو نظام محادثة AI قوي للغاية، حيث يمكنه �
 - `temperature`: عشوائية التوليد، بين 0-2، كلما زادت القيمة، زادت العشوائية.
 - `n`: عدد الردود المرشحة التي يتم توليدها في مرة واحدة.
 
-<p><img src="https://cdn.acedata.cloud/d7iwun.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d7iwun.png" width="400" className="m-auto" /></p>
 
 بعد الاستدعاء، نجد أن النتيجة المرجعة هي كما يلي:
 
@@ -84,7 +84,7 @@ xAI Grok هو نظام محادثة AI قوي للغاية، حيث يمكنه �
 
 حيث أن `choices` تحتوي على معلومات رد Grok، ويمكن ملاحظة أن `choices` تحتوي على المعلومات المحددة للرد من Grok، كما هو موضح في الصورة.
 
-<p><img src="https://cdn.acedata.cloud/p8vupk.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/p8vupk.png" width="400" className="m-auto" /></p>
 
 يمكنك رؤية أن حقل `content` داخل `choices` يحتوي على المحتوى المحدد لرد Grok.
 
@@ -96,7 +96,7 @@ xAI Grok هو نظام محادثة AI قوي للغاية، حيث يمكنه �
 
 التعديل كما هو موضح في الصورة، ولكن يجب أن يكون هناك تغييرات مطابقة في كود الاستدعاء لدعم الاستجابة المتدفقة.
 
-<p><img src="https://cdn.acedata.cloud/k883qa.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/k883qa.png" width="400" className="m-auto" /></p>
 
 بعد تغيير `stream` إلى `true`، ستقوم واجهة برمجة التطبيقات بإرجاع بيانات JSON سطرًا بسطر، وعلى مستوى الكود، نحتاج إلى إجراء التعديلات اللازمة للحصول على النتائج سطرًا بسطر.
 
@@ -105,7 +105,7 @@ xAI Grok هو نظام محادثة AI قوي للغاية، حيث يمكنه �
 ```python
 import requests
 
-url = "https://api.acedata.cloud/grok/chat/completions"
+url = "https://api.xhuoapi.ai/v1/grok/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -199,7 +199,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/grok/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/grok/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -215,7 +215,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/grok/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/grok/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -233,14 +233,14 @@ System.out.print(response.body!!.string())
 
 إذا كنت ترغب في دمج وظيفة المحادثة متعددة الجولات، تحتاج إلى رفع عدة كلمات سؤال في حقل `messages`، مثال على عدة كلمات سؤال موضحة في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/t8cya8.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/t8cya8.png" width="400" className="m-auto" /></p>
 
 كود مثال لاستدعاء Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/grok/chat/completions"
+url = "https://api.xhuoapi.ai/v1/grok/chat/completions"
 
 headers = {
     "accept": "application/json",

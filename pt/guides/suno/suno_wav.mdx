@@ -1,6 +1,6 @@
 ---
 title: "Instruções para Integração da API Suno Wav"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 A SUNO nos permite obter arquivos de música no formato wav. Este documento explica o método de integração da API relacionada.
@@ -12,7 +12,7 @@ Aqui, o `audio_id` que inserimos é `4e43116a-bf09-472c-8e1c-655eabf02682`.
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/wav"
+url = "https://api.xhuoapi.ai/v1/suno/wav"
 
 headers = {
     "accept": "application/json",
@@ -37,7 +37,7 @@ O resultado é o seguinte:
   "trace_id": "3fa70e81-6bb7-4ca8-b718-dd16a4eda7e8",
   "data": [
     {
-      "file_url": "https://platform.cdn.acedata.cloud/suno/6a5a2099-d6d3-4930-9709-a30ac5dc7de5.wav"
+      "file_url": "https://platform.cdn.xhuoapi.ai/suno/6a5a2099-d6d3-4930-9709-a30ac5dc7de5.wav"
     }
   ]
 }
@@ -48,6 +48,6 @@ Pode-se observar que o campo `file_url` dentro de `data` é o arquivo de música
 > **Sobre a persistência e validade do link WAV**
 >
 > Os arquivos WAV no CDN upstream da Suno (`https://cdn1.suno.ai/{audio_id}.wav`) são mantidos apenas por alguns dias e depois são removidos, retornando 403 ao acessar.
-> Para evitar que o link expire, esta API automaticamente transfere o arquivo WAV upstream para nosso próprio CDN (`https://platform.cdn.acedata.cloud/suno/{task_id}.wav`) antes de retornar, e o `file_url` retornado é o endereço estável após a transferência, que não expirará imediatamente devido à expiração do CDN upstream.
+> Para evitar que o link expire, esta API automaticamente transfere o arquivo WAV upstream para nosso próprio CDN (`https://platform.cdn.xhuoapi.ai/suno/{task_id}.wav`) antes de retornar, e o `file_url` retornado é o endereço estável após a transferência, que não expirará imediatamente devido à expiração do CDN upstream.
 > **O link transferido tem validade de 30 dias**; após 30 dias, o arquivo será limpo periodicamente. Recomenda-se baixar o arquivo o quanto antes e armazená-lo adequadamente em seu próprio armazenamento.
 > Em casos raros de falha na transferência, o link original upstream será retornado, mantendo o comportamento histórico.

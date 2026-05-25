@@ -1,15 +1,15 @@
 ---
 title: "API za lociranje pet osnovnih delova lica"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 Ovaj dokument će predstaviti API za lociranje pet osnovnih delova lica, koji može da locira ključne tačke lica na osnovu unete slike, izračunavajući 90 tačaka koje čine konture lica, uključujući obrve (po 8 tačaka sa svake strane), oči (po 8 tačaka sa svake strane), nos (13 tačaka), usta (22 tačke), konture lica (21 tačka), i zenice [ili učenike] (2 tačke).
 
 ## Proces prijave
 
-Da biste koristili API, prvo treba da odete na [API za lociranje pet osnovnih delova lica](https://platform.acedata.cloud/documents/20945baf-b263-457b-be5f-0332c2180a57) i zatražite odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
+Da biste koristili API, prvo treba da odete na [API za lociranje pet osnovnih delova lica](https://api.xhuoapi.ai/documents/20945baf-b263-457b-be5f-0332c2180a57) i zatražite odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Ako još niste prijavljeni ili registrovani, automatski ćete biti preusmereni na stranicu za prijavu koja vas poziva da se registrujete i prijavite. Nakon prijave ili registracije, automatski ćete se vratiti na trenutnu stranicu.
 
@@ -19,11 +19,11 @@ Prilikom prve prijave dobićete besplatnu kvotu koja vam omogućava da besplatno
 
 Prvo, potrebno je da se upoznate sa osnovnim načinom korišćenja, što podrazumeva unos linka slike kako biste dobili obrađenu sliku. Prvo je potrebno jednostavno proslediti polje `image_url`, a slika lica je prikazana ispod:
 
-<p><img src="https://cdn.acedata.cloud/lrbtcn.jpg" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lrbtcn.jpg" width="500" className="m-auto" /></p>
 
 Sledeće, možemo popuniti odgovarajući sadržaj na interfejsu, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/y3g837.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/y3g837.png" width="500" className="m-auto" /></p>
 
 Možete primetiti da smo ovde postavili Request Headers, uključujući:
 
@@ -39,7 +39,7 @@ Takođe smo postavili Request Body, uključujući:
 
 Nakon izbora, možete primetiti da je sa desne strane generisan odgovarajući kod, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/2ceul8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2ceul8.png" width="500" className="m-auto" /></p>
 
 Kliknite na dugme „Try“ da biste izvršili testiranje, kao što je prikazano na gornjoj slici, i ovde smo dobili sledeći rezultat:
 ```json
@@ -470,12 +470,12 @@ Objašnjenje polja je sledeće:
 Pored toga, ako želite da generišete odgovarajući kod za integraciju, možete ga direktno kopirati, na primer, CURL kod je sledeći:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/analyze' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/analyze' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }'
 ```
 
@@ -484,7 +484,7 @@ Python kod za integraciju je sledeći:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/analyze"
+url = "https://api.xhuoapi.ai/v1/face/analyze"
 
 headers = {
     "accept": "application/json",
@@ -493,7 +493,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }
 
 response = requests.post(url, json=payload, headers=headers)

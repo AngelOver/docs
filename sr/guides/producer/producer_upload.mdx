@@ -1,21 +1,21 @@
 ---
 title: "Uputstvo za integraciju API za upload referentnog audio zapisa"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 Producer nam omogućava da uploadujemo referentni audio za dalju obradu, ovaj dokument objašnjava metodu integracije relevantnog API-ja.
 
 Ovaj API ima samo jedan ulazni parametar, a to je `audio_url`, koji je javno dostupna CDN adresa, podržava mp3 ekstenziju.
 
-Ovde unosimo `audio_url` kao `https://cdn.acedata.cloud/suno_demo.mp3`, što je javno dostupna CDN adresa.
+Ovde unosimo `audio_url` kao `https://cdn.xhuoapi.ai/suno_demo.mp3`, što je javno dostupna CDN adresa.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/upload' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/upload' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "audio_url": "https://cdn.acedata.cloud/suno_demo.mp3"
+  "audio_url": "https://cdn.xhuoapi.ai/suno_demo.mp3"
 }'
 ```
 
@@ -35,4 +35,4 @@ Rezultat je sledeći:
 
 Može se primetiti da je `audio_id` polje u `data` sekciji ID pesme nakon upload-a.
 
-Kada imamo ID pesme, možemo koristiti [Producer Audios Generation API](https://platform.acedata.cloud/documents/producer-audios-integration) za generisanje prilagođene pesme, na primer, `action` se prosledi kao `upload_extend`, dok se `audio_id` prosledi kao vraćeni ID pesme, što omogućava generisanje nove pesme na osnovu referentnog audio zapisa.
+Kada imamo ID pesme, možemo koristiti [Producer Audios Generation API](https://api.xhuoapi.ai/documents/producer-audios-integration) za generisanje prilagođene pesme, na primer, `action` se prosledi kao `upload_extend`, dok se `audio_id` prosledi kao vraćeni ID pesme, što omogućava generisanje nove pesme na osnovu referentnog audio zapisa.

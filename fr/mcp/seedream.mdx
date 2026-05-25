@@ -3,7 +3,7 @@ title: "Guide d'intégration Seedream MCP"
 description: "seedream MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) est un protocole de contexte de modèle développé par Anthropic, permettant aux modèles d'IA (comme Claude, GPT, etc.) d'appeler des outils externes via une interface standardisée. Grâce au Seedream MCP Server fourni par AceData Cloud, vous pouvez utiliser directement Seedream de ByteDance pour générer et éditer des images IA dans des clients IA tels que Claude Desktop, VS Code, Cursor, etc.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) est un protocole de contexte de modèle développé par Anthropic, permettant aux modèles d'IA (comme Claude, GPT, etc.) d'appeler des outils externes via une interface standardisée. Grâce au Seedream MCP Server fourni par XHuoAPI, vous pouvez utiliser directement Seedream de ByteDance pour générer et éditer des images IA dans des clients IA tels que Claude Desktop, VS Code, Cursor, etc.
 
 ## Aperçu des fonctionnalités
 
@@ -19,10 +19,10 @@ Le Seedream MCP Server offre les fonctionnalités principales suivantes :
 
 ## Pré-requis
 
-Avant utilisation, vous devez obtenir un API Token AceData Cloud :
+Avant utilisation, vous devez obtenir un API Token XHuoAPI :
 
-1. Inscrivez-vous ou connectez-vous sur la [plateforme AceData Cloud](https://platform.acedata.cloud)
-2. Accédez à la page [Seedream Images API](https://platform.acedata.cloud/documents/seedream-images)
+1. Inscrivez-vous ou connectez-vous sur la [plateforme XHuoAPI](https://api.xhuoapi.ai)
+2. Accédez à la page [Seedream Images API](https://api.xhuoapi.ai/documents/seedream-images)
 3. Cliquez sur « Acquire » pour obtenir un API Token (un quota gratuit est offert lors de la première demande)
 
 ## Installation et configuration
@@ -36,7 +36,7 @@ pip install mcp-seedream-pro
 ### Méthode 2 : Installation depuis le code source
 
 ```bash
-git clone https://github.com/AceDataCloud/SeedreamMCP.git
+git clone https://github.com/XHuoAPI/SeedreamMCP.git
 cd SeedreamMCP
 pip install -e .
 ```
@@ -58,7 +58,7 @@ Ajoutez la configuration suivante :
     "seedream": {
       "command": "mcp-seedream-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "votre API Token"
+        "XHuoAPI_API_TOKEN": "votre API Token"
       }
     }
   }
@@ -74,7 +74,7 @@ Si vous utilisez `uvx` (pas besoin d’installer le package à l’avance) :
       "command": "uvx",
       "args": ["mcp-seedream-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "votre API Token"
+        "XHuoAPI_API_TOKEN": "votre API Token"
       }
     }
   }
@@ -93,7 +93,7 @@ Créez un fichier `.vscode/mcp.json` à la racine de votre projet :
     "seedream": {
       "command": "mcp-seedream-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "votre API Token"
+        "XHuoAPI_API_TOKEN": "votre API Token"
       }
     }
   }
@@ -109,7 +109,7 @@ Ou utilisez `uvx` :
       "command": "uvx",
       "args": ["mcp-seedream-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "votre API Token"
+        "XHuoAPI_API_TOKEN": "votre API Token"
       }
     }
   }
@@ -138,6 +138,6 @@ Une fois configuré, vous pouvez appeler ces fonctionnalités directement en lan
 
 ## Plus d'informations
 
-- Dépôt GitHub : [AceDataCloud/SeedreamMCP](https://github.com/AceDataCloud/SeedreamMCP)
+- Dépôt GitHub : [XHuoAPI/SeedreamMCP](https://github.com/XHuoAPI/SeedreamMCP)
 - Package PyPI : [mcp-seedream-pro](https://pypi.org/project/mcp-seedream-pro/)
-- Documentation API : [Seedream Image Generation API](https://platform.acedata.cloud/documents/seedream)
+- Documentation API : [Seedream Image Generation API](https://api.xhuoapi.ai/documents/seedream)

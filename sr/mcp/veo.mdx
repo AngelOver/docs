@@ -3,7 +3,7 @@ title: "Veo MCP Vodič za integraciju"
 description: "veo MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) je protokol za kontekst modela koji je razvio Anthropic, omogućavajući AI modelima (kao što su Claude, GPT i drugi) da pozivaju spoljne alate putem standardizovanog interfejsa. Korišćenjem Veo MCP Server-a koji pruža AceData Cloud, možete direktno koristiti Google Veo za generisanje AI video zapisa u AI klijentima kao što su Claude Desktop, VS Code, Cursor i drugi.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) je protokol za kontekst modela koji je razvio Anthropic, omogućavajući AI modelima (kao što su Claude, GPT i drugi) da pozivaju spoljne alate putem standardizovanog interfejsa. Korišćenjem Veo MCP Server-a koji pruža XHuoAPI, možete direktno koristiti Google Veo za generisanje AI video zapisa u AI klijentima kao što su Claude Desktop, VS Code, Cursor i drugi.
 
 ## Pregled funkcionalnosti
 
@@ -19,10 +19,10 @@ Veo MCP Server pruža sledeće ključne funkcije:
 
 ## Preduslovi
 
-Pre upotrebe potrebno je da dobijete AceData Cloud API Token:
+Pre upotrebe potrebno je da dobijete XHuoAPI API Token:
 
-1. Registrujte se ili prijavite na [AceData Cloud platformu](https://platform.acedata.cloud)
-2. Posetite stranicu [Veo Videos API](https://platform.acedata.cloud/documents/veo-videos)
+1. Registrujte se ili prijavite na [XHuoAPI platformu](https://api.xhuoapi.ai)
+2. Posetite stranicu [Veo Videos API](https://api.xhuoapi.ai/documents/veo-videos)
 3. Kliknite na „Acquire“ da biste dobili API Token (prvi zahtev donosi besplatni kredit)
 
 ## Instalacija i konfiguracija
@@ -36,7 +36,7 @@ pip install mcp-veo
 ### Metod 2: Instalacija iz izvornog koda
 
 ```bash
-git clone https://github.com/AceDataCloud/VeoMCP.git
+git clone https://github.com/XHuoAPI/VeoMCP.git
 cd VeoMCP
 pip install -e .
 ```
@@ -58,7 +58,7 @@ Dodajte sledeću konfiguraciju:
     "veo": {
       "command": "mcp-veo",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -74,7 +74,7 @@ Ako koristite `uvx` (nije potrebno prethodno instalirati pakete):
       "command": "uvx",
       "args": ["mcp-veo"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -93,7 +93,7 @@ U korenskom direktorijumu projekta kreirajte `.vscode/mcp.json` fajl:
     "veo": {
       "command": "mcp-veo",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -109,7 +109,7 @@ Ili koristite `uvx`:
       "command": "uvx",
       "args": ["mcp-veo"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -137,6 +137,6 @@ Nakon konfiguracije, možete direktno koristiti ove funkcije u AI klijentima pri
 
 ## Više informacija
 
-- GitHub repozitorijum: [AceDataCloud/VeoMCP](https://github.com/AceDataCloud/VeoMCP)
+- GitHub repozitorijum: [XHuoAPI/VeoMCP](https://github.com/XHuoAPI/VeoMCP)
 - PyPI paket: [mcp-veo](https://pypi.org/project/mcp-veo/)
-- API dokumentacija: [Veo Video Generisanje API](https://platform.acedata.cloud/documents/veo)
+- API dokumentacija: [Veo Video Generisanje API](https://api.xhuoapi.ai/documents/veo)

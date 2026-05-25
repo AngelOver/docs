@@ -1,15 +1,15 @@
 ---
 title: "Інструкція з інтеграції API для створення AI фотографій документів"
-description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
+description: "AI ID Photo Production 集成指南 - XHuoAPI"
 ---
 
 У цьому документі буде представлено інструкцію з інтеграції API для створення AI фотографій документів, яка дозволяє створювати фотографії документів різних стилів, вводячи URL зображення портрету та обрану вами шаблон.
 
 ## Процес подачі заявки
 
-Щоб використовувати API, спочатку потрібно перейти на сторінку [API для створення AI фотографій документів](https://platform.acedata.cloud/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) та подати заявку на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
+Щоб використовувати API, спочатку потрібно перейти на сторінку [API для створення AI фотографій документів](https://api.xhuoapi.ai/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) та подати заявку на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, щоб запросити реєстрацію та вхід. Після входу або реєстрації ви будете автоматично повернені на поточну сторінку.
 
@@ -38,7 +38,7 @@ description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
 
 Після цього ми також можемо вказати параметр швидкості генерації `mode`, який зазвичай ділиться на два типи: повільний `relax` та швидкий `fast`, конкретний зміст наведено нижче:
 
-<p><img src="https://cdn.acedata.cloud/73xbla.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/73xbla.png" width="500" className="m-auto" /></p>
 
 Ми можемо бачити, що тут ми налаштували заголовки запиту, включаючи:
 
@@ -54,7 +54,7 @@ description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
 
 Після вибору ви можете помітити, що праворуч також згенеровано відповідний код, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/yp49hc.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yp49hc.png" width="500" className="m-auto" /></p>
 
 Натисніть кнопку «Try», щоб провести тестування, як показано на малюнку, і ви отримаєте наступний результат:
 
@@ -65,12 +65,12 @@ description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
   "data": [
     {
       "id": "202411031951124776",
-      "image_url": "https://platform.cdn.acedata.cloud/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
+      "image_url": "https://platform.cdn.xhuoapi.ai/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
       "template": "Чоловіча фотографія"
     },
     {
       "id": "202411031951128490",
-      "image_url": "https://platform.cdn.acedata.cloud/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
+      "image_url": "https://platform.cdn.xhuoapi.ai/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
       "template": "Чоловіча фотографія"
     }
   ]
@@ -91,7 +91,7 @@ description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
 Крім того, якщо ви хочете згенерувати відповідний код інтеграції, ви можете просто скопіювати його, наприклад, код CURL виглядає так:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/headshots/generate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/generate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -112,13 +112,13 @@ curl -X POST 'https://api.acedata.cloud/headshots/generate' \
 
 По-перше, Webhook зворотний виклик - це служба, яка може приймати HTTP запити, розробники повинні замінити на URL свого власного HTTP сервера. Для зручності демонстрації використовується публічний веб-сайт з прикладом Webhook https://webhook.site/, відкривши цей сайт, ви отримаєте URL Webhook, як показано на малюнку:
 
-![](https://cdn.acedata.cloud/sb4p3v.png)
+![](https://cdn.xhuoapi.ai/sb4p3v.png)
 
 Скопіюйте цей URL, і ви зможете використовувати його як Webhook, приклад тут: `https://webhook.site/00f38b26-4289-4899-83d6-0cea7308850a`.
 
 Далі ми можемо налаштувати поле `callback_url` на вказаний Webhook URL, а також ввести посилання на зображення портрету та шаблон. У цьому документі рекомендується використовувати асинхронний зворотний виклик, коли параметр `mode` є `relax`, конкретний зміст наведено на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/opt326.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/opt326.png" width="500" className="m-auto" /></p>
 
 Натиснувши «Запустити», ви отримаєте результат, як показано нижче:
 
@@ -129,7 +129,7 @@ curl -X POST 'https://api.acedata.cloud/headshots/generate' \
 ```
 
 Через деякий час ви зможете спостерігати результати генерації на `https://webhook.site/00f38b26-4289-4899-83d6-0cea7308850a`, як показано на малюнку:
-![](https://cdn.acedata.cloud/ym6fw1.png)
+![](https://cdn.xhuoapi.ai/ym6fw1.png)
 
 Зміст нижче:
 
@@ -140,12 +140,12 @@ curl -X POST 'https://api.acedata.cloud/headshots/generate' \
     "data": [
         {
             "id": "202411032010131366",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
             "template": "чоловіче зображення"
         },
         {
             "id": "202411032010132420",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
             "template": "чоловіче зображення"
         }
     ]

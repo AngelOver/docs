@@ -1,6 +1,6 @@
 ---
 title: "AI ID fotografija Task API integracija i korišćenje"
-description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
+description: "AI ID Photo Production 集成指南 - XHuoAPI"
 ---
 
 AI ID fotografija Task API ima glavnu funkciju da omogućava praćenje statusa izvršenja zadatka putem unosa ID-a zadatka generisanog od strane AI ID fotografija API.
@@ -9,27 +9,27 @@ Ovaj dokument će detaljno opisati integraciju AI ID fotografija Task API, poma�
 
 ## Proces prijave
 
-Da biste koristili AI ID fotografija Task API, prvo treba da odete na stranicu za prijavu [AI ID fotografija API](https://platform.acedata.cloud/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) i zatražite odgovarajuću uslugu, a zatim kopirajte ID zadatka AI ID fotografija API, kao što je prikazano na slici:
+Da biste koristili AI ID fotografija Task API, prvo treba da odete na stranicu za prijavu [AI ID fotografija API](https://api.xhuoapi.ai/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) i zatražite odgovarajuću uslugu, a zatim kopirajte ID zadatka AI ID fotografija API, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/7ezmmn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7ezmmn.png" width="500" className="m-auto" /></p>
 
-Na kraju, idite na stranicu Tasks API [AI ID fotografija Task API](https://platform.acedata.cloud/documents/3a23ee34-8689-406b-9042-7954224348ad) da zatražite odgovarajuću uslugu, a nakon ulaska na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
+Na kraju, idite na stranicu Tasks API [AI ID fotografija Task API](https://api.xhuoapi.ai/documents/3a23ee34-8689-406b-9042-7954224348ad) da zatražite odgovarajuću uslugu, a nakon ulaska na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
 
-![Stranica za prijavu](https://cdn.acedata.cloud/rci31i.png)
+![Stranica za prijavu](https://cdn.xhuoapi.ai/rci31i.png)
 
-Ako još niste prijavljeni ili registrovani, automatski ćete biti preusmereni na [stranicu za prijavu](https://platform.acedata.cloud) koja vas poziva da se registrujete i prijavite, a nakon prijave bićete automatski vraćeni na trenutnu stranicu.
+Ako još niste prijavljeni ili registrovani, automatski ćete biti preusmereni na [stranicu za prijavu](https://api.xhuoapi.ai) koja vas poziva da se registrujete i prijavite, a nakon prijave bićete automatski vraćeni na trenutnu stranicu.
 
 Prilikom prve prijave dobićete besplatnu kvotu koja vam omogućava besplatno korišćenje ovog API-ja.
 
 ## Primer zahteva
 
-AI ID fotografija Task API može se koristiti za praćenje rezultata AI ID fotografija API. O tome kako koristiti AI ID fotografija API, molimo vas da se obratite dokumentu [AI ID fotografija API](https://platform.acedata.cloud/documents/d6ea75a4-836e-490a-aee5-7ca911a808fd).
+AI ID fotografija Task API može se koristiti za praćenje rezultata AI ID fotografija API. O tome kako koristiti AI ID fotografija API, molimo vas da se obratite dokumentu [AI ID fotografija API](https://api.xhuoapi.ai/documents/d6ea75a4-836e-490a-aee5-7ca911a808fd).
 
 Uzmimo jedan ID zadatka koji je vratio AI ID fotografija API kao primer i prikažimo kako koristiti ovaj API. Pretpostavimo da imamo ID zadatka: `16f96e95-d95c-46ef-b183-139b9bd1aebd`, a zatim ćemo prikazati kako da ga prosledimo.
 
 ### Primer zadatka
 
-<p><img src="https://cdn.acedata.cloud/7ezmmn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7ezmmn.png" width="500" className="m-auto" /></p>
 
 ### Postavljanje zaglavlja zahteva i tela zahteva
 
@@ -45,20 +45,20 @@ Uzmimo jedan ID zadatka koji je vratio AI ID fotografija API kao primer i prika�
 
 Postavite kao što je prikazano na slici ispod:
 
-<p><img src="https://cdn.acedata.cloud/ezsyyd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ezsyyd.png" width="500" className="m-auto" /></p>
 
 ### Primer koda
 
 Možete primetiti da su na desnoj strani stranice automatski generisani kodovi na raznim jezicima, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/x99wu2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/x99wu2.png" width="500" className="m-auto" /></p>
 
 Neki primeri koda su:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/headshots/tasks"
+url = "https://api.xhuoapi.ai/v1/headshots/tasks"
 
 headers = {
     "accept": "application/json",
@@ -118,12 +118,12 @@ Ako je zahtev uspešan, API će vratiti detaljne informacije o ovom zadatku ID f
     "data": [
       {
         "id": "202411032022077381",
-        "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
         "template": "Muška slika"
       },
       {
         "id": "202411032022079194",
-        "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+        "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
         "template": "Muška slika"
       }
     ]
@@ -148,13 +148,13 @@ Ovo se odnosi na pretraživanje detalja zadataka ID fotografije za više ID-ova 
 
 Postavite kao što je prikazano na slici ispod:
 
-<p><img src="https://cdn.acedata.cloud/8vynq9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8vynq9.png" width="500" className="m-auto" /></p>
 
 ### Primer koda
 
 Možete primetiti da su na desnoj strani stranice automatski generisani kodovi na raznim jezicima, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/5jexyn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5jexyn.png" width="500" className="m-auto" /></p>
 
 Neki primeri koda su:
 
@@ -187,12 +187,12 @@ Ako je zahtev uspešan, API će vratiti detaljne informacije o svim masovnim zad
         "data": [
           {
             "id": "202411032022077381",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
             "template": "男形象照"
           },
           {
             "id": "202411032022079194",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/16f96e95-d95c-46ef-b183-139b9bd1aebd.png",
             "template": "男形象照"
           }
         ]
@@ -229,7 +229,7 @@ Ako je zahtev uspešan, API će vratiti detaljne informacije o svim masovnim zad
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -244,7 +244,7 @@ curl -X POST 'https://api.acedata.cloud/headshots/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/headshots/tasks"
+url = "https://api.xhuoapi.ai/v1/headshots/tasks"
 
 headers = {
     "accept": "application/json",

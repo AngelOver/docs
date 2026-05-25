@@ -1,15 +1,15 @@
 ---
 title: "Informazioni sull'identità e istruzioni per l'integrazione dell'API di verifica della validità"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Questo documento introduce un'API di verifica delle informazioni sull'identità e della validità, che può essere utilizzata per convalidare la veridicità e la coerenza del nome, del numero di carta d'identità e della validità della carta d'identità.
 
 ## Processo di richiesta
 
-Per utilizzare l'API, è necessario prima andare alla pagina corrispondente dell'[API di verifica delle informazioni sull'identità e della validità](https://platform.acedata.cloud/documents/667017a4-017f-4af0-870e-807034f70632) per richiedere il servizio corrispondente. Una volta entrati nella pagina, fare clic sul pulsante "Acquire", come mostrato nell'immagine:
+Per utilizzare l'API, è necessario prima andare alla pagina corrispondente dell'[API di verifica delle informazioni sull'identità e della validità](https://api.xhuoapi.ai/documents/667017a4-017f-4af0-870e-807034f70632) per richiedere il servizio corrispondente. Una volta entrati nella pagina, fare clic sul pulsante "Acquire", come mostrato nell'immagine:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Se non si è ancora effettuato il login o la registrazione, si verrà automaticamente reindirizzati alla pagina di accesso per invitare a registrarsi e accedere. Dopo aver effettuato il login o la registrazione, si verrà automaticamente riportati alla pagina corrente.
 
@@ -19,7 +19,7 @@ Alla prima richiesta, verrà offerto un credito gratuito, che consente di utiliz
 
 Innanzitutto, è importante comprendere il modo di utilizzo di base, che consiste nell'inserire il link all'immagine della carta d'identità per ottenere il risultato di verifica elaborato. È necessario prima trasmettere un campo `name`, e successivamente si possono compilare i contenuti corrispondenti nell'interfaccia, come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/llvy1l.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/llvy1l.png" width="500" className="m-auto" /></p>
 
 Si può notare che qui abbiamo impostato le intestazioni della richiesta, che includono:
 
@@ -37,7 +37,7 @@ Inoltre, sono state impostate le informazioni del corpo della richiesta, che inc
 
 Dopo aver selezionato, si può notare che a destra è stato generato il codice corrispondente, come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/l77q0u.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/l77q0u.png" width="500" className="m-auto" /></p>
 
 Cliccando sul pulsante "Try" è possibile effettuare un test, come mostrato nell'immagine sopra, e si ottiene il seguente risultato:
 
@@ -68,7 +68,7 @@ Si può notare che il nome, il numero della carta d'identità e la validità del
 Inoltre, se si desidera generare il codice di integrazione corrispondente, è possibile copiarlo direttamente, ad esempio il codice CURL è il seguente:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/idcard/check-2e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/idcard/check-2e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -85,7 +85,7 @@ Il codice di integrazione in Python è il seguente:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/idcard/check-2e"
+url = "https://api.xhuoapi.ai/v1/identity/idcard/check-2e"
 
 headers = {
     "accept": "application/json",

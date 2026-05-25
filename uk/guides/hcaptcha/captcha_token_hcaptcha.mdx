@@ -1,15 +1,15 @@
 ---
 title: "hCaptcha протокол розпізнавання API інтеграція"
-description: "hCaptcha verification code recognition service 集成指南 - Ace Data Cloud"
+description: "hCaptcha verification code recognition service 集成指南 - XHuoAPI"
 ---
 
 У цьому документі буде представлено опис інтеграції hCaptcha протоколу розпізнавання API, який дозволяє користувачам уникнути розпізнавання та натискання на зображення hCaptcha, просто подавши Website Key для автоматичного декодування на сервері та завершення перевірки.
 
 ## Процес подачі заявки
 
-Щоб використовувати API, спочатку потрібно перейти на відповідну сторінку [hCaptcha протоколу розпізнавання API](https://platform.acedata.cloud/documents/34806b3a-f0f6-45c5-b8b1-143ced7b9393) для подачі заявки на відповідну послугу, після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
+Щоб використовувати API, спочатку потрібно перейти на відповідну сторінку [hCaptcha протоколу розпізнавання API](https://api.xhuoapi.ai/documents/34806b3a-f0f6-45c5-b8b1-143ced7b9393) для подачі заявки на відповідну послугу, після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, запрошуючи вас зареєструватися та увійти, після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
 
@@ -19,11 +19,11 @@ description: "hCaptcha verification code recognition service 集成指南 - Ace 
 
 Спочатку розглянемо основний спосіб використання, а саме введення URL-адреси сайту, на якому потрібно обробити hCaptcha, щоб отримати оброблений результат. Спочатку потрібно просто передати поле `website_url`, наш приклад сайту: `https://accounts.hcaptcha.com/demo`, нам потрібно отримати `website_key` на сторінці `website_url`, спочатку відкрийте цю веб-сторінку, натисніть F12, щоб увійти в консоль, а потім у вкладці Element виконайте глобальний пошук за `hcaptcha-demo`, ми можемо отримати наступний результат:
 
-<p><img src="https://cdn.acedata.cloud/bmx7ik.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bmx7ik.png" width="500" className="m-auto" /></p>
 
 Тут `data-sitekey` відповідає рядку, який є значенням `website_key`, нижче наведені конкретні результати параметрів:
 
-<p><img src="https://cdn.acedata.cloud/st6q7a.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/st6q7a.png" width="500" className="m-auto" /></p>
 
 Ми можемо бачити, що тут ми налаштували заголовки запиту, включаючи:
 
@@ -37,7 +37,7 @@ description: "hCaptcha verification code recognition service 集成指南 - Ace 
 
 Після вибору ви можете помітити, що праворуч також згенеровано відповідний код, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/5gse4m.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5gse4m.png" width="500" className="m-auto" /></p>
 
 Натисніть кнопку «Try», щоб провести тестування, як показано на малюнку, тут ми отримали наступний результат:
 ```json
@@ -51,15 +51,15 @@ description: "hCaptcha verification code recognition service 集成指南 - Ace 
 
 - Спочатку вручну проходимо перевірку, конкретно, як на зображенні нижче:
 
-<p><img src="https://cdn.acedata.cloud/bfg9w1.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bfg9w1.png" width="500" className="m-auto" /></p>
 
 - Потім натискаємо submit, спостерігаємо за змінами в мережі консолі, конкретно, як на зображенні нижче:
 
-<p><img src="https://cdn.acedata.cloud/eszhv3.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/eszhv3.png" width="500" className="m-auto" /></p>
 
 - Аналізуємо конструкцію POST запиту, в кінці можемо клацнути правою кнопкою миші на цьому запиті та скопіювати код CURL, конкретно, як на зображенні нижче:
 
-<p><img src="https://cdn.acedata.cloud/bif3mj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bif3mj.png" width="500" className="m-auto" /></p>
 
 З аналізу зображення видно, що URL цього POST запиту: `https://accounts.hcaptcha.com/demo`, нам потрібно лише подати параметри `g-recaptcha-response`, `h-captcha-response` та `email`, потім ми просто передаємо оброблений токен у нижче data, виклик коду CURL для перевірки токена виглядає так:
 
@@ -91,14 +91,14 @@ if response.status_code == 200:
 
 Потім ми спостерігаємо, що консоль отримала такий результат:
 
-<p><img src="https://cdn.acedata.cloud/87f51z.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/87f51z.png" width="500" className="m-auto" /></p>
 
 Врешті-решт, ми пройшли перевірку hCaptcha.
 
 Крім того, якщо ви хочете згенерувати відповідний код інтеграції, ви можете просто скопіювати його, наприклад, код CURL виглядає так:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/captcha/token/hcaptcha' \
+curl -X POST 'https://api.xhuoapi.ai/v1/captcha/token/hcaptcha' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -113,7 +113,7 @@ curl -X POST 'https://api.acedata.cloud/captcha/token/hcaptcha' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/captcha/token/hcaptcha"
+url = "https://api.xhuoapi.ai/v1/captcha/token/hcaptcha"
 
 headers = {
     "accept": "application/json",

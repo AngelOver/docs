@@ -3,7 +3,7 @@ title: "Luma MCP интеграционное руководство"
 description: "luma MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) — это протокол контекста модели, разработанный компанией Anthropic, который позволяет AI моделям (таким как Claude, GPT и др.) вызывать внешние инструменты через стандартизированный интерфейс. С помощью Luma MCP Server, предоставляемого AceData Cloud, вы можете напрямую генерировать AI видео в таких AI клиентах, как Claude Desktop, VS Code, Cursor и др.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) — это протокол контекста модели, разработанный компанией Anthropic, который позволяет AI моделям (таким как Claude, GPT и др.) вызывать внешние инструменты через стандартизированный интерфейс. С помощью Luma MCP Server, предоставляемого XHuoAPI, вы можете напрямую генерировать AI видео в таких AI клиентах, как Claude Desktop, VS Code, Cursor и др.
 
 ## Обзор функций
 
@@ -18,10 +18,10 @@ Luma MCP Server предоставляет следующие основные �
 
 ## Предварительная подготовка
 
-Перед использованием вам необходимо получить AceData Cloud API Token:
+Перед использованием вам необходимо получить XHuoAPI API Token:
 
-1. Зарегистрируйтесь или войдите на [платформу AceData Cloud](https://platform.acedata.cloud)
-2. Перейдите на страницу [Luma Videos API](https://platform.acedata.cloud/documents/luma-videos)
+1. Зарегистрируйтесь или войдите на [платформу XHuoAPI](https://api.xhuoapi.ai)
+2. Перейдите на страницу [Luma Videos API](https://api.xhuoapi.ai/documents/luma-videos)
 3. Нажмите «Acquire», чтобы получить API Token (при первом запросе предоставляется бесплатный лимит)
 
 ## Установка и настройка
@@ -35,7 +35,7 @@ pip install mcp-luma
 ### Способ 2: установка из исходного кода
 
 ```bash
-git clone https://github.com/AceDataCloud/LumaMCP.git
+git clone https://github.com/XHuoAPI/LumaMCP.git
 cd LumaMCP
 pip install -e .
 ```
@@ -57,7 +57,7 @@ pip install -e .
     "luma": {
       "command": "mcp-luma",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API Token"
+        "XHuoAPI_API_TOKEN": "ваш API Token"
       }
     }
   }
@@ -73,7 +73,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-luma"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API Token"
+        "XHuoAPI_API_TOKEN": "ваш API Token"
       }
     }
   }
@@ -92,7 +92,7 @@ pip install -e .
     "luma": {
       "command": "mcp-luma",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API Token"
+        "XHuoAPI_API_TOKEN": "ваш API Token"
       }
     }
   }
@@ -108,7 +108,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-luma"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API Token"
+        "XHuoAPI_API_TOKEN": "ваш API Token"
       }
     }
   }
@@ -137,6 +137,6 @@ pip install -e .
 
 ## Дополнительная информация
 
-- Репозиторий на GitHub: [AceDataCloud/LumaMCP](https://github.com/AceDataCloud/LumaMCP)
+- Репозиторий на GitHub: [XHuoAPI/LumaMCP](https://github.com/XHuoAPI/LumaMCP)
 - Пакет PyPI: [mcp-luma](https://pypi.org/project/mcp-luma/)
-- Документация API: [API для генерации видео Luma](https://platform.acedata.cloud/documents/luma)
+- Документация API: [API для генерации видео Luma](https://api.xhuoapi.ai/documents/luma)

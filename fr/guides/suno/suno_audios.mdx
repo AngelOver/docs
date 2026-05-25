@@ -1,6 +1,6 @@
 ---
 title: "Documentation de l'API de génération de chansons Suno"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 Avec l'application croissante de l'IA, divers programmes d'IA sont devenus progressivement courants. L'IA s'est progressivement intégrée dans tous les aspects de la vie professionnelle et personnelle des gens. Les secteurs impliqués dans l'IA sont également de plus en plus nombreux, allant de l'écriture initiale, à l'éducation médicale, jusqu'à la musique actuelle.
@@ -19,13 +19,13 @@ Voici l'avancement des mises à jour du modèle :
 
 Suno a récemment mis à jour son modèle de génération musicale vers la version V5, et pour appeler la dernière version V5, il suffit de modifier le paramètre model en `chirp-v5`, ce qui permet de générer des chansons de 9 minutes.
 
-Cependant, Suno n'a pas fourni d'API officielle, AceDataCloud a mis à disposition un ensemble d'API Suno, simulant l'intégration de l'API officielle de Suno, permettant de générer facilement et rapidement la musique souhaitée.
+Cependant, Suno n'a pas fourni d'API officielle, XHuoAPI a mis à disposition un ensemble d'API Suno, simulant l'intégration de l'API officielle de Suno, permettant de générer facilement et rapidement la musique souhaitée.
 
 ## Demande et utilisation
 
-Pour utiliser l'API Suno Audios, vous pouvez d'abord vous rendre sur la page [Suno Audios Generation API](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) et cliquer sur le bouton « Acquire » pour obtenir les informations d'identification nécessaires à la demande :
+Pour utiliser l'API Suno Audios, vous pouvez d'abord vous rendre sur la page [Suno Audios Generation API](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) et cliquer sur le bouton « Acquire » pour obtenir les informations d'identification nécessaires à la demande :
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Si vous n'êtes pas encore connecté ou inscrit, vous serez automatiquement redirigé vers la page de connexion pour vous inviter à vous inscrire et à vous connecter. Après vous être connecté ou inscrit, vous serez automatiquement renvoyé à la page actuelle.
 
@@ -35,7 +35,7 @@ Lors de la première demande, un quota gratuit sera offert, vous permettant d'ut
 
 Pour générer des chansons, vous pouvez entrer n'importe quel texte, par exemple, si je veux générer une chanson sur Noël, je peux entrer `a song for Christmas`, comme illustré ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/2kuuup.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2kuuup.png" width="500" className="m-auto" /></p>
 
 Ici, nous avons configuré les en-têtes de requête, y compris :
 
@@ -69,7 +69,7 @@ De plus, nous avons configuré le corps de la requête, y compris :
 
 Le code généré est le suivant :
 
-<p><img src="https://cdn.acedata.cloud/1xehwl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1xehwl.png" width="500" className="m-auto" /></p>
 
 Vous pouvez cliquer sur le bouton « Try » pour tester directement l'API, attendez 1 à 2 minutes, le résultat est le suivant :
 ```json
@@ -141,7 +141,7 @@ Si vous souhaitez générer des paroles personnalisées, vous pouvez entrer les 
 [Verse]\nDes flocons de neige tombent tout autour\nÉclatant de blanc\nRecouvrant le sol\nDes enfants rient\nPlein de joie\nDans ce pays des merveilles d'hiver ce soir\nLe traîneau du Père Noël\nDans le ciel\nLe nez de Rudolph brille intensément\nOh mon\nEntendez les cloches\nSonner si clairement\nApportant joie et bonne humeur\n[Verse 2]\nRôtissant des châtaignes à la lueur du feu\nLes lumières de Noël\nElles scintillent et montrent\nLes familles se rassemblent avec amour et joie\nRépandant chaleur à tous ceux qui sont proches
 ```
 
-> Remarque, ici les paroles contiennent `\n` qui est un caractère de nouvelle ligne, si vous ne savez pas comment générer des paroles, vous pouvez utiliser l'API de génération de paroles fournie par AceDataCloud pour générer des paroles via un prompt, l'API est [Suno Lyrics Generation API](https://platform.acedata.cloud/documents/514d82dc-f7ab-4638-9f21-8b9275916b08).
+> Remarque, ici les paroles contiennent `\n` qui est un caractère de nouvelle ligne, si vous ne savez pas comment générer des paroles, vous pouvez utiliser l'API de génération de paroles fournie par XHuoAPI pour générer des paroles via un prompt, l'API est [Suno Lyrics Generation API](https://api.xhuoapi.ai/documents/514d82dc-f7ab-4638-9f21-8b9275916b08).
 
 Ensuite, nous devons personnaliser la génération de la chanson en fonction des paroles, du titre, du style, et nous pouvons spécifier le contenu suivant :
 
@@ -152,16 +152,16 @@ Ensuite, nous devons personnaliser la génération de la chanson en fonction des
 
 Un exemple de remplissage est le suivant :
 
-<p><img src="https://cdn.acedata.cloud/qp3iba.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qp3iba.png" width="500" className="m-auto" /></p>
 
 Après avoir rempli, le code généré automatiquement est le suivant :
 
-<p><img src="https://cdn.acedata.cloud/o5haei.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/o5haei.png" width="500" className="m-auto" /></p>
 
 Le code correspondant :
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/suno/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -177,20 +177,20 @@ curl -X POST 'https://api.acedata.cloud/suno/audios' \
 Les tests sont autorisés, l'effet généré est similaire.
 
 ## Fonctionnalité de génération de style de chanteur personnalisé
-Si vous souhaitez générer une chanson en utilisant le style d'un chanteur, commencez par générer une chanson à l'aide de l'utilisation de base mentionnée ci-dessus. Ensuite, vous devez définir cette chanson comme le style du chanteur, puis accéder à l'[API Suno Persona](https://platform.acedata.cloud/documents/78bb6c62-6ce0-490f-a7df-e89d80ec0583) pour générer un paramètre d'ID de style de chanteur `persona_id` à partir de l'ID de musique `audio_id` généré par l'API officielle. Les paramètres spécifiques sont illustrés dans l'image ci-dessous :
+Si vous souhaitez générer une chanson en utilisant le style d'un chanteur, commencez par générer une chanson à l'aide de l'utilisation de base mentionnée ci-dessus. Ensuite, vous devez définir cette chanson comme le style du chanteur, puis accéder à l'[API Suno Persona](https://api.xhuoapi.ai/documents/78bb6c62-6ce0-490f-a7df-e89d80ec0583) pour générer un paramètre d'ID de style de chanteur `persona_id` à partir de l'ID de musique `audio_id` généré par l'API officielle. Les paramètres spécifiques sont illustrés dans l'image ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/pmzo3l.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pmzo3l.png" width="500" className="m-auto" /></p>
 
 Une fois rempli, le code généré automatiquement est le suivant :
 
-<p><img src="https://cdn.acedata.cloud/a5g0nj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a5g0nj.png" width="500" className="m-auto" /></p>
 
 Le code Python correspondant :
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/persona"
+url = "https://api.xhuoapi.ai/v1/suno/persona"
 
 headers = {
     "accept": "application/json",
@@ -221,18 +221,18 @@ En cliquant sur exécuter, vous pouvez constater que vous obtiendrez un résulta
 
 Nous avons utilisé `audio_id` et `persona_id` respectivement comme `97efc9f4-0e8d-4b3e-88df-14568fa1b11f` et `e0d7319e-aa2a-44cb-b00a-916218d7cb0b` pour les données d'exemple. Ensuite, vous pouvez définir le paramètre `action` sur `artist_consistency` (si c'est la nouvelle version du style de chanteur Persona-v2-vox, `action` doit être défini sur `artist_consistency_vox`), et entrer l'ID de la chanson à continuer de générer, ainsi que l'ID de style de chanteur, comme illustré ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/fukijq.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fukijq.png" width="500" className="m-auto" /></p>
 
 Une fois rempli, le code généré automatiquement est le suivant :
 
-<p><img src="https://cdn.acedata.cloud/5uzk9d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5uzk9d.png" width="500" className="m-auto" /></p>
 
 Le code Python correspondant :
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -302,9 +302,9 @@ Si vous souhaitez continuer à générer une chanson Suno déjà créée, vous p
 
 > Notez que l'`id` dans les paroles ici est l'ID de la chanson générée. Si vous ne savez pas comment générer une chanson, vous pouvez vous référer à l'utilisation de base mentionnée ci-dessus pour générer une chanson.
 
-Si vous souhaitez continuer à générer une chanson que vous avez téléchargée, vous pouvez définir le paramètre `action` sur `upload_extend`, et entrer l'ID de la chanson personnalisée à continuer de générer. L'ID de la chanson peut être obtenu en utilisant l'[API de génération de téléchargement Suno](https://platform.acedata.cloud/documents/766db278-012c-43c4-9245-5f18d8dc4d82), comme illustré dans l'image ci-dessous :
+Si vous souhaitez continuer à générer une chanson que vous avez téléchargée, vous pouvez définir le paramètre `action` sur `upload_extend`, et entrer l'ID de la chanson personnalisée à continuer de générer. L'ID de la chanson peut être obtenu en utilisant l'[API de génération de téléchargement Suno](https://api.xhuoapi.ai/documents/766db278-012c-43c4-9245-5f18d8dc4d82), comme illustré dans l'image ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/a0mn5e.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a0mn5e.png" width="500" className="m-auto" /></p>
 
 Ensuite, vous devez remplir les paroles et le style pour générer la chanson personnalisée, en spécifiant les éléments suivants :
 
@@ -315,17 +315,17 @@ Ensuite, vous devez remplir les paroles et le style pour générer la chanson pe
 
 Un exemple de remplissage est illustré ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/zp9s42.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zp9s42.png" width="500" className="m-auto" /></p>
 
 Une fois rempli, le code généré automatiquement est le suivant :
 
-<p><img src="https://cdn.acedata.cloud/wwpw78.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wwpw78.png" width="500" className="m-auto" /></p>
 
 Le code Python correspondant :
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -931,22 +931,22 @@ Le résultat généré est similaire à celui ci-dessus, ce qui complète le pro
 
 L'officiel permet d'utiliser des paramètres avancés `weirdness`==>`Weirdness`、`style_influence`==>`Style Influence`、`audio_weight`==>`Audio Influence` pour la génération en mode personnalisé, correspondant aux exemples officiels suivants :
 
-<p><img src="https://cdn.acedata.cloud/1xonxy.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/1xonxy.png" width="500" class="m-auto"></p>
 
 Les plages des paramètres avancés sont toutes comprises entre 0 et 1, les paramètres spécifiques sont illustrés ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/7i94ih.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/7i94ih.png" width="500" class="m-auto"></p>
 
 Une fois remplis, le code généré automatiquement est le suivant :
 
-<p><img src="https://cdn.acedata.cloud/2dlbo6.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/2dlbo6.png" width="500" class="m-auto"></p>
 
 Le code Python correspondant :
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -1010,13 +1010,13 @@ Ainsi, des chansons personnalisées ont été générées en utilisant des param
 
 ## Fonctionnalité Add Insterumental
 
-En août 2025, suno a lancé la nouvelle fonctionnalité Add Insterumental, il faut d'abord télécharger une chanson a cappella sans accompagnement, pour que suno vous aide à ajouter de la musique. Vous pouvez d'abord vous rendre sur [Suno Upload API](https://platform.acedata.cloud/documents/766db278-012c-43c4-9245-5f18d8dc4d82) pour télécharger une chanson a cappella, les opérations correspondantes sont illustrées ci-dessous :
+En août 2025, suno a lancé la nouvelle fonctionnalité Add Insterumental, il faut d'abord télécharger une chanson a cappella sans accompagnement, pour que suno vous aide à ajouter de la musique. Vous pouvez d'abord vous rendre sur [Suno Upload API](https://api.xhuoapi.ai/documents/766db278-012c-43c4-9245-5f18d8dc4d82) pour télécharger une chanson a cappella, les opérations correspondantes sont illustrées ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/fxl914.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/fxl914.png" width="500" class="m-auto"></p>
 
 Ensuite, il faut enregistrer l'`audio_id` après le téléchargement, le résultat spécifique est illustré ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/47t6wj.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/47t6wj.png" width="500" class="m-auto"></p>
 
 Enfin, on obtient un `audio_id` : 92254cab-3372-4d9e-bce9-cdcfdbc39070, puis nous devons remplir les paramètres suivants :
 
@@ -1028,14 +1028,14 @@ Enfin, on obtient un `audio_id` : 92254cab-3372-4d9e-bce9-cdcfdbc39070, puis nou
 
 Une fois remplis, le code généré automatiquement est le suivant :
 
-<p><img src="https://cdn.acedata.cloud/8x1ic6.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/8x1ic6.png" width="500" class="m-auto"></p>
 
 Le code Python correspondant :
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -1097,13 +1097,13 @@ Ainsi, l'opération d'ajout de musique à la chanson a cappella téléchargée e
 
 ## Fonction Ajouter des Voix
 
-En août 2025, suno a lancé la nouvelle fonction Ajouter des Voix, il faut d'abord télécharger une musique instrumentale, puis suno remplira les paroles et produira le chant vocal. Vous pouvez d'abord vous rendre sur [Suno Upload API](https://platform.acedata.cloud/documents/766db278-012c-43c4-9245-5f18d8dc4d82) pour télécharger une chanson a cappella sans accompagnement, les opérations correspondantes sont illustrées ci-dessous :
+En août 2025, suno a lancé la nouvelle fonction Ajouter des Voix, il faut d'abord télécharger une musique instrumentale, puis suno remplira les paroles et produira le chant vocal. Vous pouvez d'abord vous rendre sur [Suno Upload API](https://api.xhuoapi.ai/documents/766db278-012c-43c4-9245-5f18d8dc4d82) pour télécharger une chanson a cappella sans accompagnement, les opérations correspondantes sont illustrées ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/fxl914.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fxl914.png" width="500" className="m-auto" /></p>
 
 Ensuite, il faut enregistrer l'`audio_id` après le téléchargement, le résultat spécifique est illustré ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/47t6wj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/47t6wj.png" width="500" className="m-auto" /></p>
 
 Enfin, nous avons obtenu un `audio_id` : 92254cab-3372-4d9e-bce9-cdcfdbc39070, puis nous devons remplir les paramètres suivants :
 
@@ -1117,14 +1117,14 @@ Enfin, nous avons obtenu un `audio_id` : 92254cab-3372-4d9e-bce9-cdcfdbc39070, p
 
 Une fois rempli, le code suivant a été généré automatiquement :
 
-<p><img src="https://cdn.acedata.cloud/a4pbes.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a4pbes.png" width="500" className="m-auto" /></p>
 
 Code Python correspondant :
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -1196,13 +1196,13 @@ En décembre 2025, suno a lancé la nouvelle fonction Remaster, cette fonction p
 
 Une fois rempli, le code suivant a été généré automatiquement :
 
-<p><img src="https://cdn.acedata.cloud/7h4zmw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7h4zmw.png" width="500" className="m-auto" /></p>
 
 Code Python correspondant :
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -1271,14 +1271,14 @@ En décembre 2025, suno a lancé la nouvelle fonction Mashup, qui peut générer
 
 Une fois rempli, le code généré automatiquement est comme suit :
 
-<p><img src="https://cdn.acedata.cloud/8mo82l.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8mo82l.png" width="500" className="m-auto" /></p>
 
 Le code Python correspondant :
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -1350,13 +1350,13 @@ Voyons maintenant un exemple pour comprendre comment procéder concrètement.
 
 Tout d'abord, le rappel Webhook est un service capable de recevoir des requêtes HTTP, les développeurs doivent le remplacer par l'URL de leur propre serveur HTTP. Ici, pour des raisons de démonstration, nous utilisons un site Web de Webhook public https://webhook.site/, en ouvrant ce site, vous obtiendrez une URL Webhook, comme illustré ci-dessous :
 
-![](https://cdn.acedata.cloud/fwfqin.png)
+![](https://cdn.xhuoapi.ai/fwfqin.png)
 
 Copiez cette URL, vous pouvez l'utiliser comme Webhook, l'exemple ici est https://webhook.site/03e60575-3d96-4132-b681-b713d78116e2.
 
 Ensuite, nous pouvons définir le champ `callback_url` sur l'URL Webhook ci-dessus, tout en remplissant `prompt`, comme illustré ci-dessous :
 
-![](https://cdn.acedata.cloud/x8xql1.png)
+![](https://cdn.xhuoapi.ai/x8xql1.png)
 
 En cliquant sur exécuter, vous pouvez constater que vous obtiendrez immédiatement un résultat, comme suit :
 
@@ -1368,7 +1368,7 @@ En cliquant sur exécuter, vous pouvez constater que vous obtiendrez immédiatem
 
 Après un moment, nous pouvons observer le résultat de la chanson générée sur https://webhook.site/03e60575-3d96-4132-b681-b713d78116e2, comme illustré ci-dessous :
 
-![](https://cdn.acedata.cloud/f9kosb.png)
+![](https://cdn.xhuoapi.ai/f9kosb.png)
 
 Le contenu est le suivant :
 ```json
@@ -1408,7 +1408,7 @@ On peut voir que le résultat contient un champ `task_id`, les autres champs ét
 
 Bien sûr, nous pouvons également obtenir des résultats par appel en continu, il suffit de définir la valeur de `accept` dans l'en-tête de la requête sur `application/x-ndjson`, ci-dessous un exemple d'entrée comme démonstration :
 
-<p><img src="https://cdn.acedata.cloud/vgffvk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vgffvk.png" width="500" className="m-auto" /></p>
 
 En attendant, nous pouvons obtenir la sortie suivante :
 

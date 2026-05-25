@@ -1,15 +1,15 @@
 ---
 title: "Instruções para Integração da API Kling Videos Generation"
-description: "Kling video generation 集成指南 - Ace Data Cloud"
+description: "Kling video generation 集成指南 - XHuoAPI"
 ---
 
 Este documento apresenta as instruções para integração da API Kling Videos Generation, que permite gerar vídeos oficiais Kling a partir de parâmetros personalizados.
 
 ## Processo de Solicitação
 
-Para usar a API, é necessário solicitar o serviço na página correspondente do [Kling Videos Generation API](https://platform.acedata.cloud/documents/3b921a16-a411-4557-8335-53f21d3f9e46). Ao acessar a página, clique no botão "Acquire", conforme mostrado na imagem:
+Para usar a API, é necessário solicitar o serviço na página correspondente do [Kling Videos Generation API](https://api.xhuoapi.ai/documents/3b921a16-a411-4557-8335-53f21d3f9e46). Ao acessar a página, clique no botão "Acquire", conforme mostrado na imagem:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Se você ainda não estiver logado ou registrado, será redirecionado automaticamente para a página de login para se registrar e entrar. Após o login, você será redirecionado de volta à página atual.
 
@@ -19,7 +19,7 @@ Na primeira solicitação, um crédito gratuito será concedido, permitindo o us
 
 Primeiro, entenda o modo básico de uso: forneça o prompt, a ação `action`, a imagem de referência inicial `start_image_url` e o modelo `model` para obter o resultado processado. Inicialmente, é necessário passar o campo `action` com o valor `text2video`, que inclui três tipos de ação: texto para vídeo (`text2video`), imagem para vídeo (`image2video`) e extensão de vídeo (`extend`). Também é necessário informar o modelo `model`. Atualmente, os principais modelos disponíveis são: `kling-v1`, `kling-v1-6`, `kling-v2-master`, `kling-v2-1-master`, `kling-v2-5-turbo`, `kling-v2-6`, `kling-v3`, `kling-v3-omni` e `kling-video-o1`. Veja detalhes abaixo:
 
-<p><img src="https://cdn.acedata.cloud/ke1bok.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ke1bok.png" width="500" className="m-auto" /></p>
 
 Aqui configuramos os Headers da Requisição, incluindo:
 
@@ -46,7 +46,7 @@ Também configuramos o Body da Requisição, incluindo:
 
 Após a seleção, o código correspondente é gerado à direita, conforme imagem:
 
-<p><img src="https://cdn.acedata.cloud/3yjql0.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3yjql0.png" width="500" className="m-auto" /></p>
 
 Clique no botão "Try" para testar. O resultado obtido será:
 
@@ -75,7 +75,7 @@ Assim, você obtém as informações do vídeo gerado e pode acessar o vídeo Kl
 Para gerar o código de integração, você pode copiar diretamente o código gerado, por exemplo, o código CURL:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/kling/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -117,7 +117,7 @@ Observações:
 
 Para continuar a geração de um vídeo Kling já criado, defina o parâmetro `action` como `extend` e informe o ID do vídeo a ser estendido. O ID do vídeo pode ser obtido conforme o uso básico, conforme a imagem:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 O ID do vídeo é:
 
@@ -137,18 +137,18 @@ Em seguida, preencha o prompt para a extensão do vídeo, podendo definir:
 
 Exemplo de preenchimento:
 
-<p><img src="https://cdn.acedata.cloud/ejimqy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ejimqy.png" width="500" className="m-auto" /></p>
 
 O código gerado automaticamente é:
 
-<p><img src="https://cdn.acedata.cloud/52x4u5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/52x4u5.png" width="500" className="m-auto" /></p>
 
 Código Python correspondente:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kling/videos"
+url = "https://api.xhuoapi.ai/v1/kling/videos"
 
 headers = {
     "accept": "application/json",
@@ -193,13 +193,13 @@ Veja um exemplo prático.
 
 Primeiro, o webhook callback é um serviço que recebe requisições HTTP. O desenvolvedor deve substituir pelo URL do seu servidor HTTP. Para demonstração, usamos o site público https://webhook.site/, que gera um URL de webhook, conforme imagem:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Copie esse URL, por exemplo `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`, para usar como webhook.
 
 Depois, configure o campo `callback_url` com esse URL e preencha os demais parâmetros, conforme imagem:
 
-<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vdx12s.png" width="500" className="m-auto" /></p>
 
 Ao executar, o resultado imediato será:
 
@@ -211,7 +211,7 @@ Ao executar, o resultado imediato será:
 
 Após alguns instantes, você poderá ver o resultado da geração do vídeo no site https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3, conforme imagem:
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 Conteúdo do callback:
 

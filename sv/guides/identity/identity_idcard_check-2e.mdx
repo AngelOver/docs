@@ -1,15 +1,15 @@
 ---
 title: "Identitetsinformation och giltighetsverifiering API integration beskrivning"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Denna artikel kommer att introducera en identitetsinformation och giltighetsverifiering API integration beskrivning, som kan användas för att verifiera äktheten och överensstämmelsen av namn, ID-nummer och ID-giltighet.
 
 ## Ansökningsprocess
 
-För att använda API:et måste du först gå till [Identitetsinformation och giltighetsverifiering API](https://platform.acedata.cloud/documents/667017a4-017f-4af0-870e-807034f70632) motsvarande sida för att ansöka om den tjänst som behövs. När du kommer till sidan, klicka på "Acquire" knappen, som visas i bilden nedan:
+För att använda API:et måste du först gå till [Identitetsinformation och giltighetsverifiering API](https://api.xhuoapi.ai/documents/667017a4-017f-4af0-870e-807034f70632) motsvarande sida för att ansöka om den tjänst som behövs. När du kommer till sidan, klicka på "Acquire" knappen, som visas i bilden nedan:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Om du inte har loggat in eller registrerat dig, kommer du automatiskt att omdirigeras till inloggningssidan som bjuder in dig att registrera dig och logga in. Efter inloggning och registrering kommer du automatiskt att återvända till den aktuella sidan.
 
@@ -19,7 +19,7 @@ Vid första ansökan kommer det att finnas en gratis kvot som ges, så att du ka
 
 Först bör du förstå den grundläggande användningsmetoden, vilket är att ange en länk till ID-bild, så får du verifieringsresultatet efter bearbetning. Först behöver du enkelt skicka ett `name` fält, och vi kan sedan fylla i motsvarande innehåll på gränssnittet, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/llvy1l.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/llvy1l.png" width="500" className="m-auto" /></p>
 
 Här kan vi se att vi har ställt in Request Headers, inklusive:
 
@@ -37,7 +37,7 @@ Dessutom har vi ställt in Request Body, inklusive:
 
 När du har valt kan du se att motsvarande kod också genererades till höger, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/l77q0u.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/l77q0u.png" width="500" className="m-auto" /></p>
 
 Klicka på "Try" knappen för att utföra testet, som visas i bilden ovan, här får vi följande resultat:
 
@@ -68,7 +68,7 @@ Det kan ses att namnet, ID-numret och ID-giltigheten i ID-kortet har äkthet och
 Om du vill generera motsvarande integrationskod kan du direkt kopiera den som genererats, till exempel CURL-koden nedan:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/idcard/check-2e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/idcard/check-2e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -85,7 +85,7 @@ Python integrationskoden ser ut så här:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/idcard/check-2e"
+url = "https://api.xhuoapi.ai/v1/identity/idcard/check-2e"
 
 headers = {
     "accept": "application/json",

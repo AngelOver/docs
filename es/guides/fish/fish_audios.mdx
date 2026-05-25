@@ -1,15 +1,15 @@
 ---
 title: "Instrucciones de integración de la API de generación de audios de Fish"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 Este documento presentará una guía sobre la integración de la API de generación de audios de Fish, que permite clonar su propio tono de voz mediante la entrada de palabras clave.
 
 ## Proceso de solicitud
 
-Para utilizar la API, primero debe ir a la página correspondiente de la [API de generación de audios de Fish](https://platform.acedata.cloud/documents/e681b715-54fd-4464-a59a-d7f14500e095) para solicitar el servicio correspondiente. Una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
+Para utilizar la API, primero debe ir a la página correspondiente de la [API de generación de audios de Fish](https://api.xhuoapi.ai/documents/e681b715-54fd-4464-a59a-d7f14500e095) para solicitar el servicio correspondiente. Una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Si aún no ha iniciado sesión o registrado, será redirigido automáticamente a la página de inicio de sesión, invitándolo a registrarse e iniciar sesión. Después de registrarse e iniciar sesión, será redirigido automáticamente a la página actual.
 
@@ -19,7 +19,7 @@ En la primera solicitud, se le otorgará un crédito gratuito, lo que le permiti
 
 Primero, debe comprender la forma básica de uso, que consiste en ingresar la palabra clave `prompt`, la acción de clonación `action`, el ID de voz `voice_id` y el modelo `model`, para obtener el resultado procesado. Primero, necesita pasar un campo `action`, cuyo valor será `generate`, luego también necesitamos ingresar el modelo `model`, que actualmente es principalmente el modelo `fish-tts`, el contenido específico es el siguiente:
 
-<p><img src="https://cdn.acedata.cloud/0jnfqb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0jnfqb.png" width="500" className="m-auto" /></p>
 
 Aquí podemos ver que hemos configurado los encabezados de la solicitud, que incluyen:
 
@@ -36,7 +36,7 @@ Además, se configuró el cuerpo de la solicitud, que incluye:
 
 Después de seleccionar, puede notar que también se generó el código correspondiente a la derecha, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/8uyos2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8uyos2.png" width="500" className="m-auto" /></p>
 
 Haga clic en el botón "Try" para realizar la prueba, como se muestra en la imagen anterior, y obtendremos el siguiente resultado:
 
@@ -64,7 +64,7 @@ Como puede ver, hemos obtenido información de voz satisfactoria, solo necesitam
 Además, si desea generar el código de integración correspondiente, puede copiarlo directamente, por ejemplo, el código de CURL es el siguiente:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -86,13 +86,13 @@ A continuación, entenderemos cómo operar a través de un ejemplo.
 
 Primero, el callback de Webhook es un servicio que puede recibir solicitudes HTTP, y el desarrollador debe reemplazarlo con la URL de su propio servidor HTTP. Para facilitar la demostración, utilizamos un sitio web de muestra de Webhook público https://webhook.site/, al abrir este sitio obtendrá una URL de Webhook, como se muestra en la imagen:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Copie esta URL y podrá usarla como Webhook, el ejemplo aquí es `https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34`.
 
 A continuación, podemos establecer el campo `callback_url` como la URL de Webhook anterior, al mismo tiempo que ingresamos los parámetros correspondientes, el contenido específico es como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/8rv4te.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8rv4te.png" width="500" className="m-auto" /></p>
 
 Haga clic en ejecutar, y puede notar que recibirá inmediatamente un resultado, como el siguiente:
 
@@ -104,7 +104,7 @@ Haga clic en ejecutar, y puede notar que recibirá inmediatamente un resultado, 
 
 Después de un momento, podemos observar el resultado de la tarea generada en `https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34`, como se muestra en la imagen:
 
-![](https://cdn.acedata.cloud/9utzve.png)
+![](https://cdn.xhuoapi.ai/9utzve.png)
 
 El contenido es el siguiente:
 

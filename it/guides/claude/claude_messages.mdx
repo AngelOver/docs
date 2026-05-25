@@ -1,6 +1,6 @@
 ---
 title: "Claude Messages API richiesta e utilizzo"
-description: "Claude AI 集成指南 - Ace Data Cloud"
+description: "Claude AI 集成指南 - XHuoAPI"
 ---
 
 Anthropic Claude è un sistema di dialogo AI molto potente, in grado di generare risposte fluide e naturali in pochi secondi semplicemente inserendo un prompt. Claude Messages API è il formato API nativo ufficiale di Anthropic, che, a differenza del formato compatibile con OpenAI (Chat Completion), utilizza una struttura di richiesta e risposta proprietaria di Anthropic, in grado di sfruttare meglio le capacità uniche di Claude, come l'input di contenuti multimodali, le chiamate agli strumenti, il pensiero profondo (Extended Thinking) e altre caratteristiche avanzate.
@@ -9,9 +9,9 @@ Questo documento descrive principalmente il processo di utilizzo dell'API Claude
 
 ## Processo di richiesta
 
-Per utilizzare Claude Messages API, puoi prima andare alla pagina [Claude Messages API](https://platform.acedata.cloud/documents/280928a2-2dce-419c-adb5-1ea835e8183a) e cliccare sul pulsante "Acquire" per ottenere le credenziali necessarie per la richiesta:
+Per utilizzare Claude Messages API, puoi prima andare alla pagina [Claude Messages API](https://api.xhuoapi.ai/documents/280928a2-2dce-419c-adb5-1ea835e8183a) e cliccare sul pulsante "Acquire" per ottenere le credenziali necessarie per la richiesta:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Se non hai ancora effettuato il login o la registrazione, verrai automaticamente reindirizzato alla pagina di login che ti invita a registrarti e accedere; dopo aver effettuato il login o la registrazione, verrai automaticamente riportato alla pagina corrente.
 
@@ -39,7 +39,7 @@ Parametri opzionali comuni:
 ### Esempio cURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/v1/messages' \
+curl -X POST 'https://api.xhuoapi.ai/v1/v1/messages' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -60,7 +60,7 @@ curl -X POST 'https://api.acedata.cloud/v1/messages' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -123,7 +123,7 @@ Claude Messages API supporta la definizione di prompt di sistema tramite il camp
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -155,7 +155,7 @@ Questa interfaccia supporta anche la risposta in streaming; impostando il parame
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -234,7 +234,7 @@ const options = {
   }),
 };
 
-const response = await fetch("https://api.acedata.cloud/v1/messages", options);
+const response = await fetch("https://api.xhuoapi.ai/v1/v1/messages", options);
 const reader = response.body.getReader();
 const decoder = new TextDecoder();
 
@@ -254,7 +254,7 @@ Se desideri integrare la funzionalità di conversazione multipla, devi alternare
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -310,7 +310,7 @@ Claude supporta la funzionalità di Pensiero Esteso, che consente al modello di 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -381,7 +381,7 @@ Claude supporta input multimodali, in grado di gestire contemporaneamente testo 
 import base64
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -425,7 +425,7 @@ print(response.json())
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -463,7 +463,7 @@ print(response.json())
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -482,7 +482,7 @@ payload = {
                     "type": "image",
                     "source": {
                         "type": "url",
-                        "url": "https://cdn.acedata.cloud/ueugot.png"
+                        "url": "https://cdn.xhuoapi.ai/ueugot.png"
                     }
                 },
                 {
@@ -501,7 +501,7 @@ print(response.json())
 ### cURL 示例
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/v1/messages' \
+curl -X POST 'https://api.xhuoapi.ai/v1/v1/messages' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -516,7 +516,7 @@ curl -X POST 'https://api.acedata.cloud/v1/messages' \
             "type": "image",
             "source": {
               "type": "url",
-              "url": "https://cdn.acedata.cloud/ueugot.png"
+              "url": "https://cdn.xhuoapi.ai/ueugot.png"
             }
           },
           {
@@ -563,7 +563,7 @@ L'API dei messaggi di Claude supporta nativamente la funzionalità di chiamata d
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -682,7 +682,7 @@ Il modello genererà una risposta finale in linguaggio naturale basata sul risul
 
 ## Differenze con l'API di completamento chat
 
-Ace Data Cloud offre due formati di API Claude, le principali differenze sono le seguenti:
+XHuoAPI offre due formati di API Claude, le principali differenze sono le seguenti:
 
 | Caratteristica | API dei messaggi (`/v1/messages`) | API di completamento chat (`/v1/chat/completions`) |
 | -------------- | ---------------------------------- | -------------------------------------------------- |

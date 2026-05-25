@@ -1,6 +1,6 @@
 ---
 title: "Flux Tasks API 的對接和使用"
-description: "Flux Image Generation 集成指南 - Ace Data Cloud"
+description: "Flux Image Generation 集成指南 - XHuoAPI"
 ---
 
 Flux Tasks API 的主要功能是通過輸入 Flux Images Generation API 生成的任務ID來查詢該任務的執行情況。
@@ -9,27 +9,27 @@ Flux Tasks API 的主要功能是通過輸入 Flux Images Generation API 生成�
 
 ## 申請流程
 
-要使用 Flux Tasks API，需要先到 申請頁面 [Flux Images Generation API ](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394)申請相應的服務，然後複製 Flux Images Generation API的任務ID，如圖所示：
+要使用 Flux Tasks API，需要先到 申請頁面 [Flux Images Generation API ](https://api.xhuoapi.ai/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394)申請相應的服務，然後複製 Flux Images Generation API的任務ID，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/7furhb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7furhb.png" width="500" className="m-auto" /></p>
 
-最後進入Flux Tasks API頁面 [Flux Tasks API ](https://platform.acedata.cloud/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b)申請相應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示
+最後進入Flux Tasks API頁面 [Flux Tasks API ](https://api.xhuoapi.ai/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b)申請相應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示
 
-![申請頁面](https://cdn.acedata.cloud/rci31i.png)
+![申請頁面](https://cdn.xhuoapi.ai/rci31i.png)
 
-如果您尚未登錄或註冊，會自動跳轉到[登錄頁面](https://platform.acedata.cloud)邀請您來註冊和登錄，登錄註冊之後會自動返回當前頁面。
+如果您尚未登錄或註冊，會自動跳轉到[登錄頁面](https://api.xhuoapi.ai)邀請您來註冊和登錄，登錄註冊之後會自動返回當前頁面。
 
 首次申請時會有免費額度贈送，可以免費使用該 API。
 
 ## 請求示例
 
-Flux Tasks API 可以用於查詢 Flux Images Generation API 的結果。關於怎樣使用 Flux Images Generation API，請參考文檔 [Flux Images Generation API ](https://platform.acedata.cloud/documents/flux-images-integration)。
+Flux Tasks API 可以用於查詢 Flux Images Generation API 的結果。關於怎樣使用 Flux Images Generation API，請參考文檔 [Flux Images Generation API ](https://api.xhuoapi.ai/documents/flux-images-integration)。
 
 我們以 Flux Images Generation API 服務返回的任務ID一個為例，演示如何使用該 API。假設我們有一個任務ID：2db0168c-2373-4367-8d9a-9dc778802e8a，接下來演示如何通過傳入一個任務ID來。
 
 ### 任務示例圖
 
-<p><img src="https://cdn.acedata.cloud/7furhb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7furhb.png" width="500" className="m-auto" /></p>
 
 ### 設置請求頭和請求體
 
@@ -45,20 +45,20 @@ Flux Tasks API 可以用於查詢 Flux Images Generation API 的結果。關於�
 
 設置如下圖所示：
 
-<p><img src="https://cdn.acedata.cloud/fiasxz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fiasxz.png" width="500" className="m-auto" /></p>
 
 ### 代碼示例
 
 可以發現，在頁面右側已經自動生成了各種語言的代碼，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/j6gn86.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/j6gn86.png" width="500" className="m-auto" /></p>
 
 部分代碼示例如下：
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/flux/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/flux/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/tasks"
+url = "https://api.xhuoapi.ai/v1/flux/tasks"
 
 headers = {
     "accept": "application/json",
@@ -144,13 +144,13 @@ print(response.text)
 
 設置如下圖所示：
 
-<p><img src="https://cdn.acedata.cloud/k3i9ns.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/k3i9ns.png" width="500" className="m-auto" /></p>
 
 ### 代碼示例
 
 可以發現，在頁面右側已經自動生成了各種語言的代碼，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/pt5fww.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pt5fww.png" width="500" className="m-auto" /></p>
 
 部分代碼示例如下：
 
@@ -233,7 +233,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/flux/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -248,7 +248,7 @@ curl -X POST 'https://api.acedata.cloud/flux/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/tasks"
+url = "https://api.xhuoapi.ai/v1/flux/tasks"
 
 headers = {
     "accept": "application/json",

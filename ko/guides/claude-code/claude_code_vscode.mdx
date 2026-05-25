@@ -1,17 +1,17 @@
 ---
 title: "Claude Code for VS Code 사용 튜토리얼"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code는 Anthropic이 출시한 **Agentic Coding** 도구로, 세계에서 가장 강력한 프로그래밍 에이전트 중 하나로 알려져 있습니다. Claude Code의 VS Code 확장은 원주율 그래픽 인터페이스를 제공하며, 인라인 Diff 보기, `@`-멘션 참조, 계획 검토 등의 기능을 지원하여 VS Code에서 Claude Code를 사용하는 추천 방법입니다.
 
-이 문서는 AceData Cloud의 프록시 서비스를 통해 VS Code에서 Claude Code 확장을 구성하고 사용하는 방법을 주로 설명합니다.
+이 문서는 XHuoAPI의 프록시 서비스를 통해 VS Code에서 Claude Code 확장을 구성하고 사용하는 방법을 주로 설명합니다.
 
 ## 신청 절차
 
-Claude Code를 사용하려면 먼저 [Claude Messages 서비스 페이지](https://platform.acedata.cloud/documents/claude-messages)에서 "Acquire" 버튼을 클릭하여 요청에 필요한 자격 증명을 얻을 수 있습니다:
+Claude Code를 사용하려면 먼저 [Claude Messages 서비스 페이지](https://api.xhuoapi.ai/documents/claude-messages)에서 "Acquire" 버튼을 클릭하여 요청에 필요한 자격 증명을 얻을 수 있습니다:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 로그인 또는 등록하지 않은 경우 자동으로 로그인 페이지로 리디렉션되어 등록 및 로그인을 초대합니다. 로그인 후에는 자동으로 현재 페이지로 돌아옵니다.
 
@@ -27,7 +27,7 @@ Claude Code를 사용하려면 먼저 [Claude Messages 서비스 페이지](http
 
 VS Code / Cursor의 확장 마켓에서 `Cmd+Shift+X` (Mac) 또는 `Ctrl+Shift+X` (Windows/Linux)를 눌러 확장 보기를 열고 **Claude Code**를 검색하여 Anthropic 공식에서 발행한 플러그인을 찾아 "Install"을 클릭하여 설치합니다:
 
-![VS Code Marketplace의 Claude Code 플러그인](https://cdn.acedata.cloud/10ddf71320.png)
+![VS Code Marketplace의 Claude Code 플러그인](https://cdn.xhuoapi.ai/10ddf71320.png)
 
 다음 링크를 통해 직접 설치할 수도 있습니다:
 
@@ -38,9 +38,9 @@ VS Code / Cursor의 확장 마켓에서 `Cmd+Shift+X` (Mac) 또는 `Ctrl+Shift+X
 
 > 설치 후 확장이 나타나지 않으면 VS Code를 재시작하거나 명령 팔레트에서 "Developer: Reload Window"를 실행하세요.
 
-## AceData Cloud API 구성
+## XHuoAPI API 구성
 
-플러그인을 처음 열면 Anthropic 공식 계정으로 로그인하라는 메시지가 표시됩니다. 우리는 공식 로그인을 건너뛰고 AceData Cloud의 프록시 API를 구성하여 사용할 수 있습니다. **공식 구독이 필요 없습니다.**
+플러그인을 처음 열면 Anthropic 공식 계정으로 로그인하라는 메시지가 표시됩니다. 우리는 공식 로그인을 건너뛰고 XHuoAPI의 프록시 API를 구성하여 사용할 수 있습니다. **공식 구독이 필요 없습니다.**
 
 ### 단계 1: 환경 변수 구성
 
@@ -48,13 +48,13 @@ VS Code / Cursor의 확장 마켓에서 `Cmd+Shift+X` (Mac) 또는 `Ctrl+Shift+X
 
 **옵션 A: 사용자 수준 구성 (모든 프로젝트에 적용)**
 
-`~/.claude/settings.json`을 편집합니다 (존재하지 않으면 생성) `env` 구성을 추가하고 `{token}`을 AceData Cloud 콘솔에서 가져온 API 토큰으로 교체합니다:
+`~/.claude/settings.json`을 편집합니다 (존재하지 않으면 생성) `env` 구성을 추가하고 `{token}`을 XHuoAPI 콘솔에서 가져온 API 토큰으로 교체합니다:
 
 ```json
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
@@ -67,12 +67,12 @@ VS Code / Cursor의 확장 마켓에서 `Cmd+Shift+X` (Mac) 또는 `Ctrl+Shift+X
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **팁**: API 토큰은 [AceData Cloud 콘솔](https://platform.acedata.cloud/console)에서 확인할 수 있습니다. `ANTHROPIC_AUTH_TOKEN`의 값은 자동으로 `Bearer` 접두사가 추가되어 서버로 전송됩니다. 프로젝트 수준 구성은 사용자 수준 구성보다 우선합니다. 팀 프로젝트에서는 `.claude/settings.json` 공유 구성을 사용하는 것이 좋으며, 개인 민감 정보는 `.claude/settings.local.json`에 보관하세요.
+> **팁**: API 토큰은 [XHuoAPI 콘솔](https://api.xhuoapi.ai/console)에서 확인할 수 있습니다. `ANTHROPIC_AUTH_TOKEN`의 값은 자동으로 `Bearer` 접두사가 추가되어 서버로 전송됩니다. 프로젝트 수준 구성은 사용자 수준 구성보다 우선합니다. 팀 프로젝트에서는 `.claude/settings.json` 공유 구성을 사용하는 것이 좋으며, 개인 민감 정보는 `.claude/settings.local.json`에 보관하세요.
 
 ### 단계 2: 로그인 메시지 비활성화 (선택 사항)
 
@@ -95,7 +95,7 @@ VS Code / Cursor의 확장 마켓에서 `Cmd+Shift+X` (Mac) 또는 `Ctrl+Shift+X
 
 Cursor / Copilot 등의 도구가 사이드바를 사용하는 것과 달리, Claude Code는 기본적으로 **편집 영역 보기**를 채팅 영역으로 사용하여 가시 영역이 더 크고 내용 표시가 더 풍부합니다. 패널을 사이드바나 다른 위치로 드래그할 수도 있습니다.
 
-![VS Code의 Claude Code 패널](https://cdn.acedata.cloud/b84b878420.jpg)
+![VS Code의 Claude Code 패널](https://cdn.xhuoapi.ai/b84b878420.jpg)
 
 ## 기본 사용
 
@@ -110,7 +110,7 @@ Claude Code 패널에서 자연어로 직접 입력하여 Claude와 상호작용
 
 Claude Code는 자동으로 코드베이스의 맥락을 이해하고 파일 간 분석 및 편집을 수행합니다. Claude가 파일을 수정해야 할 경우, Diff 비교 보기를 표시하며, 수정 사항을 수락하거나 거부할 수 있습니다.
 
-![VS Code의 Claude Code 대화 및提示](https://cdn.acedata.cloud/650377f5cc.png)
+![VS Code의 Claude Code 대화 및提示](https://cdn.xhuoapi.ai/650377f5cc.png)
 
 ### 맥락 참조
 
@@ -146,7 +146,7 @@ Claude Code는 자동으로 코드베이스의 맥락을 이해하고 파일 간
 ### 코드 변경 검토
 
 Claude가 파일을 수정해야 할 경우, Diff 비교 보기를 표시하여 원본 코드와 수정된 코드의 비교를 보여줍니다. 각 수정 사항을 수락하거나 거부할 수 있으며, Claude에게 원하는 다른 방법을 알려줄 수도 있습니다:
-![VS Code 중의 Diff 비교 뷰](https://cdn.acedata.cloud/c42381ea9f.png)
+![VS Code 중의 Diff 비교 뷰](https://cdn.xhuoapi.ai/c42381ea9f.png)
 
 ### 권한 모드
 
@@ -186,8 +186,8 @@ Claude Code는 Claude Sonnet, Claude Opus 등 다양한 모델 전환을 지원�
 ### 연결 실패 시 어떻게 하나요?
 
 1. `~/.claude/settings.json` 또는 `.claude/settings.json`에서 환경 변수 설정이 올바른지 확인, 특히 `ANTHROPIC_AUTH_TOKEN` 및 `ANTHROPIC_BASE_URL`
-2. API 토큰이 유효한지 확인 ( [콘솔](https://platform.acedata.cloud/console)에서 확인 가능)
-3. 네트워크 연결이 정상인지 확인하고 `https://api.acedata.cloud`에 접근할 수 있는지 확인
+2. API 토큰이 유효한지 확인 ( [콘솔](https://api.xhuoapi.ai/console)에서 확인 가능)
+3. 네트워크 연결이 정상인지 확인하고 `https://api.xhuoapi.ai/v1`에 접근할 수 있는지 확인
 4. VS Code를 재시작한 후 다시 시도
 
 ### Spark 아이콘이 나타나지 않나요?
@@ -199,11 +199,11 @@ Claude Code는 Claude Sonnet, Claude Opus 등 다양한 모델 전환을 지원�
 
 ### 잔여 한도를 어떻게 확인하나요?
 
-[AceData Cloud 콘솔](https://platform.acedata.cloud/console)에 로그인하면 현재 계정의 잔여 한도와 사용 현황을 확인할 수 있습니다.
+[XHuoAPI 콘솔](https://api.xhuoapi.ai/console)에 로그인하면 현재 계정의 잔여 한도와 사용 현황을 확인할 수 있습니다.
 
 ## 더 알아보기
 
 - 📖 [Claude Code VS Code 공식 문서](https://code.claude.com/docs/en/vs-code)
 - ⌨️ [VS Code 명령 및 단축키 참고](https://code.claude.com/docs/en/vs-code#vs-code-commands-and-shortcuts)
-- 🔧 [AceData Cloud Claude Code 서비스](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code 서비스](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 질문이 있으시면 플랫폼 고객 서비스에 문의해 주시기 바랍니다.

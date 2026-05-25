@@ -1,15 +1,15 @@
 ---
 title: "Οδηγίες Ενσωμάτωσης Fish Model Get API"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 Αυτό το έγγραφο παρουσιάζει τις οδηγίες ενσωμάτωσης για το Fish Model Get API (`GET /fish/model/{id}`), το οποίο είναι πλήρως συμβατό με το [επίσημο OpenAPI του Fish Audio](https://docs.fish.audio/resources/api-reference/model) και χρησιμοποιείται για **την ανάκτηση πλήρων λεπτομερειών ενός μεμονωμένου κλωνοποιημένου ηχητικού προφίλ βάσει του ID του ήχου**.
 
-> Για τη δημιουργία ηχητικού προφίλ, ανατρέξτε στο [Fish Model Create API](https://platform.acedata.cloud/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a), και για σελιδοποιημένη λίστα αναζήτησης, δείτε το [Fish Model Query API](https://platform.acedata.cloud/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d).
+> Για τη δημιουργία ηχητικού προφίλ, ανατρέξτε στο [Fish Model Create API](https://api.xhuoapi.ai/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a), και για σελιδοποιημένη λίστα αναζήτησης, δείτε το [Fish Model Query API](https://api.xhuoapi.ai/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d).
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το API, πρέπει πρώτα να κάνετε αίτηση για την αντίστοιχη υπηρεσία στη σελίδα [Fish Model API](https://platform.acedata.cloud/services/caf99abc-ddcf-4714-b2a5-862d9b469509). Αφού μπείτε στη σελίδα, πατήστε το κουμπί «Acquire».
+Για να χρησιμοποιήσετε το API, πρέπει πρώτα να κάνετε αίτηση για την αντίστοιχη υπηρεσία στη σελίδα [Fish Model API](https://api.xhuoapi.ai/services/caf99abc-ddcf-4714-b2a5-862d9b469509). Αφού μπείτε στη σελίδα, πατήστε το κουμπί «Acquire».
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα ανακατευθυνθείτε αυτόματα στη σελίδα σύνδεσης για να εγγραφείτε και να συνδεθείτε. Μετά τη σύνδεση ή εγγραφή, θα επιστρέψετε αυτόματα στην τρέχουσα σελίδα.
 
@@ -19,12 +19,12 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 
 - **Μέθοδος Πιστοποίησης**: Χρησιμοποιείται `Authorization: Bearer {token}`, όπου το `{token}` είναι το κλειδί που αποκτήθηκε από την πλατφόρμα μας.
 - **Δομή Απάντησης**: Μεταβιβάζεται απευθείας το αντικείμενο ModelEntity από το Fish upstream, χωρίς περιτύλιγμα (envelope) της πλατφόρμας. Σε περίπτωση σφάλματος, χρησιμοποιείται η τυπική δομή της πλατφόρμας `{success:false, error:{code,message}, trace_id}`.
-- **Παράμετροι Διαδρομής**: Το `{id}` είναι το `_id` του ηχητικού προφίλ, το οποίο επιστρέφεται κατά τη δημιουργία μέσω του [Fish Model Create API](https://platform.acedata.cloud/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a) ή λαμβάνεται μέσω σελιδοποιημένης αναζήτησης από το [Fish Model Query API](https://platform.acedata.cloud/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d).
+- **Παράμετροι Διαδρομής**: Το `{id}` είναι το `_id` του ηχητικού προφίλ, το οποίο επιστρέφεται κατά τη δημιουργία μέσω του [Fish Model Create API](https://api.xhuoapi.ai/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a) ή λαμβάνεται μέσω σελιδοποιημένης αναζήτησης από το [Fish Model Query API](https://api.xhuoapi.ai/documents/5a9b3e03-2896-5606-a6b9-d9f4469f0e9d).
 
 ## Παράδειγμα Αιτήματος
 
 ```shell
-curl 'https://api.acedata.cloud/fish/model/d7900c21663f485ab63ebdb7e5905036' \
+curl 'https://api.xhuoapi.ai/v1/fish/model/d7900c21663f485ab63ebdb7e5905036' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}'
 ```
@@ -73,7 +73,7 @@ curl 'https://api.acedata.cloud/fish/model/d7900c21663f485ab63ebdb7e5905036' \
 }
 ```
 
-Το επιστρεφόμενο `_id` μπορεί να χρησιμοποιηθεί ως τιμή του πεδίου `reference_id` στο επόμενο [Fish TTS API](https://platform.acedata.cloud/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) για τη σύνθεση φωνής με το συγκεκριμένο κλωνοποιημένο ηχητικό προφίλ.
+Το επιστρεφόμενο `_id` μπορεί να χρησιμοποιηθεί ως τιμή του πεδίου `reference_id` στο επόμενο [Fish TTS API](https://api.xhuoapi.ai/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) για τη σύνθεση φωνής με το συγκεκριμένο κλωνοποιημένο ηχητικό προφίλ.
 
 ## Πληροφορίες Χρέωσης
 
@@ -103,4 +103,4 @@ curl 'https://api.acedata.cloud/fish/model/d7900c21663f485ab63ebdb7e5905036' \
 
 ## Συμπέρασμα
 
-Το Fish Model Get API παρέχει πλήρη συμβατότητα με το επίσημο Fish Audio για την ανάκτηση λεπτομερειών ενός μεμονωμένου ηχητικού προφίλ. Αφού λάβετε το ID του ηχητικού προφίλ, μπορείτε να χρησιμοποιήσετε αυτό το API για να αντλήσετε το πλήρες αντικείμενο ModelEntity (συμπεριλαμβανομένων δειγμάτων, κατάστασης, ορατότητας, στατιστικών πεδίων κ.ά.) και στη συνέχεια να ολοκληρώσετε τη διαδικασία κλωνοποίησης και σύνθεσης φωνής με το [Fish TTS API](https://platform.acedata.cloud/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d).
+Το Fish Model Get API παρέχει πλήρη συμβατότητα με το επίσημο Fish Audio για την ανάκτηση λεπτομερειών ενός μεμονωμένου ηχητικού προφίλ. Αφού λάβετε το ID του ηχητικού προφίλ, μπορείτε να χρησιμοποιήσετε αυτό το API για να αντλήσετε το πλήρες αντικείμενο ModelEntity (συμπεριλαμβανομένων δειγμάτων, κατάστασης, ορατότητας, στατιστικών πεδίων κ.ά.) και στη συνέχεια να ολοκληρώσετε τη διαδικασία κλωνοποίησης και σύνθεσης φωνής με το [Fish TTS API](https://api.xhuoapi.ai/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d).

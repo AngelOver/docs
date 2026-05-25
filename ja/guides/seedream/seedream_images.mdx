@@ -1,15 +1,15 @@
 ---
 title: "SeeDream Images Generation API 連携説明"
-description: "ByteDance Seedream Image Generation 集成指南 - Ace Data Cloud"
+description: "ByteDance Seedream Image Generation 集成指南 - XHuoAPI"
 ---
 
 本稿では、SeeDream Images Generation API の連携方法について紹介します。これはカスタムパラメータを入力することで SeeDream 公式の画像を生成できる API です。
 
 ## 申請手順
 
-API を利用するには、まず [SeeDream Images Generation API](https://platform.acedata.cloud/documents/seedream-images) のページで対応するサービスを申請する必要があります。ページにアクセスしたら、「Acquire」ボタンをクリックします。以下の図のように表示されます：
+API を利用するには、まず [SeeDream Images Generation API](https://api.xhuoapi.ai/documents/seedream-images) のページで対応するサービスを申請する必要があります。ページにアクセスしたら、「Acquire」ボタンをクリックします。以下の図のように表示されます：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 まだログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録・ログインを促されます。ログイン・登録後は自動的に現在のページに戻ります。
 
@@ -19,7 +19,7 @@ API を利用するには、まず [SeeDream Images Generation API](https://plat
 
 まず基本的な使い方を理解しましょう。入力するのはプロンプト `prompt`、生成動作 `action`、画像サイズ `size` の3つで、これにより処理結果を得られます。まず `action` フィールドに `generate` を指定し、さらにプロンプトを入力します。具体的な内容は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/seedream_request_body.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedream_request_body.png" width="500" className="m-auto" /></p>
 
 ここではリクエストヘッダーを設定しています：
 
@@ -46,7 +46,7 @@ API を利用するには、まず [SeeDream Images Generation API](https://plat
 
 選択後、右側に対応コードが生成されます。以下の図のように表示されます：
 
-<p><img src="https://cdn.acedata.cloud/seedream_image.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedream_image.png" width="500" className="m-auto" /></p>
 
 「Try」ボタンをクリックするとテストが可能です。上図のように、以下の結果が得られました：
 
@@ -59,7 +59,7 @@ API を利用するには、まず [SeeDream Images Generation API](https://plat
     {
       "prompt": "a white siamese cat",
       "size": "2048x2048",
-      "image_url": "https://platform.cdn.acedata.cloud/seedream/3c060029-69b1-406f-a957-fcd55ddc9386.jpg"
+      "image_url": "https://platform.cdn.xhuoapi.ai/seedream/3c060029-69b1-406f-a957-fcd55ddc9386.jpg"
     }
   ]
 }
@@ -80,7 +80,7 @@ API を利用するには、まず [SeeDream Images Generation API](https://plat
 また、対応する連携コードを生成したい場合は直接コピー可能です。例えば CURL のコードは以下の通りです：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/seedream/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/seedream/images' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer ${token}' \
 -H 'content-type: application/json' \
@@ -100,14 +100,14 @@ curl -X POST 'https://api.acedata.cloud/seedream/images' \
 
 記入例は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/seedream_edit.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedream_edit.png" width="500" className="m-auto" /></p>
 
 対応するコード例：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/images"
+url = "https://api.xhuoapi.ai/v1/flux/images"
 
 headers = {
     "accept": "application/json",
@@ -138,7 +138,7 @@ print(response.text)
         {
             "prompt": "Keep the model pose and the liquid garment flowing shape unchanged. Change the clothing material from silver metal to completely transparent water (or glass). Through the liquid flow, the details of the model skin are visible. The light and shadow effect shifts from reflection to refraction.",
             "size": "2048x2048",
-            "image_url": "https://platform.cdn.acedata.cloud/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
+            "image_url": "https://platform.cdn.xhuoapi.ai/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
         }
     ]
 }
@@ -173,7 +173,7 @@ SeeDream Images Generation API は生成に約1～2分かかるため、API の�
         {
             "prompt": "Keep the model pose and the liquid garment flowing shape unchanged. Change the clothing material from silver metal to completely transparent water (or glass). Through the liquid flow, the details of the model skin are visible. The light and shadow effect shifts from reflection to refraction.",
             "size": "2048x2048",
-            "image_url": "https://platform.cdn.acedata.cloud/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
+            "image_url": "https://platform.cdn.xhuoapi.ai/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
         }
     ]
 }

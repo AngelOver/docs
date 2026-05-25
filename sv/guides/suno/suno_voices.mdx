@@ -1,6 +1,6 @@
 ---
 title: "Suno Röstkloning API Integrationsinstruktioner"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 SUNO låter oss skapa anpassade röstkaraktärer från valfri ljudfil för att möjliggöra röstkloning i musikgenerering. Till skillnad från den befintliga Persona API:n (som använder Suno-genererade `audio_id`), accepterar denna API en offentligt tillgänglig `audio_url`, det vill säga din egen röstinspelning. Denna dokumentation förklarar hur man integrerar röstkloning-API:n.
@@ -15,7 +15,7 @@ Denna API har tre inmatningsparametrar: `audio_url` (obligatorisk), en offentlig
 - Innehåll: tydlig enpersons röst, minimera bakgrundsljud eller musik
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/voices' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/voices' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -44,12 +44,12 @@ Som du kan se är `persona_id` i `data` fältet ID:t för den skapade röstkarak
 
 ## Steg 2: Använd röstkaraktären för att generera musik
 
-När du har röstkaraktärens ID kan du använda [Suno Audios Generation API](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) för musikgenerering. Sätt `action` till `generate` och `persona_id` till det röstkaraktärs-ID som returnerades ovan, så kommer den genererade låten att sjungas med den klonade rösten.
+När du har röstkaraktärens ID kan du använda [Suno Audios Generation API](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) för musikgenerering. Sätt `action` till `generate` och `persona_id` till det röstkaraktärs-ID som returnerades ovan, så kommer den genererade låten att sjungas med den klonade rösten.
 
 > **Observera:** Röstkloning stöds endast för modeller `chirp-v4-5` och senare (t.ex. `chirp-v4-5`, `chirp-v5`, `chirp-v5-5`), inte för `chirp-v4`.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

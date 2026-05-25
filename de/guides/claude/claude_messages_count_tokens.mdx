@@ -1,6 +1,6 @@
 ---
 title: "Claude Messages Count Tokens API Antrag und Nutzung"
-description: "Claude AI 集成指南 - Ace Data Cloud"
+description: "Claude AI 集成指南 - XHuoAPI"
 ---
 
 Claude Messages Count Tokens API kann die Anzahl der Eingabe-Token einer Nachricht berechnen, ohne tatsächlich Nachrichten zu erstellen, einschließlich der Token-Zählung von Werkzeugen, Bildern und Dokumenten. Dies ist besonders nützlich, wenn man die Kosten abschätzen oder überprüfen möchte, ob die Eingabe die Kontextgrenze des Modells überschreitet.
@@ -9,7 +9,7 @@ Dieses Dokument beschreibt hauptsächlich den Ablauf zur Nutzung der Claude Mess
 
 ## Antragsprozess
 
-Um die Claude Messages Count Tokens API zu nutzen, kann man zunächst die Seite [Claude Messages Count Tokens API](https://platform.acedata.cloud/documents/claude-messages-count-tokens) besuchen und auf die Schaltfläche „Acquire“ klicken, um die benötigten Anmeldeinformationen zu erhalten.
+Um die Claude Messages Count Tokens API zu nutzen, kann man zunächst die Seite [Claude Messages Count Tokens API](https://api.xhuoapi.ai/documents/claude-messages-count-tokens) besuchen und auf die Schaltfläche „Acquire“ klicken, um die benötigten Anmeldeinformationen zu erhalten.
 
 Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur Anmeldeseite weitergeleitet, um sich zu registrieren und anzumelden. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
 
@@ -31,7 +31,7 @@ Häufig verwendete optionale Parameter:
 ### cURL Beispiel
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/v1/messages/count_tokens' \
+curl -X POST 'https://api.xhuoapi.ai/v1/v1/messages/count_tokens' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -51,7 +51,7 @@ curl -X POST 'https://api.acedata.cloud/v1/messages/count_tokens' \
 ```python
 import httpx
 
-url = "https://api.acedata.cloud/v1/messages/count_tokens"
+url = "https://api.xhuoapi.ai/v1/v1/messages/count_tokens"
 headers = {
     "accept": "application/json",
     "authorization": "Bearer {token}",
@@ -87,7 +87,7 @@ from anthropic import Anthropic
 
 client = Anthropic(
     api_key="{token}",
-    base_url="https://api.acedata.cloud",
+    base_url="https://api.xhuoapi.ai/v1",
 )
 
 result = client.messages.count_tokens(

@@ -1,6 +1,6 @@
 ---
 title: "Kling Tasks API:s integration och användning"
-description: "Kling video generation 集成指南 - Ace Data Cloud"
+description: "Kling video generation 集成指南 - XHuoAPI"
 ---
 
 Kling Tasks API:s huvudfunktion är att genom att ange det uppdrag-ID som genererats av Kling Videos Generation API för att kontrollera statusen för det uppdraget.
@@ -9,27 +9,27 @@ Detta dokument kommer att detaljerat beskriva Kling Tasks API:s integrationsanvi
 
 ## Ansökningsprocess
 
-För att använda Kling Tasks API måste du först gå till ansökningssidan [Kling Videos Generation API](https://platform.acedata.cloud/documents/3b921a16-a411-4557-8335-53f21d3f9e46) för att ansöka om den aktuella tjänsten, och sedan kopiera Kling Videos Generation API:s uppdrag-ID, som visas i bilden nedan:
+För att använda Kling Tasks API måste du först gå till ansökningssidan [Kling Videos Generation API](https://api.xhuoapi.ai/documents/3b921a16-a411-4557-8335-53f21d3f9e46) för att ansöka om den aktuella tjänsten, och sedan kopiera Kling Videos Generation API:s uppdrag-ID, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
-Slutligen går du till Tasks API-sidan [Kling Tasks API](https://platform.acedata.cloud/documents/6b43ff7b-8298-49c8-a390-83df85c2c5e5) för att ansöka om den aktuella tjänsten. När du kommer in på sidan klickar du på knappen "Acquire", som visas i bilden nedan:
+Slutligen går du till Tasks API-sidan [Kling Tasks API](https://api.xhuoapi.ai/documents/6b43ff7b-8298-49c8-a390-83df85c2c5e5) för att ansöka om den aktuella tjänsten. När du kommer in på sidan klickar du på knappen "Acquire", som visas i bilden nedan:
 
-![Ansökningssidan](https://cdn.acedata.cloud/rci31i.png)
+![Ansökningssidan](https://cdn.xhuoapi.ai/rci31i.png)
 
-Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till [inloggningssidan](https://platform.acedata.cloud) där du uppmanas att registrera dig och logga in. Efter att ha loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
+Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till [inloggningssidan](https://api.xhuoapi.ai) där du uppmanas att registrera dig och logga in. Efter att ha loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
 
 Vid första ansökan kommer det att finnas en gratis kvot som ges, så att du kan använda denna API gratis.
 
 ## Begärningsexempel
 
-Kling Tasks API kan användas för att kontrollera resultaten från Kling Videos Generation API. För information om hur man använder Kling Videos Generation API, se dokumentet [Kling Videos Generation API](https://platform.acedata.cloud/documents/3b921a16-a411-4557-8335-53f21d3f9e46).
+Kling Tasks API kan användas för att kontrollera resultaten från Kling Videos Generation API. För information om hur man använder Kling Videos Generation API, se dokumentet [Kling Videos Generation API](https://api.xhuoapi.ai/documents/3b921a16-a411-4557-8335-53f21d3f9e46).
 
 Vi tar ett exempel med ett uppdrag-ID som returnerats av Kling Videos Generation API för att demonstrera hur man använder denna API. Anta att vi har ett uppdrag-ID: 20068983-0cc9-4c6a-aeb6-9c6a3c668be0, och vi visar hur man gör detta genom att ange ett uppdrag-ID.
 
 ### Uppdragsexempelbild
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 ### Ställ in begärningshuvuden och begärningskropp
 
@@ -45,20 +45,20 @@ Vi tar ett exempel med ett uppdrag-ID som returnerats av Kling Videos Generation
 
 Inställningarna visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/xztiqi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xztiqi.png" width="500" className="m-auto" /></p>
 
 ### Kodexempel
 
 Det kan noteras att olika språkets kod redan har genererats automatiskt på höger sida av sidan, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/bsqh3i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bsqh3i.png" width="500" className="m-auto" /></p>
 
 Några kodexempel är som följer:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/kling/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/kling/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kling/tasks"
+url = "https://api.xhuoapi.ai/v1/kling/tasks"
 
 headers = {
     "accept": "application/json",
@@ -142,13 +142,13 @@ Detta är för att fråga detaljer om videouppdrag för flera uppdrag-ID:n, och 
 
 Inställningarna visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/4p5uvq.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4p5uvq.png" width="500" className="m-auto" /></p>
 
 ### Kodexempel
 
 Det kan noteras att olika språkets kod redan har genererats automatiskt på höger sida av sidan, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/g3b7g6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g3b7g6.png" width="500" className="m-auto" /></p>
 
 Några kodexempel är som följer:
 
@@ -226,7 +226,7 @@ När begäran lyckas kommer API:t att returnera detaljerad information om alla b
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/kling/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

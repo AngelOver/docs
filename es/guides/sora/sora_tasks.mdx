@@ -1,6 +1,6 @@
 ---
 title: "Integración y uso de la API de Tareas de Sora"
-description: "Sora Video Generation 集成指南 - Ace Data Cloud"
+description: "Sora Video Generation 集成指南 - XHuoAPI"
 ---
 
 La API de Tareas de Sora tiene como función principal consultar el estado de ejecución de una tarea mediante el ID de tarea generado por la API de Generación de Videos de Sora.
@@ -9,27 +9,27 @@ Este documento detallará las instrucciones de integración de la API de Tareas 
 
 ## Proceso de Solicitud
 
-Para utilizar la API de Tareas de Sora, primero debe ir a la página de solicitud [API de Generación de Videos de Sora](https://platform.acedata.cloud/documents/99a24421-2e22-4028-8201-e19cb834b67e) para solicitar el servicio correspondiente, y luego copiar el ID de tarea de la API de Generación de Videos de Sora, como se muestra en la imagen:
+Para utilizar la API de Tareas de Sora, primero debe ir a la página de solicitud [API de Generación de Videos de Sora](https://api.xhuoapi.ai/documents/99a24421-2e22-4028-8201-e19cb834b67e) para solicitar el servicio correspondiente, y luego copiar el ID de tarea de la API de Generación de Videos de Sora, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/za62pb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/za62pb.png" width="500" className="m-auto" /></p>
 
-Finalmente, acceda a la página de la API de Tareas [API de Tareas de Sora](https://platform.acedata.cloud/documents/c9d81bad-9064-4796-86b6-4fb43cc93a16) para solicitar el servicio correspondiente. Una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
+Finalmente, acceda a la página de la API de Tareas [API de Tareas de Sora](https://api.xhuoapi.ai/documents/c9d81bad-9064-4796-86b6-4fb43cc93a16) para solicitar el servicio correspondiente. Una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
 
-![Página de Solicitud](https://cdn.acedata.cloud/rci31i.png)
+![Página de Solicitud](https://cdn.xhuoapi.ai/rci31i.png)
 
-Si aún no ha iniciado sesión o registrado, será redirigido automáticamente a la [página de inicio de sesión](https://platform.acedata.cloud) para invitarlo a registrarse e iniciar sesión. Después de registrarse e iniciar sesión, será redirigido automáticamente a la página actual.
+Si aún no ha iniciado sesión o registrado, será redirigido automáticamente a la [página de inicio de sesión](https://api.xhuoapi.ai) para invitarlo a registrarse e iniciar sesión. Después de registrarse e iniciar sesión, será redirigido automáticamente a la página actual.
 
 En la primera solicitud, se otorgará un crédito gratuito que le permitirá utilizar esta API de forma gratuita.
 
 ## Ejemplo de Solicitud
 
-La API de Tareas de Sora se puede utilizar para consultar los resultados de la API de Generación de Videos de Sora. Para saber cómo utilizar la API de Generación de Videos de Sora, consulte el documento [API de Generación de Videos de Sora](https://platform.acedata.cloud/documents/sora-videos-integration).
+La API de Tareas de Sora se puede utilizar para consultar los resultados de la API de Generación de Videos de Sora. Para saber cómo utilizar la API de Generación de Videos de Sora, consulte el documento [API de Generación de Videos de Sora](https://api.xhuoapi.ai/documents/sora-videos-integration).
 
 Tomaremos como ejemplo un ID de tarea devuelto por el servicio de la API de Generación de Videos de Sora, y demostraremos cómo utilizar esta API. Supongamos que tenemos un ID de tarea: b8976e18-32dc-4718-9ed8-1ea090fcb6ea, a continuación, demostraremos cómo pasar un ID de tarea.
 
 ### Ejemplo de Tarea
 
-<p><img src="https://cdn.acedata.cloud/za62pb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/za62pb.png" width="500" className="m-auto" /></p>
 
 ### Configuración de Encabezados de Solicitud y Cuerpo de Solicitud
 
@@ -45,20 +45,20 @@ Tomaremos como ejemplo un ID de tarea devuelto por el servicio de la API de Gene
 
 Configurado como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/fe19dd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fe19dd.png" width="500" className="m-auto" /></p>
 
 ### Ejemplo de Código
 
 Se puede observar que en el lado derecho de la página se han generado automáticamente códigos en varios lenguajes, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/ou5lfa.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ou5lfa.png" width="500" className="m-auto" /></p>
 
 Algunos ejemplos de código son los siguientes:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/sora/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/sora/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/sora/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/sora/tasks"
+url = "https://api.xhuoapi.ai/v1/sora/tasks"
 
 headers = {
     "accept": "application/json",
@@ -109,7 +109,7 @@ Después de una solicitud exitosa, la API devolverá la información detallada d
     "prompt": "gato corriendo en el río",
     "model": "sora-2",
     "image_urls": [
-      "https://cdn.acedata.cloud/11wfp4.png"
+      "https://cdn.xhuoapi.ai/11wfp4.png"
     ],
     "callback_url": "https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa"
   },
@@ -148,12 +148,12 @@ Esto es para consultar los detalles de las tareas de video para múltiples IDs d
 
 Configurado como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/9cf4j8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/9cf4j8.png" width="500" className="m-auto" /></p>
 
 ### Ejemplo de Código
 可以发现，在页面右侧已经自动生成了各种语言的代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/8ci2tg.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8ci2tg.png" width="500" className="m-auto" /></p>
 
 部分代码示例如下：
 
@@ -178,7 +178,7 @@ Configurado como se muestra en la imagen:
         "prompt": "gato corriendo en el río",
         "model": "sora-2",
         "image_urls": [
-          "https://cdn.acedata.cloud/11wfp4.png"
+          "https://cdn.xhuoapi.ai/11wfp4.png"
         ],
         "callback_url": "https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa"
       },
@@ -212,7 +212,7 @@ Configurado como se muestra en la imagen:
         "prompt": "gato corriendo en el río",
         "model": "sora-2",
         "image_urls": [
-          "https://cdn.acedata.cloud/11wfp4.png"
+          "https://cdn.xhuoapi.ai/11wfp4.png"
         ],
         "callback_url": "https://webhook.site/eb238c4f-da3b-47a5-a922-a93aa5405daa"
       },
@@ -245,7 +245,7 @@ Configurado como se muestra en la imagen:
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/sora/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/sora/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -259,7 +259,7 @@ curl -X POST 'https://api.acedata.cloud/sora/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/sora/tasks"
+url = "https://api.xhuoapi.ai/v1/sora/tasks"
 
 headers = {
     "accept": "application/json",

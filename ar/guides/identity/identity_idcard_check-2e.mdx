@@ -1,15 +1,15 @@
 ---
 title: "معلومات الهوية والتحقق من صلاحيتها API توصيل الشرح"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 ستقدم هذه الوثيقة شرحًا لتوصيل API لمعلومات الهوية والتحقق من صلاحيتها، والتي يمكن استخدامها للتحقق من صحة وتوافق الاسم ورقم الهوية وفترة صلاحية الهوية.
 
 ## عملية التقديم
 
-لاستخدام API، يجب أولاً الذهاب إلى [معلومات الهوية والتحقق من صلاحيتها API](https://platform.acedata.cloud/documents/667017a4-017f-4af0-870e-807034f70632) وتقديم طلب الخدمة المناسبة، بعد الدخول إلى الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
+لاستخدام API، يجب أولاً الذهاب إلى [معلومات الهوية والتحقق من صلاحيتها API](https://api.xhuoapi.ai/documents/667017a4-017f-4af0-870e-807034f70632) وتقديم طلب الخدمة المناسبة، بعد الدخول إلى الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، سيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول والتسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
@@ -19,7 +19,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 أولاً، يجب أن نفهم طريقة الاستخدام الأساسية، وهي إدخال رابط صورة الهوية، للحصول على نتيجة التحقق بعد المعالجة، يجب أولاً تمرير حقل `name`، يمكننا بعد ذلك ملء المحتوى المقابل في الواجهة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/llvy1l.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/llvy1l.png" width="500" className="m-auto" /></p>
 
 يمكنك أن ترى هنا أننا قمنا بتعيين رؤوس الطلب، بما في ذلك:
 
@@ -37,7 +37,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 بعد الاختيار، يمكنك أن تلاحظ أن الجانب الأيمن قد أنشأ أيضًا كودًا مطابقًا، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/l77q0u.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/l77q0u.png" width="500" className="m-auto" /></p>
 
 انقر على زر "Try" لإجراء الاختبار، كما هو موضح في الصورة أعلاه، هنا حصلنا على النتيجة التالية:
 
@@ -68,7 +68,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 بالإضافة إلى ذلك، إذا كنت ترغب في إنشاء كود التوصيل المقابل، يمكنك نسخه مباشرة، على سبيل المثال، كود CURL كما يلي:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/idcard/check-2e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/idcard/check-2e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -85,7 +85,7 @@ curl -X POST 'https://api.acedata.cloud/identity/idcard/check-2e' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/idcard/check-2e"
+url = "https://api.xhuoapi.ai/v1/identity/idcard/check-2e"
 
 headers = {
     "accept": "application/json",

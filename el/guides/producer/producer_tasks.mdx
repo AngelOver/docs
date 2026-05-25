@@ -1,6 +1,6 @@
 ---
 title: "Διασύνδεση και Χρήση του Producer Tasks API"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 Η κύρια λειτουργία του Producer Tasks API είναι να επιτρέπει την αναζήτηση της εκτέλεσης ενός έργου μέσω του ID έργου που έχει παραχθεί από το Producer Audios Generation API.
@@ -9,27 +9,27 @@ description: "Producer Music Generation 集成指南 - Ace Data Cloud"
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το Producer Tasks API, πρέπει πρώτα να επισκεφθείτε τη σελίδα αίτησης [Producer Audios Generation API](https://platform.acedata.cloud/documents/producer-audios) για να ζητήσετε την αντίστοιχη υπηρεσία, και στη συνέχεια να αντιγράψετε το ID έργου του Producer Audios Generation API, όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε το Producer Tasks API, πρέπει πρώτα να επισκεφθείτε τη σελίδα αίτησης [Producer Audios Generation API](https://api.xhuoapi.ai/documents/producer-audios) για να ζητήσετε την αντίστοιχη υπηρεσία, και στη συνέχεια να αντιγράψετε το ID έργου του Producer Audios Generation API, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
-Τέλος, επισκεφθείτε τη σελίδα Tasks API [Producer Tasks API](https://platform.acedata.cloud/documents/622626b1-30a7-4799-a772-4946e1df3ac0) για να ζητήσετε την αντίστοιχη υπηρεσία. Αφού εισέλθετε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
+Τέλος, επισκεφθείτε τη σελίδα Tasks API [Producer Tasks API](https://api.xhuoapi.ai/documents/622626b1-30a7-4799-a772-4946e1df3ac0) για να ζητήσετε την αντίστοιχη υπηρεσία. Αφού εισέλθετε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
 
-![Σελίδα Αίτησης](https://cdn.acedata.cloud/rci31i.png)
+![Σελίδα Αίτησης](https://cdn.xhuoapi.ai/rci31i.png)
 
-Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη [σελίδα σύνδεσης](https://platform.acedata.cloud) για να σας προσκαλέσει να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
+Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη [σελίδα σύνδεσης](https://api.xhuoapi.ai) για να σας προσκαλέσει να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
 
 Κατά την πρώτη αίτηση, θα υπάρχει δωρεάν πίστωση που μπορείτε να χρησιμοποιήσετε δωρεάν για αυτό το API.
 
 ## Παράδειγμα Αίτησης
 
-Το Producer Tasks API μπορεί να χρησιμοποιηθεί για να ελέγξει τα αποτελέσματα του Producer Audios Generation API. Για πληροφορίες σχετικά με το πώς να χρησιμοποιήσετε το Producer Audios Generation API, ανατρέξτε στο έγγραφο [Producer Audios Generation API](https://platform.acedata.cloud/documents/producer-audios-integration).
+Το Producer Tasks API μπορεί να χρησιμοποιηθεί για να ελέγξει τα αποτελέσματα του Producer Audios Generation API. Για πληροφορίες σχετικά με το πώς να χρησιμοποιήσετε το Producer Audios Generation API, ανατρέξτε στο έγγραφο [Producer Audios Generation API](https://api.xhuoapi.ai/documents/producer-audios-integration).
 
 Θα χρησιμοποιήσουμε ένα παράδειγμα με το ID έργου που επιστρέφεται από την υπηρεσία Producer Audios Generation API. Ας υποθέσουμε ότι έχουμε ένα ID έργου: 1a6ac2ad-10f2-4e2b-b500-66ec27fe82ad, και στη συνέχεια θα δείξουμε πώς να το χρησιμοποιήσουμε περνώντας ένα ID έργου.
 
 ### Παράδειγμα Έργου
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 ### Ρύθμιση Κεφαλίδων Αίτησης και Σώματος Αίτησης
 
@@ -45,20 +45,20 @@ description: "Producer Music Generation 集成指南 - Ace Data Cloud"
 
 Ρυθμίστε όπως φαίνεται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/bfe4ww.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bfe4ww.png" width="500" className="m-auto" /></p>
 
 ### Παράδειγμα Κώδικα
 
 Μπορείτε να παρατηρήσετε ότι στη δεξιά πλευρά της σελίδας έχουν ήδη παραχθεί αυτόματα διάφορες γλώσσες κώδικα, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/u4pb2f.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/u4pb2f.png" width="500" className="m-auto" /></p>
 
 Ορισμένα παραδείγματα κώδικα είναι τα εξής:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -134,13 +134,13 @@ curl -X POST 'https://api.acedata.cloud/producer/tasks' \
 
 设置如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/jlkoma.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jlkoma.png" width="500" className="m-auto" /></p>
 
 ### 代码示例
 
 可以发现，在页面右侧已经自动生成了各种语言的代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/emw66n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/emw66n.png" width="500" className="m-auto" /></p>
 
 部分代码示例如下：
 
@@ -251,7 +251,7 @@ curl -X POST 'https://api.acedata.cloud/producer/tasks' \
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

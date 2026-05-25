@@ -3,7 +3,7 @@ title: "Seedream MCP 接続ガイド"
 description: "seedream MCP 服务器集成"
 ---
 
-[MCP（Model Context Protocol）](https://modelcontextprotocol.io) はAnthropicが提供するモデルコンテキストプロトコルで、ClaudeやGPTなどのAIモデルが標準化されたインターフェースを通じて外部ツールを呼び出すことを可能にします。AceData Cloudが提供するSeedream MCP Serverを利用することで、Claude Desktop、VS Code、CursorなどのAIクライアント上で直接ByteDanceのSeedreamを使ったAI画像の生成や編集が行えます。
+[MCP（Model Context Protocol）](https://modelcontextprotocol.io) はAnthropicが提供するモデルコンテキストプロトコルで、ClaudeやGPTなどのAIモデルが標準化されたインターフェースを通じて外部ツールを呼び出すことを可能にします。XHuoAPIが提供するSeedream MCP Serverを利用することで、Claude Desktop、VS Code、CursorなどのAIクライアント上で直接ByteDanceのSeedreamを使ったAI画像の生成や編集が行えます。
 
 ## 機能概要
 
@@ -19,10 +19,10 @@ Seedream MCP Serverは以下の主要機能を提供します：
 
 ## 事前準備
 
-利用前にAceData CloudのAPIトークンを取得してください：
+利用前にXHuoAPIのAPIトークンを取得してください：
 
-1. [AceData Cloudプラットフォーム](https://platform.acedata.cloud)に登録またはログイン
-2. [Seedream Images API](https://platform.acedata.cloud/documents/seedream-images)ページへ移動
+1. [XHuoAPIプラットフォーム](https://api.xhuoapi.ai)に登録またはログイン
+2. [Seedream Images API](https://api.xhuoapi.ai/documents/seedream-images)ページへ移動
 3. 「Acquire」をクリックしてAPIトークンを取得（初回申請時に無料クレジット付与）
 
 ## インストールと設定
@@ -36,7 +36,7 @@ pip install mcp-seedream-pro
 ### 方法2：ソースコードからインストール
 
 ```bash
-git clone https://github.com/AceDataCloud/SeedreamMCP.git
+git clone https://github.com/XHuoAPI/SeedreamMCP.git
 cd SeedreamMCP
 pip install -e .
 ```
@@ -58,7 +58,7 @@ Claude Desktopの設定ファイルを編集します：
     "seedream": {
       "command": "mcp-seedream-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "あなたのAPIトークン"
+        "XHuoAPI_API_TOKEN": "あなたのAPIトークン"
       }
     }
   }
@@ -74,7 +74,7 @@ Claude Desktopの設定ファイルを編集します：
       "command": "uvx",
       "args": ["mcp-seedream-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "あなたのAPIトークン"
+        "XHuoAPI_API_TOKEN": "あなたのAPIトークン"
       }
     }
   }
@@ -93,7 +93,7 @@ Claude Desktopの設定ファイルを編集します：
     "seedream": {
       "command": "mcp-seedream-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "あなたのAPIトークン"
+        "XHuoAPI_API_TOKEN": "あなたのAPIトークン"
       }
     }
   }
@@ -109,7 +109,7 @@ Claude Desktopの設定ファイルを編集します：
       "command": "uvx",
       "args": ["mcp-seedream-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "あなたのAPIトークン"
+        "XHuoAPI_API_TOKEN": "あなたのAPIトークン"
       }
     }
   }
@@ -138,6 +138,6 @@ Claude Desktopの設定ファイルを編集します：
 
 ## 参考情報
 
-- GitHubリポジトリ：[AceDataCloud/SeedreamMCP](https://github.com/AceDataCloud/SeedreamMCP)
+- GitHubリポジトリ：[XHuoAPI/SeedreamMCP](https://github.com/XHuoAPI/SeedreamMCP)
 - PyPIパッケージ：[mcp-seedream-pro](https://pypi.org/project/mcp-seedream-pro/)
-- APIドキュメント：[Seedream 画像生成API](https://platform.acedata.cloud/documents/seedream)
+- APIドキュメント：[Seedream 画像生成API](https://api.xhuoapi.ai/documents/seedream)

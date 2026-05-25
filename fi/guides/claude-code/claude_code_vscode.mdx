@@ -1,17 +1,17 @@
 ---
 title: "Claude Code for VS Code käyttöopas"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code on Anthropicin julkaisema **Agentic Coding** -työkalu, jota kutsutaan myös yhdeksi maailman vahvimmista ohjelmointiaineksista. Claude Code:n VS Code -laajennus tarjoaa natiivin graafisen käyttöliittymän, joka tukee sisäistä Diff-näkymää, `@`-mainintoja, suunnitelman tarkastuksia ja muita toimintoja, ja se on suositeltava tapa käyttää Claude Code:a VS Code:ssa.
 
-Tässä asiakirjassa esitellään, kuinka konfiguroidaan ja käytetään Claude Code -laajennusta VS Code:ssa AceData Cloudin välityspalvelun kautta.
+Tässä asiakirjassa esitellään, kuinka konfiguroidaan ja käytetään Claude Code -laajennusta VS Code:ssa XHuoAPIin välityspalvelun kautta.
 
 ## Hakuprosessi
 
-Claude Code:n käyttämiseksi voit ensin siirtyä [Claude Messages -palvelusivulle](https://platform.acedata.cloud/documents/claude-messages) ja napsauttaa "Acquire"-painiketta saadaksesi tarvittavat todisteet:
+Claude Code:n käyttämiseksi voit ensin siirtyä [Claude Messages -palvelusivulle](https://api.xhuoapi.ai/documents/claude-messages) ja napsauttaa "Acquire"-painiketta saadaksesi tarvittavat todisteet:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -27,7 +27,7 @@ Ensimmäisellä hakukerralla saat ilmaisia krediittejä, joiden avulla voit koke
 
 Avaa VS Code / Cursorin laajennusmarkkinat painamalla `Cmd+Shift+X` (Mac) tai `Ctrl+Shift+X` (Windows/Linux), etsi **Claude Code**, löydä Anthropicin virallisesti julkaisema laajennus ja napsauta "Install" asentaaksesi sen:
 
-![Claude Code -laajennus VS Code Marketplace:ssa](https://cdn.acedata.cloud/10ddf71320.png)
+![Claude Code -laajennus VS Code Marketplace:ssa](https://cdn.xhuoapi.ai/10ddf71320.png)
 
 Voit myös asentaa sen suoraan seuraavan linkin kautta:
 
@@ -38,9 +38,9 @@ Asennuksen jälkeen valitse luottamus avautuvasta ilmoituksesta, niin asennus on
 
 > Jos laajennus ei ilmesty asennuksen jälkeen, käynnistä VS Code uudelleen tai suorita komento "Developer: Reload Window" komento-paneelissa.
 
-## AceData Cloud API:n konfigurointi
+## XHuoAPI API:n konfigurointi
 
-Kun avaat laajennuksen ensimmäisen kerran, sinua pyydetään kirjautumaan Anthropicin viralliselle tilille. Voimme ohittaa virallisen kirjautumisen konfiguroimalla AceData Cloudin välityspalvelun API:n, **ilman virallista tilausta**.
+Kun avaat laajennuksen ensimmäisen kerran, sinua pyydetään kirjautumaan Anthropicin viralliselle tilille. Voimme ohittaa virallisen kirjautumisen konfiguroimalla XHuoAPIin välityspalvelun API:n, **ilman virallista tilausta**.
 
 ### Vaihe 1: Ympäristömuuttujien konfigurointi
 
@@ -48,13 +48,13 @@ Voit valita ympäristömuuttujien konfiguroimisen seuraavissa sijainneissa:
 
 **Vaihtoehto A: Käyttäjäkohtainen konfigurointi (kaikille projekteille)**
  
-Muokkaa `~/.claude/settings.json` (jos ei ole olemassa, luo se) ja lisää `env`-konfigurointi, vaihda `{token}` AceData Cloudin hallintapaneelista saamasi API-tokenin mukaan:
+Muokkaa `~/.claude/settings.json` (jos ei ole olemassa, luo se) ja lisää `env`-konfigurointi, vaihda `{token}` XHuoAPIin hallintapaneelista saamasi API-tokenin mukaan:
 
 ```json
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
@@ -67,12 +67,12 @@ Luo projektin juurihakemistoon `.claude/settings.json` (jaettu konfigurointi) ta
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **Vinkki**: API-tokenin voi tarkistaa [AceData Cloud hallintapaneelista](https://platform.acedata.cloud/console). `ANTHROPIC_AUTH_TOKEN`-arvoon lisätään automaattisesti `Bearer`-etuliite, joka lähetetään palvelimelle. Projektikohtainen konfigurointi on etusijalla käyttäjäkohtaiselle konfiguroinnille. Suositellaan, että tiimiprojekteissa käytetään `.claude/settings.json`-jaettua konfigurointia, ja henkilökohtaiset arkaluontoiset tiedot sijoitetaan `.claude/settings.local.json`-tiedostoon.
+> **Vinkki**: API-tokenin voi tarkistaa [XHuoAPI hallintapaneelista](https://api.xhuoapi.ai/console). `ANTHROPIC_AUTH_TOKEN`-arvoon lisätään automaattisesti `Bearer`-etuliite, joka lähetetään palvelimelle. Projektikohtainen konfigurointi on etusijalla käyttäjäkohtaiselle konfiguroinnille. Suositellaan, että tiimiprojekteissa käytetään `.claude/settings.json`-jaettua konfigurointia, ja henkilökohtaiset arkaluontoiset tiedot sijoitetaan `.claude/settings.local.json`-tiedostoon.
 
 ### Vaihe 2: Kirjautumisviestin poistaminen käytöstä (valinnainen)
 
@@ -95,7 +95,7 @@ Asennuksen ja konfiguroinnin jälkeen on useita tapoja avata Claude Code:
 
 Toisin kuin Cursor / Copilot -työkalujen käyttö sivupalkissa, Claude Code käyttää oletuksena **muokkausalueen näkymää** keskustelualueena, mikä tarjoaa suuremman näkyvän alueen ja rikkaamman sisällön esittämisen. Voit myös vetää paneelin sivupalkkiin tai muualle.
 
-![Claude Code -paneeli VS Code:ssa](https://cdn.acedata.cloud/b84b878420.jpg)
+![Claude Code -paneeli VS Code:ssa](https://cdn.xhuoapi.ai/b84b878420.jpg)
 
 ## Peruskäyttö
 
@@ -110,7 +110,7 @@ Kirjoita Claude Code -paneelissa suoraan luonnollista kieltä, jotta voit vuorov
 
 Claude Code ymmärtää automaattisesti koodikirjastosi kontekstin, analysoi ja muokkaa tiedostoja. Kun Claude tarvitsee muokata tiedostoa, se näyttää Diff-vertailunäkymän, josta voit valita hyväksyä tai hylätä muutokset.
 
-![Claude Code keskustelu ja vihjeet VS Code:ssa](https://cdn.acedata.cloud/650377f5cc.png)
+![Claude Code keskustelu ja vihjeet VS Code:ssa](https://cdn.xhuoapi.ai/650377f5cc.png)
 
 ### Kontekstiviittaukset
 
@@ -146,7 +146,7 @@ Napsauta paneelin yläreunassa olevaa alasvetovalikkoa nähdäksesi aiemmat kesk
 ### Koodimuutosten tarkastelu
 
 Kun Claude tarvitsee muokata tiedostoa, se näyttää Diff-vertailunäkymän, joka esittää alkuperäisen koodin ja muokatun version vertailun. Voit valita hyväksyä tai hylätä jokaisen muutoksen, tai voit kertoa Claudelle, mitä erilaista haluat tehdä:
-![Diff-näkymä VS Code:ssa](https://cdn.acedata.cloud/c42381ea9f.png)
+![Diff-näkymä VS Code:ssa](https://cdn.xhuoapi.ai/c42381ea9f.png)
 
 ### Oikeusmoodi
 
@@ -186,8 +186,8 @@ Jos pidät enemmän komentorivityylistä, voit valita VS Code -asetuksista **Kä
 ### Mitä tehdä, jos yhteys epäonnistuu?
 
 1. Varmista, että `~/.claude/settings.json` tai `.claude/settings.json` -tiedostossa ympäristömuuttujat on määritetty oikein, erityisesti `ANTHROPIC_AUTH_TOKEN` ja `ANTHROPIC_BASE_URL`
-2. Varmista, että API-tunnus on voimassa (voit tarkistaa sen [ohjauspaneelista](https://platform.acedata.cloud/console))
-3. Tarkista, että verkkoyhteys on kunnossa ja että pääset käsiksi `https://api.acedata.cloud`
+2. Varmista, että API-tunnus on voimassa (voit tarkistaa sen [ohjauspaneelista](https://api.xhuoapi.ai/console))
+3. Tarkista, että verkkoyhteys on kunnossa ja että pääset käsiksi `https://api.xhuoapi.ai/v1`
 4. Käynnistä VS Code uudelleen ja yritä uudelleen
 
 ### Miksi Spark-ikoni ei näy?
@@ -199,11 +199,11 @@ Jos pidät enemmän komentorivityylistä, voit valita VS Code -asetuksista **Kä
 
 ### Kuinka tarkistaa jäljellä oleva saldo?
 
-Kirjaudu sisään [AceData Cloud -ohjauspaneeliin](https://platform.acedata.cloud/console), niin voit tarkistaa nykyisen tilisi jäljellä olevan saldon ja käyttötilanteen.
+Kirjaudu sisään [XHuoAPI -ohjauspaneeliin](https://api.xhuoapi.ai/console), niin voit tarkistaa nykyisen tilisi jäljellä olevan saldon ja käyttötilanteen.
 
 ## Lisätietoja
 
 - 📖 [Claude Code VS Code -virallinen dokumentaatio](https://code.claude.com/docs/en/vs-code)
 - ⌨️ [VS Code -komennot ja pikanäppäimet](https://code.claude.com/docs/en/vs-code#vs-code-commands-and-shortcuts)
-- 🔧 [AceData Cloud Claude Code -palvelu](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code -palvelu](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 Jos sinulla on kysymyksiä, ota rohkeasti yhteyttä asiakaspalveluumme.

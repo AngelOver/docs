@@ -1,20 +1,20 @@
 ---
-title: "AceDataCloud x402 Guia de Integração de Pagamento"
-description: "x402 集成指南 - Ace Data Cloud"
+title: "XHuoAPI x402 Guia de Integração de Pagamento"
+description: "x402 集成指南 - XHuoAPI"
 ---
 
-x402 é um protocolo de pagamento em blockchain baseado no padrão HTTP 402 Payment Required, que permite que o chamador complete a liquidação em blockchain ao iniciar uma solicitação de API, sendo muito adequado para cenários de cobrança por chamada entre programas automatizados, Agentes de IA e microsserviços. Através deste guia, você pode programaticamente realizar o pagamento de pedidos da AceDataCloud em seu próprio sistema, proporcionando uma experiência de "solicitação é pagamento".
+x402 é um protocolo de pagamento em blockchain baseado no padrão HTTP 402 Payment Required, que permite que o chamador complete a liquidação em blockchain ao iniciar uma solicitação de API, sendo muito adequado para cenários de cobrança por chamada entre programas automatizados, Agentes de IA e microsserviços. Através deste guia, você pode programaticamente realizar o pagamento de pedidos da XHuoAPI em seu próprio sistema, proporcionando uma experiência de "solicitação é pagamento".
 
 Referências de documentação oficial:
 
 - Documento de visão geral do x402: [https://docs.cdp.coinbase.com/x402/docs/overview](https://docs.cdp.coinbase.com/x402/docs/overview)
 - Exemplo de código aberto do x402: [https://github.com/coinbase/x402](https://github.com/coinbase/x402)
 
-Este documento é destinado a desenvolvedores que precisam integrar a capacidade de pagamento x402 da plataforma AceDataCloud em seus negócios, apresentando o fluxo completo desde a preparação do ambiente até a conclusão da chamada de pagamento, e fornecendo exemplos de código em Axios, Fetch, Python requests e httpx. Pontos principais:
+Este documento é destinado a desenvolvedores que precisam integrar a capacidade de pagamento x402 da plataforma XHuoAPI em seus negócios, apresentando o fluxo completo desde a preparação do ambiente até a conclusão da chamada de pagamento, e fornecendo exemplos de código em Axios, Fetch, Python requests e httpx. Pontos principais:
 
 - O link de pagamento é concluído na **rede principal Base**, utilizando **USDC** como ativo;
 - É necessário usar a **chave privada EVM** da carteira que possui os ativos para gerar o cabeçalho de assinatura `X-PAYMENT`;
-- Todas as APIs estão localizadas sob o domínio `https://platform.acedata.cloud`, e o cabeçalho `Authorization` deve incluir o **Token da Plataforma**.
+- Todas as APIs estão localizadas sob o domínio `https://api.xhuoapi.ai`, e o cabeçalho `Authorization` deve incluir o **Token da Plataforma**.
 
 ---
 
@@ -22,7 +22,7 @@ Este documento é destinado a desenvolvedores que precisam integrar a capacidade
 
 ### 1. Verificar o pedido e registrar as informações de recebimento
 
-Faça login no console [https://platform.acedata.cloud](https://platform.acedata.cloud), na lista de pedidos ou na página de detalhes do pedido você pode ver o pedido que precisa ser pago. Os detalhes do pedido mostrarão:
+Faça login no console [https://api.xhuoapi.ai](https://api.xhuoapi.ai), na lista de pedidos ou na página de detalhes do pedido você pode ver o pedido que precisa ser pago. Os detalhes do pedido mostrarão:
 
 - ID do pedido (por exemplo, `7744945e-5e77-4dcc-a9c4-528692d17b34`);
 - Endereço de recebimento `pay_to` (também será retornado na resposta 402, recomenda-se considerar as informações da página como referência).
@@ -40,11 +40,11 @@ Por favor, registre o ID do pedido e confirme o endereço `pay_to`, pois será n
 
 O Token da Plataforma é usado para chamar a API da plataforma, semelhante à funcionalidade do Token de usuário usado no navegador após o login, mas não expira. Siga os passos abaixo para criar:
 
-1. Abra a página do console [https://platform.acedata.cloud/console/platform-tokens](https://platform.acedata.cloud/console/platform-tokens);
+1. Abra a página do console [https://api.xhuoapi.ai/console/platform-tokens](https://api.xhuoapi.ai/console/platform-tokens);
 2. Clique em "Criar Token", preencha as informações de anotação conforme solicitado e gere;
 3. Copie o Token gerado (por exemplo, `platform-v1-xxxx`) e guarde-o como `platform_token`.
 
-![platform-token](https://cdn.acedata.cloud/6g86oz.png)
+![platform-token](https://cdn.xhuoapi.ai/6g86oz.png)
 
 Todos os cabeçalhos de chamadas de API subsequentes devem incluir:
 
@@ -54,7 +54,7 @@ Authorization: Bearer {platform_token}
 
 ### 4. Solicitar informações básicas
 
-- Domínio base da API: `https://platform.acedata.cloud`
+- Domínio base da API: `https://api.xhuoapi.ai`
 - Caminho da solicitação de pagamento: `/api/v1/orders/{order_id}/pay/`
 - Solicitações e respostas usam JSON, codificado em UTF-8.
 
@@ -75,7 +75,7 @@ Authorization: Bearer {platform_token}
 ### 1. Primeira solicitação (aciona 402)
 
 ```http
-POST https://platform.acedata.cloud/api/v1/orders/{order_id}/pay/
+POST https://api.xhuoapi.ai/api/v1/orders/{order_id}/pay/
 Authorization: Bearer {platform_token}
 Content-Type: application/json
 
@@ -127,7 +127,7 @@ Se precisar implementar manualmente, consulte a documentação oficial do x402 e
 ### 3. Repetir com a assinatura
 
 ```http
-POST https://platform.acedata.cloud/api/v1/orders/{order_id}/pay/
+POST https://api.xhuoapi.ai/api/v1/orders/{order_id}/pay/
 Authorization: Bearer {platform_token}
 Content-Type: application/json
 X-PAYMENT: {base64_signed_payload}
@@ -162,7 +162,7 @@ import { Hex } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
 import { buildPaymentHeader, decodePaymentResponse } from "x402-js";
 
-const baseURL = "https://platform.acedata.cloud";
+const baseURL = "https://api.xhuoapi.ai";
 const orderId = process.env.ACE_X402_ORDER_ID!;
 const platformToken = process.env.ACE_PLATFORM_TOKEN!;
 const privateKey = process.env.ACE_X402_PRIVATE_KEY as Hex;
@@ -228,7 +228,7 @@ const orderId = process.env.ACE_X402_ORDER_ID!;
 const fetchWithPayment = wrapFetchWithPayment(fetch, account);
 
 async function payOrder() {
-  const url = `https://platform.acedata.cloud/api/v1/orders/${orderId}/pay/`;
+  const url = `https://api.xhuoapi.ai/api/v1/orders/${orderId}/pay/`;
 
   const response = await fetchWithPayment(url, {
     method: "POST",
@@ -273,7 +273,7 @@ session = x402_requests(
 )
 
 response = session.post(
-    f"https://platform.acedata.cloud/api/v1/orders/{order_id}/pay/",
+    f"https://api.xhuoapi.ai/api/v1/orders/{order_id}/pay/",
     json={"pay_way": "X402"},
     headers={"Authorization": f"Bearer {platform_token}"},
 )
@@ -300,7 +300,7 @@ async def pay_order() -> None:
 
     async with x402HttpxClient(
         account=account,
-        base_url="https://platform.acedata.cloud",
+        base_url="https://api.xhuoapi.ai",
         headers={"Authorization": f"Bearer {platform_token}"},
         payment_requirements_selector=lambda accepts, **_: next(
             req for req in accepts if req.network == "base"
@@ -324,8 +324,8 @@ asyncio.run(pay_order())
 
 ## Cinco, Verificação após o pagamento bem-sucedido
 
-- **Verificação no console**: Acesse a página de detalhes do pedido `https://platform.acedata.cloud/console/orders/{order_id}`, se a página mostrar "Pagamento bem-sucedido" ou o status do pedido tiver mudado para pago/concluído, isso significa que a liquidação na blockchain foi concluída.
-- **Verificação da API**: Chame `GET https://platform.acedata.cloud/api/v1/orders/{order_id}/` e inclua `Authorization: Bearer {platform_token}`, verifique o campo `state` na resposta ( `PAID` ou `FINISHED` indica pagamento bem-sucedido).
+- **Verificação no console**: Acesse a página de detalhes do pedido `https://api.xhuoapi.ai/console/orders/{order_id}`, se a página mostrar "Pagamento bem-sucedido" ou o status do pedido tiver mudado para pago/concluído, isso significa que a liquidação na blockchain foi concluída.
+- **Verificação da API**: Chame `GET https://api.xhuoapi.ai/api/v1/orders/{order_id}/` e inclua `Authorization: Bearer {platform_token}`, verifique o campo `state` na resposta ( `PAID` ou `FINISHED` indica pagamento bem-sucedido).
 - **Cabeçalho de retorno**: Leia `X-PAYMENT-RESPONSE` na resposta de pagamento bem-sucedido, pode-se decodificar o hash da transação na blockchain como o comprovante final; recomenda-se salvar essa informação nos logs do sistema para conciliação.
 
 ---
@@ -343,7 +343,7 @@ asyncio.run(pay_order())
 ## Sete, Mais Ajuda
 
 - Documentação online e perguntas frequentes: Navegação "Documentação" no topo do console da plataforma.
-- Envio de tickets e suporte ao cliente: [https://platform.acedata.cloud/support](https://platform.acedata.cloud/support)
-- Comunidade: Discord [https://discord.gg/f9GRuKCmRc](https://discord.gg/f9GRuKCmRc), X (Twitter) [https://x.com/acedatacloud](https://x.com/acedatacloud)
-- Outros canais: E-mail `office@acedata.cloud`, `office@germey.tech`; endereço da empresa 651 N Broad St, Suite 201, Middletown, Delaware, EUA; para suporte via WeChat, consulte o código QR mais recente na página de suporte.
+- Envio de tickets e suporte ao cliente: [https://api.xhuoapi.ai/support](https://api.xhuoapi.ai/support)
+- Comunidade: Discord [https://discord.gg/f9GRuKCmRc](https://discord.gg/f9GRuKCmRc), X (Twitter) [https://x.com/XHuoAPI](https://x.com/XHuoAPI)
+- Outros canais: E-mail `office@xhuoapi.ai`, `office@germey.tech`; endereço da empresa 651 N Broad St, Suite 201, Middletown, Delaware, EUA; para suporte via WeChat, consulte o código QR mais recente na página de suporte.
 - Feedback e sugestões: Sinta-se à vontade para nos informar sobre necessidades de melhoria através de qualquer um dos canais acima.

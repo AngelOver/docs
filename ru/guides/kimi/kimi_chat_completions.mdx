@@ -1,6 +1,6 @@
 ---
 title: "Kimi Chat Completion API Заявка и использование"
-description: "Kimi 集成指南 - Ace Data Cloud"
+description: "Kimi 集成指南 - XHuoAPI"
 ---
 
 Kimi — это очень мощная система AI-диалогов, которая может генерировать плавные и естественные ответы всего за несколько секунд, просто вводя подсказки. Kimi предоставляет потрясающую интеллектуальную помощь, значительно повышая эффективность и креативность работы человека.
@@ -9,9 +9,9 @@ Kimi — это очень мощная система AI-диалогов, ко
 
 ## Процесс подачи заявки
 
-Чтобы использовать Gemini Chat Completion API, сначала перейдите на страницу [Kimi Chat Completion API](https://platform.acedata.cloud/documents/b23bbfa3-c820-47ee-b307-6c6dedc9d0cf) и нажмите кнопку «Acquire», чтобы получить необходимые для запроса учетные данные:
+Чтобы использовать Gemini Chat Completion API, сначала перейдите на страницу [Kimi Chat Completion API](https://api.xhuoapi.ai/documents/b23bbfa3-c820-47ee-b307-6c6dedc9d0cf) и нажмите кнопку «Acquire», чтобы получить необходимые для запроса учетные данные:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Если вы еще не вошли в систему или не зарегистрированы, вас автоматически перенаправят на страницу входа, пригласив зарегистрироваться и войти в систему. После входа в систему или регистрации вы автоматически вернетесь на текущую страницу.
 
@@ -21,13 +21,13 @@ Kimi — это очень мощная система AI-диалогов, ко
 
 Теперь вы можете заполнить соответствующие поля на интерфейсе, как показано на рисунке:
 
-<p><img src="https://cdn.acedata.cloud/ej5ozg.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ej5ozg.png" width="400" className="m-auto" /></p>
 
 При первом использовании этого интерфейса нам необходимо заполнить как минимум три поля: одно из них — `authorization`, которое можно выбрать прямо из выпадающего списка. Другой параметр — `model`, `model` — это категория модели, которую мы выбираем для использования с сайта Kimi, здесь у нас в основном есть 7 моделей, подробности можно посмотреть в предоставленных моделях. Последний параметр — `messages`, `messages` — это массив наших вопросов, который представляет собой массив, позволяющий одновременно загружать несколько вопросов, каждый из которых содержит `role` и `content`, где `role` обозначает роль задающего вопрос, мы предоставили три роли: `user`, `assistant`, `system`. Другой `content` — это конкретное содержание нашего вопроса.
 
 Также вы можете заметить, что справа есть соответствующий код вызова, который вы можете скопировать и запустить, или просто нажать кнопку «Try» для тестирования.
 
-<p><img src="https://cdn.acedata.cloud/six7e3.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/six7e3.png" width="400" className="m-auto" /></p>
 
 После вызова мы получаем следующий результат:
 
@@ -73,7 +73,7 @@ Kimi — это очень мощная система AI-диалогов, ко
 
 Где `choices` содержит информацию о ответах Kimi, внутри `choices` находятся конкретные данные ответа Kimi, как показано на рисунке.
 
-<p><img src="https://cdn.acedata.cloud/tv9rul.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tv9rul.png" width="400" className="m-auto" /></p>
 
 Можно увидеть, что поле `content` внутри `choices` содержит конкретное содержание ответа Gemini.
 
@@ -85,7 +85,7 @@ Kimi — это очень мощная система AI-диалогов, ко
 
 Изменение показано на рисунке, однако код вызова должен быть соответствующим образом изменен, чтобы поддерживать потоковые ответы.
 
-<p><img src="https://cdn.acedata.cloud/a3nzpw.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a3nzpw.png" width="400" className="m-auto" /></p>
 
 После изменения `stream` на `true`, API будет возвращать соответствующие JSON-данные построчно, и на уровне кода нам нужно внести соответствующие изменения, чтобы получить построчные результаты.
 
@@ -94,7 +94,7 @@ Kimi — это очень мощная система AI-диалогов, ко
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kimi/chat/completions"
+url = "https://api.xhuoapi.ai/v1/kimi/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -173,7 +173,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/kimi/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/kimi/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -189,7 +189,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/kimi/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/kimi/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -207,14 +207,14 @@ System.out.print(response.body!!.string())
 
 Если вы хотите интегрировать функцию многоуровневого диалога, вам нужно загрузить несколько вопросов в поле `messages`, конкретные примеры нескольких вопросов приведены на изображении ниже:
 
-<p><img src="https://cdn.acedata.cloud/g85v2a.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g85v2a.png" width="400" className="m-auto" /></p>
 
 Пример кода на Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kimi/chat/completions"
+url = "https://api.xhuoapi.ai/v1/kimi/chat/completions"
 
 headers = {
     "accept": "application/json",

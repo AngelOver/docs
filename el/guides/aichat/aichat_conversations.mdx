@@ -1,19 +1,19 @@
 ---
 title: "AI Chat API Σύνδεση Οδηγίες"
-description: "AI Dialogue 集成指南 - Ace Data Cloud"
+description: "AI Dialogue 集成指南 - XHuoAPI"
 ---
 
 Γνωρίζουμε ότι η σύνδεση με ορισμένα API ερωτήσεων και απαντήσεων στην αγορά δεν είναι τόσο εύκολη, όπως το API Chat Completions της OpenAI, το οποίο έχει ένα πεδίο `messages`. Για να ολοκληρωθεί η συνεχής συνομιλία, πρέπει να μεταφέρουμε όλο το ιστορικό του πλαισίου και να διαχειριστούμε το πρόβλημα υπέρβασης του περιορισμού των Token.
 
-Το AI API ερωτήσεων και απαντήσεων της AceDataCloud έχει βελτιστοποιηθεί για την παραπάνω κατάσταση, διατηρώντας την αποτελεσματικότητα των ερωτήσεων και απαντήσεων, έχει συσκευάσει την υλοποίηση της συνεχούς συνομιλίας, χωρίς να χρειάζεται να ανησυχούμε για τη μεταφορά των μηνυμάτων ή το πρόβλημα υπέρβασης του περιορισμού των Token (το API το διαχειρίζεται αυτόματα εσωτερικά). Παρέχει επίσης δυνατότητες αναζήτησης και τροποποίησης συνομιλιών, απλοποιώντας σημαντικά τη συνολική σύνδεση.
+Το AI API ερωτήσεων και απαντήσεων της XHuoAPI έχει βελτιστοποιηθεί για την παραπάνω κατάσταση, διατηρώντας την αποτελεσματικότητα των ερωτήσεων και απαντήσεων, έχει συσκευάσει την υλοποίηση της συνεχούς συνομιλίας, χωρίς να χρειάζεται να ανησυχούμε για τη μεταφορά των μηνυμάτων ή το πρόβλημα υπέρβασης του περιορισμού των Token (το API το διαχειρίζεται αυτόματα εσωτερικά). Παρέχει επίσης δυνατότητες αναζήτησης και τροποποίησης συνομιλιών, απλοποιώντας σημαντικά τη συνολική σύνδεση.
 
 Αυτό το έγγραφο θα παρουσιάσει τις οδηγίες σύνδεσης του AI API ερωτήσεων και απαντήσεων.
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [AI API ερωτήσεων και απαντήσεων](https://platform.acedata.cloud/documents/59fb1199-6694-4afb-a222-3554d7f7d05a) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [AI API ερωτήσεων και απαντήσεων](https://api.xhuoapi.ai/documents/59fb1199-6694-4afb-a222-3554d7f7d05a) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη σελίδα σύνδεσης για να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη σελίδα.
 
@@ -25,7 +25,7 @@ description: "AI Dialogue 集成指南 - Ace Data Cloud"
 
 Για παράδειγμα, ρωτώντας: “What's your name;”, μπορούμε στη συνέχεια να συμπληρώσουμε το αντίστοιχο περιεχόμενο στην οθόνη, όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/xqxda4.png)
+![](https://cdn.xhuoapi.ai/xqxda4.png)
 
 Μπορείτε να δείτε ότι έχουμε ρυθμίσει τα Request Headers, συμπεριλαμβανομένων:
 
@@ -39,7 +39,7 @@ description: "AI Dialogue 集成指南 - Ace Data Cloud"
 
 Αφού επιλέξουμε, μπορούμε να δούμε ότι στα δεξιά έχει παραχθεί ο αντίστοιχος κώδικας, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/dvkps6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dvkps6.png" width="500" className="m-auto" /></p>
 
 Κάντε κλικ στο κουμπί «Try» για να κάνετε δοκιμή, όπως φαίνεται στην παραπάνω εικόνα, και εδώ έχουμε λάβει το εξής αποτέλεσμα:
 
@@ -56,7 +56,7 @@ description: "AI Dialogue 集成指南 - Ace Data Cloud"
 Επιπλέον, εάν θέλετε να δημιουργήσετε τον αντίστοιχο κώδικα σύνδεσης, μπορείτε να τον αντιγράψετε απευθείας, όπως ο παρακάτω κώδικας CURL:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -71,7 +71,7 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/aichat/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat/conversations"
 
 headers = {
     "accept": "application/json",
@@ -96,12 +96,12 @@ print(response.text)
 
 Στην πρώτη αίτηση, ρυθμίζουμε την παράμετρο `stateful` σε `true` και μεταφέρουμε κανονικά τις παραμέτρους `model` και `question`, όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/fn4bi9.png)
+![](https://cdn.xhuoapi.ai/fn4bi9.png)
 
 Ο αντίστοιχος κώδικας είναι ως εξής:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -123,12 +123,12 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 
 Στη δεύτερη αίτηση, μεταφέρουμε το πεδίο `id` που επιστράφηκε από την πρώτη αίτηση ως παράμετρο, ενώ η παράμετρος `stateful` παραμένει ρυθμισμένη σε `true`, ρωτώντας «What I asked you just now;», όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/46a6kd.png)
+![](https://cdn.xhuoapi.ai/46a6kd.png)
 
 Ο αντίστοιχος κώδικας είναι ως εξής:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -159,7 +159,7 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 
 Η αλλαγή είναι όπως φαίνεται στην εικόνα, αλλά ο κώδικας κλήσης πρέπει να έχει τις αντίστοιχες αλλαγές για να υποστηρίξει τη ροή απάντησης.
 
-![](https://cdn.acedata.cloud/axt1aa.png)
+![](https://cdn.xhuoapi.ai/axt1aa.png)
 
 Αφού αλλάξετε το `accept` σε `application/x-ndjson`, το API θα επιστρέφει γραμμή προς γραμμή τα αντίστοιχα δεδομένα JSON, και σε επίπεδο κώδικα θα χρειαστεί να κάνουμε τις κατάλληλες αλλαγές για να αποκτήσουμε τα αποτελέσματα γραμμή προς γραμμή.
 
@@ -167,7 +167,7 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/aichat/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat/conversations"
 
 headers = {
     "accept": "application/x-ndjson",
@@ -208,7 +208,7 @@ for line in response.iter_lines():
 ```javascript
 const axios = require("axios");
 
-const url = "https://api.acedata.cloud/aichat/conversations";
+const url = "https://api.xhuoapi.ai/v1/aichat/conversations";
 const headers = {
   "Content-Type": "application/json",
   Accept: "application/x-ndjson",
@@ -236,7 +236,7 @@ axios
 Παράδειγμα κώδικα Java:
 
 ```java
-String url = "https://api.acedata.cloud/aichat/conversations";
+String url = "https://api.xhuoapi.ai/v1/aichat/conversations";
 OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, "{\"question\": \"Γειά σου\", \"stateful\": true, \"model\": \"gpt-3.5\"}");
@@ -276,12 +276,12 @@ client.newCall(request).enqueue(new Callback() {
 
 Εδώ προσθέτουμε επιπλέον το πεδίο `preset`, με περιεχόμενο `Είσαι ένας επαγγελματίας καλλιτέχνης`, όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/ird6i9.png)
+![](https://cdn.xhuoapi.ai/ird6i9.png)
 
 Ο αντίστοιχος κωδικός είναι ως εξής:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -307,23 +307,23 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 
 Αυτή η AI υποστηρίζει επίσης την προσθήκη συνημμένων για αναγνώριση εικόνας, μεταφέροντας το αντίστοιχο σύνδεσμο εικόνας μέσω του `references`, για παράδειγμα, εδώ έχω μια εικόνα ενός μήλου, όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/ht05g0.png)
+![](https://cdn.xhuoapi.ai/ht05g0.png)
 
-Ο σύνδεσμος της εικόνας είναι [https://cdn.acedata.cloud/ht05g0.png](https://cdn.acedata.cloud/ht05g0.png), μπορούμε να το μεταφέρουμε απευθείας ως παράμετρο `references`, ενώ πρέπει να σημειωθεί ότι το μοντέλο πρέπει να επιλεγεί υποστηρίζοντας την οπτική αναγνώριση, αυτή τη στιγμή υποστηρίζεται το `gpt-4-vision`, οπότε η είσοδος είναι ως εξής:
+Ο σύνδεσμος της εικόνας είναι [https://cdn.xhuoapi.ai/ht05g0.png](https://cdn.xhuoapi.ai/ht05g0.png), μπορούμε να το μεταφέρουμε απευθείας ως παράμετρο `references`, ενώ πρέπει να σημειωθεί ότι το μοντέλο πρέπει να επιλεγεί υποστηρίζοντας την οπτική αναγνώριση, αυτή τη στιγμή υποστηρίζεται το `gpt-4-vision`, οπότε η είσοδος είναι ως εξής:
 
-![](https://cdn.acedata.cloud/cstrbq.png)
+![](https://cdn.xhuoapi.ai/cstrbq.png)
 
 Ο αντίστοιχος κωδικός είναι ως εξής:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "model": "gpt-4-vision",
   "question": "Πόσα μήλα υπάρχουν στην εικόνα;",
-  "references": ["https://cdn.acedata.cloud/ht05g0.png"]
+  "references": ["https://cdn.xhuoapi.ai/ht05g0.png"]
 }'
 ```
 
@@ -341,12 +341,12 @@ curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
 
 Αυτή η API υποστηρίζει επίσης διαδικτυακά μοντέλα, συμπεριλαμβανομένων των GPT-3.5 και GPT-4, και τα δύο μπορούν να υποστηρίξουν, πίσω από την API υπάρχει μια αυτόματη διαδικασία αναζήτησης στο διαδίκτυο και συνοψίσεως, μπορούμε να επιλέξουμε το μοντέλο ως `gpt-3.5-browsing` για να το δοκιμάσουμε, όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/x5i8np.png)
+![](https://cdn.xhuoapi.ai/x5i8np.png)
 
 Ο κωδικός είναι ως εξής:
 ```
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

@@ -1,6 +1,6 @@
 ---
 title: "Integrazione e utilizzo dell'API Kling Tasks"
-description: "Kling video generation 集成指南 - Ace Data Cloud"
+description: "Kling video generation 集成指南 - XHuoAPI"
 ---
 
 La principale funzionalità dell'API Kling Tasks è quella di interrogare lo stato di esecuzione di un'attività utilizzando l'ID dell'attività generato dall'API Kling Videos Generation.
@@ -9,27 +9,27 @@ Questo documento fornirà una guida dettagliata per l'integrazione dell'API Klin
 
 ## Processo di richiesta
 
-Per utilizzare l'API Kling Tasks, è necessario prima andare alla pagina di richiesta [Kling Videos Generation API](https://platform.acedata.cloud/documents/3b921a16-a411-4557-8335-53f21d3f9e46) per richiedere il servizio corrispondente, quindi copiare l'ID dell'attività dell'API Kling Videos Generation, come mostrato nell'immagine:
+Per utilizzare l'API Kling Tasks, è necessario prima andare alla pagina di richiesta [Kling Videos Generation API](https://api.xhuoapi.ai/documents/3b921a16-a411-4557-8335-53f21d3f9e46) per richiedere il servizio corrispondente, quindi copiare l'ID dell'attività dell'API Kling Videos Generation, come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
-Infine, accedi alla pagina dell'API Tasks [Kling Tasks API](https://platform.acedata.cloud/documents/6b43ff7b-8298-49c8-a390-83df85c2c5e5) per richiedere il servizio corrispondente. Dopo essere entrato nella pagina, fai clic sul pulsante "Acquire", come mostrato nell'immagine:
+Infine, accedi alla pagina dell'API Tasks [Kling Tasks API](https://api.xhuoapi.ai/documents/6b43ff7b-8298-49c8-a390-83df85c2c5e5) per richiedere il servizio corrispondente. Dopo essere entrato nella pagina, fai clic sul pulsante "Acquire", come mostrato nell'immagine:
 
-![Pagina di richiesta](https://cdn.acedata.cloud/rci31i.png)
+![Pagina di richiesta](https://cdn.xhuoapi.ai/rci31i.png)
 
-Se non hai ancora effettuato il login o la registrazione, verrai automaticamente reindirizzato alla [pagina di login](https://platform.acedata.cloud) che ti invita a registrarti e accedere. Dopo aver effettuato il login o la registrazione, verrai automaticamente riportato alla pagina corrente.
+Se non hai ancora effettuato il login o la registrazione, verrai automaticamente reindirizzato alla [pagina di login](https://api.xhuoapi.ai) che ti invita a registrarti e accedere. Dopo aver effettuato il login o la registrazione, verrai automaticamente riportato alla pagina corrente.
 
 Alla prima richiesta, verrà offerto un credito gratuito, che ti consente di utilizzare gratuitamente questa API.
 
 ## Esempio di richiesta
 
-L'API Kling Tasks può essere utilizzata per interrogare i risultati dell'API Kling Videos Generation. Per informazioni su come utilizzare l'API Kling Videos Generation, fare riferimento al documento [Kling Videos Generation API](https://platform.acedata.cloud/documents/3b921a16-a411-4557-8335-53f21d3f9e46).
+L'API Kling Tasks può essere utilizzata per interrogare i risultati dell'API Kling Videos Generation. Per informazioni su come utilizzare l'API Kling Videos Generation, fare riferimento al documento [Kling Videos Generation API](https://api.xhuoapi.ai/documents/3b921a16-a411-4557-8335-53f21d3f9e46).
 
 Prendiamo come esempio un ID di attività restituito dal servizio Kling Videos Generation API, per dimostrare come utilizzare questa API. Supponiamo di avere un ID di attività: 20068983-0cc9-4c6a-aeb6-9c6a3c668be0, e ora dimostriamo come passare un ID di attività.
 
 ### Esempio di attività
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 ### Impostazione dell'intestazione della richiesta e del corpo della richiesta
 
@@ -45,20 +45,20 @@ Prendiamo come esempio un ID di attività restituito dal servizio Kling Videos G
 
 Impostato come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/xztiqi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xztiqi.png" width="500" className="m-auto" /></p>
 
 ### Esempio di codice
 
 Si può notare che, sul lato destro della pagina, sono già stati generati automaticamente vari codici in diverse lingue, come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/bsqh3i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bsqh3i.png" width="500" className="m-auto" /></p>
 
 Alcuni esempi di codice sono i seguenti:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/kling/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/kling/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kling/tasks"
+url = "https://api.xhuoapi.ai/v1/kling/tasks"
 
 headers = {
     "accept": "application/json",
@@ -142,13 +142,13 @@ Questa è per interrogare i dettagli delle attività video per più ID di attivi
 
 Impostato come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/4p5uvq.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4p5uvq.png" width="500" className="m-auto" /></p>
 
 ### Esempio di codice
 
 Si può notare che, sul lato destro della pagina, sono già stati generati automaticamente vari codici in diverse lingue, come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/g3b7g6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g3b7g6.png" width="500" className="m-auto" /></p>
 
 Alcuni esempi di codice sono i seguenti:
 
@@ -226,7 +226,7 @@ Risultato della richiesta contiene diversi campi, dove `items` include i dettagl
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/kling/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

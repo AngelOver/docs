@@ -1,6 +1,6 @@
 ---
 title: "Flux Tasks API:s integration och användning"
-description: "Flux Image Generation 集成指南 - Ace Data Cloud"
+description: "Flux Image Generation 集成指南 - XHuoAPI"
 ---
 
 Flux Tasks API:s huvudfunktion är att genom att ange det uppdragets ID som genererats av Flux Images Generation API för att kontrollera statusen för det uppdraget.
@@ -9,27 +9,27 @@ Detta dokument kommer att ge en detaljerad beskrivning av integrationen av Flux 
 
 ## Ansökningsprocess
 
-För att använda Flux Tasks API måste du först gå till ansökningssidan [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) för att ansöka om den aktuella tjänsten, och sedan kopiera uppdragets ID från Flux Images Generation API, som visas i bilden nedan:
+För att använda Flux Tasks API måste du först gå till ansökningssidan [Flux Images Generation API](https://api.xhuoapi.ai/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) för att ansöka om den aktuella tjänsten, och sedan kopiera uppdragets ID från Flux Images Generation API, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/7furhb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7furhb.png" width="500" className="m-auto" /></p>
 
-Slutligen går du till Flux Tasks API-sidan [Flux Tasks API](https://platform.acedata.cloud/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b) för att ansöka om den aktuella tjänsten. När du kommer till sidan klickar du på knappen "Acquire", som visas i bilden nedan.
+Slutligen går du till Flux Tasks API-sidan [Flux Tasks API](https://api.xhuoapi.ai/documents/39b38bbe-60f3-40da-b2b6-5ce1e091852b) för att ansöka om den aktuella tjänsten. När du kommer till sidan klickar du på knappen "Acquire", som visas i bilden nedan.
 
-![Ansökningssidan](https://cdn.acedata.cloud/rci31i.png)
+![Ansökningssidan](https://cdn.xhuoapi.ai/rci31i.png)
 
-Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till [inloggningssidan](https://platform.acedata.cloud) där du uppmanas att registrera dig och logga in. Efter att ha loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
+Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till [inloggningssidan](https://api.xhuoapi.ai) där du uppmanas att registrera dig och logga in. Efter att ha loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
 
 Vid första ansökan kommer det att finnas en gratis kvot som ges, så att du kan använda detta API gratis.
 
 ## Begärningsexempel
 
-Flux Tasks API kan användas för att kontrollera resultaten från Flux Images Generation API. För information om hur man använder Flux Images Generation API, se dokumentet [Flux Images Generation API](https://platform.acedata.cloud/documents/flux-images-integration).
+Flux Tasks API kan användas för att kontrollera resultaten från Flux Images Generation API. För information om hur man använder Flux Images Generation API, se dokumentet [Flux Images Generation API](https://api.xhuoapi.ai/documents/flux-images-integration).
 
 Vi tar ett exempel med ett uppdragets ID som returnerats av Flux Images Generation API för att demonstrera hur man använder detta API. Anta att vi har ett uppdragets ID: 2db0168c-2373-4367-8d9a-9dc778802e8a, och vi visar hur man gör detta genom att ange ett uppdragets ID.
 
 ### Uppdragsexempelbild
 
-<p><img src="https://cdn.acedata.cloud/7furhb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7furhb.png" width="500" className="m-auto" /></p>
 
 ### Ställ in begärningshuvuden och begärningskropp
 
@@ -45,20 +45,20 @@ Vi tar ett exempel med ett uppdragets ID som returnerats av Flux Images Generati
 
 Inställningen visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/fiasxz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fiasxz.png" width="500" className="m-auto" /></p>
 
 ### Kodexempel
 
 Det kan noteras att olika språkets kod redan har genererats automatiskt på höger sida av sidan, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/j6gn86.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/j6gn86.png" width="500" className="m-auto" /></p>
 
 Några kodexempel är som följer:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/flux/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/flux/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/tasks"
+url = "https://api.xhuoapi.ai/v1/flux/tasks"
 
 headers = {
     "accept": "application/json",
@@ -144,13 +144,13 @@ Detta är för att fråga detaljer om bilduppdrag för flera uppdragets ID:n. Ti
 
 Inställningen visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/k3i9ns.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/k3i9ns.png" width="500" className="m-auto" /></p>
 
 ### Kodexempel
 
 Det kan noteras att olika språkets kod redan har genererats automatiskt på höger sida av sidan, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/pt5fww.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pt5fww.png" width="500" className="m-auto" /></p>
 
 Några kodexempel är som följer:
 
@@ -228,7 +228,7 @@ När begäran lyckas kommer API:t att returnera detaljerad information om alla b
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/flux/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -243,7 +243,7 @@ curl -X POST 'https://api.acedata.cloud/flux/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/tasks"
+url = "https://api.xhuoapi.ai/v1/flux/tasks"
 
 headers = {
     "accept": "application/json",

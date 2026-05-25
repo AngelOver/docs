@@ -1,15 +1,15 @@
 ---
 title: "Wan Videos Generation API - Integraatio-ohjeet"
-description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
+description: "Tongyi Wansiang Video Generation 集成指南 - XHuoAPI"
 ---
 
 Tässä artikkelissa esitellään Wan Videos Generation API -integraatio-ohjeet, jonka avulla voidaan luoda virallisia videoita syöttämällä mukautettuja parametreja.
 
 ## Hakuprosessi
 
-API:n käyttämiseksi sinun on ensin mentävä [Wan Videos Generation API](https://platform.acedata.cloud/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c) -sivulle ja haettava vastaavaa palvelua. Kun olet sivulla, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
+API:n käyttämiseksi sinun on ensin mentävä [Wan Videos Generation API](https://api.xhuoapi.ai/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c) -sivulle ja haettava vastaavaa palvelua. Kun olet sivulla, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -19,7 +19,7 @@ Ensimmäisellä hakukerralla saat ilmaisia krediittejä, joiden avulla voit käy
 
 Ensinnäkin on hyvä ymmärtää peruskäyttötapa, joka tarkoittaa, että syötät kehotteen `prompt`, generointitoiminnon `action`, ensimmäisen kehyksen viittauskuvan `image_url` sekä mallin `model`, jolloin saat käsitellyn tuloksen. Ensinnäkin sinun on yksinkertaisesti välitettävä `action`-kenttä, jonka arvo on `text2video`. Se sisältää pääasiassa kahta toimintoa: tekstistä video ( `text2video` ) ja kuvasta video ( `image2video` ). Sitten meidän on myös syötettävä malli `model`, joka tällä hetkellä sisältää pääasiassa mallit `wan2.6-i2v`, `wan2.6-r2v`, `wan2.6-i2v-flash`, `wan2.6-t2v`, tarkat tiedot ovat seuraavat:
 
-<p><img src="https://cdn.acedata.cloud/03gqdz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/03gqdz.png" width="500" className="m-auto" /></p>
 
 Voit nähdä, että olemme asettaneet Request Headers, mukaan lukien:
 
@@ -45,7 +45,7 @@ Lisäksi olemme asettaneet Request Body:n, mukaan lukien:
 
 Valinnan jälkeen voit huomata, että oikealla puolella on myös luotu vastaava koodi, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/03gqdz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/03gqdz.png" width="500" className="m-auto" /></p>
 
 Napsauta "Try" -painiketta, jotta voit testata, kuten yllä olevassa kuvassa näkyy, ja saamme seuraavat tulokset:
 
@@ -70,7 +70,7 @@ Voit nähdä, että olemme saaneet tyydyttävää videoinformaatiota, ja meidän
 Lisäksi, jos haluat luoda vastaavan integraatiokoodin, voit suoraan kopioida sen, esimerkiksi CURL-koodi on seuraava:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/wan/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/wan/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -92,18 +92,18 @@ Jos haluat luoda videon viittauskuvasta tai -videosta, voit asettaa parametrin `
 
 Esimerkin täyttö on seuraava:
 
-<p><img src="https://cdn.acedata.cloud/94l0kk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/94l0kk.png" width="500" className="m-auto" /></p>
 
 Kun täyttö on valmis, se luo automaattisesti seuraavan koodin:
 
-<p><img src="https://cdn.acedata.cloud/b5q8tt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/b5q8tt.png" width="500" className="m-auto" /></p>
 
 Vastaava Python-koodi:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/wan/videos"
+url = "https://api.xhuoapi.ai/v1/wan/videos"
 
 headers = {
     "accept": "application/json",
@@ -116,7 +116,7 @@ payload = {
     "model": "wan2.6-i2v",
     "prompt": "Astronauts shuttle from space to volcano",
     "duration": 5,
-    "image_url": "https://cdn.acedata.cloud/r9vsv9.png",
+    "image_url": "https://cdn.xhuoapi.ai/r9vsv9.png",
     "callback_url": "https://www.baidu.com/"
 }
 
@@ -147,13 +147,13 @@ Katsotaanpa esimerkin avulla, miten toimia.
 
 Ensinnäkin, Webhook-palaute on palvelu, joka voi vastaanottaa HTTP-pyyntöjä, kehittäjän tulisi korvata se omalla HTTP-palvelimensa URL-osoitteella. Tässä esimerkin vuoksi käytämme julkista Webhook-esimerkkisivustoa https://webhook.site/, avaa tämä sivusto saadaksesi Webhook URL-osoitteen, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Kopioi tämä URL-osoite, niin voit käyttää sitä Webhookina, tässä esimerkki on `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`.
 
 Seuraavaksi voimme asettaa kentän `callback_url` yllä olevaan Webhook URL-osoitteeseen ja täyttää vastaavat parametrit, tarkat sisällöt ovat kuvassa näkyvät:
 
-<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vdx12s.png" width="500" className="m-auto" /></p>
 
 Kun napsautat suorita, voit huomata, että saat heti tuloksen, kuten alla:
 
@@ -165,7 +165,7 @@ Kun napsautat suorita, voit huomata, että saat heti tuloksen, kuten alla:
 
 Odota hetki, niin voit tarkastella luodun videon tulosta osoitteessa `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 Sisältö on seuraava:
 

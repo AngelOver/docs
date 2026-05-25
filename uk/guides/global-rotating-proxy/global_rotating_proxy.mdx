@@ -1,15 +1,15 @@
 ---
 title: "Глобальна інструкція з підключення代理"
-description: "Global Rotation Agent 集成指南 - Ace Data Cloud"
+description: "Global Rotation Agent 集成指南 - XHuoAPI"
 ---
 
-Цей документ в основному описує інструкцію з підключення глобального代理 Ace Data Cloud, включаючи методи подачі заявки, практичні методи тощо.
+Цей документ в основному описує інструкцію з підключення глобального代理 XHuoAPI, включаючи методи подачі заявки, практичні методи тощо.
 
 ## Метод подачі заявки
 
-Щоб скористатися глобальними послугами, спочатку можна перейти на «[сторінку заявки](https://platform.acedata.cloud/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)» для подачі заявки, перша заявка має 1 безкоштовний кредит.
+Щоб скористатися глобальними послугами, спочатку можна перейти на «[сторінку заявки](https://api.xhuoapi.ai/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)» для подачі заявки, перша заявка має 1 безкоштовний кредит.
 
-![](https://cdn.acedata.cloud/cyzvmz.png)
+![](https://cdn.xhuoapi.ai/cyzvmz.png)
 
 Якщо ви ще не увійшли в систему, вас автоматично перенаправлять на сторінку входу, після входу продовжте подавати заявку.
 
@@ -17,13 +17,13 @@ description: "Global Rotation Agent 集成指南 - Ace Data Cloud"
 
 Після подачі заявки ви можете перейти до «консолі», щоб переглянути результати своєї заявки, як показано на малюнку:
 
-![](https://cdn.acedata.cloud/y9boi5.png)
+![](https://cdn.xhuoapi.ai/y9boi5.png)
 
 Натисніть «Credentials», щоб переглянути ім'я користувача та пароль для використання глобального代理-сервісу, розділені двокрапкою, де ім'я користувача складається з 8 символів, а пароль з 32 символів, як показано на малюнку:
 
-![](https://cdn.acedata.cloud/ixwm85.png)
+![](https://cdn.xhuoapi.ai/ixwm85.png)
 
-Цей代理 є ротаційним代理 (Rotating Proxy), тому під час використання потрібно лише налаштувати одну фіксовану адресу代理 та порт, адреса代理 та порт - це `global.proxy.acedata.cloud` та `30007`, цей代理 підтримує протоколи HTTP/HTTPS/SOCKS і може використовуватися для запитів до сайтів, що використовують протоколи HTTP та HTTPS.
+Цей代理 є ротаційним代理 (Rotating Proxy), тому під час використання потрібно лише налаштувати одну фіксовану адресу代理 та порт, адреса代理 та порт - це `global.proxy.xhuoapi.ai` та `30007`, цей代理 підтримує протоколи HTTP/HTTPS/SOCKS і може використовуватися для запитів до сайтів, що використовують протоколи HTTP та HTTPS.
 
 > Увага: цей代理 можна використовувати лише в мережевому середовищі за межами Китаю, в материковому Китаї він не працює.
 
@@ -34,7 +34,7 @@ description: "Global Rotation Agent 集成指南 - Ace Data Cloud"
 Припустимо, що ім'я користувача та пароль代理 - це `1f78266a:eff0896726224fa2a99fe82dd1f07562`, ми можемо протестувати за допомогою наступної команди curl:
 
 ```shell
-curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007 https://ipinfo.io
+curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007 https://ipinfo.io
 ```
 
 Тут ми використовуємо параметр `-x` curl для вказівки адреси代理, протокол代理 за замовчуванням - HTTP/HTTPS, URL запиту - [https://ipinfo.io](https://ipinfo.io), цей сайт може повернути реальну IP-адресу та регіон, в якому знаходиться IP.
@@ -67,7 +67,7 @@ curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:300
 ```python
 import requests
 
-proxy = 'http://{proxy_username}:{proxy_password}@global.proxy.acedata.cloud:30007'
+proxy = 'http://{proxy_username}:{proxy_password}@global.proxy.xhuoapi.ai:30007'
 
 proxies = {
     'http': proxy,
@@ -81,7 +81,7 @@ for _ in range(3):
 
 Тут ми спочатку оголосили URL代理 і визначили його як змінну proxy, протокол - http, далі йдуть ім'я користувача та пароль тунельного代理 (тобто ім'я користувача та пароль, які відображаються в консолі, розділені двокрапкою), потім йде символ `@`, а потім адреса та порт代理.
 
-> Увага: вам потрібно замінити `{proxy_username}:{proxy_password}` у наведеному коді на ваше ім'я користувача та пароль代理, в результаті отримаєте щось на зразок `proxy = 'http://1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007'`, зверніть увагу, що символи `{` і `}` відсутні.
+> Увага: вам потрібно замінити `{proxy_username}:{proxy_password}` у наведеному коді на ваше ім'я користувача та пароль代理, в результаті отримаєте щось на зразок `proxy = 'http://1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007'`, зверніть увагу, що символи `{` і `}` відсутні.
 
 Далі оголошується змінна proxies, в якій налаштовано два ключові пари, ключі - http та https, значення обидва - proxy, що означає, що для сайтів, що використовують протоколи HTTP та HTTPS, запити здійснюються через代理, визначений змінною proxy. Далі визначено три цикли для тестування代理.
 
@@ -135,7 +135,7 @@ for _ in range(3):
 import requests
 import base64
 
-proxy_host = 'global.proxy.acedata.cloud'
+proxy_host = 'global.proxy.xhuoapi.ai'
 proxy_port = '30007'
 proxy_username = '{proxy_username}' # 8-символьне ім'я користувача
 proxy_password = '{proxy_password}' # 32-символьний пароль
@@ -166,7 +166,7 @@ for _ in range(3):
 const axios = require("axios");
 const base64 = require("base64");
 
-const proxy_host = "global.proxy.acedata.cloud";
+const proxy_host = "global.proxy.xhuoapi.ai";
 const proxy_port = "30007";
 const proxy_username = "{proxy_username}"; // 8-символьне ім'я користувача
 const proxy_password = "{proxy_password}"; // 32-символьний пароль
@@ -199,7 +199,7 @@ for (let i = 0; i < 3; i++) {
 Ми можемо здійснити фільтрацію за регіоном, додавши region до імені користувача, наприклад, якщо потрібно вибрати проксі з США, то оригінальне ім'я користувача `1f78266a` можна змінити на `1f78266a-region-us`, тоді curl можна переписати наступним чином:
 
 ```
-curl -x 1f78266a-region-us:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007 https://ipinfo.io
+curl -x 1f78266a-region-us:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007 https://ipinfo.io
 ```
 
 Список регіонів:
@@ -455,11 +455,11 @@ curl -x 1f78266a-region-us:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata
 Наприклад, якщо ви хочете досягти фіксації IP на певний час, оригінальний username `1f78266a` можна змінити на `1f78266a-session-12345`, де `12345`, якщо не змінюється, то IP залишиться незмінним на певний час, наведений вище curl можна переписати так:
 
 ```
-curl -x 1f78266a-session-12345:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007 https://ipinfo.io
+curl -x 1f78266a-session-12345:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007 https://ipinfo.io
 ```
 
 ## Купити більше
 
 Якщо ваш пакет вже вичерпано, вам потрібно купити більше, щоб продовжити користуватися цим проксі-сервісом.
 
-Щоб купити більше, перейдіть на «[сторінку заявки](https://platform.acedata.cloud/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)» і просто натисніть кнопку «Купити більше», щоб вибрати, одноразова покупка більше, ціна за одиницю буде дешевшою.
+Щоб купити більше, перейдіть на «[сторінку заявки](https://api.xhuoapi.ai/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)» і просто натисніть кнопку «Купити більше», щоб вибрати, одноразова покупка більше, ціна за одиницю буде дешевшою.

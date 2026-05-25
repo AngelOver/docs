@@ -1,6 +1,6 @@
 ---
 title: "Grok Chat Completion API заявка та використання"
-description: "Grok 集成指南 - Ace Data Cloud"
+description: "Grok 集成指南 - XHuoAPI"
 ---
 
 xAI Grok — це дуже потужна AI система діалогу, яка може генерувати плавні та природні відповіді всього за кілька секунд, просто ввівши підказку. Grok вирізняється своїм унікальним гумористичним стилем та здатністю отримувати інформацію з мережі в реальному часі, сьогодні Grok вже проявив себе в кількох інноваційних сферах, і його вплив швидко розширюється. Незалежно від того, чи це повсякденні розмови, креативне письмо, чи технічний аналіз, чи налагодження коду, Grok може надати інтелектуальну допомогу з глибокими інсайтами, забезпечуючи нові виміри підтримки для рішень та творчості користувачів.
@@ -9,9 +9,9 @@ xAI Grok — це дуже потужна AI система діалогу, як
 
 ## Процес заявки
 
-Щоб використовувати Grok Chat Completion API, спочатку можна перейти на сторінку [Grok Chat Completion API](https://platform.acedata.cloud/documents/faf08b59-36aa-4d26-b5d9-a18f113cc2be) та натиснути кнопку «Acquire», щоб отримати необхідні для запиту облікові дані:
+Щоб використовувати Grok Chat Completion API, спочатку можна перейти на сторінку [Grok Chat Completion API](https://api.xhuoapi.ai/documents/faf08b59-36aa-4d26-b5d9-a18f113cc2be) та натиснути кнопку «Acquire», щоб отримати необхідні для запиту облікові дані:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, запрошуючи вас зареєструватися та увійти. Після входу або реєстрації ви автоматично повернетеся на цю сторінку.
 
@@ -21,7 +21,7 @@ xAI Grok — це дуже потужна AI система діалогу, як
 
 Далі ви можете заповнити відповідні поля на інтерфейсі, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/vunnjf.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vunnjf.png" width="400" className="m-auto" /></p>
 
 При першому використанні цього інтерфейсу нам потрібно заповнити щонайменше три поля: одне з них — `authorization`, яке можна вибрати безпосередньо зі списку. Інший параметр — `model`, `model` — це категорія моделі, яку ми вибираємо для використання з сайту Grok, тут у нас є 8 різних моделей, деталі можна переглянути в наданих моделях. Останній параметр — `messages`, `messages` — це масив запитів, який представляє можливість одночасно завантажувати кілька запитів, кожен з яких містить `role` та `content`, де `role` вказує на роль запитувача, ми надали три ідентичності: `user`, `assistant`, `system`. Інший `content` — це конкретний зміст нашого запиту.
 
@@ -33,7 +33,7 @@ xAI Grok — це дуже потужна AI система діалогу, як
 - `temperature`: генерує випадковість, від 0 до 2, чим більше значення, тим більше розсіювання.
 - `n`: скільки кандидатних відповідей генерувати за один раз.
 
-<p><img src="https://cdn.acedata.cloud/d7iwun.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d7iwun.png" width="400" className="m-auto" /></p>
 
 Після виклику ми отримуємо наступний результат:
 
@@ -84,7 +84,7 @@ xAI Grok — це дуже потужна AI система діалогу, як
 
 Серед `choices` міститься інформація про відповіді Grok, в якій `choices` є конкретною інформацією про відповідь Grok, як показано на малюнку.
 
-<p><img src="https://cdn.acedata.cloud/p8vupk.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/p8vupk.png" width="400" className="m-auto" /></p>
 
 Можна побачити, що поле `content` в `choices` містить конкретний зміст відповіді Grok.
 
@@ -96,7 +96,7 @@ xAI Grok — це дуже потужна AI система діалогу, як
 
 Зміна, як показано на малюнку, але код виклику потребує відповідних змін, щоб підтримувати потокову відповідь.
 
-<p><img src="https://cdn.acedata.cloud/k883qa.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/k883qa.png" width="400" className="m-auto" /></p>
 
 Після зміни `stream` на `true`, API буде повертати відповідні JSON дані по рядках, на рівні коду нам потрібно внести відповідні зміни, щоб отримати результати по рядках.
 
@@ -105,7 +105,7 @@ xAI Grok — це дуже потужна AI система діалогу, як
 ```python
 import requests
 
-url = "https://api.acedata.cloud/grok/chat/completions"
+url = "https://api.xhuoapi.ai/v1/grok/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -199,7 +199,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/grok/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/grok/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -215,7 +215,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/grok/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/grok/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -233,14 +233,14 @@ System.out.print(response.body!!.string())
 
 Якщо ви хочете підключити функцію багатократного діалогу, потрібно завантажити кілька запитів у поле `messages`, конкретні приклади кількох запитів наведені на малюнку нижче:
 
-<p><img src="https://cdn.acedata.cloud/t8cya8.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/t8cya8.png" width="400" className="m-auto" /></p>
 
 Приклад коду на Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/grok/chat/completions"
+url = "https://api.xhuoapi.ai/v1/grok/chat/completions"
 
 headers = {
     "accept": "application/json",

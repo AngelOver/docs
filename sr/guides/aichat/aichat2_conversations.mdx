@@ -1,9 +1,9 @@
 ---
 title: "AI Chat v2 API Инструкције за интеграцију"
-description: "AI Dialogue 集成指南 - Ace Data Cloud"
+description: "AI Dialogue 集成指南 - XHuoAPI"
 ---
 
-AI Chat v2 API (`/aichat2/conversations`) представља нову генерацију дијалошког интерфејса, потпуну надоградњу [AI Chat API](https://platform.acedata.cloud/documents/59fb1199-6694-4afb-a222-3554d7f7d05a). Основан на једноставности и хостовању мулти-рунд дијалога у v1, проширен је следећим могућностима:
+AI Chat v2 API (`/aichat2/conversations`) представља нову генерацију дијалошког интерфејса, потпуну надоградњу [AI Chat API](https://api.xhuoapi.ai/documents/59fb1199-6694-4afb-a222-3554d7f7d05a). Основан на једноставности и хостовању мулти-рунд дијалога у v1, проширен је следећим могућностима:
 
 - **Мулти-модални улаз корисника**: директно пренос текста + слика + фајл блокова кроз структурирано поље `message`, без потребе за индиректним `references`.
 - **Агентски алати**: уграђени сет алата за претрагу на мрежи, преузимање веб страница, читање фајлова итд., уз могућност монтовања MCP сервера са корисничким овлашћењима (Google Drive, Notion, Slack, GitHub и други). Модел може у једном позиву самостално да позове више алата за извођење сложених задатака.
@@ -18,7 +18,7 @@ AI Chat v2 API (`/aichat2/conversations`) представља нову гене
 
 ## Процес пријаве
 
-Да бисте користили API, потребно је да се пријавите на страницу [AI Chat v2 API](https://platform.acedata.cloud/documents/e4a7c2b9-3f1d-4e8a-9b6c-a5d2f8e1b4c7) и добијете креденцијале. После уноса, клик на „Acquire“ дугме ће вам дати потребне токене.
+Да бисте користили API, потребно је да се пријавите на страницу [AI Chat v2 API](https://api.xhuoapi.ai/documents/e4a7c2b9-3f1d-4e8a-9b6c-a5d2f8e1b4c7) и добијете креденцијале. После уноса, клик на „Acquire“ дугме ће вам дати потребне токене.
 
 Ако нисте пријављени или регистровани, бићете аутоматски пребачени на страницу за пријаву. После регистрације и пријаве, вратићете се на исту страницу.
 
@@ -31,13 +31,13 @@ AI Chat v2 API (`/aichat2/conversations`) представља нову гене
 CURL пример:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
   -d '{
     "model": "gpt-5.4",
-    "question": "用一句话介绍下 AceDataCloud。"
+    "question": "用一句话介绍下 XHuoAPI。"
   }'
 ```
 
@@ -45,7 +45,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 
 ```json
 {
-  "answer": "AceDataCloud је унифицирана платформа која агрегира водеће AI моделе и мулти-модалне услуге, омогућавајући програмерима да једним кључем приступе GPT, Claude, Gemini, Midjourney, Suno, Veo и друге сервисе.",
+  "answer": "XHuoAPI је унифицирана платформа која агрегира водеће AI моделе и мулти-модалне услуге, омогућавајући програмерима да једним кључем приступе GPT, Claude, Gemini, Midjourney, Suno, Veo и друге сервисе.",
   "id": "f2f4b3e8-0c0a-4d3a-aaa2-7ff80c0a1c44"
 }
 ```
@@ -55,7 +55,7 @@ Python пример:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/aichat2/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat2/conversations"
 
 headers = {
     "accept": "application/json",
@@ -65,7 +65,7 @@ headers = {
 
 payload = {
     "model": "gpt-5.4",
-    "question": "用一句话介绍下 AceDataCloud。",
+    "question": "用一句话介绍下 XHuoAPI。",
 }
 
 response = requests.post(url, json=payload, headers=headers)
@@ -91,7 +91,7 @@ print(response.json())
 Први позив:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -114,7 +114,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 Други позив, са истим `id`:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -153,7 +153,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 import json
 import requests
 
-url = "https://api.acedata.cloud/aichat2/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat2/conversations"
 
 headers = {
     "accept": "application/x-ndjson",
@@ -197,7 +197,7 @@ with requests.post(url, json=payload, headers=headers, stream=True) as resp:
 Браузерски `EventSource` не подржава тело по позиву, па препоручујемо `fetch` + ручно парсирање:
 
 ```javascript
-const resp = await fetch("https://api.acedata.cloud/aichat2/conversations", {
+const resp = await fetch("https://api.xhuoapi.ai/v1/aichat2/conversations", {
   method: "POST",
   headers: {
     accept: "text/event-stream",
@@ -260,7 +260,7 @@ while (true) {
   "stateful": true,
   "message": [
     { "type": "text", "text": "Ова слика има колико мачака?" },
-    { "type": "image_url", "image_url": { "url": "https://cdn.acedata.cloud/cats.jpg" } }
+    { "type": "image_url", "image_url": { "url": "https://cdn.xhuoapi.ai/cats.jpg" } }
   ]
 }
 ```
@@ -287,7 +287,7 @@ while (true) {
 
 - Корисник пита „Покажи ми нове изложбе у Шангају“ → модел позива уграђени web search → добија одговор.
 - „Прочитај овај PDF и напиши резиме“ → модел позива `file_read` → добија резиме.
-- Ако је корисник овлашћен у [Connections](https://platform.acedata.cloud/connections), модел може да приступи Google Drive, GitHub, Notion и другим MCP алатима.
+- Ако је корисник овлашћен у [Connections](https://api.xhuoapi.ai/connections), модел може да приступи Google Drive, GitHub, Notion и другим MCP алатима.
 
 У NDJSON / SSE потоку, позиви алата се приказују као `tool_use` и `tool_result` догађаји:
 
@@ -321,7 +321,7 @@ while (true) {
 Фронтенд треба да приказује овај догађај као картон за избор. Након тога, корисник одговара, а одговор се шаље уз `tool_results`:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: text/event-stream' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -349,7 +349,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 ### `retrieve` — добијање сесије
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -403,7 +403,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 
 Ако већ користите `/aichat/conversations`, прелазак на v2 је једноставан:
 
-1. Промените URL у `https://api.acedata.cloud/aichat2/conversations`.
+1. Промените URL у `https://api.xhuoapi.ai/v1/aichat2/conversations`.
 2. Ако сте користили старе моделе (`gpt-3.5`, `gpt-4-browsing`), препоручује се да их замените актуелним моделима (`gpt-5.4`, `claude-opus-4-7`, итд.).
 3. NDJSON потоци остају компатибилни — `delta_answer` и `id` се и даље преносе.
 

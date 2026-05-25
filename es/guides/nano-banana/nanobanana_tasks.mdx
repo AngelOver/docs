@@ -1,6 +1,6 @@
 ---
 title: "Integración y uso de la API de Tareas de Nano Banana"
-description: "Nano Banana Image Generation 集成指南 - Ace Data Cloud"
+description: "Nano Banana Image Generation 集成指南 - XHuoAPI"
 ---
 
 La principal función de la API de Tareas de Nano Banana es consultar el estado de ejecución de una tarea mediante el ID de tarea generado por la API de Imágenes de Nano Banana.
@@ -9,13 +9,13 @@ Este documento detallará las instrucciones de integración de la API de Tareas 
 
 ## Ejemplo de solicitud
 
-La API de Tareas de Nano Banana se puede utilizar para consultar los resultados de la API de Imágenes de Nano Banana. Para saber cómo usar la API de Imágenes de Nano Banana, consulte el documento [API de Imágenes de Nano Banana](https://platform.acedata.cloud/documents/63e01dc3-eb21-499e-8049-3025c460058f).
+La API de Tareas de Nano Banana se puede utilizar para consultar los resultados de la API de Imágenes de Nano Banana. Para saber cómo usar la API de Imágenes de Nano Banana, consulte el documento [API de Imágenes de Nano Banana](https://api.xhuoapi.ai/documents/63e01dc3-eb21-499e-8049-3025c460058f).
 
 Tomaremos como ejemplo un ID de tarea devuelto por el servicio de la API de Imágenes de Nano Banana, y demostraremos cómo usar esta API. Supongamos que tenemos un ID de tarea: 4d320ead-4af4-4a55-8f3e-f2afebdf4fd0, a continuación, demostraremos cómo pasar un ID de tarea.
 
 ### Ejemplo de tarea
 
-<p><img src="https://cdn.acedata.cloud/nuiuth.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nuiuth.png" width="500" className="m-auto" /></p>
 
 ### Configuración de encabezados de solicitud y cuerpo de solicitud
 
@@ -31,20 +31,20 @@ Tomaremos como ejemplo un ID de tarea devuelto por el servicio de la API de Imá
 
 Configuración como se muestra en la siguiente imagen:
 
-<p><img src="https://cdn.acedata.cloud/nuiuth.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nuiuth.png" width="500" className="m-auto" /></p>
 
 ### Ejemplo de código
 
 Se puede observar que en el lado derecho de la página se han generado automáticamente códigos en varios lenguajes, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/r1u4vl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/r1u4vl.png" width="500" className="m-auto" /></p>
 
 Algunos ejemplos de código son los siguientes:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -59,7 +59,7 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/nano-banana/tasks"
+url = "https://api.xhuoapi.ai/v1/nano-banana/tasks"
 
 headers = {
     "accept": "application/json",
@@ -102,7 +102,7 @@ Después de una solicitud exitosa, la API devolverá la información detallada d
     "data": [
       {
         "prompt": "un gato siamés blanco",
-        "image_url": "https://platform.cdn.acedata.cloud/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
+        "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
       }
     ]
   }
@@ -127,7 +127,7 @@ Esto es para consultar los detalles de varias tareas ID, a diferencia de lo ante
 Ejemplo a continuación:
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -165,7 +165,7 @@ Después de una solicitud exitosa, la API devolverá la información detallada d
         "data": [
           {
             "prompt": "un gato siamés blanco",
-            "image_url": "https://platform.cdn.acedata.cloud/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
+            "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
           }
         ]
       }

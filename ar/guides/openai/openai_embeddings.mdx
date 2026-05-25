@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Embeddings API 申请及使用"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI خدمة تمثيل الكلمات، تُستخدم لتوليد نتائج تمثيل الكلمات للنص المدخل.
@@ -9,9 +9,9 @@ OpenAI خدمة تمثيل الكلمات، تُستخدم لتوليد نتائ
 
 ## 申请流程
 
-لاستخدام OpenAI Embeddings API، يمكنك أولاً الذهاب إلى صفحة [OpenAI Embeddings API](https://platform.acedata.cloud/documents/0f2e63fa-5890-4bdd-84f0-1706b5c9a387) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة:
+لاستخدام OpenAI Embeddings API، يمكنك أولاً الذهاب إلى صفحة [OpenAI Embeddings API](https://api.xhuoapi.ai/documents/0f2e63fa-5890-4bdd-84f0-1706b5c9a387) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، سيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، وبعد تسجيل الدخول سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
@@ -21,7 +21,7 @@ OpenAI خدمة تمثيل الكلمات، تُستخدم لتوليد نتائ
 
 بعد ذلك، يمكنك ملء المحتوى المقابل في الواجهة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/4qtbvr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4qtbvr.png" width="500" className="m-auto" /></p>
 
 عند استخدام هذه الواجهة لأول مرة، نحتاج على الأقل إلى ملء ثلاثة محتويات، أحدها هو `authorization`، يمكنك اختياره مباشرة من القائمة المنسدلة. المعامل الآخر هو `model`، حيث أن `model` هو نوع النموذج الذي نختار استخدامه من موقع OpenAI الرسمي، هنا لدينا ثلاثة نماذج رئيسية، يمكنك الاطلاع على النماذج التي نقدمها. المعامل الأخير هو `input`، حيث أن `input` هو النص الذي نحتاج إلى تحويله إلى تمثيل كلمات.
 
@@ -32,14 +32,14 @@ OpenAI خدمة تمثيل الكلمات، تُستخدم لتوليد نتائ
 - `dimensions`：裁剪向量维度，默认输出完整维度。
 - `encoding_format`：返回格式，可选 `float` 或 `base64`。
 
-<p><img src="https://cdn.acedata.cloud/gqulm9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gqulm9.png" width="500" className="m-auto" /></p>
 
 Python 样例调用代码：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/embeddings"
+url = "https://api.xhuoapi.ai/v1/openai/embeddings"
 
 headers = {
     "accept": "application/json",

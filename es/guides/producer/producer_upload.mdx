@@ -1,21 +1,21 @@
 ---
 title: "Productor Upload Reference Audio API Integration Instructions"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 Productor nos permite subir audio de referencia para una segunda creación, este documento explica el método de integración de la API relacionada.
 
 Esta API solo tiene un parámetro de entrada, que es `audio_url`, que es una dirección CDN accesible públicamente, que soporta la extensión mp3.
 
-Aquí, el `audio_url` que ingresamos es `https://cdn.acedata.cloud/suno_demo.mp3`, que es una dirección CDN accesible públicamente.
+Aquí, el `audio_url` que ingresamos es `https://cdn.xhuoapi.ai/suno_demo.mp3`, que es una dirección CDN accesible públicamente.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/upload' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/upload' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "audio_url": "https://cdn.acedata.cloud/suno_demo.mp3"
+  "audio_url": "https://cdn.xhuoapi.ai/suno_demo.mp3"
 }'
 ```
 
@@ -35,4 +35,4 @@ El resultado es el siguiente:
 
 Se puede ver que el campo `audio_id` de `data` es el ID de la canción después de la subida.
 
-Con el ID de la canción, podemos usar la [API de Generación de Audios del Productor](https://platform.acedata.cloud/documents/producer-audios-integration) para generar canciones personalizadas, por ejemplo, pasando `action` como `upload_extend`, y al mismo tiempo `audio_id` con el ID de la canción devuelto, se puede generar una nueva canción basada en el audio de referencia.
+Con el ID de la canción, podemos usar la [API de Generación de Audios del Productor](https://api.xhuoapi.ai/documents/producer-audios-integration) para generar canciones personalizadas, por ejemplo, pasando `action` como `upload_extend`, y al mismo tiempo `audio_id` con el ID de la canción devuelto, se puede generar una nueva canción basada en el audio de referencia.

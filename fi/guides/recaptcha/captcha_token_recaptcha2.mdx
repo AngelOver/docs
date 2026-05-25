@@ -1,15 +1,15 @@
 ---
 title: "Recaptcha2-protokollin tunnistus API -liitännän ohjeet"
-description: "Recaptcha verification code recognition service 集成指南 - Ace Data Cloud"
+description: "Recaptcha verification code recognition service 集成指南 - XHuoAPI"
 ---
 
 Tässä artikkelissa esitellään Recaptcha2-protokollin tunnistus API -liitännän ohjeet, joka mahdollistaa käyttäjille, että heidän ei tarvitse tunnistaa ja klikata Recaptcha2-varmennuskuvia, vaan he voivat yksinkertaisesti lähettää verkkosivuston avaimen, jolloin taustalla tapahtuu automaattinen purku ja vahvistus.
 
 ## Hakuprosessi
 
-API:n käyttämiseksi on ensin mentävä [Recaptcha2-protokollin tunnistus API](https://platform.acedata.cloud/documents/597b8f11-26d8-4a1d-9a83-8d33bc4b8af7) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire"-painiketta, kuten kuvassa on esitetty:
+API:n käyttämiseksi on ensin mentävä [Recaptcha2-protokollin tunnistus API](https://api.xhuoapi.ai/documents/597b8f11-26d8-4a1d-9a83-8d33bc4b8af7) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire"-painiketta, kuten kuvassa on esitetty:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -19,11 +19,11 @@ Ensimmäisellä hakemiskerralla saat ilmaisia krediittejä, joita voit käyttä�
 
 Ensinnäkin on hyvä ymmärtää peruskäyttötapa, joka on syöttää käsiteltävän varmennuskuvan verkkosivuston URL-osoite, jolloin saat käsitellyn tuloksen. Ensinnäkin sinun on yksinkertaisesti välitettävä `website_url`-kenttä. Esimerkkisivustomme on: `https://www.google.com/recaptcha/api2/demo`, ja meidän on saatava `website_key` `website_url` -sivulta. Avaa tämä verkkosivusto, paina F12 siirtyäksesi konsoliin, ja tee sitten globaalihaku Element-sivulla hakusanalla `recaptcha-demo`, jolloin saat seuraavat tulokset:
 
-<p><img src="https://cdn.acedata.cloud/hvx41c.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/hvx41c.png" width="500" className="m-auto" /></p>
 
 Missä `data-sitekey` -kenttä vastaa yhtä merkkijonoa, joka on `website_key` -arvo. Alla on tarkat parametrin tulokset:
 
-<p><img src="https://cdn.acedata.cloud/8oowyw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8oowyw.png" width="500" className="m-auto" /></p>
 
 Voit nähdä, että olemme asettaneet pyyntöotsikot, mukaan lukien:
 
@@ -37,7 +37,7 @@ Lisäksi on asetettu pyyntökeho, mukaan lukien:
 
 Valinnan jälkeen voit huomata, että oikealle puolelle on myös luotu vastaava koodi, kuten kuvassa on esitetty:
 
-<p><img src="https://cdn.acedata.cloud/pudujk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pudujk.png" width="500" className="m-auto" /></p>
 
 Napsauta "Try"-painiketta testataksesi, kuten yllä olevassa kuvassa on esitetty, jolloin saamme seuraavat tulokset:
 ```json
@@ -56,14 +56,14 @@ Ensinnäkin meidän on selvitettävä, miten sivusto lähettää POST-pyynnön, 
 
 - Suorita ensin vahvistus manuaalisesti, tarkka kuva on seuraava:
 
-<p><img src="https://cdn.acedata.cloud/gwiflr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gwiflr.png" width="500" className="m-auto" /></p>
 
 - Napsauta sitten lähetä ja tarkkaile konsolin verkon muutoksia, tarkka kuva on seuraava:
 
-<p><img src="https://cdn.acedata.cloud/6hm5kj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/6hm5kj.png" width="500" className="m-auto" /></p>
 
 - Analysoi tämän lähetyksen POST-pyynnön rakenne, lopuksi voit oikealla hiiren painikkeella kopioida CURL-koodin, tarkka kuva on seuraava:
-<p><img src="https://cdn.acedata.cloud/m7y35w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/m7y35w.png" width="500" className="m-auto" /></p>
 
 Yllä olevasta kuvasta voidaan päätellä, että tämän POST-pyynnön URL-osoite on: `https://www.google.com/recaptcha/api2/demo`, meidän tarvitsee vain lähettää parametri `g-recaptcha-response`, ja sitten meidän tarvitsee vain siirtää käsitelty token alla olevaan dataan, tokenin vahvistamiseen liittyvä CURL-koodi on seuraava:
 
@@ -92,14 +92,14 @@ if response.status_code:
 
 Sitten ajamme koodin ja huomaamme, että konsoli näyttää tältä:
 
-<p><img src="https://cdn.acedata.cloud/ku22tk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ku22tk.png" width="500" className="m-auto" /></p>
 
 Lopuksi olemme läpäisseet Recaptcha2-varmenteen vahvistuksen.
 
 Lisäksi, jos haluat luoda vastaavan integrointikoodin, voit suoraan kopioida sen, esimerkiksi CURL-koodi on seuraava:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/captcha/token/recaptcha2' \
+curl -X POST 'https://api.xhuoapi.ai/v1/captcha/token/recaptcha2' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -114,7 +114,7 @@ Pythonin integrointikoodi on seuraava:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/captcha/token/recaptcha2"
+url = "https://api.xhuoapi.ai/v1/captcha/token/recaptcha2"
 
 headers = {
     "accept": "application/json",

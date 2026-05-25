@@ -1,15 +1,15 @@
 ---
 title: "Інструкція з інтеграції API генерації відео Veo"
-description: "Veo Video Generation 集成指南 - Ace Data Cloud"
+description: "Veo Video Generation 集成指南 - XHuoAPI"
 ---
 
 У цьому документі буде представлено інструкцію з інтеграції API генерації відео Veo, який дозволяє генерувати офіційні відео Veo за допомогою введення користувацьких параметрів.
 
 ## Процес подачі заявки
 
-Щоб використовувати API, спочатку потрібно перейти на сторінку [API генерації відео Veo](https://platform.acedata.cloud/documents/63e01dc3-eb21-499e-8049-3025c460058f) та подати заявку на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
+Щоб використовувати API, спочатку потрібно перейти на сторінку [API генерації відео Veo](https://api.xhuoapi.ai/documents/63e01dc3-eb21-499e-8049-3025c460058f) та подати заявку на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, щоб запросити реєстрацію та вхід. Після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
 
@@ -19,7 +19,7 @@ description: "Veo Video Generation 集成指南 - Ace Data Cloud"
 
 Спочатку потрібно ознайомитися з основними способами використання, а саме: введенням підказки `prompt`, дії `action`, масиву зображень для початкових і кінцевих кадрів `image_urls` та моделі `model`, щоб отримати оброблений результат. Спочатку потрібно просто передати поле `action`, значення якого буде `text2video`. Воно містить три основні дії: створення відео з тексту (`text2video`), створення відео з зображення (`image2video`), отримання відео 1080p (`get1080p`). Потім потрібно ввести модель `model`, наразі основними є моделі `veo2`, `veo2-fast`, `veo3`, `veo31`, `veo31-fast`, `veo31-fast-ingredients` та `veo3-fast`, деталі наведені нижче:
 
-<p><img src="https://cdn.acedata.cloud/vv5pe8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vv5pe8.png" width="500" className="m-auto" /></p>
 
 Ми можемо бачити, що тут налаштовані заголовки запиту, включаючи:
 
@@ -72,7 +72,7 @@ description: "Veo Video Generation 集成指南 - Ace Data Cloud"
 
 Після вибору ви також можете побачити відповідний код з правого боку, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/pmwh4y.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pmwh4y.png" width="500" className="m-auto" /></p>
 
 Натисніть кнопку «Try», щоб провести тестування, як показано на малюнку, і ми отримаємо наступний результат:
 
@@ -84,7 +84,7 @@ description: "Veo Video Generation 集成指南 - Ace Data Cloud"
   "data": [
     {
       "id": "253eedc47f1c4eb2a370ed2312168f4b",
-      "video_url": "https://platform.cdn.acedata.cloud/veo/dd01fc69-e1f7-4b68-aa8c-463f6b748d11.mp4",
+      "video_url": "https://platform.cdn.xhuoapi.ai/veo/dd01fc69-e1f7-4b68-aa8c-463f6b748d11.mp4",
       "created_at": "2025-07-25 16:07:43",
       "complete_at": "2025-07-25 16:10:28",
       "state": "succeeded"
@@ -108,7 +108,7 @@ description: "Veo Video Generation 集成指南 - Ace Data Cloud"
 Крім того, якщо ви хочете згенерувати відповідний код для інтеграції, ви можете просто скопіювати його, наприклад, код CURL виглядає так:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/veo/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/veo/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -131,18 +131,18 @@ curl -X POST 'https://api.acedata.cloud/veo/videos' \
 
 Приклад заповнення виглядає так:
 
-<p><img src="https://cdn.acedata.cloud/8wvlqd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8wvlqd.png" width="500" className="m-auto" /></p>
 
 Після заповнення автоматично згенерувався код, як показано нижче:
 
-<p><img src="https://cdn.acedata.cloud/tgzfxi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tgzfxi.png" width="500" className="m-auto" /></p>
 
 Відповідний код на Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/veo/videos"
+url = "https://api.xhuoapi.ai/v1/veo/videos"
 
 headers = {
     "accept": "application/json",
@@ -154,7 +154,7 @@ payload = {
     "action": "image2video",
     "model": "veo2",
     "prompt": "Нехай танцює",
-    "image_urls": ["https://cdn.acedata.cloud/7p1jhy.png"]
+    "image_urls": ["https://cdn.xhuoapi.ai/7p1jhy.png"]
 }
 
 response = requests.post(url, json=payload, headers=headers)
@@ -171,7 +171,7 @@ print(response.text)
   "data": [
     {
       "id": "59f12222b1fa4fbe9331ff2400ad1583",
-      "video_url": "https://platform.cdn.acedata.cloud/veo/98e309f3-35bc-438d-8cb3-4015fc864b87.mp4",
+      "video_url": "https://platform.cdn.xhuoapi.ai/veo/98e309f3-35bc-438d-8cb3-4015fc864b87.mp4",
       "created_at": "2025-07-25 16:13:07",
       "complete_at": "2025-07-25 16:16:12",
       "state": "succeeded"
@@ -186,7 +186,7 @@ print(response.text)
 
 Якщо ви хочете отримати 1080p для вже згенерованого відео Veo, ви можете встановити параметр `action` на `get1080p` і ввести ID відео, для якого потрібно отримати 1080p. ID відео отримується на основі базового використання, як показано на малюнку нижче:
 
-<p><img src="https://cdn.acedata.cloud/hacabc.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/hacabc.png" width="500" className="m-auto" /></p>
 
 Тоді можна побачити, що ID відео:
 
@@ -203,11 +203,11 @@ print(response.text)
 
 Приклад заповнення виглядає так:
 
-<p><img src="https://cdn.acedata.cloud/k56fhn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/k56fhn.png" width="500" className="m-auto" /></p>
 
 Після заповнення автоматично згенерувався код, як показано нижче:
 
-<p><img src="https://cdn.acedata.cloud/8gn4cr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8gn4cr.png" width="500" className="m-auto" /></p>
 
 Клікнувши на виконання, можна побачити результат, як показано нижче:
 
@@ -219,7 +219,7 @@ print(response.text)
   "data": [
     {
       "id": "59f12222b1fa4fbe9331ff2400ad1583",
-      "video_url": "https://platform.cdn.acedata.cloud/veo/47a51cfe-2e24-4aba-93b3-546c2dc52984.mp4",
+      "video_url": "https://platform.cdn.xhuoapi.ai/veo/47a51cfe-2e24-4aba-93b3-546c2dc52984.mp4",
       "created_at": "2025-07-25 16:13:07",
       "complete_at": "2025-07-25 16:16:12",
       "state": "succeeded"
@@ -239,11 +239,11 @@ print(response.text)
 - `translation`：чи включити автоматичний переклад підказок, за замовчуванням `false`.
   Приклад заповнення виглядає так:
 
-<p><img src="https://cdn.acedata.cloud/xau4cm.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xau4cm.png" width="500" className="m-auto" /></p>
 
 Після заповнення автоматично згенерувався код, як показано нижче:
 
-<p><img src="https://cdn.acedata.cloud/55r589.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/55r589.png" width="500" className="m-auto" /></p>
 
 Клікнувши на виконання, можна побачити результат, як показано нижче:
 ```json
@@ -254,7 +254,7 @@ print(response.text)
   "data": [
     {
       "id": "fc667e7d3b8f44beaa61a3c339af0e50",
-      "video_url": "https://platform.cdn.acedata.cloud/veo/d2b93290-ab0e-4d20-ae45-60c062a32687.mp4",
+      "video_url": "https://platform.cdn.xhuoapi.ai/veo/d2b93290-ab0e-4d20-ae45-60c062a32687.mp4",
       "created_at": "2025-08-24 20:09:06",
       "complete_at": "2025-08-24 20:10:45",
       "state": "succeeded"
@@ -275,13 +275,13 @@ print(response.text)
 
 По-перше, Webhook зворотний виклик - це сервіс, який може приймати HTTP запити, розробники повинні замінити його на URL свого власного HTTP сервера. Для зручності демонстрації використовується публічний веб-сайт з прикладом Webhook https://webhook.site/, відкривши цей сайт, ви отримаєте URL Webhook, як показано на малюнку:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Скопіюйте цей URL, і ви зможете використовувати його як Webhook, приклад тут - `https://webhook.site/aed5cd28-f8aa-4dca-9480-8ec9b42137dc`.
 
 Далі ми можемо налаштувати поле `callback_url` на вказаний вище URL Webhook, одночасно заповнивши відповідні параметри, конкретний зміст, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/rgivs2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/rgivs2.png" width="500" className="m-auto" /></p>
 
 Натиснувши "Запустити", можна помітити, що відразу отримано результат, як показано нижче:
 
@@ -293,7 +293,7 @@ print(response.text)
 
 Почекавши деякий час, ми можемо спостерігати результати генерації відео на `https://webhook.site/aed5cd28-f8aa-4dca-9480-8ec9b42137dc`, як показано на малюнку:
 
-![](https://cdn.acedata.cloud/238i32.png)
+![](https://cdn.xhuoapi.ai/238i32.png)
 
 Зміст такий:
 
@@ -305,7 +305,7 @@ print(response.text)
   "data": [
     {
       "id": "2f43ceed37944b4d836e1a1899dad0a1",
-      "video_url": "https://platform.cdn.acedata.cloud/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
+      "video_url": "https://platform.cdn.xhuoapi.ai/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
       "created_at": "2025-07-25 17:19:20",
       "complete_at": "2025-07-25 17:21:45",
       "state": "succeeded"

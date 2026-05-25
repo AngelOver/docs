@@ -1,15 +1,15 @@
 ---
 title: "全球代理對接說明"
-description: "Global Rotation Agent 集成指南 - Ace Data Cloud"
+description: "Global Rotation Agent 集成指南 - XHuoAPI"
 ---
 
-本文檔主要介紹 Ace Data Cloud 全球代理的對接說明，包括申請方法、實用方法等具體內容。
+本文檔主要介紹 XHuoAPI 全球代理的對接說明，包括申請方法、實用方法等具體內容。
 
 ## 申請方法
 
-要使用全球服務，可以首先到「[申請頁面](https://platform.acedata.cloud/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)」進行申請，首次申請有 1 積分免費額度。
+要使用全球服務，可以首先到「[申請頁面](https://api.xhuoapi.ai/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)」進行申請，首次申請有 1 積分免費額度。
 
-![](https://cdn.acedata.cloud/cyzvmz.png)
+![](https://cdn.xhuoapi.ai/cyzvmz.png)
 
 如果您尚未登錄，則會自動跳轉到登錄頁面，登錄之後繼續申請即可。
 
@@ -17,13 +17,13 @@ description: "Global Rotation Agent 集成指南 - Ace Data Cloud"
 
 申請完畢之後，可以到「控制台」中查看本人的申請結果，如圖所示：
 
-![](https://cdn.acedata.cloud/y9boi5.png)
+![](https://cdn.xhuoapi.ai/y9boi5.png)
 
 點擊 「Credentials」，即可查看使用全球代理服務的用戶名及密碼，以冒號分隔，其中用戶名是 8 位，密碼是 32 位，如圖所示：
 
-![](https://cdn.acedata.cloud/ixwm85.png)
+![](https://cdn.xhuoapi.ai/ixwm85.png)
 
-本代理是一種輪換代理（Rotating Proxy），因此使用的時候只需要設置一個固定的代理地址和端口即可，代理的地址和端口分別是 `global.proxy.acedata.cloud` 和 `30007`，本代理是 HTTP/HTTPS/SOCKS 協議的代理，可以用於請求 HTTP 和 HTTPS 協議的網站。
+本代理是一種輪換代理（Rotating Proxy），因此使用的時候只需要設置一個固定的代理地址和端口即可，代理的地址和端口分別是 `global.proxy.xhuoapi.ai` 和 `30007`，本代理是 HTTP/HTTPS/SOCKS 協議的代理，可以用於請求 HTTP 和 HTTPS 協議的網站。
 
 > 注意：本代理只能在中國境外網絡環境下使用，中國大陸地區無法使用。
 
@@ -34,7 +34,7 @@ description: "Global Rotation Agent 集成指南 - Ace Data Cloud"
 假如當前代理的用戶名密碼是 `1f78266a:eff0896726224fa2a99fe82dd1f07562`，我們可以用如下 curl 命令進行測試：
 
 ```shell
-curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007 https://ipinfo.io
+curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007 https://ipinfo.io
 ```
 
 這裡我們使用 curl 的 `-x` 參數指定了代理地址，代理協議默認是 HTTP/HTTPS，這裡請求的 URL 是 [https://ipinfo.io](https://ipinfo.io)，這個站點可以返回請求該站點的真實 IP 地址和 IP 所在地域。
@@ -67,7 +67,7 @@ curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:300
 ```python
 import requests
 
-proxy = 'http://{proxy_username}:{proxy_password}@global.proxy.acedata.cloud:30007'
+proxy = 'http://{proxy_username}:{proxy_password}@global.proxy.xhuoapi.ai:30007'
 
 proxies = {
     'http': proxy,
@@ -81,7 +81,7 @@ for _ in range(3):
 
 這裡我們首先聲明了代理的 URL 並定義為 proxy 變量，協議是 http 協議，後面跟隨隧道代理的用戶名和密碼（即控制台展示的用戶名和密碼，二者以冒號分隔），後面再跟一個 `@` 符號，再跟代理的地址和端口即可。
 
-> 注意：您需要將上述代碼中的 `{proxy_username}:{proxy_password}`替換為您的代理用戶名密碼，最終結果類似 `proxy = 'http://1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007'`，注意沒有 `{` 和 `}` 字符。
+> 注意：您需要將上述代碼中的 `{proxy_username}:{proxy_password}`替換為您的代理用戶名密碼，最終結果類似 `proxy = 'http://1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007'`，注意沒有 `{` 和 `}` 字符。
 
 接著聲明了一個 proxies 變量，配置了兩個鍵值對，鍵名分別為 http 和 https，其鍵值都是 proxy，代表對於 HTTP 和 HTTPS 協議的網站，都是用 proxy 變量定義的代理來進行請求。接下來定義了三次循環進行代理的測試。
 
@@ -135,7 +135,7 @@ for _ in range(3):
 import requests
 import base64
 
-proxy_host = 'global.proxy.acedata.cloud'
+proxy_host = 'global.proxy.xhuoapi.ai'
 proxy_port = '30007'
 proxy_username = '{proxy_username}' # 8位用戶名
 proxy_password = '{proxy_password}' # 32位密碼
@@ -166,7 +166,7 @@ for _ in range(3):
 const axios = require("axios");
 const base64 = require("base64");
 
-const proxy_host = "global.proxy.acedata.cloud";
+const proxy_host = "global.proxy.xhuoapi.ai";
 const proxy_port = "30007";
 const proxy_username = "{proxy_username}"; // 8位用户名
 const proxy_password = "{proxy_password}"; // 32位密码
@@ -199,7 +199,7 @@ for (let i = 0; i < 3; i++) {
 我們可以通過在 username 裡面添加 region 來進行地區的篩選，例如如果要選擇美國的代理，原來的 username 是 `1f78266a`，則可以把 username 修改為 `1f78266a-region-us`，上述的 curl 就可以改寫如下：
 
 ```
-curl -x 1f78266a-region-us:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007 https://ipinfo.io
+curl -x 1f78266a-region-us:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007 https://ipinfo.io
 ```
 
 地區列表：
@@ -455,11 +455,11 @@ curl -x 1f78266a-region-us:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata
 例如如果要實現一段時間內的 IP 固定，原來的 username 是 `1f78266a`，則可以把 username 修改為 `1f78266a-session-12345`，其中的 `12345` 如果不變，那麼一段時間內 IP 就不變，上述的 curl 就可以改寫如下：
 
 ```
-curl -x 1f78266a-session-12345:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007 https://ipinfo.io
+curl -x 1f78266a-session-12345:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007 https://ipinfo.io
 ```
 
 ## 購買更多
 
 如您的套餐已經耗尽，您需要購買更多才能繼續使用該代理服務。
 
-要購買更多，請到「[申請頁面](https://platform.acedata.cloud/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)」直接點擊「購買更多」按鈕即可選購，單次購買更多，單價越便宜。
+要購買更多，請到「[申請頁面](https://api.xhuoapi.ai/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)」直接點擊「購買更多」按鈕即可選購，單次購買更多，單價越便宜。

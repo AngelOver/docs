@@ -1,6 +1,6 @@
 ---
 title: "التكامل والاستخدام لواجهة برمجة التطبيقات Midjourney Shorten API"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 الوظيفة الرئيسية لواجهة برمجة التطبيقات Midjourney Shorten API هي الاتصال بأمر `/shorten` الرسمي من Midjourney (تحليل Prompt)، لتحليل جزء من الـ Prompt، والتعرف على الكلمات المفتاحية ذات الوزن الأعلى، وإنشاء 5 مقترحات مختصرة أكثر للـ Prompt. هذه الواجهة مناسبة جداً لـ:
@@ -13,9 +13,9 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 ## عملية التقديم
 
-لاستخدام Midjourney Shorten API، يجب أولاً التقديم عبر صفحة التقديم [Midjourney Shorten API](https://platform.acedata.cloud/documents/f0c6be1d-c084-43ac-bde6-44ef9cf824a2)، وبعد الدخول إلى الصفحة، اضغط على زر "Acquire".
+لاستخدام Midjourney Shorten API، يجب أولاً التقديم عبر صفحة التقديم [Midjourney Shorten API](https://api.xhuoapi.ai/documents/f0c6be1d-c084-43ac-bde6-44ef9cf824a2)، وبعد الدخول إلى الصفحة، اضغط على زر "Acquire".
 
-إذا لم تكن مسجلاً أو مسجلاً دخولك، سيتم توجيهك تلقائياً إلى [صفحة تسجيل الدخول](https://platform.acedata.cloud) لتسجيل حساب أو تسجيل الدخول، وبعد ذلك ستعود تلقائياً إلى الصفحة الحالية.
+إذا لم تكن مسجلاً أو مسجلاً دخولك، سيتم توجيهك تلقائياً إلى [صفحة تسجيل الدخول](https://api.xhuoapi.ai) لتسجيل حساب أو تسجيل الدخول، وبعد ذلك ستعود تلقائياً إلى الصفحة الحالية.
 
 عند التقديم لأول مرة، ستحصل على رصيد مجاني لاستخدام هذه الواجهة مجاناً.
 
@@ -39,7 +39,7 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/shorten' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/shorten' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -53,7 +53,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/shorten' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/shorten"
+url = "https://api.xhuoapi.ai/v1/midjourney/shorten"
 
 headers = {
     "accept": "application/json",

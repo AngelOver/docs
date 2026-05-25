@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Embeddings API заявка та використання"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI сервіс векторів слів, призначений для генерації векторних результатів, що представляють вхідний текст.
@@ -9,9 +9,9 @@ OpenAI сервіс векторів слів, призначений для г�
 
 ## Процес заявки
 
-Щоб використовувати OpenAI Embeddings API, спочатку можна перейти на сторінку [OpenAI Embeddings API](https://platform.acedata.cloud/documents/0f2e63fa-5890-4bdd-84f0-1706b5c9a387) і натиснути кнопку «Acquire», щоб отримати необхідні для запиту облікові дані:
+Щоб використовувати OpenAI Embeddings API, спочатку можна перейти на сторінку [OpenAI Embeddings API](https://api.xhuoapi.ai/documents/0f2e63fa-5890-4bdd-84f0-1706b5c9a387) і натиснути кнопку «Acquire», щоб отримати необхідні для запиту облікові дані:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, запрошуючи вас зареєструватися та увійти. Після входу або реєстрації ви автоматично повернетеся на цю сторінку.
 
@@ -21,7 +21,7 @@ OpenAI сервіс векторів слів, призначений для г�
 
 Далі ви можете заповнити відповідні поля на інтерфейсі, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/4qtbvr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4qtbvr.png" width="500" className="m-auto" /></p>
 
 При першому використанні цього інтерфейсу нам потрібно заповнити принаймні три поля: одне з них - `authorization`, яке можна вибрати безпосередньо зі списку. Інший параметр - `model`, `model` - це категорія моделі, яку ми вибираємо для використання з сайту OpenAI, тут у нас є 3 основні моделі, деталі можна переглянути в наданих моделях. Останній параметр - `input`, `input` - це текст, який ми хочемо перетворити на вектор слів.
 
@@ -32,14 +32,14 @@ OpenAI сервіс векторів слів, призначений для г�
 - `dimensions`: обрізка розмірності вектора, за замовчуванням виводиться повна розмірність.
 - `encoding_format`: формат повернення, можна вибрати `float` або `base64`.
 
-<p><img src="https://cdn.acedata.cloud/gqulm9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gqulm9.png" width="500" className="m-auto" /></p>
 
 Приклад коду виклику на Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/embeddings"
+url = "https://api.xhuoapi.ai/v1/openai/embeddings"
 
 headers = {
     "accept": "application/json",

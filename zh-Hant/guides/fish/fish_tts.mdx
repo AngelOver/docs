@@ -1,13 +1,13 @@
 ---
 title: "Fish TTS API 接入說明"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
-本文將介紹 Fish TTS API 的接入說明，該接口與 [Fish Audio 官方 OpenAPI](https://docs.fish.audio/text-to-speech/text-to-speech) 完全相容，可直接將原本調用 `https://api.fish.audio/v1/tts` 的程式碼遷移到 `https://api.acedata.cloud/fish/tts`，僅需替換授權資訊即可，無需修改請求體結構。
+本文將介紹 Fish TTS API 的接入說明，該接口與 [Fish Audio 官方 OpenAPI](https://docs.fish.audio/text-to-speech/text-to-speech) 完全相容，可直接將原本調用 `https://api.fish.audio/v1/tts` 的程式碼遷移到 `https://api.xhuoapi.ai/v1/fish/tts`，僅需替換授權資訊即可，無需修改請求體結構。
 
 ## 申請流程
 
-要使用 API，需要先到 [Fish TTS API](https://platform.acedata.cloud/services/caf99abc-ddcf-4714-b2a5-862d9b469509) 對應頁面申請對應的服務，進入頁面後，點擊「Acquire」按鈕。
+要使用 API，需要先到 [Fish TTS API](https://api.xhuoapi.ai/services/caf99abc-ddcf-4714-b2a5-862d9b469509) 對應頁面申請對應的服務，進入頁面後，點擊「Acquire」按鈕。
 
 如果你尚未登入或註冊，會自動跳轉到登入頁面邀請您來註冊和登入，登入註冊後會自動返回當前頁面。
 
@@ -29,7 +29,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 最小的請求只需傳 `text` 一個欄位，範例如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -55,7 +55,7 @@ curl -X POST 'https://api.acedata.cloud/fish/tts' \
 如果需要使用克隆音色，可以在請求體中加入 `reference_id`：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -77,7 +77,7 @@ curl -X POST 'https://api.acedata.cloud/fish/tts' \
 請求範例：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/tts' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tts' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -106,7 +106,7 @@ curl -X POST 'https://api.acedata.cloud/fish/tts' \
 }
 ```
 
-也可使用 [Fish Tasks API](https://platform.acedata.cloud/documents/fc541fac-a941-47fd-b6f7-48d6cb9da523) 透過 `task_id` 主動輪詢任務狀態。
+也可使用 [Fish Tasks API](https://api.xhuoapi.ai/documents/fc541fac-a941-47fd-b6f7-48d6cb9da523) 透過 `task_id` 主動輪詢任務狀態。
 
 ## 錯誤處理
 

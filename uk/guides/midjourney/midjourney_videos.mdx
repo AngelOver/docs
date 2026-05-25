@@ -1,15 +1,15 @@
 ---
 title: "Інструкція з інтеграції Midjourney Videos API"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 У цьому документі буде представлено інструкцію з інтеграції Midjourney Videos API, яка дозволяє генерувати офіційні відео Midjourney за допомогою введення користувацьких параметрів.
 
 ## Процес подачі заявки
 
-Щоб використовувати API, спочатку потрібно перейти на сторінку [Midjourney Videos API](https://platform.acedata.cloud/documents/midjourney-videos) для подачі заявки на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
+Щоб використовувати API, спочатку потрібно перейти на сторінку [Midjourney Videos API](https://api.xhuoapi.ai/documents/midjourney-videos) для подачі заявки на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, запрошуючи вас зареєструватися та увійти. Після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
 
@@ -19,7 +19,7 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 Спочатку потрібно ознайомитися з основним способом використання, а саме введенням підказки `prompt`, дії `action`, масиву посилань на зображення для першого та останнього кадрів `image_url`, щоб отримати оброблений результат. Спочатку потрібно просто передати поле `action`, значення якого буде `generate`. Воно містить дві основні дії: генерувати відео (`generate`), розширити відео (`extend`), деталі наведені нижче:
 
-<p><img src="https://cdn.acedata.cloud/pi72m9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pi72m9.png" width="500" className="m-auto" /></p>
 
 Ми можемо бачити, що тут ми налаштували заголовки запиту, включаючи:
 
@@ -41,7 +41,7 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 Після вибору ви можете помітити, що праворуч також згенерувався відповідний код, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/y0cw0p.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/y0cw0p.png" width="500" className="m-auto" /></p>
 
 Натисніть кнопку «Try», щоб провести тестування, як показано на малюнку, і ви отримаєте наступний результат:
 
@@ -78,14 +78,14 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 Крім того, якщо ви хочете згенерувати відповідний код інтеграції, ви можете просто скопіювати його, наприклад, код CURL виглядає так:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/midjourney/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "action": "generate",
   "prompt": "A cat sitting on a table",
-  "image_url": "https://cdn.acedata.cloud/jgo1cw.jpg"
+  "image_url": "https://cdn.xhuoapi.ai/jgo1cw.jpg"
 }'
 ```
 
@@ -110,18 +110,18 @@ curl -X POST 'https://api.acedata.cloud/midjourney/videos' \
 
 Приклад заповнення виглядає так:
 
-<p><img src="https://cdn.acedata.cloud/855hnj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/855hnj.png" width="500" className="m-auto" /></p>
 
 Після заповнення автоматично згенерується код, як показано нижче:
 
-<p><img src="https://cdn.acedata.cloud/p58w39.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/p58w39.png" width="500" className="m-auto" /></p>
 
 Відповідний код на Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/videos"
+url = "https://api.xhuoapi.ai/v1/midjourney/videos"
 
 headers = {
     "accept": "application/json",
@@ -171,13 +171,13 @@ print(response.text)
 
 По-перше, Webhook зворотний виклик — це сервіс, який може приймати HTTP запити, розробники повинні замінити його на URL свого HTTP сервера. Для зручності демонстрації використовується публічний веб-сайт з прикладом Webhook https://webhook.site/, відкривши цей сайт, ви отримаєте URL Webhook, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/lali6d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lali6d.png" width="500" className="m-auto" /></p>
 
 Скопіюйте цей URL, і ви зможете використовувати його як Webhook, приклад тут: `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`.
 
 Далі ми можемо налаштувати поле `callback_url` на вказаний Webhook URL, одночасно заповнивши відповідні параметри, конкретний зміст, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/vk0l0a.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vk0l0a.png" width="500" className="m-auto" /></p>
 
 Натиснувши "Запустити", можна помітити, що відразу отримано результат, як показано нижче:
 
@@ -189,7 +189,7 @@ print(response.text)
 
 Почекавши деякий час, ми можемо спостерігати результати генерації відео на `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/7hcuw8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7hcuw8.png" width="500" className="m-auto" /></p>
 
 Зміст такий:
 

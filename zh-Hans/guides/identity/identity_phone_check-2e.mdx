@@ -1,15 +1,15 @@
 ---
 title: "手机号二要素核验 API 对接说明"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 本文将介绍一种 手机号二要素核验 API 对接说明，它可用于校验手机号和姓名的真实性和一致性。
 
 ## 申请流程
 
-要使用 API，需要先到 [手机号二要素核验 API](https://platform.acedata.cloud/documents/1f39c948-6d9b-48f5-83fb-0719da4f6ab0) 对应页面申请对应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
+要使用 API，需要先到 [手机号二要素核验 API](https://api.xhuoapi.ai/documents/1f39c948-6d9b-48f5-83fb-0719da4f6ab0) 对应页面申请对应的服务，进入页面之后，点击「Acquire」按钮，如图所示：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 如果你尚未登录或注册，会自动跳转到登录页面邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
@@ -19,7 +19,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 首先先了解下基本的使用方式，就是输入手机号码，便可获得处理后的结果，首先需要简单地传递一个 `mobile` 字段。我们接下来就可以在界面上填写对应的内容，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/v6k96j.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/v6k96j.png" width="500" className="m-auto" /></p>
 
 可以看到这里我们设置了 Request Headers，包括：
 
@@ -34,7 +34,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 选择之后，可以发现右侧也生成了对应代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/lq800o.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lq800o.png" width="500" className="m-auto" /></p>
 
 点击「Try」按钮即可进行测试，如上图所示，这里我们就得到了如下结果：
 
@@ -65,7 +65,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 另外如果想生成对应的对接代码，可以直接复制生成，例如 CURL 的代码如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/phone/check-2e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/phone/check-2e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -80,7 +80,7 @@ Python 的对接代码如下：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/phone/check-2e"
+url = "https://api.xhuoapi.ai/v1/identity/phone/check-2e"
 
 headers = {
     "accept": "application/json",

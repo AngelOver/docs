@@ -1,6 +1,6 @@
 ---
 title: "Midjourney Translate API의 연동 및 사용"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 Midjourney Translate API의 주요 기능은 입력된 중국어 설명어(content)를 통해 영어 설명어(content)를 얻는 것입니다.
@@ -9,11 +9,11 @@ Midjourney Translate API의 주요 기능은 입력된 중국어 설명어(conte
 
 ## 신청 절차
 
-Midjourney Translate API를 사용하려면 먼저 신청 페이지 [Midjourney Translate API](https://platform.acedata.cloud/documents/e067d19b-7a66-4458-a45f-0fe88c1d5d34)에서 해당 서비스를 신청해야 합니다. 페이지에 들어가면 "Acquire" 버튼을 클릭합니다, 아래 그림과 같이:
+Midjourney Translate API를 사용하려면 먼저 신청 페이지 [Midjourney Translate API](https://api.xhuoapi.ai/documents/e067d19b-7a66-4458-a45f-0fe88c1d5d34)에서 해당 서비스를 신청해야 합니다. 페이지에 들어가면 "Acquire" 버튼을 클릭합니다, 아래 그림과 같이:
 
-![신청 페이지](https://cdn.acedata.cloud/rci31i.png)
+![신청 페이지](https://cdn.xhuoapi.ai/rci31i.png)
 
-로그인 또는 등록이 되어 있지 않으면 자동으로 [로그인 페이지](https://platform.acedata.cloud)로 이동하여 등록 및 로그인을 요청합니다. 로그인 및 등록 후에는 자동으로 현재 페이지로 돌아옵니다.
+로그인 또는 등록이 되어 있지 않으면 자동으로 [로그인 페이지](https://api.xhuoapi.ai)로 이동하여 등록 및 로그인을 요청합니다. 로그인 및 등록 후에는 자동으로 현재 페이지로 돌아옵니다.
 
 첫 신청 시 무료 한도가 제공되어, 해당 API를 무료로 사용할 수 있습니다.
 
@@ -36,20 +36,20 @@ Midjourney Translate API를 사용하려면 먼저 신청 페이지 [Midjourney 
 
 설정은 아래 그림과 같이 합니다:
 
-![](https://cdn.acedata.cloud/db8lrn.png)
+![](https://cdn.xhuoapi.ai/db8lrn.png)
 
 ### 코드 예시
 
 페이지 오른쪽에서 다양한 언어의 코드가 자동으로 생성된 것을 확인할 수 있습니다, 아래 그림과 같이:
 
-<p><img src="https://cdn.acedata.cloud/oj1cck.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/oj1cck.png" width="500" className="m-auto" /></p>
 
 일부 코드 예시는 다음과 같습니다:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/translate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/translate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -63,7 +63,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/translate' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/translate"
+url = "https://api.xhuoapi.ai/v1/midjourney/translate"
 
 headers = {
     "accept": "application/json",

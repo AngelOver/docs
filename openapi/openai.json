@@ -3,12 +3,12 @@
   "info": {
     "title": "OpenAI generation",
     "version": "1.0.0",
-    "description": "API reference for OpenAI generation on Ace Data Cloud."
+    "description": "API reference for OpenAI generation on XHuoAPI."
   },
   "servers": [
     {
-      "url": "https://api.acedata.cloud",
-      "description": "Ace Data Cloud API"
+      "url": "https://api.xhuoapi.ai/v1",
+      "description": "XHuoAPI API"
     }
   ],
   "components": {
@@ -16,7 +16,7 @@
       "bearerAuth": {
         "type": "http",
         "scheme": "bearer",
-        "description": "API token from https://platform.acedata.cloud"
+        "description": "API token from https://api.xhuoapi.ai"
       }
     }
   },
@@ -3280,7 +3280,7 @@
                       "created": 1761432000,
                       "data": [
                         {
-                          "url": "https://platform.cdn.acedata.cloud/gpt-image/example.png",
+                          "url": "https://platform.cdn.xhuoapi.ai/gpt-image/example.png",
                           "revised_prompt": "A cute corgi astronaut on Mars."
                         }
                       ]

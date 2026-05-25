@@ -1,15 +1,15 @@
 ---
 title: "Documentação da API de Conversão de Gênero Facial"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 Este documento apresentará uma API de conversão de gênero facial, que pode gerar uma imagem de conversão de gênero facial com base em uma foto de rosto enviada pelo usuário, utilizando algoritmos de edição e geração de rostos. A conversão de homem para mulher pode incluir efeitos de embelezamento, maquiagem leve, franja e cabelo longo; a conversão de mulher para homem pode incluir adição de barba e cabelo curto.
 
 ## Processo de Solicitação
 
-Para usar a API, você precisa primeiro acessar a página correspondente da [API de Conversão de Gênero Facial](https://platform.acedata.cloud/documents/0e4e5318-060e-4976-8d3a-171301240f8c) para solicitar o serviço correspondente. Após acessar a página, clique no botão "Acquire", conforme mostrado na imagem abaixo:
+Para usar a API, você precisa primeiro acessar a página correspondente da [API de Conversão de Gênero Facial](https://api.xhuoapi.ai/documents/0e4e5318-060e-4976-8d3a-171301240f8c) para solicitar o serviço correspondente. Após acessar a página, clique no botão "Acquire", conforme mostrado na imagem abaixo:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Se você ainda não estiver logado ou registrado, será redirecionado automaticamente para a página de login, convidando-o a se registrar e fazer login. Após o registro e login, você será redirecionado de volta para a página atual.
 
@@ -19,11 +19,11 @@ Na primeira solicitação, haverá um crédito gratuito disponível, permitindo 
 
 Primeiro, entenda a forma básica de uso, que é inserir o link da imagem e as informações de gênero para obter a imagem resultante processada. Primeiro, você precisa passar um campo `image_url`, a imagem do rosto é mostrada na imagem abaixo:
 
-<p><img src="https://cdn.acedata.cloud/lrbtcn.jpg" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lrbtcn.jpg" width="500" className="m-auto" /></p>
 
 Em seguida, precisamos enviar as informações de gênero facial no parâmetro `gender_infos`, que é um array, permitindo que enviemos várias informações. Podemos preencher o conteúdo correspondente na interface, conforme mostrado na imagem abaixo:
 
-<p><img src="https://cdn.acedata.cloud/j22eg4.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/j22eg4.png" width="500" className="m-auto" /></p>
 
 Podemos ver que aqui configuramos os Headers da Requisição, incluindo:
 
@@ -37,7 +37,7 @@ Além disso, configuramos o Corpo da Requisição, incluindo:
 
 Após a seleção, podemos ver que o código correspondente também foi gerado à direita, conforme mostrado na imagem abaixo:
 
-<p><img src="https://cdn.acedata.cloud/5kwudj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5kwudj.png" width="500" className="m-auto" /></p>
 
 Clique no botão "Try" para realizar o teste, como mostrado na imagem acima, e obtemos o seguinte resultado:
 
@@ -49,19 +49,19 @@ Clique no botão "Try" para realizar o teste, como mostrado na imagem acima, e o
 
 Podemos ver que o resultado retornado contém um campo `image_url`, que é a imagem do rosto alterada com base nos parâmetros de mudança de gênero inseridos. A informação do rosto alterado é mostrada na imagem abaixo:
 
-<p><img src="https://cdn.acedata.cloud/hm7w44.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/hm7w44.png" width="500" className="m-auto" /></p>
 
 Podemos ver que o rosto na imagem mudou de acordo com o gênero inserido.
 
 Além disso, se você quiser gerar o código de integração correspondente, pode copiá-lo diretamente, por exemplo, o código CURL é o seguinte:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/change-gender' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/change-gender' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg",
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg",
   "gender_infos": [{"gender":1}]
 }'
 ```
@@ -71,7 +71,7 @@ O código de integração em Python é o seguinte:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/change-gender"
+url = "https://api.xhuoapi.ai/v1/face/change-gender"
 
 headers = {
     "accept": "application/json",
@@ -80,7 +80,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg",
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg",
     "gender_infos": [{"gender":1}]
 }
 

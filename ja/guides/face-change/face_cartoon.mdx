@@ -1,15 +1,15 @@
 ---
 title: "人像动漫化 API 対接説明"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 本文では、人像动漫化 API の対接説明を紹介します。これは、顔写真を入力することで、個性的な二次元アニメキャラクターを生成できるもので、個性的なアイコン、趣味活動、エフェクト系アプリケーションなどのシーンで使用でき、ソーシャルエンターテイメントの体験を向上させます。
 
 ## 申請プロセス
 
-APIを使用するには、まず [人像动漫化 API](https://platform.acedata.cloud/documents/6b6313f1-f398-4d29-933d-5a652cfa1c37) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
+APIを使用するには、まず [人像动漫化 API](https://api.xhuoapi.ai/documents/6b6313f1-f398-4d29-933d-5a652cfa1c37) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 まだログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -19,11 +19,11 @@ APIを使用するには、まず [人像动漫化 API](https://platform.acedata
 
 まず、基本的な使用方法を理解します。画像リンクを入力することで、処理後の結果画像を得ることができます。まず、シンプルに `image_url` フィールドを渡す必要があります。顔画像は以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/lrbtcn.jpg" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lrbtcn.jpg" width="500" className="m-auto" /></p>
 
 次に、画面上に対応する内容を記入できます。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/gflhrl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gflhrl.png" width="500" className="m-auto" /></p>
 
 ここでは、Request Headersを設定しました。これには以下が含まれます：
 
@@ -36,7 +36,7 @@ APIを使用するには、まず [人像动漫化 API](https://platform.acedata
 
 選択後、右側にも対応するコードが生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/rwbicp.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/rwbicp.png" width="500" className="m-auto" /></p>
 
 「Try」ボタンをクリックするとテストが行えます。上の図のように、以下の結果が得られました：
 
@@ -48,19 +48,19 @@ APIを使用するには、まず [人像动漫化 API](https://platform.acedata
 
 ここで返された結果には `image_url` フィールドがあり、変化後のカートゥーン顔画像が含まれています。変化後の顔情報は以下のようになります：
 
-<p><img src="https://cdn.acedata.cloud/qkyga1.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qkyga1.png" width="500" className="m-auto" /></p>
 
 画像中の顔は、個性的な二次元アニメキャラクターに生成されています。
 
 また、対応する対接コードを生成したい場合は、生成されたものを直接コピーできます。例えば、CURLのコードは以下の通りです：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/cartoon' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/cartoon' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }'
 ```
 
@@ -69,7 +69,7 @@ Pythonの対接コードは以下の通りです：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/cartoon"
+url = "https://api.xhuoapi.ai/v1/face/cartoon"
 
 headers = {
     "accept": "application/json",
@@ -78,7 +78,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }
 
 response = requests.post(url, json=payload, headers=headers)

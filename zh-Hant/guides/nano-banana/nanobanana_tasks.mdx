@@ -1,6 +1,6 @@
 ---
 title: "Nano Banana Tasks API 的對接和使用"
-description: "Nano Banana Image Generation 集成指南 - Ace Data Cloud"
+description: "Nano Banana Image Generation 集成指南 - XHuoAPI"
 ---
 
 Nano Banana Tasks API 的主要功能是通過輸入 Nano Banana Images API 生成的任務 ID 來查詢該任務的執行情況。
@@ -9,13 +9,13 @@ Nano Banana Tasks API 的主要功能是通過輸入 Nano Banana Images API 生�
 
 ## 請求示例
 
-Nano Banana Tasks API 可以用於查詢 Nano Banana Images API 的結果。關於怎樣使用 Nano Banana Images API，請參考文檔 [Nano Banana Images API ](https://platform.acedata.cloud/documents/63e01dc3-eb21-499e-8049-3025c460058f)。
+Nano Banana Tasks API 可以用於查詢 Nano Banana Images API 的結果。關於怎樣使用 Nano Banana Images API，請參考文檔 [Nano Banana Images API ](https://api.xhuoapi.ai/documents/63e01dc3-eb21-499e-8049-3025c460058f)。
 
 我們以 Nano Banana Images API 服務返回的任務 ID 一個為例，演示如何使用該 API。假設我們有一個任務 ID：4d320ead-4af4-4a55-8f3e-f2afebdf4fd0，接下來演示如何通過傳入一個任務 ID 來。
 
 ### 任務示例圖
 
-<p><img src="https://cdn.acedata.cloud/nuiuth.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nuiuth.png" width="500" className="m-auto" /></p>
 
 ### 設置請求頭和請求體
 
@@ -31,20 +31,20 @@ Nano Banana Tasks API 可以用於查詢 Nano Banana Images API 的結果。關�
 
 設置如下圖所示：
 
-<p><img src="https://cdn.acedata.cloud/nuiuth.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nuiuth.png" width="500" className="m-auto" /></p>
 
 ### 代碼示例
 
 可以發現，在頁面右側已經自動生成了各種語言的代碼，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/r1u4vl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/r1u4vl.png" width="500" className="m-auto" /></p>
 
 部分代碼示例如下：
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -59,7 +59,7 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/nano-banana/tasks"
+url = "https://api.xhuoapi.ai/v1/nano-banana/tasks"
 
 headers = {
     "accept": "application/json",
@@ -102,7 +102,7 @@ print(response.text)
     "data": [
       {
         "prompt": "a white siamese cat",
-        "image_url": "https://platform.cdn.acedata.cloud/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
+        "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
       }
     ]
   }
@@ -127,7 +127,7 @@ print(response.text)
 示例如下：
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -165,7 +165,7 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
         "data": [
           {
             "prompt": "a white siamese cat",
-            "image_url": "https://platform.cdn.acedata.cloud/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
+            "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
           }
         ]
       }

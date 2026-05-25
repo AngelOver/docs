@@ -1,15 +1,15 @@
 ---
 title: "كشف الحيّة الثابتة للوجه (الإصدار عالي الدقة) تعليمات دمج API"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 ستتناول هذه الوثيقة تعليمات دمج API لكشف الحيّة الثابتة للوجه (الإصدار عالي الدقة)، والتي يمكن استخدامها للكشف عن الصور الثابتة التي يرفعها المستخدمون لمنع إعادة التصوير، لتحديد ما إذا كانت الصورة المعاد تصويرها.
 
 ## عملية التقديم
 
-لاستخدام API، يجب أولاً الذهاب إلى [كشف الحيّة الثابتة للوجه (الإصدار عالي الدقة) API](https://platform.acedata.cloud/documents/df41d411-6ba8-41d3-a56f-3f6ec9acaa36) وتقديم طلب الخدمة المناسبة، بعد الدخول إلى الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
+لاستخدام API، يجب أولاً الذهاب إلى [كشف الحيّة الثابتة للوجه (الإصدار عالي الدقة) API](https://api.xhuoapi.ai/documents/df41d411-6ba8-41d3-a56f-3f6ec9acaa36) وتقديم طلب الخدمة المناسبة، بعد الدخول إلى الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، سيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول والتسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
@@ -19,11 +19,11 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 أولاً، يجب أن نفهم طريقة الاستخدام الأساسية، وهي إدخال رابط الصورة، للحصول على صورة النتائج المعالجة، يجب أولاً تمرير حقل `image_url`، صورة الوجه كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/lrbtcn.jpg" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lrbtcn.jpg" width="500" className="m-auto" /></p>
 
 يمكننا بعد ذلك ملء المحتوى المقابل على الواجهة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/c975uf.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/c975uf.png" width="500" className="m-auto" /></p>
 
 يمكنك أن ترى هنا أننا قمنا بتعيين رؤوس الطلب، بما في ذلك:
 
@@ -37,7 +37,7 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 بعد الاختيار، يمكنك أن تلاحظ أنه تم إنشاء كود مطابق على الجانب الأيمن، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/nkcvet.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nkcvet.png" width="500" className="m-auto" /></p>
 
 انقر على زر "Try" لإجراء الاختبار، كما هو موضح في الصورة أعلاه، هنا حصلنا على النتيجة التالية:
 
@@ -58,12 +58,12 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 بالإضافة إلى ذلك، إذا كنت ترغب في توليد كود الدمج المقابل، يمكنك نسخه مباشرة، على سبيل المثال، كود CURL كما يلي:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/detect-live' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/detect-live' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }'
 ```
 
@@ -72,7 +72,7 @@ curl -X POST 'https://api.acedata.cloud/face/detect-live' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/detect-live"
+url = "https://api.xhuoapi.ai/v1/face/detect-live"
 
 headers = {
     "accept": "application/json",
@@ -81,7 +81,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }
 
 response = requests.post(url, json=payload, headers=headers)

@@ -1,15 +1,15 @@
 ---
 title: "AI證件照製作 API 對接說明"
-description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
+description: "AI ID Photo Production 集成指南 - XHuoAPI"
 ---
 
 本文將介紹一種 AI證件照製作 API 對接說明，它是可以透過輸入人像照片URL以及自己喜歡的模板來製作各種風格的證件照。
 
 ## 申請流程
 
-要使用 API，需要先到 [AI證件照製作 API](https://platform.acedata.cloud/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) 對應頁面申請對應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
+要使用 API，需要先到 [AI證件照製作 API](https://api.xhuoapi.ai/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) 對應頁面申請對應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 如果你尚未登入或註冊，會自動跳轉到登入頁面邀請您來註冊和登入，登入註冊之後會自動返回當前頁面。
 
@@ -38,7 +38,7 @@ description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
 
 之後我們還可以指定生成的速度參數 `mode`，一般分為兩種慢速 `relax` 和快速 `fast`，具體的內容如下：
 
-<p><img src="https://cdn.acedata.cloud/73xbla.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/73xbla.png" width="500" className="m-auto" /></p>
 
 可以看到這裡我們設置了 Request Headers，包括：
 
@@ -54,7 +54,7 @@ description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
 
 選擇之後，可以發現右側也生成了對應代碼，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/yp49hc.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yp49hc.png" width="500" className="m-auto" /></p>
 
 點擊「Try」按鈕即可進行測試，如上圖所示，這裡我們就得到了如下結果：
 
@@ -65,12 +65,12 @@ description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
   "data": [
     {
       "id": "202411031951124776",
-      "image_url": "https://platform.cdn.acedata.cloud/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
+      "image_url": "https://platform.cdn.xhuoapi.ai/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
       "template": "男形象照"
     },
     {
       "id": "202411031951128490",
-      "image_url": "https://platform.cdn.acedata.cloud/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
+      "image_url": "https://platform.cdn.xhuoapi.ai/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
       "template": "男形象照"
     }
   ]
@@ -91,7 +91,7 @@ description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
 另外如果想生成對應的對接代碼，可以直接複製生成，例如 CURL 的代碼如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/headshots/generate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/generate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -112,13 +112,13 @@ curl -X POST 'https://api.acedata.cloud/headshots/generate' \
 
 首先，Webhook 回調是一個可以接收 HTTP 請求的服務，開發者應該替換為自己搭建的 HTTP 伺服器的 URL。此處為了方便演示，使用一個公開的 Webhook 樣例網站 https://webhook.site/，打開該網站即可得到一個 Webhook URL，如圖所示：
 
-![](https://cdn.acedata.cloud/sb4p3v.png)
+![](https://cdn.xhuoapi.ai/sb4p3v.png)
 
 將此 URL 複製下來，就可以作為 Webhook 來使用，此處的樣例為 `https://webhook.site/00f38b26-4289-4899-83d6-0cea7308850a`。
 
 接下來，我們可以設置欄位 `callback_url` 為上述 Webhook URL，同時填入人像圖片鏈接以及模板，本文推薦在參數 `mode` 為 `relax` 時使用異步回調，具體的內容如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/opt326.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/opt326.png" width="500" className="m-auto" /></p>
 
 點擊運行，可以發現會立即得到一個結果，如下：
 
@@ -129,7 +129,7 @@ curl -X POST 'https://api.acedata.cloud/headshots/generate' \
 ```
 
 稍等片刻，我們可以在 `https://webhook.site/00f38b26-4289-4899-83d6-0cea7308850a` 上觀察到生成歌曲的結果，如圖所示：
-![](https://cdn.acedata.cloud/ym6fw1.png)
+![](https://cdn.xhuoapi.ai/ym6fw1.png)
 
 內容如下：
 
@@ -140,12 +140,12 @@ curl -X POST 'https://api.acedata.cloud/headshots/generate' \
     "data": [
         {
             "id": "202411032010131366",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
             "template": "男形象照"
         },
         {
             "id": "202411032010132420",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
             "template": "男形象照"
         }
     ]

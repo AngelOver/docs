@@ -1,6 +1,6 @@
 ---
 title: "Integração e Uso da API de Tarefas do Produtor"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 A principal função da API de Tarefas do Produtor é consultar o status de execução de uma tarefa através do ID da tarefa gerado pela API de Geração de Áudios do Produtor.
@@ -9,27 +9,27 @@ Este documento irá detalhar as instruções de integração da API de Tarefas d
 
 ## Processo de Solicitação
 
-Para usar a API de Tarefas do Produtor, você precisa primeiro acessar a página de solicitação [API de Geração de Áudios do Produtor](https://platform.acedata.cloud/documents/producer-audios) para solicitar o serviço correspondente e, em seguida, copiar o ID da tarefa da API de Geração de Áudios do Produtor, como mostrado na imagem:
+Para usar a API de Tarefas do Produtor, você precisa primeiro acessar a página de solicitação [API de Geração de Áudios do Produtor](https://api.xhuoapi.ai/documents/producer-audios) para solicitar o serviço correspondente e, em seguida, copiar o ID da tarefa da API de Geração de Áudios do Produtor, como mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
-Por fim, acesse a página da API de Tarefas [API de Tarefas do Produtor](https://platform.acedata.cloud/documents/622626b1-30a7-4799-a772-4946e1df3ac0) para solicitar o serviço correspondente. Após acessar a página, clique no botão "Adquirir", como mostrado na imagem:
+Por fim, acesse a página da API de Tarefas [API de Tarefas do Produtor](https://api.xhuoapi.ai/documents/622626b1-30a7-4799-a772-4946e1df3ac0) para solicitar o serviço correspondente. Após acessar a página, clique no botão "Adquirir", como mostrado na imagem:
 
-![Página de Solicitação](https://cdn.acedata.cloud/rci31i.png)
+![Página de Solicitação](https://cdn.xhuoapi.ai/rci31i.png)
 
-Se você ainda não estiver logado ou registrado, será redirecionado automaticamente para a [página de login](https://platform.acedata.cloud), convidando-o a se registrar e fazer login. Após o registro e login, você será redirecionado automaticamente de volta para a página atual.
+Se você ainda não estiver logado ou registrado, será redirecionado automaticamente para a [página de login](https://api.xhuoapi.ai), convidando-o a se registrar e fazer login. Após o registro e login, você será redirecionado automaticamente de volta para a página atual.
 
 Na primeira solicitação, haverá um crédito gratuito disponível, permitindo que você use a API gratuitamente.
 
 ## Exemplo de Solicitação
 
-A API de Tarefas do Produtor pode ser usada para consultar os resultados da API de Geração de Áudios do Produtor. Para saber como usar a API de Geração de Áudios do Produtor, consulte o documento [API de Geração de Áudios do Produtor](https://platform.acedata.cloud/documents/producer-audios-integration).
+A API de Tarefas do Produtor pode ser usada para consultar os resultados da API de Geração de Áudios do Produtor. Para saber como usar a API de Geração de Áudios do Produtor, consulte o documento [API de Geração de Áudios do Produtor](https://api.xhuoapi.ai/documents/producer-audios-integration).
 
 Usaremos um exemplo de ID de tarefa retornado pelo serviço da API de Geração de Áudios do Produtor para demonstrar como usar essa API. Suponha que temos um ID de tarefa: 1a6ac2ad-10f2-4e2b-b500-66ec27fe82ad, a seguir, demonstraremos como passar um ID de tarefa.
 
 ### Exemplo de Tarefa
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 ### Configurando Cabeçalhos e Corpo da Solicitação
 
@@ -45,20 +45,20 @@ Usaremos um exemplo de ID de tarefa retornado pelo serviço da API de Geração 
 
 Configurar conforme mostrado na imagem abaixo:
 
-<p><img src="https://cdn.acedata.cloud/bfe4ww.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bfe4ww.png" width="500" className="m-auto" /></p>
 
 ### Exemplo de Código
 
 Pode-se notar que, no lado direito da página, já foram gerados automaticamente códigos em várias linguagens, como mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/u4pb2f.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/u4pb2f.png" width="500" className="m-auto" /></p>
 
 Alguns exemplos de código são os seguintes:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -134,13 +134,13 @@ Esta é uma consulta de detalhes da tarefa para vários IDs de tarefa, ao contr�
 
 Configurar como mostrado na imagem abaixo:
 
-<p><img src="https://cdn.acedata.cloud/jlkoma.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jlkoma.png" width="500" className="m-auto" /></p>
 
 ### Exemplo de Código
 
 Pode-se notar que, no lado direito da página, vários códigos em diferentes linguagens já foram gerados automaticamente, como mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/emw66n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/emw66n.png" width="500" className="m-auto" /></p>
 
 Alguns exemplos de código são os seguintes:
 
@@ -251,7 +251,7 @@ O resultado contém vários campos, onde items inclui os detalhes específicos d
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

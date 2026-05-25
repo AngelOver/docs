@@ -1,6 +1,6 @@
 ---
 title: "Midjourney Translate API:s integration och användning"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 Midjourney Translate API:s huvudfunktion är att få engelska beskrivningar genom att mata in kinesiska beskrivningar.
@@ -9,11 +9,11 @@ Detta dokument kommer att detaljerat beskriva integrationen av Midjourney Transl
 
 ## Ansökningsprocess
 
-För att använda Midjourney Translate API måste du först gå till ansökningssidan [Midjourney Translate API](https://platform.acedata.cloud/documents/e067d19b-7a66-4458-a45f-0fe88c1d5d34) för att ansöka om den tjänst som behövs. När du kommer till sidan, klicka på knappen "Acquire", som visas i bilden:
+För att använda Midjourney Translate API måste du först gå till ansökningssidan [Midjourney Translate API](https://api.xhuoapi.ai/documents/e067d19b-7a66-4458-a45f-0fe88c1d5d34) för att ansöka om den tjänst som behövs. När du kommer till sidan, klicka på knappen "Acquire", som visas i bilden:
 
-![Ansökningssidan](https://cdn.acedata.cloud/rci31i.png)
+![Ansökningssidan](https://cdn.xhuoapi.ai/rci31i.png)
 
-Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till [inloggningssidan](https://platform.acedata.cloud) där du uppmanas att registrera dig och logga in. Efter inloggning kommer du automatiskt att återvända till den aktuella sidan.
+Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till [inloggningssidan](https://api.xhuoapi.ai) där du uppmanas att registrera dig och logga in. Efter inloggning kommer du automatiskt att återvända till den aktuella sidan.
 
 Vid första ansökan kommer det att finnas en gratis kvot som kan användas för att gratis använda API:et.
 
@@ -36,20 +36,20 @@ Vi tar ett kinesiskt beskrivningsord som exempel för att visa hur man använder
 
 Ställ in som visas i bilden nedan:
 
-![](https://cdn.acedata.cloud/db8lrn.png)
+![](https://cdn.xhuoapi.ai/db8lrn.png)
 
 ### Kodexempel
 
 Det kan noteras att olika språkversioner av koden redan har genererats automatiskt på höger sida, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/oj1cck.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/oj1cck.png" width="500" className="m-auto" /></p>
 
 Några kodexempel är som följer:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/translate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/translate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -63,7 +63,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/translate' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/translate"
+url = "https://api.xhuoapi.ai/v1/midjourney/translate"
 
 headers = {
     "accept": "application/json",

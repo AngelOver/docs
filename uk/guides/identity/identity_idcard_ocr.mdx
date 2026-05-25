@@ -1,15 +1,15 @@
 ---
 title: "Ідентифікація та перевірка інформації за допомогою API"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 У цьому документі буде представлено опис інтеграції API для ідентифікації та перевірки інформації, який дозволяє перевіряти справжність та відповідність імені та номера посвідчення особи шляхом введення зображення посвідчення або імені та номера посвідчення. Цей інтерфейс використовується для перевірки справжності та відповідності імені та номера посвідчення, ви можете надати необхідну інформацію для перевірки, ввівши ім'я та номер посвідчення або передавши фотографію особи на посвідченні.
 
 ## Процес подачі заявки
 
-Щоб використовувати API, спочатку потрібно перейти на відповідну сторінку [API для ідентифікації та перевірки інформації](https://platform.acedata.cloud/documents/67f96afa-60b8-4cbb-a4bf-0cbfcf139a23) для подачі заявки на відповідну послугу, після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
+Щоб використовувати API, спочатку потрібно перейти на відповідну сторінку [API для ідентифікації та перевірки інформації](https://api.xhuoapi.ai/documents/67f96afa-60b8-4cbb-a4bf-0cbfcf139a23) для подачі заявки на відповідну послугу, після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, запрошуючи вас зареєструватися та увійти, після входу та реєстрації ви автоматично повернетеся на поточну сторінку.
 
@@ -19,7 +19,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 Спочатку розгляньте основний спосіб використання, тобто введіть посилання на зображення посвідчення, щоб отримати результати перевірки. Спочатку потрібно просто передати поле `image_url`, після чого ми можемо заповнити відповідні дані на інтерфейсі, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/qxy9rh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qxy9rh.png" width="500" className="m-auto" /></p>
 
 Ми бачимо, що тут ми налаштували заголовки запиту, включаючи:
 
@@ -33,7 +33,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 Після вибору ви також можете побачити згенерований код праворуч, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/uw90il.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/uw90il.png" width="500" className="m-auto" /></p>
 
 Натисніть кнопку «Try», щоб провести тестування, як показано на малюнку, і ми отримали наступний результат:
 
@@ -76,7 +76,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 Крім того, якщо ви хочете згенерувати відповідний код інтеграції, ви можете просто скопіювати його, наприклад, код CURL виглядає так:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/idcard/ocr' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/idcard/ocr' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -90,7 +90,7 @@ curl -X POST 'https://api.acedata.cloud/identity/idcard/ocr' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/idcard/ocr"
+url = "https://api.xhuoapi.ai/v1/identity/idcard/ocr"
 
 headers = {
     "accept": "application/json",
@@ -110,7 +110,7 @@ print(response.text)
 
 Ми також пропонуємо спосіб перевірки, який не розкриває інформацію про зображення посвідчення, можна передати лише ім'я `name` та номер посвідчення `id_card` для перевірки справжності та відповідності імені та номера посвідчення, нижче наведено конкретну інформацію:
 
-<p><img src="https://cdn.acedata.cloud/mc5bbw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mc5bbw.png" width="500" className="m-auto" /></p>
 
 Після натискання кнопки виконання отримано наступний результат:
 

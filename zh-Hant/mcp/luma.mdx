@@ -3,7 +3,7 @@ title: "Luma MCP 對接指南"
 description: "luma MCP 服务器集成"
 ---
 
-[MCP（Model Context Protocol）](https://modelcontextprotocol.io) 是由 Anthropic 推出的模型上下文協議，允許 AI 模型（如 Claude、GPT 等）通過標準化接口調用外部工具。通過 AceData Cloud 提供的 Luma MCP Server，你可以在 Claude Desktop、VS Code、Cursor 等 AI 客戶端中直接生成 AI 視頻。
+[MCP（Model Context Protocol）](https://modelcontextprotocol.io) 是由 Anthropic 推出的模型上下文協議，允許 AI 模型（如 Claude、GPT 等）通過標準化接口調用外部工具。通過 XHuoAPI 提供的 Luma MCP Server，你可以在 Claude Desktop、VS Code、Cursor 等 AI 客戶端中直接生成 AI 視頻。
 
 ## 功能概覽
 
@@ -18,10 +18,10 @@ Luma MCP Server 提供以下核心功能：
 
 ## 前置準備
 
-使用前，你需要獲取 AceData Cloud API Token：
+使用前，你需要獲取 XHuoAPI API Token：
 
-1. 註冊或登錄 [AceData Cloud 平台](https://platform.acedata.cloud)
-2. 前往 [Luma Videos API](https://platform.acedata.cloud/documents/luma-videos) 頁面
+1. 註冊或登錄 [XHuoAPI 平台](https://api.xhuoapi.ai)
+2. 前往 [Luma Videos API](https://api.xhuoapi.ai/documents/luma-videos) 頁面
 3. 點擊「Acquire」獲取 API Token（首次申請贈送免費額度）
 
 ## 安裝配置
@@ -35,7 +35,7 @@ pip install mcp-luma
 ### 方式二：源碼安裝
 
 ```bash
-git clone https://github.com/AceDataCloud/LumaMCP.git
+git clone https://github.com/XHuoAPI/LumaMCP.git
 cd LumaMCP
 pip install -e .
 ```
@@ -57,7 +57,7 @@ pip install -e .
     "luma": {
       "command": "mcp-luma",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -73,7 +73,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-luma"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -92,7 +92,7 @@ pip install -e .
     "luma": {
       "command": "mcp-luma",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -108,7 +108,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-luma"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "你的API Token"
+        "XHuoAPI_API_TOKEN": "你的API Token"
       }
     }
   }
@@ -137,6 +137,6 @@ pip install -e .
 
 ## 更多信息
 
-- GitHub 倉庫：[AceDataCloud/LumaMCP](https://github.com/AceDataCloud/LumaMCP)
+- GitHub 倉庫：[XHuoAPI/LumaMCP](https://github.com/XHuoAPI/LumaMCP)
 - PyPI 包：[mcp-luma](https://pypi.org/project/mcp-luma/)
-- API 文檔：[Luma 視頻生成 API](https://platform.acedata.cloud/documents/luma)
+- API 文檔：[Luma 視頻生成 API](https://api.xhuoapi.ai/documents/luma)

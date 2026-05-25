@@ -1,6 +1,6 @@
 ---
 title: "Midjourney Translate API Integration and Usage"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 Die Hauptfunktion der Midjourney Translate API besteht darin, durch Eingabe von chinesischen Beschreibungswörtern den entsprechenden englischen Beschreibungswortinhalt zu erhalten.
@@ -9,11 +9,11 @@ Dieses Dokument wird die Integrationsanleitung der Midjourney Translate API deta
 
 ## Antragsprozess
 
-Um die Midjourney Translate API zu nutzen, müssen Sie zunächst auf die Anmeldeseite [Midjourney Translate API](https://platform.acedata.cloud/documents/e067d19b-7a66-4458-a45f-0fe88c1d5d34) gehen und den entsprechenden Dienst beantragen. Nachdem Sie die Seite betreten haben, klicken Sie auf die Schaltfläche „Acquire“, wie im Bild gezeigt:
+Um die Midjourney Translate API zu nutzen, müssen Sie zunächst auf die Anmeldeseite [Midjourney Translate API](https://api.xhuoapi.ai/documents/e067d19b-7a66-4458-a45f-0fe88c1d5d34) gehen und den entsprechenden Dienst beantragen. Nachdem Sie die Seite betreten haben, klicken Sie auf die Schaltfläche „Acquire“, wie im Bild gezeigt:
 
-![Anmeldeseite](https://cdn.acedata.cloud/rci31i.png)
+![Anmeldeseite](https://cdn.xhuoapi.ai/rci31i.png)
 
-Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur [Anmeldeseite](https://platform.acedata.cloud) weitergeleitet, die Sie zur Registrierung und Anmeldung einlädt. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
+Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur [Anmeldeseite](https://api.xhuoapi.ai) weitergeleitet, die Sie zur Registrierung und Anmeldung einlädt. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
 
 Bei der ersten Beantragung gibt es ein kostenloses Kontingent, mit dem Sie die API kostenlos nutzen können.
 
@@ -36,20 +36,20 @@ Wir nehmen ein chinesisches Beschreibungswort als Beispiel, um zu demonstrieren,
 
 Einstellung wie im folgenden Bild gezeigt:
 
-![](https://cdn.acedata.cloud/db8lrn.png)
+![](https://cdn.xhuoapi.ai/db8lrn.png)
 
 ### Codebeispiel
 
 Es ist zu erkennen, dass auf der rechten Seite der Seite bereits automatisch Code in verschiedenen Sprachen generiert wurde, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/oj1cck.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/oj1cck.png" width="500" className="m-auto" /></p>
 
 Einige Codebeispiele sind wie folgt:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/translate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/translate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -63,7 +63,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/translate' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/translate"
+url = "https://api.xhuoapi.ai/v1/midjourney/translate"
 
 headers = {
     "accept": "application/json",

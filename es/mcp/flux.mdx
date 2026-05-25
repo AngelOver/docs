@@ -3,7 +3,7 @@ title: "Guía de Integración de Flux MCP"
 description: "flux MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) es un protocolo de contexto de modelo desarrollado por Anthropic, que permite a los modelos de IA (como Claude, GPT, etc.) llamar a herramientas externas a través de una interfaz estandarizada. Mediante el Flux MCP Server proporcionado por AceData Cloud, puedes generar y editar imágenes de IA directamente en clientes de IA como Claude Desktop, VS Code, Cursor, entre otros.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) es un protocolo de contexto de modelo desarrollado por Anthropic, que permite a los modelos de IA (como Claude, GPT, etc.) llamar a herramientas externas a través de una interfaz estandarizada. Mediante el Flux MCP Server proporcionado por XHuoAPI, puedes generar y editar imágenes de IA directamente en clientes de IA como Claude Desktop, VS Code, Cursor, entre otros.
 
 ## Resumen de Funcionalidades
 
@@ -17,10 +17,10 @@ Flux MCP Server ofrece las siguientes funcionalidades principales:
 
 ## Requisitos Previos
 
-Antes de usar, necesitas obtener un Token API de AceData Cloud:
+Antes de usar, necesitas obtener un Token API de XHuoAPI:
 
-1. Regístrate o inicia sesión en la [plataforma AceData Cloud](https://platform.acedata.cloud)
-2. Dirígete a la página de la [API Flux Images](https://platform.acedata.cloud/documents/flux-images)
+1. Regístrate o inicia sesión en la [plataforma XHuoAPI](https://api.xhuoapi.ai)
+2. Dirígete a la página de la [API Flux Images](https://api.xhuoapi.ai/documents/flux-images)
 3. Haz clic en "Acquire" para obtener el Token API (la primera solicitud incluye un crédito gratuito)
 
 ## Instalación y Configuración
@@ -34,7 +34,7 @@ pip install mcp-flux-pro
 ### Método 2: Instalación desde código fuente
 
 ```bash
-git clone https://github.com/AceDataCloud/FluxMCP.git
+git clone https://github.com/XHuoAPI/FluxMCP.git
 cd FluxMCP
 pip install -e .
 ```
@@ -56,7 +56,7 @@ Agrega la siguiente configuración:
     "flux": {
       "command": "mcp-flux-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tu Token API"
+        "XHuoAPI_API_TOKEN": "tu Token API"
       }
     }
   }
@@ -72,7 +72,7 @@ Si usas `uvx` (sin necesidad de preinstalar paquetes):
       "command": "uvx",
       "args": ["mcp-flux-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tu Token API"
+        "XHuoAPI_API_TOKEN": "tu Token API"
       }
     }
   }
@@ -91,7 +91,7 @@ Crea un archivo `.vscode/mcp.json` en la raíz del proyecto:
     "flux": {
       "command": "mcp-flux-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tu Token API"
+        "XHuoAPI_API_TOKEN": "tu Token API"
       }
     }
   }
@@ -107,7 +107,7 @@ O usa `uvx`:
       "command": "uvx",
       "args": ["mcp-flux-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tu Token API"
+        "XHuoAPI_API_TOKEN": "tu Token API"
       }
     }
   }
@@ -136,6 +136,6 @@ Después de la configuración, puedes invocar estas funciones directamente con l
 
 ## Más Información
 
-- Repositorio GitHub: [AceDataCloud/FluxMCP](https://github.com/AceDataCloud/FluxMCP)
+- Repositorio GitHub: [XHuoAPI/FluxMCP](https://github.com/XHuoAPI/FluxMCP)
 - Paquete PyPI: [mcp-flux-pro](https://pypi.org/project/mcp-flux-pro/)
-- Documentación API: [API de generación de imágenes Flux](https://platform.acedata.cloud/documents/flux)
+- Documentación API: [API de generación de imágenes Flux](https://api.xhuoapi.ai/documents/flux)

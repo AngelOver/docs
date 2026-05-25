@@ -1,15 +1,15 @@
 ---
 title: "Instrucciones para la integración de la API Fish Model Query"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 Este documento presenta las instrucciones para la integración de la API Fish Model Query (`GET /fish/model`), que es completamente compatible con la [OpenAPI oficial de Fish Audio](https://docs.fish.audio/resources/api-reference/model), y se utiliza para la **consulta paginada** de la lista de tonos clonados visibles para la cuenta actual o en toda la plataforma.
 
-> Para crear tonos, consulte la [Fish Model Create API](https://platform.acedata.cloud/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a). Para consultar detalles de un solo tono por `_id`, consulte la [Fish Model Get API](https://platform.acedata.cloud/documents/dabdffe7-254b-5a3f-9eca-425d614d82b9).
+> Para crear tonos, consulte la [Fish Model Create API](https://api.xhuoapi.ai/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a). Para consultar detalles de un solo tono por `_id`, consulte la [Fish Model Get API](https://api.xhuoapi.ai/documents/dabdffe7-254b-5a3f-9eca-425d614d82b9).
 
 ## Proceso de solicitud
 
-Para usar la API, primero debe solicitar el servicio correspondiente en la página de [Fish Model API](https://platform.acedata.cloud/services/caf99abc-ddcf-4714-b2a5-862d9b469509). Una vez en la página, haga clic en el botón "Acquire".
+Para usar la API, primero debe solicitar el servicio correspondiente en la página de [Fish Model API](https://api.xhuoapi.ai/services/caf99abc-ddcf-4714-b2a5-862d9b469509). Una vez en la página, haga clic en el botón "Acquire".
 
 Si no ha iniciado sesión o registrado, será redirigido automáticamente a la página de inicio de sesión para registrarse e iniciar sesión. Después de iniciar sesión o registrarse, volverá automáticamente a la página actual.
 
@@ -23,7 +23,7 @@ Al solicitar por primera vez, se otorga un crédito gratuito para usar esta API 
 ## Ejemplo de solicitud
 
 ```shell
-curl -G 'https://api.acedata.cloud/fish/model' \
+curl -G 'https://api.xhuoapi.ai/v1/fish/model' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   --data-urlencode 'page_size=10' \
@@ -69,7 +69,7 @@ La respuesta exitosa transmite directamente la estructura paginada de la platafo
 }
 ```
 
-El `_id` devuelto puede usarse como valor del campo `reference_id` en la [Fish TTS API](https://platform.acedata.cloud/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) para sintetizar voz con ese tono clonado.
+El `_id` devuelto puede usarse como valor del campo `reference_id` en la [Fish TTS API](https://api.xhuoapi.ai/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) para sintetizar voz con ese tono clonado.
 
 ## Información de facturación
 
@@ -98,4 +98,4 @@ Esta API no tiene costo: la consulta paginada de la lista de tonos es gratuita. 
 
 ## Conclusión
 
-La Fish Model Query API ofrece una capacidad de búsqueda de tonos completamente compatible con la oficial de Fish Audio, permitiendo mantener una biblioteca propia de tonos clonados en esta plataforma. Combinada con la [Fish Model Get API](https://platform.acedata.cloud/documents/dabdffe7-254b-5a3f-9eca-425d614d82b9), permite obtener detalles completos de un solo tono por ID.
+La Fish Model Query API ofrece una capacidad de búsqueda de tonos completamente compatible con la oficial de Fish Audio, permitiendo mantener una biblioteca propia de tonos clonados en esta plataforma. Combinada con la [Fish Model Get API](https://api.xhuoapi.ai/documents/dabdffe7-254b-5a3f-9eca-425d614d82b9), permite obtener detalles completos de un solo tono por ID.

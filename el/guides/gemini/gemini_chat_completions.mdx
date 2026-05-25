@@ -1,6 +1,6 @@
 ---
 title: "Gemini Chat Completion API Αίτηση και Χρήση"
-description: "Gemini AI 集成指南 - Ace Data Cloud"
+description: "Gemini AI 集成指南 - XHuoAPI"
 ---
 
 Το Google Gemini είναι ένα πολύ ισχυρό σύστημα AI συνομιλίας, το οποίο μπορεί να δημιουργήσει ομαλές και φυσικές απαντήσεις σε λίγα δευτερόλεπτα απλά εισάγοντας λέξεις-κλειδιά. Το Gemini μπορεί να προσφέρει εκπληκτική έξυπνη βοήθεια, αυξάνοντας σημαντικά την αποδοτικότητα και τη δημιουργικότητα των ανθρώπων.
@@ -9,9 +9,9 @@ description: "Gemini AI 集成指南 - Ace Data Cloud"
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το Gemini Chat Completion API, μπορείτε πρώτα να επισκεφθείτε τη σελίδα [Gemini Chat Completion API](https://platform.acedata.cloud/documents/ae54bf9b-af41-4072-b969-3756b6d66834) και να κάνετε κλικ στο κουμπί «Acquire» για να αποκτήσετε τα απαραίτητα διαπιστευτήρια:
+Για να χρησιμοποιήσετε το Gemini Chat Completion API, μπορείτε πρώτα να επισκεφθείτε τη σελίδα [Gemini Chat Completion API](https://api.xhuoapi.ai/documents/ae54bf9b-af41-4072-b969-3756b6d66834) και να κάνετε κλικ στο κουμπί «Acquire» για να αποκτήσετε τα απαραίτητα διαπιστευτήρια:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη σελίδα σύνδεσης για να σας προσκαλέσουν να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και τη σύνδεση, θα επιστρέψετε αυτόματα στη σελίδα.
 
@@ -21,13 +21,13 @@ description: "Gemini AI 集成指南 - Ace Data Cloud"
 
 Στη συνέχεια, μπορείτε να συμπληρώσετε τα αντίστοιχα περιεχόμενα στην οθόνη, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/f6ksts.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/f6ksts.png" width="400" className="m-auto" /></p>
 
 Κατά την πρώτη χρήση αυτού του API, πρέπει τουλάχιστον να συμπληρώσουμε τρία περιεχόμενα, ένα είναι το `authorization`, το οποίο μπορείτε να επιλέξετε απευθείας από τη λίστα. Ένα άλλο παράμετρο είναι το `model`, το οποίο είναι η κατηγορία μοντέλου που επιλέγουμε να χρησιμοποιήσουμε από την επίσημη ιστοσελίδα του Gemini. Εδώ έχουμε κυρίως 6 μοντέλα, λεπτομέρειες μπορείτε να δείτε στα μοντέλα που παρέχουμε. Η τελευταία παράμετρος είναι το `messages`, το οποίο είναι ο πίνακας των ερωτήσεων που εισάγουμε, είναι ένας πίνακας που δηλώνει ότι μπορείτε να ανεβάσετε πολλές ερωτήσεις ταυτόχρονα, κάθε ερώτηση περιλαμβάνει το `role` και το `content`, όπου το `role` δηλώνει τον ρόλο του ερωτώντος, παρέχουμε τρεις ταυτότητες, δηλαδή `user`, `assistant`, `system`. Το άλλο `content` είναι το συγκεκριμένο περιεχόμενο της ερώτησής μας.
 
 Μπορείτε επίσης να παρατηρήσετε ότι στα δεξιά υπάρχει η αντίστοιχη γεννήτρια κώδικα κλήσης, μπορείτε να αντιγράψετε τον κώδικα και να τον εκτελέσετε απευθείας ή να κάνετε κλικ στο κουμπί «Try» για να δοκιμάσετε.
 
-<p><img src="https://cdn.acedata.cloud/a3mdgy.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a3mdgy.png" width="400" className="m-auto" /></p>
 
 Μετά την κλήση, διαπιστώνουμε ότι το αποτέλεσμα επιστροφής είναι το εξής:
 
@@ -81,7 +81,7 @@ description: "Gemini AI 集成指南 - Ace Data Cloud"
 
 Από τα `choices`, περιλαμβάνονται οι πληροφορίες απάντησης του Gemini, όπου μπορείτε να δείτε τις συγκεκριμένες πληροφορίες απάντησης του Gemini, όπως φαίνεται στην εικόνα.
 
-<p><img src="https://cdn.acedata.cloud/v4z6e0.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/v4z6e0.png" width="400" className="m-auto" /></p>
 
 Μπορείτε να δείτε ότι το πεδίο `content` μέσα στο `choices` περιλαμβάνει το συγκεκριμένο περιεχόμενο της απάντησης του Gemini.
 
@@ -93,7 +93,7 @@ description: "Gemini AI 集成指南 - Ace Data Cloud"
 
 Η αλλαγή είναι όπως φαίνεται στην εικόνα, αλλά ο κώδικας κλήσης χρειάζεται να έχει τις αντίστοιχες αλλαγές για να υποστηρίξει τη ροή απάντησης.
 
-<p><img src="https://cdn.acedata.cloud/o2blmi.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/o2blmi.png" width="400" className="m-auto" /></p>
 
 Αφού αλλάξετε το `stream` σε `true`, το API θα επιστρέφει γραμμή προς γραμμή τα αντίστοιχα δεδομένα JSON, και σε επίπεδο κώδικα θα χρειαστεί να κάνουμε τις αντίστοιχες αλλαγές για να αποκτήσουμε τα αποτελέσματα γραμμή προς γραμμή.
 
@@ -102,7 +102,7 @@ description: "Gemini AI 集成指南 - Ace Data Cloud"
 ```python
 import requests
 
-url = "https://api.acedata.cloud/gemini/chat/completions"
+url = "https://api.xhuoapi.ai/v1/gemini/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -162,7 +162,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/gemini/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/gemini/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -178,7 +178,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/gemini/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/gemini/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -196,14 +196,14 @@ System.out.print(response.body!!.string())
 
 Αν θέλετε να ενσωματώσετε τη λειτουργία πολυδιάστατου διαλόγου, πρέπει να ανεβάσετε πολλαπλά ερωτήματα στο πεδίο `messages`, τα συγκεκριμένα παραδείγματα ερωτημάτων είναι όπως φαίνεται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/qvzu06.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qvzu06.png" width="400" className="m-auto" /></p>
 
 Παράδειγμα κώδικα Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/gemini/chat/completions"
+url = "https://api.xhuoapi.ai/v1/gemini/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -282,7 +282,7 @@ print(response.text)
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]
@@ -350,7 +350,7 @@ print(response.text)
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/58yioe.mp4"
+            "url": "https://cdn.xhuoapi.ai/58yioe.mp4"
           }
         }
       ]
@@ -423,7 +423,7 @@ print(response.text)
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]
@@ -449,7 +449,7 @@ print(response.text)
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/58yioe.mp4"
+            "url": "https://cdn.xhuoapi.ai/58yioe.mp4"
           }
         }
       ]

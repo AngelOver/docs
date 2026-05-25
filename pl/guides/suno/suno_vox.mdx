@@ -1,6 +1,6 @@
 ---
 title: "Suno Vox API Integracja Opis"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 SUNO pozwala nam na stworzenie nowej wersji Persona-v2-vox: styl piosenkarza, różniącej się od starej wersji, która wymaga najpierw uzyskania `vox_audio_id`. Niniejszy dokument wyjaśnia metodę integracji nowej wersji Persona-v2-vox.
@@ -12,7 +12,7 @@ Tutaj wprowadzamy `audio_id` jako `42599b24-fb14-4cd3-a444-e15ffde3661b`.
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/vox"
+url = "https://api.xhuoapi.ai/v1/suno/vox"
 
 headers = {
     "accept": "application/json",
@@ -102,12 +102,12 @@ Wynik jest następujący:
 }
 ```
 
-Możemy zobaczyć, że pole `id` w `data` to nasze pożądane `vox_audio_id`, a następnie przechodzimy do [API Persona](https://platform.acedata.cloud/documents/78bb6c62-6ce0-490f-a7df-e89d80ec0583), aby stworzyć nową wersję Persona-v2-vox: styl piosenkarza, konkretne dane wejściowe są następujące:
+Możemy zobaczyć, że pole `id` w `data` to nasze pożądane `vox_audio_id`, a następnie przechodzimy do [API Persona](https://api.xhuoapi.ai/documents/78bb6c62-6ce0-490f-a7df-e89d80ec0583), aby stworzyć nową wersję Persona-v2-vox: styl piosenkarza, konkretne dane wejściowe są następujące:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/persona"
+url = "https://api.xhuoapi.ai/v1/suno/persona"
 
 headers = {
     "accept": "application/json",
@@ -139,4 +139,4 @@ Po wywołaniu otrzymujemy następujący wynik:
 }
 ```
 
-Następnie możemy na podstawie wartości `persona_id` z powyższego wyniku tworzyć nową wersję Persona-v2-vox: styl piosenkarza, konkretna metoda tworzenia jest zgodna z [Suno API do generowania piosenek](https://platform.acedata.cloud/documents/suno-audios-integration#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%AD%8C%E6%89%8B%E9%A3%8E%E6%A0%BC%E7%94%9F%E6%88%90%E5%8A%9F%E8%83%BD), a na końcu możemy wykorzystać Suno Vox API do stworzenia nowej wersji Persona-v2-vox: styl piosenkarza w celu tworzenia piosenek.
+Następnie możemy na podstawie wartości `persona_id` z powyższego wyniku tworzyć nową wersję Persona-v2-vox: styl piosenkarza, konkretna metoda tworzenia jest zgodna z [Suno API do generowania piosenek](https://api.xhuoapi.ai/documents/suno-audios-integration#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%AD%8C%E6%89%8B%E9%A3%8E%E6%A0%BC%E7%94%9F%E6%88%90%E5%8A%9F%E8%83%BD), a na końcu możemy wykorzystać Suno Vox API do stworzenia nowej wersji Persona-v2-vox: styl piosenkarza w celu tworzenia piosenek.

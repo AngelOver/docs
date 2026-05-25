@@ -1,15 +1,15 @@
 ---
 title: "Veo Videos Generation API Integrationsanleitung"
-description: "Veo Video Generation 集成指南 - Ace Data Cloud"
+description: "Veo Video Generation 集成指南 - XHuoAPI"
 ---
 
 Dieser Artikel beschreibt eine Integrationsanleitung für die Veo Videos Generation API, die es ermöglicht, offizielle Veo-Videos durch Eingabe benutzerdefinierter Parameter zu generieren.
 
 ## Antragsprozess
 
-Um die API zu nutzen, müssen Sie zunächst auf die entsprechende Seite der [Veo Videos Generation API](https://platform.acedata.cloud/documents/63e01dc3-eb21-499e-8049-3025c460058f) gehen und den entsprechenden Dienst beantragen. Nach dem Betreten der Seite klicken Sie auf die Schaltfläche „Acquire“, wie im Bild gezeigt:
+Um die API zu nutzen, müssen Sie zunächst auf die entsprechende Seite der [Veo Videos Generation API](https://api.xhuoapi.ai/documents/63e01dc3-eb21-499e-8049-3025c460058f) gehen und den entsprechenden Dienst beantragen. Nach dem Betreten der Seite klicken Sie auf die Schaltfläche „Acquire“, wie im Bild gezeigt:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur Anmeldeseite weitergeleitet, um sich zu registrieren und anzumelden. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
 
@@ -19,7 +19,7 @@ Bei der ersten Beantragung gibt es ein kostenloses Kontingent, mit dem Sie die A
 
 Zunächst sollten Sie die grundlegende Nutzung verstehen, indem Sie die Eingabeaufforderung `prompt`, die Generierungsaktion `action`, das Array der Referenzbilder für den ersten und letzten Frame `image_urls` sowie das Modell `model` eingeben, um das verarbeitete Ergebnis zu erhalten. Zunächst müssen Sie ein einfaches `action`-Feld übergeben, dessen Wert `text2video` ist. Es gibt hauptsächlich drei Aktionen: Text zu Video (`text2video`), Bild zu Video (`image2video`), 1080p-Video abrufen (`get1080p`). Dann müssen wir auch das Modell `model` eingeben, das derzeit hauptsächlich die Modelle `veo2`, `veo2-fast`, `veo3`, `veo31`, `veo31-fast`, `veo31-fast-ingredients` und `veo3-fast` umfasst. Die genauen Inhalte sind wie folgt:
 
-<p><img src="https://cdn.acedata.cloud/vv5pe8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vv5pe8.png" width="500" className="m-auto" /></p>
 
 Hier haben wir die Request-Header festgelegt, einschließlich:
 
@@ -72,7 +72,7 @@ Zusätzlich haben wir den Request-Body festgelegt, einschließlich:
 
 Nach der Auswahl können Sie feststellen, dass auf der rechten Seite auch der entsprechende Code generiert wurde, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/pmwh4y.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pmwh4y.png" width="500" className="m-auto" /></p>
 
 Klicken Sie auf die Schaltfläche „Try“, um einen Test durchzuführen, wie im obigen Bild gezeigt, und wir erhalten folgendes Ergebnis:
 
@@ -84,7 +84,7 @@ Klicken Sie auf die Schaltfläche „Try“, um einen Test durchzuführen, wie i
   "data": [
     {
       "id": "253eedc47f1c4eb2a370ed2312168f4b",
-      "video_url": "https://platform.cdn.acedata.cloud/veo/dd01fc69-e1f7-4b68-aa8c-463f6b748d11.mp4",
+      "video_url": "https://platform.cdn.xhuoapi.ai/veo/dd01fc69-e1f7-4b68-aa8c-463f6b748d11.mp4",
       "created_at": "2025-07-25 16:07:43",
       "complete_at": "2025-07-25 16:10:28",
       "state": "succeeded"
@@ -108,7 +108,7 @@ Wir können sehen, dass wir die gewünschten Videoinformationen erhalten haben, 
 Wenn Sie den entsprechenden Integrationscode generieren möchten, können Sie ihn direkt kopieren, zum Beispiel ist der CURL-Code wie folgt:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/veo/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/veo/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -131,18 +131,18 @@ Als nächstes müssen wir die nächsten Schritte ausfüllen, um die Eingabeauffo
 
 Ein Beispiel für die Eingabe sieht wie folgt aus:
 
-<p><img src="https://cdn.acedata.cloud/8wvlqd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8wvlqd.png" width="500" className="m-auto" /></p>
 
 Nachdem Sie die Eingabe abgeschlossen haben, wurde automatisch der folgende Code generiert:
 
-<p><img src="https://cdn.acedata.cloud/tgzfxi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tgzfxi.png" width="500" className="m-auto" /></p>
 
 Der entsprechende Python-Code:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/veo/videos"
+url = "https://api.xhuoapi.ai/v1/veo/videos"
 
 headers = {
     "accept": "application/json",
@@ -154,7 +154,7 @@ payload = {
     "action": "image2video",
     "model": "veo2",
     "prompt": "Lass es tanzen",
-    "image_urls": ["https://cdn.acedata.cloud/7p1jhy.png"]
+    "image_urls": ["https://cdn.xhuoapi.ai/7p1jhy.png"]
 }
 
 response = requests.post(url, json=payload, headers=headers)
@@ -171,7 +171,7 @@ Wenn Sie auf Ausführen klicken, können Sie ein Ergebnis erhalten, wie folgt:
   "data": [
     {
       "id": "59f12222b1fa4fbe9331ff2400ad1583",
-      "video_url": "https://platform.cdn.acedata.cloud/veo/98e309f3-35bc-438d-8cb3-4015fc864b87.mp4",
+      "video_url": "https://platform.cdn.xhuoapi.ai/veo/98e309f3-35bc-438d-8cb3-4015fc864b87.mp4",
       "created_at": "2025-07-25 16:13:07",
       "complete_at": "2025-07-25 16:16:12",
       "state": "succeeded"
@@ -186,7 +186,7 @@ Es ist zu erkennen, dass der Inhalt des Ergebnisses mit dem oben genannten über
 
 Wenn Sie ein bereits generiertes Veo-Video in 1080p abrufen möchten, können Sie den Parameter `action` auf `get1080p` setzen und die ID des Videos eingeben, das Sie in 1080p abrufen möchten. Die Video-ID wird basierend auf der grundlegenden Verwendung abgerufen, wie im folgenden Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/hacabc.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/hacabc.png" width="500" className="m-auto" /></p>
 
 Zu diesem Zeitpunkt können Sie die Video-ID sehen:
 
@@ -203,11 +203,11 @@ Als nächstes müssen wir die nächsten Schritte ausfüllen, um die Eingabeauffo
 
 Ein Beispiel für die Eingabe sieht wie folgt aus:
 
-<p><img src="https://cdn.acedata.cloud/k56fhn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/k56fhn.png" width="500" className="m-auto" /></p>
 
 Nachdem Sie die Eingabe abgeschlossen haben, wurde automatisch der folgende Code generiert:
 
-<p><img src="https://cdn.acedata.cloud/8gn4cr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8gn4cr.png" width="500" className="m-auto" /></p>
 
 Wenn Sie auf Ausführen klicken, können Sie ein Ergebnis erhalten, wie folgt:
 
@@ -219,7 +219,7 @@ Wenn Sie auf Ausführen klicken, können Sie ein Ergebnis erhalten, wie folgt:
   "data": [
     {
       "id": "59f12222b1fa4fbe9331ff2400ad1583",
-      "video_url": "https://platform.cdn.acedata.cloud/veo/47a51cfe-2e24-4aba-93b3-546c2dc52984.mp4",
+      "video_url": "https://platform.cdn.xhuoapi.ai/veo/47a51cfe-2e24-4aba-93b3-546c2dc52984.mp4",
       "created_at": "2025-07-25 16:13:07",
       "complete_at": "2025-07-25 16:16:12",
       "state": "succeeded"
@@ -239,11 +239,11 @@ Wenn Sie ein Veo-Video mit benutzerdefinierten Abmessungen erstellen möchten, k
 - `translation`：ob die automatische Übersetzung der Eingabeaufforderung aktiviert werden soll, standardmäßig ist `false`.
   Ein Beispiel für die Eingabe sieht wie folgt aus:
 
-<p><img src="https://cdn.acedata.cloud/xau4cm.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xau4cm.png" width="500" className="m-auto" /></p>
 
 Nachdem Sie die Eingabe abgeschlossen haben, wurde automatisch der folgende Code generiert:
 
-<p><img src="https://cdn.acedata.cloud/55r589.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/55r589.png" width="500" className="m-auto" /></p>
 
 Wenn Sie auf Ausführen klicken, können Sie ein Ergebnis erhalten, wie folgt:
 ```json
@@ -254,7 +254,7 @@ Wenn Sie auf Ausführen klicken, können Sie ein Ergebnis erhalten, wie folgt:
   "data": [
     {
       "id": "fc667e7d3b8f44beaa61a3c339af0e50",
-      "video_url": "https://platform.cdn.acedata.cloud/veo/d2b93290-ab0e-4d20-ae45-60c062a32687.mp4",
+      "video_url": "https://platform.cdn.xhuoapi.ai/veo/d2b93290-ab0e-4d20-ae45-60c062a32687.mp4",
       "created_at": "2025-08-24 20:09:06",
       "complete_at": "2025-08-24 20:10:45",
       "state": "succeeded"
@@ -275,13 +275,13 @@ Lassen Sie uns anhand eines Beispiels verstehen, wie dies konkret funktioniert.
 
 Zunächst ist der Webhook-Rückruf ein Dienst, der HTTP-Anfragen empfangen kann. Entwickler sollten die URL ihres eigenen HTTP-Servers angeben. Hier verwenden wir zur Veranschaulichung eine öffentliche Webhook-Beispielwebsite https://webhook.site/, auf der Sie eine Webhook-URL erhalten können, wie im Bild gezeigt:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Kopieren Sie diese URL, um sie als Webhook zu verwenden. Das Beispiel hier lautet `https://webhook.site/aed5cd28-f8aa-4dca-9480-8ec9b42137dc`.
 
 Als Nächstes können wir das Feld `callback_url` auf die oben genannte Webhook-URL setzen und die entsprechenden Parameter ausfüllen, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/rgivs2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/rgivs2.png" width="500" className="m-auto" /></p>
 
 Klicken Sie auf Ausführen, und Sie werden sofort ein Ergebnis erhalten, wie folgt:
 
@@ -293,7 +293,7 @@ Klicken Sie auf Ausführen, und Sie werden sofort ein Ergebnis erhalten, wie fol
 
 Warten Sie einen Moment, und wir können das Ergebnis der Videoerstellung unter `https://webhook.site/aed5cd28-f8aa-4dca-9480-8ec9b42137dc` beobachten, wie im Bild gezeigt:
 
-![](https://cdn.acedata.cloud/238i32.png)
+![](https://cdn.xhuoapi.ai/238i32.png)
 
 Der Inhalt lautet:
 
@@ -305,7 +305,7 @@ Der Inhalt lautet:
   "data": [
     {
       "id": "2f43ceed37944b4d836e1a1899dad0a1",
-      "video_url": "https://platform.cdn.acedata.cloud/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
+      "video_url": "https://platform.cdn.xhuoapi.ai/veo/1ebe4f2b-59ba-4385-a4ea-0ce8a3fe12ed.mp4",
       "created_at": "2025-07-25 17:19:20",
       "complete_at": "2025-07-25 17:21:45",
       "state": "succeeded"

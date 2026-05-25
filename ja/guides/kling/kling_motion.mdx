@@ -1,15 +1,15 @@
 ---
 title: "Kling Motion Generation API 接続説明"
-description: "Kling video generation 集成指南 - Ace Data Cloud"
+description: "Kling video generation 集成指南 - XHuoAPI"
 ---
 
 本文では、Kling Motion Generation API の接続説明を紹介します。これは、カスタムパラメータを入力することでKling公式の動画を生成することができます。
 
 ## 申請プロセス
 
-APIを使用するには、まず [Kling Motion Generation API](https://platform.acedata.cloud/documents/d3f2c369-102d-4856-9565-702ac5f2df63) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
+APIを使用するには、まず [Kling Motion Generation API](https://api.xhuoapi.ai/documents/d3f2c369-102d-4856-9565-702ac5f2df63) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 まだログインまたは登録していない場合、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -19,7 +19,7 @@ APIを使用するには、まず [Kling Motion Generation API](https://platform
 
 まず、基本的な使用方法を理解します。これは、プロンプト `prompt`、参考画像 `image_url`、および参考動画リンク `video_url` を入力することで処理された結果を得ることができます。その後、モデル `mode` を入力する必要があります。現在、主に `std` と `pro` の2つのモデルがあります。具体的な内容は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/5qlpjt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5qlpjt.png" width="500" className="m-auto" /></p>
 
 ここでは、リクエストヘッダーを設定しています。これには以下が含まれます：
 
@@ -38,7 +38,7 @@ APIを使用するには、まず [Kling Motion Generation API](https://platform
 
 選択後、右側にも対応するコードが生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/buwczd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/buwczd.png" width="500" className="m-auto" /></p>
 
 「Try」ボタンをクリックするとテストができます。上の図のように、以下の結果を得ました：
 
@@ -67,13 +67,13 @@ APIを使用するには、まず [Kling Motion Generation API](https://platform
 また、対応する接続コードを生成したい場合は、生成されたものを直接コピーできます。例えば、CURLのコードは以下の通りです：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/kling/motion' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/motion' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "image_url": "https://sourceyoya.wenge.com/2025/06/03/683e9f76e4b0684509ab1aca.jpg",
-  "video_url": "https://cdn.acedata.cloud/odwfm5.mp4",
+  "video_url": "https://cdn.xhuoapi.ai/odwfm5.mp4",
   "prompt": "画面を生き生きとさせる",
   "mode": "std",
   "character_orientation": "image"
@@ -90,12 +90,12 @@ Kling Motion Generation APIの生成時間は比較的長く、約1〜2分かか
 
 まず、WebhookコールバックはHTTPリクエストを受け取ることができるサービスであり、開発者は自分が構築したHTTPサーバーのURLに置き換える必要があります。ここでは、デモのために公開されたWebhookサンプルサイト https://webhook.site/ を使用します。このサイトを開くとWebhook URLが得られます。以下の図のように：
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 この URL をコピーすれば、Webhook として使用できます。ここでのサンプルは `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3` です。
 
 次に、フィールド `callback_url` を上記の Webhook URL に設定し、対応するパラメータを入力します。具体的な内容は以下の図の通りです：
 
-<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vdx12s.png" width="500" className="m-auto" /></p>
 
 実行をクリックすると、すぐに結果が得られます。以下の通りです：
 
@@ -107,7 +107,7 @@ Kling Motion Generation APIの生成時間は比較的長く、約1〜2分かか
 
 少し待つと、`https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3` で生成された動画の結果を確認できます。以下の図の通りです：
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 内容は以下の通りです：
 

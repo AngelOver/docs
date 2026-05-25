@@ -1,15 +1,15 @@
 ---
 title: "Ανάλυση API για ανίχνευση στατικής ζωντανής εικόνας προσώπου (έκδοση υψηλής ακρίβειας)"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 Αυτό το έγγραφο θα εισάγει την ανάλυση API για την ανίχνευση στατικής ζωντανής εικόνας προσώπου (έκδοση υψηλής ακρίβειας), η οποία μπορεί να χρησιμοποιηθεί για την ανίχνευση ζωντανής εικόνας σε στατικές φωτογραφίες που ανεβάζουν οι χρήστες, προκειμένου να προσδιοριστεί αν είναι φωτογραφίες που έχουν τραβηχτεί από άλλη φωτογραφία.
 
 ## Διαδικασία αίτησης
 
-Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [Ανίχνευσης Στατικής Ζωντανής Εικόνας Προσώπου (έκδοση υψηλής ακρίβειας) API](https://platform.acedata.cloud/documents/df41d411-6ba8-41d3-a56f-3f6ec9acaa36) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [Ανίχνευσης Στατικής Ζωντανής Εικόνας Προσώπου (έκδοση υψηλής ακρίβειας) API](https://api.xhuoapi.ai/documents/df41d411-6ba8-41d3-a56f-3f6ec9acaa36) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη σελίδα σύνδεσης για να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
 
@@ -19,11 +19,11 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 Αρχικά, πρέπει να κατανοήσετε τη βασική μέθοδο χρήσης, δηλαδή να εισάγετε τον σύνδεσμο της εικόνας, ώστε να αποκτήσετε την επεξεργασμένη εικόνα αποτελέσματος. Πρέπει απλώς να μεταβιβάσετε ένα πεδίο `image_url`, η εικόνα προσώπου φαίνεται παρακάτω:
 
-<p><img src="https://cdn.acedata.cloud/lrbtcn.jpg" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lrbtcn.jpg" width="500" className="m-auto" /></p>
 
 Στη συνέχεια, μπορούμε να συμπληρώσουμε τα αντίστοιχα περιεχόμενα στην οθόνη, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/c975uf.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/c975uf.png" width="500" className="m-auto" /></p>
 
 Μπορείτε να δείτε ότι εδώ έχουμε ρυθμίσει τα Request Headers, που περιλαμβάνουν:
 
@@ -37,7 +37,7 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 Αφού επιλέξετε, μπορείτε να δείτε ότι έχει παραχθεί ο αντίστοιχος κώδικας στα δεξιά, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/nkcvet.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nkcvet.png" width="500" className="m-auto" /></p>
 
 Κάντε κλικ στο κουμπί «Try» για να κάνετε δοκιμή, όπως φαίνεται στην παραπάνω εικόνα, και εδώ έχουμε λάβει το εξής αποτέλεσμα:
 
@@ -58,12 +58,12 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 Επιπλέον, εάν θέλετε να δημιουργήσετε τον αντίστοιχο κώδικα σύνδεσης, μπορείτε να τον αντιγράψετε απευθείας, όπως ο κώδικας CURL παρακάτω:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/detect-live' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/detect-live' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }'
 ```
 
@@ -72,7 +72,7 @@ curl -X POST 'https://api.acedata.cloud/face/detect-live' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/detect-live"
+url = "https://api.xhuoapi.ai/v1/face/detect-live"
 
 headers = {
     "accept": "application/json",
@@ -81,7 +81,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }
 
 response = requests.post(url, json=payload, headers=headers)

@@ -1,6 +1,6 @@
 ---
 title: "Midjourney Tasks API Integration and Usage"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 Die Hauptfunktion der Midjourney Tasks API besteht darin, den Status der Ausführung eines Tasks abzufragen, indem die Task-ID eingegeben wird, die über die Midjourney Imagine API oder die Midjourney Describe API generiert wurde.
@@ -9,27 +9,27 @@ Dieses Dokument wird die Integrationsanleitung der Midjourney Tasks API detailli
 
 ## Antragsprozess
 
-Um die Midjourney Tasks API zu nutzen, müssen Sie zunächst auf die Anmeldeseite [Midjourney Imagine API](https://platform.acedata.cloud/documents/e52c028d-897a-4d51-b110-60fccbe6118d) gehen und den entsprechenden Service beantragen, dann kopieren Sie die Task-ID der Imagine API, wie im Bild gezeigt:
+Um die Midjourney Tasks API zu nutzen, müssen Sie zunächst auf die Anmeldeseite [Midjourney Imagine API](https://api.xhuoapi.ai/documents/e52c028d-897a-4d51-b110-60fccbe6118d) gehen und den entsprechenden Service beantragen, dann kopieren Sie die Task-ID der Imagine API, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/lx4mwb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lx4mwb.png" width="500" className="m-auto" /></p>
 
-Gehen Sie schließlich zur Tasks API-Seite [Midjourney Tasks API](https://platform.acedata.cloud/documents/58ea7cc1-c685-40c3-a619-f29f9ac5d8f4), um den entsprechenden Service zu beantragen. Klicken Sie nach dem Betreten der Seite auf die Schaltfläche „Acquire“, wie im Bild gezeigt:
+Gehen Sie schließlich zur Tasks API-Seite [Midjourney Tasks API](https://api.xhuoapi.ai/documents/58ea7cc1-c685-40c3-a619-f29f9ac5d8f4), um den entsprechenden Service zu beantragen. Klicken Sie nach dem Betreten der Seite auf die Schaltfläche „Acquire“, wie im Bild gezeigt:
 
-![Anmeldeseite](https://cdn.acedata.cloud/rci31i.png)
+![Anmeldeseite](https://cdn.xhuoapi.ai/rci31i.png)
 
-Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur [Anmeldeseite](https://platform.acedata.cloud) weitergeleitet, um sich zu registrieren und anzumelden. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
+Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur [Anmeldeseite](https://api.xhuoapi.ai) weitergeleitet, um sich zu registrieren und anzumelden. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
 
 Bei der ersten Beantragung erhalten Sie ein kostenloses Kontingent, mit dem Sie diese API kostenlos nutzen können.
 
 ## Anfragebeispiel
 
-Die Midjourney Tasks API kann verwendet werden, um die Ergebnisse der Midjourney Imagine API und der Midjourney Describe API abzufragen. Informationen zur Verwendung der Midjourney Imagine API finden Sie in der Dokumentation [Midjourney Imagine API](https://platform.acedata.cloud/documents/b0e32002-2707-41cc-b103-a15b1f1efdc1). Informationen zur Verwendung der Midjourney Describe API finden Sie unter [Midjourney Describe API](https://platform.acedata.cloud/documents/d2a04242-507c-4a49-a17a-01bc382c5756).
+Die Midjourney Tasks API kann verwendet werden, um die Ergebnisse der Midjourney Imagine API und der Midjourney Describe API abzufragen. Informationen zur Verwendung der Midjourney Imagine API finden Sie in der Dokumentation [Midjourney Imagine API](https://api.xhuoapi.ai/documents/b0e32002-2707-41cc-b103-a15b1f1efdc1). Informationen zur Verwendung der Midjourney Describe API finden Sie unter [Midjourney Describe API](https://api.xhuoapi.ai/documents/d2a04242-507c-4a49-a17a-01bc382c5756).
 
 Wir nehmen als Beispiel eine Task-ID, die vom Midjourney Imagine API-Dienst zurückgegeben wurde, und demonstrieren, wie man diese API verwendet. Angenommen, wir haben eine Task-ID: 7489df4c-ef03-4de0-b598-e9a590793434, und zeigen nun, wie man durch Eingabe einer Task-ID vorgeht.
 
 ### Beispielbild der Aufgabe
 
-<p><img src="https://cdn.acedata.cloud/lx4mwb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lx4mwb.png" width="500" className="m-auto" /></p>
 
 ### Anfrageheader und Anfragekörper festlegen
 
@@ -46,20 +46,20 @@ Wir nehmen als Beispiel eine Task-ID, die vom Midjourney Imagine API-Dienst zur�
 
 Einstellung wie im folgenden Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/ybek58.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ybek58.png" width="500" className="m-auto" /></p>
 
 ### Codebeispiel
 
 Es ist zu erkennen, dass auf der rechten Seite der Seite bereits automatisch Code in verschiedenen Sprachen generiert wurde, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/46ookb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/46ookb.png" width="500" className="m-auto" /></p>
 
 Einige Codebeispiele sind wie folgt:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -74,7 +74,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/tasks"
+url = "https://api.xhuoapi.ai/v1/midjourney/tasks"
 
 headers = {
     "accept": "application/json",
@@ -112,7 +112,7 @@ Nach erfolgreicher Anfrage gibt die API die Detailinformationen zu diesem Bildta
   "image_id": "1259525319472185344",
   "job_id": "da317da6-f500-48e6-bf32-dd48b3e6f84f",
   "response": {
-    "image_url": "https://platform.cdn.acedata.cloud/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png?imageMogr2/thumbnail/!50p",
+    "image_url": "https://platform.cdn.xhuoapi.ai/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png?imageMogr2/thumbnail/!50p",
     "image_width": 1024,
     "image_height": 1024,
     "actions": [
@@ -126,7 +126,7 @@ Nach erfolgreicher Anfrage gibt die API die Detailinformationen zu diesem Bildta
       "variation3",
       "variation4"
     ],
-    "raw_image_url": "https://platform.cdn.acedata.cloud/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png",
+    "raw_image_url": "https://platform.cdn.xhuoapi.ai/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png",
     "raw_image_width": 2048,
     "raw_image_height": 2048,
     "progress": 100,
@@ -160,13 +160,13 @@ Dies ist die Abfrage der Detailinformationen zu mehreren Task-IDs, im Gegensatz 
 - `action`: Die Art der Operation auf der Task.
 
 Einstellung wie im folgenden Bild gezeigt:
-<p><img src="https://cdn.acedata.cloud/ljmy8w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ljmy8w.png" width="500" className="m-auto" /></p>
 
 ### Code-Beispiel
 
 Es ist zu erkennen, dass auf der rechten Seite der Seite automatisch Code in verschiedenen Sprachen generiert wurde, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/ljmy8w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ljmy8w.png" width="500" className="m-auto" /></p>
 
 Einige Codebeispiele sind wie folgt:
 
@@ -193,7 +193,7 @@ Nach erfolgreichem Antrag gibt die API die spezifischen Detailinformationen alle
       "image_id": "1259525319472185344",
       "job_id": "da317da6-f500-48e6-bf32-dd48b3e6f84f",
       "response": {
-        "image_url": "https://platform.cdn.acedata.cloud/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png?imageMogr2/thumbnail/!50p",
+        "image_url": "https://platform.cdn.xhuoapi.ai/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png?imageMogr2/thumbnail/!50p",
         "image_width": 1024,
         "image_height": 1024,
         "actions": [
@@ -207,7 +207,7 @@ Nach erfolgreichem Antrag gibt die API die spezifischen Detailinformationen alle
           "variation3",
           "variation4"
         ],
-        "raw_image_url": "https://platform.cdn.acedata.cloud/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png",
+        "raw_image_url": "https://platform.cdn.xhuoapi.ai/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png",
         "raw_image_width": 2048,
         "raw_image_height": 2048,
         "progress": 100,
@@ -236,7 +236,7 @@ Nach erfolgreichem Antrag gibt die API die spezifischen Detailinformationen alle
       "image_id": "1259683790612070400",
       "job_id": "ede5c805-e231-498c-8f74-3aa76d5d6d12",
       "response": {
-        "image_url": "https://platform.cdn.acedata.cloud/midjourney/807f62de-c63e-4add-8345-7f0ae6dd18e7.png?imageMogr2/thumbnail/!50p",
+        "image_url": "https://platform.cdn.xhuoapi.ai/midjourney/807f62de-c63e-4add-8345-7f0ae6dd18e7.png?imageMogr2/thumbnail/!50p",
         "image_width": 1024,
         "image_height": 1024,
         "actions": [
@@ -250,7 +250,7 @@ Nach erfolgreichem Antrag gibt die API die spezifischen Detailinformationen alle
           "variation3",
           "variation4"
         ],
-        "raw_image_url": "https://platform.cdn.acedata.cloud/midjourney/807f62de-c63e-4add-8345-7f0ae6dd18e7.png",
+        "raw_image_url": "https://platform.cdn.xhuoapi.ai/midjourney/807f62de-c63e-4add-8345-7f0ae6dd18e7.png",
         "raw_image_width": 2048,
         "raw_image_height": 2048,
         "progress": 100,
@@ -276,7 +276,7 @@ Die Rückgabe enthält mehrere Felder, wobei `items` die spezifischen Detailinfo
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -292,7 +292,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/tasks"
+url = "https://api.xhuoapi.ai/v1/midjourney/tasks"
 
 headers = {
     "accept": "application/json",

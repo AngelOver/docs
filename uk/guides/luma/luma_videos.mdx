@@ -1,19 +1,19 @@
 ---
 title: "Luma відео генерації API інтеграція"
-description: "Luma Video Generation 集成指南 - Ace Data Cloud"
+description: "Luma Video Generation 集成指南 - XHuoAPI"
 ---
 
 З поширенням застосування ШІ, різноманітні програми на базі ШІ поступово стають звичними. ШІ все більше проникає в усі сфери життя людей. А галузі, пов'язані з ШІ, також стають дедалі різноманітнішими, починаючи з письма, медицини та освіти, і закінчуючи сьогоднішніми відео.
 
 Luma — це професійна платформа для генерації високоякісних відео, де користувачам потрібно лише завантажити матеріали, і на основі різних стилів та ефектів автоматично генеруються високоякісні відео. Цей генератор відео на базі ШІ розроблений командою з відомих технологічних компаній, мета якої — дозволити кожному легко створювати чудові відео без складних інструментів редагування.
 
-Однак Luma офіційно не надає API, AceDataCloud пропонує набір API Luma, який імітує інтеграцію з офіційним Suno, що дозволяє швидко та зручно генерувати бажані відео.
+Однак Luma офіційно не надає API, XHuoAPI пропонує набір API Luma, який імітує інтеграцію з офіційним Suno, що дозволяє швидко та зручно генерувати бажані відео.
 
 ## Заявка та використання
 
-Щоб використовувати Luma Videos API, спочатку перейдіть на сторінку [Luma Videos Generation API](https://platform.acedata.cloud/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) і натисніть кнопку «Acquire», щоб отримати необхідні для запиту облікові дані:
+Щоб використовувати Luma Videos API, спочатку перейдіть на сторінку [Luma Videos Generation API](https://api.xhuoapi.ai/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) і натисніть кнопку «Acquire», щоб отримати необхідні для запиту облікові дані:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, запрошуючи вас зареєструватися та увійти. Після входу або реєстрації ви автоматично повернетеся на цю сторінку.
 
@@ -23,11 +23,11 @@ Luma — це професійна платформа для генерації 
 
 Щоб згенерувати відео, ви можете ввести будь-який текст, наприклад, якщо я хочу згенерувати відео про астронавтів, які переміщуються між космосом і вулканом, я можу ввести `Astronauts shuttle from space to volcano`, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/yub02j.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yub02j.png" width="500" className="m-auto" /></p>
 
 Згенерований код виглядає так:
 
-<p><img src="https://cdn.acedata.cloud/ieq7yn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ieq7yn.png" width="500" className="m-auto" /></p>
 
 Основні параметри запиту:
 
@@ -51,7 +51,7 @@ Luma — це професійна платформа для генерації 
   "video_height": 752,
   "video_width": 1360,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/e4018a99-1522-4f24-9330-62c2a9b50b59.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/e4018a99-1522-4f24-9330-62c2a9b50b59.jpg",
   "thumbnail_width": 1360,
   "thumbnail_height": 752
 }
@@ -79,7 +79,7 @@ Luma — це професійна платформа для генерації 
 
 У цьому випадку поле `start_image_url` може приймати наступне зображення як початковий кадр відео:
 
-![Початковий кадр](https://cdn.acedata.cloud/r9vsv9.png)
+![Початковий кадр](https://cdn.xhuoapi.ai/r9vsv9.png)
 
 Далі ми повинні налаштувати генерацію відео на основі початкового та кінцевого кадрів, ключових слів, і можемо вказати такі параметри:
 
@@ -90,18 +90,18 @@ Luma — це професійна платформа для генерації 
 
 Приклад заповнення виглядає так:
 
-<p><img src="https://cdn.acedata.cloud/zvzydx.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zvzydx.png" width="500" className="m-auto" /></p>
 
 Після заповнення автоматично згенерувався код:
 
-<p><img src="https://cdn.acedata.cloud/tx80pu.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tx80pu.png" width="500" className="m-auto" /></p>
 
 Відповідний код:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/luma/videos"
+url = "https://api.xhuoapi.ai/v1/luma/videos"
 
 headers = {
     "accept": "application/json",
@@ -110,7 +110,7 @@ headers = {
 }
 
 payload = {
-    "start_image_url": "https://cdn.acedata.cloud/r9vsv9.png",
+    "start_image_url": "https://cdn.xhuoapi.ai/r9vsv9.png",
     "action": "generate",
     "prompt": "Astronauts shuttle from space to volcano"
 }
@@ -127,11 +127,11 @@ print(response.text)
   "task_id": "12a18694-fd4b-47e7-9c50-34f30862cff6",
   "video_id": "0105c090-03a5-425a-8026-523341cd575b",
   "prompt": "Astronauts shuttle from space to volcano",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -139,11 +139,11 @@ print(response.text)
 
 Остаточний результат подібний до попереднього, згенероване відео має початковий кадр, що містить передане зображення, звичайно, також можна передати посилання на зображення початкового та кінцевого кадрів для генерації відео, просто потрібно додати ще одне зображення для кінцевого кадру, інформація про яке виглядає так:
 
-![Кінцевий кадр](https://cdn.acedata.cloud/0iad3k.png)
+![Кінцевий кадр](https://cdn.xhuoapi.ai/0iad3k.png)
 
 Приклад заповнення виглядає так:
 
-<p><img src="https://cdn.acedata.cloud/20igwi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/20igwi.png" width="500" className="m-auto" /></p>
 
 В результаті отримаємо наступний результат:
 ```json
@@ -152,11 +152,11 @@ print(response.text)
   "task_id": "d1cb723a-e554-4775-94a4-bb6ae8c7ea67",
   "video_id": "6bebd0d2-f793-472e-9326-38528a9273bb",
   "prompt": "Астронавти переміщуються з космосу до вулкана",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "завершено",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -168,13 +168,13 @@ print(response.text)
 
 Якщо ви хочете продовжити генерацію відео, ви можете встановити параметр `action` на `extend`, а також ввести ID або посилання на відео, ID та посилання на відео можна отримати відповідно до основного використання, як показано на малюнку нижче:
 
-<p><img src="https://cdn.acedata.cloud/fwknj4.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fwknj4.png" width="500" className="m-auto" /></p>
 
 Тут можна побачити, що ID відео:
 
 ```
 "video_id": "0105c090-03a5-425a-8026-523341cd575b",
-"video_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4"
+"video_url": "https://platform.cdn.xhuoapi.ai/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4"
 ```
 
 > Зверніть увагу, що тут у відео `video_id` та `video_url` є ID та посилання на згенероване відео, якщо ви не знаєте, як згенерувати відео, ви можете звернутися до основного використання, щоб згенерувати відео.
@@ -189,18 +189,18 @@ print(response.text)
 
 Приклад заповнення нижче:
 
-<p><img src="https://cdn.acedata.cloud/vv0rxk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vv0rxk.png" width="500" className="m-auto" /></p>
 
 Після заповнення автоматично згенерувався код нижче:
 
-<p><img src="https://cdn.acedata.cloud/woapxi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/woapxi.png" width="500" className="m-auto" /></p>
 
 Відповідний код Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/luma/videos"
+url = "https://api.xhuoapi.ai/v1/luma/videos"
 
 headers = {
     "accept": "application/json",
@@ -226,11 +226,11 @@ print(response.text)
   "task_id": "c6e529d1-a06d-4c12-91b2-c855135131c3",
   "video_id": "36908c49-c2bb-4a11-bd5a-b8512b004818",
   "prompt": "Астронавти переміщуються з космосу до вулкана",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "завершено",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -240,7 +240,7 @@ print(response.text)
 
 Звичайно, ми також можемо вказати посилання на відео для розширення, заповнивши таку інформацію:
 
-<p><img src="https://cdn.acedata.cloud/0cv0hg.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0cv0hg.png" width="500" className="m-auto" /></p>
 
 Після запуску отримали наступний результат:
 
@@ -250,11 +250,11 @@ print(response.text)
   "task_id": "1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca",
   "video_id": "f0187dc2-339f-4a08-a435-c3a3341f620a",
   "prompt": "Астронавти переміщуються з космосу до вулкана",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "завершено",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -264,11 +264,11 @@ print(response.text)
 
 Наостанок, ми також можемо вказати зображення останнього кадру для розширення відео, нижче наведена інформація про зображення останнього кадру:
 
-![Останній кадр](https://cdn.acedata.cloud/0iad3k.png)
+![Останній кадр](https://cdn.xhuoapi.ai/0iad3k.png)
 
 Далі на основі вищезгаданого додаємо інформацію про зображення останнього кадру, конкретно це виглядає так:
 
-<p><img src="https://cdn.acedata.cloud/9p1vrj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/9p1vrj.png" width="500" className="m-auto" /></p>
 
 Натиснувши "Запустити", отримали таку інформацію:
 
@@ -278,11 +278,11 @@ print(response.text)
   "task_id": "b816b2b4-c345-4673-9e19-83e91f91b643",
   "video_id": "c5400053-63e6-4206-8082-31cf9dd1e7ed",
   "prompt": "Астронавти переміщуються з космосу до вулкана",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/b816b2b4-c345-4673-9e19-83e91f91b643.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/b816b2b4-c345-4673-9e19-83e91f91b643.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "завершено",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/b816b2b4-c345-4673-9e19-83e91f91b643.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/b816b2b4-c345-4673-9e19-83e91f91b643.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -299,13 +299,13 @@ print(response.text)
 
 По-перше, Webhook зворотний виклик — це сервіс, який може приймати HTTP запити, розробники повинні замінити його на URL свого HTTP сервера. Для зручності демонстрації використаємо публічний сайт з прикладами Webhook https://webhook.site/, відкривши цей сайт, ви отримаєте Webhook URL, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/q78okf.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q78okf.png" width="500" className="m-auto" /></p>
 
 Скопіюйте цей URL, і ви зможете використовувати його як Webhook, приклад тут: https://webhook.site/0c87ca0e-cd74-4577-8d68-f2b80fbf8a13.
 
 Далі ми можемо налаштувати поле `callback_url` на вказаний Webhook URL, а також заповнити `prompt`, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/n2fjvi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/n2fjvi.png" width="500" className="m-auto" /></p>
 
 Натиснувши "Запустити", ви відразу отримаєте результат, як показано нижче:
 
@@ -317,7 +317,7 @@ print(response.text)
 
 Через деякий час ми можемо спостерігати результати генерації пісні на https://webhook.site/0c87ca0e-cd74-4577-8d68-f2b80fbf8a13, як показано на малюнку:
 
-![](https://cdn.acedata.cloud/1hwm5m.png)
+![](https://cdn.xhuoapi.ai/1hwm5m.png)
 
 Зміст такий:
 
@@ -327,11 +327,11 @@ print(response.text)
     "task_id": "732f8282-7cf8-401c-95f2-42c33aa079a6",
     "video_id": "4d8013c3-5de0-41aa-966e-0b1a51d1c633",
     "prompt": "Астронавти переносяться з космосу до вулкана",
-    "video_url": "https://platform.cdn.acedata.cloud/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.mp4",
+    "video_url": "https://platform.cdn.xhuoapi.ai/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.mp4",
     "video_height": 752,
     "video_width": 1360,
     "state": "completed",
-    "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.jpg",
+    "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.jpg",
     "thumbnail_width": 1360,
     "thumbnail_height": 752
 }

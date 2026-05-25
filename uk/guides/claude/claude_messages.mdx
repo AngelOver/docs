@@ -1,6 +1,6 @@
 ---
 title: "Claude Messages API заявка та використання"
-description: "Claude AI 集成指南 - Ace Data Cloud"
+description: "Claude AI 集成指南 - XHuoAPI"
 ---
 
 Anthropic Claude — це дуже потужна AI система діалогу, яка може генерувати плавні та природні відповіді всього за кілька секунд, якщо ввести підказку. Claude Messages API — це офіційний рідний формат API Anthropic, який, на відміну від формату OpenAI (Chat Completion), використовує власну структуру запитів і відповідей Anthropic, що дозволяє краще використовувати унікальні можливості Claude, такі як мультимодальний вхід, виклики інструментів, глибоке мислення (Extended Thinking) та інші розширені функції.
@@ -9,9 +9,9 @@ Anthropic Claude — це дуже потужна AI система діалог
 
 ## Процес заявки
 
-Щоб використовувати Claude Messages API, спочатку можна перейти на сторінку [Claude Messages API](https://platform.acedata.cloud/documents/280928a2-2dce-419c-adb5-1ea835e8183a) та натиснути кнопку «Acquire», щоб отримати необхідні для запиту облікові дані:
+Щоб використовувати Claude Messages API, спочатку можна перейти на сторінку [Claude Messages API](https://api.xhuoapi.ai/documents/280928a2-2dce-419c-adb5-1ea835e8183a) та натиснути кнопку «Acquire», щоб отримати необхідні для запиту облікові дані:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, запрошуючи вас зареєструватися та увійти. Після входу або реєстрації ви автоматично повернетеся на цю сторінку.
 
@@ -39,7 +39,7 @@ Anthropic Claude — це дуже потужна AI система діалог
 ### cURL приклад
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/v1/messages' \
+curl -X POST 'https://api.xhuoapi.ai/v1/v1/messages' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -60,7 +60,7 @@ curl -X POST 'https://api.acedata.cloud/v1/messages' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -123,7 +123,7 @@ Claude Messages API підтримує встановлення системни
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -155,7 +155,7 @@ print(response.json())
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -234,7 +234,7 @@ const options = {
   }),
 };
 
-const response = await fetch("https://api.acedata.cloud/v1/messages", options);
+const response = await fetch("https://api.xhuoapi.ai/v1/v1/messages", options);
 const reader = response.body.getReader();
 const decoder = new TextDecoder();
 
@@ -254,7 +254,7 @@ while (true) {
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -310,7 +310,7 @@ print(response.json())
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -381,7 +381,7 @@ print(response.json())
 import base64
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -426,7 +426,7 @@ print(response.json())
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -445,7 +445,7 @@ payload = {
                     "type": "image",
                     "source": {
                         "type": "url",
-                        "url": "https://cdn.acedata.cloud/ueugot.png"
+                        "url": "https://cdn.xhuoapi.ai/ueugot.png"
                     }
                 },
                 {
@@ -464,7 +464,7 @@ print(response.json())
 ### cURL приклад
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/v1/messages' \
+curl -X POST 'https://api.xhuoapi.ai/v1/v1/messages' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -479,7 +479,7 @@ curl -X POST 'https://api.acedata.cloud/v1/messages' \
             "type": "image",
             "source": {
               "type": "url",
-              "url": "https://cdn.acedata.cloud/ueugot.png"
+              "url": "https://cdn.xhuoapi.ai/ueugot.png"
             }
           },
           {
@@ -526,7 +526,7 @@ API повідомлень Claude нативно підтримує функці
 ```python
 import requests
 
-url = "https://api.acedata.cloud/v1/messages"
+url = "https://api.xhuoapi.ai/v1/v1/messages"
 
 headers = {
     "accept": "application/json",
@@ -645,7 +645,7 @@ print(response.json())
 
 ## Відмінності з API завершення чату
 
-Ace Data Cloud одночасно надає два формати API Claude, основні відмінності між якими наведені нижче:
+XHuoAPI одночасно надає два формати API Claude, основні відмінності між якими наведені нижче:
 
 | Особливість       | Messages API (`/v1/messages`)    | Chat Completion API (`/v1/chat/completions`) |
 | -------- | -------------------------------- | -------------------------------------------- |

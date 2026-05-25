@@ -1,9 +1,9 @@
 ---
 title: "WebExtrator älykäs poiminta API -integrointiohje"
-description: "WebExtrator Web Render & Extract 集成指南 - Ace Data Cloud"
+description: "WebExtrator Web Render & Extract 集成指南 - XHuoAPI"
 ---
 
-`POST https://api.acedata.cloud/webextrator/extract`
+`POST https://api.xhuoapi.ai/v1/webextrator/extract`
 
 Sisällön poiminta perustuen `/webextrator/render` -rajapintaan. Kaikkien render-rajapinnan parametrien lisäksi tuetaan:
 
@@ -41,7 +41,7 @@ Asynkroninen tila, virhekoodit ja hinnoittelusäännöt ovat täysin samat kuin 
 ## Esimerkki: artikkelin tekstin poiminta (LLM käytössä)
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -54,7 +54,7 @@ curl -X POST https://api.acedata.cloud/webextrator/extract \
 ## Esimerkki: asynkroninen + mukautettu rakenteinen poiminta
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

@@ -1,15 +1,15 @@
 ---
 title: "AI証明写真制作 API 接続説明"
-description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
+description: "AI ID Photo Production 集成指南 - XHuoAPI"
 ---
 
 本文では、AI証明写真制作 API 接続説明を紹介します。これは、人像写真のURLと好みのテンプレートを入力することで、さまざまなスタイルの証明写真を制作できるものです。
 
 ## 申請プロセス
 
-APIを使用するには、まず [AI証明写真制作 API](https://platform.acedata.cloud/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
+APIを使用するには、まず [AI証明写真制作 API](https://api.xhuoapi.ai/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 まだログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -38,7 +38,7 @@ APIを使用するには、まず [AI証明写真制作 API](https://platform.ac
 
 その後、生成の速度パラメータ `mode` を指定することもできます。一般的には、遅い `relax` と速い `fast` の2種類に分かれています。具体的な内容は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/73xbla.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/73xbla.png" width="500" className="m-auto" /></p>
 
 ここでは、リクエストヘッダーを設定しています。これには以下が含まれます：
 
@@ -54,7 +54,7 @@ APIを使用するには、まず [AI証明写真制作 API](https://platform.ac
 
 選択後、右側にも対応するコードが生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/yp49hc.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yp49hc.png" width="500" className="m-auto" /></p>
 
 「Try」ボタンをクリックするとテストが行えます。上の図のように、以下の結果を得ることができました：
 
@@ -65,12 +65,12 @@ APIを使用するには、まず [AI証明写真制作 API](https://platform.ac
   "data": [
     {
       "id": "202411031951124776",
-      "image_url": "https://platform.cdn.acedata.cloud/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
+      "image_url": "https://platform.cdn.xhuoapi.ai/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
       "template": "男性の証明写真"
     },
     {
       "id": "202411031951128490",
-      "image_url": "https://platform.cdn.acedata.cloud/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
+      "image_url": "https://platform.cdn.xhuoapi.ai/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
       "template": "男性の証明写真"
     }
   ]
@@ -91,7 +91,7 @@ APIを使用するには、まず [AI証明写真制作 API](https://platform.ac
 また、対応する接続コードを生成したい場合は、生成されたものを直接コピーできます。例えば、CURLのコードは以下の通りです：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/headshots/generate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/generate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -112,13 +112,13 @@ AI証明写真生成の時間は比較的長く、約1-2分かかります。API
 
 まず、WebhookコールバックはHTTPリクエストを受け取ることができるサービスで、開発者は自分が構築したHTTPサーバーのURLに置き換える必要があります。ここでは、便利なデモのために公開されたWebhookサンプルサイト https://webhook.site/ を使用します。このサイトを開くとWebhook URLが得られます。以下の図のように：
 
-![](https://cdn.acedata.cloud/sb4p3v.png)
+![](https://cdn.xhuoapi.ai/sb4p3v.png)
 
 このURLをコピーすればWebhookとして使用できます。このサンプルは `https://webhook.site/00f38b26-4289-4899-83d6-0cea7308850a` です。
 
 次に、フィールド `callback_url` を上記のWebhook URLに設定し、人像画像リンクとテンプレートを入力します。本文では、パラメータ `mode` が `relax` の場合に非同期コールバックを使用することを推奨します。具体的な内容は以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/opt326.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/opt326.png" width="500" className="m-auto" /></p>
 
 実行をクリックすると、すぐに結果が得られます。以下のように：
 
@@ -129,7 +129,7 @@ AI証明写真生成の時間は比較的長く、約1-2分かかります。API
 ```
 
 少し待つと、`https://webhook.site/00f38b26-4289-4899-83d6-0cea7308850a` で生成された結果を確認できます。以下の図のように：
-![](https://cdn.acedata.cloud/ym6fw1.png)
+![](https://cdn.xhuoapi.ai/ym6fw1.png)
 
 内容如下：
 
@@ -140,12 +140,12 @@ AI証明写真生成の時間は比較的長く、約1-2分かかります。API
     "data": [
         {
             "id": "202411032010131366",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
             "template": "男形象照"
         },
         {
             "id": "202411032010132420",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
             "template": "男形象照"
         }
     ]

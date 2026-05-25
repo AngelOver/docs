@@ -1,6 +1,6 @@
 ---
 title: "طلب واستخدام واجهة برمجة التطبيقات لحساب رموز رسائل كلود"
-description: "Claude AI 集成指南 - Ace Data Cloud"
+description: "Claude AI 集成指南 - XHuoAPI"
 ---
 
 يمكن لواجهة برمجة التطبيقات لحساب رموز رسائل كلود حساب عدد رموز الإدخال لرسالة معينة دون الحاجة إلى إنشاء الرسالة فعليًا، بما في ذلك عدد رموز المحتويات مثل الأدوات والصور والمستندات. هذا مفيد جدًا عند الحاجة إلى تقدير التكاليف أو التحقق مما إذا كان الإدخال يتجاوز قيود سياق النموذج.
@@ -9,7 +9,7 @@ description: "Claude AI 集成指南 - Ace Data Cloud"
 
 ## عملية الطلب
 
-لاستخدام واجهة برمجة التطبيقات لحساب رموز رسائل كلود، يمكنك أولاً زيارة صفحة [واجهة برمجة التطبيقات لحساب رموز رسائل كلود](https://platform.acedata.cloud/documents/claude-messages-count-tokens) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة للطلب.
+لاستخدام واجهة برمجة التطبيقات لحساب رموز رسائل كلود، يمكنك أولاً زيارة صفحة [واجهة برمجة التطبيقات لحساب رموز رسائل كلود](https://api.xhuoapi.ai/documents/claude-messages-count-tokens) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة للطلب.
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل، فسيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، وبعد تسجيل الدخول أو التسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
@@ -31,7 +31,7 @@ description: "Claude AI 集成指南 - Ace Data Cloud"
 ### مثال cURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/v1/messages/count_tokens' \
+curl -X POST 'https://api.xhuoapi.ai/v1/v1/messages/count_tokens' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -51,7 +51,7 @@ curl -X POST 'https://api.acedata.cloud/v1/messages/count_tokens' \
 ```python
 import httpx
 
-url = "https://api.acedata.cloud/v1/messages/count_tokens"
+url = "https://api.xhuoapi.ai/v1/v1/messages/count_tokens"
 headers = {
     "accept": "application/json",
     "authorization": "Bearer {token}",
@@ -87,7 +87,7 @@ from anthropic import Anthropic
 
 client = Anthropic(
     api_key="{token}",
-    base_url="https://api.acedata.cloud",
+    base_url="https://api.xhuoapi.ai/v1",
 )
 
 result = client.messages.count_tokens(

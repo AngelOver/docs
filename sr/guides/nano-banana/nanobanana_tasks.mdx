@@ -1,6 +1,6 @@
 ---
 title: "Nano Banana Tasks API интеграција i korišćenje"
-description: "Nano Banana Image Generation 集成指南 - Ace Data Cloud"
+description: "Nano Banana Image Generation 集成指南 - XHuoAPI"
 ---
 
 Glavna funkcija Nano Banana Tasks API je da omogućava upit o statusu izvršenja zadatka putem ID-a zadatka generisanog od strane Nano Banana Images API.
@@ -9,13 +9,13 @@ Ovaj dokument će detaljno opisati uputstva za integraciju Nano Banana Tasks API
 
 ## Primer zahteva
 
-Nano Banana Tasks API može se koristiti za upit o rezultatima Nano Banana Images API. O tome kako koristiti Nano Banana Images API, molimo vas da se obratite dokumentaciji [Nano Banana Images API](https://platform.acedata.cloud/documents/63e01dc3-eb21-499e-8049-3025c460058f).
+Nano Banana Tasks API može se koristiti za upit o rezultatima Nano Banana Images API. O tome kako koristiti Nano Banana Images API, molimo vas da se obratite dokumentaciji [Nano Banana Images API](https://api.xhuoapi.ai/documents/63e01dc3-eb21-499e-8049-3025c460058f).
 
 Uzmimo za primer jedan ID zadatka koji je vratio Nano Banana Images API, i prikažimo kako koristiti ovaj API. Pretpostavimo da imamo ID zadatka: 4d320ead-4af4-4a55-8f3e-f2afebdf4fd0, a zatim ćemo prikazati kako da ga prosledimo.
 
 ### Primer slike zadatka
 
-<p><img src="https://cdn.acedata.cloud/nuiuth.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nuiuth.png" width="500" className="m-auto" /></p>
 
 ### Postavljanje zaglavlja zahteva i tela zahteva
 
@@ -31,20 +31,20 @@ Uzmimo za primer jedan ID zadatka koji je vratio Nano Banana Images API, i prika
 
 Postavite kao što je prikazano na sledećoj slici:
 
-<p><img src="https://cdn.acedata.cloud/nuiuth.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nuiuth.png" width="500" className="m-auto" /></p>
 
 ### Primer koda
 
 Možete primetiti da su na desnoj strani stranice automatski generisani kodovi na različitim jezicima, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/r1u4vl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/r1u4vl.png" width="500" className="m-auto" /></p>
 
 Neki primeri koda su:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -59,7 +59,7 @@ curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/nano-banana/tasks"
+url = "https://api.xhuoapi.ai/v1/nano-banana/tasks"
 
 headers = {
     "accept": "application/json",
@@ -102,7 +102,7 @@ Nakon uspešnog zahteva, API će vratiti detaljne informacije o ovom zadatku. Na
     "data": [
       {
         "prompt": "a white siamese cat",
-        "image_url": "https://platform.cdn.acedata.cloud/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
+        "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
       }
     ]
   }
@@ -127,7 +127,7 @@ Ovo se odnosi na upit o detaljima više ID-a zadataka, a u odnosu na prethodno, 
 Primer je sledeći:
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/nano-banana/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/nano-banana/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -165,7 +165,7 @@ Nakon uspešnog zahteva, API će vratiti konkretne detalje o svim masovnim zadac
         "data": [
           {
             "prompt": "a white siamese cat",
-            "image_url": "https://platform.cdn.acedata.cloud/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
+            "image_url": "https://platform.cdn.xhuoapi.ai/nanobanana/7e7bd000-698a-4e14-bb2d-3db61237e4bb.png"
           }
         ]
       }

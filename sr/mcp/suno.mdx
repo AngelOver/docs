@@ -3,7 +3,7 @@ title: "Suno MCP Vodič za Integraciju"
 description: "suno MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) je protokol modela konteksta koji je uveo Anthropic, omogućavajući AI modelima (kao što su Claude, GPT itd.) da pozivaju spoljne alate putem standardizovanih interfejsa. Kroz Suno MCP Server koji pruža AceData Cloud, možete direktno generisati muziku, tekstove i upravljati audio projektima u AI klijentima kao što su Claude Desktop, VS Code, Cursor.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) je protokol modela konteksta koji je uveo Anthropic, omogućavajući AI modelima (kao što su Claude, GPT itd.) da pozivaju spoljne alate putem standardizovanih interfejsa. Kroz Suno MCP Server koji pruža XHuoAPI, možete direktno generisati muziku, tekstove i upravljati audio projektima u AI klijentima kao što su Claude Desktop, VS Code, Cursor.
 
 ## Pregled Funkcija
 
@@ -21,10 +21,10 @@ Suno MCP Server pruža sledeće osnovne funkcije:
 
 ## Priprema
 
-Pre korišćenja, potrebno je da dobijete AceData Cloud API Token:
+Pre korišćenja, potrebno je da dobijete XHuoAPI API Token:
 
-1. Registrujte se ili prijavite na [AceData Cloud platformu](https://platform.acedata.cloud)
-2. Idite na stranicu [Suno Audios API](https://platform.acedata.cloud/documents/suno-audios)
+1. Registrujte se ili prijavite na [XHuoAPI platformu](https://api.xhuoapi.ai)
+2. Idite na stranicu [Suno Audios API](https://api.xhuoapi.ai/documents/suno-audios)
 3. Kliknite na „Acquire“ da dobijete API Token (prvi put se dodeljuje besplatna količina)
 
 ## Instalacija i Konfiguracija
@@ -38,7 +38,7 @@ pip install mcp-suno
 ### Metoda 2: Instalacija iz izvora
 
 ```bash
-git clone https://github.com/AceDataCloud/SunoMCP.git
+git clone https://github.com/XHuoAPI/SunoMCP.git
 cd SunoMCP
 pip install -e .
 ```
@@ -60,7 +60,7 @@ Dodajte sledeću konfiguraciju:
     "suno": {
       "command": "mcp-suno",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -76,7 +76,7 @@ Ako koristite `uvx` (nije potrebno prethodno instalirati paket):
       "command": "uvx",
       "args": ["mcp-suno"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -95,7 +95,7 @@ U korenskom direktorijumu projekta kreirajte `.vscode/mcp.json`:
     "suno": {
       "command": "mcp-suno",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -111,7 +111,7 @@ Ili koristite `uvx`:
       "command": "uvx",
       "args": ["mcp-suno"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -160,6 +160,6 @@ Nakon završene konfiguracije, možete direktno koristiti ove funkcije u AI klij
 
 ## Više informacija
 
-- GitHub repozitorijum: [AceDataCloud/SunoMCP](https://github.com/AceDataCloud/SunoMCP)
+- GitHub repozitorijum: [XHuoAPI/SunoMCP](https://github.com/XHuoAPI/SunoMCP)
 - PyPI paket: [mcp-suno](https://pypi.org/project/mcp-suno/)
-- API dokumentacija: [Suno API za generisanje muzike](https://platform.acedata.cloud/documents/suno)
+- API dokumentacija: [Suno API za generisanje muzike](https://api.xhuoapi.ai/documents/suno)

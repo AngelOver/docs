@@ -1,6 +1,6 @@
 ---
 title: "Kling Tasks API интеграција и употреба"
-description: "Kling video generation 集成指南 - Ace Data Cloud"
+description: "Kling video generation 集成指南 - XHuoAPI"
 ---
 
 Главна функција Kling Tasks API је да омогући проверу статуса извршења задатка путем ID-a задатка генерисаног од Kling Videos Generation API.
@@ -9,27 +9,27 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 
 ## Процес пријаве
 
-Да бисте користили Kling Tasks API, прво морате да се пријавите на страници [Kling Videos Generation API](https://platform.acedata.cloud/documents/3b921a16-a411-4557-8335-53f21d3f9e46) за одговарајућу услугу, а затим копирајте ID задатка Kling Videos Generation API, као што је приказано на слици:
+Да бисте користили Kling Tasks API, прво морате да се пријавите на страници [Kling Videos Generation API](https://api.xhuoapi.ai/documents/3b921a16-a411-4557-8335-53f21d3f9e46) за одговарајућу услугу, а затим копирајте ID задатка Kling Videos Generation API, као што је приказано на слици:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
-На крају, идите на страницу Tasks API [Kling Tasks API](https://platform.acedata.cloud/documents/6b43ff7b-8298-49c8-a390-83df85c2c5e5) да бисте затражили одговарајућу услугу, а након уласка на страницу, кликните на дугме „Acquire“, као што је приказано на слици:
+На крају, идите на страницу Tasks API [Kling Tasks API](https://api.xhuoapi.ai/documents/6b43ff7b-8298-49c8-a390-83df85c2c5e5) да бисте затражили одговарајућу услугу, а након уласка на страницу, кликните на дугме „Acquire“, као што је приказано на слици:
 
-![Пријавна страница](https://cdn.acedata.cloud/rci31i.png)
+![Пријавна страница](https://cdn.xhuoapi.ai/rci31i.png)
 
-Ако се још нисте пријавили или регистровали, аутоматски ћете бити преусмерени на [страницу за пријаву](https://platform.acedata.cloud) која вас позива да се региструјете и пријавите, а након пријаве и регистрације аутоматски ћете се вратити на тренутну страницу.
+Ако се још нисте пријавили или регистровали, аутоматски ћете бити преусмерени на [страницу за пријаву](https://api.xhuoapi.ai) која вас позива да се региструјете и пријавите, а након пријаве и регистрације аутоматски ћете се вратити на тренутну страницу.
 
 При првом захтеву добићете бесплатну количину, коју можете користити без накнаде.
 
 ## Пример захтева
 
-Kling Tasks API може се користити за проверу резултата Kling Videos Generation API. За информације о томе како користити Kling Videos Generation API, молимо вас да се упутите на документ [Kling Videos Generation API](https://platform.acedata.cloud/documents/3b921a16-a411-4557-8335-53f21d3f9e46).
+Kling Tasks API може се користити за проверу резултата Kling Videos Generation API. За информације о томе како користити Kling Videos Generation API, молимо вас да се упутите на документ [Kling Videos Generation API](https://api.xhuoapi.ai/documents/3b921a16-a411-4557-8335-53f21d3f9e46).
 
 Узмимо за пример ID задатка који је вратила услуга Kling Videos Generation API, и демонстрираћемо како користити овај API. Хајде да претпоставимо да имамо ID задатка: 20068983-0cc9-4c6a-aeb6-9c6a3c668be0, а затим ћемо демонстрирати како да пренесемо ID задатка.
 
 ### Пример задатка
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 ### Постављање заглавља захтева и тела захтева
 
@@ -45,20 +45,20 @@ Kling Tasks API може се користити за проверу резул�
 
 Поставите као што је приказано на слици:
 
-<p><img src="https://cdn.acedata.cloud/xztiqi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xztiqi.png" width="500" className="m-auto" /></p>
 
 ### Пример кода
 
 Можете приметити да су на десној страни странице аутоматски генерисани кодови на различитим језицима, као што је приказано на слици:
 
-<p><img src="https://cdn.acedata.cloud/bsqh3i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bsqh3i.png" width="500" className="m-auto" /></p>
 
 Делимични примери кода су следећи:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/kling/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/kling/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kling/tasks"
+url = "https://api.xhuoapi.ai/v1/kling/tasks"
 
 headers = {
     "accept": "application/json",
@@ -142,13 +142,13 @@ print(response.text)
 
 Поставите као што је приказано на слици:
 
-<p><img src="https://cdn.acedata.cloud/4p5uvq.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4p5uvq.png" width="500" className="m-auto" /></p>
 
 ### Пример кода
 
 Можете приметити да су на десној страни странице аутоматски генерисани кодови на различитим језицима, као што је приказано на слици:
 
-<p><img src="https://cdn.acedata.cloud/g3b7g6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g3b7g6.png" width="500" className="m-auto" /></p>
 
 Делимични примери кода су следећи:
 
@@ -226,7 +226,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/kling/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

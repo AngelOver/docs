@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Images Generations API Ansökan och Användning"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI Images Generations API stödjer för närvarande flera bildgenereringsmodeller, inklusive den klassiska `dall-e-3`, den textrenderande `gpt-image-1` med starkare förmåga, den senaste generationen **`gpt-image-2`**, samt modeller i **`nano-banana` / `nano-banana-2` / `nano-banana-pro`** serien som nås via samma gränssnitt. Alla kan generera högkvalitativa bilder baserat på textbeskrivningar.
@@ -9,9 +9,9 @@ Detta dokument beskriver huvudsakligen användningsprocessen för OpenAI Images 
 
 ## Ansökningsprocess
 
-För att använda OpenAI Images Generations API kan du först gå till sidan [OpenAI Images Generations API](https://platform.acedata.cloud/documents/fd932485-90c7-45d6-8394-1e14b6f07b2b) och klicka på knappen "Acquire" för att få de nödvändiga autentiseringsuppgifterna:
+För att använda OpenAI Images Generations API kan du först gå till sidan [OpenAI Images Generations API](https://api.xhuoapi.ai/documents/fd932485-90c7-45d6-8394-1e14b6f07b2b) och klicka på knappen "Acquire" för att få de nödvändiga autentiseringsuppgifterna:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Om du inte är inloggad eller registrerad, omdirigeras du automatiskt till inloggningssidan där du kan registrera dig och logga in. Efter inloggning återvänder du automatiskt till den aktuella sidan.
 
@@ -26,7 +26,7 @@ Vid första ansökan får du en gratis kvot som gör att du kan använda API:et 
 - **Rikare stiluttryck**: Stödjer ursprungligen flera stilar såsom filmiska porträtt, retroaffischer, barnillustrationer, produktfotografi och infografik.
 - **Inbyggt stöd för flera proportioner + hög upplösning**: Täcker 5 proportioner (1:1, 4:3, 3:4, 16:9, 9:16) med 3 upplösningsnivåer (1K / 2K / 4K).
 
-Anropssättet är helt identiskt med andra modeller, du behöver bara sätta fältet `model` till `gpt-image-2`. I returvärdet är `url` en permanent länk till bilden hostad på `platform.cdn.acedata.cloud`, som kan öppnas direkt i webbläsare eller bäddas in på webbsidor.
+Anropssättet är helt identiskt med andra modeller, du behöver bara sätta fältet `model` till `gpt-image-2`. I returvärdet är `url` en permanent länk till bilden hostad på `platform.cdn.xhuoapi.ai`, som kan öppnas direkt i webbläsare eller bäddas in på webbsidor.
 
 ### Stödda värden för `size` och prisnivåer
 
@@ -66,7 +66,7 @@ Python-exempel:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -94,7 +94,7 @@ Svarsexempel:
   "data": [
     {
       "revised_prompt": "A cinematic portrait of a young woman standing in a convenience store at night, illuminated by soft pink and cyan neon signs through the window. Shot on 35mm film, shallow depth of field, slight grain, melancholic mood.",
-      "url": "https://platform.cdn.acedata.cloud/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png"
+      "url": "https://platform.cdn.xhuoapi.ai/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png"
     }
   ]
 }
@@ -102,7 +102,7 @@ Svarsexempel:
 
 Genererad bild:
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/ab58a5df-6f46-4874-bff6-93169e2849a3_0.png" width="500" className="m-auto" /></p>
 
 ### Scenario 2: Retro reseaffisch (med textrendering)
 
@@ -118,7 +118,7 @@ payload = {
 
 Bild från `url` i svaret:
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/c6061f92-3fae-498e-af8e-688e7f415ba3_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/c6061f92-3fae-498e-af8e-688e7f415ba3_0.png" width="500" className="m-auto" /></p>
 
 Modellen återger Art Deco-stilen och texten `AMALFI` och `ITALIA 1958` tydligt och korrekt.
 
@@ -136,7 +136,7 @@ payload = {
 
 Genererad bild:
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/64a3b932-a082-4cad-9f85-9d30474b104d_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/64a3b932-a082-4cad-9f85-9d30474b104d_0.png" width="500" className="m-auto" /></p>
 
 Antalet böcker (1 / 3 / 7) på hyllorna stämmer exakt med prompten, något som var svårt att uppnå stabilt med `dall-e-3`.
 
@@ -154,7 +154,7 @@ payload = {
 
 Genererad liggande illustration:
 
-![](https://platform.cdn.acedata.cloud/gpt-image/6cd57e69-d237-4cc1-a666-759a93964a08_0.png)
+![](https://platform.cdn.xhuoapi.ai/gpt-image/6cd57e69-d237-4cc1-a666-759a93964a08_0.png)
 
 ### Asynkron och callback
 
@@ -186,7 +186,7 @@ Genererad liggande illustration:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -211,7 +211,7 @@ Svar:
   "created": 0,
   "data": [
     {
-      "url": "https://platform.cdn.acedata.cloud/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png",
+      "url": "https://platform.cdn.xhuoapi.ai/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png",
       "revised_prompt": "a small red apple on a white table, photoreal"
     }
   ]
@@ -220,7 +220,7 @@ Svar:
 
 Bilden nås direkt via `url`:
 
-<p><img src="https://platform.cdn.acedata.cloud/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png" width="500" className="m-auto" /></p>
 
 ### Uppgradera till flaggskeppsmodellen `nano-banana-pro`
 
@@ -241,14 +241,14 @@ Svarsexempel:
   "created": 0,
   "data": [
     {
-      "url": "https://platform.cdn.acedata.cloud/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png",
+      "url": "https://platform.cdn.xhuoapi.ai/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png",
       "revised_prompt": "abstract painting"
     }
   ]
 }
 ```
 
-<p><img src="https://platform.cdn.acedata.cloud/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/nanobanana/6227fcc9-3442-4aa3-a76c-4a4441a99649.png" width="500" className="m-auto" /></p>
 
 ### Asynkron callback
 
@@ -258,20 +258,20 @@ Svarsexempel:
 
 Du kan fylla i motsvarande fält i gränssnittet som visas nedan:
 
-<p><img src="https://cdn.acedata.cloud/zv58ug.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zv58ug.png" width="500" className="m-auto" /></p>
 
 Vid första användningen behöver du minst fylla i tre saker: `authorization` som väljs från dropdown, `model` där du väljer OpenAI DALL-E modell (här finns huvudsakligen en modell, se våra modeller), och `prompt` där du skriver in texten för bildgenerering.
 
 Till höger visas motsvarande genererade anropkod som du kan kopiera och köra direkt eller klicka på "Try" för att testa.
 
-<p><img src="https://cdn.acedata.cloud/pbss4f.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pbss4f.png" width="500" className="m-auto" /></p>
 
 Python-exempel:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -309,7 +309,7 @@ Resultatet innehåller flera fält:
 
 I `data` finns detaljer om genererad bild, där `url` är länken till bilden.
 
-<p><img src="https://cdn.acedata.cloud/dz7u0x.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dz7u0x.png" width="500" className="m-auto" /></p>
 
 ## Bildkvalitetsparameter `quality`
 
@@ -317,18 +317,18 @@ Du kan ange bildkvalitet med två alternativ: `standard` för standardbild och `
 
 Exempel på inställning till `standard`:
 
-<p><img src="https://cdn.acedata.cloud/1q303w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1q303w.png" width="500" className="m-auto" /></p>
 
 Till höger visas motsvarande anropkod som kan kopieras eller testas direkt.
 
-<p><img src="https://cdn.acedata.cloud/c0ps6i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/c0ps6i.png" width="500" className="m-auto" /></p>
 
 Python-exempel:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -362,11 +362,11 @@ Svar:
 
 Bild med `standard` kvalitet:
 
-<p><img src="https://cdn.acedata.cloud/j5v15b.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/j5v15b.png" width="500" className="m-auto" /></p>
 
 Med samma anrop men `quality` satt till `hd` får du:
 
-<p><img src="https://cdn.acedata.cloud/vjpbqr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vjpbqr.png" width="500" className="m-auto" /></p>
 
 `hd` ger mer detaljerad och konsekvent bild än `standard`.
 
@@ -376,18 +376,18 @@ Du kan även ange bildens storlek.
 
 Exempel med `1024x1024`:
 
-<p><img src="https://cdn.acedata.cloud/dx5rwh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dx5rwh.png" width="500" className="m-auto" /></p>
 
 Till höger visas anropkod som kan kopieras eller testas.
 
-<p><img src="https://cdn.acedata.cloud/0sbybl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0sbybl.png" width="500" className="m-auto" /></p>
 
 Python-exempel:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -421,11 +421,11 @@ Svar:
 
 Bild med storlek `1024x1024`:
 
-<p><img src="https://cdn.acedata.cloud/o4pvvx.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/o4pvvx.png" width="500" className="m-auto" /></p>
 
 Med storlek `1792x1024`:
 
-![](https://cdn.acedata.cloud/4pilae.png)
+![](https://cdn.xhuoapi.ai/4pilae.png)
 
 Storleken är tydligt annorlunda. Fler storlekar finns i vår officiella dokumentation.
 
@@ -435,18 +435,18 @@ Storleken är tydligt annorlunda. Fler storlekar finns i vår officiella dokumen
 
 Exempel med `vivid`:
 
-<p><img src="https://cdn.acedata.cloud/609l9i.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/609l9i.png" width="500" className="m-auto" /></p>
 
 Till höger visas anropkod som kan kopieras eller testas.
 
-<p><img src="https://cdn.acedata.cloud/ee3u9o.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ee3u9o.png" width="500" className="m-auto" /></p>
 
 Python-exempel:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -480,11 +480,11 @@ Svar:
 
 Bild med `vivid` stil:
 
-<p><img src="https://cdn.acedata.cloud/e0rpc3.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/e0rpc3.png" width="500" className="m-auto" /></p>
 
 Med `natural` stil:
 
-<p><img src="https://cdn.acedata.cloud/q9tqwu.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q9tqwu.png" width="500" className="m-auto" /></p>
 
 `vivid` ger mer levande och realistisk bild än `natural`.
 
@@ -494,18 +494,18 @@ Med `natural` stil:
 
 Exempel med `url`:
 
-<p><img src="https://cdn.acedata.cloud/2zbgrg.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2zbgrg.png" width="500" className="m-auto" /></p>
 
 Till höger visas anropkod som kan kopieras eller testas.
 
-<p><img src="https://cdn.acedata.cloud/a9exmp.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a9exmp.png" width="500" className="m-auto" /></p>
 
 Python-exempel:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",
@@ -541,7 +541,7 @@ Länk till bilden (kan öppnas direkt): [Bild URL](https://dalleprodsec.blob.cor
 
 Bild:
 
-<p><img src="https://cdn.acedata.cloud/33hs4z.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/33hs4z.png" width="500" className="m-auto" /></p>
 
 Med `b64_json` får du Base64-kodad bild i svaret:
 
@@ -567,7 +567,7 @@ Exempel:
 
 Webhook är en HTTP-server som kan ta emot förfrågningar. För demonstration används https://webhook.site/ som genererar en unik URL:
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 Kopiera URL, t.ex. `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`.
 
@@ -576,7 +576,7 @@ Skicka anrop med `callback_url`:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",

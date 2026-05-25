@@ -1,6 +1,6 @@
 ---
 title: "Producer 下载WAV API 对接说明"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 Producer 允许我们下载歌曲相关的WAV文件，本文档讲解相关 API 的对接方法。
@@ -10,7 +10,7 @@ Producer 允许我们下载歌曲相关的WAV文件，本文档讲解相关 API 
 这里我们输入的 `audio_id` 是 `a54609c6-13e2-4176-be0f-4d7eebc68e1f`，是一个Producer生成的歌曲ID。
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/wav' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/wav' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

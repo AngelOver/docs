@@ -1,15 +1,15 @@
 ---
 title: "Fish Model Query API -liitäntäohjeet"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 Tässä dokumentissa esitellään Fish Model Query API:n (`GET /fish/model`) liitäntäohjeet. Tämä rajapinta on täysin yhteensopiva [Fish Audio virallisen OpenAPI:n](https://docs.fish.audio/resources/api-reference/model) kanssa, ja sitä käytetään **sivutettuun hakuun** nykyisen tilin tai koko alustan näkyvien kloonattujen äänivärien listasta.
 
-> Äänivärin luomiseen katso [Fish Model Create API](https://platform.acedata.cloud/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a), yksittäisen äänivärin hakemiseen `_id`-kentän perusteella katso [Fish Model Get API](https://platform.acedata.cloud/documents/dabdffe7-254b-5a3f-9eca-425d614d82b9).
+> Äänivärin luomiseen katso [Fish Model Create API](https://api.xhuoapi.ai/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a), yksittäisen äänivärin hakemiseen `_id`-kentän perusteella katso [Fish Model Get API](https://api.xhuoapi.ai/documents/dabdffe7-254b-5a3f-9eca-425d614d82b9).
 
 ## Hakuprosessi
 
-API:n käyttämiseksi sinun tulee ensin hakea palvelua vastaavalta sivulta [Fish Model API](https://platform.acedata.cloud/services/caf99abc-ddcf-4714-b2a5-862d9b469509). Sivulle tultuasi klikkaa "Acquire"-painiketta.
+API:n käyttämiseksi sinun tulee ensin hakea palvelua vastaavalta sivulta [Fish Model API](https://api.xhuoapi.ai/services/caf99abc-ddcf-4714-b2a5-862d9b469509). Sivulle tultuasi klikkaa "Acquire"-painiketta.
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle rekisteröitymään ja kirjautumaan. Kirjautumisen jälkeen palaat automaattisesti tälle sivulle.
 
@@ -23,7 +23,7 @@ Ensimmäisen haun yhteydessä saat ilmaisen käyttöoikeuden, joten API:a voi k�
 ## Pyyntöesimerkki
 
 ```shell
-curl -G 'https://api.acedata.cloud/fish/model' \
+curl -G 'https://api.xhuoapi.ai/v1/fish/model' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   --data-urlencode 'page_size=10' \
@@ -69,7 +69,7 @@ Onnistuneessa vastauksessa välitetään suoraan Fish-alustan sivutettu rakenne:
 }
 ```
 
-Palautettu `_id` voidaan käyttää myöhemmin [Fish TTS API:n](https://platform.acedata.cloud/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) `reference_id`-kentän arvona, kun halutaan käyttää kyseistä kloonattua ääniväriä puhesynteesiin.
+Palautettu `_id` voidaan käyttää myöhemmin [Fish TTS API:n](https://api.xhuoapi.ai/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) `reference_id`-kentän arvona, kun halutaan käyttää kyseistä kloonattua ääniväriä puhesynteesiin.
 
 ## Maksutiedot
 
@@ -98,4 +98,4 @@ Tämä rajapinta on maksuton — äänivärien sivutettu haku on ilmainen toimen
 
 ## Yhteenveto
 
-Fish Model Query API tarjoaa täysin yhteensopivan äänivärien hakutoiminnon Fish Audion virallisen API:n kanssa, ja sitä voi käyttää oman kloonattujen äänivärien kirjaston ylläpitoon alustalla. Yhdessä [Fish Model Get API:n](https://platform.acedata.cloud/documents/dabdffe7-254b-5a3f-9eca-425d614d82b9) kanssa voi hakea yksittäisen äänivärin täydelliset tiedot ID:n perusteella.
+Fish Model Query API tarjoaa täysin yhteensopivan äänivärien hakutoiminnon Fish Audion virallisen API:n kanssa, ja sitä voi käyttää oman kloonattujen äänivärien kirjaston ylläpitoon alustalla. Yhdessä [Fish Model Get API:n](https://api.xhuoapi.ai/documents/dabdffe7-254b-5a3f-9eca-425d614d82b9) kanssa voi hakea yksittäisen äänivärin täydelliset tiedot ID:n perusteella.

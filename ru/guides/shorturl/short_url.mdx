@@ -1,15 +1,15 @@
 ---
 title: "Инструкция по интеграции Short URL API"
-description: "Short link generation 集成指南 - Ace Data Cloud"
+description: "Short link generation 集成指南 - XHuoAPI"
 ---
 
 В этой статье будет представлена инструкция по интеграции Short URL API, которая позволяет преобразовывать длинные URL в короткие.
 
 ## Процесс подачи заявки
 
-Чтобы использовать API, необходимо сначала перейти на соответствующую страницу [Short URL API](https://platform.acedata.cloud/documents/a2303356-6672-4eb8-9778-75f55c998fe9) и подать заявку на соответствующую услугу. После перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
+Чтобы использовать API, необходимо сначала перейти на соответствующую страницу [Short URL API](https://api.xhuoapi.ai/documents/a2303356-6672-4eb8-9778-75f55c998fe9) и подать заявку на соответствующую услугу. После перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Если вы еще не вошли в систему или не зарегистрированы, вас автоматически перенаправит на страницу входа, где вас пригласят зарегистрироваться и войти. После регистрации и входа вы автоматически вернетесь на текущую страницу.
 
@@ -19,7 +19,7 @@ description: "Short link generation 集成指南 - Ace Data Cloud"
 
 Сначала ознакомьтесь с основным способом использования, который заключается в том, что нужно ввести длинный URL, который необходимо преобразовать, и вы получите обработанный результат. Сначала нужно просто передать поле `content`. Далее мы можем заполнить соответствующее содержимое на интерфейсе, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/4ascb2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4ascb2.png" width="500" className="m-auto" /></p>
 
 Как видно, мы настроили заголовки запроса, включая:
 
@@ -32,7 +32,7 @@ description: "Short link generation 集成指南 - Ace Data Cloud"
 
 После выбора можно заметить, что справа также сгенерирован соответствующий код, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/r3uakb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/r3uakb.png" width="500" className="m-auto" /></p>
 
 Нажмите кнопку «Try», чтобы провести тестирование, как показано на изображении, и мы получили следующий результат:
 
@@ -50,17 +50,17 @@ description: "Short link generation 集成指南 - Ace Data Cloud"
 - `success`: статус успешности выполнения задачи.
 - `data`: содержит преобразованный URL.
 
-Можно увидеть, что изначально длинный URL `https://platform.acedata.cloud/documents/a2303356-6672-4eb8-9778-75f55c998fe9` успешно преобразован в короткий URL `https://surl.id/1uHCs01xa5`.
+Можно увидеть, что изначально длинный URL `https://api.xhuoapi.ai/documents/a2303356-6672-4eb8-9778-75f55c998fe9` успешно преобразован в короткий URL `https://surl.id/1uHCs01xa5`.
 
 Кроме того, если вы хотите сгенерировать соответствующий код интеграции, вы можете просто скопировать его, например, код CURL выглядит следующим образом:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/shorturl' \
+curl -X POST 'https://api.xhuoapi.ai/v1/shorturl' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "content": "https://platform.acedata.cloud/documents/a2303356-6672-4eb8-9778-75f55c998fe9"
+  "content": "https://api.xhuoapi.ai/documents/a2303356-6672-4eb8-9778-75f55c998fe9"
 }'
 ```
 
@@ -69,7 +69,7 @@ curl -X POST 'https://api.acedata.cloud/shorturl' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/shorturl"
+url = "https://api.xhuoapi.ai/v1/shorturl"
 
 headers = {
     "accept": "application/json",
@@ -78,7 +78,7 @@ headers = {
 }
 
 payload = {
-    "content": "https://platform.acedata.cloud/documents/a2303356-6672-4eb8-9778-75f55c998fe9"
+    "content": "https://api.xhuoapi.ai/documents/a2303356-6672-4eb8-9778-75f55c998fe9"
 }
 
 response = requests.post(url, json=payload, headers=headers)

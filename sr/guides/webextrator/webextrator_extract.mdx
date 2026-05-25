@@ -1,9 +1,9 @@
 ---
 title: "WebExtrator Vodič za integraciju inteligentnog izvlačenja API-ja"
-description: "WebExtrator Web Render & Extract 集成指南 - Ace Data Cloud"
+description: "WebExtrator Web Render & Extract 集成指南 - XHuoAPI"
 ---
 
-`POST https://api.acedata.cloud/webextrator/extract`
+`POST https://api.xhuoapi.ai/v1/webextrator/extract`
 
 Izvlačenje sadržaja na osnovu `/webextrator/render`. Osim svih parametara render interfejsa, dodatno podržava:
 
@@ -41,7 +41,7 @@ Asinhroni režim, kodovi grešaka i pravila naplate su potpuno isti kao kod `/we
 ## Primer: izvlačenje teksta članka (omogućeno LLM)
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -54,7 +54,7 @@ curl -X POST https://api.acedata.cloud/webextrator/extract \
 ## Primer: asinhrono + prilagođeno strukturirano izvlačenje
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/extract \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/extract \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

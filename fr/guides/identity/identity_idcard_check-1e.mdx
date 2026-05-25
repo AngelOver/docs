@@ -1,15 +1,15 @@
 ---
 title: "Documentation de l'API de vérification de photo d'identité"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Cet article présente une documentation sur l'API de vérification de photo d'identité, qui peut être utilisée pour transmettre une photo de la face d'une carte d'identité, reconnaître les informations sur la photo de la carte d'identité, et comparer le nom, le numéro de la carte d'identité et la photo de la carte d'identité avec les photos de documents d'une base de données autorisée, afin de vérifier si cela appartient à la même personne, et ainsi valider l'authenticité des informations de la carte d'identité.
 
 ## Processus de demande
 
-Pour utiliser l'API, vous devez d'abord vous rendre sur la page correspondante de l'[API de vérification de photo d'identité](https://platform.acedata.cloud/documents/7a3f14f7-f1eb-41c2-816c-9f18caca6883) pour demander le service correspondant. Une fois sur la page, cliquez sur le bouton « Acquire », comme indiqué dans l'image ci-dessous :
+Pour utiliser l'API, vous devez d'abord vous rendre sur la page correspondante de l'[API de vérification de photo d'identité](https://api.xhuoapi.ai/documents/7a3f14f7-f1eb-41c2-816c-9f18caca6883) pour demander le service correspondant. Une fois sur la page, cliquez sur le bouton « Acquire », comme indiqué dans l'image ci-dessous :
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Si vous n'êtes pas encore connecté ou inscrit, vous serez automatiquement redirigé vers la page de connexion pour vous inviter à vous inscrire et à vous connecter. Après vous être connecté ou inscrit, vous serez automatiquement renvoyé à la page actuelle.
 
@@ -19,7 +19,7 @@ Lors de la première demande, un quota gratuit sera offert, vous permettant d'ut
 
 Tout d'abord, comprenez la méthode d'utilisation de base, qui consiste à entrer le lien de l'image de la carte d'identité pour obtenir le résultat de vérification après traitement. Vous devez d'abord transmettre un champ `image_url`, puis vous pouvez remplir le contenu correspondant sur l'interface, comme indiqué dans l'image ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/zjxg3k.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zjxg3k.png" width="500" className="m-auto" /></p>
 
 Vous pouvez voir ici que nous avons configuré les en-têtes de requête, y compris :
 
@@ -33,7 +33,7 @@ De plus, nous avons configuré le corps de la requête, y compris :
 
 Après sélection, vous pouvez voir que le code correspondant a également été généré à droite, comme indiqué dans l'image ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/4yh23p.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4yh23p.png" width="500" className="m-auto" /></p>
 
 Cliquez sur le bouton « Try » pour effectuer un test, comme indiqué sur l'image ci-dessus, et nous avons obtenu le résultat suivant :
 
@@ -76,7 +76,7 @@ On peut voir que les informations de la carte d'identité ont une très haute au
 De plus, si vous souhaitez générer le code d'intégration correspondant, vous pouvez le copier directement, par exemple, le code CURL est le suivant :
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/idcard/check-1e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/idcard/check-1e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -90,7 +90,7 @@ Le code d'intégration en Python est le suivant :
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/idcard/check-1e"
+url = "https://api.xhuoapi.ai/v1/identity/idcard/check-1e"
 
 headers = {
     "accept": "application/json",

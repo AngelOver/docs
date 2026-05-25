@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Embeddings API - Hakeminen ja käyttö"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI sanavektoripalvelu, joka tuottaa syötetyn tekstin sanavektorituloksia.
@@ -9,9 +9,9 @@ Tässä asiakirjassa esitellään OpenAI Embeddings API:n käyttöprosessi, jonk
 
 ## Hakuprosessi
 
-Käyttääksesi OpenAI Embeddings API:a, voit ensin siirtyä [OpenAI Embeddings API](https://platform.acedata.cloud/documents/0f2e63fa-5890-4bdd-84f0-1706b5c9a387) -sivulle ja napsauttaa "Acquire" -painiketta saadaksesi tarvittavat todisteet pyyntöä varten:
+Käyttääksesi OpenAI Embeddings API:a, voit ensin siirtyä [OpenAI Embeddings API](https://api.xhuoapi.ai/documents/0f2e63fa-5890-4bdd-84f0-1706b5c9a387) -sivulle ja napsauttaa "Acquire" -painiketta saadaksesi tarvittavat todisteet pyyntöä varten:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -21,7 +21,7 @@ Ensimmäisellä hakemiskerralla saat ilmaisia krediittejä, joiden avulla voit k
 
 Seuraavaksi voit täyttää vastaavat tiedot käyttöliittymässä, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/4qtbvr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4qtbvr.png" width="500" className="m-auto" /></p>
 
 Kun käytät tätä rajapintaa ensimmäistä kertaa, sinun on täytettävä vähintään kolme tietoa: yksi on `authorization`, jonka voit valita suoraan pudotusvalikosta. Toinen parametri on `model`, `model` on se, mitä valitsemme käytettäväksi OpenAI:n verkkosivuston mallikategorioista. Täällä meillä on pääasiassa 3 erilaista mallia, lisätietoja voit katsoa tarjoamistamme malleista. Viimeinen parametri on `input`, `input` on se sanavektoriteksti, jonka haluamme muuntaa.
 
@@ -32,14 +32,14 @@ Valinnaiset parametrit:
 - `dimensions`: leikkaa vektorin ulottuvuudet, oletusarvoisesti tulostaa täydet ulottuvuudet.
 - `encoding_format`: palautusmuoto, valinnaisesti `float` tai `base64`.
 
-<p><img src="https://cdn.acedata.cloud/gqulm9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gqulm9.png" width="500" className="m-auto" /></p>
 
 Python-esimerkkikutsukoodi:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/embeddings"
+url = "https://api.xhuoapi.ai/v1/openai/embeddings"
 
 headers = {
     "accept": "application/json",

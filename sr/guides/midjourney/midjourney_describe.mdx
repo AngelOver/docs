@@ -1,6 +1,6 @@
 ---
 title: "Midjourney Describe API интеграција i korišćenje"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 Glavna funkcija Midjourney Describe API-ja je da, putem otpremanja slika, dobije opis slika. Da biste koristili ovaj API, potrebno je samo da prosledite adresu datoteke slike, a API će vratiti detaljan opis slike. Nema potrebe za složenim podešavanjima parametara, već možete dobiti visokokvalitetan opis slike.
@@ -11,11 +11,11 @@ Ovaj dokument će detaljno opisati integraciju Midjourney Describe API-ja, poma�
 
 ## Proces prijave
 
-Da biste koristili Midjourney Describe API, prvo idite na stranicu za prijavu [Midjourney Describe API](https://platform.acedata.cloud/documents/870e973b-712a-4686-ab8b-beae27f129ce) i zatražite odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
+Da biste koristili Midjourney Describe API, prvo idite na stranicu za prijavu [Midjourney Describe API](https://api.xhuoapi.ai/documents/870e973b-712a-4686-ab8b-beae27f129ce) i zatražite odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
 
-![Stranica za prijavu](https://cdn.acedata.cloud/rci31i.png)
+![Stranica za prijavu](https://cdn.xhuoapi.ai/rci31i.png)
 
-Ako još niste prijavljeni ili registrovani, automatski ćete biti preusmereni na [stranicu za prijavu](https://platform.acedata.cloud) koja vas poziva da se registrujete i prijavite. Nakon prijave ili registracije, automatski ćete se vratiti na trenutnu stranicu.
+Ako još niste prijavljeni ili registrovani, automatski ćete biti preusmereni na [stranicu za prijavu](https://api.xhuoapi.ai) koja vas poziva da se registrujete i prijavite. Nakon prijave ili registracije, automatski ćete se vratiti na trenutnu stranicu.
 
 Prilikom prve prijave dobićete besplatnu kvotu koja vam omogućava besplatno korišćenje ovog API-ja.
 
@@ -25,7 +25,7 @@ Uzmimo sliku kao primer i prikažimo kako koristiti ovaj API. Pretpostavimo da i
 
 ### Primer slike zahteva
 
-![Primer slike](https://cdn.acedata.cloud/kg7xp3.png)
+![Primer slike](https://cdn.xhuoapi.ai/kg7xp3.png)
 
 ### Podešavanje zaglavlja zahteva i tela zahteva
 
@@ -40,25 +40,25 @@ Uzmimo sliku kao primer i prikažimo kako koristiti ovaj API. Pretpostavimo da i
 
 Podešavanje je prikazano na sledećoj slici:
 
-![](https://cdn.acedata.cloud/eeui10.png)
+![](https://cdn.xhuoapi.ai/eeui10.png)
 
 ### Primer koda
 
 Možete primetiti da su na desnoj strani stranice automatski generisani kodovi na različitim jezicima, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/8edj9z.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8edj9z.png" width="400" className="m-auto" /></p>
 
 Neki primeri koda su:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/describe' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/describe' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/kg7xp3.png"
+  "image_url": "https://cdn.xhuoapi.ai/kg7xp3.png"
 }'
 ```
 
@@ -67,7 +67,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/describe' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/describe"
+url = "https://api.xhuoapi.ai/v1/midjourney/describe"
 
 headers = {
     "accept": "application/json",
@@ -76,7 +76,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/kg7xp3.png"
+    "image_url": "https://cdn.xhuoapi.ai/kg7xp3.png"
 }
 
 response = requests.post(url, json=payload, headers=headers)

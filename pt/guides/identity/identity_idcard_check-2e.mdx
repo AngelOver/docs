@@ -1,15 +1,15 @@
 ---
 title: "Informação de Identidade e Verificação de Validade API Integração"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Este documento apresentará uma integração da API de Informação de Identidade e Verificação de Validade, que pode ser usada para verificar a autenticidade e a consistência do nome, número do documento de identidade e validade do documento.
 
 ## Processo de Solicitação
 
-Para usar a API, você precisa primeiro acessar a página correspondente da [API de Informação de Identidade e Verificação de Validade](https://platform.acedata.cloud/documents/667017a4-017f-4af0-870e-807034f70632) para solicitar o serviço correspondente. Após entrar na página, clique no botão "Adquirir", conforme mostrado na imagem:
+Para usar a API, você precisa primeiro acessar a página correspondente da [API de Informação de Identidade e Verificação de Validade](https://api.xhuoapi.ai/documents/667017a4-017f-4af0-870e-807034f70632) para solicitar o serviço correspondente. Após entrar na página, clique no botão "Adquirir", conforme mostrado na imagem:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Se você ainda não estiver logado ou registrado, será redirecionado automaticamente para a página de login, convidando-o a se registrar e fazer login. Após o registro e login, você será redirecionado de volta para a página atual.
 
@@ -19,7 +19,7 @@ Na primeira solicitação, haverá um limite gratuito disponível, permitindo o 
 
 Primeiro, entenda a forma básica de uso, que é inserir o link da imagem do documento de identidade para obter o resultado de verificação processado. Primeiro, você precisa passar um campo `name`, e em seguida, podemos preencher o conteúdo correspondente na interface, conforme mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/llvy1l.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/llvy1l.png" width="500" className="m-auto" /></p>
 
 Podemos ver que aqui configuramos os Headers da Requisição, incluindo:
 
@@ -37,7 +37,7 @@ Além disso, configuramos o Corpo da Requisição, incluindo:
 
 Após a seleção, você pode notar que o código correspondente também foi gerado à direita, conforme mostrado na imagem:
 
-<p><img src="https://cdn.acedata.cloud/l77q0u.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/l77q0u.png" width="500" className="m-auto" /></p>
 
 Clique no botão "Tentar" para realizar o teste, como mostrado na imagem acima, e aqui obtivemos o seguinte resultado:
 
@@ -68,7 +68,7 @@ Pode-se observar que o nome, número do documento de identidade e validade do do
 Além disso, se você deseja gerar o código de integração correspondente, pode copiá-lo diretamente, por exemplo, o código CURL é o seguinte:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/idcard/check-2e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/idcard/check-2e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -85,7 +85,7 @@ O código de integração em Python é o seguinte:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/idcard/check-2e"
+url = "https://api.xhuoapi.ai/v1/identity/idcard/check-2e"
 
 headers = {
     "accept": "application/json",

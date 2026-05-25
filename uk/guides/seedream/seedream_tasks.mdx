@@ -1,6 +1,6 @@
 ---
 title: "Інтеграція та використання API SeeDream Tasks"
-description: "ByteDance Seedream Image Generation 集成指南 - Ace Data Cloud"
+description: "ByteDance Seedream Image Generation 集成指南 - XHuoAPI"
 ---
 
 Основна функція API SeeDream Tasks полягає в тому, щоб за допомогою введеного ID завдання, згенерованого API SeeDream Images Generation, перевіряти стан виконання цього завдання.
@@ -9,27 +9,27 @@ description: "ByteDance Seedream Image Generation 集成指南 - Ace Data Cloud"
 
 ## Процес подачі заявки
 
-Щоб використовувати API SeeDream Tasks, спочатку потрібно перейти на сторінку подачі заявки [SeeDream Images Generation API](https://platform.acedata.cloud/documents/seedream-images) для отримання відповідної послуги, а потім скопіювати ID завдання API SeeDream Images Generation, як показано на малюнку:
+Щоб використовувати API SeeDream Tasks, спочатку потрібно перейти на сторінку подачі заявки [SeeDream Images Generation API](https://api.xhuoapi.ai/documents/seedream-images) для отримання відповідної послуги, а потім скопіювати ID завдання API SeeDream Images Generation, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
-Нарешті, перейдіть на сторінку API Tasks [SeeDream Tasks API](https://platform.acedata.cloud/documents/seedream-tasks) для отримання відповідної послуги, після входу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
+Нарешті, перейдіть на сторінку API Tasks [SeeDream Tasks API](https://api.xhuoapi.ai/documents/seedream-tasks) для отримання відповідної послуги, після входу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
 
-![Сторінка подачі заявки](https://cdn.acedata.cloud/rci31i.png)
+![Сторінка подачі заявки](https://cdn.xhuoapi.ai/rci31i.png)
 
-Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на [сторінку входу](https://platform.acedata.cloud), запрошуючи вас зареєструватися та увійти. Після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
+Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на [сторінку входу](https://api.xhuoapi.ai), запрошуючи вас зареєструватися та увійти. Після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
 
 При першій подачі заявки вам буде надано безкоштовний ліміт, який дозволяє безкоштовно використовувати цей API.
 
 ## Приклад запиту
 
-API SeeDream Tasks можна використовувати для перевірки результатів API SeeDream Images Generation. Щоб дізнатися, як використовувати API SeeDream Images Generation, будь ласка, зверніться до документа [SeeDream Images Generation API](https://platform.acedata.cloud/documents/seedream-images-integration).
+API SeeDream Tasks можна використовувати для перевірки результатів API SeeDream Images Generation. Щоб дізнатися, як використовувати API SeeDream Images Generation, будь ласка, зверніться до документа [SeeDream Images Generation API](https://api.xhuoapi.ai/documents/seedream-images-integration).
 
 Розглянемо приклад з ID завдання, повернутим сервісом API SeeDream Images Generation. Припустимо, у нас є ID завдання: 20068983-0cc9-4c6a-aeb6-9c6a3c668be0, далі демонструємо, як передати ID завдання.
 
 ### Приклад завдання
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 ### Налаштування заголовків запиту та тіла запиту
 
@@ -45,20 +45,20 @@ API SeeDream Tasks можна використовувати для переві
 
 Налаштування, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/yuyte9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yuyte9.png" width="500" className="m-auto" /></p>
 
 ### Приклад коду
 
 Можна помітити, що на правій стороні сторінки автоматично згенеровано код на різних мовах, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/b0wt0d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/b0wt0d.png" width="500" className="m-auto" /></p>
 
 Деякі приклади коду наведені нижче:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/seedream/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/seedream/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -81,7 +81,7 @@ curl -X POST 'https://api.acedata.cloud/seedream/tasks' \
     {
       "prompt": "a white siamese cat",
       "size": "2048x2048",
-      "image_url": "https://platform.cdn.acedata.cloud/seedream/6e5f9085-cc4a-4801-b77b-31550129ff19.jpg"
+      "image_url": "https://platform.cdn.xhuoapi.ai/seedream/6e5f9085-cc4a-4801-b77b-31550129ff19.jpg"
     }
   ]
 }
@@ -108,7 +108,7 @@ curl -X POST 'https://api.acedata.cloud/seedream/tasks' \
 
 Налаштування, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/ycc4th.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ycc4th.png" width="500" className="m-auto" /></p>
 
 ### Приклад коду
 
@@ -143,7 +143,7 @@ curl -X POST 'https://api.acedata.cloud/seedream/tasks' \
           {
             "prompt": "білий сіамський кіт",
             "size": "2048x2048",
-            "image_url": "https://platform.cdn.acedata.cloud/seedream/6e5f9085-cc4a-4801-b77b-31550129ff19.jpg"
+            "image_url": "https://platform.cdn.xhuoapi.ai/seedream/6e5f9085-cc4a-4801-b77b-31550129ff19.jpg"
           }
         ]
       }
@@ -171,7 +171,7 @@ curl -X POST 'https://api.acedata.cloud/seedream/tasks' \
           {
             "prompt": "білий сіамський кіт",
             "size": "2048x2048",
-            "image_url": "https://platform.cdn.acedata.cloud/seedream/6e5f9085-cc4a-4801-b77b-31550129ff19.jpg"
+            "image_url": "https://platform.cdn.xhuoapi.ai/seedream/6e5f9085-cc4a-4801-b77b-31550129ff19.jpg"
           }
         ]
       }
@@ -189,7 +189,7 @@ curl -X POST 'https://api.acedata.cloud/seedream/tasks' \
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/seedance/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/seedance/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

@@ -1,6 +1,6 @@
 ---
 title: "Google SERP API 對接說明"
-description: "Search Engine 集成指南 - Ace Data Cloud"
+description: "Search Engine 集成指南 - XHuoAPI"
 ---
 
 Google SERP（Search Engine Results Page）是用戶在 Google 搜尋引擎中輸入查詢後看到的結果頁面。它顯示自然搜尋結果、廣告、特色摘要、知識圖譜以及圖片、視頻等多種內容，旨在為用戶提供最相關的信息。
@@ -11,9 +11,9 @@ Google SERP（Search Engine Results Page）是用戶在 Google 搜尋引擎中�
 
 ## 申請流程
 
-要使用 Google SERP API，需要先到 [Google SERP API](https://platform.acedata.cloud/documents/44c86226-8eaa-49bf-85f3-1fae8d2e23f1) 對應頁面申請對應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
+要使用 Google SERP API，需要先到 [Google SERP API](https://api.xhuoapi.ai/documents/44c86226-8eaa-49bf-85f3-1fae8d2e23f1) 對應頁面申請對應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 如果你尚未登入或註冊，會自動跳轉到登入頁面邀請您來註冊和登入，登入註冊之後會自動返回當前頁面。
 
@@ -25,7 +25,7 @@ Google SERP（Search Engine Results Page）是用戶在 Google 搜尋引擎中�
 
 比如說查找：關於“apple inc”的信息，我們接下來就可以在介面上填寫對應的內容，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/lnqiye.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lnqiye.png" width="500" className="m-auto" /></p>
 
 可以看到這裡我們設置了 Request Headers，包括：
 
@@ -44,7 +44,7 @@ Google SERP（Search Engine Results Page）是用戶在 Google 搜尋引擎中�
 
 選擇之後，可以發現右側也生成了對應代碼，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/1j81zr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1j81zr.png" width="500" className="m-auto" /></p>
 
 點擊「Try」按鈕即可進行測試，如上圖所示，這裡我們就得到了如下結果：
 ```json
@@ -193,7 +193,7 @@ Google SERP（Search Engine Results Page）是用戶在 Google 搜尋引擎中�
 另外如果想生成對應的對接代碼，可以直接複製生成，例如 CURL 的代碼如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -207,7 +207,7 @@ Python 的對接代碼如下：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/serp/google"
+url = "https://api.xhuoapi.ai/v1/serp/google"
 
 headers = {
     "accept": "application/json",
@@ -231,12 +231,12 @@ print(response.text)
 
 首先，將 `type` 參數設置為 `videos`，並正常傳遞 `query` 參數，如圖所示：
 ```
-<p><img src="https://cdn.acedata.cloud/czlt12.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/czlt12.png" width="500" class="m-auto"></p>
 
 對應代碼如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -358,7 +358,7 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 
 該接口也支持限定搜索結果的所在國家，我們可以添加 `country` 參數來限定國家，輸入的參數為國家的簡寫，比如 cn（中國）、us（美國），本文將以中國做如下示例，下面為具體的信息：
 
-<p><img src="https://cdn.acedata.cloud/gztpwi.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/gztpwi.png" width="500" class="m-auto"></p>
 
 輸出效果如下：
 ```json
@@ -459,12 +459,12 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 ```
 我們還可以自定義搜尋結果的語言，這裡我們額外添加 `language` 欄位，內容為 `zh-cn`，其中它指的是簡體中文的語言，同時還支持其他語言，但必須輸入的語言的簡寫，比如 en（English）、fr（French）、zh-cn（Chinese（Simplified））等語言，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/yyrssp.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/yyrssp.png" width="500" class="m-auto"></p>
 
 對應程式碼如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -636,12 +636,12 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 ## 自定義搜尋結果時間範圍
 本文還可以自定義搜尋結果的時間範圍，包括了五種，分別是 `qdr:h`（過去一個小時）、`qdr:d`（過去一天）、`qdr:w`（過去一週）、`qdr:m`（過去一個月）、預設無限制，我們可以透過 `range` 傳遞對應的時間範圍即可，比如這裡設置為 `qdr:d`，這樣表示搜尋過去一天的結果，所以輸入如下：
 
-<p><img src="https://cdn.acedata.cloud/qccfib.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/qccfib.png" width="500" class="m-auto"></p>
 
 對應的程式碼如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -795,13 +795,13 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 
 本 API 還支持自定義搜尋結果的分頁展示，`number` 和 `page` 表示分頁的頁面大小和頁數，本文將設置一頁裡面有 20 個搜尋結果的形式來進行分頁展示，具體的信息如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/dqla1e.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/dqla1e.png" width="500" class="m-auto"></p>
 
 > 注意：當每頁結果超過 10 個時，扣除的積分會翻倍。
 
 程式碼如下：
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

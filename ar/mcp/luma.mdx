@@ -3,7 +3,7 @@ title: "دليل تكامل Luma MCP"
 description: "luma MCP 服务器集成"
 ---
 
-[MCP (بروتوكول سياق النموذج)](https://modelcontextprotocol.io) هو بروتوكول سياق النموذج الذي أطلقته شركة Anthropic، والذي يسمح لنماذج الذكاء الاصطناعي (مثل Claude وGPT وغيرها) باستدعاء أدوات خارجية من خلال واجهات موحدة. من خلال خادم Luma MCP المقدم من AceData Cloud، يمكنك مباشرةً إنشاء فيديوهات AI في عملاء الذكاء الاصطناعي مثل Claude Desktop وVS Code وCursor.
+[MCP (بروتوكول سياق النموذج)](https://modelcontextprotocol.io) هو بروتوكول سياق النموذج الذي أطلقته شركة Anthropic، والذي يسمح لنماذج الذكاء الاصطناعي (مثل Claude وGPT وغيرها) باستدعاء أدوات خارجية من خلال واجهات موحدة. من خلال خادم Luma MCP المقدم من XHuoAPI، يمكنك مباشرةً إنشاء فيديوهات AI في عملاء الذكاء الاصطناعي مثل Claude Desktop وVS Code وCursor.
 
 ## نظرة عامة على الوظائف
 
@@ -18,10 +18,10 @@ description: "luma MCP 服务器集成"
 
 ## التحضيرات المسبقة
 
-قبل الاستخدام، تحتاج إلى الحصول على رمز API من AceData Cloud:
+قبل الاستخدام، تحتاج إلى الحصول على رمز API من XHuoAPI:
 
-1. سجل أو قم بتسجيل الدخول إلى [منصة AceData Cloud](https://platform.acedata.cloud)
-2. انتقل إلى صفحة [API فيديوهات Luma](https://platform.acedata.cloud/documents/luma-videos)
+1. سجل أو قم بتسجيل الدخول إلى [منصة XHuoAPI](https://api.xhuoapi.ai)
+2. انتقل إلى صفحة [API فيديوهات Luma](https://api.xhuoapi.ai/documents/luma-videos)
 3. انقر على "Acquire" للحصول على رمز API (تُمنح حصة مجانية عند الطلب لأول مرة)
 
 ## التثبيت والتكوين
@@ -35,7 +35,7 @@ pip install mcp-luma
 ### الطريقة الثانية: تثبيت من المصدر
 
 ```bash
-git clone https://github.com/AceDataCloud/LumaMCP.git
+git clone https://github.com/XHuoAPI/LumaMCP.git
 cd LumaMCP
 pip install -e .
 ```
@@ -57,7 +57,7 @@ pip install -e .
     "luma": {
       "command": "mcp-luma",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "رمز API الخاص بك"
+        "XHuoAPI_API_TOKEN": "رمز API الخاص بك"
       }
     }
   }
@@ -73,7 +73,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-luma"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "رمز API الخاص بك"
+        "XHuoAPI_API_TOKEN": "رمز API الخاص بك"
       }
     }
   }
@@ -92,7 +92,7 @@ pip install -e .
     "luma": {
       "command": "mcp-luma",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "رمز API الخاص بك"
+        "XHuoAPI_API_TOKEN": "رمز API الخاص بك"
       }
     }
   }
@@ -108,7 +108,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-luma"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "رمز API الخاص بك"
+        "XHuoAPI_API_TOKEN": "رمز API الخاص بك"
       }
     }
   }
@@ -137,6 +137,6 @@ pip install -e .
 
 ## مزيد من المعلومات
 
-- مستودع GitHub: [AceDataCloud/LumaMCP](https://github.com/AceDataCloud/LumaMCP)
+- مستودع GitHub: [XHuoAPI/LumaMCP](https://github.com/XHuoAPI/LumaMCP)
 - حزمة PyPI: [mcp-luma](https://pypi.org/project/mcp-luma/)
-- وثائق API: [API توليد فيديو Luma](https://platform.acedata.cloud/documents/luma)
+- وثائق API: [API توليد فيديو Luma](https://api.xhuoapi.ai/documents/luma)

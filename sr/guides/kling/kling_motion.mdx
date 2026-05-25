@@ -1,15 +1,15 @@
 ---
 title: "Kling Motion Generation API интеграција"
-description: "Kling video generation 集成指南 - Ace Data Cloud"
+description: "Kling video generation 集成指南 - XHuoAPI"
 ---
 
 Овај документ ће представити упутство за интеграцију Kling Motion Generation API, који може генерисати Kling званичне видео записе уношењем прилагођених параметара.
 
 ## Процес пријаве
 
-Да бисте користили API, прво идите на [Kling Motion Generation API](https://platform.acedata.cloud/documents/d3f2c369-102d-4856-9565-702ac5f2df63) страницу за пријаву на одговарајућу услугу, након што уђете на страницу, кликните на дугме „Acquire“, као што је приказано на слици:
+Да бисте користили API, прво идите на [Kling Motion Generation API](https://api.xhuoapi.ai/documents/d3f2c369-102d-4856-9565-702ac5f2df63) страницу за пријаву на одговарајућу услугу, након што уђете на страницу, кликните на дугме „Acquire“, као што је приказано на слици:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Ако још нисте пријављени или регистровани, аутоматски ћете бити преусмерени на страницу за пријаву која вас позива да се региструјете и пријавите, након пријаве или регистрације, аутоматски ћете се вратити на тренутну страницу.
 
@@ -19,7 +19,7 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 
 Прво, упознајте се са основним начином коришћења, што подразумева унос кључне речи `prompt`, референтне слике `image_url` и линка на референтни видео `video_url`, чиме добијате обрађени резултат, а затим треба да унесете модел `mode`, који тренутно укључује `std` и `pro` моделе, конкретно:
 
-<p><img src="https://cdn.acedata.cloud/5qlpjt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5qlpjt.png" width="500" className="m-auto" /></p>
 
 Можете видети да смо овде подесили Request Headers, укључујући:
 
@@ -38,7 +38,7 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 
 Након избора, можете приметити да је на десној страни генерисан одговарајући код, као што је приказано на слици:
 
-<p><img src="https://cdn.acedata.cloud/buwczd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/buwczd.png" width="500" className="m-auto" /></p>
 
 Кликните на дугме „Try“ да бисте извршили тест, као што је приказано на горњој слици, и добили смо следећи резултат:
 
@@ -67,13 +67,13 @@ description: "Kling video generation 集成指南 - Ace Data Cloud"
 Ако желите да генеришете одговарајући код за интеграцију, можете га директно копирати, на пример, CURL код је следећи:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/kling/motion' \
+curl -X POST 'https://api.xhuoapi.ai/v1/kling/motion' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "image_url": "https://sourceyoya.wenge.com/2025/06/03/683e9f76e4b0684509ab1aca.jpg",
-  "video_url": "https://cdn.acedata.cloud/odwfm5.mp4",
+  "video_url": "https://cdn.xhuoapi.ai/odwfm5.mp4",
   "prompt": "оживите слику",
   "mode": "std",
   "character_orientation": "image"
@@ -90,12 +90,12 @@ curl -X POST 'https://api.acedata.cloud/kling/motion' \
 
 Прво, Webhook повратни позив је услуга која може примати HTTP захтеве, програмери би требали заменити URL сопственог HTTP сервера. Овде, ради лакшег демонстрирања, користи се јавни Webhook пример веб сајта https://webhook.site/, отворите тај сајт и добићете Webhook URL, као што је приказано на слици:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 Копирајте овај URL и можете га користити као Webhook, пример је `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`.
 
 Након тога, можемо подесити поље `callback_url` на горњи Webhook URL, истовремено попуњавајући одговарајуће параметре, конкретан садржај је приказан на слици:
 
-<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vdx12s.png" width="500" className="m-auto" /></p>
 
 Кликните на покрени, и можете приметити да ћете одмах добити резултат, као што је приказано:
 
@@ -107,7 +107,7 @@ curl -X POST 'https://api.acedata.cloud/kling/motion' \
 
 Након кратког чекања, можемо наћи резултат генерисаног видеа на `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`, као што је приказано на слици:
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 Садржај је следећи:
 

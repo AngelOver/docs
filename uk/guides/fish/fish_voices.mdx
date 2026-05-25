@@ -1,15 +1,15 @@
 ---
 title: "Інструкція з інтеграції Fish Voices Generation API"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 У цьому документі буде представлено інструкцію з інтеграції Fish Voices Generation API, яка дозволяє створювати власні голоси, вводячи посилання на аудіо.
 
 ## Процес подачі заявки
 
-Щоб використовувати API, спочатку потрібно перейти на сторінку [Fish Voices Generation API](https://platform.acedata.cloud/documents/55e61b64-ac7d-4710-a7f1-57a4ba786b17) для подачі заявки на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
+Щоб використовувати API, спочатку потрібно перейти на сторінку [Fish Voices Generation API](https://api.xhuoapi.ai/documents/55e61b64-ac7d-4710-a7f1-57a4ba786b17) для подачі заявки на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, запрошуючи вас зареєструватися та увійти. Після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
 
@@ -19,7 +19,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 
 Спочатку розглянемо основний спосіб використання, а саме введення посилання на аудіо голосу `voice_url`, після чого ви отримаєте оброблений результат. Конкретний зміст наведено нижче:
 
-<p><img src="https://cdn.acedata.cloud/278ikr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/278ikr.png" width="500" className="m-auto" /></p>
 
 Ми бачимо, що тут налаштовані заголовки запиту, включаючи:
 
@@ -36,7 +36,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 
 Після вибору ви також можете побачити, що праворуч згенеровано відповідний код, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/dkdfyj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dkdfyj.png" width="500" className="m-auto" /></p>
 
 Натисніть кнопку «Try», щоб провести тестування, як показано на малюнку, і ви отримаєте наступний результат:
 
@@ -103,7 +103,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 Крім того, якщо ви хочете згенерувати відповідний код інтеграції, ви можете просто скопіювати його, наприклад, код CURL виглядає так:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/voices' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/voices' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -124,13 +124,13 @@ curl -X POST 'https://api.acedata.cloud/fish/voices' \
 
 По-перше, зворотний виклик Webhook - це служба, яка може приймати HTTP запити, розробники повинні замінити URL на свій власний HTTP сервер. Для зручності демонстрації використовується публічний веб-сайт з прикладом Webhook https://webhook.site/, відкривши цей сайт, ви отримаєте URL Webhook, як показано на малюнку:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Скопіюйте цей URL, і ви зможете використовувати його як Webhook, приклад тут: `https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34`.
 
 Далі ми можемо налаштувати поле `callback_url` на вказаний Webhook URL, одночасно заповнивши відповідні параметри, конкретний зміст наведено на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/ecbq1s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ecbq1s.png" width="500" className="m-auto" /></p>
 
 Натиснувши «Запустити», ви відразу отримаєте результат, як показано нижче:
 
@@ -141,7 +141,7 @@ curl -X POST 'https://api.acedata.cloud/fish/voices' \
 ```
 Зачекайте хвилинку, ми можемо спостерігати результати генерації завдання на `https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34`, як показано на малюнку:
 
-![](https://cdn.acedata.cloud/dxlupe.png)
+![](https://cdn.xhuoapi.ai/dxlupe.png)
 
 Зміст такий:
 

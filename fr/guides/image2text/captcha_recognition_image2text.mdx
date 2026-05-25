@@ -1,15 +1,15 @@
 ---
 title: "Documentation de l'API de reconnaissance de CAPTCHA numérique en anglais"
-description: "Recognition of English numerical verification codes 集成指南 - Ace Data Cloud"
+description: "Recognition of English numerical verification codes 集成指南 - XHuoAPI"
 ---
 
 Cet article présente une documentation sur l'API de reconnaissance de CAPTCHA numérique en anglais, qui est basée sur la technologie d'apprentissage profond et peut être utilisée pour reconnaître des CAPTCHA numériques en anglais de longueur variable. Il prend en entrée le contenu de l'image CAPTCHA et renvoie le résultat du CAPTCHA.
 
 ## Processus de demande
 
-Pour utiliser l'API, vous devez d'abord vous rendre sur la page correspondante de l'[API de reconnaissance de CAPTCHA numérique en anglais](https://platform.acedata.cloud/documents/cd1f56dc-e9c9-4293-9c68-80fa560c9087) pour demander le service correspondant. Une fois sur la page, cliquez sur le bouton « Acquire », comme indiqué dans l'image ci-dessous :
+Pour utiliser l'API, vous devez d'abord vous rendre sur la page correspondante de l'[API de reconnaissance de CAPTCHA numérique en anglais](https://api.xhuoapi.ai/documents/cd1f56dc-e9c9-4293-9c68-80fa560c9087) pour demander le service correspondant. Une fois sur la page, cliquez sur le bouton « Acquire », comme indiqué dans l'image ci-dessous :
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Si vous n'êtes pas encore connecté ou inscrit, vous serez automatiquement redirigé vers la page de connexion pour vous inviter à vous inscrire et à vous connecter. Après vous être connecté ou inscrit, vous serez automatiquement renvoyé à la page actuelle.
 
@@ -19,19 +19,19 @@ Lors de la première demande, un quota gratuit sera offert, vous permettant d'ut
 
 Tout d'abord, comprenez la méthode d'utilisation de base, qui consiste à entrer l'image du CAPTCHA numérique en anglais de longueur variable à traiter pour obtenir le résultat traité. Vous devez d'abord transmettre un champ `image`, qui est l'image spécifique du CAPTCHA numérique en anglais, comme indiqué dans l'image ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/c50hi9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/c50hi9.png" width="500" className="m-auto" /></p>
 
 Ensuite, nous devons convertir l'image CAPTCHA en une image CAPTCHA encodée en Base64. Pour la conversion en Base64, il est recommandé d'utiliser l'extension FeHelper pour Google Chrome. Vous pouvez vous référer à l'image ci-dessous pour des instructions spécifiques :
 
-<p><img src="https://cdn.acedata.cloud/zy2jwh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zy2jwh.png" width="500" className="m-auto" /></p>
 
-<p><img src="https://cdn.acedata.cloud/pr73gn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pr73gn.png" width="500" className="m-auto" /></p>
 
-<p><img src="https://cdn.acedata.cloud/ic4dbw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ic4dbw.png" width="500" className="m-auto" /></p>
 
 Ensuite, vous pouvez copier le code Base64 obtenu à partir de l'extension FeHelper de Google Chrome, en vous rappelant qu'il ne doit pas inclure le préfixe data:image/png;base64. Le contenu spécifique est le suivant :
 
-<p><img src="https://cdn.acedata.cloud/5h4x4w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5h4x4w.png" width="500" className="m-auto" /></p>
 
 Nous pouvons voir ici que nous avons défini les en-têtes de requête, y compris :
 
@@ -44,7 +44,7 @@ De plus, nous avons défini le corps de la requête, y compris :
 
 Après avoir fait votre sélection, vous pouvez constater que le code correspondant a également été généré sur le côté droit, comme indiqué dans l'image ci-dessous :
 
-<p><img src="https://cdn.acedata.cloud/202y3d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/202y3d.png" width="500" className="m-auto" /></p>
 
 Cliquez sur le bouton « Try » pour effectuer un test, comme indiqué dans l'image ci-dessus, et nous avons obtenu le résultat suivant :
 
@@ -63,7 +63,7 @@ Nous pouvons voir que nous avons obtenu le résultat de la vérification de l'im
 De plus, si vous souhaitez générer le code d'intégration correspondant, vous pouvez le copier directement, par exemple, le code CURL est le suivant :
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/captcha/recognition/image2text' \
+curl -X POST 'https://api.xhuoapi.ai/v1/captcha/recognition/image2text' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -77,7 +77,7 @@ Le code d'intégration en Python est le suivant :
 ```python
 import requests
 
-url = "https://api.acedata.cloud/captcha/recognition/image2text"
+url = "https://api.xhuoapi.ai/v1/captcha/recognition/image2text"
 
 headers = {
     "accept": "application/json",

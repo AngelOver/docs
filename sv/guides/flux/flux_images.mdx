@@ -1,15 +1,15 @@
 ---
 title: "Flux Images Generation API Integration Instructions"
-description: "Flux Image Generation 集成指南 - Ace Data Cloud"
+description: "Flux Image Generation 集成指南 - XHuoAPI"
 ---
 
 Denna artikel kommer att introducera en Flux Images Generation API integrationsbeskrivning, som kan generera Flux officiella bilder genom att ange anpassade parametrar.
 
 ## Ansökningsprocess
 
-För att använda API:et måste du först gå till [Flux Images Generation API](https://platform.acedata.cloud/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) motsvarande sida för att ansöka om den tjänst som behövs. När du kommer till sidan, klicka på knappen "Acquire", som visas i bilden nedan:
+För att använda API:et måste du först gå till [Flux Images Generation API](https://api.xhuoapi.ai/documents/6b9197c5-7a3f-4878-a43f-7f94e7e66394) motsvarande sida för att ansöka om den tjänst som behövs. När du kommer till sidan, klicka på knappen "Acquire", som visas i bilden nedan:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till inloggningssidan där du blir inbjuden att registrera dig och logga in. Efter att ha loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
 
@@ -19,7 +19,7 @@ Vid första ansökan kommer det att finnas en gratis kvot som ges, så att du ka
 
 Först bör du förstå den grundläggande användningen, vilket innebär att du anger en prompt `prompt`, en åtgärd `action`, och bildstorlek `size`, för att få det bearbetade resultatet. Först behöver du enkelt skicka ett `action`-fält, vars värde är `generate`, och sedan behöver vi också ange en prompt, den specifika informationen är som följer:
 
-<p><img src="https://cdn.acedata.cloud/wz85jt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wz85jt.png" width="500" className="m-auto" /></p>
 
 Här kan vi se att vi har ställt in Request Headers, inklusive:
 
@@ -52,7 +52,7 @@ Referensbildförhållanden: "1:1", "16:9", "21:9", "3:2", "2:3", "4:5", "5:4", "
 
 När du har valt kan du se att motsvarande kod också har genererats till höger, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/8q7aux.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8q7aux.png" width="500" className="m-auto" /></p>
 
 Klicka på knappen "Try" för att testa, som visas i bilden ovan, här får vi följande resultat:
 
@@ -90,7 +90,7 @@ Vi kan se att vi har fått tillfredsställande bildinformation, vi behöver bara
 Om du vill generera motsvarande integrationskod kan du direkt kopiera den som genererats, till exempel CURL-koden nedan:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/flux/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/flux/images' \
 -H 'authorization: Bearer {token}' \
 -H 'accept: application/json' \
 -H 'content-type: application/json' \
@@ -111,18 +111,18 @@ Om du vill redigera en viss bild måste du först ange parametern `image_url` me
 
 Exempel på ifyllning nedan:
 
-<p><img src="https://cdn.acedata.cloud/jn9da5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jn9da5.png" width="500" className="m-auto" /></p>
 
 När du har fyllt i kommer koden automatiskt att genereras som följer:
 
-<p><img src="https://cdn.acedata.cloud/6cwxb8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/6cwxb8.png" width="500" className="m-auto" /></p>
 
 Motsvarande kod:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/images"
+url = "https://api.xhuoapi.ai/v1/flux/images"
 
 headers = {
     "accept": "application/json",
@@ -134,7 +134,7 @@ payload = {
     "action": "edit",
     "prompt": "a white siamese cat",
     "model": "flux-kontext-pro",
-    "image_url": "https://cdn.acedata.cloud/ytj2qy.png"
+    "image_url": "https://cdn.xhuoapi.ai/ytj2qy.png"
 }
 
 response = requests.post(url, json=payload, headers=headers)
@@ -169,13 +169,13 @@ Nedan går vi igenom ett exempel för att förstå hur man gör detta.
 
 Först är Webhook-återkopplingen en tjänst som kan ta emot HTTP-förfrågningar, utvecklaren bör ersätta med URL:en till sin egen byggda HTTP-server. Här för att underlätta demonstration använder vi en offentlig Webhook-exempelsida https://webhook.site/, öppna denna webbplats för att få en Webhook-URL, som visas i bilden:
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 Kopiera denna URL, så kan den användas som Webhook, exemplet här är `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`.
 
 Därefter kan vi ställa in fältet `callback_url` till ovanstående Webhook-URL, samtidigt som vi fyller i motsvarande parametrar, det specifika innehållet visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/wm6caw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wm6caw.png" width="500" className="m-auto" /></p>
 
 Klicka på kör, och du kan se att ett resultat omedelbart erhålls, som följer:
 
@@ -187,7 +187,7 @@ Klicka på kör, och du kan se att ett resultat omedelbart erhålls, som följer
 
 Vänta en stund, så kan vi observera resultatet av den genererade bilden på `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`, som visas i bilden:
 
-![](https://cdn.acedata.cloud/v23lot.png)
+![](https://cdn.xhuoapi.ai/v23lot.png)
 
 Innehållet är som följer:
 

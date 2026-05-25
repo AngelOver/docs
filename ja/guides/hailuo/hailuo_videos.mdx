@@ -1,15 +1,15 @@
 ---
 title: "Hailuo Videos Generation API 接続説明"
-description: "Hailuo Video Generation 集成指南 - Ace Data Cloud"
+description: "Hailuo Video Generation 集成指南 - XHuoAPI"
 ---
 
 本文では、Hailuo Videos Generation API 接続説明を紹介します。これは、カスタムパラメータを入力することで Hailuo の公式動画を生成できるものです。
 
 ## 申請プロセス
 
-API を使用するには、まず [Hailuo Videos Generation API](https://platform.acedata.cloud/documents/ee06377b-9185-438f-ac84-3376bcb1275e) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
+API を使用するには、まず [Hailuo Videos Generation API](https://api.xhuoapi.ai/documents/ee06377b-9185-438f-ac84-3376bcb1275e) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 まだログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -19,7 +19,7 @@ API を使用するには、まず [Hailuo Videos Generation API](https://platfo
 
 まず、基本的な使用方法を理解します。これは、プロンプト `prompt`、生成アクション `action`、初フレーム参照画像 `first_image_url`、およびモデル `model` を入力することで処理された結果を得ることができます。まず、シンプルに `action` フィールドを渡す必要があります。その値は `generate` です。次に、モデルを入力する必要があります。現在、主に画像から動画を生成するモデル `minimax-i2v` とテキストから動画を生成するモデル `minimax-t2v` があります。具体的な内容は以下の通りです：
 
-<p><img src="https://cdn.acedata.cloud/7jyu0n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7jyu0n.png" width="500" className="m-auto" /></p>
 
 ここでは、リクエストヘッダーを設定しています。これには以下が含まれます：
 
@@ -36,7 +36,7 @@ API を使用するには、まず [Hailuo Videos Generation API](https://platfo
 
 選択後、右側にも対応するコードが生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/8psuxw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8psuxw.png" width="500" className="m-auto" /></p>
 
 「Try」ボタンをクリックするとテストができます。上の図のように、以下の結果を得ました：
 
@@ -74,7 +74,7 @@ API を使用するには、まず [Hailuo Videos Generation API](https://platfo
 また、対応する接続コードを生成したい場合は、生成されたものを直接コピーできます。例えば、CURL のコードは以下の通りです：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/hailuo/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/hailuo/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -94,13 +94,13 @@ Hailuo Videos Generation API で生成される時間は比較的長く、約 1-
 
 まず、Webhook コールバックは HTTP リクエストを受け取ることができるサービスであり、開発者は自分が構築した HTTP サーバーの URL に置き換える必要があります。ここでは、デモのために公開された Webhook サンプルサイト https://webhook.site/ を使用します。このサイトを開くと、Webhook URL を得ることができます。以下の図のように：
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 この URL をコピーすれば、Webhook として使用できます。このサンプルは `https://webhook.site/580b81f5-596e-4321-b03f-606770b0bb83` です。
 
 次に、フィールド `callback_url` を上記の Webhook URL に設定し、相応のパラメータを入力します。具体的な内容は以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/odabh3.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/odabh3.png" width="500" className="m-auto" /></p>
 
 実行をクリックすると、すぐに結果が得られます。以下のように：
 
@@ -112,7 +112,7 @@ Hailuo Videos Generation API で生成される時間は比較的長く、約 1-
 
 少し待つと、`https://webhook.site/580b81f5-596e-4321-b03f-606770b0bb83` で生成された動画の結果を観察できます。以下の図のように：
 
-![](https://cdn.acedata.cloud/7jngb4.png)
+![](https://cdn.xhuoapi.ai/7jngb4.png)
 
 内容は以下の通りです：
 

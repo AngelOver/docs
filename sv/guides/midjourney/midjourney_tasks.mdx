@@ -1,6 +1,6 @@
 ---
 title: "Midjourney Tasks API:s integration och användning"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 Midjourney Tasks API:s huvudfunktion är att fråga om statusen för en uppgift genom att ange det uppgifts-ID som genererats av Midjourney Imagine API eller Midjourney Describe API.
@@ -9,27 +9,27 @@ Detta dokument kommer att detaljerat beskriva integrationen av Midjourney Tasks 
 
 ## Ansökningsprocess
 
-För att använda Midjourney Tasks API måste du först gå till ansökningssidan [Midjourney Imagine API](https://platform.acedata.cloud/documents/e52c028d-897a-4d51-b110-60fccbe6118d) för att ansöka om den aktuella tjänsten, och sedan kopiera Imagine API:s uppgifts-ID, som visas i bilden:
+För att använda Midjourney Tasks API måste du först gå till ansökningssidan [Midjourney Imagine API](https://api.xhuoapi.ai/documents/e52c028d-897a-4d51-b110-60fccbe6118d) för att ansöka om den aktuella tjänsten, och sedan kopiera Imagine API:s uppgifts-ID, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/lx4mwb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lx4mwb.png" width="500" className="m-auto" /></p>
 
-Slutligen går du till Tasks API-sidan [Midjourney Tasks API](https://platform.acedata.cloud/documents/58ea7cc1-c685-40c3-a619-f29f9ac5d8f4) för att ansöka om den aktuella tjänsten. När du kommer till sidan klickar du på knappen "Acquire", som visas i bilden:
+Slutligen går du till Tasks API-sidan [Midjourney Tasks API](https://api.xhuoapi.ai/documents/58ea7cc1-c685-40c3-a619-f29f9ac5d8f4) för att ansöka om den aktuella tjänsten. När du kommer till sidan klickar du på knappen "Acquire", som visas i bilden:
 
-![Ansökningssidan](https://cdn.acedata.cloud/rci31i.png)
+![Ansökningssidan](https://cdn.xhuoapi.ai/rci31i.png)
 
-Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till [inloggningssidan](https://platform.acedata.cloud) för att registrera dig och logga in. Efter att du har loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
+Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till [inloggningssidan](https://api.xhuoapi.ai) för att registrera dig och logga in. Efter att du har loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
 
 Vid första ansökan får du en gratis kvot som gör att du kan använda API:et kostnadsfritt.
 
 ## Begärningsexempel
 
-Midjourney Tasks API kan användas för att fråga om resultaten från både Midjourney Imagine API och Midjourney Describe API. För information om hur du använder Midjourney Imagine API, se dokumentet [Midjourney Imagine API](https://platform.acedata.cloud/documents/b0e32002-2707-41cc-b103-a15b1f1efdc1). För information om hur du använder Midjourney Describe, se [Midjourney Describe API](https://platform.acedata.cloud/documents/d2a04242-507c-4a49-a17a-01bc382c5756).
+Midjourney Tasks API kan användas för att fråga om resultaten från både Midjourney Imagine API och Midjourney Describe API. För information om hur du använder Midjourney Imagine API, se dokumentet [Midjourney Imagine API](https://api.xhuoapi.ai/documents/b0e32002-2707-41cc-b103-a15b1f1efdc1). För information om hur du använder Midjourney Describe, se [Midjourney Describe API](https://api.xhuoapi.ai/documents/d2a04242-507c-4a49-a17a-01bc382c5756).
 
 Vi tar ett exempel med ett uppgifts-ID som returnerats av Midjourney Imagine API för att demonstrera hur man använder detta API. Anta att vi har ett uppgifts-ID: 7489df4c-ef03-4de0-b598-e9a590793434, och vi visar hur man gör detta genom att skicka in ett uppgifts-ID.
 
 ### Uppgifts exempelbild
 
-<p><img src="https://cdn.acedata.cloud/lx4mwb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lx4mwb.png" width="500" className="m-auto" /></p>
 
 ### Ställa in begärningshuvuden och begärningskropp
 
@@ -46,20 +46,20 @@ Vi tar ett exempel med ett uppgifts-ID som returnerats av Midjourney Imagine API
 
 Inställningarna visas som på bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/ybek58.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ybek58.png" width="500" className="m-auto" /></p>
 
 ### Kodexempel
 
 Det kan noteras att olika språkets kod redan har genererats automatiskt på högra sidan, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/46ookb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/46ookb.png" width="500" className="m-auto" /></p>
 
 Några kodexempel visas nedan:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -74,7 +74,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/tasks"
+url = "https://api.xhuoapi.ai/v1/midjourney/tasks"
 
 headers = {
     "accept": "application/json",
@@ -112,7 +112,7 @@ När begäran lyckas kommer API:et att returnera detaljerad information om uppgi
   "image_id": "1259525319472185344",
   "job_id": "da317da6-f500-48e6-bf32-dd48b3e6f84f",
   "response": {
-    "image_url": "https://platform.cdn.acedata.cloud/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png?imageMogr2/thumbnail/!50p",
+    "image_url": "https://platform.cdn.xhuoapi.ai/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png?imageMogr2/thumbnail/!50p",
     "image_width": 1024,
     "image_height": 1024,
     "actions": [
@@ -126,7 +126,7 @@ När begäran lyckas kommer API:et att returnera detaljerad information om uppgi
       "variation3",
       "variation4"
     ],
-    "raw_image_url": "https://platform.cdn.acedata.cloud/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png",
+    "raw_image_url": "https://platform.cdn.xhuoapi.ai/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png",
     "raw_image_width": 2048,
     "raw_image_height": 2048,
     "progress": 100,
@@ -160,13 +160,13 @@ Detta är för att fråga om detaljerna för flera uppgifts-ID:n, och till skill
 - `action`: hur uppgiften ska hanteras.
 
 Inställningarna visas som på bilden nedan:
-<p><img src="https://cdn.acedata.cloud/ljmy8w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ljmy8w.png" width="500" className="m-auto" /></p>
 
 ### Kodexempel
 
 Det kan noteras att olika språkets kod redan har genererats automatiskt på höger sida av sidan, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/ljmy8w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ljmy8w.png" width="500" className="m-auto" /></p>
 
 Några kodexempel är som följer:
 
@@ -193,7 +193,7 @@ När begäran lyckas kommer API:et att returnera detaljerad information om alla 
       "image_id": "1259525319472185344",
       "job_id": "da317da6-f500-48e6-bf32-dd48b3e6f84f",
       "response": {
-        "image_url": "https://platform.cdn.acedata.cloud/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png?imageMogr2/thumbnail/!50p",
+        "image_url": "https://platform.cdn.xhuoapi.ai/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png?imageMogr2/thumbnail/!50p",
         "image_width": 1024,
         "image_height": 1024,
         "actions": [
@@ -207,7 +207,7 @@ När begäran lyckas kommer API:et att returnera detaljerad information om alla 
           "variation3",
           "variation4"
         ],
-        "raw_image_url": "https://platform.cdn.acedata.cloud/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png",
+        "raw_image_url": "https://platform.cdn.xhuoapi.ai/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png",
         "raw_image_width": 2048,
         "raw_image_height": 2048,
         "progress": 100,
@@ -236,7 +236,7 @@ När begäran lyckas kommer API:et att returnera detaljerad information om alla 
       "image_id": "1259683790612070400",
       "job_id": "ede5c805-e231-498c-8f74-3aa76d5d6d12",
       "response": {
-        "image_url": "https://platform.cdn.acedata.cloud/midjourney/807f62de-c63e-4add-8345-7f0ae6dd18e7.png?imageMogr2/thumbnail/!50p",
+        "image_url": "https://platform.cdn.xhuoapi.ai/midjourney/807f62de-c63e-4add-8345-7f0ae6dd18e7.png?imageMogr2/thumbnail/!50p",
         "image_width": 1024,
         "image_height": 1024,
         "actions": [
@@ -250,7 +250,7 @@ När begäran lyckas kommer API:et att returnera detaljerad information om alla 
           "variation3",
           "variation4"
         ],
-        "raw_image_url": "https://platform.cdn.acedata.cloud/midjourney/807f62de-c63e-4add-8345-7f0ae6dd18e7.png",
+        "raw_image_url": "https://platform.cdn.xhuoapi.ai/midjourney/807f62de-c63e-4add-8345-7f0ae6dd18e7.png",
         "raw_image_width": 2048,
         "raw_image_height": 2048,
         "progress": 100,
@@ -276,7 +276,7 @@ Det returnerade resultatet har flera fält, där `items` innehåller detaljerad 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -292,7 +292,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/tasks"
+url = "https://api.xhuoapi.ai/v1/midjourney/tasks"
 
 headers = {
     "accept": "application/json",

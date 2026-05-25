@@ -1,6 +1,6 @@
 ---
 title: "Google SERP API Integrationsbeskrivning"
-description: "Search Engine 集成指南 - Ace Data Cloud"
+description: "Search Engine 集成指南 - XHuoAPI"
 ---
 
 Google SERP (Search Engine Results Page) är den resultatsida som användare ser efter att ha angett en sökning i Google sökmotor. Den visar naturliga sökresultat, annonser, utvalda sammanfattningar, kunskapsgrafer samt olika typer av innehåll som bilder och videor, med syftet att ge användarna den mest relevanta informationen.
@@ -11,9 +11,9 @@ Detta dokument kommer att beskriva integrationsanvisningarna för Google SERP AP
 
 ## Ansökningsprocess
 
-För att använda Google SERP API måste du först gå till [Google SERP API](https://platform.acedata.cloud/documents/44c86226-8eaa-49bf-85f3-1fae8d2e23f1) motsvarande sida för att ansöka om den tjänst som behövs. När du kommer till sidan, klicka på "Acquire"-knappen, som visas i bilden:
+För att använda Google SERP API måste du först gå till [Google SERP API](https://api.xhuoapi.ai/documents/44c86226-8eaa-49bf-85f3-1fae8d2e23f1) motsvarande sida för att ansöka om den tjänst som behövs. När du kommer till sidan, klicka på "Acquire"-knappen, som visas i bilden:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till inloggningssidan där du uppmanas att registrera dig och logga in. Efter att ha loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
 
@@ -25,7 +25,7 @@ Först och främst, förstå den grundläggande användningsmetoden, vilket inne
 
 Till exempel, för att söka efter information om "apple inc", kan vi fylla i motsvarande innehåll på gränssnittet, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/lnqiye.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lnqiye.png" width="500" className="m-auto" /></p>
 
 Här kan vi se att vi har ställt in Request Headers, inklusive:
 
@@ -44,7 +44,7 @@ Dessutom har vi ställt in Request Body, inklusive:
 
 Efter att ha gjort valen kan du se att motsvarande kod också genererades till höger, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/1j81zr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1j81zr.png" width="500" className="m-auto" /></p>
 
 Klicka på "Try"-knappen för att testa, som visas i bilden ovan, här fick vi följande resultat:
 ```json
@@ -193,7 +193,7 @@ Kan du se att det finns ett `organic` fält, som huvudsakligen innehåller resul
 Dessutom, om du vill generera motsvarande kod för integration, kan du direkt kopiera den genererade, till exempel CURL-koden nedan:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -207,7 +207,7 @@ Python-integrationskoden ser ut så här:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/serp/google"
+url = "https://api.xhuoapi.ai/v1/serp/google"
 
 headers = {
     "accept": "application/json",
@@ -231,12 +231,12 @@ Låt oss nu demonstrera den specifika operationen.
 
 Först, ställ in `type`-parametern till `videos`, och överför `query`-parametern normalt, som visas i bilden:
 ```
-<p><img src="https://cdn.acedata.cloud/czlt12.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/czlt12.png" width="500" class="m-auto"></p>
 
 Motsvarande kod är som följer:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -358,7 +358,7 @@ Vi kan se att det här returnerade resultatet har ett `videos` fält, som huvuds
 
 Detta API stöder också att begränsa sökresultatets land, vi kan lägga till `country` parametern för att begränsa landet, inmatningsparametern är landets förkortning, till exempel cn (Kina), us (Förenta staterna), denna artikel kommer att använda Kina som följande exempel, nedan är den specifika informationen:
 
-<p><img src="https://cdn.acedata.cloud/gztpwi.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/gztpwi.png" width="500" class="m-auto"></p>
 
 Utdataeffekten är som följer:
 ```json
@@ -459,12 +459,12 @@ Utdataeffekten är som följer:
 ```
 Vi kan också anpassa språket för sökresultaten, här lägger vi till ett extra `language`-fält med innehållet `zh-cn`, vilket hänvisar till språket förenklad kinesiska, samtidigt som andra språk stöds, men språkkoden måste anges, till exempel en (engelska), fr (franska), zh-cn (kinesiska (förenklad)) och så vidare, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/yyrssp.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/yyrssp.png" width="500" class="m-auto"></p>
 
 Den motsvarande koden ser ut så här:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -636,12 +636,12 @@ Det kan ses att resultaten som visas här är på förenklad kinesiska, och inne
 ## Anpassa tidsintervallet för sökresultat
 Denna artikel kan också anpassa tidsintervallet för sökresultat, vilket inkluderar fem alternativ: `qdr:h` (den senaste timmen), `qdr:d` (den senaste dagen), `qdr:w` (den senaste veckan), `qdr:m` (den senaste månaden), och som standard ingen begränsning. Vi kan skicka det motsvarande tidsintervallet genom `range`, till exempel här ställt till `qdr:d`, vilket innebär att söka efter resultat från den senaste dagen, så inmatningen ser ut som följer:
 
-<p><img src="https://cdn.acedata.cloud/qccfib.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/qccfib.png" width="500" class="m-auto"></p>
 
 Den motsvarande koden ser ut som följer:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -795,13 +795,13 @@ Som vi kan se har vi framgångsrikt fått sökresultaten från den senaste dagen
 
 Denna API stöder också anpassad paginering av sökresultat, där `number` och `page` anger storleken på sidan och sidnumret. Denna artikel kommer att ställa in att en sida innehåller 20 sökresultat för paginering, specifik information visas som på bilden:
 
-<p><img src="https://cdn.acedata.cloud/dqla1e.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/dqla1e.png" width="500" class="m-auto"></p>
 
 > Observera: När antalet resultat per sida överstiger 10, kommer poängen som dras att dubbleras.
 
 Koden ser ut som följer:
 ```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
+curl -X POST 'https://api.xhuoapi.ai/v1/serp/google' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

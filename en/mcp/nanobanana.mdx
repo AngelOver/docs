@@ -3,7 +3,7 @@ title: "Nano Banana MCP Integration Guide"
 description: "nanobanana MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) is a model context protocol launched by Anthropic that allows AI models (such as Claude, GPT, etc.) to call external tools through standardized interfaces. With the Nano Banana MCP Server provided by AceData Cloud, you can directly generate and edit AI images in AI clients like Claude Desktop, VS Code, Cursor, etc.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) is a model context protocol launched by Anthropic that allows AI models (such as Claude, GPT, etc.) to call external tools through standardized interfaces. With the Nano Banana MCP Server provided by XHuoAPI, you can directly generate and edit AI images in AI clients like Claude Desktop, VS Code, Cursor, etc.
 
 ## Feature Overview
 
@@ -18,10 +18,10 @@ The Nano Banana MCP Server offers the following core functionalities:
 
 ## Prerequisites
 
-Before use, you need to obtain an AceData Cloud API Token:
+Before use, you need to obtain an XHuoAPI API Token:
 
-1. Register or log in to the [AceData Cloud platform](https://platform.acedata.cloud)
-2. Go to the [Nano Banana Images API](https://platform.acedata.cloud/documents/nano-banana-images) page
+1. Register or log in to the [XHuoAPI platform](https://api.xhuoapi.ai)
+2. Go to the [Nano Banana Images API](https://api.xhuoapi.ai/documents/nano-banana-images) page
 3. Click "Acquire" to get the API Token (first-time applicants receive free credits)
 
 ## Installation Configuration
@@ -35,7 +35,7 @@ pip install mcp-nanobanana-pro
 ### Method 2: Source Installation
 
 ```bash
-git clone https://github.com/AceDataCloud/NanoBananaMCP.git
+git clone https://github.com/XHuoAPI/NanoBananaMCP.git
 cd NanoBananaMCP
 pip install -e .
 ```
@@ -57,7 +57,7 @@ Add the following configuration:
     "nanobanana": {
       "command": "mcp-nanobanana-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "Your API Token"
+        "XHuoAPI_API_TOKEN": "Your API Token"
       }
     }
   }
@@ -73,7 +73,7 @@ If using `uvx` (no need to install packages in advance):
       "command": "uvx",
       "args": ["mcp-nanobanana-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "Your API Token"
+        "XHuoAPI_API_TOKEN": "Your API Token"
       }
     }
   }
@@ -92,7 +92,7 @@ Create `.vscode/mcp.json` in the project root directory:
     "nanobanana": {
       "command": "mcp-nanobanana-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "Your API Token"
+        "XHuoAPI_API_TOKEN": "Your API Token"
       }
     }
   }
@@ -108,7 +108,7 @@ Or use `uvx`:
       "command": "uvx",
       "args": ["mcp-nanobanana-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "Your API Token"
+        "XHuoAPI_API_TOKEN": "Your API Token"
       }
     }
   }
@@ -135,6 +135,6 @@ Once configured, you can directly call these functions in the AI client using na
 
 ## More Information
 
-- GitHub Repository: [AceDataCloud/NanoBananaMCP](https://github.com/AceDataCloud/NanoBananaMCP)
+- GitHub Repository: [XHuoAPI/NanoBananaMCP](https://github.com/XHuoAPI/NanoBananaMCP)
 - PyPI Package: [mcp-nanobanana-pro](https://pypi.org/project/mcp-nanobanana-pro/)
-- API Documentation: [Nano Banana API](https://platform.acedata.cloud/documents/nano-banana)
+- API Documentation: [Nano Banana API](https://api.xhuoapi.ai/documents/nano-banana)

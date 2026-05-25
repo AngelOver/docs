@@ -1,20 +1,20 @@
 ---
-title: "AceDataCloud x402 Maksuintegraatio-opas"
-description: "x402 集成指南 - Ace Data Cloud"
+title: "XHuoAPI x402 Maksuintegraatio-opas"
+description: "x402 集成指南 - XHuoAPI"
 ---
 
-x402 on HTTP 402 Payment Required -standardin mukainen lohkoketjumaksuprotokolla, joka mahdollistaa kutsujan suorittaa lohkoketjumaksun API-pyynnön yhteydessä. Se soveltuu erinomaisesti automatisoituihin ohjelmiin, AI-agentteihin ja mikropalveluiden välisiin maksuskenaarioihin. Tämän oppaan avulla voit ohjelmallisesti suorittaa AceDataCloud-tilauksen maksun omassa järjestelmässäsi, saavuttaen "pyynnöstä maksu" -kokemuksen.
+x402 on HTTP 402 Payment Required -standardin mukainen lohkoketjumaksuprotokolla, joka mahdollistaa kutsujan suorittaa lohkoketjumaksun API-pyynnön yhteydessä. Se soveltuu erinomaisesti automatisoituihin ohjelmiin, AI-agentteihin ja mikropalveluiden välisiin maksuskenaarioihin. Tämän oppaan avulla voit ohjelmallisesti suorittaa XHuoAPI-tilauksen maksun omassa järjestelmässäsi, saavuttaen "pyynnöstä maksu" -kokemuksen.
 
 Viralliset tiedot:
 
 - x402 Yleiskatsaus-dokumentti: [https://docs.cdp.coinbase.com/x402/docs/overview](https://docs.cdp.coinbase.com/x402/docs/overview)
 - x402 Avoimen lähdekoodin esimerkki: [https://github.com/coinbase/x402](https://github.com/coinbase/x402)
 
-Tämä dokumentti on suunnattu kehittäjille, jotka tarvitsevat AceDataCloud-alustan x402 maksukyvyn integroimista liiketoimintaansa. Se esittelee täydellisen prosessin ympäristön valmistelusta maksupyynnön suorittamiseen ja tarjoaa esimerkkikoodia Axiosille, Fetchille, Python requestsille ja httpx:lle. Keskeiset kohdat:
+Tämä dokumentti on suunnattu kehittäjille, jotka tarvitsevat XHuoAPI-alustan x402 maksukyvyn integroimista liiketoimintaansa. Se esittelee täydellisen prosessin ympäristön valmistelusta maksupyynnön suorittamiseen ja tarjoaa esimerkkikoodia Axiosille, Fetchille, Python requestsille ja httpx:lle. Keskeiset kohdat:
 
 - Maksuprosessi tapahtuu **Base-pääverkossa**, varat käytetään **USDC**:ssä;
 - `X-PAYMENT` -allekirjoitusotsikko on luotava EVM-yksityisavaimella, joka on hallussasi;
-- Kaikki API:t sijaitsevat `https://platform.acedata.cloud` -verkkotunnuksessa, `Authorization`-otsikon on sisällettävä **Platform Token**.
+- Kaikki API:t sijaitsevat `https://api.xhuoapi.ai` -verkkotunnuksessa, `Authorization`-otsikon on sisällettävä **Platform Token**.
 
 ---
 
@@ -22,7 +22,7 @@ Tämä dokumentti on suunnattu kehittäjille, jotka tarvitsevat AceDataCloud-alu
 
 ### 1. Tarkista tilaus ja kirjaa maksutiedot
 
-Kirjaudu sisään konsoliin [https://platform.acedata.cloud](https://platform.acedata.cloud), tilausluettelosta tai tilausyksityiskohtien sivulta voit nähdä maksettavan tilauksen. Tilausyksityiskohdat näyttävät:
+Kirjaudu sisään konsoliin [https://api.xhuoapi.ai](https://api.xhuoapi.ai), tilausluettelosta tai tilausyksityiskohtien sivulta voit nähdä maksettavan tilauksen. Tilausyksityiskohdat näyttävät:
 
 - Tilaus ID (esimerkiksi `7744945e-5e77-4dcc-a9c4-528692d17b34`);
 - Maksuosoite `pay_to` (palautuu myös 402-vastauksessa, suositellaan käyttämään sivuston tietoja).
@@ -40,11 +40,11 @@ Kirjaa ylös tilaus ID ja varmista `pay_to`-osoite, sillä allekirjoituksessa on
 
 Platform Tokenia käytetään alustalle API-kutsujen tekemiseen, ja se toimii samalla tavalla kuin kirjautumisen jälkeen selaimessa käytettävä käyttäjä Token, mutta se ei vanhene. Luo se seuraavien vaiheiden mukaan:
 
-1. Avaa konsolisivu [https://platform.acedata.cloud/console/platform-tokens](https://platform.acedata.cloud/console/platform-tokens);
+1. Avaa konsolisivu [https://api.xhuoapi.ai/console/platform-tokens](https://api.xhuoapi.ai/console/platform-tokens);
 2. Napsauta "Luo Token", täytä ohjeiden mukaan muistiinpanotiedot ja luo se;
 3. Kopioi luotu Token (esimerkiksi `platform-v1-xxxx`), ja säilytä se huolellisesti `platform_token`-muodossa.
 
-![platform-token](https://cdn.acedata.cloud/6g86oz.png)
+![platform-token](https://cdn.xhuoapi.ai/6g86oz.png)
 
 Kaikissa myöhemmissä API-kutsujen otsikoissa on sisällettävä:
 
@@ -54,7 +54,7 @@ Authorization: Bearer {platform_token}
 
 ### 4. Pyydä perusinfoa
 
-- API:n perusverkkotunnus: `https://platform.acedata.cloud`
+- API:n perusverkkotunnus: `https://api.xhuoapi.ai`
 - Maksupyyntöpolku: `/api/v1/orders/{order_id}/pay/`
 - Pyyntö ja vastaus ovat molemmat JSON-muodossa, koodattuina UTF-8:na.
 
@@ -75,7 +75,7 @@ Authorization: Bearer {platform_token}
 ### 1. Ensimmäinen pyyntö (laukaisee 402)
 
 ```http
-POST https://platform.acedata.cloud/api/v1/orders/{order_id}/pay/
+POST https://api.xhuoapi.ai/api/v1/orders/{order_id}/pay/
 Authorization: Bearer {platform_token}
 Content-Type: application/json
 
@@ -127,7 +127,7 @@ Jos haluat toteuttaa manuaalisesti, katso x402 virallista dokumentaatiota, raken
 ### 3. Lisää allekirjoitus ja yritä uudelleen
 
 ```http
-POST https://platform.acedata.cloud/api/v1/orders/{order_id}/pay/
+POST https://api.xhuoapi.ai/api/v1/orders/{order_id}/pay/
 Authorization: Bearer {platform_token}
 Content-Type: application/json
 X-PAYMENT: {base64_signed_payload}
@@ -162,7 +162,7 @@ import { Hex } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
 import { buildPaymentHeader, decodePaymentResponse } from "x402-js";
 
-const baseURL = "https://platform.acedata.cloud";
+const baseURL = "https://api.xhuoapi.ai";
 const orderId = process.env.ACE_X402_ORDER_ID!;
 const platformToken = process.env.ACE_PLATFORM_TOKEN!;
 const privateKey = process.env.ACE_X402_PRIVATE_KEY as Hex;
@@ -228,7 +228,7 @@ const orderId = process.env.ACE_X402_ORDER_ID!;
 const fetchWithPayment = wrapFetchWithPayment(fetch, account);
 
 async function payOrder() {
-  const url = `https://platform.acedata.cloud/api/v1/orders/${orderId}/pay/`;
+  const url = `https://api.xhuoapi.ai/api/v1/orders/${orderId}/pay/`;
 
   const response = await fetchWithPayment(url, {
     method: "POST",
@@ -273,7 +273,7 @@ session = x402_requests(
 )
 
 response = session.post(
-    f"https://platform.acedata.cloud/api/v1/orders/{order_id}/pay/",
+    f"https://api.xhuoapi.ai/api/v1/orders/{order_id}/pay/",
     json={"pay_way": "X402"},
     headers={"Authorization": f"Bearer {platform_token}"},
 )
@@ -300,7 +300,7 @@ async def pay_order() -> None:
 
     async with x402HttpxClient(
         account=account,
-        base_url="https://platform.acedata.cloud",
+        base_url="https://api.xhuoapi.ai",
         headers={"Authorization": f"Bearer {platform_token}"},
         payment_requirements_selector=lambda accepts, **_: next(
             req for req in accepts if req.network == "base"
@@ -324,8 +324,8 @@ asyncio.run(pay_order())
 
 ## Viisi, maksamisen onnistumisen vahvistaminen
 
-- **Ohjauspaneelin vahvistus**: Käy tilauksen yksityiskohtasivulla `https://platform.acedata.cloud/console/orders/{order_id}`. Jos sivu näyttää "Maksaminen onnistui" tai tilauksen tila on muuttunut maksetuksi/valmiiksi, se tarkoittaa, että ketjussa tapahtunut selvitys on valmis.
-- **API-vahvistus**: Kutsu `GET https://platform.acedata.cloud/api/v1/orders/{order_id}/` ja liitä `Authorization: Bearer {platform_token}`, tarkista vastauksen `state`-kenttä ( `PAID` tai `FINISHED` tarkoittaa, että maksaminen onnistui).
+- **Ohjauspaneelin vahvistus**: Käy tilauksen yksityiskohtasivulla `https://api.xhuoapi.ai/console/orders/{order_id}`. Jos sivu näyttää "Maksaminen onnistui" tai tilauksen tila on muuttunut maksetuksi/valmiiksi, se tarkoittaa, että ketjussa tapahtunut selvitys on valmis.
+- **API-vahvistus**: Kutsu `GET https://api.xhuoapi.ai/api/v1/orders/{order_id}/` ja liitä `Authorization: Bearer {platform_token}`, tarkista vastauksen `state`-kenttä ( `PAID` tai `FINISHED` tarkoittaa, että maksaminen onnistui).
 - **Vastauspäätteen lukeminen**: Maksamisen onnistumisen vastauksessa lue `X-PAYMENT-RESPONSE`, josta voidaan purkaa ketjun tapahtuman hash lopulliseksi todisteeksi; suositellaan tallentamaan tämä tieto järjestelmän lokiin tiliä varten.
 
 ---
@@ -343,7 +343,7 @@ asyncio.run(pay_order())
 ## Seitsemän, lisäapua
 
 - Verkkodokumentaatio ja usein kysytyt kysymykset: Alustapaneelin yläreunan navigointi "Dokumentaatio".
-- Tuki ja asiakaspalvelu: [https://platform.acedata.cloud/support](https://platform.acedata.cloud/support)
-- Yhteisöviestintä: Discord [https://discord.gg/f9GRuKCmRc](https://discord.gg/f9GRuKCmRc), X (Twitter) [https://x.com/acedatacloud](https://x.com/acedatacloud)
-- Muut kanavat: sähköposti `office@acedata.cloud`, `office@germey.tech`; yrityksen osoite 651 N Broad St, Suite 201, Middletown, Delaware, USA; WeChat-asiakaspalvelu, tarkista viimeisin QR-koodi tukisivulta.
+- Tuki ja asiakaspalvelu: [https://api.xhuoapi.ai/support](https://api.xhuoapi.ai/support)
+- Yhteisöviestintä: Discord [https://discord.gg/f9GRuKCmRc](https://discord.gg/f9GRuKCmRc), X (Twitter) [https://x.com/XHuoAPI](https://x.com/XHuoAPI)
+- Muut kanavat: sähköposti `office@xhuoapi.ai`, `office@germey.tech`; yrityksen osoite 651 N Broad St, Suite 201, Middletown, Delaware, USA; WeChat-asiakaspalvelu, tarkista viimeisin QR-koodi tukisivulta.
 - Palaute ja ehdotukset: Tervetuloa kertomaan meille parannustarpeista yllä olevien kanavien kautta.

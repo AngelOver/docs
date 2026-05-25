@@ -3,7 +3,7 @@ title: "Midjourney MCP інтеграційний посібник"
 description: "midjourney MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) — це протокол контексту моделі, розроблений компанією Anthropic, який дозволяє AI моделям (таким як Claude, GPT тощо) викликати зовнішні інструменти через стандартизований інтерфейс. Завдяки Midjourney MCP Server, наданому AceData Cloud, ви можете безпосередньо генерувати та редагувати AI зображення в таких AI клієнтах, як Claude Desktop, VS Code, Cursor тощо.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) — це протокол контексту моделі, розроблений компанією Anthropic, який дозволяє AI моделям (таким як Claude, GPT тощо) викликати зовнішні інструменти через стандартизований інтерфейс. Завдяки Midjourney MCP Server, наданому XHuoAPI, ви можете безпосередньо генерувати та редагувати AI зображення в таких AI клієнтах, як Claude Desktop, VS Code, Cursor тощо.
 
 ## Огляд функцій
 
@@ -22,10 +22,10 @@ Midjourney MCP Server надає такі основні функції:
 
 ## Попередня підготовка
 
-Перед використанням вам потрібно отримати AceData Cloud API Token:
+Перед використанням вам потрібно отримати XHuoAPI API Token:
 
-1. Зареєструйтесь або увійдіть на [платформу AceData Cloud](https://platform.acedata.cloud)
-2. Перейдіть на сторінку [Midjourney Imagine API](https://platform.acedata.cloud/documents/midjourney-imagine)
+1. Зареєструйтесь або увійдіть на [платформу XHuoAPI](https://api.xhuoapi.ai)
+2. Перейдіть на сторінку [Midjourney Imagine API](https://api.xhuoapi.ai/documents/midjourney-imagine)
 3. Натисніть «Acquire», щоб отримати API Token (перший запит надає безкоштовний ліміт)
 
 ## Встановлення та налаштування
@@ -39,7 +39,7 @@ pip install mcp-midjourney
 ### Спосіб 2: встановлення з вихідного коду
 
 ```bash
-git clone https://github.com/AceDataCloud/MidjourneyMCP.git
+git clone https://github.com/XHuoAPI/MidjourneyMCP.git
 cd MidjourneyMCP
 pip install -e .
 ```
@@ -61,7 +61,7 @@ pip install -e .
     "midjourney": {
       "command": "mcp-midjourney",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API Token"
+        "XHuoAPI_API_TOKEN": "ваш API Token"
       }
     }
   }
@@ -77,7 +77,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-midjourney"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API Token"
+        "XHuoAPI_API_TOKEN": "ваш API Token"
       }
     }
   }
@@ -96,7 +96,7 @@ pip install -e .
     "midjourney": {
       "command": "mcp-midjourney",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API Token"
+        "XHuoAPI_API_TOKEN": "ваш API Token"
       }
     }
   }
@@ -112,7 +112,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-midjourney"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API Token"
+        "XHuoAPI_API_TOKEN": "ваш API Token"
       }
     }
   }
@@ -149,6 +149,6 @@ pip install -e .
 
 ## Додаткова інформація
 
-- Репозиторій GitHub: [AceDataCloud/MidjourneyMCP](https://github.com/AceDataCloud/MidjourneyMCP)
+- Репозиторій GitHub: [XHuoAPI/MidjourneyMCP](https://github.com/XHuoAPI/MidjourneyMCP)
 - Пакет PyPI: [mcp-midjourney](https://pypi.org/project/mcp-midjourney/)
-- Документація API: [Midjourney генераційний API](https://platform.acedata.cloud/documents/midjourney)
+- Документація API: [Midjourney генераційний API](https://api.xhuoapi.ai/documents/midjourney)

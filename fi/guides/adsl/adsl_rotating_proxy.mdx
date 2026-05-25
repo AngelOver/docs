@@ -1,6 +1,6 @@
 ---
 title: "ADSL-proxy-yhteyden ohjeet"
-description: "ADSL rotating proxy 集成指南 - Ace Data Cloud"
+description: "ADSL rotating proxy 集成指南 - XHuoAPI"
 ---
 
 Kun verkkosivustojen ja sovellusten torjuntatoimet ovat yhä tiukempia, eri verkkosivustojen ja sovellusten riskienhallintatarkastukset ovat yhä voimakkaampia, joista yksi on IP-estot.
@@ -21,21 +21,21 @@ Tämän proxy-palvelun taustalla on laaja ADSL-proxy-allas, joka kattaa pääasi
 
 ## Hakumenetelmä
 
-ADSL-palvelun käyttämiseksi voit ensin mennä "[hakusivulle](https://platform.acedata.cloud/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)" hakemaan palvelua, ja ensimmäisessä hakemuksessa on 1 pisteen ilmainen määrä, noin 17,5 MB.
+ADSL-palvelun käyttämiseksi voit ensin mennä "[hakusivulle](https://api.xhuoapi.ai/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)" hakemaan palvelua, ja ensimmäisessä hakemuksessa on 1 pisteen ilmainen määrä, noin 17,5 MB.
 
-![](https://cdn.acedata.cloud/a2inin.png)
+![](https://cdn.xhuoapi.ai/a2inin.png)
 
 Jos et ole vielä kirjautunut sisään, sinut ohjataan automaattisesti kirjautumissivulle, ja voit jatkaa hakemista kirjautumisen jälkeen.
 
 Hakemuksen jälkeen voit tarkistaa hakemustuloksesi "ohjauspaneelista", kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/hc400a.png)
+![](https://cdn.xhuoapi.ai/hc400a.png)
 
 Napsauta "Credentials", niin voit tarkistaa ADSL-proxy-palvelun käyttäjätunnuksen ja salasanan, jotka on erotettu kaksoispisteellä, käyttäjätunnus on 8 merkkiä ja salasana 32 merkkiä, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/cej7m2.png)
+![](https://cdn.xhuoapi.ai/cej7m2.png)
 
-Tämä ADSL-proxy on kiertävä proxy, joten käytettäessä tarvitsee vain asettaa yksi kiinteä proxy-osoite ja portti, jotka ovat adsl.proxy.acedata.cloud ja 30005, ja se on HTTP/HTTPS/SOCKS-proxy, jota voidaan käyttää HTTP- ja HTTPS-protokollan verkkosivustojen käyttöön.
+Tämä ADSL-proxy on kiertävä proxy, joten käytettäessä tarvitsee vain asettaa yksi kiinteä proxy-osoite ja portti, jotka ovat adsl.proxy.xhuoapi.ai ja 30005, ja se on HTTP/HTTPS/SOCKS-proxy, jota voidaan käyttää HTTP- ja HTTPS-protokollan verkkosivustojen käyttöön.
 
 ## Komentotestaus
 
@@ -44,7 +44,7 @@ Kun sinulla on proxy-käyttäjätunnus ja salasana, helpoin tapa testata on käy
 Oletetaan, että nykyinen proxy-käyttäjätunnus ja salasana ovat `1f78266a:eff0896726224fa2a99fe82dd1f07562`, voimme testata seuraavalla curl-komennolla:
 
 ```shell
-curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@adsl.proxy.acedata.cloud:30005 https://ipinfo.io
+curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@adsl.proxy.xhuoapi.ai:30005 https://ipinfo.io
 ```
 
 Tässä käytämme curlin `-x`-parametria määrittääksemme proxy-osoitteen, ja proxy-protokolla on oletuksena HTTP/HTTPS, ja tässä pyydetty URL-osoite on [https://ipinfo.io](https://ipinfo.io), joka voi palauttaa pyynnön tehneen verkkosivuston todellisen IP-osoitteen ja IP-osoitteen sijainnin.
@@ -72,7 +72,7 @@ Alla on esimerkki Pythonista, joka näyttää tämän proxy-asetuksen menetelmä
 ```python
 import requests
 
-proxy = 'https://{proxy_username}:{proxy_password}@adsl.proxy.acedata.cloud:30005'
+proxy = 'https://{proxy_username}:{proxy_password}@adsl.proxy.xhuoapi.ai:30005'
 
 proxies = {
     'http': proxy,
@@ -138,7 +138,7 @@ Itse asiassa yllä oleva koodi on ekvivalentti ylimääräisen otsikon - Proxy A
 import requests
 import base64
 
-proxy_host = 'adsl.proxy.acedata.cloud'
+proxy_host = 'adsl.proxy.xhuoapi.ai'
 proxy_port = '30005'
 proxy_username = '{proxy_username}' # 8-merkkinen käyttäjänimi
 proxy_password = '{proxy_password}' # 32-merkkinen salasana
@@ -170,7 +170,7 @@ Muille kielille, kuten JavaScriptin axiosille, voidaan käyttää samanlaista as
 const axios = require("axios");
 const base64 = require("base64");
 
-const proxy_host = "adsl.proxy.acedata.cloud";
+const proxy_host = "adsl.proxy.xhuoapi.ai";
 const proxy_port = "30005";
 const proxy_username = "{proxy_username}"; // 8-merkkinen käyttäjänimi
 const proxy_password = "{proxy_password}"; // 32-merkkinen salasana
@@ -202,4 +202,4 @@ Muiden kielten asetustapoja varten, viitataan edellisiin ja muokataan itse.
 
 Jos pakettisi on jo loppunut, sinun on ostettava lisää voidaksesi jatkaa tämän proxy-palvelun käyttöä.
 
-Ostaaksesi lisää, siirry suoraan " [Hakusivulle](https://platform.acedata.cloud/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604) " ja napsauta "Osta lisää" -painiketta, niin voit valita, että yksittäinen osto on edullisempaa.
+Ostaaksesi lisää, siirry suoraan " [Hakusivulle](https://api.xhuoapi.ai/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604) " ja napsauta "Osta lisää" -painiketta, niin voit valita, että yksittäinen osto on edullisempaa.

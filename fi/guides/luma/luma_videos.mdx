@@ -1,19 +1,19 @@
 ---
 title: "Luma Video Generointi API -liittymän ohjeet"
-description: "Luma Video Generation 集成指南 - Ace Data Cloud"
+description: "Luma Video Generation 集成指南 - XHuoAPI"
 ---
 
 Kun AI:n käyttö laajenee, erilaiset AI-ohjelmat ovat vähitellen yleistyneet. AI on syventynyt yhä enemmän ihmisten työ- ja elämän eri osa-alueisiin. AI:hin liittyvät alat ovat myös lisääntyneet, alkaen alkuperäisestä kirjoittamisesta, terveydenhuollosta ja koulutuksesta aina nykyisiin videoihin.
 
 Luma on ammattimainen, korkealaatuinen videon generointialusta, jossa käyttäjät voivat ladata materiaalia ja automaattisesti luoda korkealaatuisia videoita eri tyylien ja efektien mukaan. Tämä AI-videon generointityökalu on kehitetty tunnetun teknologiayrityksen tiimin jäsenien toimesta, ja sen tavoitteena on mahdollistaa jokaisen helppo ja vaivaton videoiden tekeminen ilman monimutkaisia muokkaustyökaluja.
 
-Kuitenkin Luma ei tarjoa virallista API:a, mutta AceDataCloud tarjoaa Luma API:n, joka simuloi Suno-virallista rajapintaa, mahdollistaen haluttujen videoiden nopean ja kätevän luomisen.
+Kuitenkin Luma ei tarjoa virallista API:a, mutta XHuoAPI tarjoaa Luma API:n, joka simuloi Suno-virallista rajapintaa, mahdollistaen haluttujen videoiden nopean ja kätevän luomisen.
 
 ## Hakeminen ja käyttö
 
-Käyttääksesi Luma Videos API:a, voit ensin siirtyä [Luma Videos Generation API](https://platform.acedata.cloud/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) -sivulle ja napsauttaa "Acquire" -painiketta saadaksesi tarvittavat todisteet pyyntöä varten:
+Käyttääksesi Luma Videos API:a, voit ensin siirtyä [Luma Videos Generation API](https://api.xhuoapi.ai/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) -sivulle ja napsauttaa "Acquire" -painiketta saadaksesi tarvittavat todisteet pyyntöä varten:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -23,11 +23,11 @@ Ensimmäisellä hakemiskerralla saat ilmaisia krediittejä, joita voit käyttä�
 
 Jos haluat luoda videon, voit syöttää minkä tahansa tekstin, esimerkiksi jos haluat luoda videon avaruusmatkailijoista, jotka liikkuvat avaruuden ja tulivuoren välillä, voit syöttää `Astronauts shuttle from space to volcano`, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/yub02j.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yub02j.png" width="500" className="m-auto" /></p>
 
 Generoitu koodi on seuraava:
 
-<p><img src="https://cdn.acedata.cloud/ieq7yn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ieq7yn.png" width="500" className="m-auto" /></p>
 
 Pääasialliset pyyntöparametrit:
 
@@ -51,7 +51,7 @@ Voit napsauttaa "Try" -painiketta testataksesi API:a suoraan, odota 1-2 minuutti
   "video_height": 752,
   "video_width": 1360,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/e4018a99-1522-4f24-9330-62c2a9b50b59.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/e4018a99-1522-4f24-9330-62c2a9b50b59.jpg",
   "thumbnail_width": 1360,
   "thumbnail_height": 752
 }
@@ -79,7 +79,7 @@ Jos haluat luoda videon mukautetun alku- ja loppukehyksen avulla, voit syöttä�
 
 Tässä vaiheessa videon alku- ja loppukehyksen `start_image_url` kenttä voi sisältää seuraavan kuvan videon alku- ja loppukehyksenä:
 
-![Alkukehys](https://cdn.acedata.cloud/r9vsv9.png)
+![Alkukehys](https://cdn.xhuoapi.ai/r9vsv9.png)
 
 Seuraavaksi haluamme mukauttaa videon generointia alku- ja loppukehyksen sekä avainsanojen perusteella, joten voimme määrittää seuraavat sisällöt:
 
@@ -90,18 +90,18 @@ Seuraavaksi haluamme mukauttaa videon generointia alku- ja loppukehyksen sekä a
 
 Esimerkkitäyttö on seuraava:
 
-<p><img src="https://cdn.acedata.cloud/zvzydx.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zvzydx.png" width="500" className="m-auto" /></p>
 
 Kun täyttö on valmis, generoitu koodi on seuraava:
 
-<p><img src="https://cdn.acedata.cloud/tx80pu.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tx80pu.png" width="500" className="m-auto" /></p>
 
 Vastaava koodi:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/luma/videos"
+url = "https://api.xhuoapi.ai/v1/luma/videos"
 
 headers = {
     "accept": "application/json",
@@ -110,7 +110,7 @@ headers = {
 }
 
 payload = {
-    "start_image_url": "https://cdn.acedata.cloud/r9vsv9.png",
+    "start_image_url": "https://cdn.xhuoapi.ai/r9vsv9.png",
     "action": "generate",
     "prompt": "Astronauts shuttle from space to volcano"
 }
@@ -127,11 +127,11 @@ Saatu tulos on seuraava:
   "task_id": "12a18694-fd4b-47e7-9c50-34f30862cff6",
   "video_id": "0105c090-03a5-425a-8026-523341cd575b",
   "prompt": "Astronauts shuttle from space to volcano",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -139,11 +139,11 @@ Saatu tulos on seuraava:
 
 Lopuksi saatu tulos on samanlainen kuin edellä, generoitu videon alku- ja loppukehys sisältää syöttämämme kuvan, ja voimme myös syöttää sekä alku- että loppukehyksen kuvien linkit videon luomiseksi, tarvitsemme vain lisätä yksi loppukehyksen kuva yllä olevan perusteella, loppukehyksen kuvan tiedot ovat seuraavat:
 
-![Loppukehys](https://cdn.acedata.cloud/0iad3k.png)
+![Loppukehys](https://cdn.xhuoapi.ai/0iad3k.png)
 
 Esimerkkitäyttö on seuraava:
 
-<p><img src="https://cdn.acedata.cloud/20igwi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/20igwi.png" width="500" className="m-auto" /></p>
 
 Lopuksi saadaan seuraava tulos:
 ```json
@@ -152,11 +152,11 @@ Lopuksi saadaan seuraava tulos:
   "task_id": "d1cb723a-e554-4775-94a4-bb6ae8c7ea67",
   "video_id": "6bebd0d2-f793-472e-9326-38528a9273bb",
   "prompt": "Astronautit kuljettaa avaruudesta tulivuorelle",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "valmis",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -168,13 +168,13 @@ Tulokset ovat samankaltaisia kuin edellä, luodussa videossa on myös ensimmäis
 
 Jos haluat jatkaa luotua videota, voit asettaa parametrin `action` arvoksi `extend` ja syöttää jatkettavan videon ID:n tai videolinkin, videon ID:n ja videolinkin hankkiminen tapahtuu peruskäytön mukaan, kuten alla olevassa kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/fwknj4.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fwknj4.png" width="500" className="m-auto" /></p>
 
 Tässä vaiheessa voit nähdä videon ID:n olevan:
 
 ```
 "video_id": "0105c090-03a5-425a-8026-523341cd575b",
-"video_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4"
+"video_url": "https://platform.cdn.xhuoapi.ai/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4"
 ```
 
 > Huomaa, että tässä videossa `video_id` ja `video_url` ovat luodun videon ID ja videolinkki. Jos et tiedä, miten video luodaan, voit viitata edellä mainittuun peruskäyttöön videon luomiseksi.
@@ -189,18 +189,18 @@ Jatkaaksesi videon luomista, sinun on ladattava videolinkki tai videon ID. Alla 
 
 Esimerkki täytöstä on seuraava:
 
-<p><img src="https://cdn.acedata.cloud/vv0rxk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vv0rxk.png" width="500" className="m-auto" /></p>
 
 Kun täyttö on valmis, se luo automaattisesti seuraavan koodin:
 
-<p><img src="https://cdn.acedata.cloud/woapxi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/woapxi.png" width="500" className="m-auto" /></p>
 
 Vastaava Python-koodi:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/luma/videos"
+url = "https://api.xhuoapi.ai/v1/luma/videos"
 
 headers = {
     "accept": "application/json",
@@ -226,11 +226,11 @@ Kun napsautat suorita, voit huomata, että saat tuloksen, kuten alla:
   "task_id": "c6e529d1-a06d-4c12-91b2-c855135131c3",
   "video_id": "36908c49-c2bb-4a11-bd5a-b8512b004818",
   "prompt": "Astronautit kuljettaa avaruudesta tulivuorelle",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "valmis",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -240,7 +240,7 @@ Voit nähdä, että tämä video on laajennettu tarvittavan videon perusteella, 
 
 Tietysti voimme myös määrittää videon linkin laajentamista varten, täyttämällä seuraavat tiedot:
 
-<p><img src="https://cdn.acedata.cloud/0cv0hg.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0cv0hg.png" width="500" className="m-auto" /></p>
 
 Suorittamisen jälkeen saatiin seuraava tulos:
 
@@ -250,11 +250,11 @@ Suorittamisen jälkeen saatiin seuraava tulos:
   "task_id": "1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca",
   "video_id": "f0187dc2-339f-4a08-a435-c3a3341f620a",
   "prompt": "Astronautit kuljettaa avaruudesta tulivuorelle",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "valmis",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -264,11 +264,11 @@ Tuloksista voidaan nähdä, että videon linkin perusteella voidaan myös toteut
 
 Lopuksi voimme myös määrittää laajennetussa videossa tietyn loppukehyksen kuvan laajentamista varten, alla on loppukehyksen kuvan tiedot:
 
-![Loppukehys](https://cdn.acedata.cloud/0iad3k.png)
+![Loppukehys](https://cdn.xhuoapi.ai/0iad3k.png)
 
 Seuraavaksi lisäämme loppukehyksen kuvatiedot edellä mainitun perusteella, tarkasti ottaen seuraavasti:
 
-<p><img src="https://cdn.acedata.cloud/9p1vrj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/9p1vrj.png" width="500" className="m-auto" /></p>
 
 Kun napsautat suorita, saat seuraavat tiedot:
 
@@ -278,11 +278,11 @@ Kun napsautat suorita, saat seuraavat tiedot:
   "task_id": "b816b2b4-c345-4673-9e19-83e91f91b643",
   "video_id": "c5400053-63e6-4206-8082-31cf9dd1e7ed",
   "prompt": "Astronautit kuljettaa avaruudesta tulivuorelle",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/b816b2b4-c345-4673-9e19-83e91f91b643.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/b816b2b4-c345-4673-9e19-83e91f91b643.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "valmis",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/b816b2b4-c345-4673-9e19-83e91f91b643.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/b816b2b4-c345-4673-9e19-83e91f91b643.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -299,13 +299,13 @@ Katsotaan seuraavaksi esimerkin avulla, miten toiminta tapahtuu.
 
 Ensinnäkin, Webhook-palaute on palvelu, joka voi vastaanottaa HTTP-pyyntöjä, ja kehittäjän tulisi korvata se omalla HTTP-palvelimensa URL-osoitteella. Tässä esimerkin vuoksi käytämme julkista Webhook-esimerkkisivustoa https://webhook.site/, avaa tämä sivusto saadaksesi Webhook URL:n, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/q78okf.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q78okf.png" width="500" className="m-auto" /></p>
 
 Kopioi tämä URL, niin voit käyttää sitä Webhookina, tässä esimerkki on https://webhook.site/0c87ca0e-cd74-4577-8d68-f2b80fbf8a13.
 
 Seuraavaksi voimme asettaa kentän `callback_url` yllä olevaan Webhook URL:iin ja täyttää `prompt`:in, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/n2fjvi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/n2fjvi.png" width="500" className="m-auto" /></p>
 
 Napsauta Suorita, ja huomaat, että saat heti tuloksen, kuten alla:
 
@@ -317,7 +317,7 @@ Napsauta Suorita, ja huomaat, että saat heti tuloksen, kuten alla:
 
 Odota hetki, niin voimme tarkkailla luotua kappaletta osoitteessa https://webhook.site/0c87ca0e-cd74-4577-8d68-f2b80fbf8a13, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/1hwm5m.png)
+![](https://cdn.xhuoapi.ai/1hwm5m.png)
 
 Sisältö on seuraava:
 
@@ -327,11 +327,11 @@ Sisältö on seuraava:
     "task_id": "732f8282-7cf8-401c-95f2-42c33aa079a6",
     "video_id": "4d8013c3-5de0-41aa-966e-0b1a51d1c633",
     "prompt": "Astronauts shuttle from space to volcano",
-    "video_url": "https://platform.cdn.acedata.cloud/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.mp4",
+    "video_url": "https://platform.cdn.xhuoapi.ai/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.mp4",
     "video_height": 752,
     "video_width": 1360,
     "state": "completed",
-    "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.jpg",
+    "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.jpg",
     "thumbnail_width": 1360,
     "thumbnail_height": 752
 }

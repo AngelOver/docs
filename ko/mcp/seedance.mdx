@@ -3,7 +3,7 @@ title: "Seedance MCP 연동 가이드"
 description: "seedance MCP 服务器集成"
 ---
 
-[MCP（Model Context Protocol）](https://modelcontextprotocol.io)는 Anthropic에서 출시한 모델 컨텍스트 프로토콜로, AI 모델(Claude, GPT 등)이 표준화된 인터페이스를 통해 외부 도구를 호출할 수 있게 합니다. AceData Cloud에서 제공하는 Seedance MCP Server를 통해 Claude Desktop, VS Code, Cursor 등 AI 클라이언트에서 바로 바이트댄스 Seedance 생성 AI 비디오를 사용할 수 있습니다.
+[MCP（Model Context Protocol）](https://modelcontextprotocol.io)는 Anthropic에서 출시한 모델 컨텍스트 프로토콜로, AI 모델(Claude, GPT 등)이 표준화된 인터페이스를 통해 외부 도구를 호출할 수 있게 합니다. XHuoAPI에서 제공하는 Seedance MCP Server를 통해 Claude Desktop, VS Code, Cursor 등 AI 클라이언트에서 바로 바이트댄스 Seedance 생성 AI 비디오를 사용할 수 있습니다.
 
 ## 기능 개요
 
@@ -20,10 +20,10 @@ Seedance MCP Server는 다음과 같은 핵심 기능을 제공합니다:
 
 ## 사전 준비
 
-사용 전 AceData Cloud API Token을 발급받아야 합니다:
+사용 전 XHuoAPI API Token을 발급받아야 합니다:
 
-1. [AceData Cloud 플랫폼](https://platform.acedata.cloud) 회원가입 또는 로그인
-2. [Seedance Videos API](https://platform.acedata.cloud/documents/seedance-videos) 페이지 접속
+1. [XHuoAPI 플랫폼](https://api.xhuoapi.ai) 회원가입 또는 로그인
+2. [Seedance Videos API](https://api.xhuoapi.ai/documents/seedance-videos) 페이지 접속
 3. 「Acquire」 클릭하여 API Token 획득(최초 신청 시 무료 할당량 제공)
 
 ## 설치 및 설정
@@ -37,7 +37,7 @@ pip install mcp-seedance
 ### 방법 2: 소스코드 설치
 
 ```bash
-git clone https://github.com/AceDataCloud/SeedanceMCP.git
+git clone https://github.com/XHuoAPI/SeedanceMCP.git
 cd SeedanceMCP
 pip install -e .
 ```
@@ -59,7 +59,7 @@ Claude Desktop 설정 파일 편집:
     "seedance": {
       "command": "mcp-seedance",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "당신의 API Token"
+        "XHuoAPI_API_TOKEN": "당신의 API Token"
       }
     }
   }
@@ -75,7 +75,7 @@ Claude Desktop 설정 파일 편집:
       "command": "uvx",
       "args": ["mcp-seedance"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "당신의 API Token"
+        "XHuoAPI_API_TOKEN": "당신의 API Token"
       }
     }
   }
@@ -94,7 +94,7 @@ Claude Desktop 설정 파일 편집:
     "seedance": {
       "command": "mcp-seedance",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "당신의 API Token"
+        "XHuoAPI_API_TOKEN": "당신의 API Token"
       }
     }
   }
@@ -110,7 +110,7 @@ Claude Desktop 설정 파일 편집:
       "command": "uvx",
       "args": ["mcp-seedance"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "당신의 API Token"
+        "XHuoAPI_API_TOKEN": "당신의 API Token"
       }
     }
   }
@@ -140,6 +140,6 @@ Claude Desktop 설정 파일 편집:
 
 ## 추가 정보
 
-- GitHub 저장소: [AceDataCloud/SeedanceMCP](https://github.com/AceDataCloud/SeedanceMCP)
+- GitHub 저장소: [XHuoAPI/SeedanceMCP](https://github.com/XHuoAPI/SeedanceMCP)
 - PyPI 패키지: [mcp-seedance](https://pypi.org/project/mcp-seedance/)
-- API 문서: [Seedance 비디오 생성 API](https://platform.acedata.cloud/documents/seedance)
+- API 문서: [Seedance 비디오 생성 API](https://api.xhuoapi.ai/documents/seedance)

@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Responses API Application and Usage"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI recently provided an interface for creating model responses. It allows for text or image input to generate text or image output. You can have the model call your own custom code or use built-in tools, such as web search or file search, to use your own data as input for the model's response.
@@ -9,9 +9,9 @@ This document mainly describes the usage process of the OpenAI Responses API, wh
 
 ## Application Process
 
-To use the OpenAI Responses API, you can first go to the [OpenAI Responses API](https://platform.acedata.cloud/documents/81e285a6-d010-4a2d-a3a8-ca113d4ef82a) page and click the "Acquire" button to obtain the credentials needed for the request:
+To use the OpenAI Responses API, you can first go to the [OpenAI Responses API](https://api.xhuoapi.ai/documents/81e285a6-d010-4a2d-a3a8-ca113d4ef82a) page and click the "Acquire" button to obtain the credentials needed for the request:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
@@ -21,7 +21,7 @@ When applying for the first time, there will be a free quota available, allowing
 
 Next, you can fill in the corresponding content on the interface, as shown in the figure:
 
-<p><img src="https://cdn.acedata.cloud/8lu8di.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8lu8di.png" width="400" className="m-auto" /></p>
 
 When using this interface for the first time, we need to fill in at least three pieces of information: one is `authorization`, which can be selected directly from the dropdown list. The other parameter is `model`, which is the OpenAI ChatGPT model category we choose to use. Here we mainly have 20 types of models; details can be found in the models we provide. The last parameter is `input`, which is an array of our input questions. It is an array that allows multiple questions to be uploaded simultaneously, with each question containing `role` and `content`. The `role` indicates the role of the questioner, and we provide three identities: `user`, `assistant`, and `system`. The other `content` is the specific content of our question.
 
@@ -36,7 +36,7 @@ Common optional parameters:
 - `tools`: Function/tool call definitions.
 - `background`: Whether to run asynchronously in the background.
 
-<p><img src="https://cdn.acedata.cloud/rsw47a.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/rsw47a.png" width="400" className="m-auto" /></p>
 
 After the call, we find the returned result as follows:
 
@@ -114,7 +114,7 @@ The returned result contains multiple fields, described as follows:
 
 Among them, `output` contains the response information from ChatGPT, and the `output` inside it is from ChatGPT, as shown in the figure.
 
-<p><img src="https://cdn.acedata.cloud/mald8o.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mald8o.png" width="400" className="m-auto" /></p>
 
 You can see that the `content` field in `output` contains the specific content of ChatGPT's reply.
 
@@ -126,7 +126,7 @@ If you want to return responses in a streaming manner, you can change the `strea
 
 Modify as shown in the figure, but the calling code needs to have corresponding changes to support streaming responses.
 
-<p><img src="https://cdn.acedata.cloud/xidnao.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xidnao.png" width="400" className="m-auto" /></p>
 
 After changing `stream` to `true`, the API will return the corresponding JSON data line by line, and we need to make corresponding modifications in the code to obtain the line-by-line results.
 
@@ -135,7 +135,7 @@ Python sample calling code:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/responses"
+url = "https://api.xhuoapi.ai/v1/openai/responses"
 
 headers = {
     "accept": "application/json",
@@ -196,7 +196,7 @@ data: {"type": "response.completed", "sequence_number": 17, "response": {"id": "
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/responses"
+url = "https://api.xhuoapi.ai/v1/openai/responses"
 
 headers = {
     "accept": "application/json",
@@ -226,7 +226,7 @@ print(response.text)
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",

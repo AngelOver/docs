@@ -3,7 +3,7 @@ title: "Seedance MCP -integrointiohjeet"
 description: "seedance MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) on Anthropicin kehittämä mallin kontekstiprotokolla, joka mahdollistaa tekoälymallien, kuten Clauden ja GPT:n, kutsua ulkoisia työkaluja standardoidun rajapinnan kautta. AceData Cloudin tarjoaman Seedance MCP Serverin avulla voit käyttää Bytedancen Seedance AI -videotuotantoa suoraan Claude Desktopissa, VS Codessa, Cursorissa ja muissa AI-asiakasohjelmissa.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) on Anthropicin kehittämä mallin kontekstiprotokolla, joka mahdollistaa tekoälymallien, kuten Clauden ja GPT:n, kutsua ulkoisia työkaluja standardoidun rajapinnan kautta. XHuoAPIin tarjoaman Seedance MCP Serverin avulla voit käyttää Bytedancen Seedance AI -videotuotantoa suoraan Claude Desktopissa, VS Codessa, Cursorissa ja muissa AI-asiakasohjelmissa.
 
 ## Toimintojen yleiskatsaus
 
@@ -20,10 +20,10 @@ Seedance MCP Server tarjoaa seuraavat keskeiset ominaisuudet:
 
 ## Ennen aloittamista
 
-Ennen käyttöä sinun tulee hankkia AceData Cloud API Token:
+Ennen käyttöä sinun tulee hankkia XHuoAPI API Token:
 
-1. Rekisteröidy tai kirjaudu sisään [AceData Cloud -alustalle](https://platform.acedata.cloud)
-2. Siirry [Seedance Videos API](https://platform.acedata.cloud/documents/seedance-videos) -sivulle
+1. Rekisteröidy tai kirjaudu sisään [XHuoAPI -alustalle](https://api.xhuoapi.ai)
+2. Siirry [Seedance Videos API](https://api.xhuoapi.ai/documents/seedance-videos) -sivulle
 3. Klikkaa "Acquire" saadaksesi API Tokenin (ensihakemuksella saat ilmaisen käyttökiintiön)
 
 ## Asennus ja konfigurointi
@@ -37,7 +37,7 @@ pip install mcp-seedance
 ### Vaihtoehto 2: Lähdekoodin asennus
 
 ```bash
-git clone https://github.com/AceDataCloud/SeedanceMCP.git
+git clone https://github.com/XHuoAPI/SeedanceMCP.git
 cd SeedanceMCP
 pip install -e .
 ```
@@ -59,7 +59,7 @@ Lisää seuraava konfiguraatio:
     "seedance": {
       "command": "mcp-seedance",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "sinun API Token"
+        "XHuoAPI_API_TOKEN": "sinun API Token"
       }
     }
   }
@@ -75,7 +75,7 @@ Jos käytät `uvx`:ää (ei tarvitse asentaa paketteja etukäteen):
       "command": "uvx",
       "args": ["mcp-seedance"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "sinun API Token"
+        "XHuoAPI_API_TOKEN": "sinun API Token"
       }
     }
   }
@@ -94,7 +94,7 @@ Luo projektin juurihakemistoon `.vscode/mcp.json`:
     "seedance": {
       "command": "mcp-seedance",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "sinun API Token"
+        "XHuoAPI_API_TOKEN": "sinun API Token"
       }
     }
   }
@@ -110,7 +110,7 @@ Tai käytä `uvx`:ää:
       "command": "uvx",
       "args": ["mcp-seedance"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "sinun API Token"
+        "XHuoAPI_API_TOKEN": "sinun API Token"
       }
     }
   }
@@ -140,6 +140,6 @@ Konfiguroinnin jälkeen voit kutsua toimintoja luonnollisella kielellä AI-asiak
 
 ## Lisätietoja
 
-- GitHub-repositorio: [AceDataCloud/SeedanceMCP](https://github.com/AceDataCloud/SeedanceMCP)
+- GitHub-repositorio: [XHuoAPI/SeedanceMCP](https://github.com/XHuoAPI/SeedanceMCP)
 - PyPI-paketti: [mcp-seedance](https://pypi.org/project/mcp-seedance/)
-- API-dokumentaatio: [Seedance videon generointi API](https://platform.acedata.cloud/documents/seedance)
+- API-dokumentaatio: [Seedance videon generointi API](https://api.xhuoapi.ai/documents/seedance)

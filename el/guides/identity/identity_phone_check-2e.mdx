@@ -1,15 +1,15 @@
 ---
 title: "API Διευκρίνιση Επαλήθευσης Δύο Στοιχείων Τηλεφώνου"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Αυτό το έγγραφο θα παρουσιάσει μια μέθοδο για τη διευκρίνιση της API επαλήθευσης δύο στοιχείων τηλεφώνου, η οποία μπορεί να χρησιμοποιηθεί για την επαλήθευση της γνησιότητας και της συνέπειας του αριθμού τηλεφώνου και του ονόματος.
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε την API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [API Επαλήθευσης Δύο Στοιχείων Τηλεφώνου](https://platform.acedata.cloud/documents/1f39c948-6d9b-48f5-83fb-0719da4f6ab0) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού εισέλθετε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε την API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [API Επαλήθευσης Δύο Στοιχείων Τηλεφώνου](https://api.xhuoapi.ai/documents/1f39c948-6d9b-48f5-83fb-0719da4f6ab0) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού εισέλθετε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη σελίδα σύνδεσης για να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και τη σύνδεση, θα επιστρέψετε αυτόματα στη σελίδα.
 
@@ -19,7 +19,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 Αρχικά, πρέπει να κατανοήσετε τη βασική μέθοδο χρήσης, δηλαδή να εισάγετε τον αριθμό τηλεφώνου για να λάβετε το επεξεργασμένο αποτέλεσμα. Πρέπει πρώτα να περάσετε ένα πεδίο `mobile`. Στη συνέχεια, μπορείτε να συμπληρώσετε τα αντίστοιχα περιεχόμενα στην διεπαφή, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/v6k96j.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/v6k96j.png" width="500" className="m-auto" /></p>
 
 Μπορείτε να δείτε ότι έχουμε ρυθμίσει τα Request Headers, συμπεριλαμβανομένων:
 
@@ -34,7 +34,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 Αφού επιλέξετε, μπορείτε να δείτε ότι έχει παραχθεί ο αντίστοιχος κώδικας στα δεξιά, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/lq800o.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lq800o.png" width="500" className="m-auto" /></p>
 
 Κάντε κλικ στο κουμπί «Try» για να κάνετε δοκιμή, όπως φαίνεται στην παραπάνω εικόνα, και εδώ έχουμε λάβει το εξής αποτέλεσμα:
 
@@ -65,7 +65,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 Επιπλέον, εάν θέλετε να δημιουργήσετε τον αντίστοιχο κώδικα σύνδεσης, μπορείτε να τον αντιγράψετε απευθείας, όπως ο κώδικας CURL παρακάτω:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/phone/check-2e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/phone/check-2e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -80,7 +80,7 @@ curl -X POST 'https://api.acedata.cloud/identity/phone/check-2e' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/phone/check-2e"
+url = "https://api.xhuoapi.ai/v1/identity/phone/check-2e"
 
 headers = {
     "accept": "application/json",

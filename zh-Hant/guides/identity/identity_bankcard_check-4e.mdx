@@ -1,15 +1,15 @@
 ---
 title: "銀行卡四要素核驗 API 對接說明"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 本文將介紹一種 銀行卡四要素核驗 API 對接說明，它可用於輸入銀行卡號、姓名、開戶證件號、開戶手機號，校驗信息的真實性和一致性。
 
 ## 申請流程
 
-要使用 API，需要先到 [銀行卡四要素核驗 API](https://platform.acedata.cloud/documents/02f77369-ec7b-4218-a956-d7a84982a626) 對應頁面申請對應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
+要使用 API，需要先到 [銀行卡四要素核驗 API](https://api.xhuoapi.ai/documents/02f77369-ec7b-4218-a956-d7a84982a626) 對應頁面申請對應的服務，進入頁面之後，點擊「Acquire」按鈕，如圖所示：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 如果你尚未登錄或註冊，會自動跳轉到登錄頁面邀請您來註冊和登錄，登錄註冊之後會自動返回當前頁面。
 
@@ -19,7 +19,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 首先先了解下基本的使用方式，就是輸入銀行卡的卡號信息，便可獲得處理後結果圖片，首先需要簡單地傳遞一個 `bank_card` 欄位。我們接下來就可以在介面上填寫對應的內容，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/1pl0y5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1pl0y5.png" width="500" className="m-auto" /></p>
 
 可以看到這裡我們設置了 Request Headers，包括：
 
@@ -37,7 +37,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 選擇之後，可以發現右側也生成了對應代碼，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/slajgv.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/slajgv.png" width="500" className="m-auto" /></p>
 
 點擊「Try」按鈕即可進行測試，如上圖所示，這裡我們就得到了如下結果：
 
@@ -78,7 +78,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 另外如果想生成對應的對接代碼，可以直接複製生成，例如 CURL 的代碼如下：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/bankcard/check-4e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/bankcard/check-4e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -95,7 +95,7 @@ Python 的對接代碼如下：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/bankcard/check-4e"
+url = "https://api.xhuoapi.ai/v1/identity/bankcard/check-4e"
 
 headers = {
     "accept": "application/json",

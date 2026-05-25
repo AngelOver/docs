@@ -1,6 +1,6 @@
 ---
 title: "Suno Tasks API интеграција i korišćenje"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 Glavna funkcija Suno Tasks API je da omogućava upit o statusu izvršenja zadatka putem ID-a zadatka generisanog Suno Audios Generation API ili Suno Lyrics Generation API.
@@ -9,27 +9,27 @@ Ovaj dokument će detaljno opisati uputstva za integraciju Suno Tasks API, poma�
 
 ## Proces prijave
 
-Da biste koristili Suno Tasks API, prvo treba da odete na stranicu za prijavu [Suno Audios Generation API](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) i zatražite odgovarajuću uslugu, a zatim kopirajte ID zadatka Suno Audios Generation API, kao što je prikazano na slici:
+Da biste koristili Suno Tasks API, prvo treba da odete na stranicu za prijavu [Suno Audios Generation API](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) i zatražite odgovarajuću uslugu, a zatim kopirajte ID zadatka Suno Audios Generation API, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/bc6754.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bc6754.png" width="500" className="m-auto" /></p>
 
-Na kraju, idite na stranicu Tasks API [Suno Tasks API](https://platform.acedata.cloud/documents/b0dd9823-0e01-4c75-af83-5a6e2e05bfed) i zatražite odgovarajuću uslugu, nakon ulaska na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
+Na kraju, idite na stranicu Tasks API [Suno Tasks API](https://api.xhuoapi.ai/documents/b0dd9823-0e01-4c75-af83-5a6e2e05bfed) i zatražite odgovarajuću uslugu, nakon ulaska na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
 
-![Stranica za prijavu](https://cdn.acedata.cloud/rci31i.png)
+![Stranica za prijavu](https://cdn.xhuoapi.ai/rci31i.png)
 
-Ako još niste prijavljeni ili registrovani, automatski ćete biti preusmereni na [stranicu za prijavu](https://platform.acedata.cloud) koja vas poziva da se registrujete i prijavite, a nakon prijave i registracije automatski ćete se vratiti na trenutnu stranicu.
+Ako još niste prijavljeni ili registrovani, automatski ćete biti preusmereni na [stranicu za prijavu](https://api.xhuoapi.ai) koja vas poziva da se registrujete i prijavite, a nakon prijave i registracije automatski ćete se vratiti na trenutnu stranicu.
 
 Prilikom prve prijave dobićete besplatnu kvotu koja vam omogućava besplatno korišćenje ovog API-ja.
 
 ## Primer zahteva
 
-Suno Tasks API može se koristiti za upit o rezultatima oba API-ja, Suno Audios Generation API i Suno Lyrics Generation API. O tome kako koristiti Suno Audios Generation API, molimo vas da se obratite dokumentu [Suno Audios Generation API](https://platform.acedata.cloud/documents/d016ee3f-421b-4b6e-989a-8beba8701701). O tome kako koristiti Suno Lyrics Generation API, molimo vas da se obratite [Suno Lyrics Generation API](https://platform.acedata.cloud/documents/f1c66741-a488-43ca-91fc-e53fbbda639a).
+Suno Tasks API može se koristiti za upit o rezultatima oba API-ja, Suno Audios Generation API i Suno Lyrics Generation API. O tome kako koristiti Suno Audios Generation API, molimo vas da se obratite dokumentu [Suno Audios Generation API](https://api.xhuoapi.ai/documents/d016ee3f-421b-4b6e-989a-8beba8701701). O tome kako koristiti Suno Lyrics Generation API, molimo vas da se obratite [Suno Lyrics Generation API](https://api.xhuoapi.ai/documents/f1c66741-a488-43ca-91fc-e53fbbda639a).
 
 Uzmimo za primer jedan ID zadatka koji je vratio Suno Audios Generation API i prikažimo kako koristiti ovaj API. Pretpostavimo da imamo ID zadatka: eae26f89-b64b-404d-a80c-761996660b1c, a zatim ćemo prikazati kako proći kroz unos jednog ID-a zadatka.
 
 ### Primer zadatka
 
-<p><img src="https://cdn.acedata.cloud/bc6754.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bc6754.png" width="500" className="m-auto" /></p>
 
 ### Postavljanje zaglavlja zahteva i tela zahteva
 
@@ -45,20 +45,20 @@ Uzmimo za primer jedan ID zadatka koji je vratio Suno Audios Generation API i pr
 
 Postavite kao što je prikazano na slici ispod:
 
-<p><img src="https://cdn.acedata.cloud/uo7t6n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/uo7t6n.png" width="500" className="m-auto" /></p>
 
 ### Primer koda
 
 Možete primetiti da su na desnoj strani stranice automatski generisani kodovi na raznim jezicima, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/p6vi9o.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/p6vi9o.png" width="500" className="m-auto" /></p>
 
 Neki primeri koda su:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/suno/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/tasks"
+url = "https://api.xhuoapi.ai/v1/suno/tasks"
 
 headers = {
     "accept": "application/json",
@@ -159,13 +159,13 @@ Ovo je za višestruke ID-eve zadataka kako bi se pretražile pojedinosti o pesma
 
 Postavite kao što je prikazano na sledećoj slici:
 
-<p><img src="https://cdn.acedata.cloud/dqeknz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dqeknz.png" width="500" className="m-auto" /></p>
 
 ### Primer koda
 
 Može se primetiti da su na desnoj strani stranice automatski generisani različiti kodovi, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/1yk792.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1yk792.png" width="500" className="m-auto" /></p>
 
 Neki primeri koda su sledeći:
 
@@ -282,7 +282,7 @@ Povratni rezultat sadrži više polja, gde je items niz koji sadrži detaljne in
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -297,7 +297,7 @@ curl -X POST 'https://api.acedata.cloud/suno/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/tasks"
+url = "https://api.xhuoapi.ai/v1/suno/tasks"
 
 headers = {
     "accept": "application/json",

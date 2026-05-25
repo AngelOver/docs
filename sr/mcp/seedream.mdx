@@ -3,7 +3,7 @@ title: "Seedream MCP Vodič za integraciju"
 description: "seedream MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) je protokol za kontekst modela koji je razvio Anthropic, omogućavajući AI modelima (kao što su Claude, GPT i drugi) da pozivaju spoljne alate putem standardizovanog interfejsa. Korišćenjem Seedream MCP Server-a koji pruža AceData Cloud, možete direktno koristiti ByteDance Seedream za generisanje i uređivanje AI slika u AI klijentima kao što su Claude Desktop, VS Code, Cursor i drugi.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) je protokol za kontekst modela koji je razvio Anthropic, omogućavajući AI modelima (kao što su Claude, GPT i drugi) da pozivaju spoljne alate putem standardizovanog interfejsa. Korišćenjem Seedream MCP Server-a koji pruža XHuoAPI, možete direktno koristiti ByteDance Seedream za generisanje i uređivanje AI slika u AI klijentima kao što su Claude Desktop, VS Code, Cursor i drugi.
 
 ## Pregled funkcionalnosti
 
@@ -19,10 +19,10 @@ Seedream MCP Server nudi sledeće ključne funkcije:
 
 ## Preduslovi
 
-Pre upotrebe potrebno je da dobijete AceData Cloud API Token:
+Pre upotrebe potrebno je da dobijete XHuoAPI API Token:
 
-1. Registrujte se ili prijavite na [AceData Cloud platformu](https://platform.acedata.cloud)
-2. Posetite stranicu [Seedream Images API](https://platform.acedata.cloud/documents/seedream-images)
+1. Registrujte se ili prijavite na [XHuoAPI platformu](https://api.xhuoapi.ai)
+2. Posetite stranicu [Seedream Images API](https://api.xhuoapi.ai/documents/seedream-images)
 3. Kliknite na „Acquire“ da biste dobili API Token (prvi zahtev donosi besplatan kredit)
 
 ## Instalacija i konfiguracija
@@ -36,7 +36,7 @@ pip install mcp-seedream-pro
 ### Metod 2: instalacija iz izvornog koda
 
 ```bash
-git clone https://github.com/AceDataCloud/SeedreamMCP.git
+git clone https://github.com/XHuoAPI/SeedreamMCP.git
 cd SeedreamMCP
 pip install -e .
 ```
@@ -58,7 +58,7 @@ Dodajte sledeću konfiguraciju:
     "seedream": {
       "command": "mcp-seedream-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -74,7 +74,7 @@ Ako koristite `uvx` (nije potrebno prethodno instalirati pakete):
       "command": "uvx",
       "args": ["mcp-seedream-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -93,7 +93,7 @@ U korenskom direktorijumu projekta kreirajte `.vscode/mcp.json` fajl:
     "seedream": {
       "command": "mcp-seedream-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -109,7 +109,7 @@ Ili koristite `uvx`:
       "command": "uvx",
       "args": ["mcp-seedream-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -138,6 +138,6 @@ Nakon konfiguracije, možete direktno koristiti ove funkcije u AI klijentima kor
 
 ## Više informacija
 
-- GitHub repozitorijum: [AceDataCloud/SeedreamMCP](https://github.com/AceDataCloud/SeedreamMCP)
+- GitHub repozitorijum: [XHuoAPI/SeedreamMCP](https://github.com/XHuoAPI/SeedreamMCP)
 - PyPI paket: [mcp-seedream-pro](https://pypi.org/project/mcp-seedream-pro/)
-- API dokumentacija: [Seedream API za generisanje slika](https://platform.acedata.cloud/documents/seedream)
+- API dokumentacija: [Seedream API za generisanje slika](https://api.xhuoapi.ai/documents/seedream)

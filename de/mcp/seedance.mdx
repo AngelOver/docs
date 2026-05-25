@@ -3,7 +3,7 @@ title: "Seedance MCP Integrationsanleitung"
 description: "seedance MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) ist ein von Anthropic entwickeltes Modellkontextprotokoll, das es KI-Modellen (wie Claude, GPT usw.) ermöglicht, externe Tools über standardisierte Schnittstellen aufzurufen. Mit dem von AceData Cloud bereitgestellten Seedance MCP Server können Sie in AI-Clients wie Claude Desktop, VS Code, Cursor direkt die von ByteDance Seedance erzeugten AI-Videos nutzen.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) ist ein von Anthropic entwickeltes Modellkontextprotokoll, das es KI-Modellen (wie Claude, GPT usw.) ermöglicht, externe Tools über standardisierte Schnittstellen aufzurufen. Mit dem von XHuoAPI bereitgestellten Seedance MCP Server können Sie in AI-Clients wie Claude Desktop, VS Code, Cursor direkt die von ByteDance Seedance erzeugten AI-Videos nutzen.
 
 ## Funktionsübersicht
 
@@ -20,10 +20,10 @@ Der Seedance MCP Server bietet folgende Kernfunktionen:
 
 ## Voraussetzungen
 
-Vor der Nutzung benötigen Sie einen AceData Cloud API Token:
+Vor der Nutzung benötigen Sie einen XHuoAPI API Token:
 
-1. Registrieren oder anmelden auf der [AceData Cloud Plattform](https://platform.acedata.cloud)
-2. Navigieren zur [Seedance Videos API](https://platform.acedata.cloud/documents/seedance-videos) Seite
+1. Registrieren oder anmelden auf der [XHuoAPI Plattform](https://api.xhuoapi.ai)
+2. Navigieren zur [Seedance Videos API](https://api.xhuoapi.ai/documents/seedance-videos) Seite
 3. Klicken Sie auf „Acquire“, um den API Token zu erhalten (bei der ersten Beantragung gibt es ein kostenloses Kontingent)
 
 ## Installation und Konfiguration
@@ -37,7 +37,7 @@ pip install mcp-seedance
 ### Methode 2: Installation aus dem Quellcode
 
 ```bash
-git clone https://github.com/AceDataCloud/SeedanceMCP.git
+git clone https://github.com/XHuoAPI/SeedanceMCP.git
 cd SeedanceMCP
 pip install -e .
 ```
@@ -59,7 +59,7 @@ Fügen Sie folgende Konfiguration hinzu:
     "seedance": {
       "command": "mcp-seedance",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "Ihr API Token"
+        "XHuoAPI_API_TOKEN": "Ihr API Token"
       }
     }
   }
@@ -75,7 +75,7 @@ Wenn Sie `uvx` verwenden (kein vorheriges Installieren von Paketen erforderlich)
       "command": "uvx",
       "args": ["mcp-seedance"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "Ihr API Token"
+        "XHuoAPI_API_TOKEN": "Ihr API Token"
       }
     }
   }
@@ -94,7 +94,7 @@ Erstellen Sie im Projektstammverzeichnis die Datei `.vscode/mcp.json`:
     "seedance": {
       "command": "mcp-seedance",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "Ihr API Token"
+        "XHuoAPI_API_TOKEN": "Ihr API Token"
       }
     }
   }
@@ -110,7 +110,7 @@ Alternativ mit `uvx`:
       "command": "uvx",
       "args": ["mcp-seedance"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "Ihr API Token"
+        "XHuoAPI_API_TOKEN": "Ihr API Token"
       }
     }
   }
@@ -140,6 +140,6 @@ Nach der Konfiguration können Sie diese Funktionen direkt in Ihrem AI-Client mi
 
 ## Weitere Informationen
 
-- GitHub Repository: [AceDataCloud/SeedanceMCP](https://github.com/AceDataCloud/SeedanceMCP)
+- GitHub Repository: [XHuoAPI/SeedanceMCP](https://github.com/XHuoAPI/SeedanceMCP)
 - PyPI Paket: [mcp-seedance](https://pypi.org/project/mcp-seedance/)
-- API Dokumentation: [Seedance Videoerzeugungs-API](https://platform.acedata.cloud/documents/seedance)
+- API Dokumentation: [Seedance Videoerzeugungs-API](https://api.xhuoapi.ai/documents/seedance)

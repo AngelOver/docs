@@ -3,7 +3,7 @@ title: "Sora MCP интеграција водич"
 description: "sora MCP 服务器集成"
 ---
 
-[MCP（Model Context Protocol）](https://modelcontextprotocol.io) је модел протокол контекста који је развио Anthropic, који омогућава AI моделима (као што су Claude, GPT итд.) да позивају спољне алате преко стандардизованог интерфејса. Кроз Sora MCP Server који пружа AceData Cloud, можете директно користити OpenAI Sora за генерисање AI видео записа у AI клијентима као што су Claude Desktop, VS Code, Cursor.
+[MCP（Model Context Protocol）](https://modelcontextprotocol.io) је модел протокол контекста који је развио Anthropic, који омогућава AI моделима (као што су Claude, GPT итд.) да позивају спољне алате преко стандардизованог интерфејса. Кроз Sora MCP Server који пружа XHuoAPI, можете директно користити OpenAI Sora за генерисање AI видео записа у AI клијентима као што су Claude Desktop, VS Code, Cursor.
 
 ## Преглед функција
 
@@ -18,10 +18,10 @@ Sora MCP Server пружа следеће основне функције:
 
 ## Предуслови
 
-Пре коришћења, потребно је да добијете AceData Cloud API Token:
+Пре коришћења, потребно је да добијете XHuoAPI API Token:
 
-1. Региструјте се или пријавите на [AceData Cloud платформу](https://platform.acedata.cloud)
-2. Идите на страницу [Sora Videos API](https://platform.acedata.cloud/documents/sora-videos)
+1. Региструјте се или пријавите на [XHuoAPI платформу](https://api.xhuoapi.ai)
+2. Идите на страницу [Sora Videos API](https://api.xhuoapi.ai/documents/sora-videos)
 3. Кликните на „Acquire“ да бисте добили API Token (перви пут добијате бесплатан кредит)
 
 ## Инсталација и конфигурација
@@ -35,7 +35,7 @@ pip install mcp-sora
 ### Опција 2: инсталација из извора
 
 ```bash
-git clone https://github.com/AceDataCloud/SoraMCP.git
+git clone https://github.com/XHuoAPI/SoraMCP.git
 cd SoraMCP
 pip install -e .
 ```
@@ -57,7 +57,7 @@ pip install -e .
     "sora": {
       "command": "mcp-sora",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API Token"
+        "XHuoAPI_API_TOKEN": "ваш API Token"
       }
     }
   }
@@ -73,7 +73,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-sora"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API Token"
+        "XHuoAPI_API_TOKEN": "ваш API Token"
       }
     }
   }
@@ -92,7 +92,7 @@ pip install -e .
     "sora": {
       "command": "mcp-sora",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API Token"
+        "XHuoAPI_API_TOKEN": "ваш API Token"
       }
     }
   }
@@ -108,7 +108,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-sora"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "ваш API Token"
+        "XHuoAPI_API_TOKEN": "ваш API Token"
       }
     }
   }
@@ -137,6 +137,6 @@ pip install -e .
 
 ## Више информација
 
-- GitHub репозиторј: [AceDataCloud/SoraMCP](https://github.com/AceDataCloud/SoraMCP)
+- GitHub репозиторј: [XHuoAPI/SoraMCP](https://github.com/XHuoAPI/SoraMCP)
 - PyPI пакет: [mcp-sora](https://pypi.org/project/mcp-sora/)
-- API документација: [Sora видео генерација API](https://platform.acedata.cloud/documents/sora)
+- API документација: [Sora видео генерација API](https://api.xhuoapi.ai/documents/sora)

@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Responses API Ansökan och Användning"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI har nyligen tillhandahållit ett gränssnitt för att skapa modellrespons. Ge text- eller bildinmatning för att generera text- eller bildutdata. Låt modellen anropa din egen anpassade kod eller använda inbyggda verktyg, som webbsökning eller fil sökning, för att använda dina egna data som inmatning för modellrespons.
@@ -9,9 +9,9 @@ Detta dokument beskriver huvudsakligen användningsflödet för OpenAI Responses
 
 ## Ansökningsprocess
 
-För att använda OpenAI Responses API kan du först gå till [OpenAI Responses API](https://platform.acedata.cloud/documents/81e285a6-d010-4a2d-a3a8-ca113d4ef82a) sidan och klicka på "Acquire" knappen för att få de nödvändiga autentiseringsuppgifterna:
+För att använda OpenAI Responses API kan du först gå till [OpenAI Responses API](https://api.xhuoapi.ai/documents/81e285a6-d010-4a2d-a3a8-ca113d4ef82a) sidan och klicka på "Acquire" knappen för att få de nödvändiga autentiseringsuppgifterna:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till inloggningssidan där du blir inbjuden att registrera dig och logga in. Efter att du har loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
 
@@ -21,7 +21,7 @@ Vid första ansökan kommer det att finnas en gratis kvot som ges, så att du ka
 
 Därefter kan du fylla i motsvarande innehåll på gränssnittet, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/8lu8di.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8lu8di.png" width="400" className="m-auto" /></p>
 
 Vid första användningen av detta gränssnitt behöver vi fylla i minst tre fält, ett är `authorization`, som du direkt väljer från rullgardinsmenyn. Den andra parametern är `model`, `model` är den vi väljer att använda från OpenAI ChatGPT:s officiella modellkategorier, här har vi huvudsakligen 20 olika modeller, detaljer kan ses i de modeller vi tillhandahåller. Den sista parametern är `input`, `input` är en array av våra inmatade frågor, den är en array som representerar att flera frågor kan laddas upp samtidigt, varje fråga innehåller `role` och `content`, där `role` representerar frågeställarens roll, vi har tillhandahållit tre identiteter, nämligen `user`, `assistant`, `system`. Den andra `content` är det specifika innehållet i vår fråga.
 
@@ -36,7 +36,7 @@ Vanliga valfria parametrar:
 - `tools`: Definition av funktions-/verktygsanrop.
 - `background`: Om det ska köras asynkront i bakgrunden.
 
-<p><img src="https://cdn.acedata.cloud/rsw47a.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/rsw47a.png" width="400" className="m-auto" /></p>
 
 Efter anropet upptäckte vi att returresultatet ser ut som följer:
 
@@ -114,7 +114,7 @@ Returresultatet har flera fält, som beskrivs nedan:
 
 Där `output` innehåller ChatGPT:s svarsinformation, och `output` är ChatGPT:s svar, som kan ses i bilden.
 
-<p><img src="https://cdn.acedata.cloud/mald8o.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mald8o.png" width="400" className="m-auto" /></p>
 
 Det kan ses att `content` fältet i `output` innehåller det specifika innehållet i ChatGPT:s svar.
 
@@ -126,7 +126,7 @@ Om du vill ha en strömmande respons kan du ändra `stream` parametern i begärn
 
 Ändringen visas i bilden, men anropskoden behöver ha motsvarande ändringar för att stödja strömmande respons.
 
-<p><img src="https://cdn.acedata.cloud/xidnao.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xidnao.png" width="400" className="m-auto" /></p>
 
 När `stream` ändras till `true`, kommer API:et att returnera motsvarande JSON-data rad för rad, och på kodnivå behöver vi göra motsvarande ändringar för att få radresultaten.
 
@@ -135,7 +135,7 @@ Python exempel på anropskod:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/responses"
+url = "https://api.xhuoapi.ai/v1/openai/responses"
 
 headers = {
     "accept": "application/json",
@@ -223,7 +223,7 @@ const options = {
   }),
 };
 
-fetch("https://api.acedata.cloud/openai/responses", options)
+fetch("https://api.xhuoapi.ai/v1/openai/responses", options)
   .then((response) => response.json())
   .then((response) => console.log(response))
   .catch((err) => console.error(err));
@@ -239,7 +239,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/openai/responses")
+  .url("https://api.xhuoapi.ai/v1/openai/responses")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer b82d32f570bc434d9ba9923aa0e7dce0")
@@ -257,14 +257,14 @@ Andra språk kan skrivas om på egen hand, principen är densamma.
 
 Om du vill koppla flera rundor av dialogfunktionalitet behöver du ladda upp flera frågeord i `input`-fältet, specifika exempel på flera frågeord visas nedan:
 
-<p><img src="https://cdn.acedata.cloud/1jqwnf.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1jqwnf.png" width="400" className="m-auto" /></p>
 
 Python-exempel anropskod:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/responses"
+url = "https://api.xhuoapi.ai/v1/openai/responses"
 
 headers = {
     "accept": "application/json",
@@ -361,7 +361,7 @@ Användningen av gpt-4o-modellens bildbehandlingskapacitet sker huvudsakligen ge
 - Curl-skriptmetod
 
 ```
-curl -X POST 'https://api.acedata.cloud/openai/responses' \
+curl -X POST 'https://api.xhuoapi.ai/v1/openai/responses' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -387,7 +387,7 @@ curl -X POST 'https://api.acedata.cloud/openai/responses' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",

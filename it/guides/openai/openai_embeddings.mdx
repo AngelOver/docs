@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Embeddings API Richiesta e Utilizzo"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 Il servizio di vettori di parole di OpenAI, utilizzato per generare risultati di vettori di parole che rappresentano il testo di input.
@@ -9,9 +9,9 @@ Questo documento descrive principalmente il processo di utilizzo dell'API OpenAI
 
 ## Processo di Richiesta
 
-Per utilizzare l'API OpenAI Embeddings, puoi prima andare alla pagina [OpenAI Embeddings API](https://platform.acedata.cloud/documents/0f2e63fa-5890-4bdd-84f0-1706b5c9a387) e cliccare sul pulsante "Acquire" per ottenere le credenziali necessarie per la richiesta:
+Per utilizzare l'API OpenAI Embeddings, puoi prima andare alla pagina [OpenAI Embeddings API](https://api.xhuoapi.ai/documents/0f2e63fa-5890-4bdd-84f0-1706b5c9a387) e cliccare sul pulsante "Acquire" per ottenere le credenziali necessarie per la richiesta:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Se non hai ancora effettuato il login o registrato, verrai automaticamente reindirizzato alla pagina di login che ti invita a registrarti e accedere; dopo aver effettuato il login o la registrazione, verrai automaticamente riportato alla pagina corrente.
 
@@ -21,7 +21,7 @@ Alla prima richiesta, verrà offerto un credito gratuito, che ti consente di uti
 
 Successivamente, puoi compilare i contenuti corrispondenti nell'interfaccia, come mostrato nell'immagine:
 
-<p><img src="https://cdn.acedata.cloud/4qtbvr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4qtbvr.png" width="500" className="m-auto" /></p>
 
 Quando utilizzi per la prima volta questa interfaccia, è necessario compilare almeno tre contenuti: uno è `authorization`, che puoi semplicemente selezionare dal menu a discesa. Un altro parametro è `model`, `model` è la categoria del modello che scegli di utilizzare dal sito ufficiale di OpenAI; qui abbiamo principalmente 3 modelli, i dettagli possono essere consultati nei modelli forniti. L'ultimo parametro è `input`, `input` è il testo del vettore di parole che desideriamo convertire.
 
@@ -32,14 +32,14 @@ Parametri opzionali:
 - `dimensions`: ridimensiona la dimensione del vettore, l'output predefinito è la dimensione completa.
 - `encoding_format`: formato di ritorno, opzioni `float` o `base64`.
 
-<p><img src="https://cdn.acedata.cloud/gqulm9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gqulm9.png" width="500" className="m-auto" /></p>
 
 Esempio di codice di chiamata in Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/embeddings"
+url = "https://api.xhuoapi.ai/v1/openai/embeddings"
 
 headers = {
     "accept": "application/json",

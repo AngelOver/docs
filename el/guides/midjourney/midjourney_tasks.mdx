@@ -1,6 +1,6 @@
 ---
 title: "Midjourney Tasks API της διασύνδεσης και χρήσης"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 Η κύρια λειτουργία του Midjourney Tasks API είναι να ερωτά την κατάσταση εκτέλεσης ενός έργου μέσω του ID έργου που παράγεται από το Midjourney Imagine API ή το Midjourney Describe API.
@@ -9,27 +9,27 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 ## Διαδικασία αίτησης
 
-Για να χρησιμοποιήσετε το Midjourney Tasks API, πρέπει πρώτα να επισκεφθείτε τη σελίδα αίτησης [Midjourney Imagine API](https://platform.acedata.cloud/documents/e52c028d-897a-4d51-b110-60fccbe6118d) για να ζητήσετε την αντίστοιχη υπηρεσία και στη συνέχεια να αντιγράψετε το ID έργου του Imagine API, όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε το Midjourney Tasks API, πρέπει πρώτα να επισκεφθείτε τη σελίδα αίτησης [Midjourney Imagine API](https://api.xhuoapi.ai/documents/e52c028d-897a-4d51-b110-60fccbe6118d) για να ζητήσετε την αντίστοιχη υπηρεσία και στη συνέχεια να αντιγράψετε το ID έργου του Imagine API, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/lx4mwb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lx4mwb.png" width="500" className="m-auto" /></p>
 
-Τέλος, επισκεφθείτε τη σελίδα Tasks API [Midjourney Tasks API](https://platform.acedata.cloud/documents/58ea7cc1-c685-40c3-a619-f29f9ac5d8f4) για να ζητήσετε την αντίστοιχη υπηρεσία, και αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
+Τέλος, επισκεφθείτε τη σελίδα Tasks API [Midjourney Tasks API](https://api.xhuoapi.ai/documents/58ea7cc1-c685-40c3-a619-f29f9ac5d8f4) για να ζητήσετε την αντίστοιχη υπηρεσία, και αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
 
-![Σελίδα αίτησης](https://cdn.acedata.cloud/rci31i.png)
+![Σελίδα αίτησης](https://cdn.xhuoapi.ai/rci31i.png)
 
-Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη [σελίδα σύνδεσης](https://platform.acedata.cloud) για να σας προσκαλέσει να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
+Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη [σελίδα σύνδεσης](https://api.xhuoapi.ai) για να σας προσκαλέσει να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
 
 Κατά την πρώτη αίτηση, θα υπάρχει δωρεάν πίστωση που μπορείτε να χρησιμοποιήσετε δωρεάν για αυτό το API.
 
 ## Παράδειγμα αιτήματος
 
-Το Midjourney Tasks API μπορεί να χρησιμοποιηθεί για να ελέγξει τα αποτελέσματα των δύο API, Midjourney Imagine API και Midjourney Describe API. Για πληροφορίες σχετικά με το πώς να χρησιμοποιήσετε το Midjourney Imagine API, ανατρέξτε στο έγγραφο [Midjourney Imagine API](https://platform.acedata.cloud/documents/b0e32002-2707-41cc-b103-a15b1f1efdc1). Για πληροφορίες σχετικά με το πώς να χρησιμοποιήσετε το Midjourney Describe, ανατρέξτε στο [Midjourney Describe API](https://platform.acedata.cloud/documents/d2a04242-507c-4a49-a17a-01bc382c5756).
+Το Midjourney Tasks API μπορεί να χρησιμοποιηθεί για να ελέγξει τα αποτελέσματα των δύο API, Midjourney Imagine API και Midjourney Describe API. Για πληροφορίες σχετικά με το πώς να χρησιμοποιήσετε το Midjourney Imagine API, ανατρέξτε στο έγγραφο [Midjourney Imagine API](https://api.xhuoapi.ai/documents/b0e32002-2707-41cc-b103-a15b1f1efdc1). Για πληροφορίες σχετικά με το πώς να χρησιμοποιήσετε το Midjourney Describe, ανατρέξτε στο [Midjourney Describe API](https://api.xhuoapi.ai/documents/d2a04242-507c-4a49-a17a-01bc382c5756).
 
 Ας πάρουμε ένα παράδειγμα με το ID έργου που επιστρέφει η υπηρεσία Midjourney Imagine API, για να δείξουμε πώς να χρησιμοποιήσετε αυτό το API. Ας υποθέσουμε ότι έχουμε ένα ID έργου: 7489df4c-ef03-4de0-b598-e9a590793434, και στη συνέχεια θα δείξουμε πώς να το περάσουμε.
 
 ### Παράδειγμα εικόνας έργου
 
-<p><img src="https://cdn.acedata.cloud/lx4mwb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lx4mwb.png" width="500" className="m-auto" /></p>
 
 ### Ρύθμιση κεφαλίδων αιτήματος και σώματος αιτήματος
 
@@ -46,20 +46,20 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 Ρυθμίστε όπως φαίνεται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/ybek58.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ybek58.png" width="500" className="m-auto" /></p>
 
 ### Παράδειγμα κώδικα
 
 Μπορείτε να παρατηρήσετε ότι στη δεξιά πλευρά της σελίδας έχουν ήδη παραχθεί αυτόματα κώδικες σε διάφορες γλώσσες, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/46ookb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/46ookb.png" width="500" className="m-auto" /></p>
 
 Ορισμένα παραδείγματα κώδικα είναι τα εξής:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -74,7 +74,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/tasks"
+url = "https://api.xhuoapi.ai/v1/midjourney/tasks"
 
 headers = {
     "accept": "application/json",
@@ -112,7 +112,7 @@ print(response.text)
   "image_id": "1259525319472185344",
   "job_id": "da317da6-f500-48e6-bf32-dd48b3e6f84f",
   "response": {
-    "image_url": "https://platform.cdn.acedata.cloud/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png?imageMogr2/thumbnail/!50p",
+    "image_url": "https://platform.cdn.xhuoapi.ai/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png?imageMogr2/thumbnail/!50p",
     "image_width": 1024,
     "image_height": 1024,
     "actions": [
@@ -126,7 +126,7 @@ print(response.text)
       "variation3",
       "variation4"
     ],
-    "raw_image_url": "https://platform.cdn.acedata.cloud/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png",
+    "raw_image_url": "https://platform.cdn.xhuoapi.ai/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png",
     "raw_image_width": 2048,
     "raw_image_height": 2048,
     "progress": 100,
@@ -160,13 +160,13 @@ print(response.text)
 - `action`: ο τρόπος λειτουργίας του έργου.
 
 Ρυθμίστε όπως φαίνεται στην παρακάτω εικόνα:
-<p><img src="https://cdn.acedata.cloud/ljmy8w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ljmy8w.png" width="500" className="m-auto" /></p>
 
 ### Παράδειγμα Κώδικα
 
 Μπορείτε να παρατηρήσετε ότι στη δεξιά πλευρά της σελίδας έχουν δημιουργηθεί αυτόματα διάφορες γλώσσες κώδικα, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/ljmy8w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ljmy8w.png" width="500" className="m-auto" /></p>
 
 Ορισμένα παραδείγματα κώδικα είναι τα εξής:
 
@@ -193,7 +193,7 @@ print(response.text)
       "image_id": "1259525319472185344",
       "job_id": "da317da6-f500-48e6-bf32-dd48b3e6f84f",
       "response": {
-        "image_url": "https://platform.cdn.acedata.cloud/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png?imageMogr2/thumbnail/!50p",
+        "image_url": "https://platform.cdn.xhuoapi.ai/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png?imageMogr2/thumbnail/!50p",
         "image_width": 1024,
         "image_height": 1024,
         "actions": [
@@ -207,7 +207,7 @@ print(response.text)
           "variation3",
           "variation4"
         ],
-        "raw_image_url": "https://platform.cdn.acedata.cloud/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png",
+        "raw_image_url": "https://platform.cdn.xhuoapi.ai/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png",
         "raw_image_width": 2048,
         "raw_image_height": 2048,
         "progress": 100,
@@ -236,7 +236,7 @@ print(response.text)
       "image_id": "1259683790612070400",
       "job_id": "ede5c805-e231-498c-8f74-3aa76d5d6d12",
       "response": {
-        "image_url": "https://platform.cdn.acedata.cloud/midjourney/807f62de-c63e-4add-8345-7f0ae6dd18e7.png?imageMogr2/thumbnail/!50p",
+        "image_url": "https://platform.cdn.xhuoapi.ai/midjourney/807f62de-c63e-4add-8345-7f0ae6dd18e7.png?imageMogr2/thumbnail/!50p",
         "image_width": 1024,
         "image_height": 1024,
         "actions": [
@@ -250,7 +250,7 @@ print(response.text)
           "variation3",
           "variation4"
         ],
-        "raw_image_url": "https://platform.cdn.acedata.cloud/midjourney/807f62de-c63e-4add-8345-7f0ae6dd18e7.png",
+        "raw_image_url": "https://platform.cdn.xhuoapi.ai/midjourney/807f62de-c63e-4add-8345-7f0ae6dd18e7.png",
         "raw_image_width": 2048,
         "raw_image_height": 2048,
         "progress": 100,
@@ -276,7 +276,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -292,7 +292,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/tasks"
+url = "https://api.xhuoapi.ai/v1/midjourney/tasks"
 
 headers = {
     "accept": "application/json",

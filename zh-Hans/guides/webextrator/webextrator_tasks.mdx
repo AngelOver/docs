@@ -1,9 +1,9 @@
 ---
 title: "WebExtrator 任务查询 API 集成指南"
-description: "WebExtrator Web Render & Extract 集成指南 - Ace Data Cloud"
+description: "WebExtrator Web Render & Extract 集成指南 - XHuoAPI"
 ---
 
-`POST https://api.acedata.cloud/webextrator/tasks`
+`POST https://api.xhuoapi.ai/v1/webextrator/tasks`
 
 WebExtrator 任务查询 API 用于查询历史的 `render` / `extract` 任务结果。常见
 用法：
@@ -23,7 +23,7 @@ Authorization: Bearer YOUR_API_KEY
 Content-Type:  application/json
 ```
 
-只能查到自己 AceDataCloud 账户下的任务。
+只能查到自己 XHuoAPI 账户下的任务。
 
 ## 请求参数
 
@@ -97,7 +97,7 @@ Content-Type:  application/json
 ### 按 task_id 查询单条
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/tasks \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/tasks \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -109,7 +109,7 @@ curl -X POST https://api.acedata.cloud/webextrator/tasks \
 ### 按 trace_id 查询单条
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/tasks \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/tasks \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -121,7 +121,7 @@ curl -X POST https://api.acedata.cloud/webextrator/tasks \
 ### 批量查询
 
 ```bash
-curl -X POST https://api.acedata.cloud/webextrator/tasks \
+curl -X POST https://api.xhuoapi.ai/v1/webextrator/tasks \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -139,8 +139,8 @@ curl -X POST https://api.acedata.cloud/webextrator/tasks \
 ```python
 import os, time, requests
 
-API_KEY = os.environ["ACEDATA_API_KEY"]
-BASE = "https://api.acedata.cloud"
+API_KEY = os.environ["XHuoAPI_API_KEY"]
+BASE = "https://api.xhuoapi.ai/v1"
 
 # 1) 提交异步抽取
 queue = requests.post(
@@ -176,10 +176,10 @@ app.post('/hooks/webextrator', async (req, res) => {
   const taskId = req.body?.task_id;
   if (!taskId) return;
 
-  const fetchRes = await fetch('https://api.acedata.cloud/webextrator/tasks', {
+  const fetchRes = await fetch('https://api.xhuoapi.ai/v1/webextrator/tasks', {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${process.env.ACEDATA_API_KEY}`,
+      Authorization: `Bearer ${process.env.XHuoAPI_API_KEY}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ action: 'retrieve', id: taskId }),

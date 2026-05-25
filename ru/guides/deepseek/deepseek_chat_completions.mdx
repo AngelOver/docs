@@ -1,6 +1,6 @@
 ---
 title: "DeepSeek Chat Completion API Заявка и использование"
-description: "DeepSeek AI 集成指南 - Ace Data Cloud"
+description: "DeepSeek AI 集成指南 - XHuoAPI"
 ---
 
 DeepSeek — это очень мощная AI система диалога, которая может генерировать плавные и естественные ответы всего за несколько секунд, просто введя подсказку. DeepSeek-V3 выделяется в отрасли своими выдающимися способностями к пониманию и генерации языка, и в настоящее время DeepSeek-V3 уже широко используется в различных отраслях и сферах, его влияние становится все более значительным. Будь то повседневные беседы, креативное письмо или профессиональные консультации, программирование кода, DeepSeek-V3 может предоставить удивительную интеллектуальную помощь, значительно повышая эффективность и креативность работы человека.
@@ -9,9 +9,9 @@ DeepSeek — это очень мощная AI система диалога, к
 
 ## Процесс заявки
 
-Чтобы использовать DeepSeek Chat Completion API, сначала можно перейти на страницу [DeepSeek Chat Completion API](https://platform.acedata.cloud/documents/2d6a9bae-9a70-4aaa-bd72-28e5bd60fa67) и нажать кнопку «Acquire», чтобы получить необходимые для запроса учетные данные:
+Чтобы использовать DeepSeek Chat Completion API, сначала можно перейти на страницу [DeepSeek Chat Completion API](https://api.xhuoapi.ai/documents/2d6a9bae-9a70-4aaa-bd72-28e5bd60fa67) и нажать кнопку «Acquire», чтобы получить необходимые для запроса учетные данные:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Если вы еще не вошли в систему или не зарегистрированы, вас автоматически перенаправят на страницу входа, пригласив зарегистрироваться и войти в систему, после чего вы автоматически вернетесь на текущую страницу.
 
@@ -21,7 +21,7 @@ DeepSeek — это очень мощная AI система диалога, к
 
 Далее вы можете заполнить соответствующие поля на интерфейсе, как показано на рисунке:
 
-<p><img src="https://cdn.acedata.cloud/m9kxkz.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/m9kxkz.png" width="400" className="m-auto" /></p>
 
 При первом использовании этого интерфейса нам необходимо заполнить как минимум три поля: одно из них — это `authorization`, которое можно выбрать прямо из выпадающего списка. Другой параметр — это `model`, `model` — это категория модели, которую мы выбираем для использования с сайта DeepSeek, здесь у нас в основном есть 4 модели, подробности можно посмотреть в предоставленных моделях. Последний параметр — это `messages`, `messages` — это массив наших вопросов, который представляет собой массив, позволяющий одновременно загружать несколько вопросов, каждый из которых содержит `role` и `content`, где `role` обозначает роль задающего вопрос, мы предоставили три идентичности: `user`, `assistant`, `system`. Другой `content` — это конкретное содержание нашего вопроса.
 
@@ -34,7 +34,7 @@ DeepSeek — это очень мощная AI система диалога, к
 - `n`: сколько вариантов ответов генерировать за раз.
 - `response_format`: настройка формата ответа.
 
-<p><img src="https://cdn.acedata.cloud/93k4xi.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/93k4xi.png" width="400" className="m-auto" /></p>
 
 После вызова мы получаем следующий результат:
 
@@ -75,7 +75,7 @@ DeepSeek — это очень мощная AI система диалога, к
 
 Где `choices` содержит информацию о ответах DeepSeek, внутри которой `choices` — это информация о ответах DeepSeek, как показано на рисунке.
 
-<p><img src="https://cdn.acedata.cloud/0pd4q5.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0pd4q5.png" width="400" className="m-auto" /></p>
 
 Можно увидеть, что поле `content` внутри `choices` содержит конкретное содержание ответа DeepSeek.
 
@@ -87,7 +87,7 @@ DeepSeek — это очень мощная AI система диалога, к
 
 Изменение показано на рисунке, однако код вызова должен быть соответствующим образом изменен, чтобы поддерживать потоковые ответы.
 
-<p><img src="https://cdn.acedata.cloud/dsoiqw.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dsoiqw.png" width="400" className="m-auto" /></p>
 
 После изменения `stream` на `true`, API будет возвращать соответствующие JSON данные построчно, и на уровне кода нам нужно внести соответствующие изменения, чтобы получить построчные результаты.
 
@@ -96,7 +96,7 @@ DeepSeek — это очень мощная AI система диалога, к
 ```python
 import requests
 
-url = "https://api.acedata.cloud/deepseek/chat/completions"
+url = "https://api.xhuoapi.ai/v1/deepseek/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -164,7 +164,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/deepseek/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/deepseek/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -180,7 +180,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/deepseek/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/deepseek/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -197,14 +197,14 @@ System.out.print(response.body!!.string())
 ## Многоходовые диалоги
 
 Если вы хотите интегрировать функцию многоходового диалога, вам нужно загрузить несколько вопросов в поле `messages`, конкретные примеры нескольких вопросов приведены на изображении ниже:
-<p><img src="https://cdn.acedata.cloud/7yyhl4.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7yyhl4.png" width="400" className="m-auto" /></p>
 
 Пример кода на Python для вызова:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/deepseek/chat/completions"
+url = "https://api.xhuoapi.ai/v1/deepseek/chat/completions"
 
 headers = {
     "accept": "application/json",

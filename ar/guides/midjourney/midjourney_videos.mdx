@@ -1,15 +1,15 @@
 ---
 title: "توضيح تكامل واجهة برمجة تطبيقات فيديوهات Midjourney"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 ستتناول هذه المقالة توضيح تكامل واجهة برمجة تطبيقات فيديوهات Midjourney، والتي يمكن من خلالها إدخال معلمات مخصصة لتوليد فيديوهات رسمية من Midjourney.
 
 ## عملية التقديم
 
-لاستخدام واجهة برمجة التطبيقات، يجب أولاً الذهاب إلى صفحة [واجهة برمجة تطبيقات فيديوهات Midjourney](https://platform.acedata.cloud/documents/midjourney-videos) لتقديم طلب الخدمة المناسبة، بعد الدخول إلى الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
+لاستخدام واجهة برمجة التطبيقات، يجب أولاً الذهاب إلى صفحة [واجهة برمجة تطبيقات فيديوهات Midjourney](https://api.xhuoapi.ai/documents/midjourney-videos) لتقديم طلب الخدمة المناسبة، بعد الدخول إلى الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، سيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول أو التسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
@@ -19,7 +19,7 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 أولاً، يجب أن نفهم طريقة الاستخدام الأساسية، وهي إدخال كلمة التلميح `prompt`، وسلوك التوليد `action`، ومصفوفة صور الإطار الأول والأخير `image_url`، للحصول على النتيجة المعالجة، يجب أولاً تمرير حقل `action` ببساطة، حيث تكون قيمته `generate`، والتي تتضمن نوعين من السلوك: توليد فيديو (`generate`)، توسيع فيديو (`extend`)، المحتوى المحدد كما يلي:
 
-<p><img src="https://cdn.acedata.cloud/pi72m9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pi72m9.png" width="500" className="m-auto" /></p>
 
 يمكنك أن ترى هنا أننا قمنا بتعيين رؤوس الطلب، بما في ذلك:
 
@@ -41,7 +41,7 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 بعد الاختيار، يمكنك أن ترى أن الكود المقابل قد تم توليده على الجانب الأيمن، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/y0cw0p.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/y0cw0p.png" width="500" className="m-auto" /></p>
 
 انقر على زر "Try" لإجراء اختبار، كما هو موضح في الصورة أعلاه، هنا حصلنا على النتيجة التالية:
 
@@ -78,14 +78,14 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 بالإضافة إلى ذلك، إذا كنت ترغب في توليد كود التكامل المقابل، يمكنك نسخه مباشرة، على سبيل المثال، كود CURL كما يلي:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/midjourney/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "action": "generate",
   "prompt": "A cat sitting on a table",
-  "image_url": "https://cdn.acedata.cloud/jgo1cw.jpg"
+  "image_url": "https://cdn.xhuoapi.ai/jgo1cw.jpg"
 }'
 ```
 
@@ -110,18 +110,18 @@ curl -X POST 'https://api.acedata.cloud/midjourney/videos' \
 
 مثال على كيفية ملء البيانات كما يلي:
 
-<p><img src="https://cdn.acedata.cloud/855hnj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/855hnj.png" width="500" className="m-auto" /></p>
 
 بعد ملء البيانات، تم توليد الكود تلقائيًا كما يلي:
 
-<p><img src="https://cdn.acedata.cloud/p58w39.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/p58w39.png" width="500" className="m-auto" /></p>
 
 الكود المقابل بلغة Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/videos"
+url = "https://api.xhuoapi.ai/v1/midjourney/videos"
 
 headers = {
     "accept": "application/json",
@@ -171,13 +171,13 @@ print(response.text)
 
 أولاً، استدعاء Webhook هو خدمة يمكنها استقبال طلبات HTTP، يجب على المطور استبدالها بعنوان URL الخاص بخادم HTTP الذي قام بإنشائه. هنا، لتسهيل العرض، نستخدم موقع Webhook عام https://webhook.site/، بفتح هذا الموقع يمكنك الحصول على عنوان URL لـ Webhook، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/lali6d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lali6d.png" width="500" className="m-auto" /></p>
 
 قم بنسخ هذا العنوان URL، يمكنك استخدامه كـ Webhook، والعينة هنا هي `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`.
 
 بعد ذلك، يمكننا تعيين حقل `callback_url` إلى عنوان URL الخاص بـ Webhook المذكور أعلاه، مع ملء المعلمات المناسبة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/vk0l0a.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vk0l0a.png" width="500" className="m-auto" /></p>
 
 عند النقر على التشغيل، يمكنك أن تلاحظ أنك ستحصل على نتيجة على الفور، كما يلي:
 
@@ -189,7 +189,7 @@ print(response.text)
 
 بعد لحظة، يمكننا ملاحظة نتيجة توليد الفيديو على `https://webhook.site/556e6971-b41f-4fa8-9151-6e91acd0399f`، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/7hcuw8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7hcuw8.png" width="500" className="m-auto" /></p>
 
 المحتوى كما يلي:
 

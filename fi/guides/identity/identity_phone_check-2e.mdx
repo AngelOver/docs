@@ -1,15 +1,15 @@
 ---
 title: "Puhelinnumeron kaksivaiheinen vahvistus API -integraatio-ohje"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Tässä artikkelissa esitellään puhelinnumeron kaksivaiheinen vahvistus API -integraatio-ohje, jota voidaan käyttää puhelinnumeron ja nimen aitouden ja yhdenmukaisuuden tarkistamiseen.
 
 ## Hakuprosessi
 
-API:n käyttämiseksi sinun on ensin mentävä [puhelinnumeron kaksivaiheinen vahvistus API](https://platform.acedata.cloud/documents/1f39c948-6d9b-48f5-83fb-0719da4f6ab0) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire" -painiketta, kuten kuvassa on esitetty:
+API:n käyttämiseksi sinun on ensin mentävä [puhelinnumeron kaksivaiheinen vahvistus API](https://api.xhuoapi.ai/documents/1f39c948-6d9b-48f5-83fb-0719da4f6ab0) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire" -painiketta, kuten kuvassa on esitetty:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -19,7 +19,7 @@ Ensimmäisellä hakukerralla saat ilmaisia käyttöoikeuksia, joiden avulla voit
 
 Ensinnäkin on hyvä ymmärtää peruskäyttötapa, eli syöttämällä puhelinnumero saat käsitellyn tuloksen. Ensimmäiseksi sinun on yksinkertaisesti välitettävä `mobile`-kenttä. Voimme seuraavaksi täyttää vastaavat tiedot käyttöliittymässä, kuten kuvassa on esitetty:
 
-<p><img src="https://cdn.acedata.cloud/v6k96j.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/v6k96j.png" width="500" className="m-auto" /></p>
 
 Täällä olemme asettaneet pyyntöotsikot, mukaan lukien:
 
@@ -34,7 +34,7 @@ Lisäksi on asetettu pyyntökeho, joka sisältää:
 
 Valinnan jälkeen voit huomata, että oikealla puolella on myös luotu vastaava koodi, kuten kuvassa on esitetty:
 
-<p><img src="https://cdn.acedata.cloud/lq800o.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lq800o.png" width="500" className="m-auto" /></p>
 
 Napsauta "Try" -painiketta testataksesi, kuten yllä olevassa kuvassa on esitetty, ja saamme seuraavan tuloksen:
 
@@ -65,7 +65,7 @@ Voimme nähdä, että puhelinnumeron ja nimen aitous ja yhdenmukaisuus on tarkis
 Jos haluat luoda vastaavan integraatiokoodin, voit kopioida sen suoraan, esimerkiksi CURL-koodi on seuraava:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/phone/check-2e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/phone/check-2e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -80,7 +80,7 @@ Pythonin integraatiokoodi on seuraava:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/phone/check-2e"
+url = "https://api.xhuoapi.ai/v1/identity/phone/check-2e"
 
 headers = {
     "accept": "application/json",

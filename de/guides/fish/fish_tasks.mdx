@@ -1,6 +1,6 @@
 ---
 title: "Fish Tasks API Integration and Usage"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 Die Hauptfunktion der Fish Tasks API besteht darin, den Status der Ausführung eines Auftrags anhand der von der Fish Audios Generation API generierten Auftrags-ID abzufragen.
@@ -9,27 +9,27 @@ Dieses Dokument wird die Integrationsanweisungen für die Fish Tasks API detaill
 
 ## Antragsprozess
 
-Um die Fish Tasks API zu nutzen, müssen Sie zunächst auf die Anmeldeseite [Fish Audios Generation API](https://platform.acedata.cloud/documents/e681b715-54fd-4464-a59a-d7f14500e095) gehen und den entsprechenden Dienst beantragen, dann kopieren Sie die Auftrags-ID der Fish Audios Generation API, wie im Bild gezeigt:
+Um die Fish Tasks API zu nutzen, müssen Sie zunächst auf die Anmeldeseite [Fish Audios Generation API](https://api.xhuoapi.ai/documents/e681b715-54fd-4464-a59a-d7f14500e095) gehen und den entsprechenden Dienst beantragen, dann kopieren Sie die Auftrags-ID der Fish Audios Generation API, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/jxvue8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jxvue8.png" width="500" className="m-auto" /></p>
 
-Gehen Sie schließlich zur Tasks API-Seite [Fish Tasks API](https://platform.acedata.cloud/documents/44c93949-1419-4a45-8db5-8a8335de7151), um den entsprechenden Dienst zu beantragen. Klicken Sie nach dem Betreten der Seite auf die Schaltfläche „Acquire“, wie im Bild gezeigt:
+Gehen Sie schließlich zur Tasks API-Seite [Fish Tasks API](https://api.xhuoapi.ai/documents/44c93949-1419-4a45-8db5-8a8335de7151), um den entsprechenden Dienst zu beantragen. Klicken Sie nach dem Betreten der Seite auf die Schaltfläche „Acquire“, wie im Bild gezeigt:
 
-![Anmeldeseite](https://cdn.acedata.cloud/rci31i.png)
+![Anmeldeseite](https://cdn.xhuoapi.ai/rci31i.png)
 
-Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur [Anmeldeseite](https://platform.acedata.cloud) weitergeleitet, um sich zu registrieren und anzumelden. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
+Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur [Anmeldeseite](https://api.xhuoapi.ai) weitergeleitet, um sich zu registrieren und anzumelden. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
 
 Bei der ersten Beantragung erhalten Sie ein kostenloses Kontingent, mit dem Sie diese API kostenlos nutzen können.
 
 ## Anfragebeispiel
 
-Die Fish Tasks API kann verwendet werden, um die Ergebnisse der Fish Audios Generation API abzufragen. Informationen zur Verwendung der Fish Audios Generation API finden Sie im Dokument [Fish Videos Generation API](https://platform.acedata.cloud/documents/fish-audios-integration).
+Die Fish Tasks API kann verwendet werden, um die Ergebnisse der Fish Audios Generation API abzufragen. Informationen zur Verwendung der Fish Audios Generation API finden Sie im Dokument [Fish Videos Generation API](https://api.xhuoapi.ai/documents/fish-audios-integration).
 
 Wir nehmen eine von der Fish Audios Generation API zurückgegebene Auftrags-ID als Beispiel und demonstrieren, wie man diese API verwendet. Angenommen, wir haben eine Auftrags-ID: 2725a2d3-f87e-4905-9c53-9988d5a7b2f5, im Folgenden zeigen wir, wie man durch Eingabe einer Auftrags-ID vorgeht.
 
 ### Auftragsbeispielbild
 
-<p><img src="https://cdn.acedata.cloud/jxvue8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jxvue8.png" width="500" className="m-auto" /></p>
 
 ### Anfrageheader und Anfragekörper festlegen
 
@@ -45,20 +45,20 @@ Wir nehmen eine von der Fish Audios Generation API zurückgegebene Auftrags-ID a
 
 Einstellung wie im folgenden Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/xc5ejq.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xc5ejq.png" width="500" className="m-auto" /></p>
 
 ### Codebeispiel
 
 Es kann festgestellt werden, dass auf der rechten Seite der Seite bereits automatisch Code in verschiedenen Sprachen generiert wurde, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/851zv2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/851zv2.png" width="500" className="m-auto" /></p>
 
 Einige Codebeispiele sind wie folgt:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/fish/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -120,13 +120,13 @@ Dies ist eine Abfrage der Auftragsdetails für mehrere Auftrags-IDs. Im Gegensat
 
 Einstellung wie im folgenden Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/64lid9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/64lid9.png" width="500" className="m-auto" /></p>
 
 ### Codebeispiel
 
 Es kann festgestellt werden, dass auf der rechten Seite der Seite bereits automatisch Code in verschiedenen Sprachen generiert wurde, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/ezkzmw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ezkzmw.png" width="500" className="m-auto" /></p>
 
 Einige Codebeispiele sind wie folgt:
 

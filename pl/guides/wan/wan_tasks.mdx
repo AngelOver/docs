@@ -1,6 +1,6 @@
 ---
 title: "Integracja i użycie Wan Tasks API"
-description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
+description: "Tongyi Wansiang Video Generation 集成指南 - XHuoAPI"
 ---
 
 Główną funkcją Wan Tasks API jest możliwość sprawdzenia statusu wykonania zadania poprzez wprowadzenie ID zadania wygenerowanego przez Wan Videos Generation API.
@@ -9,27 +9,27 @@ Dokument ten szczegółowo opisuje integrację Wan Tasks API, aby pomóc Ci łat
 
 ## Proces aplikacji
 
-Aby korzystać z Wan Tasks API, najpierw należy przejść do strony aplikacji [Wan Videos Generation API](https://platform.acedata.cloud/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c) i złożyć wniosek o odpowiednią usługę, a następnie skopiować ID zadania z Wan Videos Generation API, jak pokazano na obrazku:
+Aby korzystać z Wan Tasks API, najpierw należy przejść do strony aplikacji [Wan Videos Generation API](https://api.xhuoapi.ai/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c) i złożyć wniosek o odpowiednią usługę, a następnie skopiować ID zadania z Wan Videos Generation API, jak pokazano na obrazku:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
-Na koniec przejdź do strony Tasks API [Wan Tasks API](https://platform.acedata.cloud/documents/240ef446-cbec-461c-a633-4a64178d7018) i złóż wniosek o odpowiednią usługę, po wejściu na stronę kliknij przycisk „Acquire”, jak pokazano na obrazku:
+Na koniec przejdź do strony Tasks API [Wan Tasks API](https://api.xhuoapi.ai/documents/240ef446-cbec-461c-a633-4a64178d7018) i złóż wniosek o odpowiednią usługę, po wejściu na stronę kliknij przycisk „Acquire”, jak pokazano na obrazku:
 
-![Strona aplikacji](https://cdn.acedata.cloud/rci31i.png)
+![Strona aplikacji](https://cdn.xhuoapi.ai/rci31i.png)
 
-Jeśli nie jesteś zalogowany lub zarejestrowany, automatycznie zostaniesz przekierowany na [stronę logowania](https://platform.acedata.cloud), aby zarejestrować się i zalogować, po zalogowaniu lub rejestracji automatycznie wrócisz na bieżącą stronę.
+Jeśli nie jesteś zalogowany lub zarejestrowany, automatycznie zostaniesz przekierowany na [stronę logowania](https://api.xhuoapi.ai), aby zarejestrować się i zalogować, po zalogowaniu lub rejestracji automatycznie wrócisz na bieżącą stronę.
 
 Podczas pierwszej aplikacji otrzymasz darmowy limit, który pozwala na bezpłatne korzystanie z tego API.
 
 ## Przykład żądania
 
-Wan Tasks API może być używane do sprawdzania wyników Wan Videos Generation API. Aby dowiedzieć się, jak korzystać z Wan Videos Generation API, zapoznaj się z dokumentem [Wan Videos Generation API](https://platform.acedata.cloud/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c).
+Wan Tasks API może być używane do sprawdzania wyników Wan Videos Generation API. Aby dowiedzieć się, jak korzystać z Wan Videos Generation API, zapoznaj się z dokumentem [Wan Videos Generation API](https://api.xhuoapi.ai/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c).
 
 Weźmy jako przykład ID zadania zwrócone przez usługę Wan Videos Generation API i pokażmy, jak używać tego API. Załóżmy, że mamy ID zadania: a4bca552-d964-46a1-8ff7-fd922f916582, a następnie pokażemy, jak to zrobić, przekazując ID zadania.
 
 ### Przykład zadania
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 ### Ustawienia nagłówków żądania i ciała żądania
 
@@ -45,20 +45,20 @@ Weźmy jako przykład ID zadania zwrócone przez usługę Wan Videos Generation 
 
 Ustawienia są pokazane na poniższym obrazku:
 
-<p><img src="https://cdn.acedata.cloud/vr3hxw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vr3hxw.png" width="500" className="m-auto" /></p>
 
 ### Przykład kodu
 
 Można zauważyć, że po prawej stronie strony automatycznie wygenerowano kod w różnych językach, jak pokazano na obrazku:
 
-<p><img src="https://cdn.acedata.cloud/ehmsdi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ehmsdi.png" width="500" className="m-auto" /></p>
 
 Przykłady kodu są następujące:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/wan/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/wan/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/wan/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/wan/tasks"
+url = "https://api.xhuoapi.ai/v1/wan/tasks"
 
 headers = {
     "accept": "application/json",
@@ -140,13 +140,13 @@ To jest zapytanie o szczegóły zadań wideo dla wielu ID zadań, w przeciwieńs
 
 Ustawienia są pokazane na poniższym obrazku:
 
-<p><img src="https://cdn.acedata.cloud/wlks1o.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wlks1o.png" width="500" className="m-auto" /></p>
 
 ### Przykład kodu
 
 Można zauważyć, że po prawej stronie strony automatycznie wygenerowano kod w różnych językach, jak pokazano na obrazku:
 
-<p><img src="https://cdn.acedata.cloud/5h1k8t.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5h1k8t.png" width="500" className="m-auto" /></p>
 
 Przykłady kodu są następujące:
 
@@ -216,7 +216,7 @@ Po pomyślnym żądaniu API zwróci szczegółowe informacje o wszystkich zadani
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/wan/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/wan/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

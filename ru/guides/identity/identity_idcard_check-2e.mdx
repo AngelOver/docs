@@ -1,15 +1,15 @@
 ---
 title: "Инструкция по интеграции API проверки идентификационной информации и срока действия"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 В данной статье будет представлена инструкция по интеграции API проверки идентификационной информации и срока действия, который может использоваться для проверки подлинности и согласованности имени, номера удостоверения личности и срока действия удостоверения.
 
 ## Процесс подачи заявки
 
-Чтобы использовать API, необходимо сначала перейти на соответствующую страницу [API проверки идентификационной информации и срока действия](https://platform.acedata.cloud/documents/667017a4-017f-4af0-870e-807034f70632) и подать заявку на соответствующую услугу. После перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
+Чтобы использовать API, необходимо сначала перейти на соответствующую страницу [API проверки идентификационной информации и срока действия](https://api.xhuoapi.ai/documents/667017a4-017f-4af0-870e-807034f70632) и подать заявку на соответствующую услугу. После перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Если вы еще не вошли в систему или не зарегистрированы, вас автоматически перенаправит на страницу входа, где вас пригласят зарегистрироваться и войти. После входа или регистрации вы автоматически вернетесь на текущую страницу.
 
@@ -19,7 +19,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 Сначала ознакомьтесь с основным способом использования, который заключается в том, что нужно ввести ссылку на изображение удостоверения личности, чтобы получить обработанный результат проверки. Сначала необходимо просто передать поле `name`, после чего мы можем заполнить соответствующее содержимое на интерфейсе, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/llvy1l.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/llvy1l.png" width="500" className="m-auto" /></p>
 
 Как видно, здесь мы настроили заголовки запроса, включая:
 
@@ -37,7 +37,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 После выбора можно заметить, что справа также сгенерирован соответствующий код, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/l77q0u.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/l77q0u.png" width="500" className="m-auto" /></p>
 
 Нажмите кнопку «Try», чтобы провести тестирование, как показано на изображении, и мы получим следующий результат:
 
@@ -68,7 +68,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 Кроме того, если вы хотите сгенерировать соответствующий код интеграции, вы можете просто скопировать его, например, код CURL будет следующим:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/idcard/check-2e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/idcard/check-2e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -85,7 +85,7 @@ curl -X POST 'https://api.acedata.cloud/identity/idcard/check-2e' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/idcard/check-2e"
+url = "https://api.xhuoapi.ai/v1/identity/idcard/check-2e"
 
 headers = {
     "accept": "application/json",

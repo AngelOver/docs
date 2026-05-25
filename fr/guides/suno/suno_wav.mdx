@@ -1,6 +1,6 @@
 ---
 title: "Instructions d'intégration de l'API Suno Wav"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 SUNO nous permet d'obtenir des fichiers musicaux au format wav. Ce document explique la méthode d'intégration de l'API correspondante.
@@ -12,7 +12,7 @@ Ici, nous utilisons comme `audio_id` la valeur `4e43116a-bf09-472c-8e1c-655eabf0
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/wav"
+url = "https://api.xhuoapi.ai/v1/suno/wav"
 
 headers = {
     "accept": "application/json",
@@ -37,7 +37,7 @@ Le résultat est le suivant :
   "trace_id": "3fa70e81-6bb7-4ca8-b718-dd16a4eda7e8",
   "data": [
     {
-      "file_url": "https://platform.cdn.acedata.cloud/suno/6a5a2099-d6d3-4930-9709-a30ac5dc7de5.wav"
+      "file_url": "https://platform.cdn.xhuoapi.ai/suno/6a5a2099-d6d3-4930-9709-a30ac5dc7de5.wav"
     }
   ]
 }
@@ -48,6 +48,6 @@ On peut voir que le champ `file_url` dans `data` est le fichier musical au forma
 > **À propos de la persistance et de la durée de validité du lien WAV**
 >
 > Les fichiers WAV sur le CDN Suno en amont (`https://cdn1.suno.ai/{audio_id}.wav`) ne sont conservés que quelques jours, puis sont supprimés, ce qui entraîne un code 403 lors de l'accès.
-> Pour éviter l'expiration du lien, cette API transfère automatiquement le fichier WAV en amont vers notre propre CDN (`https://platform.cdn.acedata.cloud/suno/{task_id}.wav`) avant de le retourner ; l'URL `file_url` retournée est donc une adresse stable du fichier transféré, qui ne devient pas immédiatement invalide après l'expiration du CDN en amont.
+> Pour éviter l'expiration du lien, cette API transfère automatiquement le fichier WAV en amont vers notre propre CDN (`https://platform.cdn.xhuoapi.ai/suno/{task_id}.wav`) avant de le retourner ; l'URL `file_url` retournée est donc une adresse stable du fichier transféré, qui ne devient pas immédiatement invalide après l'expiration du CDN en amont.
 > La **durée de validité du lien transféré est de 30 jours** ; passé ce délai, le fichier est nettoyé périodiquement. Il est recommandé de télécharger rapidement le fichier et de le sauvegarder correctement dans votre propre stockage.
 > En cas d'échec du transfert (très rare), l'URL originale en amont sera renvoyée, ce qui maintient le comportement historique.

@@ -1,6 +1,6 @@
 ---
 title: "واجهة برمجة تطبيقات SeeDream Tasks والتكامل والاستخدام"
-description: "ByteDance Seedream Image Generation 集成指南 - Ace Data Cloud"
+description: "ByteDance Seedream Image Generation 集成指南 - XHuoAPI"
 ---
 
 الوظيفة الرئيسية لواجهة برمجة تطبيقات SeeDream Tasks هي استعلام حالة تنفيذ المهمة من خلال إدخال معرف المهمة الذي تم إنشاؤه بواسطة واجهة برمجة تطبيقات SeeDream Images Generation.
@@ -9,27 +9,27 @@ description: "ByteDance Seedream Image Generation 集成指南 - Ace Data Cloud"
 
 ## عملية التقديم
 
-لاستخدام واجهة برمجة تطبيقات SeeDream Tasks، يجب أولاً الذهاب إلى صفحة التقديم [واجهة برمجة تطبيقات SeeDream Images Generation](https://platform.acedata.cloud/documents/seedream-images) لتقديم طلب الخدمة المناسبة، ثم نسخ معرف المهمة من واجهة برمجة تطبيقات SeeDream Images Generation، كما هو موضح في الصورة:
+لاستخدام واجهة برمجة تطبيقات SeeDream Tasks، يجب أولاً الذهاب إلى صفحة التقديم [واجهة برمجة تطبيقات SeeDream Images Generation](https://api.xhuoapi.ai/documents/seedream-images) لتقديم طلب الخدمة المناسبة، ثم نسخ معرف المهمة من واجهة برمجة تطبيقات SeeDream Images Generation، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
-أخيرًا، انتقل إلى صفحة واجهة برمجة تطبيقات Tasks [واجهة برمجة تطبيقات SeeDream Tasks](https://platform.acedata.cloud/documents/seedream-tasks) لتقديم طلب الخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
+أخيرًا، انتقل إلى صفحة واجهة برمجة تطبيقات Tasks [واجهة برمجة تطبيقات SeeDream Tasks](https://api.xhuoapi.ai/documents/seedream-tasks) لتقديم طلب الخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
 
-![صفحة التقديم](https://cdn.acedata.cloud/rci31i.png)
+![صفحة التقديم](https://cdn.xhuoapi.ai/rci31i.png)
 
-إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى [صفحة تسجيل الدخول](https://platform.acedata.cloud) لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول أو التسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
+إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى [صفحة تسجيل الدخول](https://api.xhuoapi.ai) لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول أو التسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
 عند التقديم لأول مرة، سيكون هناك حد مجاني متاح، يمكنك استخدام هذه الواجهة مجانًا.
 
 ## مثال على الطلب
 
-يمكن استخدام واجهة برمجة تطبيقات SeeDream Tasks لاستعلام نتائج واجهة برمجة تطبيقات SeeDream Images Generation. لمزيد من المعلومات حول كيفية استخدام واجهة برمجة تطبيقات SeeDream Images Generation، يرجى الرجوع إلى الوثيقة [واجهة برمجة تطبيقات SeeDream Images Generation](https://platform.acedata.cloud/documents/seedream-images-integration).
+يمكن استخدام واجهة برمجة تطبيقات SeeDream Tasks لاستعلام نتائج واجهة برمجة تطبيقات SeeDream Images Generation. لمزيد من المعلومات حول كيفية استخدام واجهة برمجة تطبيقات SeeDream Images Generation، يرجى الرجوع إلى الوثيقة [واجهة برمجة تطبيقات SeeDream Images Generation](https://api.xhuoapi.ai/documents/seedream-images-integration).
 
 سنأخذ مثالاً على معرف المهمة الذي تم إرجاعه من خدمة واجهة برمجة تطبيقات SeeDream Images Generation، ونوضح كيفية استخدام هذه الواجهة. لنفترض أن لدينا معرف مهمة: 20068983-0cc9-4c6a-aeb6-9c6a3c668be0، وسنوضح كيفية تمرير معرف المهمة.
 
 ### مثال على المهمة
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 ### إعداد رأس الطلب وجسم الطلب
 
@@ -45,20 +45,20 @@ description: "ByteDance Seedream Image Generation 集成指南 - Ace Data Cloud"
 
 الإعداد كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/yuyte9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yuyte9.png" width="500" className="m-auto" /></p>
 
 ### مثال على الكود
 
 يمكن ملاحظة أنه تم إنشاء أكواد بلغات مختلفة تلقائيًا على الجانب الأيمن من الصفحة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/b0wt0d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/b0wt0d.png" width="500" className="m-auto" /></p>
 
 بعض أمثلة الكود كما يلي:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/seedream/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/seedream/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -81,7 +81,7 @@ curl -X POST 'https://api.acedata.cloud/seedream/tasks' \
     {
       "prompt": "a white siamese cat",
       "size": "2048x2048",
-      "image_url": "https://platform.cdn.acedata.cloud/seedream/6e5f9085-cc4a-4801-b77b-31550129ff19.jpg"
+      "image_url": "https://platform.cdn.xhuoapi.ai/seedream/6e5f9085-cc4a-4801-b77b-31550129ff19.jpg"
     }
   ]
 }
@@ -108,7 +108,7 @@ curl -X POST 'https://api.acedata.cloud/seedream/tasks' \
 
 الإعداد كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/ycc4th.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ycc4th.png" width="500" className="m-auto" /></p>
 
 ### مثال على الكود
 
@@ -143,7 +143,7 @@ curl -X POST 'https://api.acedata.cloud/seedream/tasks' \
           {
             "prompt": "قط سيامي أبيض",
             "size": "2048x2048",
-            "image_url": "https://platform.cdn.acedata.cloud/seedream/6e5f9085-cc4a-4801-b77b-31550129ff19.jpg"
+            "image_url": "https://platform.cdn.xhuoapi.ai/seedream/6e5f9085-cc4a-4801-b77b-31550129ff19.jpg"
           }
         ]
       }
@@ -171,7 +171,7 @@ curl -X POST 'https://api.acedata.cloud/seedream/tasks' \
           {
             "prompt": "قط سيامي أبيض",
             "size": "2048x2048",
-            "image_url": "https://platform.cdn.acedata.cloud/seedream/6e5f9085-cc4a-4801-b77b-31550129ff19.jpg"
+            "image_url": "https://platform.cdn.xhuoapi.ai/seedream/6e5f9085-cc4a-4801-b77b-31550129ff19.jpg"
           }
         ]
       }
@@ -189,7 +189,7 @@ curl -X POST 'https://api.acedata.cloud/seedream/tasks' \
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/seedance/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/seedance/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

@@ -1,6 +1,6 @@
 ---
 title: "Suno 곡 생성 API 연동 설명"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 AI의 활용이 넓어짐에 따라, 각종 AI 프로그램이 점차 보편화되고 있습니다. AI는 사람들의 업무와 생활의 모든 측면에 점점 더 깊숙이 들어오고 있습니다. AI가 관련된 산업도 점점 더 많아지고 있으며, 처음에는 글쓰기에서 시작하여 의료 교육, 현재는 음악에 이르기까지 다양합니다.
@@ -19,13 +19,13 @@ Suno는 전문적이고 고품질의 AI 곡 및 음악 창작 플랫폼으로, �
 
 Suno는 최신 음악 생성 모델을 V5 버전으로 업그레이드하였으며, 최신 V5를 호출하려면 model 매개변수를 `chirp-v5`로 수정하면 9분 길이의 곡을 생성할 수 있습니다.
 
-그러나 Suno 공식은 API를 제공하지 않으며, AceDataCloud는 Suno의 API를 제공하여 Suno 공식과의 연동을 모방하여 원하는 음악을 쉽게 생성할 수 있도록 합니다.
+그러나 Suno 공식은 API를 제공하지 않으며, XHuoAPI는 Suno의 API를 제공하여 Suno 공식과의 연동을 모방하여 원하는 음악을 쉽게 생성할 수 있도록 합니다.
 
 ## 신청 및 사용
 
-Suno Audios API를 사용하려면 먼저 [Suno Audios Generation API](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) 페이지에서 "Acquire" 버튼을 클릭하여 요청에 필요한 자격 증명을 얻을 수 있습니다:
+Suno Audios API를 사용하려면 먼저 [Suno Audios Generation API](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) 페이지에서 "Acquire" 버튼을 클릭하여 요청에 필요한 자격 증명을 얻을 수 있습니다:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 로그인 또는 등록이 되어 있지 않은 경우 자동으로 로그인 페이지로 리디렉션되어 등록 및 로그인을 초대합니다. 로그인 및 등록 후에는 자동으로 현재 페이지로 돌아옵니다.
 
@@ -35,7 +35,7 @@ Suno Audios API를 사용하려면 먼저 [Suno Audios Generation API](https://p
 
 어떤 곡을 생각하든지, 임의로 텍스트를 입력할 수 있습니다. 예를 들어, 크리스마스에 대한 곡을 생성하고 싶다면 `a song for Christmas`를 입력하면 됩니다. 아래와 같이:
 
-<p><img src="https://cdn.acedata.cloud/2kuuup.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2kuuup.png" width="500" className="m-auto" /></p>
 
 여기서 우리는 Request Headers를 설정했습니다. 포함된 내용은 다음과 같습니다:
 
@@ -69,7 +69,7 @@ Suno Audios API를 사용하려면 먼저 [Suno Audios Generation API](https://p
 
 생성된 코드는 다음과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/1xehwl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1xehwl.png" width="500" className="m-auto" /></p>
 
 "Try" 버튼을 클릭하여 API를 직접 테스트할 수 있으며, 1-2분 정도 기다리면 결과가 나타납니다.
 ```json
@@ -141,7 +141,7 @@ Suno Audios API를 사용하려면 먼저 [Suno Audios Generation API](https://p
 [Verse]\n눈송이가 사방에 떨어지고\n반짝이는 하얀색\n땅을 덮고\n아이들이 웃고\n기쁨으로 가득 차고\n이 겨울의 원더랜드에서 오늘 밤\n산타의 썰매\n하늘 위에\n루돌프의 코가 밝게 빛나고\n오 내\n징글벨 소리가\n명확하게 울리고\n기쁨과 휴일의 즐거움을 가져오고\n[Verse 2]\n난로의 불빛 옆에서 밤밤을 굽고\n크리스마스 불빛\n반짝이고 보여주고\n가족들이 사랑과 기쁨으로 모이고\n주변의 모든 이에게 따뜻함을 전하고
 ```
 
-> 주의: 여기서 가사 중 `\n`은 줄 바꿈 기호입니다. 가사를 생성하는 방법을 모른다면, AceDataCloud에서 제공하는 가사 생성 API를 사용하여 프롬프트를 통해 가사를 생성할 수 있습니다. API는 [Suno Lyrics Generation API](https://platform.acedata.cloud/documents/514d82dc-f7ab-4638-9f21-8b9275916b08)입니다.
+> 주의: 여기서 가사 중 `\n`은 줄 바꿈 기호입니다. 가사를 생성하는 방법을 모른다면, XHuoAPI에서 제공하는 가사 생성 API를 사용하여 프롬프트를 통해 가사를 생성할 수 있습니다. API는 [Suno Lyrics Generation API](https://api.xhuoapi.ai/documents/514d82dc-f7ab-4638-9f21-8b9275916b08)입니다.
 
 다음으로 가사, 제목, 스타일에 따라 곡을 사용자 정의 생성하려면 다음과 같은 내용을 지정할 수 있습니다:
 
@@ -152,16 +152,16 @@ Suno Audios API를 사용하려면 먼저 [Suno Audios Generation API](https://p
 
 입력 예시는 다음과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/qp3iba.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qp3iba.png" width="500" className="m-auto" /></p>
 
 입력이 완료되면 자동으로 생성된 코드는 다음과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/o5haei.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/o5haei.png" width="500" className="m-auto" /></p>
 
 해당 코드:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/suno/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -177,20 +177,20 @@ curl -X POST 'https://api.acedata.cloud/suno/audios' \
 테스트가 허용되며, 생성된 효과는 유사합니다.
 
 ## 사용자 정의 가수 스타일 생성을 위한 기능
-만약 가수 스타일을 사용하여 곡을 생성하고 싶다면, 먼저 위의 기본 사용법을 통해 곡을 생성해야 합니다. 마지막으로 이 곡을 가수 스타일로 설정해야 하며, [Suno Persona API](https://platform.acedata.cloud/documents/78bb6c62-6ce0-490f-a7df-e89d80ec0583)에 들어가서 공식적으로 생성된 음악 ID `audio_id`를 사용하여 가수 스타일의 ID 매개변수 `persona_id`를 생성해야 합니다. 구체적인 매개변수는 아래 그림과 같습니다:
+만약 가수 스타일을 사용하여 곡을 생성하고 싶다면, 먼저 위의 기본 사용법을 통해 곡을 생성해야 합니다. 마지막으로 이 곡을 가수 스타일로 설정해야 하며, [Suno Persona API](https://api.xhuoapi.ai/documents/78bb6c62-6ce0-490f-a7df-e89d80ec0583)에 들어가서 공식적으로 생성된 음악 ID `audio_id`를 사용하여 가수 스타일의 ID 매개변수 `persona_id`를 생성해야 합니다. 구체적인 매개변수는 아래 그림과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/pmzo3l.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pmzo3l.png" width="500" className="m-auto" /></p>
 
 작성 완료 후 자동으로 생성된 코드는 다음과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/a5g0nj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a5g0nj.png" width="500" className="m-auto" /></p>
 
 해당 Python 코드:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/persona"
+url = "https://api.xhuoapi.ai/v1/suno/persona"
 
 headers = {
     "accept": "application/json",
@@ -221,18 +221,18 @@ print(response.text)
 
 위의 `audio_id`와 `persona_id`를 각각 `97efc9f4-0e8d-4b3e-88df-14568fa1b11f`, `e0d7319e-aa2a-44cb-b00a-916218d7cb0b`로 설정하여 이번 예시 데이터를 사용합니다. 그런 다음 매개변수 `action`을 `artist_consistency`로 설정하고 (신규 버전의 가수 스타일 Persona-v2-vox인 경우, `action`은 `artist_consistency_vox`로 설정해야 함) 계속해서 곡을 생성할 ID와 가수 스타일 ID를 입력합니다. 작성 예시는 다음과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/fukijq.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fukijq.png" width="500" className="m-auto" /></p>
 
 작성 완료 후 자동으로 생성된 코드는 다음과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/5uzk9d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5uzk9d.png" width="500" className="m-auto" /></p>
 
 해당 Python 코드:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -302,9 +302,9 @@ print(response.text)
 
 > 주의: 여기서 가사 중 `id`는 생성된 곡의 ID입니다. 곡을 생성하는 방법을 모른다면, 위의 기본 사용법을 참조하여 곡을 생성할 수 있습니다.
 
-자신이 업로드한 곡을 계속 생성하고 싶다면, 매개변수 `action`을 `upload_extend`로 설정하고 계속 생성할 사용자 정의 업로드 곡 ID를 입력해야 합니다. 곡 ID는 [Suno Upload Generation API](https://platform.acedata.cloud/documents/766db278-012c-43c4-9245-5f18d8dc4d82)를 사용하여 얻을 수 있으며, 아래 그림과 같습니다:
+자신이 업로드한 곡을 계속 생성하고 싶다면, 매개변수 `action`을 `upload_extend`로 설정하고 계속 생성할 사용자 정의 업로드 곡 ID를 입력해야 합니다. 곡 ID는 [Suno Upload Generation API](https://api.xhuoapi.ai/documents/766db278-012c-43c4-9245-5f18d8dc4d82)를 사용하여 얻을 수 있으며, 아래 그림과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/a0mn5e.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a0mn5e.png" width="500" className="m-auto" /></p>
 
 다음으로 우리는 가사, 스타일을 사용자 정의하여 곡을 생성해야 하며, 다음과 같은 내용을 지정할 수 있습니다:
 
@@ -315,17 +315,17 @@ print(response.text)
 
 작성 예시는 다음과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/zp9s42.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zp9s42.png" width="500" className="m-auto" /></p>
 
 작성 완료 후 자동으로 생성된 코드는 다음과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/wwpw78.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wwpw78.png" width="500" className="m-auto" /></p>
 
 해당 Python 코드:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -932,22 +932,22 @@ print(response.text)
 
 공식적으로 사용자 정의 모드에서 고급 매개변수 `weirdness`==>`Weirdness`、`style_influence`==>`Style Influence`、`audio_weight`==>`Audio Influence`를 사용하여 생성할 수 있으며, 이에 대한 공식 예시는 다음과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/1xonxy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1xonxy.png" width="500" className="m-auto" /></p>
 
 고급 매개변수의 범위는 모두 0-1 사이이며, 구체적인 매개변수는 아래 그림과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/7i94ih.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7i94ih.png" width="500" className="m-auto" /></p>
 
 작성 완료 후 자동으로 생성된 코드는 다음과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/2dlbo6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2dlbo6.png" width="500" className="m-auto" /></p>
 
 해당 Python 코드:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -1011,13 +1011,13 @@ print(response.text)
 
 ## Add Insterumental 기능
 
-2025년 8월, suno에서 새롭게 Add Insterumental 기능이 출시되었습니다. 먼저, 음성 없는 노래를 업로드하여 suno가 배경 음악을 추가하도록 해야 합니다. 먼저 [Suno Upload API](https://platform.acedata.cloud/documents/766db278-012c-43c4-9245-5f18d8dc4d82)에서 음성 없는 노래를 업로드해야 하며, 이에 대한 작업은 아래 그림과 같습니다:
+2025년 8월, suno에서 새롭게 Add Insterumental 기능이 출시되었습니다. 먼저, 음성 없는 노래를 업로드하여 suno가 배경 음악을 추가하도록 해야 합니다. 먼저 [Suno Upload API](https://api.xhuoapi.ai/documents/766db278-012c-43c4-9245-5f18d8dc4d82)에서 음성 없는 노래를 업로드해야 하며, 이에 대한 작업은 아래 그림과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/fxl914.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fxl914.png" width="500" className="m-auto" /></p>
 
 그런 다음 업로드 후의 `audio_id`를 기록해야 하며, 구체적인 결과는 아래 그림과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/47t6wj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/47t6wj.png" width="500" className="m-auto" /></p>
 
 마지막으로 `audio_id`를 얻었습니다: 92254cab-3372-4d9e-bce9-cdcfdbc39070. 그런 다음 다음 매개변수를 입력해야 합니다:
 
@@ -1029,14 +1029,14 @@ print(response.text)
 
 작성 완료 후 자동으로 생성된 코드는 다음과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/8x1ic6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8x1ic6.png" width="500" className="m-auto" /></p>
 
 해당 Python 코드:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -1098,13 +1098,13 @@ print(response.text)
 
 ## 보컬 추가 기능
 
-2025년 8월에 suno에서 새롭게 출시한 보컬 추가 기능은, 먼저 순수 음악을 업로드해야 하며, suno가 가사를 작성하고 사람의 목소리로 노래를 부르게 합니다. 먼저 [Suno Upload API](https://platform.acedata.cloud/documents/766db278-012c-43c4-9245-5f18d8dc4d82)에서 클린싱 노래를 업로드해야 하며, 아래와 같은 작업이 필요합니다:
+2025년 8월에 suno에서 새롭게 출시한 보컬 추가 기능은, 먼저 순수 음악을 업로드해야 하며, suno가 가사를 작성하고 사람의 목소리로 노래를 부르게 합니다. 먼저 [Suno Upload API](https://api.xhuoapi.ai/documents/766db278-012c-43c4-9245-5f18d8dc4d82)에서 클린싱 노래를 업로드해야 하며, 아래와 같은 작업이 필요합니다:
 
-<p><img src="https://cdn.acedata.cloud/fxl914.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/fxl914.png" width="500" class="m-auto"></p>
 
 그런 다음 업로드 후의 `audio_id`를 기록해야 하며, 구체적인 결과는 아래와 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/47t6wj.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/47t6wj.png" width="500" class="m-auto"></p>
 
 마지막으로 `audio_id`를 얻었습니다: 92254cab-3372-4d9e-bce9-cdcfdbc39070, 그리고 다음과 같은 매개변수를 입력해야 합니다:
 
@@ -1118,14 +1118,14 @@ print(response.text)
 
 모든 입력이 완료되면 자동으로 다음과 같은 코드가 생성됩니다:
 
-<p><img src="https://cdn.acedata.cloud/a4pbes.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/a4pbes.png" width="500" class="m-auto"></p>
 
 해당 Python 코드:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -1197,13 +1197,13 @@ print(response.text)
 
 모든 입력이 완료되면 자동으로 다음과 같은 코드가 생성됩니다:
 
-<p><img src="https://cdn.acedata.cloud/7h4zmw.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/7h4zmw.png" width="500" class="m-auto"></p>
 
 해당 Python 코드:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -1272,14 +1272,14 @@ print(response.text)
 
 모든 입력이 완료되면 자동으로 생성된 코드는 다음과 같습니다:
 
-<p><img src="https://cdn.acedata.cloud/8mo82l.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/8mo82l.png" width="500" class="m-auto"></p>
 
 해당하는 Python 코드:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/audios"
+url = "https://api.xhuoapi.ai/v1/suno/audios"
 
 headers = {
     "accept": "application/json",
@@ -1351,13 +1351,13 @@ Suno가 음악을 생성하는 데 시간이 상대적으로 길어 약 1-2분�
 
 먼저, Webhook 콜백은 HTTP 요청을 수신할 수 있는 서비스로, 개발자는 자신이 구축한 HTTP 서버의 URL로 교체해야 합니다. 여기서는 편리한 시연을 위해 공개 Webhook 샘플 사이트인 https://webhook.site/를 사용합니다. 해당 사이트를 열면 Webhook URL을 얻을 수 있습니다.
 
-![](https://cdn.acedata.cloud/fwfqin.png)
+![](https://cdn.xhuoapi.ai/fwfqin.png)
 
 이 URL을 복사하여 Webhook으로 사용할 수 있으며, 여기서의 샘플은 https://webhook.site/03e60575-3d96-4132-b681-b713d78116e2입니다.
 
 다음으로, `callback_url` 필드를 위의 Webhook URL로 설정하고, `prompt`를 입력할 수 있습니다.
 
-![](https://cdn.acedata.cloud/x8xql1.png)
+![](https://cdn.xhuoapi.ai/x8xql1.png)
 
 실행 버튼을 클릭하면 즉시 결과를 얻을 수 있습니다.
 
@@ -1405,7 +1405,7 @@ Suno가 음악을 생성하는 데 시간이 상대적으로 길어 약 1-2분�
 
 물론 우리는 스트리밍 호출을 통해 결과를 얻을 수도 있습니다. 요청 헤더에서 `accept` 값을 `application/x-ndjson`으로 설정하면 됩니다. 아래는 예시 입력을 사용한 시연입니다:
 
-<p><img src="https://cdn.acedata.cloud/vgffvk.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/vgffvk.png" width="500" class="m-auto"></p>
 
 기다리는 동안 다음과 같은 출력을 얻을 수 있습니다:
 

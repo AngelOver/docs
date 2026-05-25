@@ -1,15 +1,15 @@
 ---
 title: "Instructions de connexion pour les agents mondiaux"
-description: "Global Rotation Agent 集成指南 - Ace Data Cloud"
+description: "Global Rotation Agent 集成指南 - XHuoAPI"
 ---
 
-Ce document présente principalement les instructions de connexion pour les agents mondiaux d'Ace Data Cloud, y compris les méthodes de demande, les méthodes pratiques, etc.
+Ce document présente principalement les instructions de connexion pour les agents mondiaux d'XHuoAPI, y compris les méthodes de demande, les méthodes pratiques, etc.
 
 ## Méthode de demande
 
-Pour utiliser le service mondial, vous pouvez d'abord vous rendre sur la «[page de demande](https://platform.acedata.cloud/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)» pour faire une demande, la première demande bénéficie d'un quota gratuit de 1 point.
+Pour utiliser le service mondial, vous pouvez d'abord vous rendre sur la «[page de demande](https://api.xhuoapi.ai/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)» pour faire une demande, la première demande bénéficie d'un quota gratuit de 1 point.
 
-![](https://cdn.acedata.cloud/cyzvmz.png)
+![](https://cdn.xhuoapi.ai/cyzvmz.png)
 
 Si vous n'êtes pas encore connecté, vous serez automatiquement redirigé vers la page de connexion, après vous être connecté, vous pourrez continuer votre demande.
 
@@ -17,13 +17,13 @@ Si vous n'êtes pas encore connecté, vous serez automatiquement redirigé vers 
 
 Une fois la demande terminée, vous pouvez consulter le résultat de votre demande dans le « tableau de bord », comme indiqué sur l'image :
 
-![](https://cdn.acedata.cloud/y9boi5.png)
+![](https://cdn.xhuoapi.ai/y9boi5.png)
 
 Cliquez sur « Credentials » pour voir le nom d'utilisateur et le mot de passe pour utiliser le service d'agent mondial, séparés par un deux-points, où le nom d'utilisateur est de 8 caractères et le mot de passe est de 32 caractères, comme indiqué sur l'image :
 
-![](https://cdn.acedata.cloud/ixwm85.png)
+![](https://cdn.xhuoapi.ai/ixwm85.png)
 
-Cet agent est un agent tournant (Rotating Proxy), donc lors de son utilisation, il suffit de définir une adresse et un port d'agent fixes, l'adresse et le port de l'agent sont respectivement `global.proxy.acedata.cloud` et `30007`, cet agent est un proxy pour les protocoles HTTP/HTTPS/SOCKS, et peut être utilisé pour demander des sites Web utilisant les protocoles HTTP et HTTPS.
+Cet agent est un agent tournant (Rotating Proxy), donc lors de son utilisation, il suffit de définir une adresse et un port d'agent fixes, l'adresse et le port de l'agent sont respectivement `global.proxy.xhuoapi.ai` et `30007`, cet agent est un proxy pour les protocoles HTTP/HTTPS/SOCKS, et peut être utilisé pour demander des sites Web utilisant les protocoles HTTP et HTTPS.
 
 > Remarque : Cet agent ne peut être utilisé que dans un environnement réseau en dehors de la Chine, il ne peut pas être utilisé en Chine continentale.
 
@@ -34,7 +34,7 @@ Une fois que vous avez le nom d'utilisateur et le mot de passe de l'agent, la m�
 Si le nom d'utilisateur et le mot de passe de l'agent actuel sont `1f78266a:eff0896726224fa2a99fe82dd1f07562`, nous pouvons effectuer un test avec la commande curl suivante :
 
 ```shell
-curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007 https://ipinfo.io
+curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007 https://ipinfo.io
 ```
 
 Ici, nous utilisons le paramètre `-x` de curl pour spécifier l'adresse de l'agent, le protocole de l'agent par défaut est HTTP/HTTPS, l'URL demandée est [https://ipinfo.io](https://ipinfo.io), ce site peut renvoyer l'adresse IP réelle de la demande et la région de l'IP.
@@ -67,7 +67,7 @@ Prenons Python comme exemple pour démontrer la méthode de configuration de cet
 ```python
 import requests
 
-proxy = 'http://{proxy_username}:{proxy_password}@global.proxy.acedata.cloud:30007'
+proxy = 'http://{proxy_username}:{proxy_password}@global.proxy.xhuoapi.ai:30007'
 
 proxies = {
     'http': proxy,
@@ -81,7 +81,7 @@ for _ in range(3):
 
 Ici, nous avons d'abord déclaré l'URL de l'agent et l'avons définie comme variable proxy, le protocole est le protocole http, suivi du nom d'utilisateur et du mot de passe de l'agent (c'est-à-dire le nom d'utilisateur et le mot de passe affichés dans le tableau de bord, séparés par un deux-points), suivi d'un symbole `@`, puis de l'adresse et du port de l'agent.
 
-> Remarque : Vous devez remplacer `{proxy_username}:{proxy_password}` dans le code ci-dessus par votre nom d'utilisateur et mot de passe d'agent, le résultat final sera similaire à `proxy = 'http://1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007'`, notez qu'il n'y a pas de caractères `{` et `}`.
+> Remarque : Vous devez remplacer `{proxy_username}:{proxy_password}` dans le code ci-dessus par votre nom d'utilisateur et mot de passe d'agent, le résultat final sera similaire à `proxy = 'http://1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007'`, notez qu'il n'y a pas de caractères `{` et `}`.
 
 Ensuite, nous avons déclaré une variable proxies, configurant deux paires clé-valeur, avec les noms de clé http et https, dont les valeurs sont toutes proxy, représentant que pour les sites Web utilisant les protocoles HTTP et HTTPS, la demande sera effectuée en utilisant l'agent défini par la variable proxy. Ensuite, nous avons défini une boucle de trois fois pour tester l'agent.
 
@@ -135,7 +135,7 @@ En réalité, le code ci-dessus est équivalent à la définition d'un en-tête 
 import requests
 import base64
 
-proxy_host = 'global.proxy.acedata.cloud'
+proxy_host = 'global.proxy.xhuoapi.ai'
 proxy_port = '30007'
 proxy_username = '{proxy_username}' # nom d'utilisateur de 8 caractères
 proxy_password = '{proxy_password}' # mot de passe de 32 caractères
@@ -166,7 +166,7 @@ Pour d'autres langages, comme JavaScript avec axios, une méthode de configurati
 const axios = require("axios");
 const base64 = require("base64");
 
-const proxy_host = "global.proxy.acedata.cloud";
+const proxy_host = "global.proxy.xhuoapi.ai";
 const proxy_port = "30007";
 const proxy_username = "{proxy_username}"; // 8 caractères de nom d'utilisateur
 const proxy_password = "{proxy_password}"; // 32 caractères de mot de passe
@@ -199,7 +199,7 @@ Pour les méthodes de configuration dans d'autres langues, veuillez vous référ
 Nous pouvons filtrer par région en ajoutant une région dans le nom d'utilisateur, par exemple, si nous voulons choisir un proxy américain, le nom d'utilisateur d'origine est `1f78266a`, nous pouvons modifier le nom d'utilisateur en `1f78266a-region-us`, le curl ci-dessus peut être réécrit comme suit :
 
 ```
-curl -x 1f78266a-region-us:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007 https://ipinfo.io
+curl -x 1f78266a-region-us:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007 https://ipinfo.io
 ```
 
 Liste des régions :
@@ -455,11 +455,11 @@ Comme pour le contenu ci-dessus, nous pouvons réaliser une IP fixe pendant un c
 Par exemple, si vous souhaitez réaliser une IP fixe pendant un certain temps, et que le nom d'utilisateur original est `1f78266a`, vous pouvez modifier le nom d'utilisateur en `1f78266a-session-12345`, où `12345`, s'il reste inchangé, alors l'IP ne changera pas pendant un certain temps. La commande curl ci-dessus peut être réécrite comme suit :
 
 ```
-curl -x 1f78266a-session-12345:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007 https://ipinfo.io
+curl -x 1f78266a-session-12345:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007 https://ipinfo.io
 ```
 
 ## Acheter plus
 
 Si votre forfait est épuisé, vous devez en acheter davantage pour continuer à utiliser ce service de proxy.
 
-Pour acheter plus, veuillez vous rendre sur la «[page de demande](https://platform.acedata.cloud/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)» et cliquer directement sur le bouton «Acheter plus» pour sélectionner, plus vous achetez en une seule fois, moins le prix unitaire est cher.
+Pour acheter plus, veuillez vous rendre sur la «[page de demande](https://api.xhuoapi.ai/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)» et cliquer directement sur le bouton «Acheter plus» pour sélectionner, plus vous achetez en une seule fois, moins le prix unitaire est cher.

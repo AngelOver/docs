@@ -1,6 +1,6 @@
 ---
 title: "Integración y uso de la API de SeeDream Tasks"
-description: "ByteDance Seedream Image Generation 集成指南 - Ace Data Cloud"
+description: "ByteDance Seedream Image Generation 集成指南 - XHuoAPI"
 ---
 
 La principal función de la API de SeeDream Tasks es consultar el estado de ejecución de una tarea mediante el ID de tarea generado por la API de SeeDream Images Generation.
@@ -9,27 +9,27 @@ Este documento detallará las instrucciones de integración de la API de SeeDrea
 
 ## Proceso de solicitud
 
-Para utilizar la API de SeeDream Tasks, primero debe ir a la página de solicitud [API de SeeDream Images Generation](https://platform.acedata.cloud/documents/seedream-images) para solicitar el servicio correspondiente, y luego copiar el ID de tarea de la API de SeeDream Images Generation, como se muestra en la imagen:
+Para utilizar la API de SeeDream Tasks, primero debe ir a la página de solicitud [API de SeeDream Images Generation](https://api.xhuoapi.ai/documents/seedream-images) para solicitar el servicio correspondiente, y luego copiar el ID de tarea de la API de SeeDream Images Generation, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
-Finalmente, acceda a la página de la API de Tasks [API de SeeDream Tasks](https://platform.acedata.cloud/documents/seedream-tasks) para solicitar el servicio correspondiente. Una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
+Finalmente, acceda a la página de la API de Tasks [API de SeeDream Tasks](https://api.xhuoapi.ai/documents/seedream-tasks) para solicitar el servicio correspondiente. Una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
 
-![Página de solicitud](https://cdn.acedata.cloud/rci31i.png)
+![Página de solicitud](https://cdn.xhuoapi.ai/rci31i.png)
 
-Si aún no ha iniciado sesión o registrado, será redirigido automáticamente a la [página de inicio de sesión](https://platform.acedata.cloud) para invitarle a registrarse e iniciar sesión. Después de iniciar sesión o registrarse, será redirigido automáticamente a la página actual.
+Si aún no ha iniciado sesión o registrado, será redirigido automáticamente a la [página de inicio de sesión](https://api.xhuoapi.ai) para invitarle a registrarse e iniciar sesión. Después de iniciar sesión o registrarse, será redirigido automáticamente a la página actual.
 
 Al solicitar por primera vez, se le otorgará un crédito gratuito que le permitirá utilizar esta API de forma gratuita.
 
 ## Ejemplo de solicitud
 
-La API de SeeDream Tasks se puede utilizar para consultar los resultados de la API de SeeDream Images Generation. Para saber cómo utilizar la API de SeeDream Images Generation, consulte el documento [API de SeeDream Images Generation](https://platform.acedata.cloud/documents/seedream-images-integration).
+La API de SeeDream Tasks se puede utilizar para consultar los resultados de la API de SeeDream Images Generation. Para saber cómo utilizar la API de SeeDream Images Generation, consulte el documento [API de SeeDream Images Generation](https://api.xhuoapi.ai/documents/seedream-images-integration).
 
 Tomemos como ejemplo un ID de tarea devuelto por el servicio de la API de SeeDream Images Generation. Supongamos que tenemos un ID de tarea: 20068983-0cc9-4c6a-aeb6-9c6a3c668be0, a continuación, se demostrará cómo hacerlo pasando un ID de tarea.
 
 ### Ejemplo de tarea
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 ### Configuración de encabezados de solicitud y cuerpo de solicitud
 
@@ -45,20 +45,20 @@ Tomemos como ejemplo un ID de tarea devuelto por el servicio de la API de SeeDre
 
 Configurado como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/yuyte9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yuyte9.png" width="500" className="m-auto" /></p>
 
 ### Ejemplo de código
 
 Se puede observar que en el lado derecho de la página se han generado automáticamente códigos en varios lenguajes, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/b0wt0d.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/b0wt0d.png" width="500" className="m-auto" /></p>
 
 Algunos ejemplos de código son los siguientes:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/seedream/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/seedream/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -81,7 +81,7 @@ Después de una solicitud exitosa, la API devolverá la información detallada d
     {
       "prompt": "un gato siamés blanco",
       "size": "2048x2048",
-      "image_url": "https://platform.cdn.acedata.cloud/seedream/6e5f9085-cc4a-4801-b77b-31550129ff19.jpg"
+      "image_url": "https://platform.cdn.xhuoapi.ai/seedream/6e5f9085-cc4a-4801-b77b-31550129ff19.jpg"
     }
   ]
 }
@@ -108,7 +108,7 @@ Esto es para consultar los detalles de varias tareas ID, a diferencia de lo ante
 
 Configurado como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/ycc4th.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ycc4th.png" width="500" className="m-auto" /></p>
 
 ### Ejemplo de código
 
@@ -143,7 +143,7 @@ Después de una solicitud exitosa, la API devolverá la información detallada d
           {
             "prompt": "un gato siamés blanco",
             "size": "2048x2048",
-            "image_url": "https://platform.cdn.acedata.cloud/seedream/6e5f9085-cc4a-4801-b77b-31550129ff19.jpg"
+            "image_url": "https://platform.cdn.xhuoapi.ai/seedream/6e5f9085-cc4a-4801-b77b-31550129ff19.jpg"
           }
         ]
       }
@@ -171,7 +171,7 @@ Después de una solicitud exitosa, la API devolverá la información detallada d
           {
             "prompt": "un gato siamés blanco",
             "size": "2048x2048",
-            "image_url": "https://platform.cdn.acedata.cloud/seedream/6e5f9085-cc4a-4801-b77b-31550129ff19.jpg"
+            "image_url": "https://platform.cdn.xhuoapi.ai/seedream/6e5f9085-cc4a-4801-b77b-31550129ff19.jpg"
           }
         ]
       }
@@ -189,7 +189,7 @@ Después de una solicitud exitosa, la API devolverá la información detallada d
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/seedance/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/seedance/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

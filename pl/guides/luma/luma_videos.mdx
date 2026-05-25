@@ -1,19 +1,19 @@
 ---
 title: "Luma API do generowania wideo - instrukcja integracji"
-description: "Luma Video Generation 集成指南 - Ace Data Cloud"
+description: "Luma Video Generation 集成指南 - XHuoAPI"
 ---
 
 Wraz z rosnącym zastosowaniem AI, różne programy AI stały się coraz bardziej powszechne. AI stopniowo przenika do wszystkich aspektów życia i pracy ludzi. Branże związane z AI również się rozszerzają, od początkowego pisania, przez edukację medyczną, aż po obecne wideo.
 
 Luma to profesjonalna platforma do generowania wysokiej jakości wideo, gdzie użytkownicy muszą jedynie przesłać materiały, aby automatycznie wygenerować wysokiej jakości wideo w różnych stylach i efektach. Ten generator wideo AI został opracowany przez zespół członków z renomowanych firm technologicznych, a jego celem jest umożliwienie każdemu łatwego tworzenia doskonałych wideo bez skomplikowanych narzędzi do edycji.
 
-Jednak Luma oficjalnie nie oferuje API, AceDataCloud dostarcza zestaw API Luma, symulując integrację z oficjalnym Suno, co umożliwia szybkie i wygodne generowanie pożądanych wideo.
+Jednak Luma oficjalnie nie oferuje API, XHuoAPI dostarcza zestaw API Luma, symulując integrację z oficjalnym Suno, co umożliwia szybkie i wygodne generowanie pożądanych wideo.
 
 ## Aplikacja i użycie
 
-Aby korzystać z Luma Videos API, najpierw można przejść na stronę [Luma Videos Generation API](https://platform.acedata.cloud/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) i kliknąć przycisk „Acquire”, aby uzyskać potrzebne poświadczenia:
+Aby korzystać z Luma Videos API, najpierw można przejść na stronę [Luma Videos Generation API](https://api.xhuoapi.ai/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) i kliknąć przycisk „Acquire”, aby uzyskać potrzebne poświadczenia:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Jeśli nie jesteś zalogowany lub zarejestrowany, automatycznie zostaniesz przekierowany na stronę logowania, aby zarejestrować się i zalogować, a po zalogowaniu lub rejestracji automatycznie wrócisz na bieżącą stronę.
 
@@ -23,11 +23,11 @@ Podczas pierwszej aplikacji przyznawana jest darmowa pula, która pozwala na bez
 
 Aby wygenerować wideo, można wprowadzić dowolny tekst, na przykład, jeśli chcę wygenerować wideo o astronautach przemieszczających się między przestrzenią a wulkanem, mogę wpisać `Astronauts shuttle from space to volcano`, jak pokazano na obrazku:
 
-<p><img src="https://cdn.acedata.cloud/yub02j.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yub02j.png" width="500" className="m-auto" /></p>
 
 Wygenerowany kod wygląda następująco:
 
-<p><img src="https://cdn.acedata.cloud/ieq7yn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ieq7yn.png" width="500" className="m-auto" /></p>
 
 Główne parametry żądania:
 
@@ -51,7 +51,7 @@ Można kliknąć przycisk „Try”, aby bezpośrednio przetestować API, poczek
   "video_height": 752,
   "video_width": 1360,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/e4018a99-1522-4f24-9330-62c2a9b50b59.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/e4018a99-1522-4f24-9330-62c2a9b50b59.jpg",
   "thumbnail_width": 1360,
   "thumbnail_height": 752
 }
@@ -79,7 +79,7 @@ Jeśli chcesz wygenerować wideo za pomocą niestandardowych klatek początkowyc
 
 W tym przypadku pole `start_image_url` może przyjąć następujący obraz jako klatkę początkową wideo:
 
-![Klatka początkowa](https://cdn.acedata.cloud/r9vsv9.png)
+![Klatka początkowa](https://cdn.xhuoapi.ai/r9vsv9.png)
 
 Następnie, aby dostosować generowanie wideo na podstawie klatek początkowych i końcowych oraz słów kluczowych, można określić następujące treści:
 
@@ -90,18 +90,18 @@ Następnie, aby dostosować generowanie wideo na podstawie klatek początkowych 
 
 Przykład wypełnienia wygląda następująco:
 
-<p><img src="https://cdn.acedata.cloud/zvzydx.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zvzydx.png" width="500" className="m-auto" /></p>
 
 Po wypełnieniu automatycznie wygenerowano kod, który wygląda następująco:
 
-<p><img src="https://cdn.acedata.cloud/tx80pu.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tx80pu.png" width="500" className="m-auto" /></p>
 
 Odpowiedni kod:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/luma/videos"
+url = "https://api.xhuoapi.ai/v1/luma/videos"
 
 headers = {
     "accept": "application/json",
@@ -110,7 +110,7 @@ headers = {
 }
 
 payload = {
-    "start_image_url": "https://cdn.acedata.cloud/r9vsv9.png",
+    "start_image_url": "https://cdn.xhuoapi.ai/r9vsv9.png",
     "action": "generate",
     "prompt": "Astronauts shuttle from space to volcano"
 }
@@ -127,11 +127,11 @@ Otrzymany wynik wygląda następująco:
   "task_id": "12a18694-fd4b-47e7-9c50-34f30862cff6",
   "video_id": "0105c090-03a5-425a-8026-523341cd575b",
   "prompt": "Astronauts shuttle from space to volcano",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -139,11 +139,11 @@ Otrzymany wynik wygląda następująco:
 
 Ostateczny wynik jest podobny do powyższego, wygenerowana klatka początkowa wideo zawiera przesłany obraz, oczywiście można również jednocześnie przesłać linki do obrazów klatek początkowych i końcowych, aby wygenerować wideo, wystarczy dodać dodatkowy obraz klatki końcowej do powyższego. Informacje o obrazie klatki końcowej są następujące:
 
-![Klatka końcowa](https://cdn.acedata.cloud/0iad3k.png)
+![Klatka końcowa](https://cdn.xhuoapi.ai/0iad3k.png)
 
 Przykład wypełnienia wygląda następująco:
 
-<p><img src="https://cdn.acedata.cloud/20igwi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/20igwi.png" width="500" className="m-auto" /></p>
 
 Na koniec uzyskujemy następujący wynik:
 ```json
@@ -152,11 +152,11 @@ Na koniec uzyskujemy następujący wynik:
   "task_id": "d1cb723a-e554-4775-94a4-bb6ae8c7ea67",
   "video_id": "6bebd0d2-f793-472e-9326-38528a9273bb",
   "prompt": "Astronauci przelatują z kosmosu do wulkanu",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -168,13 +168,13 @@ Wynik jest podobny do powyższego, wygenerowane wideo zawiera zarówno obrazek z
 
 Jeśli chcesz kontynuować generowanie wideo, możesz ustawić parametr `action` na `extend` i wprowadzić ID wideo lub link do wideo, ID wideo i link do wideo można uzyskać na podstawie podstawowego użycia, jak pokazano na poniższym obrazku:
 
-<p><img src="https://cdn.acedata.cloud/fwknj4.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fwknj4.png" width="500" className="m-auto" /></p>
 
 W tym momencie można zobaczyć, że ID wideo to:
 
 ```
 "video_id": "0105c090-03a5-425a-8026-523341cd575b",
-"video_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4"
+"video_url": "https://platform.cdn.xhuoapi.ai/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4"
 ```
 
 > Uwaga, tutaj `video_id` i `video_url` w wideo to ID i link do wygenerowanego wideo, jeśli nie wiesz, jak wygenerować wideo, możesz odwołać się do podstawowego użycia opisanego powyżej.
@@ -189,18 +189,18 @@ Aby kontynuować generowanie wideo, musisz przesłać link do wideo lub ID wideo
 
 Przykład wypełnienia wygląda następująco:
 
-<p><img src="https://cdn.acedata.cloud/vv0rxk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vv0rxk.png" width="500" className="m-auto" /></p>
 
 Po wypełnieniu automatycznie wygenerowano kod jak poniżej:
 
-<p><img src="https://cdn.acedata.cloud/woapxi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/woapxi.png" width="500" className="m-auto" /></p>
 
 Odpowiedni kod Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/luma/videos"
+url = "https://api.xhuoapi.ai/v1/luma/videos"
 
 headers = {
     "accept": "application/json",
@@ -226,11 +226,11 @@ Po kliknięciu uruchomienia można zauważyć, że otrzymano wynik jak poniżej:
   "task_id": "c6e529d1-a06d-4c12-91b2-c855135131c3",
   "video_id": "36908c49-c2bb-4a11-bd5a-b8512b004818",
   "prompt": "Astronauci przelatują z kosmosu do wulkanu",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -240,7 +240,7 @@ Można zauważyć, że to wideo zostało rozszerzone na podstawie wideo, które 
 
 Oczywiście możemy również określić link do wideo, aby przeprowadzić rozszerzenie, wypełniając następujące informacje:
 
-<p><img src="https://cdn.acedata.cloud/0cv0hg.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0cv0hg.png" width="500" className="m-auto" /></p>
 
 Po uruchomieniu otrzymano następujący wynik:
 
@@ -250,11 +250,11 @@ Po uruchomieniu otrzymano następujący wynik:
   "task_id": "1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca",
   "video_id": "f0187dc2-339f-4a08-a435-c3a3341f620a",
   "prompt": "Astronauci przelatują z kosmosu do wulkanu",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -264,11 +264,11 @@ Na podstawie wyniku można zauważyć, że na podstawie linku do wideo również
 
 Na koniec możemy również określić obrazek końcowej klatki w rozszerzonym wideo, poniżej znajdują się informacje o obrazku końcowej klatki:
 
-![Klatka końcowa](https://cdn.acedata.cloud/0iad3k.png)
+![Klatka końcowa](https://cdn.xhuoapi.ai/0iad3k.png)
 
 Następnie na podstawie powyższego dodajemy informacje o obrazku końcowej klatki, szczegóły są następujące:
 
-<p><img src="https://cdn.acedata.cloud/9p1vrj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/9p1vrj.png" width="500" className="m-auto" /></p>
 
 Po kliknięciu uruchomienia otrzymano następujące informacje:
 
@@ -278,11 +278,11 @@ Po kliknięciu uruchomienia otrzymano następujące informacje:
   "task_id": "b816b2b4-c345-4673-9e19-83e91f91b643",
   "video_id": "c5400053-63e6-4206-8082-31cf9dd1e7ed",
   "prompt": "Astronauci przelatują z kosmosu do wulkanu",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/b816b2b4-c345-4673-9e19-83e91f91b643.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/b816b2b4-c345-4673-9e19-83e91f91b643.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/b816b2b4-c345-4673-9e19-83e91f91b643.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/b816b2b4-c345-4673-9e19-83e91f91b643.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -299,13 +299,13 @@ Poniżej przyjrzymy się, jak to działa na przykładzie.
 
 Po pierwsze, Webhook to usługa, która może odbierać żądania HTTP, a deweloperzy powinni zastąpić ją URL swojego serwera HTTP. W tym celu, dla wygody demonstracji, użyjemy publicznej strony przykładowej Webhook https://webhook.site/, otwierając tę stronę, można uzyskać URL Webhook, jak pokazano na obrazku:
 
-<p><img src="https://cdn.acedata.cloud/q78okf.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q78okf.png" width="500" className="m-auto" /></p>
 
 Skopiuj ten URL, aby użyć go jako Webhook, a przykładowy URL to https://webhook.site/0c87ca0e-cd74-4577-8d68-f2b80fbf8a13.
 
 Następnie możemy ustawić pole `callback_url` na powyższy URL Webhook, a także wypełnić `prompt`, jak pokazano na obrazku:
 
-<p><img src="https://cdn.acedata.cloud/n2fjvi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/n2fjvi.png" width="500" className="m-auto" /></p>
 
 Klikając uruchom, można zauważyć, że natychmiast otrzymujemy wynik, jak poniżej:
 
@@ -317,7 +317,7 @@ Klikając uruchom, można zauważyć, że natychmiast otrzymujemy wynik, jak pon
 
 Po chwili możemy zaobserwować wynik generowania piosenki na https://webhook.site/0c87ca0e-cd74-4577-8d68-f2b80fbf8a13, jak pokazano na obrazku:
 
-![](https://cdn.acedata.cloud/1hwm5m.png)
+![](https://cdn.xhuoapi.ai/1hwm5m.png)
 
 Treść jest następująca:
 
@@ -327,11 +327,11 @@ Treść jest następująca:
     "task_id": "732f8282-7cf8-401c-95f2-42c33aa079a6",
     "video_id": "4d8013c3-5de0-41aa-966e-0b1a51d1c633",
     "prompt": "Astronauts shuttle from space to volcano",
-    "video_url": "https://platform.cdn.acedata.cloud/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.mp4",
+    "video_url": "https://platform.cdn.xhuoapi.ai/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.mp4",
     "video_height": 752,
     "video_width": 1360,
     "state": "completed",
-    "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.jpg",
+    "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.jpg",
     "thumbnail_width": 1360,
     "thumbnail_height": 752
 }

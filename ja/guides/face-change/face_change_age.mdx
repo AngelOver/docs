@@ -1,15 +1,15 @@
 ---
 title: "人顔年齢変化 API 接続説明"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 本文では、人顔年齢変化 API 接続説明を紹介します。これは、画像と年齢を入力することで、画像中の人顔の年齢を変えることができます。大まかな使い方は、ユーザーが人顔画像をアップロードし、人顔編集と生成アルゴリズムに基づいて、老化または若返りした人顔の画像を出力し、異なる年齢の人顔の変化を実現することです。
 
 ## 申請プロセス
 
-APIを使用するには、まず [人顔年齢変化 API](https://platform.acedata.cloud/documents/0c5b4165-25ba-4dc2-8f02-e3cd74ab4238) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
+APIを使用するには、まず [人顔年齢変化 API](https://api.xhuoapi.ai/documents/0c5b4165-25ba-4dc2-8f02-e3cd74ab4238) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 まだログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -19,11 +19,11 @@ APIを使用するには、まず [人顔年齢変化 API](https://platform.aced
 
 まず、基本的な使用方法を理解します。画像リンクと年齢情報を入力することで、処理後の結果画像を得ることができます。まず、`image_url` フィールドを簡単に渡す必要があります。人顔画像は以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/f5687u.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/f5687u.png" width="500" className="m-auto" /></p>
 
 次に、人顔年齢情報パラメータ `age_infos` をアップロードする必要があります。これは配列であり、複数の情報を渡すことができます。次に、画面上に対応する内容を記入します。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/cn95e8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/cn95e8.png" width="500" className="m-auto" /></p>
 
 ここで、Request Headers を設定しました。これには以下が含まれます：
 
@@ -37,7 +37,7 @@ APIを使用するには、まず [人顔年齢変化 API](https://platform.aced
 
 選択後、右側にも対応するコードが生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/zk8qkl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zk8qkl.png" width="500" className="m-auto" /></p>
 
 「Try」ボタンをクリックするとテストができます。上の図のように、以下の結果を得ました：
 
@@ -49,20 +49,20 @@ APIを使用するには、まず [人顔年齢変化 API](https://platform.aced
 
 ここで返された結果には、入力された年齢に基づいて変化した人顔画像の `image_url` フィールドがあります。変化後の人顔情報は以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/01rmiv.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/01rmiv.png" width="500" className="m-auto" /></p>
 
 画像中の人顔は、入力された年齢に基づいて変化しています。
 
 また、対応する接続コードを生成したい場合は、生成されたものを直接コピーできます。例えば、CURL のコードは以下の通りです：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/change-age' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/change-age' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "age_infos": [{"age":60}],
-  "image_url": "https://cdn.acedata.cloud/f5687u.png"
+  "image_url": "https://cdn.xhuoapi.ai/f5687u.png"
 }'
 ```
 
@@ -71,7 +71,7 @@ Python の接続コードは以下の通りです：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/change-age"
+url = "https://api.xhuoapi.ai/v1/face/change-age"
 
 headers = {
     "accept": "application/json",
@@ -81,7 +81,7 @@ headers = {
 
 payload = {
     "age_infos": [{"age":60}],
-    "image_url": "https://cdn.acedata.cloud/f5687u.png"
+    "image_url": "https://cdn.xhuoapi.ai/f5687u.png"
 }
 
 response = requests.post(url, json=payload, headers=headers)

@@ -1,21 +1,21 @@
 ---
 title: "Suno Upload Referenzaudio API Integrationsanleitung"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 SUNO ermöglicht es uns, Referenzaudio für eine zweite kreative Bearbeitung hochzuladen. Dieses Dokument erklärt die Integrationsmethoden der entsprechenden API.
 
 Diese API hat nur einen Eingabeparameter, nämlich `audio_url`, der eine öffentlich zugängliche CDN-Adresse ist und die Endung mp3 unterstützt.
 
-Hier geben wir die `audio_url` als `https://cdn.acedata.cloud/suno_demo.mp3` ein, die eine öffentlich zugängliche CDN-Adresse ist.
+Hier geben wir die `audio_url` als `https://cdn.xhuoapi.ai/suno_demo.mp3` ein, die eine öffentlich zugängliche CDN-Adresse ist.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/upload' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/upload' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "audio_url": "https://cdn.acedata.cloud/suno_demo.mp3"
+  "audio_url": "https://cdn.xhuoapi.ai/suno_demo.mp3"
 }'
 ```
 
@@ -40,4 +40,4 @@ Das Ergebnis sieht wie folgt aus:
 
 Man kann sehen, dass das `audio_id` Feld in `data` die ID des hochgeladenen Songs ist.
 
-Mit der Song-ID können wir die [Suno Audios Generation API](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) verwenden, um benutzerdefinierte Songs zu generieren. Wenn wir beispielsweise `action` mit `upload_extend` übergeben und gleichzeitig `audio_id` mit der zurückgegebenen Song-ID übergeben, können wir basierend auf dem Referenzaudio einen neuen Song generieren.
+Mit der Song-ID können wir die [Suno Audios Generation API](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) verwenden, um benutzerdefinierte Songs zu generieren. Wenn wir beispielsweise `action` mit `upload_extend` übergeben und gleichzeitig `audio_id` mit der zurückgegebenen Song-ID übergeben, können wir basierend auf dem Referenzaudio einen neuen Song generieren.

@@ -1,6 +1,6 @@
 ---
 title: "Gemini Chat Completion API Antrag und Nutzung"
-description: "Gemini AI 集成指南 - Ace Data Cloud"
+description: "Gemini AI 集成指南 - XHuoAPI"
 ---
 
 Google Gemini ist ein sehr leistungsstarkes KI-Dialogsystem, das in der Lage ist, innerhalb von Sekunden flüssige und natürliche Antworten zu generieren, sobald ein Eingabewort eingegeben wird. Gemini bietet erstaunliche intelligente Unterstützung und steigert erheblich die Effizienz und Kreativität der Menschen.
@@ -9,9 +9,9 @@ Dieses Dokument beschreibt hauptsächlich den Ablauf der Nutzung der Gemini Chat
 
 ## Antragsprozess
 
-Um die Gemini Chat Completion API zu nutzen, können Sie zunächst auf die Seite [Gemini Chat Completion API](https://platform.acedata.cloud/documents/ae54bf9b-af41-4072-b969-3756b6d66834) gehen und auf die Schaltfläche „Acquire“ klicken, um die erforderlichen Anmeldeinformationen zu erhalten:
+Um die Gemini Chat Completion API zu nutzen, können Sie zunächst auf die Seite [Gemini Chat Completion API](https://api.xhuoapi.ai/documents/ae54bf9b-af41-4072-b969-3756b6d66834) gehen und auf die Schaltfläche „Acquire“ klicken, um die erforderlichen Anmeldeinformationen zu erhalten:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur Anmeldeseite weitergeleitet, um sich zu registrieren und anzumelden. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
 
@@ -21,13 +21,13 @@ Bei der ersten Antragstellung gibt es ein kostenloses Kontingent, mit dem Sie di
 
 Als Nächstes können Sie die entsprechenden Inhalte im Interface ausfüllen, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/f6ksts.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/f6ksts.png" width="400" className="m-auto" /></p>
 
 Bei der ersten Nutzung dieser Schnittstelle müssen wir mindestens drei Inhalte ausfüllen: einer ist `authorization`, den Sie einfach aus der Dropdown-Liste auswählen können. Ein weiterer Parameter ist `model`, `model` ist die von uns gewählte Modellkategorie von der Gemini-Website. Hier haben wir hauptsächlich 6 Modelle zur Auswahl, die Details können Sie in den von uns bereitgestellten Modellen einsehen. Der letzte Parameter ist `messages`, `messages` ist das Array der von uns eingegebenen Fragen, es handelt sich um ein Array, das mehrere Fragen gleichzeitig hochladen kann, wobei jede Frage `role` und `content` enthält, wobei `role` die Rolle des Fragestellers angibt. Wir bieten drei Identitäten an: `user`, `assistant`, `system`. Das andere `content` ist der spezifische Inhalt unserer Frage.
 
 Gleichzeitig können Sie auf der rechten Seite den entsprechenden Code zur Aufrufgenerierung sehen, den Sie kopieren und direkt ausführen oder einfach auf die Schaltfläche „Try“ klicken können, um einen Test durchzuführen.
 
-<p><img src="https://cdn.acedata.cloud/a3mdgy.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a3mdgy.png" width="400" className="m-auto" /></p>
 
 Nach dem Aufruf stellen wir fest, dass das Rückgabeergebnis wie folgt aussieht:
 
@@ -81,7 +81,7 @@ Das Rückgabeergebnis hat mehrere Felder, die wie folgt beschrieben werden:
 
 Dabei ist `choices` das, was die Antwortinformationen von Gemini enthält, und das darin enthaltene `choices` sind die spezifischen Informationen, die Gemini geantwortet hat, wie im Bild gezeigt.
 
-<p><img src="https://cdn.acedata.cloud/v4z6e0.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/v4z6e0.png" width="400" className="m-auto" /></p>
 
 Man kann sehen, dass das `content`-Feld in `choices` den spezifischen Inhalt der Antwort von Gemini enthält.
 
@@ -93,7 +93,7 @@ Wenn Sie eine Stream-Antwort zurückgeben möchten, können Sie den `stream`-Par
 
 Die Änderung ist wie im Bild gezeigt, jedoch muss der Aufrufcode entsprechend geändert werden, um die Stream-Antwort zu unterstützen.
 
-<p><img src="https://cdn.acedata.cloud/o2blmi.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/o2blmi.png" width="400" className="m-auto" /></p>
 
 Nachdem Sie `stream` auf `true` geändert haben, gibt die API die entsprechenden JSON-Daten zeilenweise zurück. Auf der Code-Ebene müssen wir entsprechende Änderungen vornehmen, um die zeilenweisen Ergebnisse zu erhalten.
 
@@ -102,7 +102,7 @@ Python-Beispielaufrufcode:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/gemini/chat/completions"
+url = "https://api.xhuoapi.ai/v1/gemini/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -162,7 +162,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/gemini/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/gemini/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -178,7 +178,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/gemini/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/gemini/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -196,14 +196,14 @@ Andere Sprachen können entsprechend umgeschrieben werden, das Prinzip bleibt da
 
 Wenn Sie die Funktion für mehrere Runden im Dialog integrieren möchten, müssen Sie mehrere Anfragen im `messages`-Feld hochladen. Ein konkretes Beispiel für mehrere Anfragen ist im folgenden Bild dargestellt:
 
-<p><img src="https://cdn.acedata.cloud/qvzu06.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qvzu06.png" width="400" className="m-auto" /></p>
 
 Python-Beispielaufrufcode:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/gemini/chat/completions"
+url = "https://api.xhuoapi.ai/v1/gemini/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -282,7 +282,7 @@ Anfragebeispiel:
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]
@@ -350,7 +350,7 @@ Natürlich können Sie auch einen Link zu einem Video übermitteln, das spezifis
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/58yioe.mp4"
+            "url": "https://cdn.xhuoapi.ai/58yioe.mp4"
           }
         }
       ]
@@ -423,7 +423,7 @@ Beispielanfrage:
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]
@@ -449,7 +449,7 @@ Gemini 3.1 Pro unterstützt ebenfalls das Verständnis von Videos:
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/58yioe.mp4"
+            "url": "https://cdn.xhuoapi.ai/58yioe.mp4"
           }
         }
       ]

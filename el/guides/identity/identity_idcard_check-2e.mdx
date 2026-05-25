@@ -1,15 +1,15 @@
 ---
 title: "Ταυτότητα Πληροφορίες και Έλεγχος Ικανότητας API Σύνδεση Οδηγίες"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Αυτό το έγγραφο θα παρουσιάσει μια ταυτότητα πληροφορίες και έλεγχο ικανότητας API σύνδεση οδηγίες, που μπορεί να χρησιμοποιηθεί για την επαλήθευση της αυθεντικότητας και της συνέπειας του ονόματος, του αριθμού ταυτότητας και της ημερομηνίας λήξης της ταυτότητας.
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [Ταυτότητα Πληροφορίες και Έλεγχος Ικανότητας API](https://platform.acedata.cloud/documents/667017a4-017f-4af0-870e-807034f70632) για να ζητήσετε την αντίστοιχη υπηρεσία. Αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα [Ταυτότητα Πληροφορίες και Έλεγχος Ικανότητας API](https://api.xhuoapi.ai/documents/667017a4-017f-4af0-870e-807034f70632) για να ζητήσετε την αντίστοιχη υπηρεσία. Αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα ανακατευθυνθείτε αυτόματα στη σελίδα σύνδεσης που σας προσκαλεί να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και τη σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
 
@@ -19,7 +19,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 Πρώτα απ' όλα, ας κατανοήσουμε τη βασική μέθοδο χρήσης, δηλαδή εισάγοντας τον σύνδεσμο εικόνας της ταυτότητας, μπορείτε να αποκτήσετε το αποτέλεσμα επαλήθευσης μετά την επεξεργασία. Πρώτα χρειάζεται να περάσετε ένα πεδίο `name`, και στη συνέχεια μπορούμε να συμπληρώσουμε τα αντίστοιχα περιεχόμενα στην οθόνη, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/llvy1l.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/llvy1l.png" width="500" className="m-auto" /></p>
 
 Μπορείτε να δείτε ότι εδώ έχουμε ρυθμίσει τα Request Headers, που περιλαμβάνουν:
 
@@ -37,7 +37,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 Αφού επιλέξετε, μπορείτε να δείτε ότι έχει παραχθεί ο αντίστοιχος κώδικας στα δεξιά, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/l77q0u.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/l77q0u.png" width="500" className="m-auto" /></p>
 
 Κάντε κλικ στο κουμπί «Try» για να κάνετε δοκιμή, όπως φαίνεται στην παραπάνω εικόνα, και εδώ έχουμε λάβει το εξής αποτέλεσμα:
 
@@ -68,7 +68,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 Επιπλέον, εάν θέλετε να δημιουργήσετε τον αντίστοιχο κώδικα σύνδεσης, μπορείτε να τον αντιγράψετε απευθείας, για παράδειγμα, ο κώδικας CURL είναι ως εξής:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/idcard/check-2e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/idcard/check-2e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -85,7 +85,7 @@ curl -X POST 'https://api.acedata.cloud/identity/idcard/check-2e' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/idcard/check-2e"
+url = "https://api.xhuoapi.ai/v1/identity/idcard/check-2e"
 
 headers = {
     "accept": "application/json",

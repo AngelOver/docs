@@ -1,17 +1,17 @@
 ---
 title: "Claude Code för VS Code Användarguide"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code är ett **Agentic Coding**-verktyg som lanserats av Anthropic, och det kallas också en av världens mest kraftfulla programmeringsagenter. Claude Codes VS Code-tillägg erbjuder ett inbyggt grafiskt gränssnitt, stöd för inline Diff-vyer, `@`-omnämnanden, planeringsgranskningar och mer, vilket gör det till det rekommenderade sättet att använda Claude Code i VS Code.
 
-Detta dokument beskriver hur man konfigurerar och använder Claude Code-tillägget i VS Code via AceData Clouds proxy-tjänst.
+Detta dokument beskriver hur man konfigurerar och använder Claude Code-tillägget i VS Code via XHuoAPIs proxy-tjänst.
 
 ## Ansökningsprocess
 
-För att använda Claude Code kan du först gå till [Claude Messages tjänstsidan](https://platform.acedata.cloud/documents/claude-messages) och klicka på knappen "Acquire" för att få de nödvändiga autentiseringsuppgifterna:
+För att använda Claude Code kan du först gå till [Claude Messages tjänstsidan](https://api.xhuoapi.ai/documents/claude-messages) och klicka på knappen "Acquire" för att få de nödvändiga autentiseringsuppgifterna:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Om du inte är inloggad eller registrerad kommer du automatiskt att omdirigeras till inloggningssidan där du uppmanas att registrera dig och logga in. Efter att du har loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
 
@@ -27,7 +27,7 @@ Vid första ansökan får du en gratis kvot som gör att du kan prova Claude Cod
 
 I VS Code / Cursor:s tilläggsmarknad, tryck på `Cmd+Shift+X` (Mac) eller `Ctrl+Shift+X` (Windows/Linux) för att öppna tilläggsvyn, sök efter **Claude Code**, hitta det officiella tillägget från Anthropic och klicka på "Install" för att installera:
 
-![Claude Code-tillägget i VS Code Marketplace](https://cdn.acedata.cloud/10ddf71320.png)
+![Claude Code-tillägget i VS Code Marketplace](https://cdn.xhuoapi.ai/10ddf71320.png)
 
 Du kan också installera direkt via följande länkar:
 
@@ -38,9 +38,9 @@ Efter installationen, välj att lita på tillägget i den popup-information som 
 
 > Om tillägget inte visas efter installationen, starta om VS Code eller kör "Developer: Reload Window" i kommandopanelen.
 
-## Konfigurera AceData Cloud API
+## Konfigurera XHuoAPI API
 
-Vid första öppningen av tillägget kommer du att uppmanas att logga in på Anthropic:s officiella konto. Du kan hoppa över den officiella inloggningen och använda AceData Clouds proxy-API istället, **utan officiell prenumeration**.
+Vid första öppningen av tillägget kommer du att uppmanas att logga in på Anthropic:s officiella konto. Du kan hoppa över den officiella inloggningen och använda XHuoAPIs proxy-API istället, **utan officiell prenumeration**.
 
 ### Steg ett: Konfigurera miljövariabler
 
@@ -48,13 +48,13 @@ Du kan välja att konfigurera miljövariabler på något av följande ställen:
 
 **Alternativ A: Användarnivåkonfiguration (gäller alla projekt)**
 
-Redigera `~/.claude/settings.json` (om den inte finns, skapa den) och lägg till `env`-konfigurationen, ersätt `{token}` med den API-token du fått från AceData Cloud-konsolen:
+Redigera `~/.claude/settings.json` (om den inte finns, skapa den) och lägg till `env`-konfigurationen, ersätt `{token}` med den API-token du fått från XHuoAPI-konsolen:
 
 ```json
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
@@ -67,12 +67,12 @@ Skapa `.claude/settings.json` (delad konfiguration) eller `.claude/settings.loca
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **Tips**: API-token kan ses i [AceData Cloud-konsolen](https://platform.acedata.cloud/console). Värdet för `ANTHROPIC_AUTH_TOKEN` kommer automatiskt att få prefixet `Bearer` när det skickas till servern. Projektkonfiguration har högre prioritet än användarnivåkonfiguration. Det rekommenderas att använda `.claude/settings.json` för delad konfiguration i teamprojekt och att hålla personlig känslig information i `.claude/settings.local.json`.
+> **Tips**: API-token kan ses i [XHuoAPI-konsolen](https://api.xhuoapi.ai/console). Värdet för `ANTHROPIC_AUTH_TOKEN` kommer automatiskt att få prefixet `Bearer` när det skickas till servern. Projektkonfiguration har högre prioritet än användarnivåkonfiguration. Det rekommenderas att använda `.claude/settings.json` för delad konfiguration i teamprojekt och att hålla personlig känslig information i `.claude/settings.local.json`.
 
 ### Steg två: Inaktivera inloggningsprompt (valfritt)
 
@@ -95,7 +95,7 @@ När installationen och konfigurationen är klar finns det flera sätt att öppn
 
 Till skillnad från verktyg som Cursor / Copilot som använder sidopaneler, använder Claude Code som standard **redigeringsvy** som chattområde, vilket ger en större visuell yta och mer innehåll. Du kan också dra panelen till sidopanelen eller andra platser.
 
-![Claude Code-panelen i VS Code](https://cdn.acedata.cloud/b84b878420.jpg)
+![Claude Code-panelen i VS Code](https://cdn.xhuoapi.ai/b84b878420.jpg)
 
 ## Grundläggande användning
 
@@ -110,7 +110,7 @@ Skriv direkt på naturligt språk i Claude Code-panelen för att interagera med 
 
 Claude Code kommer automatiskt att förstå kontexten i din kodbas och analysera och redigera över flera filer. När Claude behöver ändra en fil kommer en Diff-jämförelsevy att visas, där du kan välja att acceptera eller avvisa ändringen.
 
-![Dialog och meddelanden i Claude Code i VS Code](https://cdn.acedata.cloud/650377f5cc.png)
+![Dialog och meddelanden i Claude Code i VS Code](https://cdn.xhuoapi.ai/650377f5cc.png)
 
 ### Kontextreferenser
 
@@ -146,7 +146,7 @@ Klicka på rullgardinsmenyn högst upp i panelen för att se historiska dialoger
 ### Granska kodändringar
 
 När Claude behöver ändra en fil kommer en Diff-jämförelsevy att visas, som visar jämförelsen mellan den ursprungliga koden och den ändrade koden. Du kan välja att acceptera eller avvisa varje ändring, eller så kan du berätta för Claude vad du vill ha annorlunda:
-![VS Code:s Diff-jämförelsevy](https://cdn.acedata.cloud/c42381ea9f.png)
+![VS Code:s Diff-jämförelsevy](https://cdn.xhuoapi.ai/c42381ea9f.png)
 
 ### Behörighetsläge
 
@@ -186,8 +186,8 @@ Om du föredrar kommandoradsstil kan du i VS Code-inställningarna markera **Anv
 ### Vad gör jag om anslutningen misslyckas?
 
 1. Kontrollera att miljövariablerna i `~/.claude/settings.json` eller `.claude/settings.json` är korrekt konfigurerade, särskilt `ANTHROPIC_AUTH_TOKEN` och `ANTHROPIC_BASE_URL`
-2. Kontrollera att API-token är giltig (kan ses i [kontrollpanelen](https://platform.acedata.cloud/console))
-3. Kontrollera att nätverksanslutningen är stabil och att du kan nå `https://api.acedata.cloud`
+2. Kontrollera att API-token är giltig (kan ses i [kontrollpanelen](https://api.xhuoapi.ai/console))
+3. Kontrollera att nätverksanslutningen är stabil och att du kan nå `https://api.xhuoapi.ai/v1`
 4. Starta om VS Code och försök igen
 
 ### Varför visas inte Spark-ikonen?
@@ -199,11 +199,11 @@ Om du föredrar kommandoradsstil kan du i VS Code-inställningarna markera **Anv
 
 ### Hur kan jag se kvarvarande kvot?
 
-Logga in på [AceData Cloud-kontrollpanelen](https://platform.acedata.cloud/console) för att se den aktuella kontots kvarvarande kvot och användning.
+Logga in på [XHuoAPI-kontrollpanelen](https://api.xhuoapi.ai/console) för att se den aktuella kontots kvarvarande kvot och användning.
 
 ## Lär dig mer
 
 - 📖 [Claude Code VS Code officiella dokumentation](https://code.claude.com/docs/en/vs-code)
 - ⌨️ [VS Code-kommandon och genvägar](https://code.claude.com/docs/en/vs-code#vs-code-commands-and-shortcuts)
-- 🔧 [AceData Cloud Claude Code-tjänst](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code-tjänst](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 Om du har några frågor, tveka inte att kontakta vår kundtjänst via plattformen

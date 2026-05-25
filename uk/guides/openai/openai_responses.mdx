@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Responses API заявка та використання"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI нещодавно надав інтерфейс для створення відповідей моделей. Надсилайте текстові або зображення вхідні дані для генерації текстових або зображення вихідних даних. Дозвольте моделі викликати ваш власний код або використовувати вбудовані інструменти, такі як веб-пошук або пошук файлів, щоб використовувати ваші власні дані як вхідні дані для відповіді моделі.
@@ -9,9 +9,9 @@ OpenAI нещодавно надав інтерфейс для створенн�
 
 ## Процес заявки
 
-Щоб використовувати OpenAI Responses API, спочатку можна перейти на сторінку [OpenAI Responses API](https://platform.acedata.cloud/documents/81e285a6-d010-4a2d-a3a8-ca113d4ef82a) і натиснути кнопку «Acquire», щоб отримати необхідні для запиту облікові дані:
+Щоб використовувати OpenAI Responses API, спочатку можна перейти на сторінку [OpenAI Responses API](https://api.xhuoapi.ai/documents/81e285a6-d010-4a2d-a3a8-ca113d4ef82a) і натиснути кнопку «Acquire», щоб отримати необхідні для запиту облікові дані:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, запрошуючи вас зареєструватися та увійти, після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
 
@@ -21,7 +21,7 @@ OpenAI нещодавно надав інтерфейс для створенн�
 
 Далі ви можете заповнити відповідні поля на інтерфейсі, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/8lu8di.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/8lu8di.png" width="400" className="m-auto" /></p>
 
 При першому використанні цього інтерфейсу нам потрібно заповнити принаймні три поля: одне з них - `authorization`, яке можна вибрати безпосередньо зі спадного списку. Інший параметр - `model`, `model` - це вибраний нами тип моделі OpenAI ChatGPT, тут у нас є 20 різних моделей, деталі можна переглянути в наданих моделях. Останній параметр - `input`, `input` - це масив запитів, який є масивом, що дозволяє одночасно завантажувати кілька запитів, кожен з яких містить `role` та `content`, де `role` вказує на роль запитувача, ми надали три типи: `user`, `assistant`, `system`. Інший `content` - це конкретний зміст нашого запиту.
 
@@ -36,7 +36,7 @@ OpenAI нещодавно надав інтерфейс для створенн�
 - `tools`: визначення викликів функцій/інструментів.
 - `background`: чи працювати у фоновому режимі асинхронно.
 
-<p><img src="https://cdn.acedata.cloud/rsw47a.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/rsw47a.png" width="400" className="m-auto" /></p>
 
 Після виклику ми отримуємо наступний результат:
 
@@ -114,7 +114,7 @@ OpenAI нещодавно надав інтерфейс для створенн�
 
 Серед них `output` містить інформацію про відповідь ChatGPT, в якій `output` - це відповідь ChatGPT, як показано на малюнку.
 
-<p><img src="https://cdn.acedata.cloud/mald8o.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mald8o.png" width="400" className="m-auto" /></p>
 
 Можна побачити, що поле `content` в `output` містить конкретний зміст відповіді ChatGPT.
 
@@ -126,7 +126,7 @@ OpenAI нещодавно надав інтерфейс для створенн�
 
 Зміна, як показано на малюнку, але код виклику потребує відповідних змін, щоб підтримувати потокову відповідь.
 
-<p><img src="https://cdn.acedata.cloud/xidnao.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xidnao.png" width="400" className="m-auto" /></p>
 
 Після зміни `stream` на `true`, API буде повертати відповідні JSON дані по рядках, на рівні коду нам потрібно внести відповідні зміни, щоб отримати результати по рядках.
 
@@ -135,7 +135,7 @@ OpenAI нещодавно надав інтерфейс для створенн�
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/responses"
+url = "https://api.xhuoapi.ai/v1/openai/responses"
 
 headers = {
     "accept": "application/json",
@@ -223,7 +223,7 @@ const options = {
   }),
 };
 
-fetch("https://api.acedata.cloud/openai/responses", options)
+fetch("https://api.xhuoapi.ai/v1/openai/responses", options)
   .then((response) => response.json())
   .then((response) => console.log(response))
   .catch((err) => console.error(err));
@@ -239,7 +239,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/openai/responses")
+  .url("https://api.xhuoapi.ai/v1/openai/responses")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer b82d32f570bc434d9ba9923aa0e7dce0")
@@ -257,14 +257,14 @@ System.out.print(response.body!!.string())
 
 Якщо ви хочете інтегрувати функцію багатократного діалогу, вам потрібно завантажити кілька запитів у поле `input`, приклади кількох запитів наведені на малюнку нижче:
 
-<p><img src="https://cdn.acedata.cloud/1jqwnf.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1jqwnf.png" width="400" className="m-auto" /></p>
 
 Приклад коду на Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/responses"
+url = "https://api.xhuoapi.ai/v1/openai/responses"
 
 headers = {
     "accept": "application/json",
@@ -361,7 +361,7 @@ gpt-4o є багатомодальною великою мовною модел�
 - Curl скрипт
 
 ```
-curl -X POST 'https://api.acedata.cloud/openai/responses' \
+curl -X POST 'https://api.xhuoapi.ai/v1/openai/responses' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -389,7 +389,7 @@ curl -X POST 'https://api.acedata.cloud/openai/responses' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/chat/completions"
+url = "https://api.xhuoapi.ai/v1/openai/chat/completions"
 
 headers = {
     "accept": "application/json",

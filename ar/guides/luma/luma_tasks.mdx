@@ -1,6 +1,6 @@
 ---
 title: "واجهة برمجة تطبيقات Luma Tasks والتكامل والاستخدام"
-description: "Luma Video Generation 集成指南 - Ace Data Cloud"
+description: "Luma Video Generation 集成指南 - XHuoAPI"
 ---
 
 الوظيفة الرئيسية لواجهة برمجة تطبيقات Luma Tasks هي استعلام حالة تنفيذ المهمة من خلال إدخال معرف المهمة الذي تم إنشاؤه بواسطة واجهة برمجة تطبيقات Luma Videos Generation.
@@ -9,27 +9,27 @@ description: "Luma Video Generation 集成指南 - Ace Data Cloud"
 
 ## عملية التقديم
 
-لاستخدام واجهة برمجة تطبيقات Luma Tasks، يجب أولاً زيارة صفحة التقديم [واجهة برمجة تطبيقات Luma Videos Generation](https://platform.acedata.cloud/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) لتقديم الطلب للخدمة المناسبة، ثم نسخ معرف المهمة من واجهة برمجة تطبيقات Luma Videos Generation، كما هو موضح في الصورة:
+لاستخدام واجهة برمجة تطبيقات Luma Tasks، يجب أولاً زيارة صفحة التقديم [واجهة برمجة تطبيقات Luma Videos Generation](https://api.xhuoapi.ai/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) لتقديم الطلب للخدمة المناسبة، ثم نسخ معرف المهمة من واجهة برمجة تطبيقات Luma Videos Generation، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/ynk4ow.png)
+![](https://cdn.xhuoapi.ai/ynk4ow.png)
 
-أخيرًا، انتقل إلى صفحة واجهة برمجة تطبيقات Tasks [واجهة برمجة تطبيقات Luma Tasks](https://platform.acedata.cloud/documents/7d32369c-4ead-4364-a4c5-652bc768b3ff) لتقديم الطلب للخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
+أخيرًا، انتقل إلى صفحة واجهة برمجة تطبيقات Tasks [واجهة برمجة تطبيقات Luma Tasks](https://api.xhuoapi.ai/documents/7d32369c-4ead-4364-a4c5-652bc768b3ff) لتقديم الطلب للخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
 
-![صفحة التقديم](https://cdn.acedata.cloud/rci31i.png)
+![صفحة التقديم](https://cdn.xhuoapi.ai/rci31i.png)
 
-إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى [صفحة تسجيل الدخول](https://platform.acedata.cloud) لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول أو التسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
+إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى [صفحة تسجيل الدخول](https://api.xhuoapi.ai) لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول أو التسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
 عند التقديم لأول مرة، سيكون هناك حد مجاني متاح، يمكنك استخدام هذه الواجهة مجانًا.
 
 ## مثال على الطلب
 
-يمكن استخدام واجهة برمجة تطبيقات Luma Tasks لاستعلام نتائج واجهة برمجة تطبيقات Luma Videos Generation. لمزيد من المعلومات حول كيفية استخدام واجهة برمجة تطبيقات Luma Videos Generation، يرجى الرجوع إلى الوثيقة [واجهة برمجة تطبيقات Luma Videos Generation](https://platform.acedata.cloud/documents/16bb0108-1f09-45b3-97ac-16a668750a8c).
+يمكن استخدام واجهة برمجة تطبيقات Luma Tasks لاستعلام نتائج واجهة برمجة تطبيقات Luma Videos Generation. لمزيد من المعلومات حول كيفية استخدام واجهة برمجة تطبيقات Luma Videos Generation، يرجى الرجوع إلى الوثيقة [واجهة برمجة تطبيقات Luma Videos Generation](https://api.xhuoapi.ai/documents/16bb0108-1f09-45b3-97ac-16a668750a8c).
 
 سنأخذ مثالاً على معرف المهمة الذي تم إرجاعه من خدمة واجهة برمجة تطبيقات Luma Videos Generation، لنوضح كيفية استخدام هذه الواجهة. لنفترض أن لدينا معرف مهمة: 50fc6182-fa86-4c7d-ac12-2fa27ec2f151، وسنوضح كيفية تمرير معرف المهمة.
 
 ### مثال على المهمة
 
-<p><img src="https://cdn.acedata.cloud/frcrux.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/frcrux.png" width="500" className="m-auto" /></p>
 
 ### إعداد رأس الطلب وجسم الطلب
 
@@ -45,20 +45,20 @@ description: "Luma Video Generation 集成指南 - Ace Data Cloud"
 
 الإعداد كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/g6ev5b.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g6ev5b.png" width="500" className="m-auto" /></p>
 
 ### مثال على الكود
 
 يمكن ملاحظة أنه تم توليد أكواد بلغات مختلفة تلقائيًا على الجانب الأيمن من الصفحة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/i4fxqf.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/i4fxqf.png" width="500" className="m-auto" /></p>
 
 بعض أمثلة الكود كما يلي:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/luma/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/luma/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/luma/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/luma/tasks"
+url = "https://api.xhuoapi.ai/v1/luma/tasks"
 
 headers = {
     "accept": "application/json",
@@ -113,11 +113,11 @@ print(response.text)
     "task_id": "50fc6182-fa86-4c7d-ac12-2fa27ec2f151",
     "video_id": "4b088fc8-2bbc-4706-80a6-a0fb118adc1a",
     "prompt": "Astronauts shuttle from space to volcano",
-    "video_url": "https://platform.cdn.acedata.cloud/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.mp4",
+    "video_url": "https://platform.cdn.xhuoapi.ai/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.mp4",
     "video_height": 752,
     "video_width": 1360,
     "state": "completed",
-    "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.jpg",
+    "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.jpg",
     "thumbnail_width": 1360,
     "thumbnail_height": 752
   },
@@ -143,13 +143,13 @@ print(response.text)
 
 الإعداد كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/mpcf1m.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mpcf1m.png" width="500" className="m-auto" /></p>
 
 ### مثال على الكود
 
 يمكن ملاحظة أنه تم توليد أكواد بلغات مختلفة تلقائيًا على الجانب الأيمن من الصفحة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/zs6y35.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zs6y35.png" width="500" className="m-auto" /></p>
 
 بعض أمثلة الكود كما يلي:
 
@@ -177,11 +177,11 @@ print(response.text)
         "task_id": "50fc6182-fa86-4c7d-ac12-2fa27ec2f151",
         "video_id": "4b088fc8-2bbc-4706-80a6-a0fb118adc1a",
         "prompt": "رواد الفضاء ينتقلون من الفضاء إلى البركان",
-        "video_url": "https://platform.cdn.acedata.cloud/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.mp4",
+        "video_url": "https://platform.cdn.xhuoapi.ai/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.mp4",
         "video_height": 752,
         "video_width": 1360,
         "state": "completed",
-        "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.jpg",
+        "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.jpg",
         "thumbnail_width": 1360,
         "thumbnail_height": 752
       },
@@ -205,11 +205,11 @@ print(response.text)
         "task_id": "76a05f61-68ad-4c1a-838f-a00cd08cf65b",
         "video_id": "5a638d6a-7481-4c5e-8843-36c9d1b5bcd5",
         "prompt": "لا لا لا",
-        "video_url": "https://platform.cdn.acedata.cloud/luma/76a05f61-68ad-4c1a-838f-a00cd08cf65b.mp4",
+        "video_url": "https://platform.cdn.xhuoapi.ai/luma/76a05f61-68ad-4c1a-838f-a00cd08cf65b.mp4",
         "video_height": 752,
         "video_width": 1360,
         "state": "completed",
-        "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/76a05f61-68ad-4c1a-838f-a00cd08cf65b.jpg",
+        "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/76a05f61-68ad-4c1a-838f-a00cd08cf65b.jpg",
         "thumbnail_width": 1360,
         "thumbnail_height": 752
       },
@@ -223,7 +223,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/luma/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/luma/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -238,7 +238,7 @@ curl -X POST 'https://api.acedata.cloud/luma/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/luma/tasks"
+url = "https://api.xhuoapi.ai/v1/luma/tasks"
 
 headers = {
     "accept": "application/json",

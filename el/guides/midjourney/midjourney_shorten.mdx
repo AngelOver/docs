@@ -1,6 +1,6 @@
 ---
 title: "Ενσωμάτωση και Χρήση του Midjourney Shorten API"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 Η κύρια λειτουργία του Midjourney Shorten API είναι η πρόσβαση στην επίσημη εντολή `/shorten` (Ανάλυση Prompt) του Midjourney, για την ανάλυση ενός Prompt, την αναγνώριση των λέξεων-κλειδιών με το υψηλότερο βάρος και τη δημιουργία 5 πιο συνοπτικών υποψήφιων Prompt. Αυτή η διεπαφή είναι ιδιαίτερα κατάλληλη για:
@@ -13,9 +13,9 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το Midjourney Shorten API, πρέπει πρώτα να κάνετε αίτηση στην σελίδα [Midjourney Shorten API](https://platform.acedata.cloud/documents/f0c6be1d-c084-43ac-bde6-44ef9cf824a2). Μόλις μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire».
+Για να χρησιμοποιήσετε το Midjourney Shorten API, πρέπει πρώτα να κάνετε αίτηση στην σελίδα [Midjourney Shorten API](https://api.xhuoapi.ai/documents/f0c6be1d-c084-43ac-bde6-44ef9cf824a2). Μόλις μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire».
 
-Αν δεν έχετε συνδεθεί ή εγγραφεί, θα ανακατευθυνθείτε αυτόματα στη [σελίδα σύνδεσης](https://platform.acedata.cloud) για εγγραφή και σύνδεση. Μετά τη σύνδεση ή εγγραφή, θα επιστρέψετε αυτόματα στην τρέχουσα σελίδα.
+Αν δεν έχετε συνδεθεί ή εγγραφεί, θα ανακατευθυνθείτε αυτόματα στη [σελίδα σύνδεσης](https://api.xhuoapi.ai) για εγγραφή και σύνδεση. Μετά τη σύνδεση ή εγγραφή, θα επιστρέψετε αυτόματα στην τρέχουσα σελίδα.
 
 Κατά την πρώτη αίτηση, παρέχεται δωρεάν όριο χρήσης, επιτρέποντας τη δωρεάν χρήση του API.
 
@@ -39,7 +39,7 @@ description: "Midjourney generation 集成指南 - Ace Data Cloud"
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/shorten' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/shorten' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -53,7 +53,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/shorten' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/shorten"
+url = "https://api.xhuoapi.ai/v1/midjourney/shorten"
 
 headers = {
     "accept": "application/json",

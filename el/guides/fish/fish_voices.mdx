@@ -1,15 +1,15 @@
 ---
 title: "Οδηγίες Σύνδεσης Fish Voices Generation API"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 Αυτό το έγγραφο θα παρουσιάσει μια μέθοδο σύνδεσης με το Fish Voices Generation API, το οποίο μπορεί να δημιουργήσει τη δική σας φωνή εισάγοντας έναν σύνδεσμο ήχου.
 
 ## Διαδικασία Αίτησης
 
-Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα του [Fish Voices Generation API](https://platform.acedata.cloud/documents/55e61b64-ac7d-4710-a7f1-57a4ba786b17) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
+Για να χρησιμοποιήσετε το API, πρέπει πρώτα να επισκεφθείτε τη σελίδα του [Fish Voices Generation API](https://api.xhuoapi.ai/documents/55e61b64-ac7d-4710-a7f1-57a4ba786b17) και να ζητήσετε την αντίστοιχη υπηρεσία. Αφού μπείτε στη σελίδα, κάντε κλικ στο κουμπί «Acquire», όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα μεταφερθείτε αυτόματα στη σελίδα σύνδεσης για να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και τη σύνδεση, θα επιστρέψετε αυτόματα στη σελίδα.
 
@@ -19,7 +19,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 
 Αρχικά, πρέπει να κατανοήσετε τη βασική μέθοδο χρήσης, δηλαδή να εισάγετε τον σύνδεσμο ήχου `voice_url`, για να λάβετε το επεξεργασμένο αποτέλεσμα. Οι λεπτομέρειες είναι οι εξής:
 
-<p><img src="https://cdn.acedata.cloud/278ikr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/278ikr.png" width="500" className="m-auto" /></p>
 
 Μπορείτε να δείτε ότι έχουμε ρυθμίσει τα Request Headers, που περιλαμβάνουν:
 
@@ -36,7 +36,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 
 Αφού επιλέξετε, μπορείτε να δείτε ότι έχει παραχθεί ο αντίστοιχος κώδικας στα δεξιά, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/dkdfyj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dkdfyj.png" width="500" className="m-auto" /></p>
 
 Κάντε κλικ στο κουμπί «Try» για να κάνετε δοκιμή, όπως φαίνεται στην παραπάνω εικόνα, και θα λάβετε το εξής αποτέλεσμα:
 
@@ -103,7 +103,7 @@ description: "Fish music generation 集成指南 - Ace Data Cloud"
 Επιπλέον, εάν θέλετε να δημιουργήσετε τον αντίστοιχο κώδικα σύνδεσης, μπορείτε να τον αντιγράψετε απευθείας, όπως ο παρακάτω κώδικας CURL:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/voices' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/voices' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -124,13 +124,13 @@ curl -X POST 'https://api.acedata.cloud/fish/voices' \
 
 Αρχικά, η επιστροφή Webhook είναι μια υπηρεσία που μπορεί να δέχεται HTTP αιτήματα, και οι προγραμματιστές θα πρέπει να την αντικαταστήσουν με τη διεύθυνση URL του HTTP διακομιστή που έχουν δημιουργήσει. Για λόγους ευκολίας, χρησιμοποιούμε έναν δημόσιο ιστότοπο παραδείγματος Webhook https://webhook.site/, ανοίγοντας αυτόν τον ιστότοπο μπορείτε να λάβετε μια διεύθυνση URL Webhook, όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Αντιγράψτε αυτή τη διεύθυνση URL και μπορείτε να τη χρησιμοποιήσετε ως Webhook, το παράδειγμα εδώ είναι `https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34`.
 
 Στη συνέχεια, μπορούμε να ρυθμίσουμε το πεδίο `callback_url` στην παραπάνω διεύθυνση URL Webhook, ενώ συμπληρώνουμε τις αντίστοιχες παραμέτρους, οι λεπτομέρειες είναι όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/ecbq1s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ecbq1s.png" width="500" className="m-auto" /></p>
 
 Κάντε κλικ στην εκτέλεση και θα λάβετε αμέσως ένα αποτέλεσμα, όπως παρακάτω:
 
@@ -141,7 +141,7 @@ curl -X POST 'https://api.acedata.cloud/fish/voices' \
 ```
 稍等片刻，我们可以在 `https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34` 上观察到生成任务的结果，如图所示：
 
-![](https://cdn.acedata.cloud/dxlupe.png)
+![](https://cdn.xhuoapi.ai/dxlupe.png)
 
 内容如下：
 

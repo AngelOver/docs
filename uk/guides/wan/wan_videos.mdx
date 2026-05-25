@@ -1,15 +1,15 @@
 ---
 title: "Wan Videos Generation API інтеграційна інструкція"
-description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
+description: "Tongyi Wansiang Video Generation 集成指南 - XHuoAPI"
 ---
 
 Цей документ представить інтеграційну інструкцію для Wan Videos Generation API, яка дозволяє генерувати офіційні відео Tongyi Wanxiang за допомогою введення користувацьких параметрів.
 
 ## Процес подачі заявки
 
-Щоб використовувати API, спочатку потрібно перейти на сторінку [Wan Videos Generation API](https://platform.acedata.cloud/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c) для подачі заявки на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
+Щоб використовувати API, спочатку потрібно перейти на сторінку [Wan Videos Generation API](https://api.xhuoapi.ai/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c) для подачі заявки на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, запрошуючи вас зареєструватися та увійти. Після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
 
@@ -19,7 +19,7 @@ description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
 
 Спочатку потрібно ознайомитися з основними способами використання, а саме: введенням підказки `prompt`, дії `action`, посиланням на зображення першого кадру `image_url` та моделлю `model`, щоб отримати оброблений результат. Спочатку потрібно просто передати поле `action`, значення якого буде `text2video`. Воно містить дві дії: створення відео з тексту (`text2video`) та створення відео з зображення (`image2video`). Потім потрібно ввести модель `model`, наразі основними є моделі `wan2.6-i2v`, `wan2.6-r2v`, `wan2.6-i2v-flash`, `wan2.6-t2v`, деталі наведені нижче:
 
-<p><img src="https://cdn.acedata.cloud/03gqdz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/03gqdz.png" width="500" className="m-auto" /></p>
 
 Ми можемо бачити, що тут налаштовані заголовки запиту, включаючи:
 
@@ -45,7 +45,7 @@ description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
 
 Після вибору ви можете побачити, що праворуч також згенеровано відповідний код, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/03gqdz.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/03gqdz.png" width="500" className="m-auto" /></p>
 
 Натисніть кнопку «Try», щоб провести тестування, як показано на малюнку, ми отримали наступний результат:
 
@@ -70,7 +70,7 @@ description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
 Крім того, якщо ви хочете згенерувати відповідний код інтеграції, ви можете просто скопіювати його, наприклад, код CURL виглядає так:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/wan/videos' \
+curl -X POST 'https://api.xhuoapi.ai/v1/wan/videos' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -92,18 +92,18 @@ curl -X POST 'https://api.acedata.cloud/wan/videos' \
 
 Приклад заповнення:
 
-<p><img src="https://cdn.acedata.cloud/94l0kk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/94l0kk.png" width="500" className="m-auto" /></p>
 
 Після заповнення автоматично згенерувався код:
 
-<p><img src="https://cdn.acedata.cloud/b5q8tt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/b5q8tt.png" width="500" className="m-auto" /></p>
 
 Відповідний Python код:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/wan/videos"
+url = "https://api.xhuoapi.ai/v1/wan/videos"
 
 headers = {
     "accept": "application/json",
@@ -116,7 +116,7 @@ payload = {
     "model": "wan2.6-i2v",
     "prompt": "Astronauts shuttle from space to volcano",
     "duration": 5,
-    "image_url": "https://cdn.acedata.cloud/r9vsv9.png",
+    "image_url": "https://cdn.xhuoapi.ai/r9vsv9.png",
     "callback_url": "https://www.baidu.com/"
 }
 
@@ -147,13 +147,13 @@ print(response.text)
 
 По-перше, Webhook зворотний виклик - це сервіс, який може приймати HTTP запити, розробники повинні замінити його на URL свого HTTP сервера. Для зручності демонстрації використовується публічний сайт з прикладом Webhook https://webhook.site/, відкривши цей сайт, ви отримаєте Webhook URL, як показано на малюнку:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Скопіюйте це URL, і ви зможете використовувати його як Webhook, приклад тут: `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`.
 
 Далі ми можемо встановити поле `callback_url` на вказаний Webhook URL, одночасно заповнивши відповідні параметри, конкретний вміст, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/vdx12s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vdx12s.png" width="500" className="m-auto" /></p>
 
 Клікнувши на виконання, ви можете відразу отримати результат, як показано нижче:
 
@@ -165,7 +165,7 @@ print(response.text)
 
 Через деякий час ви можете спостерігати результати створення відео на `https://webhook.site/624b2c78-6dbd-4618-9d2b-b32eade6d8c3`, як показано на малюнку:
 
-![](https://cdn.acedata.cloud/zv5u2q.png)
+![](https://cdn.xhuoapi.ai/zv5u2q.png)
 
 Вміст такий:
 

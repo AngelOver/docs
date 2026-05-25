@@ -1,19 +1,19 @@
 ---
 title: "دليل استخدام تطبيق Claude Code لسطح المكتب"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code هو أداة **Agentic Coding** أطلقتها شركة Anthropic، ويعتبر واحدًا من أقوى وكلاء البرمجة في العالم. يوفر تطبيق Claude Code لسطح المكتب واجهة رسومية مستقلة، ويدعم مراجعة Diff، والجلسات المتوازية (من خلال عزل Git Worktree)، والجلسات عن بُعد، دون الحاجة للاعتماد على أي IDE.
 
-تتناول هذه الوثيقة كيفية تكوين واستخدام تطبيق Claude Code من خلال خدمة الوكيل الخاصة بـ AceData Cloud.
+تتناول هذه الوثيقة كيفية تكوين واستخدام تطبيق Claude Code من خلال خدمة الوكيل الخاصة بـ XHuoAPI.
 
 > **ملاحظة**: تطبيق Claude Code لسطح المكتب حاليًا في مرحلة المعاينة (Preview)، ويدعم فقط macOS و Windows.
 
 ## عملية التقديم
 
-لاستخدام Claude Code، يمكنك أولاً زيارة [صفحة خدمة Claude Messages](https://platform.acedata.cloud/documents/claude-messages) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة:
+لاستخدام Claude Code، يمكنك أولاً زيارة [صفحة خدمة Claude Messages](https://api.xhuoapi.ai/documents/claude-messages) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل، سيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، وبعد تسجيل الدخول، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
@@ -34,13 +34,13 @@ Claude Code هو أداة **Agentic Coding** أطلقتها شركة Anthropic،
 - **Windows x64**: قم بتنزيل حزمة التثبيت `.exe`، واتبع التعليمات للتثبيت
 - **Windows ARM64**: قم بتنزيل إصدار ARM64 (ملاحظة: لا يدعم ARM64 الجلسات المحلية، يجب استخدام الجلسات عن بُعد)
 
-![صفحة تنزيل تطبيق Claude لسطح المكتب](https://cdn.acedata.cloud/c3c8c57264.png)
+![صفحة تنزيل تطبيق Claude لسطح المكتب](https://cdn.xhuoapi.ai/c3c8c57264.png)
 
 بعد الانتهاء من التثبيت، قم بتشغيل Claude من مجلد Applications (macOS) أو قائمة ابدأ (Windows).
 
-## تكوين واجهة برمجة التطبيقات لـ AceData Cloud
+## تكوين واجهة برمجة التطبيقات لـ XHuoAPI
 
-بعد تشغيل تطبيق سطح المكتب، تحتاج إلى تسجيل الدخول إلى حساب Anthropic. يمكننا استخدام واجهة برمجة التطبيقات الخاصة بـ AceData Cloud من خلال تكوين متغيرات البيئة، **دون الحاجة للاشتراك الرسمي**.
+بعد تشغيل تطبيق سطح المكتب، تحتاج إلى تسجيل الدخول إلى حساب Anthropic. يمكننا استخدام واجهة برمجة التطبيقات الخاصة بـ XHuoAPI من خلال تكوين متغيرات البيئة، **دون الحاجة للاشتراك الرسمي**.
 
 يقرأ تطبيق سطح المكتب متغيرات البيئة من بيئة Shell الخاصة بك، لذا يجب إعدادها في ملف تكوين Shell.
 
@@ -51,9 +51,9 @@ Claude Code هو أداة **Agentic Coding** أطلقتها شركة Anthropic،
 أضف المحتوى التالي إلى `~/.zshrc` (أو `~/.bashrc`)، واستبدل `{token}` برمز API الخاص بك:
 
 ```bash
-# تكوين وكيل AceData Cloud - Claude Code
+# تكوين وكيل XHuoAPI - Claude Code
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 بعد الحفظ، نفذ:
@@ -69,13 +69,13 @@ source ~/.zshrc
 | اسم المتغير                | القيمة                           |
 | ---------------------- | ----------------------------- |
 | `ANTHROPIC_AUTH_TOKEN` | `{token}` (استبدل برمز API الخاص بك)     |
-| `ANTHROPIC_BASE_URL`   | `https://api.acedata.cloud` |
+| `ANTHROPIC_BASE_URL`   | `https://api.xhuoapi.ai/v1` |
 
 أو استخدم PowerShell:
 
 ```powershell
 [System.Environment]::SetEnvironmentVariable("ANTHROPIC_AUTH_TOKEN", "{token}", "User")
-[System.Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.acedata.cloud", "User")
+[System.Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.xhuoapi.ai/v1", "User")
 ```
 
 **يمكن أيضًا تكوينها من خلال settings.json**
@@ -86,12 +86,12 @@ source ~/.zshrc
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **تلميح**: يمكنك عرض رمز API في [وحدة التحكم الخاصة بـ AceData Cloud](https://platform.acedata.cloud/console). بعد الانتهاء من التكوين، تحتاج إلى **إعادة تشغيل تطبيق سطح المكتب** لتفعيل متغيرات البيئة.
+> **تلميح**: يمكنك عرض رمز API في [وحدة التحكم الخاصة بـ XHuoAPI](https://api.xhuoapi.ai/console). بعد الانتهاء من التكوين، تحتاج إلى **إعادة تشغيل تطبيق سطح المكتب** لتفعيل متغيرات البيئة.
 
 ## الاستخدام الأساسي
 
@@ -162,7 +162,7 @@ source ~/.zshrc
 
 1. تحقق مما إذا تم إنشاء ملف `~/.claude/config.json` بشكل صحيح
 2. تأكد من أن متغيرات البيئة تم إعدادها بشكل صحيح (أعد تشغيل تطبيق سطح المكتب لتفعيلها)
-3. تأكد من أن رمز API صالح (يمكنك التحقق في [وحدة التحكم](https://platform.acedata.cloud/console))
+3. تأكد من أن رمز API صالح (يمكنك التحقق في [وحدة التحكم](https://api.xhuoapi.ai/console))
 4. إذا كنت تستخدم `settings.json` لتكوين متغيرات البيئة، تأكد من أن تنسيق الملف صحيح
 
 ### ماذا أفعل إذا لم أتمكن من العثور على الأدوات المثبتة؟
@@ -175,9 +175,9 @@ source ~/.zshrc
 
 ### كيف يمكنني عرض الرصيد المتبقي؟
 
-قم بتسجيل الدخول إلى [وحدة التحكم الخاصة بـ AceData Cloud](https://platform.acedata.cloud/console) لعرض الرصيد المتبقي وحالة الاستخدام الحالية.
+قم بتسجيل الدخول إلى [وحدة التحكم الخاصة بـ XHuoAPI](https://api.xhuoapi.ai/console) لعرض الرصيد المتبقي وحالة الاستخدام الحالية.
 
 ## لمعرفة المزيد
 - 📖 [وثائق تطبيق Claude Code الرسمية](https://code.claude.com/docs/en/desktop)
-- 🔧 [خدمة AceData Cloud Claude Code](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [خدمة XHuoAPI Claude Code](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 إذا كان لديك أي استفسارات، لا تتردد في الاتصال بنا عبر خدمة العملاء في المنصة

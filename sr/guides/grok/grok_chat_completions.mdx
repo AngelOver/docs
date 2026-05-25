@@ -1,6 +1,6 @@
 ---
 title: "Grok Chat Completion API申请及使用"
-description: "Grok 集成指南 - Ace Data Cloud"
+description: "Grok 集成指南 - XHuoAPI"
 ---
 
 xAI Grok je veoma moćan AI sistem za razgovor, koji može generisati tečne i prirodne odgovore u samo nekoliko sekundi jednostavnim unosom ključnih reči. Grok se izdvaja u industriji svojom jedinstvenom humorističnom stilom i sposobnošću prikupljanja informacija u realnom vremenu, a danas se Grok ističe u više inovativnih oblasti, a njegov uticaj se brzo širi. Bilo da se radi o svakodnevnom razgovoru, kreativnom pisanju, tehničkoj analizi ili debagovanju koda, Grok može pružiti uvidom bogatu inteligentnu pomoć, donoseći novu dimenziju podrške korisničkim odlukama i kreacijama.
@@ -9,9 +9,9 @@ Ovaj dokument uglavnom opisuje proces korišćenja Grok Chat Completion API, omo
 
 ## Proces prijave
 
-Da biste koristili Grok Chat Completion API, prvo možete otići na [Grok Chat Completion API](https://platform.acedata.cloud/documents/faf08b59-36aa-4d26-b5d9-a18f113cc2be) stranicu i kliknuti na dugme „Acquire“ da dobijete potrebne akreditive za zahtev:
+Da biste koristili Grok Chat Completion API, prvo možete otići na [Grok Chat Completion API](https://api.xhuoapi.ai/documents/faf08b59-36aa-4d26-b5d9-a18f113cc2be) stranicu i kliknuti na dugme „Acquire“ da dobijete potrebne akreditive za zahtev:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Ako se još niste prijavili ili registrovali, automatski ćete biti preusmereni na stranicu za prijavu koja vas poziva da se registrujete i prijavite, a nakon prijave i registracije automatski ćete se vratiti na trenutnu stranicu.
 
@@ -21,7 +21,7 @@ Prilikom prve prijave dobićete besplatnu kvotu koja vam omogućava besplatno ko
 
 Sledeće možete popuniti odgovarajući sadržaj na interfejsu, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/vunnjf.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vunnjf.png" width="400" className="m-auto" /></p>
 
 Prilikom prve upotrebe ovog interfejsa, potrebno je da popunite najmanje tri sadržaja, jedan je `authorization`, koji možete direktno odabrati iz padajuće liste. Drugi parametar je `model`, `model` je kategorija modela koju biramo da koristimo sa Grok zvanične stranice, ovde imamo 8 vrsta modela, a više detalja možete videti u modelima koje pružamo. Poslednji parametar je `messages`, `messages` je niz naših unosa pitanja, koji predstavlja niz koji može istovremeno učitati više pitanja, a svako pitanje sadrži `role` i `content`, pri čemu `role` označava ulogu postavljača pitanja, a mi pružamo tri identiteta: `user`, `assistant`, `system`. Drugi `content` je konkretan sadržaj našeg pitanja.
 
@@ -33,7 +33,7 @@ Uobičajeni opcioni parametri:
 - `temperature`: generiše slučajnost, između 0-2, veća vrednost znači veću disperziju.
 - `n`: koliko kandidatskih odgovora generisati odjednom.
 
-<p><img src="https://cdn.acedata.cloud/d7iwun.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d7iwun.png" width="400" className="m-auto" /></p>
 
 Nakon poziva, otkrili smo da je rezultat vraćen kao što je prikazano u nastavku:
 
@@ -84,7 +84,7 @@ Vraćeni rezultat sadrži više polja, koja su opisana u nastavku:
 
 U okviru `choices` se nalaze informacije o odgovorima Groka, a unutar `choices` su konkretne informacije o odgovorima Groka, što možete videti na slici.
 
-<p><img src="https://cdn.acedata.cloud/p8vupk.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/p8vupk.png" width="400" className="m-auto" /></p>
 
 Možete primetiti da `content` polje unutar `choices` sadrži konkretan sadržaj odgovora Groka.
 
@@ -96,7 +96,7 @@ Ako želite da dobijete odgovor u toku, možete promeniti `stream` parametar u z
 
 Izmena je prikazana na slici, ali kod poziva mora biti odgovarajuće izmenjen da bi podržao tok odgovora.
 
-<p><img src="https://cdn.acedata.cloud/k883qa.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/k883qa.png" width="400" className="m-auto" /></p>
 
 Nakon što promenite `stream` na `true`, API će vraćati odgovarajuće JSON podatke red po red, a na kodnom nivou moramo napraviti odgovarajuće izmene da bismo dobili rezultate red po red.
 
@@ -105,7 +105,7 @@ Python uzorak koda za poziv:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/grok/chat/completions"
+url = "https://api.xhuoapi.ai/v1/grok/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -199,7 +199,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/grok/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/grok/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -215,7 +215,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/grok/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/grok/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -233,14 +233,14 @@ Ostali jezici mogu se prepraviti na sličan način, princip je isti.
 
 Ako želite da povežete funkciju višekratnog razgovora, potrebno je da u `messages` polje pošaljete više pitanja, konkretni primeri više pitanja su prikazani na sledećoj slici:
 
-<p><img src="https://cdn.acedata.cloud/t8cya8.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/t8cya8.png" width="400" className="m-auto" /></p>
 
 Python uzorak poziva:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/grok/chat/completions"
+url = "https://api.xhuoapi.ai/v1/grok/chat/completions"
 
 headers = {
     "accept": "application/json",

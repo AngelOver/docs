@@ -1,6 +1,6 @@
 ---
 title: "Midjourney Tasks API の接続と使用"
-description: "Midjourney generation 集成指南 - Ace Data Cloud"
+description: "Midjourney generation 集成指南 - XHuoAPI"
 ---
 
 Midjourney Tasks API の主な機能は、Midjourney Imagine API または Midjourney Describe API によって生成されたタスクIDを入力することで、そのタスクの実行状況を照会することです。
@@ -9,27 +9,27 @@ Midjourney Tasks API の主な機能は、Midjourney Imagine API または Midjo
 
 ## 申請プロセス
 
-Midjourney Tasks API を使用するには、まず申請ページ [Midjourney Imagine API ](https://platform.acedata.cloud/documents/e52c028d-897a-4d51-b110-60fccbe6118d) で該当するサービスを申請し、次に Imagine API のタスクIDをコピーします。以下の図のように：
+Midjourney Tasks API を使用するには、まず申請ページ [Midjourney Imagine API ](https://api.xhuoapi.ai/documents/e52c028d-897a-4d51-b110-60fccbe6118d) で該当するサービスを申請し、次に Imagine API のタスクIDをコピーします。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/lx4mwb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lx4mwb.png" width="500" className="m-auto" /></p>
 
-最後に、Tasks API ページ [Midjourney Tasks API ](https://platform.acedata.cloud/documents/58ea7cc1-c685-40c3-a619-f29f9ac5d8f4) にアクセスし、該当するサービスを申請します。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
+最後に、Tasks API ページ [Midjourney Tasks API ](https://api.xhuoapi.ai/documents/58ea7cc1-c685-40c3-a619-f29f9ac5d8f4) にアクセスし、該当するサービスを申請します。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
 
-![申請ページ](https://cdn.acedata.cloud/rci31i.png)
+![申請ページ](https://cdn.xhuoapi.ai/rci31i.png)
 
-まだログインまたは登録していない場合は、自動的に[ログインページ](https://platform.acedata.cloud)にリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
+まだログインまたは登録していない場合は、自動的に[ログインページ](https://api.xhuoapi.ai)にリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
 初回申請時には無料のクレジットが付与され、この API を無料で使用できます。
 
 ## リクエスト例
 
-Midjourney Tasks API は、Midjourney Imagine API と Midjourney Describe API の結果を照会するために使用できます。Midjourney Imagine API の使用方法については、文書 [Midjourney Imagine API ](https://platform.acedata.cloud/documents/b0e32002-2707-41cc-b103-a15b1f1efdc1) を参照してください。Midjourney Describe の使用方法については、[Midjourney Describe API ](https://platform.acedata.cloud/documents/d2a04242-507c-4a49-a17a-01bc382c5756) を参照してください。
+Midjourney Tasks API は、Midjourney Imagine API と Midjourney Describe API の結果を照会するために使用できます。Midjourney Imagine API の使用方法については、文書 [Midjourney Imagine API ](https://api.xhuoapi.ai/documents/b0e32002-2707-41cc-b103-a15b1f1efdc1) を参照してください。Midjourney Describe の使用方法については、[Midjourney Describe API ](https://api.xhuoapi.ai/documents/d2a04242-507c-4a49-a17a-01bc382c5756) を参照してください。
 
 Midjourney Imagine API サービスから返されたタスクIDの一例を用いて、この API の使用方法を示します。タスクID：7489df4c-ef03-4de0-b598-e9a590793434 があると仮定し、次にタスクIDを渡す方法を示します。
 
 ### タスク例の画像
 
-<p><img src="https://cdn.acedata.cloud/lx4mwb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lx4mwb.png" width="500" className="m-auto" /></p>
 
 ### リクエストヘッダーとリクエストボディの設定
 
@@ -46,20 +46,20 @@ Midjourney Imagine API サービスから返されたタスクIDの一例を用�
 
 設定は以下の図のようにします：
 
-<p><img src="https://cdn.acedata.cloud/ybek58.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ybek58.png" width="500" className="m-auto" /></p>
 
 ### コード例
 
 ページの右側には、さまざまな言語のコードが自動生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/46ookb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/46ookb.png" width="500" className="m-auto" /></p>
 
 一部のコード例は以下の通りです：
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -74,7 +74,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/tasks"
+url = "https://api.xhuoapi.ai/v1/midjourney/tasks"
 
 headers = {
     "accept": "application/json",
@@ -112,7 +112,7 @@ print(response.text)
   "image_id": "1259525319472185344",
   "job_id": "da317da6-f500-48e6-bf32-dd48b3e6f84f",
   "response": {
-    "image_url": "https://platform.cdn.acedata.cloud/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png?imageMogr2/thumbnail/!50p",
+    "image_url": "https://platform.cdn.xhuoapi.ai/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png?imageMogr2/thumbnail/!50p",
     "image_width": 1024,
     "image_height": 1024,
     "actions": [
@@ -126,7 +126,7 @@ print(response.text)
       "variation3",
       "variation4"
     ],
-    "raw_image_url": "https://platform.cdn.acedata.cloud/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png",
+    "raw_image_url": "https://platform.cdn.xhuoapi.ai/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png",
     "raw_image_width": 2048,
     "raw_image_height": 2048,
     "progress": 100,
@@ -160,13 +160,13 @@ print(response.text)
 - `action`：タスクの操作方法。
 
 設定は以下の図のようにします：
-<p><img src="https://cdn.acedata.cloud/ljmy8w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ljmy8w.png" width="500" className="m-auto" /></p>
 
 ### コード例
 
 ページの右側には、さまざまな言語のコードが自動的に生成されていることがわかります。以下の画像のように：
 
-<p><img src="https://cdn.acedata.cloud/ljmy8w.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ljmy8w.png" width="500" className="m-auto" /></p>
 
 一部のコード例は以下の通りです：
 
@@ -193,7 +193,7 @@ print(response.text)
       "image_id": "1259525319472185344",
       "job_id": "da317da6-f500-48e6-bf32-dd48b3e6f84f",
       "response": {
-        "image_url": "https://platform.cdn.acedata.cloud/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png?imageMogr2/thumbnail/!50p",
+        "image_url": "https://platform.cdn.xhuoapi.ai/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png?imageMogr2/thumbnail/!50p",
         "image_width": 1024,
         "image_height": 1024,
         "actions": [
@@ -207,7 +207,7 @@ print(response.text)
           "variation3",
           "variation4"
         ],
-        "raw_image_url": "https://platform.cdn.acedata.cloud/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png",
+        "raw_image_url": "https://platform.cdn.xhuoapi.ai/midjourney/7489df4c-ef03-4de0-b598-e9a590793434.png",
         "raw_image_width": 2048,
         "raw_image_height": 2048,
         "progress": 100,
@@ -236,7 +236,7 @@ print(response.text)
       "image_id": "1259683790612070400",
       "job_id": "ede5c805-e231-498c-8f74-3aa76d5d6d12",
       "response": {
-        "image_url": "https://platform.cdn.acedata.cloud/midjourney/807f62de-c63e-4add-8345-7f0ae6dd18e7.png?imageMogr2/thumbnail/!50p",
+        "image_url": "https://platform.cdn.xhuoapi.ai/midjourney/807f62de-c63e-4add-8345-7f0ae6dd18e7.png?imageMogr2/thumbnail/!50p",
         "image_width": 1024,
         "image_height": 1024,
         "actions": [
@@ -250,7 +250,7 @@ print(response.text)
           "variation3",
           "variation4"
         ],
-        "raw_image_url": "https://platform.cdn.acedata.cloud/midjourney/807f62de-c63e-4add-8345-7f0ae6dd18e7.png",
+        "raw_image_url": "https://platform.cdn.xhuoapi.ai/midjourney/807f62de-c63e-4add-8345-7f0ae6dd18e7.png",
         "raw_image_width": 2048,
         "raw_image_height": 2048,
         "progress": 100,
@@ -276,7 +276,7 @@ print(response.text)
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/midjourney/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/midjourney/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -292,7 +292,7 @@ curl -X POST 'https://api.acedata.cloud/midjourney/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/midjourney/tasks"
+url = "https://api.xhuoapi.ai/v1/midjourney/tasks"
 
 headers = {
     "accept": "application/json",

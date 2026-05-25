@@ -1,21 +1,21 @@
 ---
 title: "Producerin latausviittausäänitiedosto API -integraatio-ohjeet"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 Producer sallii meidän ladata viittausäänitiedostoja toissijaista luomista varten. Tämä asiakirja selittää liittyvät API-integraatiomenetelmät.
 
 Tässä API:ssa on vain yksi syöttöparametri, nimittäin `audio_url`, joka on julkisesti saatavilla oleva CDN-osoite, joka tukee mp3-päätettä.
 
-Tässä syötämme `audio_url`:n, joka on `https://cdn.acedata.cloud/suno_demo.mp3`, ja se on julkisesti saatavilla oleva CDN-osoite.
+Tässä syötämme `audio_url`:n, joka on `https://cdn.xhuoapi.ai/suno_demo.mp3`, ja se on julkisesti saatavilla oleva CDN-osoite.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/upload' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/upload' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "audio_url": "https://cdn.acedata.cloud/suno_demo.mp3"
+  "audio_url": "https://cdn.xhuoapi.ai/suno_demo.mp3"
 }'
 ```
 
@@ -35,4 +35,4 @@ Tulokset ovat seuraavat:
 
 Voimme nähdä, että `data`-osion `audio_id`-kenttä on ladatun kappaleen ID.
 
-Kun meillä on kappaleen ID, voimme käyttää [Producer Audios Generation API:a](https://platform.acedata.cloud/documents/producer-audios-integration) mukautettujen kappaleiden luomiseen, esimerkiksi `action`-parametrina voidaan käyttää `upload_extend`, ja samalla `audio_id`-parametrina voidaan käyttää palautettua kappaleen ID:tä, jolloin voimme luoda uuden kappaleen viittausäänitiedoston perusteella.
+Kun meillä on kappaleen ID, voimme käyttää [Producer Audios Generation API:a](https://api.xhuoapi.ai/documents/producer-audios-integration) mukautettujen kappaleiden luomiseen, esimerkiksi `action`-parametrina voidaan käyttää `upload_extend`, ja samalla `audio_id`-parametrina voidaan käyttää palautettua kappaleen ID:tä, jolloin voimme luoda uuden kappaleen viittausäänitiedoston perusteella.

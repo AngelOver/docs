@@ -1,17 +1,17 @@
 ---
 title: "Tutorial de uso de Claude Code para JetBrains IDE"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code es una herramienta de **programación agentiva** lanzada por Anthropic, también conocida como uno de los agentes de programación más poderosos del mundo. Claude Code ofrece un plugin específico para JetBrains IDE, que es compatible con IntelliJ IDEA, PyCharm, WebStorm, GoLand, PhpStorm, Android Studio y toda la serie de JetBrains IDE.
 
-Este documento describe principalmente cómo configurar y usar Claude Code en JetBrains IDE a través del servicio proxy de AceData Cloud.
+Este documento describe principalmente cómo configurar y usar Claude Code en JetBrains IDE a través del servicio proxy de XHuoAPI.
 
 ## Proceso de solicitud
 
-Para usar Claude Code, primero puedes ir a la [página del servicio Claude Messages](https://platform.acedata.cloud/documents/claude-messages) y hacer clic en el botón "Acquire" para obtener las credenciales necesarias para la solicitud:
+Para usar Claude Code, primero puedes ir a la [página del servicio Claude Messages](https://api.xhuoapi.ai/documents/claude-messages) y hacer clic en el botón "Acquire" para obtener las credenciales necesarias para la solicitud:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Si aún no has iniciado sesión o registrado, serás redirigido automáticamente a la página de inicio de sesión que te invita a registrarte e iniciar sesión. Después de registrarte e iniciar sesión, serás redirigido automáticamente a la página actual.
 
@@ -53,7 +53,7 @@ claude --version
 
 ### Instalación del plugin
 
-![Plugin Claude Code en JetBrains Marketplace](https://cdn.acedata.cloud/de78fd305b.png)
+![Plugin Claude Code en JetBrains Marketplace](https://cdn.xhuoapi.ai/de78fd305b.png)
 
 1. Abre JetBrains IDE
 2. Ve a **Settings** → **Plugins** → **Marketplace**
@@ -65,7 +65,7 @@ O visita directamente [JetBrains Marketplace](https://plugins.jetbrains.com/plug
 
 > **Importante**: Después de instalar el plugin, es necesario **reiniciar completamente el IDE** (puede que necesites reiniciar varias veces) para que surta efecto.
 
-## Configuración de AceData Cloud API
+## Configuración de XHuoAPI API
 
 El plugin de Claude Code para JetBrains ejecuta el comando `claude` a través de la terminal integrada, por lo que la configuración de las variables de entorno es la misma que para CLI.
 
@@ -99,9 +99,9 @@ mkdir -p ~/.claude && echo '{"primaryApiKey": "self"}' > ~/.claude/config.json
 Agrega el siguiente contenido a tu `~/.zshrc` o `~/.bashrc`, reemplazando `{token}` con tu token de API:
 
 ```bash
-# AceData Cloud - Configuración del proxy de Claude Code
+# XHuoAPI - Configuración del proxy de Claude Code
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 Después de modificar, ejecuta `source ~/.zshrc` para que la configuración surta efecto, y luego **reinicia JetBrains IDE**.
@@ -114,12 +114,12 @@ Edita `~/.claude/settings.json` (crea si no existe):
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **Consejo**: El token de API se puede ver en el [panel de control de AceData Cloud](https://platform.acedata.cloud/console).
+> **Consejo**: El token de API se puede ver en el [panel de control de XHuoAPI](https://api.xhuoapi.ai/console).
 
 ## Uso básico
 
@@ -186,7 +186,7 @@ wsl -d Ubuntu -- bash -lic "claude"
 
 1. Verifica si el archivo `~/.claude/config.json` se creó correctamente.
 2. Asegúrate de que las variables de entorno estén configuradas correctamente.
-3. Confirma que el token de API sea válido (puedes verlo en el [panel de control](https://platform.acedata.cloud/console)).
+3. Confirma que el token de API sea válido (puedes verlo en el [panel de control](https://api.xhuoapi.ai/console)).
 4. Reinicia JetBrains IDE y vuelve a intentarlo.
 
 ### ¿El plugin no funciona?
@@ -212,10 +212,10 @@ Si al hacer clic en el ícono de Claude aparece "command not found":
 3. Los usuarios de WSL deben usar el formato de comando WSL mencionado anteriormente.
 ### ¿Cómo ver el saldo restante?
 
-Inicie sesión en [la consola de AceData Cloud](https://platform.acedata.cloud/console) para ver el saldo restante y el uso actual de su cuenta.
+Inicie sesión en [la consola de XHuoAPI](https://api.xhuoapi.ai/console) para ver el saldo restante y el uso actual de su cuenta.
 
 ## Más información
 
 - 📖 [Documentación oficial de Claude Code JetBrains](https://code.claude.com/docs/en/jetbrains)
-- 🔧 [Servicio Claude Code de AceData Cloud](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [Servicio Claude Code de XHuoAPI](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 Si tiene alguna pregunta, no dude en contactarnos a través del servicio al cliente de la plataforma.

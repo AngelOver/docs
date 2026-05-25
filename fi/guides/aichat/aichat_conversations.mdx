@@ -1,19 +1,19 @@
 ---
 title: "AI Chat API - Liittymisohjeet"
-description: "AI Dialogue 集成指南 - Ace Data Cloud"
+description: "AI Dialogue 集成指南 - XHuoAPI"
 ---
 
 Tiedämme, että markkinoilla on joitakin kysymys-vastaus API:ita, joiden liittäminen ei ole niin helppoa, kuten OpenAI:n Chat Completions API, jossa on `messages`-kenttä. Jatkuvan keskustelun toteuttamiseksi meidän on välitettävä kaikki kontekstitiedot, ja meidän on myös käsiteltävä Token-rajojen ylittämiseen liittyviä ongelmia.
 
-AceDataCloudin tarjoama AI kysymys-vastaus API on optimoitu edellä mainittuja tilanteita varten. Se on kapseloitu jatkuvan keskustelun toteuttamiseksi ilman, että meidän tarvitsee huolehtia `messages`-kentän välittämisestä tai Token-rajojen ylittämisestä (API käsittelee sen automaattisesti). Se tarjoaa myös keskustelun kysely-, muokkaus- ja muita toimintoja, mikä yksinkertaistaa koko liittämisprosessia merkittävästi.
+XHuoAPIin tarjoama AI kysymys-vastaus API on optimoitu edellä mainittuja tilanteita varten. Se on kapseloitu jatkuvan keskustelun toteuttamiseksi ilman, että meidän tarvitsee huolehtia `messages`-kentän välittämisestä tai Token-rajojen ylittämisestä (API käsittelee sen automaattisesti). Se tarjoaa myös keskustelun kysely-, muokkaus- ja muita toimintoja, mikä yksinkertaistaa koko liittämisprosessia merkittävästi.
 
 Tässä asiakirjassa esitellään AI kysymys-vastaus API:n liittymisohjeet.
 
 ## Hakuprosessi
 
-API:n käyttämiseksi sinun on ensin mentävä [AI kysymys-vastaus API](https://platform.acedata.cloud/documents/59fb1199-6694-4afb-a222-3554d7f7d05a) -sivulle ja haettava vastaavaa palvelua. Kun olet siirtynyt sivulle, napsauta "Acquire"-painiketta, kuten kuvassa näkyy:
+API:n käyttämiseksi sinun on ensin mentävä [AI kysymys-vastaus API](https://api.xhuoapi.ai/documents/59fb1199-6694-4afb-a222-3554d7f7d05a) -sivulle ja haettava vastaavaa palvelua. Kun olet siirtynyt sivulle, napsauta "Acquire"-painiketta, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -25,7 +25,7 @@ Ensinnäkin on hyvä ymmärtää peruskäyttötapa, joka on kysymyksen syöttäm
 
 Esimerkiksi kysyttäessä: "What's your name?", voimme seuraavaksi täyttää vastaavat tiedot käyttöliittymässä, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/xqxda4.png)
+![](https://cdn.xhuoapi.ai/xqxda4.png)
 
 Voimme nähdä, että olemme asettaneet Request Headers, mukaan lukien:
 
@@ -39,7 +39,7 @@ Lisäksi olemme asettaneet Request Body:n, mukaan lukien:
 
 Valinnan jälkeen voimme huomata, että oikealla puolella on myös luotu vastaava koodi, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/dvkps6.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dvkps6.png" width="500" className="m-auto" /></p>
 
 Napsauta "Try"-painiketta testataksesi, kuten yllä olevassa kuvassa näkyy, ja saamme seuraavanlaisen tuloksen:
 
@@ -56,7 +56,7 @@ Jos et tarvitse tukea monivaiheiselle keskustelulle, tämä API voi huomattavast
 Jos haluat luoda vastaavan liittämiskoodin, voit suoraan kopioida sen, esimerkiksi CURL-koodi on seuraava:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -71,7 +71,7 @@ Pythonin liittämiskoodi on seuraava:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/aichat/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat/conversations"
 
 headers = {
     "accept": "application/json",
@@ -96,12 +96,12 @@ Seuraavaksi esittelemme tarkat toimenpiteet.
 
 Ensimmäisessä pyynnössä asetamme `stateful`-parametrin arvoksi `true` ja välitämme normaalisti `model`- ja `question`-parametrit, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/fn4bi9.png)
+![](https://cdn.xhuoapi.ai/fn4bi9.png)
 
 Vastaava koodi on seuraava:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -123,12 +123,12 @@ Voimme saada seuraavanlaisen vastauksen:
 
 Toisessa pyynnössä välitämme ensimmäisestä pyynnöstä saadun `id`-kentän parametrina, ja `stateful`-parametri on edelleen asetettu `true`, kysyen "What I asked you just now?", kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/46a6kd.png)
+![](https://cdn.xhuoapi.ai/46a6kd.png)
 
 Vastaava koodi on seuraava:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -159,7 +159,7 @@ Jos haluat virtaavan vastauksen, voit muuttaa pyyntöotsikon `accept`-parametrin
 
 Muutokset näkyvät kuvassa, mutta kutsukoodin on myös oltava vastaavasti muutettu tukemaan virtaavaa vastausta.
 
-![](https://cdn.acedata.cloud/axt1aa.png)
+![](https://cdn.xhuoapi.ai/axt1aa.png)
 
 Kun `accept` on muutettu `application/x-ndjson`:ksi, API palauttaa vastaavat JSON-tiedot rivi kerrallaan, ja kooditasolla meidän on tehtävä vastaavat muutokset saadaksemme rivikohtaiset tulokset.
 
@@ -167,7 +167,7 @@ Pythonin esimerkkikutsukoodi:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/aichat/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat/conversations"
 
 headers = {
     "accept": "application/x-ndjson",
@@ -208,7 +208,7 @@ JavaScript on myös tuettu, esimerkiksi Node.js:n virtauskutsun koodi on seuraav
 ```javascript
 const axios = require("axios");
 
-const url = "https://api.acedata.cloud/aichat/conversations";
+const url = "https://api.xhuoapi.ai/v1/aichat/conversations";
 const headers = {
   "Content-Type": "application/json",
   Accept: "application/x-ndjson",
@@ -236,7 +236,7 @@ axios
 Java-esimerkkikoodi:
 
 ```java
-String url = "https://api.acedata.cloud/aichat/conversations";
+String url = "https://api.xhuoapi.ai/v1/aichat/conversations";
 OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, "{\"question\": \"Hello\", \"stateful\": true, \"model\": \"gpt-3.5\"}");
@@ -276,12 +276,12 @@ Tiedämme, että OpenAI:n liittyvillä API:lla on vastaava `system_prompt` -käs
 
 Tässä lisäämme ylimääräisen `preset`-kentän, jonka sisältö on `You are a professional artist`, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/ird6i9.png)
+![](https://cdn.xhuoapi.ai/ird6i9.png)
 
 Vastaava koodi on seuraava:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -307,23 +307,23 @@ Voimme nähdä, että kerromme GPT:lle, että se on robotti, ja kysymme, mitä s
 
 Tämä AI tukee myös liitteiden lisäämistä kuvantunnistusta varten, siirtämällä vastaavat kuvien linkit `references`-parametrin kautta, esimerkiksi minulla on kuva omenasta, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/ht05g0.png)
+![](https://cdn.xhuoapi.ai/ht05g0.png)
 
-Kuvan linkki on [https://cdn.acedata.cloud/ht05g0.png](https://cdn.acedata.cloud/ht05g0.png), voimme siirtää sen suoraan `references`-parametrina, ja on tärkeää huomata, että mallin on oltava valittava malli, joka tukee visuaalista tunnistusta, tällä hetkellä tuettu on `gpt-4-vision`, joten syöte on seuraava:
+Kuvan linkki on [https://cdn.xhuoapi.ai/ht05g0.png](https://cdn.xhuoapi.ai/ht05g0.png), voimme siirtää sen suoraan `references`-parametrina, ja on tärkeää huomata, että mallin on oltava valittava malli, joka tukee visuaalista tunnistusta, tällä hetkellä tuettu on `gpt-4-vision`, joten syöte on seuraava:
 
-![](https://cdn.acedata.cloud/cstrbq.png)
+![](https://cdn.xhuoapi.ai/cstrbq.png)
 
 Vastaava koodi on seuraava:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "model": "gpt-4-vision",
   "question": "How many apples in the picture?",
-  "references": ["https://cdn.acedata.cloud/ht05g0.png"]
+  "references": ["https://cdn.xhuoapi.ai/ht05g0.png"]
 }'
 ```
 
@@ -341,12 +341,12 @@ Voimme nähdä, että olemme onnistuneesti saaneet vastaustuloksen vastaavasta k
 
 Tämä API tukee myös verkkomalleja, mukaan lukien GPT-3.5 ja GPT-4, jotka molemmat tukevat, API:n taustalla on automaattinen internetin haku ja yhteenveto, voimme valita mallin `gpt-3.5-browsing` kokeillaksemme, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/x5i8np.png)
+![](https://cdn.xhuoapi.ai/x5i8np.png)
 
 Koodi on seuraava:
 ```
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat/conversations' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

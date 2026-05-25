@@ -1,17 +1,17 @@
 ---
 title: "Claude Code -terminaalin (CLI) käyttöopas"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code on Anthropicin julkaisema **Agentic Coding** -työkalu, jota kutsutaan myös yhdeksi maailman vahvimmista ohjelmointiaineksista. Termin CLI on Claude Coden ydinkokemus, voit suorittaa `claude`-komennon missä tahansa terminaalissa ja tehdä ohjelmointiyhteistyötä AI:n kanssa luonnollisella kielellä.
 
-Tässä asiakirjassa esitellään, kuinka asentaa, konfiguroida ja käyttää Claude Code CLI:tä AceData Cloudin välityspalvelun kautta terminaalissa.
+Tässä asiakirjassa esitellään, kuinka asentaa, konfiguroida ja käyttää Claude Code CLI:tä XHuoAPIin välityspalvelun kautta terminaalissa.
 
 ## Hakuprosessi
 
-Käyttääksesi Claude Codea, voit ensin siirtyä [Claude Messages -palvelusivulle](https://platform.acedata.cloud/documents/claude-messages) ja napsauttaa "Acquire"-painiketta saadaksesi tarvittavat todisteet:
+Käyttääksesi Claude Codea, voit ensin siirtyä [Claude Messages -palvelusivulle](https://api.xhuoapi.ai/documents/claude-messages) ja napsauttaa "Acquire"-painiketta saadaksesi tarvittavat todisteet:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -62,9 +62,9 @@ winget install Claude.ClaudeCode
 
 Alkuperäinen asennus päivittää automaattisesti taustalla ja pitää aina uusimman version.
 
-## AceData Cloud API:n konfigurointi
+## XHuoAPI API:n konfigurointi
 
-Asennuksen jälkeen sinua pyydetään kirjautumaan Anthropicin viralliselle tilille. Voimme käyttää AceData Cloudin välityspalvelua konfiguroimalla ympäristömuuttujat, **ilman virallista tilausta**.
+Asennuksen jälkeen sinua pyydetään kirjautumaan Anthropicin viralliselle tilille. Voimme käyttää XHuoAPIin välityspalvelua konfiguroimalla ympäristömuuttujat, **ilman virallista tilausta**.
 
 ### Ympäristömuuttujien konfigurointi
 
@@ -72,12 +72,12 @@ Ympäristömuuttujat voidaan konfiguroida kahdella tavalla, valitse kumpi tahans
 
 **Tapa 1: Aseta Shell-konfiguraatiotiedostoon (suositeltava)**
 
-Lisää seuraava sisältö Shell-konfiguraatiotiedostoosi (`~/.zshrc`, `~/.bashrc` tai `~/.bash_profile`), vaihda `{token}` AceData Cloud -hallintapaneelista saamasi API-tunnuksen mukaan:
+Lisää seuraava sisältö Shell-konfiguraatiotiedostoosi (`~/.zshrc`, `~/.bashrc` tai `~/.bash_profile`), vaihda `{token}` XHuoAPI -hallintapaneelista saamasi API-tunnuksen mukaan:
 
 ```bash
-# AceData Cloud - Claude Code -välityskonfiguraatio
+# XHuoAPI - Claude Code -välityskonfiguraatio
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 Suorita seuraava komento, jotta muutokset tulevat voimaan:
@@ -94,14 +94,14 @@ Muokkaa `~/.claude/settings.json` (jos ei ole olemassa, luo se) ja lisää `env`
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
 Tämän menetelmän etuna on, että ympäristömuuttujat vaikuttavat vain Claude Codeen, eivätkä vaikuta muihin ohjelmiin.
 
-> **Vihje**: API-tunnus voidaan tarkistaa [AceData Cloud -hallintapaneelista](https://platform.acedata.cloud/console). `ANTHROPIC_AUTH_TOKEN` -arvoon lisätään automaattisesti `Bearer`-etuliite, joka lähetetään palvelimelle.
+> **Vihje**: API-tunnus voidaan tarkistaa [XHuoAPI -hallintapaneelista](https://api.xhuoapi.ai/console). `ANTHROPIC_AUTH_TOKEN` -arvoon lisätään automaattisesti `Bearer`-etuliite, joka lähetetään palvelimelle.
 
 ## Aloita käyttö
 
@@ -217,7 +217,7 @@ Tämä on Django + Vue.js -kokonaisprojekti.
    echo $ANTHROPIC_AUTH_TOKEN
    echo $ANTHROPIC_BASE_URL
    ```
-3. Varmista, että API-tunnus on voimassa (voit tarkistaa sen [ohjauspaneelista](https://platform.acedata.cloud/console))
+3. Varmista, että API-tunnus on voimassa (voit tarkistaa sen [ohjauspaneelista](https://api.xhuoapi.ai/console))
 4. Yritä käynnistää terminaali uudelleen
 
 ### komento ei löytynyt: claude
@@ -230,11 +230,11 @@ Jos asennuksen jälkeen saat ilmoituksen `komento ei löytynyt`, yritä:
 
 ### Kuinka tarkistaa jäljellä oleva saldo?
 
-Kirjaudu sisään [AceData Cloud -ohjauspaneeliin](https://platform.acedata.cloud/console), niin voit tarkistaa nykyisen tilisi jäljellä olevan saldon ja käyttötilanteen.
+Kirjaudu sisään [XHuoAPI -ohjauspaneeliin](https://api.xhuoapi.ai/console), niin voit tarkistaa nykyisen tilisi jäljellä olevan saldon ja käyttötilanteen.
 
 ## Lisätietoja
 
 - 📖 [Claude Code CLI virallinen dokumentaatio](https://code.claude.com/docs/en/quickstart)
 - 📋 [CLI komento viite](https://code.claude.com/docs/en/cli-reference)
-- 🔧 [AceData Cloud Claude Code palvelu](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code palvelu](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 Jos sinulla on kysyttävää, ota rohkeasti yhteyttä asiakaspalveluumme.

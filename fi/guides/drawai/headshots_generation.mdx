@@ -1,15 +1,15 @@
 ---
 title: "AI-passikuvien valmistus API -liittymän ohjeet"
-description: "AI ID Photo Production 集成指南 - Ace Data Cloud"
+description: "AI ID Photo Production 集成指南 - XHuoAPI"
 ---
 
 Tässä artikkelissa esitellään AI-passikuvien valmistus API -liittymän ohjeet, jonka avulla voidaan luoda erilaisia passikuvia syöttämällä henkilökuvan URL-osoite sekä haluamasi malli.
 
 ## Hakuprosessi
 
-API:n käyttämiseksi sinun on ensin mentävä [AI-passikuvien valmistus API](https://platform.acedata.cloud/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
+API:n käyttämiseksi sinun on ensin mentävä [AI-passikuvien valmistus API](https://api.xhuoapi.ai/documents/bf7214a3-8447-4157-8a75-f5bb39d5ed1b) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi, napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -38,7 +38,7 @@ Sitten meidän on myös syötettävä haluamamme malli. Tässä artikkelissa on 
 
 Sen jälkeen voimme myös määrittää luontinopeusparametrin `mode`, joka jakautuu yleensä kahteen: hidas `relax` ja nopea `fast`, tarkat tiedot ovat seuraavat:
 
-<p><img src="https://cdn.acedata.cloud/73xbla.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/73xbla.png" width="500" className="m-auto" /></p>
 
 Täällä voimme nähdä, että olemme asettaneet Request Headers, mukaan lukien:
 
@@ -54,7 +54,7 @@ Lisäksi on asetettu Request Body, joka sisältää:
 
 Valinnan jälkeen voit huomata, että oikealla puolella on myös luotu vastaava koodi, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/yp49hc.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yp49hc.png" width="500" className="m-auto" /></p>
 
 Napsauta "Try" -painiketta, niin voit testata, kuten yllä olevassa kuvassa näkyy, ja saamme seuraavanlaisen tuloksen:
 
@@ -65,12 +65,12 @@ Napsauta "Try" -painiketta, niin voit testata, kuten yllä olevassa kuvassa näk
   "data": [
     {
       "id": "202411031951124776",
-      "image_url": "https://platform.cdn.acedata.cloud/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
+      "image_url": "https://platform.cdn.xhuoapi.ai/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
       "template": "Mieskuva"
     },
     {
       "id": "202411031951128490",
-      "image_url": "https://platform.cdn.acedata.cloud/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
+      "image_url": "https://platform.cdn.xhuoapi.ai/headshots/ae1e4948-dba1-4a6f-87af-67961b647428.png",
       "template": "Mieskuva"
     }
   ]
@@ -91,7 +91,7 @@ Voimme nähdä, että olemme saaneet tyytyväisiä passikuvainformaatiota mallin
 Lisäksi, jos haluat luoda vastaavan liityntäkoodin, voit suoraan kopioida sen, esimerkiksi CURL-koodi on seuraava:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/headshots/generate' \
+curl -X POST 'https://api.xhuoapi.ai/v1/headshots/generate' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -112,13 +112,13 @@ Katsotaanpa esimerkin avulla, miten tämä toimii.
 
 Ensinnäkin, Webhook-palaute on palvelu, joka voi vastaanottaa HTTP-pyyntöjä, ja kehittäjän tulisi korvata se omalla HTTP-palvelimensa URL-osoitteella. Tässä esimerkin vuoksi käytämme julkista Webhook-esimerkkisivustoa https://webhook.site/, avaa tämä sivusto saadaksesi Webhook URL:n, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/sb4p3v.png)
+![](https://cdn.xhuoapi.ai/sb4p3v.png)
 
 Kopioi tämä URL, niin voit käyttää sitä Webhookina, tässä esimerkki on `https://webhook.site/00f38b26-4289-4899-83d6-0cea7308850a`.
 
 Seuraavaksi voimme asettaa kentän `callback_url` yllä olevaan Webhook URL:iin, samalla kun täytämme henkilökuvan linkin ja mallin. Tässä artikkelissa suositellaan käyttämään asynkronista palautusta, kun parametrin `mode` arvo on `relax`, tarkat tiedot ovat kuvassa näkyvissä:
 
-<p><img src="https://cdn.acedata.cloud/opt326.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/opt326.png" width="500" className="m-auto" /></p>
 
 Napsauta Suorita, ja huomaat, että saat heti tuloksen, kuten seuraavassa:
 
@@ -129,7 +129,7 @@ Napsauta Suorita, ja huomaat, että saat heti tuloksen, kuten seuraavassa:
 ```
 
 Odota hetki, niin voit tarkastella luotua tulosta osoitteessa `https://webhook.site/00f38b26-4289-4899-83d6-0cea7308850a`, kuten kuvassa näkyy:
-![](https://cdn.acedata.cloud/ym6fw1.png)
+![](https://cdn.xhuoapi.ai/ym6fw1.png)
 
 Sisältö on seuraava:
 
@@ -140,12 +140,12 @@ Sisältö on seuraava:
     "data": [
         {
             "id": "202411032010131366",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
             "template": "Mieskuva"
         },
         {
             "id": "202411032010132420",
-            "image_url": "https://platform.cdn.acedata.cloud/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
+            "image_url": "https://platform.cdn.xhuoapi.ai/headshots/763b1450-8804-434f-acc7-d713be73a28f.png",
             "template": "Mieskuva"
         }
     ]

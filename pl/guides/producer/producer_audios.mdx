@@ -1,15 +1,15 @@
 ---
 title: "Producent Audios Generation API - instrukcja integracji"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 W tym dokumencie przedstawimy instrukcję integracji z Producent Audios Generation API, które umożliwia generowanie oficjalnej muzyki Producenta za pomocą wprowadzonych parametrów.
 
 ## Proces aplikacji
 
-Aby skorzystać z API, należy najpierw przejść na stronę [Producent Audios Generation API](https://platform.acedata.cloud/documents/producer-audios) i złożyć wniosek o odpowiednią usługę. Po wejściu na stronę, kliknij przycisk „Acquire”, jak pokazano na obrazku:
+Aby skorzystać z API, należy najpierw przejść na stronę [Producent Audios Generation API](https://api.xhuoapi.ai/documents/producer-audios) i złożyć wniosek o odpowiednią usługę. Po wejściu na stronę, kliknij przycisk „Acquire”, jak pokazano na obrazku:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Jeśli nie jesteś zalogowany lub zarejestrowany, automatycznie zostaniesz przekierowany na stronę logowania, aby zarejestrować się i zalogować. Po zalogowaniu lub rejestracji automatycznie wrócisz na bieżącą stronę.
 
@@ -19,7 +19,7 @@ Podczas pierwszej aplikacji otrzymasz darmowy limit, który pozwala na bezpłatn
 
 Chcąc wygenerować piosenkę, możesz wprowadzić dowolny tekst, na przykład, jeśli chcesz stworzyć piosenkę o tematyce świątecznej, możesz wpisać `a song for Christmas`, jak pokazano na obrazku:
 
-<p><img src="https://cdn.acedata.cloud/lg9bb0.png" width="600" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lg9bb0.png" width="600" className="m-auto" /></p>
 
 Można zauważyć, że ustawiliśmy nagłówki żądania, w tym:
 
@@ -46,7 +46,7 @@ Dodatkowo parametry ciała żądania obejmują:
 
 Po dokonaniu wyboru, można zauważyć, że po prawej stronie wygenerowano odpowiedni kod, jak pokazano na obrazku:
 
-<p><img src="https://cdn.acedata.cloud/0217zy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0217zy.png" width="500" className="m-auto" /></p>
 
 Kliknij przycisk „Try”, aby przeprowadzić test, jak pokazano na powyższym obrazku, a otrzymasz następujący wynik:
 
@@ -98,7 +98,7 @@ Można zauważyć, że otrzymaliśmy informacje o muzyce, którą chcemy wygener
 Dodatkowo, jeśli chcesz wygenerować odpowiedni kod integracyjny, możesz go bezpośrednio skopiować, na przykład kod CURL wygląda następująco:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -125,16 +125,16 @@ Następnie, aby dostosować generację piosenki na podstawie tekstu, tytułu i s
 - custom: ustaw na `true`, co oznacza dostosowaną generację, ten parametr domyślnie jest ustawiony na false, co oznacza użycie `prompt` do generacji.
 - title: tytuł piosenki.
 填写样例如下：
-<p><img src="https://cdn.acedata.cloud/ruovz5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ruovz5.png" width="500" className="m-auto" /></p>
 
 填写完毕之后自动生成了代码如下：
 
-<p><img src="https://cdn.acedata.cloud/seyxxa.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seyxxa.png" width="500" className="m-auto" /></p>
 
 对应的代码：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -180,9 +180,9 @@ Testy są dozwolone, generowany efekt jest podobny.
 
 Jeśli chcesz wykonać cover już wygenerowanej piosenki, możesz wprowadzić wygenerowaną wcześniej piosenkę, aby wykonać cover, następnie musimy dostosować generowanie piosenki na podstawie tekstu, tytułu.
 
-Jeśli chcesz kontynuować wykonywanie coveru swojej przesłanej piosenki, możesz ustawić parametr `action` na `upload_cover` i wprowadzić ID piosenki, którą chcesz kontynuować, ID piosenki można uzyskać za pomocą [Producer Upload API](https://platform.acedata.cloud/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447), jak pokazano na poniższym obrazku:
+Jeśli chcesz kontynuować wykonywanie coveru swojej przesłanej piosenki, możesz ustawić parametr `action` na `upload_cover` i wprowadzić ID piosenki, którą chcesz kontynuować, ID piosenki można uzyskać za pomocą [Producer Upload API](https://api.xhuoapi.ai/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447), jak pokazano na poniższym obrazku:
 
-<p><img src="https://cdn.acedata.cloud/z7r5fd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/z7r5fd.png" width="500" className="m-auto" /></p>
 
 Możesz określić następujące treści:
 
@@ -194,16 +194,16 @@ Możesz określić następujące treści:
 
 填写样例如下：
 
-<p><img src="https://cdn.acedata.cloud/6xl82z.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/6xl82z.png" width="500" className="m-auto" /></p>
 
 填写完毕之后自动生成了代码如下：
 
-<p><img src="https://cdn.acedata.cloud/bxzfrw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bxzfrw.png" width="500" className="m-auto" /></p>
 
 对应的代码：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -250,22 +250,22 @@ Testy są dozwolone, generowany efekt jest podobny.
 
 Jeśli chcesz kontynuować piosenkę, musimy przekazać parametr `action` z wartością: `extend`, następnie musimy dostosować generowanie piosenki na podstawie tekstu, tytułu i stylu.
 
-Jeśli chcesz kontynuować piosenkę, którą sam przesłałeś, możesz ustawić parametr `action` na `upload_extend` i wprowadzić ID piosenki, którą chcesz kontynuować. ID piosenki można uzyskać za pomocą [Producer Upload API](https://platform.acedata.cloud/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447), jak pokazano na poniższym obrazku:
+Jeśli chcesz kontynuować piosenkę, którą sam przesłałeś, możesz ustawić parametr `action` na `upload_extend` i wprowadzić ID piosenki, którą chcesz kontynuować. ID piosenki można uzyskać za pomocą [Producer Upload API](https://api.xhuoapi.ai/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447), jak pokazano na poniższym obrazku:
 
-<p><img src="https://cdn.acedata.cloud/z7r5fd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/z7r5fd.png" width="500" className="m-auto" /></p>
 
 Przykład wypełnienia wygląda następująco:
 
-<p><img src="https://cdn.acedata.cloud/r3ux6z.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/r3ux6z.png" width="500" className="m-auto" /></p>
 
 Po wypełnieniu automatycznie wygenerowano kod, jak poniżej:
 
-<p><img src="https://cdn.acedata.cloud/fsww0u.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fsww0u.png" width="500" className="m-auto" /></p>
 
 Odpowiedni kod:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -319,16 +319,16 @@ Jeśli chcesz wygenerować nową muzykę o podobnym efekcie na podstawie wartoś
 
 Przykład wypełnienia wygląda następująco:
 
-<p><img src="https://cdn.acedata.cloud/bxslxt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bxslxt.png" width="500" className="m-auto" /></p>
 ```
 填写完毕之后 automatycznie wygenerowano kod jak poniżej:
 
-<p><img src="https://cdn.acedata.cloud/nojowk.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/nojowk.png" width="500" class="m-auto"></p>
 
 Odpowiedni kod:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -375,22 +375,22 @@ Testowanie dozwolone, wygenerowany efekt jest podobny.
 
 Jeśli chcesz zastąpić fragment piosenki, musimy przekazać wartość parametru `action` jako: `replace_section`, następnie musimy dostosować generowanie piosenki na podstawie tekstu i tytułu.
 
-Jeśli chcesz kontynuować zastępowanie fragmentu w przesłanej przez siebie piosence, możesz ustawić parametr `action` na `upload_replace_section` i wprowadzić ID przesłanej piosenki, które można uzyskać za pomocą [Producer Upload API](https://platform.acedata.cloud/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447), jak pokazano na poniższym obrazku:
+Jeśli chcesz kontynuować zastępowanie fragmentu w przesłanej przez siebie piosence, możesz ustawić parametr `action` na `upload_replace_section` i wprowadzić ID przesłanej piosenki, które można uzyskać za pomocą [Producer Upload API](https://api.xhuoapi.ai/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447), jak pokazano na poniższym obrazku:
 
-<p><img src="https://cdn.acedata.cloud/z7r5fd.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/z7r5fd.png" width="500" class="m-auto"></p>
 
 Przykład wypełnienia wygląda następująco:
 
-<p><img src="https://cdn.acedata.cloud/mzo9iw.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/mzo9iw.png" width="500" class="m-auto"></p>
 
 Po wypełnieniu automatycznie wygenerowano kod jak poniżej:
 
-<p><img src="https://cdn.acedata.cloud/877x6c.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/877x6c.png" width="500" class="m-auto"></p>
 
 Odpowiedni kod:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -440,16 +440,16 @@ Jeśli chcesz użyć oficjalnej przeróbki podkładu, możesz ustawić wartość
 
 Przykład wypełnienia wygląda następująco:
 
-<p><img src="https://cdn.acedata.cloud/7l6976.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/7l6976.png" width="500" class="m-auto"></p>
 
 Po wypełnieniu automatycznie wygenerowano kod jak poniżej:
 
-<p><img src="https://cdn.acedata.cloud/pvi2n3.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/pvi2n3.png" width="500" class="m-auto"></p>
 
 Odpowiedni kod:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -497,15 +497,15 @@ Jeśli chcesz użyć oficjalnej przeróbki wokalu, możesz ustawić wartość pa
 
 Przykład wypełnienia wygląda następująco:
 
-<p><img src="https://cdn.acedata.cloud/bk9ino.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/bk9ino.png" width="500" class="m-auto"></p>
 
 Po wypełnieniu automatycznie wygenerowano kod jak poniżej:
 
-<p><img src="https://cdn.acedata.cloud/p5b1vg.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/p5b1vg.png" width="500" class="m-auto"></p>
 
 Odpowiedni kod:
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -556,16 +556,16 @@ Jeśli chcesz użyć oficjalnej operacji rozdzielania tekstu i muzyki, możesz u
 
 Przykład wypełnienia poniżej:
 
-<p><img src="https://cdn.acedata.cloud/fnpgvc.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/fnpgvc.png" width="500" class="m-auto"></p>
 
 Po wypełnieniu automatycznie wygenerowano poniższy kod:
 
-<p><img src="https://cdn.acedata.cloud/oq5iv5.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/oq5iv5.png" width="500" class="m-auto"></p>
 
 Odpowiedni kod:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -586,7 +586,7 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
         {
             "title": "Obudziłem się z słońcem w oczach",
             "lyric": "",
-            "stems_url": "https://platform.cdn.acedata.cloud/producer/561ac695-b4aa-47cf-978d-fb7be2b9ebfc.zip",
+            "stems_url": "https://platform.cdn.xhuoapi.ai/producer/561ac695-b4aa-47cf-978d-fb7be2b9ebfc.zip",
             "model": "",
             "progress": "100%",
             "state": "succeeded"
@@ -605,13 +605,13 @@ Poniżej przyjrzymy się, jak dokładnie to działa na przykładzie.
 
 Najpierw, wywołanie zwrotne Webhook to usługa, która może odbierać żądania HTTP, deweloperzy powinni zastąpić to URL swojego własnego serwera HTTP. W tym celu, dla wygody demonstracji, użyjemy publicznej strony przykładowej Webhook [https://webhook.site/](https://webhook.site/), otwierając tę stronę, otrzymasz URL Webhook, jak pokazano na obrazku:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Skopiuj ten URL, aby użyć go jako Webhook, przykładowy URL to [https://webhook.site/#!/view/0d73431d-f833-4be4-9276-b6e1690d55c1](https://webhook.site/#!/view/0d73431d-f833-4be4-9276-b6e1690d55c1).
 
 Następnie możemy ustawić pole `callback_url` na powyższy URL Webhook, a także wypełnić odpowiednie parametry, szczegóły jak na obrazku:
 
-<p><img src="https://cdn.acedata.cloud/wuzd4y.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/wuzd4y.png" width="500" class="m-auto"></p>
 
 Klikając uruchom, można zauważyć, że natychmiast otrzymasz wynik, jak poniżej:
 
@@ -622,7 +622,7 @@ Klikając uruchom, można zauważyć, że natychmiast otrzymasz wynik, jak poni�
 ```
 Proszę chwilę poczekać, możemy zaobserwować wyniki generacji zadań na [https://webhook.site/#!/view/0d73431d-f833-4be4-9276-b6e1690d55c1](https://webhook.site/#!/view/0d73431d-f833-4be4-9276-b6e1690d55c1), jak pokazano na obrazku:
 
-![](https://cdn.acedata.cloud/k0kf0y.png)
+![](https://cdn.xhuoapi.ai/k0kf0y.png)
 
 Treść jest następująca:
 

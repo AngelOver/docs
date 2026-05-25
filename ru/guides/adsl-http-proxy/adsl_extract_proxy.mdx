@@ -1,15 +1,15 @@
 ---
 title: "ADSL Proxy API Заявка и использование"
-description: "ADSL Direct Connection Proxy 集成指南 - Ace Data Cloud"
+description: "ADSL Direct Connection Proxy 集成指南 - XHuoAPI"
 ---
 
 В этом документе в основном описывается процесс использования ADSL Proxy API, с его помощью мы можем легко извлекать IP ADSL и добавлять IP в белый список ADSL Proxy.
 
 ## Процесс заявки
 
-Чтобы использовать извлечение IP ADSL и добавление IP в белый список ADSL Proxy, сначала можно перейти на страницы [ADSL Proxy Extract API](https://platform.acedata.cloud/documents/d8426c17-d22c-449a-b6bf-0a7790928e4d) и [ADSL Proxy Whitelist API](https://platform.acedata.cloud/documents/c21534fe-1f62-424b-9b10-a805cb473dd1) и нажать кнопку «Acquire», чтобы получить необходимые для запроса учетные данные:
+Чтобы использовать извлечение IP ADSL и добавление IP в белый список ADSL Proxy, сначала можно перейти на страницы [ADSL Proxy Extract API](https://api.xhuoapi.ai/documents/d8426c17-d22c-449a-b6bf-0a7790928e4d) и [ADSL Proxy Whitelist API](https://api.xhuoapi.ai/documents/c21534fe-1f62-424b-9b10-a805cb473dd1) и нажать кнопку «Acquire», чтобы получить необходимые для запроса учетные данные:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Если вы еще не вошли в систему или не зарегистрированы, вас автоматически перенаправит на страницу входа, приглашая вас зарегистрироваться и войти в систему. После входа или регистрации вы автоматически вернетесь на текущую страницу.
 
@@ -17,7 +17,7 @@ description: "ADSL Direct Connection Proxy 集成指南 - Ace Data Cloud"
 
 ## Извлечение IP ADSL
 
-Далее вы можете заполнить соответствующие данные на странице [ADSL Proxy Extract API](https://platform.acedata.cloud/documents/d8426c17-d22c-449a-b6bf-0a7790928e4d), далее демонстрируется, как извлечь IP ADSL.
+Далее вы можете заполнить соответствующие данные на странице [ADSL Proxy Extract API](https://api.xhuoapi.ai/documents/d8426c17-d22c-449a-b6bf-0a7790928e4d), далее демонстрируется, как извлечь IP ADSL.
 
 ### Установка заголовков запроса и тела запроса
 
@@ -38,20 +38,20 @@ description: "ADSL Direct Connection Proxy 集成指南 - Ace Data Cloud"
 {"province":"北京","city":"北京","pId":0,"cId":0},{"province":"天津","city":"天津","pId":1,"cId":1},{"province":"上海","city":"上海","pId":2,"cId":3},{"province":"重庆","city":"重庆","pId":3,"cId":4},{"province":"黑龙江","city":"大兴安岭地区","pId":4,"cId":7},{"province":"黑龙江","city":"黑河","pId":4,"cId":8},{"province":"黑龙江","city":"齐齐哈尔","pId":4,"cId":9},{"province":"黑龙江","city":"绥化","pId":4,"cId":10},{"province":"黑龙江","city":"鹤岗","pId":4,"cId":11},{"province":"黑龙江","city":"佳木斯","pId":4,"cId":12},{"province":"黑龙江","city":"伊春","pId":4,"cId":13},{"province":"黑龙江","city":"双鸭山","pId":4,"cId":14},{"province":"黑龙江","city":"哈尔滨","pId":4,"cId":15},{"province":"黑龙江","city":"鸡西","pId":4,"cId":16},{"province":"黑龙江","city":"大庆","pId":4,"cId":18},{"province":"黑龙江","city":"七台河","pId":4,"cId":19},{"province":"黑龙江","city":"牡丹江","pId":4,"cId":20},{"province":"吉林","city":"辽源","pId":5,"cId":22},{"province":"吉林","city":"通化","pId":5,"cId":23},{"province":"吉林","city":"白城","pId":5,"cId":24},{"province":"吉林","city":"松原","pId":5,"cId":25},{"province":"吉林","city":"长春","pId":5,"cId":26},{"province":"吉林","city":"吉林市","pId":5,"cId":27},{"province":"吉林","city":"延边朝鲜族自治州","pId":5,"cId":29},{"province":"吉林","city":"白山","pId":5,"cId":31},{"province":"吉林","city":"四平","pId":5,"cId":32},{"province":"辽宁","city":"葫芦岛","pId":6,"cId":33},{"province":"辽宁","city":"盘锦","pId":6,"cId":34},{"province":"辽宁","city":"辽阳","pId":6,"cId":35},{"province":"辽宁","city":"铁岭","pId":6,"cId":36},{"province":"辽宁","city":"阜新","pId":6,"cId":37},{"province":"辽宁","city":"朝阳","pId":6,"cId":38},{"province":"辽宁","city":"锦州","pId":6,"cId":39},{"province":"辽宁","city":"鞍山","pId":6,"cId":40},{"province":"辽宁","city":"沈阳","pId":6,"cId":41},{"province":"辽宁","city":"本溪","pId":6,"cId":42},{"province":"辽宁","city":"抚顺","pId":6,"cId":43},{"province":"辽宁","city":"营口","pId":6,"cId":44},{"province":"辽宁","city":"丹东","pId":6,"cId":45},{"province":"辽宁","city":"大连","pId":6,"cId":47},{"province":"内蒙古","city":"呼伦贝尔","pId":7,"cId":48},{"province":"内蒙古","city":"兴安盟","pId":7,"cId":49},{"province":"内蒙古","city":"锡林郭勒盟","pId":7,"cId":50},{"province":"内蒙古","city":"巴彦淖尔","pId":7,"cId":51},{"province":"内蒙古","city":"包头","pId":7,"cId":52},{"province":"内蒙古","city":"呼和浩特","pId":7,"cId":53},{"province":"内蒙古","city":"通辽","pId":7,"cId":55},{"province":"内蒙古","city":"赤峰","pId":7,"cId":56},{"province":"内蒙古","city":"乌海","pId":7,"cId":57},{"province":"内蒙古","city":"鄂尔多斯","pId":7,"cId":58},{"province":"内蒙古","city":"乌兰察布","pId":7,"cId":59},{"province":"宁夏","city":"石嘴山","pId":8,"cId":60},{"province":"宁夏","city":"银川","pId":8,"cId":61},{"province":"宁夏","city":"吴忠","pId":8,"cId":62},{"province":"宁夏","city":"固原","pId":8,"cId":63},{"province":"甘肃","city":"张掖","pId":9,"cId":64},{"province":"甘肃","city":"金昌","pId":9,"cId":65},{"province":"甘肃","city":"武威","pId":9,"cId":66},{"province":"甘肃","city":"兰州","pId":9,"cId":67},{"province":"甘肃","city":"白银","pId":9,"cId":68},{"province":"甘肃","city":"定西","pId":9,"cId":69},{"province":"甘肃","city":"平凉","pId":9,"cId":70},{"province":"甘肃","city":"庆阳","pId":9,"cId":71},{"province":"甘肃","city":"甘南藏族自治州","pId":9,"cId":72},{"province":"甘肃","city":"临夏回族自治州","pId":9,"cId":73},{"province":"甘肃","city":"天水","pId":9,"cId":74},{"province":"甘肃","city":"嘉峪关","pId":9,"cId":75},{"province":"甘肃","city":"酒泉","pId":9,"cId":76},{"province":"甘肃","city":"陇南","pId":9,"cId":77},{"province":"新疆","city":"昌吉回族自治州","pId":10,"cId":78},{"province":"新疆","city":"克孜勒苏柯尔克孜自治州","pId":10,"cId":79},{"province":"新疆","city":"伊犁哈萨克自治州","pId":10,"cId":80},{"province":"新疆","city":"阿拉尔","pId":10,"cId":81},{"province":"新疆","city":"克拉玛依","pId":10,"cId":82},{"province":"新疆","city":"博尔塔拉蒙古自治州","pId":10,"cId":83},{"province":"新疆","city":"乌鲁木齐","pId":10,"cId":84},{"province":"新疆","city":"吐鲁番","pId":10,"cId":85},{"province":"新疆","city":"阿克苏地区","pId":10,"cId":86},{"province":"新疆","city":"石河子","pId":10,"cId":87},{"province":"新疆","city":"喀什地区","pId":10,"cId":88},{"province":"新疆","city":"和田地区","pId":10,"cId":89},{"province":"新疆","city":"哈密","pId":10,"cId":90},{"province":"陕西","city":"榆林","pId":11,"cId":92},{"province":"陕西","city":"延安","pId":11,"cId":93},{"province":"陕西","city":"咸阳","pId":11,"cId":94},{"province":"陕西","city":"西安","pId":11,"cId":95},{"province":"陕西","city":"渭南","pId":11,"cId":96},{"province":"陕西","city":"汉中","pId":11,"cId":97},{"province":"陕西","city":"商洛","pId":11,"cId":98},{"province":"陕西","city":"安康","pId":11,"cId":99},{"province":"陕西","city":"铜川","pId":11,"cId":100},{"province":"陕西","city":"宝鸡","pId":11,"cId":101},{"province":"山西","city":"长治","pId":12,"cId":102},{"province":"山西","city":"晋中","pId":12,"cId":103},{"province":"山西","city":"朔州","pId":12,"cId":104},{"province":"山西","city":"大同","pId":12,"cId":105},{"province":"山西","city":"吕梁","pId":12,"cId":106},{"province":"山西","city":"忻州","pId":12,"cId":107},{"province":"山西","city":"太原","pId":12,"cId":108},{"province":"山西","city":"阳泉","pId":12,"cId":109},{"province":"山西","city":"临汾","pId":12,"cId":110},{"province":"山西","city":"运城","pId":12,"cId":111},{"province":"山西","city":"晋城","pId":12,"cId":112},{"province":"山东","city":"德州","pId":13,"cId":114},{"province":"山东","city":"滨州","pId":13,"cId":115},{"province":"山东","city":"烟台","pId":13,"cId":116},{"province":"山东","city":"聊城","pId":13,"cId":117},{"province":"山东","city":"济南","pId":13,"cId":118},{"province":"山东","city":"泰安","pId":13,"cId":119},{"province":"山东","city":"淄博","pId":13,"cId":120},{"province":"山东","city":"潍坊","pId":13,"cId":121},{"province":"山东","city":"青岛","pId":13,"cId":122},{"province":"山东","city":"济宁","pId":13,"cId":123},{"province":"山东","city":"日照","pId":13,"cId":124},{"province":"山东","city":"枣庄","pId":13,"cId":126},{"province":"山东","city":"东营","pId":13,"cId":127},{"province":"山东","city":"威海","pId":13,"cId":128},{"province":"山东","city":"莱芜","pId":13,"cId":129},{"province":"山东","city":"临沂","pId":13,"cId":130},{"province":"山东","city":"菏泽","pId":13,"cId":131},{"province":"河北","city":"邯郸","pId":14,"cId":132},{"province":"河北","city":"衡水","pId":14,"cId":133},{"province":"河北","city":"石家庄","pId":14,"cId":134},{"province":"河北","city":"邢台","pId":14,"cId":135},{"province":"河北","city":"张家口","pId":14,"cId":136},{"province":"河北","city":"承德","pId":14,"cId":137},{"province":"河北","city":"秦皇岛","pId":14,"cId":138},{"province":"河北","city":"廊坊","pId":14,"cId":139},{"province":"河北","city":"唐山","pId":14,"cId":140},{"province":"河北","city":"保定","pId":14,"cId":141},{"province":"河北","city":"沧州","pId":14,"cId":142},{"province":"河南","city":"安阳","pId":15,"cId":143},{"province":"河南","city":"三门峡","pId":15,"cId":144},{"province":"河南","city":"郑州","pId":15,"cId":145},{"province":"河南","city":"南阳","pId":15,"cId":146},{"province":"河南","city":"周口","pId":15,"cId":147},{"province":"河南","city":"驻马店","pId":15,"cId":148},{"province":"河南","city":"信阳","pId":15,"cId":149},{"province":"河南","city":"开封","pId":15,"cId":150},{"province":"河南","city":"洛阳","pId":15,"cId":151},{"province":"河南","city":"平顶山","pId":15,"cId":152},{"province":"河南","city":"焦作","pId":15,"cId":153},{"province":"河南","city":"鹤壁","pId":15,"cId":154},{"province":"河南","city":"新乡","pId":15,"cId":155},{"province":"河南","city":"濮阳","pId":15,"cId":156},{"province":"河南","city":"许昌","pId":15,"cId":157},{"province":"河南","city":"漯河","pId":15,"cId":158},{"province":"河南","city":"商丘","pId":15,"cId":159},{"province":"河南","city":"济源","pId":15,"cId":160},{"province":"西藏","city":"那曲","pId":16,"cId":161},{"province":"西藏","city":"日喀则","pId":16,"cId":162},{"province":"西藏","city":"拉萨","pId":16,"cId":163},{"province":"西藏","city":"山南","pId":16,"cId":164},{"province":"西藏","city":"阿里地区","pId":16,"cId":165},{"province":"西藏","city":"昌都","pId":16,"cId":166},{"province":"西藏","city":"林芝","pId":16,"cId":167},{"province":"云南","city":"昭通","pId":17,"cId":168},{"province":"云南","city":"丽江","pId":17,"cId":169},{"province":"云南","city":"曲靖","pId":17,"cId":170},{"province":"云南","city":"保山","pId":17,"cId":171},{"province":"云南","city":"大理白族自治州","pId":17,"cId":172},{"province":"云南","city":"楚雄彝族自治州","pId":17,"cId":173},{"province":"云南","city":"昆明","pId":17,"cId":174},{"province":"云南","city":"玉溪","pId":17,"cId":176},{"province":"云南","city":"临沧","pId":17,"cId":177},{"province":"云南","city":"普洱","pId":17,"cId":178},{"province":"云南","city":"红河哈尼族彝族自治州","pId":17,"cId":179},{"province":"云南","city":"文山壮族苗族自治州","pId":17,"cId":180},{"province":"云南","city":"西双版纳傣族自治州","pId":17,"cId":181},{"province":"云南","city":"德宏傣族景颇族自治州","pId":17,"cId":182},{"province":"云南","city":"怒江傈僳族自治州","pId":17,"cId":183},{"province":"云南","city":"迪庆藏族自治州","pId":17,"cId":184},{"province":"四川","city":"甘孜藏族自治州","pId":18,"cId":185},{"province":"四川","city":"阿坝藏族羌族自治州","pId":18,"cId":186},{"province":"四川","city":"凉山彝族自治州","pId":18,"cId":187},{"province":"四川","city":"成都","pId":18,"cId":188},{"province":"四川","city":"绵阳","pId":18,"cId":189},{"province":"四川","city":"雅安","pId":18,"cId":190},{"province":"四川","city":"乐山","pId":18,"cId":192},{"province":"四川","city":"宜宾","pId":18,"cId":193},{"province":"四川","city":"巴中","pId":18,"cId":194},{"province":"四川","city":"达州","pId":18,"cId":195},{"province":"四川","city":"遂宁","pId":18,"cId":196},{"province":"四川","city":"南充","pId":18,"cId":197},{"province":"四川","city":"泸州","pId":18,"cId":198},{"province":"四川","city":"自贡","pId":18,"cId":199},{"province":"四川","city":"攀枝花","pId":18,"cId":200},{"province":"四川","city":"德阳","pId":18,"cId":201},{"province":"四川","city":"广元","pId":18,"cId":202},{"province":"四川","city":"内江","pId":18,"cId":203},{"province":"四川","city":"广安","pId":18,"cId":204},{"province":"四川","city":"眉山","pId":18,"cId":205},{"province":"四川","city":"资阳","pId":18,"cId":206},{"province":"贵州","city":"毕节","pId":19,"cId":207},{"province":"贵州","city":"遵义","pId":19,"cId":208},{"province":"贵州","city":"铜仁","pId":19,"cId":209},{"province":"贵州","city":"安顺","pId":19,"cId":210},{"province":"贵州","city":"贵阳","pId":19,"cId":211},{"province":"贵州","city
 因此根据以上规则我们需要设置正确的 `province` 和 `city`，尽量选中江浙地区，因为这些地区的 IP 会多一些，具体的参数设置如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/g8remv.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/g8remv.png" width="500" class="m-auto"></p>
 
 ### 代码示例
 
 可以发现，在页面右侧已经自动生成了各种语言的代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/e2rmr0.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/e2rmr0.png" width="500" class="m-auto"></p>
 
 部分代码示例如下：
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/adsl/extract' \
+curl -X POST 'https://api.xhuoapi.ai/v1/adsl/extract' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -66,7 +66,7 @@ curl -X POST 'https://api.acedata.cloud/adsl/extract' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/adsl/extract"
+url = "https://api.xhuoapi.ai/v1/adsl/extract"
 
 headers = {
     "accept": "application/json",
@@ -217,18 +217,18 @@ if __name__ == "__main__":
 
 下面设置 IP 代理的类型为 `socks` ，具体设置如下图：
 
-<p><img src="https://cdn.acedata.cloud/h3xlwj.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/h3xlwj.png" width="500" class="m-auto"></p>
 
 同时您可以注意到右侧有对应的调用代码生成，您可以复制代码直接运行，也可以直接点击「Try」按钮进行测试。
 
-<p><img src="https://cdn.acedata.cloud/7w0d5h.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/7w0d5h.png" width="500" class="m-auto"></p>
 
 Python 样例调用代码：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/adsl/extract"
+url = "https://api.xhuoapi.ai/v1/adsl/extract"
 
 headers = {
     "accept": "application/json",
@@ -272,20 +272,20 @@ print(response.text)
 
 接下来就可以在界面上填写对应的内容，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/wz4obo.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/wz4obo.png" width="500" class="m-auto"></p>
 
 在第一次使用该接口时，我们至少需要填写三个内容，一个是 `authorization`，直接在下拉列表里面选择即可。另一个参数是 `ip`， `ip` 就是我们需要使用上文提取到的 IP 代理的本机网络地址。最后一个参数是`action`，`action` 是我们对白名单进行的操作，这里是对白名单进行添加的操作。
 
 同时您可以注意到右侧有对应的调用代码生成，您可以复制代码直接运行，也可以直接点击「Try」按钮进行测试。
 
-<p><img src="https://cdn.acedata.cloud/cs5ib2.png" width="500" class="m-auto"></p>
+<p><img src="https://cdn.xhuoapi.ai/cs5ib2.png" width="500" class="m-auto"></p>
 
 Python 样例调用代码：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/adsl/whitelist"
+url = "https://api.xhuoapi.ai/v1/adsl/whitelist"
 
 headers = {
     "accept": "application/json",

@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Images Generations API пријава и коришћење"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI Images Generations API тренутно подржава бројне моделе за генерисање слика, укључујући класични `dall-e-3`, моћнији `gpt-image-1`, најновији **`gpt-image-2`**, као и серију модела **`nano-banana` / `nano-banana-2` / `nano-banana-pro`** који се приступају преко истог интерфејса. Сви они могу генерисати висококвалитетне слике на основу текстуалних описа.
@@ -9,9 +9,9 @@ OpenAI Images Generations API тренутно подржава бројне м�
 
 ## Процедура пријаве
 
-Да бисте користили OpenAI Images Generations API, најпре посетите страницу [OpenAI Images Generations API](https://platform.acedata.cloud/documents/fd932485-90c7-45d6-8394-1e14b6f07b2b) и кликните на дугме „Acquire“ да бисте добили потребне привилегије или токен:
+Да бисте користили OpenAI Images Generations API, најпре посетите страницу [OpenAI Images Generations API](https://api.xhuoapi.ai/documents/fd932485-90c7-45d6-8394-1e14b6f07b2b) и кликните на дугме „Acquire“ да бисте добили потребне привилегије или токен:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Ако нисте улоговани или регистровани, бићете аутоматски преусмерени на страницу за пријаву. Након логовања или регистрације, повратак ће се обавити аутоматски.
 
@@ -26,7 +26,7 @@ OpenAI Images Generations API тренутно подржава бројне м�
 - **Разноврснији стилови**: подржава кинастички, ретро, филмски портрети, производну фотографију, приказе у стилу информационих графика.
 - **Вишеструка разинска подршка од 1К, 2К до 4К**, као и подршка за различите пропорције (1:1, 4:3, 3:4, 16:9, 9:16).
 
-Позиви су слични као и за друге моделе — једноставно поставите `'model': 'gpt-image-2'`. Резултати садрже URL који је трајно хостован на `platform.cdn.acedata.cloud` и може се слободно отварати у прегледачу или засећи у веб страницу.
+Позиви су слични као и за друге моделе — једноставно поставите `'model': 'gpt-image-2'`. Резултати садрже URL који је трајно хостован на `platform.cdn.xhuoapi.ai` и може се слободно отварати у прегледачу или засећи у веб страницу.
 
 ### Вриједности parameter `size` и тарифе
 
@@ -67,7 +67,7 @@ Python 示例：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/generations"
+url = "https://api.xhuoapi.ai/v1/openai/images/generations"
 
 headers = {
     "accept": "application/json",

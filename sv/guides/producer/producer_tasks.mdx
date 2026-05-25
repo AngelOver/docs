@@ -1,6 +1,6 @@
 ---
 title: "Producer Tasks API:s integration och användning"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 Producer Tasks API:s huvudsakliga funktion är att genom att ange det uppdrag-ID som genererats av Producer Audios Generation API för att kontrollera statusen för det uppdraget.
@@ -9,27 +9,27 @@ Detta dokument kommer att ge en detaljerad beskrivning av integrationen av Produ
 
 ## Ansökningsprocess
 
-För att använda Producer Tasks API måste du först gå till ansökningssidan [Producer Audios Generation API](https://platform.acedata.cloud/documents/producer-audios) för att ansöka om den aktuella tjänsten, och sedan kopiera uppdrag-ID:t från Producer Audios Generation API, som visas i bilden nedan:
+För att använda Producer Tasks API måste du först gå till ansökningssidan [Producer Audios Generation API](https://api.xhuoapi.ai/documents/producer-audios) för att ansöka om den aktuella tjänsten, och sedan kopiera uppdrag-ID:t från Producer Audios Generation API, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
-Slutligen går du till Tasks API-sidan [Producer Tasks API](https://platform.acedata.cloud/documents/622626b1-30a7-4799-a772-4946e1df3ac0) för att ansöka om den aktuella tjänsten. När du kommer till sidan klickar du på knappen "Acquire", som visas i bilden nedan:
+Slutligen går du till Tasks API-sidan [Producer Tasks API](https://api.xhuoapi.ai/documents/622626b1-30a7-4799-a772-4946e1df3ac0) för att ansöka om den aktuella tjänsten. När du kommer till sidan klickar du på knappen "Acquire", som visas i bilden nedan:
 
-![Ansökningssidan](https://cdn.acedata.cloud/rci31i.png)
+![Ansökningssidan](https://cdn.xhuoapi.ai/rci31i.png)
 
-Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till [inloggningssidan](https://platform.acedata.cloud) där du uppmanas att registrera dig och logga in. Efter att du har loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
+Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till [inloggningssidan](https://api.xhuoapi.ai) där du uppmanas att registrera dig och logga in. Efter att du har loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
 
 Vid första ansökan kommer det att finnas en gratis kvot som ges, så att du kan använda detta API gratis.
 
 ## Begärningsexempel
 
-Producer Tasks API kan användas för att kontrollera resultaten från Producer Audios Generation API. För information om hur man använder Producer Audios Generation API, se dokumentet [Producer Audios Generation API](https://platform.acedata.cloud/documents/producer-audios-integration).
+Producer Tasks API kan användas för att kontrollera resultaten från Producer Audios Generation API. För information om hur man använder Producer Audios Generation API, se dokumentet [Producer Audios Generation API](https://api.xhuoapi.ai/documents/producer-audios-integration).
 
 Vi tar ett exempel med ett uppdrag-ID som returnerats av Producer Audios Generation API och visar hur man använder detta API. Anta att vi har ett uppdrag-ID: 1a6ac2ad-10f2-4e2b-b500-66ec27fe82ad, och vi visar hur man gör detta genom att ange ett uppdrag-ID.
 
 ### Uppdragsexempelbild
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 ### Ställ in begärningshuvuden och begärningskropp
 
@@ -45,20 +45,20 @@ Vi tar ett exempel med ett uppdrag-ID som returnerats av Producer Audios Generat
 
 Inställningarna visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/bfe4ww.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bfe4ww.png" width="500" className="m-auto" /></p>
 
 ### Kodexempel
 
 Det kan noteras att olika språkets kod redan har genererats automatiskt på höger sida av sidan, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/u4pb2f.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/u4pb2f.png" width="500" className="m-auto" /></p>
 
 Några kodexempel är som följer:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -134,13 +134,13 @@ Detta är en fråga om uppgiftsdetaljer för flera uppgifts-ID:n, till skillnad 
 
 Inställningarna är som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/jlkoma.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jlkoma.png" width="500" className="m-auto" /></p>
 
 ### Kodexempel
 
 Det kan noteras att olika språkets kod redan har genererats automatiskt på höger sida, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/emw66n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/emw66n.png" width="500" className="m-auto" /></p>
 
 Några kodexempel är som följer:
 
@@ -251,7 +251,7 @@ Resultatet innehåller flera fält, där `items` är en array som innehåller de
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

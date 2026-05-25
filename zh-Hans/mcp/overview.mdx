@@ -1,9 +1,9 @@
 ---
 title: "MCP 服务器总览"
-description: "把 Ace Data Cloud 接入 Claude Desktop、Cursor、Windsurf 等支持 Model Context Protocol 的 AI 工具。"
+description: "把 XHuoAPI 接入 Claude Desktop、Cursor、Windsurf 等支持 Model Context Protocol 的 AI 工具。"
 ---
 
-我们为每个核心服务提供官方 **MCP（Model Context Protocol）服务器**，让 Claude Desktop、Cursor、Windsurf、Continue 等支持 MCP 的 AI 工具直接调用 Ace Data Cloud API——不用再粘贴 cURL 命令，AI 助手会自动选择合适的接口、传参、解析返回。
+我们为每个核心服务提供官方 **MCP（Model Context Protocol）服务器**，让 Claude Desktop、Cursor、Windsurf、Continue 等支持 MCP 的 AI 工具直接调用 XHuoAPI API——不用再粘贴 cURL 命令，AI 助手会自动选择合适的接口、传参、解析返回。
 
 ## 什么时候用 MCP？
 
@@ -12,13 +12,13 @@ description: "把 Ace Data Cloud 接入 Claude Desktop、Cursor、Windsurf 等�
     你希望 Claude / Cursor 直接帮你生图、查搜索结果、转视频
   </Card>
   <Card title="✅ Agent / 工作流" icon="robot">
-    在 AI Agent 编排里把 Ace Data Cloud 当工具集
+    在 AI Agent 编排里把 XHuoAPI 当工具集
   </Card>
   <Card title="❌ Web / 移动端业务" icon="circle-xmark">
     用 REST API 更稳定灵活
   </Card>
   <Card title="❌ 大规模生产推理" icon="circle-xmark">
-    走 [api.acedata.cloud](https://api.acedata.cloud) 直接调用
+    走 [api.xhuoapi.ai](https://api.xhuoapi.ai/v1) 直接调用
   </Card>
 </CardGroup>
 
@@ -71,21 +71,21 @@ description: "把 Ace Data Cloud 接入 Claude Desktop、Cursor、Windsurf 等�
       "command": "uvx",
       "args": ["mcp-midjourney"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "YOUR_API_TOKEN"
+        "XHuoAPI_API_TOKEN": "YOUR_API_TOKEN"
       }
     },
     "suno": {
       "command": "uvx",
       "args": ["mcp-suno"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "YOUR_API_TOKEN"
+        "XHuoAPI_API_TOKEN": "YOUR_API_TOKEN"
       }
     },
     "serp": {
       "command": "uvx",
       "args": ["mcp-serp"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "YOUR_API_TOKEN"
+        "XHuoAPI_API_TOKEN": "YOUR_API_TOKEN"
       }
     }
   }
@@ -105,7 +105,7 @@ description: "把 Ace Data Cloud 接入 Claude Desktop、Cursor、Windsurf 等�
       "command": "uvx",
       "args": ["mcp-midjourney"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "YOUR_API_TOKEN"
+        "XHuoAPI_API_TOKEN": "YOUR_API_TOKEN"
       }
     }
   }
@@ -138,13 +138,13 @@ pip install mcp-midjourney mcp-suno mcp-serp
 {
   "command": "mcp-midjourney",
   "args": [],
-  "env": { "ACEDATACLOUD_API_TOKEN": "..." }
+  "env": { "XHuoAPI_API_TOKEN": "..." }
 }
 ```
 
 ## 计费
 
-调用 MCP 工具 = 调用 Ace Data Cloud API——**计费规则完全一样**。Token 在你的账号下扣费，MCP 服务器本身不收费。
+调用 MCP 工具 = 调用 XHuoAPI API——**计费规则完全一样**。Token 在你的账号下扣费，MCP 服务器本身不收费。
 
 详见 [价格总览](/pricing/overview)。
 
@@ -157,6 +157,6 @@ pip install mcp-midjourney mcp-suno mcp-serp
 
 ## 相关文档
 
-- [GitHub 源码 + 发布](https://github.com/AceDataCloud)
+- [GitHub 源码 + 发布](https://github.com/XHuoAPI)
 - [SunoMCP（PyPI）](https://pypi.org/project/mcp-suno/)
 - [SerpMCP（PyPI）](https://pypi.org/project/mcp-serp/)

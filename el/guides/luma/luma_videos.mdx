@@ -1,19 +1,19 @@
 ---
 title: "Luma API για Δημιουργία Βίντεο"
-description: "Luma Video Generation 集成指南 - Ace Data Cloud"
+description: "Luma Video Generation 集成指南 - XHuoAPI"
 ---
 
 Με την ευρεία εφαρμογή της AI, διάφορα προγράμματα AI έχουν σταδιακά γίνει δημοφιλή. Η AI έχει βαθιά διεισδύσει σε όλες τις πτυχές της εργασιακής και καθημερινής ζωής των ανθρώπων. Οι τομείς που σχετίζονται με την AI αυξάνονται συνεχώς, από την αρχική συγγραφή, στην ιατρική εκπαίδευση, μέχρι τώρα, στα βίντεο.
 
 Η Luma είναι μια επαγγελματική πλατφόρμα υψηλής ποιότητας για τη δημιουργία βίντεο, όπου οι χρήστες απλώς ανεβάζουν υλικό και μπορούν αυτόματα να δημιουργήσουν βίντεο υψηλής ποιότητας σύμφωνα με διάφορα στυλ και εφέ. Αυτός ο AI δημιουργός βίντεο έχει αναπτυχθεί από μέλη ομάδας γνωστών τεχνολογικών εταιρειών, με στόχο να επιτρέπει σε όλους να δημιουργούν εύκολα εξαιρετικά βίντεο χωρίς περίπλοκα εργαλεία επεξεργασίας.
 
-Ωστόσο, η Luma δεν παρέχει επίσημα API, η AceDataCloud προσφέρει ένα σύνολο API της Luma, προσομοιώνοντας τη σύνδεση με την επίσημη Suno, διευκολύνοντας την ταχεία δημιουργία των επιθυμητών βίντεο.
+Ωστόσο, η Luma δεν παρέχει επίσημα API, η XHuoAPI προσφέρει ένα σύνολο API της Luma, προσομοιώνοντας τη σύνδεση με την επίσημη Suno, διευκολύνοντας την ταχεία δημιουργία των επιθυμητών βίντεο.
 
 ## Αίτηση και Χρήση
 
-Για να χρησιμοποιήσετε το Luma Videos API, μπορείτε πρώτα να επισκεφθείτε τη σελίδα [Luma Videos Generation API](https://platform.acedata.cloud/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) και να κάνετε κλικ στο κουμπί «Acquire» για να αποκτήσετε τα απαραίτητα διαπιστευτήρια:
+Για να χρησιμοποιήσετε το Luma Videos API, μπορείτε πρώτα να επισκεφθείτε τη σελίδα [Luma Videos Generation API](https://api.xhuoapi.ai/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) και να κάνετε κλικ στο κουμπί «Acquire» για να αποκτήσετε τα απαραίτητα διαπιστευτήρια:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Εάν δεν έχετε συνδεθεί ή εγγραφεί, θα ανακατευθυνθείτε αυτόματα στη σελίδα σύνδεσης για να σας προσκαλέσουν να εγγραφείτε και να συνδεθείτε. Μετά την εγγραφή και σύνδεση, θα επιστρέψετε αυτόματα στη τρέχουσα σελίδα.
 
@@ -23,11 +23,11 @@ description: "Luma Video Generation 集成指南 - Ace Data Cloud"
 
 Για να δημιουργήσετε οποιοδήποτε βίντεο, μπορείτε να εισάγετε οποιοδήποτε κείμενο, για παράδειγμα, αν θέλετε να δημιουργήσετε ένα βίντεο σχετικά με αστροναύτες που μετακινούνται μεταξύ του διαστήματος και ηφαιστείων, μπορείτε να εισάγετε `Astronauts shuttle from space to volcano`, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/yub02j.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yub02j.png" width="500" className="m-auto" /></p>
 
 Ο παραγόμενος κώδικας είναι ο εξής:
 
-<p><img src="https://cdn.acedata.cloud/ieq7yn.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ieq7yn.png" width="500" className="m-auto" /></p>
 
 Κύριες παράμετροι αιτήματος:
 
@@ -51,7 +51,7 @@ description: "Luma Video Generation 集成指南 - Ace Data Cloud"
   "video_height": 752,
   "video_width": 1360,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/e4018a99-1522-4f24-9330-62c2a9b50b59.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/e4018a99-1522-4f24-9330-62c2a9b50b59.jpg",
   "thumbnail_width": 1360,
   "thumbnail_height": 752
 }
@@ -79,7 +79,7 @@ description: "Luma Video Generation 集成指南 - Ace Data Cloud"
 
 Αυτή τη στιγμή, το πεδίο `start_image_url` μπορεί να λάβει την παρακάτω εικόνα ως την πρώτη καρέ του βίντεο:
 
-![Πρώτη καρέ](https://cdn.acedata.cloud/r9vsv9.png)
+![Πρώτη καρέ](https://cdn.xhuoapi.ai/r9vsv9.png)
 
 Στη συνέχεια, πρέπει να προσαρμόσουμε τη δημιουργία του βίντεο με βάση τις πρώτες και τελευταίες καρέ, καθορίζοντας τα εξής περιεχόμενα:
 
@@ -90,18 +90,18 @@ description: "Luma Video Generation 集成指南 - Ace Data Cloud"
 
 Το δείγμα συμπλήρωσης είναι ως εξής:
 
-<p><img src="https://cdn.acedata.cloud/zvzydx.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zvzydx.png" width="500" className="m-auto" /></p>
 
 Αφού συμπληρωθεί, ο παραγόμενος κώδικας είναι ο εξής:
 
-<p><img src="https://cdn.acedata.cloud/tx80pu.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tx80pu.png" width="500" className="m-auto" /></p>
 
 Ο αντίστοιχος κώδικας:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/luma/videos"
+url = "https://api.xhuoapi.ai/v1/luma/videos"
 
 headers = {
     "accept": "application/json",
@@ -110,7 +110,7 @@ headers = {
 }
 
 payload = {
-    "start_image_url": "https://cdn.acedata.cloud/r9vsv9.png",
+    "start_image_url": "https://cdn.xhuoapi.ai/r9vsv9.png",
     "action": "generate",
     "prompt": "Astronauts shuttle from space to volcano"
 }
@@ -127,11 +127,11 @@ print(response.text)
   "task_id": "12a18694-fd4b-47e7-9c50-34f30862cff6",
   "video_id": "0105c090-03a5-425a-8026-523341cd575b",
   "prompt": "Astronauts shuttle from space to volcano",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -139,11 +139,11 @@ print(response.text)
 
 Το τελικό αποτέλεσμα είναι παρόμοιο με το προηγούμενο, το παραγόμενο βίντεο περιλαμβάνει την εικόνα που εισάγαμε ως την πρώτη καρέ, φυσικά μπορείτε επίσης να εισάγετε ταυτόχρονα τους συνδέσμους εικόνας για τις πρώτες και τελευταίες καρέ για να δημιουργήσετε το βίντεο, απλώς χρειάζεται να προσθέσετε μια τελευταία καρέ εικόνας πάνω στη βάση που αναφέρθηκε παραπάνω, οι πληροφορίες της τελευταίας καρέ είναι οι εξής:
 
-![Τελευταία καρέ](https://cdn.acedata.cloud/0iad3k.png)
+![Τελευταία καρέ](https://cdn.xhuoapi.ai/0iad3k.png)
 
 Το δείγμα συμπλήρωσης είναι ως εξής:
 
-<p><img src="https://cdn.acedata.cloud/20igwi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/20igwi.png" width="500" className="m-auto" /></p>
 
 Τελικά, το αποτέλεσμα είναι το εξής:
 ```json
@@ -152,11 +152,11 @@ print(response.text)
   "task_id": "d1cb723a-e554-4775-94a4-bb6ae8c7ea67",
   "video_id": "6bebd0d2-f793-472e-9326-38528a9273bb",
   "prompt": "Αστροναύτες μεταφέρονται από το διάστημα σε ηφαίστειο",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -168,13 +168,13 @@ print(response.text)
 
 Αν θέλετε να συνεχίσετε τη δημιουργία του παραγόμενου βίντεο, μπορείτε να ρυθμίσετε την παράμετρο `action` σε `extend` και να εισάγετε το ID ή το σύνδεσμο του βίντεο που θέλετε να συνεχίσετε, το ID και ο σύνδεσμος του βίντεο αποκτώνται με βάση τη βασική χρήση, όπως φαίνεται στην παρακάτω εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/fwknj4.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fwknj4.png" width="500" className="m-auto" /></p>
 
 Αυτή τη στιγμή μπορείτε να δείτε ότι το ID του βίντεο είναι:
 
 ```
 "video_id": "0105c090-03a5-425a-8026-523341cd575b",
-"video_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4"
+"video_url": "https://platform.cdn.xhuoapi.ai/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4"
 ```
 
 > Σημειώστε ότι εδώ το `video_id` και το `video_url` είναι το ID και ο σύνδεσμος του παραγόμενου βίντεο. Αν δεν ξέρετε πώς να δημιουργήσετε βίντεο, μπορείτε να ανατρέξετε στη βασική χρήση παραπάνω για να δημιουργήσετε βίντεο.
@@ -189,18 +189,18 @@ print(response.text)
 
 Το δείγμα συμπλήρωσης είναι το εξής:
 
-<p><img src="https://cdn.acedata.cloud/vv0rxk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vv0rxk.png" width="500" className="m-auto" /></p>
 
 Αφού συμπληρωθεί, δημιουργείται αυτόματα ο παρακάτω κώδικας:
 
-<p><img src="https://cdn.acedata.cloud/woapxi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/woapxi.png" width="500" className="m-auto" /></p>
 
 Αντίστοιχος κώδικας Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/luma/videos"
+url = "https://api.xhuoapi.ai/v1/luma/videos"
 
 headers = {
     "accept": "application/json",
@@ -226,11 +226,11 @@ print(response.text)
   "task_id": "c6e529d1-a06d-4c12-91b2-c855135131c3",
   "video_id": "36908c49-c2bb-4a11-bd5a-b8512b004818",
   "prompt": "Αστροναύτες μεταφέρονται από το διάστημα σε ηφαίστειο",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -240,7 +240,7 @@ print(response.text)
 
 Φυσικά, μπορούμε επίσης να καθορίσουμε τον σύνδεσμο του βίντεο για να προχωρήσουμε στην επέκταση, συμπληρώνοντας τις παρακάτω πληροφορίες:
 
-<p><img src="https://cdn.acedata.cloud/0cv0hg.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0cv0hg.png" width="500" className="m-auto" /></p>
 
 Αφού εκτελέσετε, λάβατε το παρακάτω αποτέλεσμα:
 
@@ -250,11 +250,11 @@ print(response.text)
   "task_id": "1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca",
   "video_id": "f0187dc2-339f-4a08-a435-c3a3341f620a",
   "prompt": "Αστροναύτες μεταφέρονται από το διάστημα σε ηφαίστειο",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -264,11 +264,11 @@ print(response.text)
 
 Τέλος, μπορούμε επίσης να καθορίσουμε μια εικόνα της τελευταίας καρέ για την επέκταση του βίντεο, παρακάτω είναι οι πληροφορίες της εικόνας της τελευταίας καρέ:
 
-![Τελευταία καρέ](https://cdn.acedata.cloud/0iad3k.png)
+![Τελευταία καρέ](https://cdn.xhuoapi.ai/0iad3k.png)
 
 Στη συνέχεια, προσθέτουμε τις πληροφορίες της εικόνας της τελευταίας καρέ με βάση τα παραπάνω, συγκεκριμένα όπως φαίνεται παρακάτω:
 
-<p><img src="https://cdn.acedata.cloud/9p1vrj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/9p1vrj.png" width="500" className="m-auto" /></p>
 
 Κάνοντας κλικ στην εκτέλεση, λάβατε τις παρακάτω πληροφορίες:
 
@@ -278,11 +278,11 @@ print(response.text)
   "task_id": "b816b2b4-c345-4673-9e19-83e91f91b643",
   "video_id": "c5400053-63e6-4206-8082-31cf9dd1e7ed",
   "prompt": "Αστροναύτες μεταφέρονται από το διάστημα σε ηφαίστειο",
-  "video_url": "https://platform.cdn.acedata.cloud/luma/b816b2b4-c345-4673-9e19-83e91f91b643.mp4",
+  "video_url": "https://platform.cdn.xhuoapi.ai/luma/b816b2b4-c345-4673-9e19-83e91f91b643.mp4",
   "video_height": 656,
   "video_width": 1552,
   "state": "completed",
-  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/b816b2b4-c345-4673-9e19-83e91f91b643.jpg",
+  "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/b816b2b4-c345-4673-9e19-83e91f91b643.jpg",
   "thumbnail_width": 1552,
   "thumbnail_height": 656
 }
@@ -299,13 +299,13 @@ print(response.text)
 
 Καταρχάς, το Webhook callback είναι μια υπηρεσία που μπορεί να δέχεται HTTP αιτήματα, οι προγραμματιστές θα πρέπει να το αντικαταστήσουν με το URL του HTTP διακομιστή που έχουν δημιουργήσει. Για λόγους ευκολίας, χρησιμοποιούμε έναν δημόσιο ιστότοπο παραδείγματος Webhook https://webhook.site/, ανοίγοντας αυτόν τον ιστότοπο μπορείτε να αποκτήσετε ένα Webhook URL, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/q78okf.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q78okf.png" width="500" className="m-auto" /></p>
 
 Αντιγράψτε αυτό το URL και μπορείτε να το χρησιμοποιήσετε ως Webhook, το παρακάτω παράδειγμα είναι https://webhook.site/0c87ca0e-cd74-4577-8d68-f2b80fbf8a13.
 
 Στη συνέχεια, μπορούμε να ρυθμίσουμε το πεδίο `callback_url` στο παραπάνω Webhook URL, ενώ συμπληρώνουμε το `prompt`, όπως φαίνεται στην εικόνα:
 
-<p><img src="https://cdn.acedata.cloud/n2fjvi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/n2fjvi.png" width="500" className="m-auto" /></p>
 
 Κάνοντας κλικ στην εκτέλεση, μπορούμε να παρατηρήσουμε ότι θα λάβουμε αμέσως ένα αποτέλεσμα, όπως παρακάτω:
 
@@ -317,7 +317,7 @@ print(response.text)
 
 Μετά από λίγο, μπορούμε να παρατηρήσουμε το αποτέλεσμα της δημιουργίας του τραγουδιού στο https://webhook.site/0c87ca0e-cd74-4577-8d68-f2b80fbf8a13, όπως φαίνεται στην εικόνα:
 
-![](https://cdn.acedata.cloud/1hwm5m.png)
+![](https://cdn.xhuoapi.ai/1hwm5m.png)
 
 Το περιεχόμενο είναι το εξής:
 
@@ -327,11 +327,11 @@ print(response.text)
     "task_id": "732f8282-7cf8-401c-95f2-42c33aa079a6",
     "video_id": "4d8013c3-5de0-41aa-966e-0b1a51d1c633",
     "prompt": "Astronauts shuttle from space to volcano",
-    "video_url": "https://platform.cdn.acedata.cloud/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.mp4",
+    "video_url": "https://platform.cdn.xhuoapi.ai/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.mp4",
     "video_height": 752,
     "video_width": 1360,
     "state": "completed",
-    "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.jpg",
+    "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.jpg",
     "thumbnail_width": 1360,
     "thumbnail_height": 752
 }

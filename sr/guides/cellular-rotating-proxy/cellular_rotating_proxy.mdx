@@ -1,6 +1,6 @@
 ---
 title: "Uputstvo za povezivanje mobilnog ćelijskog proxy-a"
-description: "Cellular Rotation Proxy 集成指南 - Ace Data Cloud"
+description: "Cellular Rotation Proxy 集成指南 - XHuoAPI"
 ---
 
 U kontekstu sve intenzivnije borbe između web skrepera i anti-skrepera, kontrola rizika na raznim sajtovima i aplikacijama postaje sve jača, a jedan od načina na koji se to postiže je blokiranje IP adresa.
@@ -19,9 +19,9 @@ Ova proxy usluga se oslanja na veliku bazu mobilnih telefona, a sav saobraćaj s
 
 ## Metod prijave
 
-Da biste koristili uslugu ćelijskog proxy-a, prvo možete otići na „[stranicu za prijavu](https://platform.acedata.cloud/services/d8570fa7-8510-454e-913e-f1bd1b98338d)“ da se prijavite, a prilikom prve prijave dobijate 1 besplatnu kreditnu tačku.
+Da biste koristili uslugu ćelijskog proxy-a, prvo možete otići na „[stranicu za prijavu](https://api.xhuoapi.ai/services/d8570fa7-8510-454e-913e-f1bd1b98338d)“ da se prijavite, a prilikom prve prijave dobijate 1 besplatnu kreditnu tačku.
 
-![](https://cdn.acedata.cloud/wed8yf.png)
+![](https://cdn.xhuoapi.ai/wed8yf.png)
 
 Ako niste prijavljeni, automatski ćete biti preusmereni na stranicu za prijavu, a nakon prijave možete nastaviti sa prijavom.
 
@@ -29,13 +29,13 @@ Ako niste prijavljeni, automatski ćete biti preusmereni na stranicu za prijavu,
 
 Nakon što završite prijavu, možete otići na „kontrolnu tablu“ da proverite rezultate svoje prijave, kao što je prikazano na slici:
 
-![](https://cdn.acedata.cloud/db1js5.png)
+![](https://cdn.xhuoapi.ai/db1js5.png)
 
 Kliknite na „Credentials“ da biste videli korisničko ime i lozinku za korišćenje usluge ćelijskog proxy-a, odvojene dvotačkom, pri čemu je korisničko ime od 8 karaktera, a lozinka od 32 karaktera, kao što je prikazano na slici:
 
-![](https://cdn.acedata.cloud/54ffp0.png)
+![](https://cdn.xhuoapi.ai/54ffp0.png)
 
-Ovaj mobilni ćelijski proxy je rotacioni proxy, tako da prilikom korišćenja treba postaviti samo fiksnu adresu proxy-a i port, koji su cellular.proxy.acedata.cloud i 30000. Ovaj proxy podržava HTTP/HTTPS/SOCKS protokole i može se koristiti za zahteve sa sajtova koji koriste HTTP i HTTPS protokole.
+Ovaj mobilni ćelijski proxy je rotacioni proxy, tako da prilikom korišćenja treba postaviti samo fiksnu adresu proxy-a i port, koji su cellular.proxy.xhuoapi.ai i 30000. Ovaj proxy podržava HTTP/HTTPS/SOCKS protokole i može se koristiti za zahteve sa sajtova koji koriste HTTP i HTTPS protokole.
 
 ## Testiranje komandi
 
@@ -44,7 +44,7 @@ Kada dobijete korisničko ime i lozinku za proxy, najlakši način za testiranje
 Ako su trenutni korisničko ime i lozinka proxy-a `1f78266a:eff0896726224fa2a99fe82dd1f07562`, možemo koristiti sledeću curl komandu za testiranje:
 
 ```shell
-curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@cellular.proxy.acedata.cloud:30000 https://ipinfo.io
+curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@cellular.proxy.xhuoapi.ai:30000 https://ipinfo.io
 ```
 
 Ovde koristimo curl-ovu `-x` opciju da odredimo adresu proxy-a, a podrazumevani protokol proxy-a je HTTP/HTTPS. URL koji se zahteva je [https://ipinfo.io](https://ipinfo.io), a ovaj sajt može vratiti pravu IP adresu i lokaciju IP adrese koja je zahtevala pristup.
@@ -78,7 +78,7 @@ U nastavku je prikazan primer kako postaviti ovu rotacionu ćelijsku proxy uslug
 ```python
 import requests
 
-proxy = 'http://{proxy_username}:{proxy_password}@cellular.proxy.acedata.cloud:30000'
+proxy = 'http://{proxy_username}:{proxy_password}@cellular.proxy.xhuoapi.ai:30000'
 
 proxies = {
     'http': proxy,
@@ -144,7 +144,7 @@ U suštini, gornji kod je ekvivalentan postavljanju dodatnog zaglavlja - Proxy A
 import requests
 import base64
 
-proxy_host = 'cellular.proxy.acedata.cloud'
+proxy_host = 'cellular.proxy.xhuoapi.ai'
 proxy_port = '30000'
 proxy_username = '{proxy_username}' # 8-znamenkasti korisnički naziv
 proxy_password = '{proxy_password}' # 32-znamenkasta lozinka
@@ -176,7 +176,7 @@ Za druge jezike, kao što je JavaScript sa axios, takođe se može koristiti sli
 const axios = require("axios");
 const base64 = require("base64");
 
-const proxy_host = "cellular.proxy.acedata.cloud";
+const proxy_host = "cellular.proxy.xhuoapi.ai";
 const proxy_port = "30000";
 const proxy_username = "{proxy_username}"; // 8-znamenkasti korisnički naziv
 const proxy_password = "{proxy_password}"; // 32-znamenkasta lozinka
@@ -208,4 +208,4 @@ Za metode postavljanja u drugim jezicima, molimo vas da se pozovete na gornji te
 
 Ako je vaš paket već potrošen, potrebno je da kupite više kako biste nastavili da koristite ovu proxy uslugu.
 
-Da biste kupili više, idite na „[stranicu za prijavu](https://platform.acedata.cloud/services/d8570fa7-8510-454e-913e-f1bd1b98338d)“ i jednostavno kliknite na dugme „Kupite više“ da biste izvršili kupovinu, što više kupujete odjednom, cena po jedinici je jeftinija.
+Da biste kupili više, idite na „[stranicu za prijavu](https://api.xhuoapi.ai/services/d8570fa7-8510-454e-913e-f1bd1b98338d)“ i jednostavno kliknite na dugme „Kupite više“ da biste izvršili kupovinu, što više kupujete odjednom, cena po jedinici je jeftinija.

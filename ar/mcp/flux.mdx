@@ -3,7 +3,7 @@ title: "دليل دمج Flux MCP"
 description: "flux MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) هو بروتوكول سياق النموذج الذي أطلقته Anthropic، والذي يسمح لنماذج الذكاء الاصطناعي مثل Claude و GPT وغيرها باستدعاء الأدوات الخارجية عبر واجهة موحدة. من خلال خادم Flux MCP الذي توفره AceData Cloud، يمكنك إنشاء وتحرير صور الذكاء الاصطناعي مباشرة في عملاء AI مثل Claude Desktop و VS Code و Cursor.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) هو بروتوكول سياق النموذج الذي أطلقته Anthropic، والذي يسمح لنماذج الذكاء الاصطناعي مثل Claude و GPT وغيرها باستدعاء الأدوات الخارجية عبر واجهة موحدة. من خلال خادم Flux MCP الذي توفره XHuoAPI، يمكنك إنشاء وتحرير صور الذكاء الاصطناعي مباشرة في عملاء AI مثل Claude Desktop و VS Code و Cursor.
 
 ## نظرة عامة على الوظائف
 
@@ -17,10 +17,10 @@ description: "flux MCP 服务器集成"
 
 ## المتطلبات المسبقة
 
-قبل الاستخدام، تحتاج إلى الحصول على رمز API من AceData Cloud:
+قبل الاستخدام، تحتاج إلى الحصول على رمز API من XHuoAPI:
 
-1. سجل أو قم بتسجيل الدخول إلى [منصة AceData Cloud](https://platform.acedata.cloud)
-2. انتقل إلى صفحة [Flux Images API](https://platform.acedata.cloud/documents/flux-images)
+1. سجل أو قم بتسجيل الدخول إلى [منصة XHuoAPI](https://api.xhuoapi.ai)
+2. انتقل إلى صفحة [Flux Images API](https://api.xhuoapi.ai/documents/flux-images)
 3. اضغط على "Acquire" للحصول على رمز API (يتم منح حصة مجانية عند الطلب لأول مرة)
 
 ## التثبيت والإعداد
@@ -34,7 +34,7 @@ pip install mcp-flux-pro
 ### الطريقة الثانية: التثبيت من المصدر
 
 ```bash
-git clone https://github.com/AceDataCloud/FluxMCP.git
+git clone https://github.com/XHuoAPI/FluxMCP.git
 cd FluxMCP
 pip install -e .
 ```
@@ -56,7 +56,7 @@ pip install -e .
     "flux": {
       "command": "mcp-flux-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "رمز API الخاص بك"
+        "XHuoAPI_API_TOKEN": "رمز API الخاص بك"
       }
     }
   }
@@ -72,7 +72,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-flux-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "رمز API الخاص بك"
+        "XHuoAPI_API_TOKEN": "رمز API الخاص بك"
       }
     }
   }
@@ -91,7 +91,7 @@ pip install -e .
     "flux": {
       "command": "mcp-flux-pro",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "رمز API الخاص بك"
+        "XHuoAPI_API_TOKEN": "رمز API الخاص بك"
       }
     }
   }
@@ -107,7 +107,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-flux-pro"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "رمز API الخاص بك"
+        "XHuoAPI_API_TOKEN": "رمز API الخاص بك"
       }
     }
   }
@@ -136,6 +136,6 @@ pip install -e .
 
 ## مزيد من المعلومات
 
-- مستودع GitHub: [AceDataCloud/FluxMCP](https://github.com/AceDataCloud/FluxMCP)
+- مستودع GitHub: [XHuoAPI/FluxMCP](https://github.com/XHuoAPI/FluxMCP)
 - حزمة PyPI: [mcp-flux-pro](https://pypi.org/project/mcp-flux-pro/)
-- وثائق API: [Flux Image Generation API](https://platform.acedata.cloud/documents/flux)
+- وثائق API: [Flux Image Generation API](https://api.xhuoapi.ai/documents/flux)

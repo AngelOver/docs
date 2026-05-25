@@ -3,7 +3,7 @@ title: "Οδηγός Σύνδεσης MCP Google Search"
 description: "serp MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) είναι το πρωτόκολλο μοντέλου συμφραζομένων που προτάθηκε από την Anthropic, επιτρέποντας στα AI μοντέλα (όπως Claude, GPT κ.λπ.) να καλούν εξωτερικά εργαλεία μέσω τυποποιημένων διεπαφών. Μέσω του SERP MCP Server που παρέχεται από το AceData Cloud, μπορείτε να πραγματοποιείτε άμεσες αναζητήσεις στο Google σε AI πελάτες όπως Claude Desktop, VS Code, Cursor κ.λπ., αποκτώντας αποτελέσματα αναζητήσεων για ιστοσελίδες, εικόνες, ειδήσεις, βίντεο, τοποθεσίες κ.λπ.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) είναι το πρωτόκολλο μοντέλου συμφραζομένων που προτάθηκε από την Anthropic, επιτρέποντας στα AI μοντέλα (όπως Claude, GPT κ.λπ.) να καλούν εξωτερικά εργαλεία μέσω τυποποιημένων διεπαφών. Μέσω του SERP MCP Server που παρέχεται από το XHuoAPI, μπορείτε να πραγματοποιείτε άμεσες αναζητήσεις στο Google σε AI πελάτες όπως Claude Desktop, VS Code, Cursor κ.λπ., αποκτώντας αποτελέσματα αναζητήσεων για ιστοσελίδες, εικόνες, ειδήσεις, βίντεο, τοποθεσίες κ.λπ.
 
 ## Επισκόπηση Λειτουργιών
 
@@ -20,10 +20,10 @@ description: "serp MCP 服务器集成"
 
 ## Προαπαιτούμενα
 
-Πριν τη χρήση, πρέπει να αποκτήσετε το AceData Cloud API Token:
+Πριν τη χρήση, πρέπει να αποκτήσετε το XHuoAPI API Token:
 
-1. Εγγραφείτε ή συνδεθείτε στην [πλατφόρμα AceData Cloud](https://platform.acedata.cloud)
-2. Μεταβείτε στη σελίδα [Google SERP API](https://platform.acedata.cloud/documents/serp-google)
+1. Εγγραφείτε ή συνδεθείτε στην [πλατφόρμα XHuoAPI](https://api.xhuoapi.ai)
+2. Μεταβείτε στη σελίδα [Google SERP API](https://api.xhuoapi.ai/documents/serp-google)
 3. Κάντε κλικ στο «Acquire» για να αποκτήσετε το API Token (η πρώτη αίτηση προσφέρει δωρεάν πιστώσεις)
 
 ## Εγκατάσταση και Ρύθμιση
@@ -37,7 +37,7 @@ pip install mcp-serp
 ### Μέθοδος 2: Εγκατάσταση από πηγή
 
 ```bash
-git clone https://github.com/AceDataCloud/SerpMCP.git
+git clone https://github.com/XHuoAPI/SerpMCP.git
 cd SerpMCP
 pip install -e .
 ```
@@ -59,7 +59,7 @@ pip install -e .
     "serp": {
       "command": "mcp-serp",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "το API Token σας"
+        "XHuoAPI_API_TOKEN": "το API Token σας"
       }
     }
   }
@@ -75,7 +75,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-serp"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "το API Token σας"
+        "XHuoAPI_API_TOKEN": "το API Token σας"
       }
     }
   }
@@ -94,7 +94,7 @@ pip install -e .
     "serp": {
       "command": "mcp-serp",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "το API Token σας"
+        "XHuoAPI_API_TOKEN": "το API Token σας"
       }
     }
   }
@@ -110,7 +110,7 @@ pip install -e .
       "command": "uvx",
       "args": ["mcp-serp"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "το API Token σας"
+        "XHuoAPI_API_TOKEN": "το API Token σας"
       }
     }
   }
@@ -140,6 +140,6 @@ pip install -e .
 
 ## Περισσότερες Πληροφορίες
 
-- Αποθετήριο GitHub: [AceDataCloud/SerpMCP](https://github.com/AceDataCloud/SerpMCP)
+- Αποθετήριο GitHub: [XHuoAPI/SerpMCP](https://github.com/XHuoAPI/SerpMCP)
 - Πακέτο PyPI: [mcp-serp](https://pypi.org/project/mcp-serp/)
-- Έγγραφα API: [API Μηχανής Αναζήτησης](https://platform.acedata.cloud/documents/serp)
+- Έγγραφα API: [API Μηχανής Αναζήτησης](https://api.xhuoapi.ai/documents/serp)

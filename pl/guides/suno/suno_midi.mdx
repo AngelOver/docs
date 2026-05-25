@@ -1,18 +1,18 @@
 ---
 title: "Suno MIDI Generation API - instrukcja integracji"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 SUNO pozwala nam na ponowną kreatywność w generowanej muzyce, uzyskując MIDI utworu. Niniejszy dokument wyjaśnia metody integracji związanych z API.
 
-Podstawowym parametrem wejściowym tego API jest `audio_id`, który jest oficjalnym identyfikatorem utworu, zazwyczaj jest to identyfikator utworu z pełnym rozdzieleniem ścieżek (odpowiadający [generacji utworów](https://platform.acedata.cloud/documents/suno-audios) z parametrem `action` ustawionym na `all_stems`). Opcjonalnie wspiera również `callback_url` jako adres do asynchronicznego wywołania zwrotnego.
+Podstawowym parametrem wejściowym tego API jest `audio_id`, który jest oficjalnym identyfikatorem utworu, zazwyczaj jest to identyfikator utworu z pełnym rozdzieleniem ścieżek (odpowiadający [generacji utworów](https://api.xhuoapi.ai/documents/suno-audios) z parametrem `action` ustawionym na `all_stems`). Opcjonalnie wspiera również `callback_url` jako adres do asynchronicznego wywołania zwrotnego.
 
 Wprowadzony przez nas `audio_id` to `c65e6ffd-ead3-4926-9c8c-a42ce202946b`.
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/suno/midi"
+url = "https://api.xhuoapi.ai/v1/suno/midi"
 
 headers = {
     "accept": "application/json",

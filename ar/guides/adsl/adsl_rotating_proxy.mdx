@@ -1,6 +1,6 @@
 ---
 title: "شرح توصيل وكيل ADSL"
-description: "ADSL rotating proxy 集成指南 - Ace Data Cloud"
+description: "ADSL rotating proxy 集成指南 - XHuoAPI"
 ---
 
 في ظل تصاعد الصراع بين الزواحف ومكافحة الزواحف، تزداد قوة أنظمة الكشف عن المخاطر في المواقع الكبرى وتطبيقات الهواتف، ومن بين هذه الأنظمة حظر IP.
@@ -21,21 +21,21 @@ ADSL، الاسم الكامل باللغة الإنجليزية هو Asymmetric
 
 ## طريقة التقديم
 
-لاستخدام خدمة ADSL، يمكنك أولاً الذهاب إلى 「[صفحة التقديم](https://platform.acedata.cloud/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)」 لتقديم الطلب، حيث يوجد رصيد مجاني قدره 1 نقطة للتقديم الأول، حوالي 17.5 ميغابايت.
+لاستخدام خدمة ADSL، يمكنك أولاً الذهاب إلى 「[صفحة التقديم](https://api.xhuoapi.ai/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)」 لتقديم الطلب، حيث يوجد رصيد مجاني قدره 1 نقطة للتقديم الأول، حوالي 17.5 ميغابايت.
 
-![](https://cdn.acedata.cloud/a2inin.png)
+![](https://cdn.xhuoapi.ai/a2inin.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول بعد، فسيتم تحويلك تلقائياً إلى صفحة تسجيل الدخول، وبعد تسجيل الدخول يمكنك متابعة التقديم.
 
 بعد الانتهاء من التقديم، يمكنك الذهاب إلى 「لوحة التحكم」 لرؤية نتائج طلبك، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/hc400a.png)
+![](https://cdn.xhuoapi.ai/hc400a.png)
 
 انقر على 「Credentials」، لرؤية اسم المستخدم وكلمة المرور لاستخدام خدمة وكيل ADSL، مفصولة بعلامة النقطتين، حيث يكون اسم المستخدم مكوناً من 8 أحرف، وكلمة المرور مكونة من 32 حرفاً، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/cej7m2.png)
+![](https://cdn.xhuoapi.ai/cej7m2.png)
 
-هذا الوكيل ADSL هو نوع من الوكلاء الدوارة، لذا عند الاستخدام، تحتاج فقط إلى إعداد عنوان وكيل ثابت ورقم منفذ، حيث أن عنوان الوكيل ورقم المنفذ هما adsl.proxy.acedata.cloud و 30005، وهو وكيل بروتوكول HTTP/HTTPS/SOCKS، ويمكن استخدامه للوصول إلى المواقع التي تستخدم بروتوكول HTTP و HTTPS.
+هذا الوكيل ADSL هو نوع من الوكلاء الدوارة، لذا عند الاستخدام، تحتاج فقط إلى إعداد عنوان وكيل ثابت ورقم منفذ، حيث أن عنوان الوكيل ورقم المنفذ هما adsl.proxy.xhuoapi.ai و 30005، وهو وكيل بروتوكول HTTP/HTTPS/SOCKS، ويمكن استخدامه للوصول إلى المواقع التي تستخدم بروتوكول HTTP و HTTPS.
 
 ## اختبار الأوامر
 
@@ -44,7 +44,7 @@ ADSL، الاسم الكامل باللغة الإنجليزية هو Asymmetric
 إذا كانت اسم المستخدم وكلمة المرور الحالية للوكيل هي `1f78266a:eff0896726224fa2a99fe82dd1f07562`، يمكننا استخدام أمر curl التالي للاختبار:
 
 ```shell
-curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@adsl.proxy.acedata.cloud:30005 https://ipinfo.io
+curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@adsl.proxy.xhuoapi.ai:30005 https://ipinfo.io
 ```
 
 هنا نستخدم معامل `-x` في curl لتحديد عنوان الوكيل، وبروتوكول الوكيل هو HTTP/HTTPS بشكل افتراضي، والرابط المطلوب هو [https://ipinfo.io](https://ipinfo.io)، حيث يمكن لهذا الموقع إرجاع عنوان IP الحقيقي للمستخدم والموقع الجغرافي للـ IP.
@@ -72,7 +72,7 @@ curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@adsl.proxy.acedata.cloud:30005
 ```python
 import requests
 
-proxy = 'https://{proxy_username}:{proxy_password}@adsl.proxy.acedata.cloud:30005'
+proxy = 'https://{proxy_username}:{proxy_password}@adsl.proxy.xhuoapi.ai:30005'
 
 proxies = {
     'http': proxy,
@@ -138,7 +138,7 @@ for _ in range(3):
 import requests
 import base64
 
-proxy_host = 'adsl.proxy.acedata.cloud'
+proxy_host = 'adsl.proxy.xhuoapi.ai'
 proxy_port = '30005'
 proxy_username = '{proxy_username}' # اسم مستخدم مكون من 8 أحرف
 proxy_password = '{proxy_password}' # كلمة مرور مكونة من 32 حرف
@@ -170,7 +170,7 @@ for _ in range(3):
 const axios = require("axios");
 const base64 = require("base64");
 
-const proxy_host = "adsl.proxy.acedata.cloud";
+const proxy_host = "adsl.proxy.xhuoapi.ai";
 const proxy_port = "30005";
 const proxy_username = "{proxy_username}"; // اسم مستخدم مكون من 8 أحرف
 const proxy_password = "{proxy_password}"; // كلمة مرور مكونة من 32 حرف
@@ -202,4 +202,4 @@ for (let i = 0; i < 3; i++) {
 
 إذا كانت باقتك قد نفدت، ستحتاج إلى شراء المزيد للاستمرار في استخدام خدمة الوكيل هذه.
 
-لشراء المزيد، يرجى الذهاب إلى 「[صفحة الطلب](https://platform.acedata.cloud/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)」 والنقر مباشرة على زر 「شراء المزيد」 لاختيار الشراء، كلما زادت الكمية المشتراة، كان السعر أقل.
+لشراء المزيد، يرجى الذهاب إلى 「[صفحة الطلب](https://api.xhuoapi.ai/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)」 والنقر مباشرة على زر 「شراء المزيد」 لاختيار الشراء، كلما زادت الكمية المشتراة، كان السعر أقل.

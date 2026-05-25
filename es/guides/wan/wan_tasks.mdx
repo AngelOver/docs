@@ -1,6 +1,6 @@
 ---
 title: "Integración y uso de la API de Wan Tasks"
-description: "Tongyi Wansiang Video Generation 集成指南 - Ace Data Cloud"
+description: "Tongyi Wansiang Video Generation 集成指南 - XHuoAPI"
 ---
 
 La principal función de la API de Wan Tasks es consultar el estado de ejecución de una tarea mediante el ID de tarea generado por la API de Wan Videos Generation.
@@ -9,27 +9,27 @@ Este documento detallará las instrucciones de integración de la API de Wan Tas
 
 ## Proceso de solicitud
 
-Para utilizar la API de Wan Tasks, primero debe ir a la página de solicitud [API de Wan Videos Generation](https://platform.acedata.cloud/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c) para solicitar el servicio correspondiente, y luego copiar el ID de tarea de la API de Wan Videos Generation, como se muestra en la imagen:
+Para utilizar la API de Wan Tasks, primero debe ir a la página de solicitud [API de Wan Videos Generation](https://api.xhuoapi.ai/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c) para solicitar el servicio correspondiente, y luego copiar el ID de tarea de la API de Wan Videos Generation, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
-Finalmente, acceda a la página de la API de Tasks [API de Wan Tasks](https://platform.acedata.cloud/documents/240ef446-cbec-461c-a633-4a64178d7018) para solicitar el servicio correspondiente. Una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
+Finalmente, acceda a la página de la API de Tasks [API de Wan Tasks](https://api.xhuoapi.ai/documents/240ef446-cbec-461c-a633-4a64178d7018) para solicitar el servicio correspondiente. Una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
 
-![Página de solicitud](https://cdn.acedata.cloud/rci31i.png)
+![Página de solicitud](https://cdn.xhuoapi.ai/rci31i.png)
 
-Si aún no ha iniciado sesión o registrado, será redirigido automáticamente a la [página de inicio de sesión](https://platform.acedata.cloud) para invitarle a registrarse e iniciar sesión. Después de registrarse e iniciar sesión, será redirigido automáticamente a la página actual.
+Si aún no ha iniciado sesión o registrado, será redirigido automáticamente a la [página de inicio de sesión](https://api.xhuoapi.ai) para invitarle a registrarse e iniciar sesión. Después de registrarse e iniciar sesión, será redirigido automáticamente a la página actual.
 
 Al solicitar por primera vez, se le otorgará un crédito gratuito que le permitirá utilizar esta API de forma gratuita.
 
 ## Ejemplo de solicitud
 
-La API de Wan Tasks se puede utilizar para consultar los resultados de la API de Wan Videos Generation. Para obtener información sobre cómo utilizar la API de Wan Videos Generation, consulte el documento [API de Wan Videos Generation](https://platform.acedata.cloud/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c).
+La API de Wan Tasks se puede utilizar para consultar los resultados de la API de Wan Videos Generation. Para obtener información sobre cómo utilizar la API de Wan Videos Generation, consulte el documento [API de Wan Videos Generation](https://api.xhuoapi.ai/documents/52b0f490-1bbf-4fe5-b60e-96626d333d2c).
 
 Tomaremos como ejemplo un ID de tarea devuelto por el servicio de la API de Wan Videos Generation y demostraremos cómo utilizar esta API. Supongamos que tenemos un ID de tarea: a4bca552-d964-46a1-8ff7-fd922f916582, a continuación, demostraremos cómo pasar un ID de tarea.
 
 ### Ejemplo de tarea
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 ### Configuración de encabezados de solicitud y cuerpo de solicitud
 
@@ -45,20 +45,20 @@ Tomaremos como ejemplo un ID de tarea devuelto por el servicio de la API de Wan 
 
 Configurado como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/vr3hxw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vr3hxw.png" width="500" className="m-auto" /></p>
 
 ### Ejemplo de código
 
 Se puede observar que en el lado derecho de la página se han generado automáticamente códigos en varios lenguajes, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/ehmsdi.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ehmsdi.png" width="500" className="m-auto" /></p>
 
 Algunos ejemplos de código son los siguientes:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/wan/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/wan/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/wan/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/wan/tasks"
+url = "https://api.xhuoapi.ai/v1/wan/tasks"
 
 headers = {
     "accept": "application/json",
@@ -140,13 +140,13 @@ Esto es para consultar los detalles de las tareas de video para múltiples IDs d
 
 Configurado como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/wlks1o.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wlks1o.png" width="500" className="m-auto" /></p>
 
 ### Ejemplo de código
 
 Se puede observar que en el lado derecho de la página se han generado automáticamente códigos en varios lenguajes, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/5h1k8t.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5h1k8t.png" width="500" className="m-auto" /></p>
 
 Algunos ejemplos de código son los siguientes:
 
@@ -221,7 +221,7 @@ Después de una solicitud exitosa, la API devolverá la información detallada d
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/wan/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/wan/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

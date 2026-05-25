@@ -1,15 +1,15 @@
 ---
 title: "Uputstvo za integraciju Fish Model Query API-ja"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 Ovaj dokument opisuje uputstvo za integraciju Fish Model Query API-ja (`GET /fish/model`), koji je potpuno kompatibilan sa [Fish Audio zvaničnim OpenAPI](https://docs.fish.audio/resources/api-reference/model) i koristi se za **paginirano pretraživanje** liste kloniranih glasova vidljivih za trenutni nalog ili celu platformu.
 
-> Za kreiranje glasova pogledajte [Fish Model Create API](https://platform.acedata.cloud/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a), a za pretragu detalja pojedinačnog glasa po `_id` pogledajte [Fish Model Get API](https://platform.acedata.cloud/documents/dabdffe7-254b-5a3f-9eca-425d614d82b9).
+> Za kreiranje glasova pogledajte [Fish Model Create API](https://api.xhuoapi.ai/documents/62fdf4f1-6a05-4d92-bb15-1bf78b27a14a), a za pretragu detalja pojedinačnog glasa po `_id` pogledajte [Fish Model Get API](https://api.xhuoapi.ai/documents/dabdffe7-254b-5a3f-9eca-425d614d82b9).
 
 ## Proces prijave
 
-Da biste koristili API, potrebno je da se prijavite za odgovarajuću uslugu na stranici [Fish Model API](https://platform.acedata.cloud/services/caf99abc-ddcf-4714-b2a5-862d9b469509). Nakon ulaska na stranicu, kliknite na dugme „Acquire“.
+Da biste koristili API, potrebno je da se prijavite za odgovarajuću uslugu na stranici [Fish Model API](https://api.xhuoapi.ai/services/caf99abc-ddcf-4714-b2a5-862d9b469509). Nakon ulaska na stranicu, kliknite na dugme „Acquire“.
 
 Ukoliko niste prijavljeni ili registrovani, bićete automatski preusmereni na stranicu za prijavu gde se možete registrovati i prijaviti, nakon čega ćete biti vraćeni na trenutnu stranicu.
 
@@ -23,7 +23,7 @@ Prilikom prve prijave dobijate besplatan kredit koji omogućava besplatno koriš
 ## Primer zahteva
 
 ```shell
-curl -G 'https://api.acedata.cloud/fish/model' \
+curl -G 'https://api.xhuoapi.ai/v1/fish/model' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   --data-urlencode 'page_size=10' \
@@ -69,7 +69,7 @@ Uspešan odgovor direktno prosleđuje paginiranu strukturu sa Fish platforme:
 }
 ```
 
-Vraćeni `_id` može se koristiti kao vrednost polja `reference_id` u [Fish TTS API-ju](https://platform.acedata.cloud/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) za sintezu govora koristeći taj klonirani glas.
+Vraćeni `_id` može se koristiti kao vrednost polja `reference_id` u [Fish TTS API-ju](https://api.xhuoapi.ai/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) za sintezu govora koristeći taj klonirani glas.
 
 ## Objašnjenje naplate
 
@@ -98,4 +98,4 @@ Ovaj API nije naplaćen — paginirana pretraga liste glasova je besplatna opera
 
 ## Zaključak
 
-Fish Model Query API pruža potpuno kompatibilnu funkcionalnost pretraživanja glasova sa Fish Audio zvaničnog API-ja i može se koristiti za održavanje sopstvene biblioteke kloniranih glasova na ovoj platformi. U kombinaciji sa [Fish Model Get API-jem](https://platform.acedata.cloud/documents/dabdffe7-254b-5a3f-9eca-425d614d82b9) omogućava dobijanje detaljnih informacija o pojedinačnom glasu po ID-ju.
+Fish Model Query API pruža potpuno kompatibilnu funkcionalnost pretraživanja glasova sa Fish Audio zvaničnog API-ja i može se koristiti za održavanje sopstvene biblioteke kloniranih glasova na ovoj platformi. U kombinaciji sa [Fish Model Get API-jem](https://api.xhuoapi.ai/documents/dabdffe7-254b-5a3f-9eca-425d614d82b9) omogućava dobijanje detaljnih informacija o pojedinačnom glasu po ID-ju.

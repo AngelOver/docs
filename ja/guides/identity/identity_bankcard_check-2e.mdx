@@ -1,15 +1,15 @@
 ---
 title: "銀行カード二要素確認 API 接続説明"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 本文では、銀行カード二要素確認 API 接続説明を紹介します。これは、名前と銀行カード番号の真実性と一貫性を検証するために使用できます。
 
 ## 申請プロセス
 
-APIを使用するには、まず [銀行カード二要素確認 API](https://platform.acedata.cloud/documents/06efe2aa-5443-4dcc-af2f-28236bfb2158) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
+APIを使用するには、まず [銀行カード二要素確認 API](https://api.xhuoapi.ai/documents/06efe2aa-5443-4dcc-af2f-28236bfb2158) の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 まだログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -19,7 +19,7 @@ APIを使用するには、まず [銀行カード二要素確認 API](https://p
 
 まず、基本的な使用方法を理解します。銀行カードのカード番号情報を入力することで、処理後の結果画像を取得できます。まず、`bank_card` フィールドを簡単に渡す必要があります。次に、インターフェースに対応する内容を入力します。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/u9bugq.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/u9bugq.png" width="500" className="m-auto" /></p>
 
 ここでは、Request Headersを設定しました。これには以下が含まれます：
 
@@ -34,7 +34,7 @@ APIを使用するには、まず [銀行カード二要素確認 API](https://p
 
 選択後、右側にも対応するコードが生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/yn8yxf.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yn8yxf.png" width="500" className="m-auto" /></p>
 
 「Try」ボタンをクリックするとテストができます。上の図のように、以下の結果を得ました：
 
@@ -75,7 +75,7 @@ APIを使用するには、まず [銀行カード二要素確認 API](https://p
 また、対応する接続コードを生成したい場合は、生成されたものを直接コピーできます。例えば、CURLのコードは以下の通りです：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/bankcard/check-2e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/bankcard/check-2e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -88,7 +88,7 @@ curl -X POST 'https://api.acedata.cloud/identity/bankcard/check-2e' \
 Pythonの接続コードは以下の通りです：
 
 ```python
-curl -X POST 'https://api.acedata.cloud/identity/bankcard/check-2e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/bankcard/check-2e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

@@ -3,7 +3,7 @@ title: "Midjourney MCP vodič za integraciju"
 description: "midjourney MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) je protokol konteksta modela koji je uveo Anthropic, omogućavajući AI modelima (kao što su Claude, GPT itd.) da pozivaju spoljne alate putem standardizovanih interfejsa. Kroz Midjourney MCP Server koji pruža AceData Cloud, možete direktno generisati i uređivati AI slike u AI klijentima kao što su Claude Desktop, VS Code, Cursor itd.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) je protokol konteksta modela koji je uveo Anthropic, omogućavajući AI modelima (kao što su Claude, GPT itd.) da pozivaju spoljne alate putem standardizovanih interfejsa. Kroz Midjourney MCP Server koji pruža XHuoAPI, možete direktno generisati i uređivati AI slike u AI klijentima kao što su Claude Desktop, VS Code, Cursor itd.
 
 ## Pregled funkcija
 
@@ -22,10 +22,10 @@ Midjourney MCP Server pruža sledeće osnovne funkcije:
 
 ## Priprema
 
-Pre korišćenja, potrebno je da dobijete AceData Cloud API Token:
+Pre korišćenja, potrebno je da dobijete XHuoAPI API Token:
 
-1. Registrujte se ili prijavite na [AceData Cloud platformu](https://platform.acedata.cloud)
-2. Idite na [Midjourney Imagine API](https://platform.acedata.cloud/documents/midjourney-imagine) stranicu
+1. Registrujte se ili prijavite na [XHuoAPI platformu](https://api.xhuoapi.ai)
+2. Idite na [Midjourney Imagine API](https://api.xhuoapi.ai/documents/midjourney-imagine) stranicu
 3. Kliknite na „Acquire“ da dobijete API Token (prvi put prijave donosi besplatnu kvotu)
 
 ## Instalacija i konfiguracija
@@ -39,7 +39,7 @@ pip install mcp-midjourney
 ### Metoda 2: instalacija iz izvornog koda
 
 ```bash
-git clone https://github.com/AceDataCloud/MidjourneyMCP.git
+git clone https://github.com/XHuoAPI/MidjourneyMCP.git
 cd MidjourneyMCP
 pip install -e .
 ```
@@ -61,7 +61,7 @@ Dodajte sledeću konfiguraciju:
     "midjourney": {
       "command": "mcp-midjourney",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -77,7 +77,7 @@ Ako koristite `uvx` (nije potrebno prethodno instalirati paket):
       "command": "uvx",
       "args": ["mcp-midjourney"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -96,7 +96,7 @@ U korenskom direktorijumu projekta kreirajte `.vscode/mcp.json`:
     "midjourney": {
       "command": "mcp-midjourney",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -112,7 +112,7 @@ Ili koristite `uvx`:
       "command": "uvx",
       "args": ["mcp-midjourney"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -149,6 +149,6 @@ Nakon završene konfiguracije, možete direktno koristiti prirodni jezik za pozi
 
 ## Više informacija
 
-- GitHub repozitorijum: [AceDataCloud/MidjourneyMCP](https://github.com/AceDataCloud/MidjourneyMCP)
+- GitHub repozitorijum: [XHuoAPI/MidjourneyMCP](https://github.com/XHuoAPI/MidjourneyMCP)
 - PyPI paket: [mcp-midjourney](https://pypi.org/project/mcp-midjourney/)
-- API dokumentacija: [Midjourney generisanje API](https://platform.acedata.cloud/documents/midjourney)
+- API dokumentacija: [Midjourney generisanje API](https://api.xhuoapi.ai/documents/midjourney)

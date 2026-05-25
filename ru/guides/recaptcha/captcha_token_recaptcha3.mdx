@@ -1,15 +1,15 @@
 ---
 title: "Recaptcha3 Протокол распознавания API Инструкция по интеграции"
-description: "Recaptcha verification code recognition service 集成指南 - Ace Data Cloud"
+description: "Recaptcha verification code recognition service 集成指南 - XHuoAPI"
 ---
 
 В данной статье будет представлена инструкция по интеграции API распознавания протокола Recaptcha3, которая позволяет пользователям не распознавать и не нажимать на изображения капчи Recaptcha3, а просто отправить Website Key для автоматической декодировки на сервере и завершения проверки.
 
 ## Процесс подачи заявки
 
-Чтобы использовать API, сначала необходимо перейти на соответствующую страницу [API распознавания протокола Recaptcha3](https://platform.acedata.cloud/documents/1083df69-f2f3-4c13-901e-e5336b0dbe3d) и подать заявку на соответствующую услугу. После перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
+Чтобы использовать API, сначала необходимо перейти на соответствующую страницу [API распознавания протокола Recaptcha3](https://api.xhuoapi.ai/documents/1083df69-f2f3-4c13-901e-e5336b0dbe3d) и подать заявку на соответствующую услугу. После перехода на страницу нажмите кнопку «Acquire», как показано на изображении:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Если вы еще не вошли в систему или не зарегистрировались, вас автоматически перенаправит на страницу входа, где вас пригласят зарегистрироваться и войти в систему. После входа или регистрации вы автоматически вернетесь на текущую страницу.
 
@@ -23,11 +23,11 @@ description: "Recaptcha verification code recognition service 集成指南 - Ace
 
 Откройте f12, затем на странице Element выполните поиск по запросу `.execute(`. В красной рамке мы можем увидеть параметр `action`, а также за ним следует строка, которая также потребуется далее. Конкретно это показано на изображении ниже.
 
-<p><img src="https://cdn.acedata.cloud/imwlto.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/imwlto.png" width="500" className="m-auto" /></p>
 
 Кроме того, необходимо ввести URL сайта, для которого нужно обработать капчу, чтобы получить обработанный результат. Сначала нужно просто передать поле `website_url`, а затем также необходимо ввести параметр `website_key`, который можно получить выше, это также строка, следующая за execute. Далее мы можем заполнить соответствующие поля на интерфейсе, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/1hw2uo.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1hw2uo.png" width="500" className="m-auto" /></p>
 
 Как видно, здесь мы настроили заголовки запроса, включая:
 
@@ -42,7 +42,7 @@ description: "Recaptcha verification code recognition service 集成指南 - Ace
 
 После выбора можно заметить, что справа также сгенерирован соответствующий код, как показано на изображении:
 
-<p><img src="https://cdn.acedata.cloud/3dahem.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3dahem.png" width="500" className="m-auto" /></p>
 
 Нажмите кнопку «Try», чтобы провести тестирование, как показано на изображении выше, и мы получили следующий результат:
 ```json
@@ -87,7 +87,7 @@ if r.status_code == 200:
 
 Кроме того, если вы хотите сгенерировать соответствующий код для интеграции, вы можете просто скопировать его, например, код CURL выглядит следующим образом:
 ```shell
-curl -X POST 'https://api.acedata.cloud/captcha/token/recaptcha3' \
+curl -X POST 'https://api.xhuoapi.ai/v1/captcha/token/recaptcha3' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -103,7 +103,7 @@ curl -X POST 'https://api.acedata.cloud/captcha/token/recaptcha3' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/captcha/token/recaptcha3"
+url = "https://api.xhuoapi.ai/v1/captcha/token/recaptcha3"
 
 headers = {
     "accept": "application/json",

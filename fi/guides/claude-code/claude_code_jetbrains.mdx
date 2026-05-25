@@ -1,17 +1,17 @@
 ---
 title: "Claude Code for JetBrains IDE käyttöopas"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code on Anthropicin julkaisema **Agentic Coding** -työkalu, jota kutsutaan myös yhdeksi maailman vahvimmista ohjelmointiaineksista. Claude Code tarjoaa JetBrains IDE:lle erityisen liitännäisen, joka tukee koko JetBrains IDE -sarjaa, kuten IntelliJ IDEA, PyCharm, WebStorm, GoLand, PhpStorm ja Android Studio.
 
-Tässä asiakirjassa esitellään, kuinka konfiguroidaan ja käytetään Claude Codea JetBrains IDE:ssä AceData Cloudin välityspalvelun kautta.
+Tässä asiakirjassa esitellään, kuinka konfiguroidaan ja käytetään Claude Codea JetBrains IDE:ssä XHuoAPIin välityspalvelun kautta.
 
 ## Hakuprosessi
 
-Claude Codea varten voit ensin siirtyä [Claude Messages -palvelusivulle](https://platform.acedata.cloud/documents/claude-messages) ja napsauttaa "Acquire"-painiketta saadaksesi tarvittavat todisteet:
+Claude Codea varten voit ensin siirtyä [Claude Messages -palvelusivulle](https://api.xhuoapi.ai/documents/claude-messages) ja napsauttaa "Acquire"-painiketta saadaksesi tarvittavat todisteet:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -53,7 +53,7 @@ claude --version
 
 ### Liitännäisen asennus
 
-![Claude Code -liitännäinen JetBrains Marketplace -sivustolla](https://cdn.acedata.cloud/de78fd305b.png)
+![Claude Code -liitännäinen JetBrains Marketplace -sivustolla](https://cdn.xhuoapi.ai/de78fd305b.png)
 
 1. Avaa JetBrains IDE
 2. Siirry kohtaan **Settings** → **Plugins** → **Marketplace**
@@ -65,7 +65,7 @@ Tai siirry suoraan [JetBrains Marketplaceen](https://plugins.jetbrains.com/plugi
 
 > **Tärkeää**: Liitännäisen asentamisen jälkeen on tarpeen **käynnistää IDE täysin uudelleen** (saatat joutua käynnistämään useita kertoja) jotta se tulee voimaan.
 
-## AceData Cloud API:n konfigurointi
+## XHuoAPI API:n konfigurointi
 
 Claude Code JetBrains -liitännäinen suorittaa `claude`-komennon integroidussa terminaalissa, joten ympäristömuuttujien konfigurointitapa on sama kuin CLI:ssä.
 
@@ -99,9 +99,9 @@ mkdir -p ~/.claude && echo '{"primaryApiKey": "self"}' > ~/.claude/config.json
 Lisää seuraava sisältö `~/.zshrc` tai `~/.bashrc` -tiedostoon, vaihda `{token}` omaan API-tokeniisi:
 
 ```bash
-# AceData Cloud - Claude Code -välityskonfiguraatio
+# XHuoAPI - Claude Code -välityskonfiguraatio
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 Muokkauksen jälkeen suorita `source ~/.zshrc` saadaksesi asetukset voimaan, ja sitten **käynnistä JetBrains IDE uudelleen**.
@@ -114,12 +114,12 @@ Muokkaa `~/.claude/settings.json` (jos ei ole olemassa, luo se):
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **Vihje**: API-tokenin voi tarkistaa [AceData Cloud -hallintapaneelista](https://platform.acedata.cloud/console).
+> **Vihje**: API-tokenin voi tarkistaa [XHuoAPI -hallintapaneelista](https://api.xhuoapi.ai/console).
 
 ## Peruskäyttö
 
@@ -186,7 +186,7 @@ wsl -d Ubuntu -- bash -lic "claude"
 
 1. Tarkista, onko `~/.claude/config.json` -tiedosto luotu oikein
 2. Varmista, että ympäristömuuttujat on asetettu oikein
-3. Varmista, että API-token on voimassa (voit tarkistaa sen [hallintapaneelista](https://platform.acedata.cloud/console))
+3. Varmista, että API-token on voimassa (voit tarkistaa sen [hallintapaneelista](https://api.xhuoapi.ai/console))
 4. Käynnistä JetBrains IDE uudelleen ja yritä uudelleen
 
 ### Mikäli liitännäinen ei toimi?
@@ -212,10 +212,10 @@ Jos napsautat Claude-kuvaketta ja saat ilmoituksen "command not found":
 3. WSL-käyttäjät käyttävät yllä olevia WSL-komentomuotoja
 ### Kuinka tarkistaa jäljellä oleva saldo?
 
-Kirjaudu sisään [AceData Cloud -hallintapaneeliin](https://platform.acedata.cloud/console), niin voit tarkistaa nykyisen tilisi jäljellä olevan saldon ja käyttötilanteen.
+Kirjaudu sisään [XHuoAPI -hallintapaneeliin](https://api.xhuoapi.ai/console), niin voit tarkistaa nykyisen tilisi jäljellä olevan saldon ja käyttötilanteen.
 
 ## Lisätietoja
 
 - 📖 [Claude Code JetBrains virallinen dokumentaatio](https://code.claude.com/docs/en/jetbrains)
-- 🔧 [AceData Cloud Claude Code -palvelu](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code -palvelu](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 Jos sinulla on kysymyksiä, ota rohkeasti yhteyttä asiakaspalveluumme alustalla.

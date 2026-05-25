@@ -1,17 +1,17 @@
 ---
 title: "Claude Code 终端 (CLI) 使用教程"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code 是 Anthropic 推出的一款 **Agentic Coding** 工具，也被称为世界最强编程 Agent 之一。终端 CLI 是 Claude Code 的核心体验，你可以在任意终端中运行 `claude` 命令，通过自然语言与 AI 进行编程协作。
 
-本文档主要介绍如何通过 AceData Cloud 的代理服务，在终端中安装、配置和使用 Claude Code CLI。
+本文档主要介绍如何通过 XHuoAPI 的代理服务，在终端中安装、配置和使用 Claude Code CLI。
 
 ## 申请流程
 
-要使用 Claude Code，首先可以到 [Claude Messages 服务页面](https://platform.acedata.cloud/documents/claude-messages) 点击「Acquire」按钮，获取请求所需要的凭证：
+要使用 Claude Code，首先可以到 [Claude Messages 服务页面](https://api.xhuoapi.ai/documents/claude-messages) 点击「Acquire」按钮，获取请求所需要的凭证：
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 如果你尚未登录或注册，会自动跳转到登录页面邀请您来注册和登录，登录注册之后会自动返回当前页面。
 
@@ -62,9 +62,9 @@ winget install Claude.ClaudeCode
 
 原生安装会在后台自动更新，始终保持最新版本。
 
-## 配置 AceData Cloud API
+## 配置 XHuoAPI API
 
-安装完成后，默认会要求你登录 Anthropic 官方账号。我们可以通过配置环境变量来使用 AceData Cloud 的代理 API，**无需官方订阅**。
+安装完成后，默认会要求你登录 Anthropic 官方账号。我们可以通过配置环境变量来使用 XHuoAPI 的代理 API，**无需官方订阅**。
 
 ### 配置环境变量
 
@@ -72,12 +72,12 @@ winget install Claude.ClaudeCode
 
 **方式一：在 Shell 配置文件中设置（推荐）**
 
-将以下内容添加到你的 Shell 配置文件（`~/.zshrc`、`~/.bashrc` 或 `~/.bash_profile`）中，将 `{token}` 替换为你在 AceData Cloud 控制台获取的 API 令牌：
+将以下内容添加到你的 Shell 配置文件（`~/.zshrc`、`~/.bashrc` 或 `~/.bash_profile`）中，将 `{token}` 替换为你在 XHuoAPI 控制台获取的 API 令牌：
 
 ```bash
-# AceData Cloud - Claude Code 代理配置
+# XHuoAPI - Claude Code 代理配置
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 修改后执行以下命令使配置生效：
@@ -94,14 +94,14 @@ source ~/.zshrc  # 或 source ~/.bashrc
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
 这种方式的好处是环境变量只作用于 Claude Code，不影响其他程序。
 
-> **提示**：API 令牌可在 [AceData Cloud 控制台](https://platform.acedata.cloud/console) 中查看。`ANTHROPIC_AUTH_TOKEN` 的值会被自动添加 `Bearer` 前缀发送到服务端。
+> **提示**：API 令牌可在 [XHuoAPI 控制台](https://api.xhuoapi.ai/console) 中查看。`ANTHROPIC_AUTH_TOKEN` 的值会被自动添加 `Bearer` 前缀发送到服务端。
 
 ## 开始使用
 
@@ -218,7 +218,7 @@ git diff main | claude -p "审查这些改动"
    echo $ANTHROPIC_AUTH_TOKEN
    echo $ANTHROPIC_BASE_URL
    ```
-3. 确认 API 令牌有效（可在 [控制台](https://platform.acedata.cloud/console) 查看）
+3. 确认 API 令牌有效（可在 [控制台](https://api.xhuoapi.ai/console) 查看）
 4. 尝试重新启动终端
 
 ### command not found: claude
@@ -231,11 +231,11 @@ git diff main | claude -p "审查这些改动"
 
 ### 如何查看剩余额度？
 
-登录 [AceData Cloud 控制台](https://platform.acedata.cloud/console)，即可查看当前账户的剩余额度和使用情况。
+登录 [XHuoAPI 控制台](https://api.xhuoapi.ai/console)，即可查看当前账户的剩余额度和使用情况。
 
 ## 了解更多
 
 - 📖 [Claude Code CLI 官方文档](https://code.claude.com/docs/en/quickstart)
 - 📋 [CLI 命令参考](https://code.claude.com/docs/en/cli-reference)
-- 🔧 [AceData Cloud Claude Code 服务](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code 服务](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 如有任何问题，欢迎通过平台客服联系我们

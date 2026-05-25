@@ -1,9 +1,9 @@
 ---
 title: "تعليمات دمج واجهة برمجة التطبيقات AI Chat v2"
-description: "AI Dialogue 集成指南 - Ace Data Cloud"
+description: "AI Dialogue 集成指南 - XHuoAPI"
 ---
 
-واجهة برمجة التطبيقات AI Chat v2 (`/aichat2/conversations`) هي الجيل الجديد من واجهات المحادثة، وهي نسخة مطورة بالكامل من [AI Chat API](https://platform.acedata.cloud/documents/59fb1199-6694-4afb-a222-3554d7f7d05a). تعتمد على بساطة الإصدار v1 وإدارة المحادثات متعددة الجولات، مع التوسعات التالية:
+واجهة برمجة التطبيقات AI Chat v2 (`/aichat2/conversations`) هي الجيل الجديد من واجهات المحادثة، وهي نسخة مطورة بالكامل من [AI Chat API](https://api.xhuoapi.ai/documents/59fb1199-6694-4afb-a222-3554d7f7d05a). تعتمد على بساطة الإصدار v1 وإدارة المحادثات متعددة الجولات، مع التوسعات التالية:
 
 - **إدخال متعدد الوسائط**: من خلال حقل `message` المهيكل يمكن إرسال نص + صورة + ملفات مباشرة، دون الحاجة لاستخدام `references` كمرفقات غير مباشرة.
 - **استدعاء الأدوات بنمط الوكيل (Agent)**: تضم مجموعة أدوات مدمجة للبحث عبر الإنترنت، واستخلاص صفحات الويب، وقراءة الملفات، ويمكن ربط خوادم MCP المصرح بها من المستخدم (مثل Google Drive، Notion، Slack، GitHub)، حيث يمكن للنموذج استدعاء الأدوات ذاتيًا في جولات متعددة ضمن طلب واحد لإتمام مهام معقدة.
@@ -18,7 +18,7 @@ description: "AI Dialogue 集成指南 - Ace Data Cloud"
 
 ## إجراءات التقديم
 
-لاستخدام API، يجب التقديم أولاً عبر صفحة [AI Chat v2 API](https://platform.acedata.cloud/documents/e4a7c2b9-3f1d-4e8a-9b6c-a5d2f8e1b4c7)، بعد الدخول اضغط زر "Acquire" للحصول على بيانات الاعتماد اللازمة للطلبات.
+لاستخدام API، يجب التقديم أولاً عبر صفحة [AI Chat v2 API](https://api.xhuoapi.ai/documents/e4a7c2b9-3f1d-4e8a-9b6c-a5d2f8e1b4c7)، بعد الدخول اضغط زر "Acquire" للحصول على بيانات الاعتماد اللازمة للطلبات.
 
 إذا لم تكن مسجلاً أو مسجلاً دخولك، سيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول، وبعد التسجيل والدخول ستعود تلقائيًا إلى الصفحة الحالية.
 
@@ -31,13 +31,13 @@ description: "AI Dialogue 集成指南 - Ace Data Cloud"
 مثال CURL:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
   -d '{
     "model": "gpt-5.4",
-    "question": "用一句话介绍下 AceDataCloud。"
+    "question": "用一句话介绍下 XHuoAPI。"
   }'
 ```
 
@@ -45,7 +45,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 
 ```json
 {
-  "answer": "AceDataCloud هو منصة API موحدة تجمع نماذج AI السائدة وخدمات الوسائط المتعددة، يمكن للمطورين استدعاء خدمات مثل GPT، Claude، Gemini، Midjourney، Suno، Veo وغيرها باستخدام مفتاح واحد.",
+  "answer": "XHuoAPI هو منصة API موحدة تجمع نماذج AI السائدة وخدمات الوسائط المتعددة، يمكن للمطورين استدعاء خدمات مثل GPT، Claude، Gemini، Midjourney، Suno، Veo وغيرها باستخدام مفتاح واحد.",
   "id": "f2f4b3e8-0c0a-4d3a-aaa2-7ff80c0a1c44"
 }
 ```
@@ -55,7 +55,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/aichat2/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat2/conversations"
 
 headers = {
     "accept": "application/json",
@@ -65,7 +65,7 @@ headers = {
 
 payload = {
     "model": "gpt-5.4",
-    "question": "用一句话介绍下 AceDataCloud。",
+    "question": "用一句话介绍下 XHuoAPI。",
 }
 
 response = requests.post(url, json=payload, headers=headers)
@@ -91,7 +91,7 @@ print(response.json())
 الطلب الأول:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -114,7 +114,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 الطلب الثاني مع نفس `id`:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -153,7 +153,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 import json
 import requests
 
-url = "https://api.acedata.cloud/aichat2/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat2/conversations"
 
 headers = {
     "accept": "application/x-ndjson",
@@ -197,7 +197,7 @@ with requests.post(url, json=payload, headers=headers, stream=True) as resp:
 متصفحات الويب تستخدم `EventSource` التي لا تدعم جسم طلب مخصص، يُنصح باستخدام `fetch` مع تحليل يدوي حسب `\n\n`:
 
 ```javascript
-const resp = await fetch("https://api.acedata.cloud/aichat2/conversations", {
+const resp = await fetch("https://api.xhuoapi.ai/v1/aichat2/conversations", {
   method: "POST",
   headers: {
     accept: "text/event-stream",
@@ -260,7 +260,7 @@ while (true) {
   "stateful": true,
   "message": [
     { "type": "text", "text": "这张图片里有几只猫？" },
-    { "type": "image_url", "image_url": { "url": "https://cdn.acedata.cloud/cats.jpg" } }
+    { "type": "image_url", "image_url": { "url": "https://cdn.xhuoapi.ai/cats.jpg" } }
   ]
 }
 ```
@@ -289,7 +289,7 @@ while (true) {
 
 - المستخدم يسأل: "ساعدني في البحث عن المعارض الجديدة في شنغهاي" → النموذج يستدعي أداة البحث على الويب → ينظم النتائج ويرد.
 - المستخدم يطلب: "اقرأ هذا PDF ثم اكتب ملخصًا" → النموذج يستدعي أداة قراءة الملفات → يكتب الملخص.
-- المستخدم ربط حساباته في [Connections](https://platform.acedata.cloud/connections) مثل Google Drive / GitHub / Notion → النموذج يستدعي أدوات MCP المقابلة لقراءة وكتابة البيانات.
+- المستخدم ربط حساباته في [Connections](https://api.xhuoapi.ai/connections) مثل Google Drive / GitHub / Notion → النموذج يستدعي أدوات MCP المقابلة لقراءة وكتابة البيانات.
 
 في تدفقات NDJSON / SSE، تظهر استدعاءات الأدوات عبر أحداث `tool_use` و `tool_result`، مثال:
 
@@ -323,7 +323,7 @@ while (true) {
 في الواجهة، يتم عرض هذا الحدث كبطاقة للاختيار، ثم ترسل الطلب التالي بنفس `id` مع ملء الإجابة في `tool_results`:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: text/event-stream' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -351,7 +351,7 @@ v2 توفر إدارة جلسات خفيفة عبر نفس نقطة النهاي
 ### `action: retrieve` — استرجاع محادثة واحدة
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -403,9 +403,9 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 
 ## الترحيل السلس من v1
 
-إذا كنت تستخدم [`/aichat/conversations`](https://platform.acedata.cloud/documents/59fb1199-6694-4afb-a222-3554d7f7d05a)، الترحيل إلى v2 لا يتطلب تعديل كبير:
+إذا كنت تستخدم [`/aichat/conversations`](https://api.xhuoapi.ai/documents/59fb1199-6694-4afb-a222-3554d7f7d05a)، الترحيل إلى v2 لا يتطلب تعديل كبير:
 
-1. غيّر عنوان URL من `https://api.acedata.cloud/aichat/conversations` إلى `https://api.acedata.cloud/aichat2/conversations`.
+1. غيّر عنوان URL من `https://api.xhuoapi.ai/v1/aichat/conversations` إلى `https://api.xhuoapi.ai/v1/aichat2/conversations`.
 2. إذا كنت تستخدم أسماء نماذج v1 (مثل `gpt-3.5`، `gpt-4-browsing`)، يُنصح بالترقية إلى نماذج معاصرة في v2 (مثل `gpt-5.4`، `claude-opus-4-7`، `gemini-3.1-pro`).
 3. تدفق NDJSON يحتفظ بالتوافق الخلفي: كل حدث `text_delta` لا يزال يحمل `delta_answer` و `id`، لذا لا حاجة لتعديل عملاء تحليل `delta_answer`.
 

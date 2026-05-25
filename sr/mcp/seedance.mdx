@@ -3,7 +3,7 @@ title: "Seedance MCP Vodič za integraciju"
 description: "seedance MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) je protokol za kontekst modela koji je razvio Anthropic, omogućavajući AI modelima (kao što su Claude, GPT i drugi) da pozivaju spoljne alate putem standardizovanog interfejsa. Korišćenjem Seedance MCP Server-a koji pruža AceData Cloud, možete direktno koristiti ByteDance Seedance za generisanje AI video zapisa u AI klijentima kao što su Claude Desktop, VS Code, Cursor i drugi.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) je protokol za kontekst modela koji je razvio Anthropic, omogućavajući AI modelima (kao što su Claude, GPT i drugi) da pozivaju spoljne alate putem standardizovanog interfejsa. Korišćenjem Seedance MCP Server-a koji pruža XHuoAPI, možete direktno koristiti ByteDance Seedance za generisanje AI video zapisa u AI klijentima kao što su Claude Desktop, VS Code, Cursor i drugi.
 
 ## Pregled funkcionalnosti
 
@@ -20,10 +20,10 @@ Seedance MCP Server pruža sledeće ključne funkcije:
 
 ## Preduslovi
 
-Pre upotrebe, potrebno je da pribavite AceData Cloud API Token:
+Pre upotrebe, potrebno je da pribavite XHuoAPI API Token:
 
-1. Registrujte se ili prijavite na [AceData Cloud platformu](https://platform.acedata.cloud)
-2. Posetite stranicu [Seedance Videos API](https://platform.acedata.cloud/documents/seedance-videos)
+1. Registrujte se ili prijavite na [XHuoAPI platformu](https://api.xhuoapi.ai)
+2. Posetite stranicu [Seedance Videos API](https://api.xhuoapi.ai/documents/seedance-videos)
 3. Kliknite na „Acquire“ da biste dobili API Token (prvi zahtev donosi besplatni kredit)
 
 ## Instalacija i konfiguracija
@@ -37,7 +37,7 @@ pip install mcp-seedance
 ### Metod 2: instalacija iz izvornog koda
 
 ```bash
-git clone https://github.com/AceDataCloud/SeedanceMCP.git
+git clone https://github.com/XHuoAPI/SeedanceMCP.git
 cd SeedanceMCP
 pip install -e .
 ```
@@ -59,7 +59,7 @@ Dodajte sledeću konfiguraciju:
     "seedance": {
       "command": "mcp-seedance",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -75,7 +75,7 @@ Ako koristite `uvx` (nije potrebno prethodno instalirati pakete):
       "command": "uvx",
       "args": ["mcp-seedance"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -94,7 +94,7 @@ U korenskom direktorijumu projekta kreirajte `.vscode/mcp.json`:
     "seedance": {
       "command": "mcp-seedance",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -110,7 +110,7 @@ Ili koristite `uvx`:
       "command": "uvx",
       "args": ["mcp-seedance"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "tvoj API Token"
+        "XHuoAPI_API_TOKEN": "tvoj API Token"
       }
     }
   }
@@ -140,6 +140,6 @@ Nakon konfiguracije, možete direktno koristiti ove funkcije u AI klijentima kor
 
 ## Više informacija
 
-- GitHub repozitorijum: [AceDataCloud/SeedanceMCP](https://github.com/AceDataCloud/SeedanceMCP)
+- GitHub repozitorijum: [XHuoAPI/SeedanceMCP](https://github.com/XHuoAPI/SeedanceMCP)
 - PyPI paket: [mcp-seedance](https://pypi.org/project/mcp-seedance/)
-- API dokumentacija: [Seedance video generisanje API](https://platform.acedata.cloud/documents/seedance)
+- API dokumentacija: [Seedance video generisanje API](https://api.xhuoapi.ai/documents/seedance)

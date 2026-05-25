@@ -1,6 +1,6 @@
 ---
 title: "Kimi Chat Completion API Antrag und Nutzung"
-description: "Kimi 集成指南 - Ace Data Cloud"
+description: "Kimi 集成指南 - XHuoAPI"
 ---
 
 Kimi ist ein sehr leistungsstarkes KI-Dialogsystem, das in nur wenigen Sekunden flüssige und natürliche Antworten generieren kann, sobald man einen Hinweis eingibt. Kimi bietet erstaunliche intelligente Unterstützung und steigert erheblich die Effizienz und Kreativität der Menschen.
@@ -9,9 +9,9 @@ Dieses Dokument beschreibt hauptsächlich den Ablauf der Nutzung der Kimi Chat C
 
 ## Antragsprozess
 
-Um die Gemini Chat Completion API zu nutzen, können Sie zunächst auf die Seite [Kimi Chat Completion API](https://platform.acedata.cloud/documents/b23bbfa3-c820-47ee-b307-6c6dedc9d0cf) gehen und auf die Schaltfläche „Acquire“ klicken, um die erforderlichen Anmeldeinformationen zu erhalten:
+Um die Gemini Chat Completion API zu nutzen, können Sie zunächst auf die Seite [Kimi Chat Completion API](https://api.xhuoapi.ai/documents/b23bbfa3-c820-47ee-b307-6c6dedc9d0cf) gehen und auf die Schaltfläche „Acquire“ klicken, um die erforderlichen Anmeldeinformationen zu erhalten:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur Anmeldeseite weitergeleitet, die Sie zur Registrierung und Anmeldung einlädt. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
 
@@ -21,13 +21,13 @@ Bei der ersten Antragstellung gibt es ein kostenloses Kontingent, mit dem Sie di
 
 Als Nächstes können Sie im Interface die entsprechenden Inhalte ausfüllen, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/ej5ozg.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ej5ozg.png" width="400" className="m-auto" /></p>
 
 Bei der ersten Nutzung dieser Schnittstelle müssen wir mindestens drei Inhalte ausfüllen: einer ist `authorization`, den Sie einfach aus der Dropdown-Liste auswählen können. Ein weiterer Parameter ist `model`, `model` ist die Modellkategorie, die wir von der Kimi-Website auswählen. Hier haben wir hauptsächlich 7 Modelle, die Details können Sie in den von uns bereitgestellten Modellen einsehen. Der letzte Parameter ist `messages`, `messages` ist das Array der von uns eingegebenen Fragen, es handelt sich um ein Array, das mehrere Fragen gleichzeitig hochladen kann, wobei jede Frage `role` und `content` enthält, wobei `role` die Rolle des Fragestellers angibt. Wir bieten drei Identitäten an: `user`, `assistant`, `system`. Das andere `content` ist der spezifische Inhalt unserer Frage.
 
 Gleichzeitig können Sie auf der rechten Seite den entsprechenden Code zur Aufrufgenerierung sehen, den Sie kopieren und direkt ausführen oder einfach auf die Schaltfläche „Try“ klicken können, um einen Test durchzuführen.
 
-<p><img src="https://cdn.acedata.cloud/six7e3.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/six7e3.png" width="400" className="m-auto" /></p>
 
 Nach dem Aufruf stellen wir fest, dass das Rückgabeergebnis wie folgt aussieht:
 
@@ -73,7 +73,7 @@ Das Rückgabeergebnis hat mehrere Felder, die wie folgt beschrieben werden:
 
 Dabei ist `choices` das, was die Antwortinformationen von Kimi enthält, und das `choices` darin sind die spezifischen Informationen, die Kimi geantwortet hat, wie im Bild gezeigt.
 
-<p><img src="https://cdn.acedata.cloud/tv9rul.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tv9rul.png" width="400" className="m-auto" /></p>
 
 Man kann sehen, dass das `content`-Feld in `choices` den spezifischen Inhalt der Antwort von Gemini enthält.
 
@@ -85,7 +85,7 @@ Wenn Sie eine Stream-Antwort zurückgeben möchten, können Sie den `stream`-Par
 
 Die Änderung ist wie im Bild gezeigt, jedoch muss der Aufrufcode entsprechend geändert werden, um Stream-Antworten zu unterstützen.
 
-<p><img src="https://cdn.acedata.cloud/a3nzpw.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a3nzpw.png" width="400" className="m-auto" /></p>
 
 Nachdem Sie `stream` auf `true` geändert haben, gibt die API die entsprechenden JSON-Daten zeilenweise zurück. Auf der Code-Ebene müssen wir entsprechende Änderungen vornehmen, um die zeilenweisen Ergebnisse zu erhalten.
 
@@ -94,7 +94,7 @@ Python-Beispielaufrufcode:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kimi/chat/completions"
+url = "https://api.xhuoapi.ai/v1/kimi/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -173,7 +173,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/kimi/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/kimi/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -189,7 +189,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/kimi/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/kimi/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -207,14 +207,14 @@ System.out.print(response.body!!.string())
 
 如果您想要对接多轮对话功能，需要对 `messages` 字段上传多个提问词，多个提问词的具体示例如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/g85v2a.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g85v2a.png" width="400" className="m-auto" /></p>
 
 Python 样例调用代码：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kimi/chat/completions"
+url = "https://api.xhuoapi.ai/v1/kimi/chat/completions"
 
 headers = {
     "accept": "application/json",

@@ -1,6 +1,6 @@
 ---
 title: "ADSL проксі підключення"
-description: "ADSL rotating proxy 集成指南 - Ace Data Cloud"
+description: "ADSL rotating proxy 集成指南 - XHuoAPI"
 ---
 
 У умовах посилення боротьби між веб-скребками та анти-скребковими системами, контроль за ризиками на великих веб-сайтах та додатках стає все більш жорстким, одним із заходів є блокування IP-адрес.
@@ -21,21 +21,21 @@ ADSL, англійською Asymmetric Digital Subscriber Line, тобто ас
 
 ## Метод подачі заявки
 
-Щоб скористатися ADSL службою, спочатку перейдіть на «[сторінку заявки](https://platform.acedata.cloud/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)» для подачі заявки, перша заявка має 1 безкоштовний кредит, приблизно 17,5 МБ.
+Щоб скористатися ADSL службою, спочатку перейдіть на «[сторінку заявки](https://api.xhuoapi.ai/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)» для подачі заявки, перша заявка має 1 безкоштовний кредит, приблизно 17,5 МБ.
 
-![](https://cdn.acedata.cloud/a2inin.png)
+![](https://cdn.xhuoapi.ai/a2inin.png)
 
 Якщо ви ще не увійшли в систему, вас автоматично перенаправлять на сторінку входу, після входу продовжте подавати заявку.
 
 Після подачі заявки ви можете перевірити результати своєї заявки в «консолі», як показано на малюнку:
 
-![](https://cdn.acedata.cloud/hc400a.png)
+![](https://cdn.xhuoapi.ai/hc400a.png)
 
 Натисніть «Credentials», щоб переглянути ім'я користувача та пароль для використання ADSL проксі-служби, розділені двокрапкою, де ім'я користувача складається з 8 символів, а пароль з 32 символів, як показано на малюнку:
 
-![](https://cdn.acedata.cloud/cej7m2.png)
+![](https://cdn.xhuoapi.ai/cej7m2.png)
 
-Ця ADSL проксі є ротаційною проксі, тому під час використання потрібно лише налаштувати одну фіксовану адресу проксі та порт, адреса проксі та порт - це adsl.proxy.acedata.cloud та 30005, це проксі для протоколів HTTP/HTTPS/SOCKS, які можна використовувати для доступу до веб-сайтів протоколів HTTP та HTTPS.
+Ця ADSL проксі є ротаційною проксі, тому під час використання потрібно лише налаштувати одну фіксовану адресу проксі та порт, адреса проксі та порт - це adsl.proxy.xhuoapi.ai та 30005, це проксі для протоколів HTTP/HTTPS/SOCKS, які можна використовувати для доступу до веб-сайтів протоколів HTTP та HTTPS.
 
 ## Тестування команд
 
@@ -44,7 +44,7 @@ ADSL, англійською Asymmetric Digital Subscriber Line, тобто ас
 Припустимо, що поточні ім'я користувача та пароль проксі - це `1f78266a:eff0896726224fa2a99fe82dd1f07562`, ми можемо використати наступну команду curl для тестування:
 
 ```shell
-curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@adsl.proxy.acedata.cloud:30005 https://ipinfo.io
+curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@adsl.proxy.xhuoapi.ai:30005 https://ipinfo.io
 ```
 
 Тут ми використовуємо параметр curl `-x`, щоб вказати адресу проксі, проксі-протокол за замовчуванням - HTTP/HTTPS, URL запиту - [https://ipinfo.io](https://ipinfo.io), цей сайт може повернути реальну IP-адресу та регіон, в якому знаходиться IP.
@@ -72,7 +72,7 @@ curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@adsl.proxy.acedata.cloud:30005
 ```python
 import requests
 
-proxy = 'https://{proxy_username}:{proxy_password}@adsl.proxy.acedata.cloud:30005'
+proxy = 'https://{proxy_username}:{proxy_password}@adsl.proxy.xhuoapi.ai:30005'
 
 proxies = {
     'http': proxy,
@@ -138,7 +138,7 @@ for _ in range(3):
 import requests
 import base64
 
-proxy_host = 'adsl.proxy.acedata.cloud'
+proxy_host = 'adsl.proxy.xhuoapi.ai'
 proxy_port = '30005'
 proxy_username = '{proxy_username}' # 8-значне ім'я користувача
 proxy_password = '{proxy_password}' # 32-значний пароль
@@ -170,7 +170,7 @@ for _ in range(3):
 const axios = require("axios");
 const base64 = require("base64");
 
-const proxy_host = "adsl.proxy.acedata.cloud";
+const proxy_host = "adsl.proxy.xhuoapi.ai";
 const proxy_port = "30005";
 const proxy_username = "{proxy_username}"; // 8-значне ім'я користувача
 const proxy_password = "{proxy_password}"; // 32-значний пароль
@@ -202,4 +202,4 @@ for (let i = 0; i < 3; i++) {
 
 Якщо ваш пакет вже вичерпано, вам потрібно купити більше, щоб продовжити користуватися цією проксі-службою.
 
-Щоб купити більше, перейдіть на «[сторінку заявки](https://platform.acedata.cloud/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)» і просто натисніть кнопку «Купити більше», щоб вибрати, чим більше ви купуєте, тим дешевше одинична ціна.
+Щоб купити більше, перейдіть на «[сторінку заявки](https://api.xhuoapi.ai/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)» і просто натисніть кнопку «Купити більше», щоб вибрати, чим більше ви купуєте, тим дешевше одинична ціна.

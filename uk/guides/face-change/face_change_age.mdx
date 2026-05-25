@@ -1,15 +1,15 @@
 ---
 title: "API інтеграція зміни віку обличчя"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 У цьому документі буде представлено опис інтеграції API зміни віку обличчя, який дозволяє змінювати вік обличчя на зображенні, виходячи з завантаженого зображення та віку. Загальний принцип використання полягає в тому, що користувач завантажує зображення обличчя, а на основі алгоритмів редагування та генерації обличчя отримує зображення, на якому обличчя виглядає старшим або молодшим, підтримуючи зміни віку обличчя.
 
 ## Процес подачі заявки
 
-Щоб використовувати API, спочатку потрібно перейти на сторінку [API зміни віку обличчя](https://platform.acedata.cloud/documents/0c5b4165-25ba-4dc2-8f02-e3cd74ab4238) для подачі заявки на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
+Щоб використовувати API, спочатку потрібно перейти на сторінку [API зміни віку обличчя](https://api.xhuoapi.ai/documents/0c5b4165-25ba-4dc2-8f02-e3cd74ab4238) для подачі заявки на відповідну послугу. Після переходу на сторінку натисніть кнопку «Acquire», як показано на малюнку:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, щоб ви могли зареєструватися та увійти. Після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
 
@@ -19,11 +19,11 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 Спочатку потрібно ознайомитися з основним способом використання, а саме, ввести посилання на зображення та інформацію про вік, щоб отримати оброблене зображення. Спочатку потрібно просто передати поле `image_url`, зображення обличчя показано нижче:
 
-<p><img src="https://cdn.acedata.cloud/f5687u.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/f5687u.png" width="500" className="m-auto" /></p>
 
 Потім потрібно завантажити параметри інформації про вік обличчя `age_infos`, це масив, в який можна передати кілька значень. Далі можна заповнити відповідні дані на інтерфейсі, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/cn95e8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/cn95e8.png" width="500" className="m-auto" /></p>
 
 Як видно, ми налаштували заголовки запиту, включаючи:
 
@@ -37,7 +37,7 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 Після вибору можна помітити, що праворуч також згенеровано відповідний код, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/zk8qkl.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zk8qkl.png" width="500" className="m-auto" /></p>
 
 Натисніть кнопку «Try», щоб провести тестування, як показано на малюнку, і ми отримали наступний результат:
 
@@ -49,20 +49,20 @@ description: "Face Transformation 集成指南 - Ace Data Cloud"
 
 Як видно, у повернутому результаті є поле `image_url`, яке містить зображення обличчя після зміни віку. Зміна обличчя виглядає наступним чином:
 
-<p><img src="https://cdn.acedata.cloud/01rmiv.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/01rmiv.png" width="500" className="m-auto" /></p>
 
 Як видно, обличчя на зображенні змінилося відповідно до введеного віку.
 
 Крім того, якщо ви хочете згенерувати відповідний код інтеграції, ви можете просто скопіювати його, наприклад, код CURL виглядає так:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/change-age' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/change-age' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
   "age_infos": [{"age":60}],
-  "image_url": "https://cdn.acedata.cloud/f5687u.png"
+  "image_url": "https://cdn.xhuoapi.ai/f5687u.png"
 }'
 ```
 
@@ -71,7 +71,7 @@ curl -X POST 'https://api.acedata.cloud/face/change-age' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/change-age"
+url = "https://api.xhuoapi.ai/v1/face/change-age"
 
 headers = {
     "accept": "application/json",
@@ -81,7 +81,7 @@ headers = {
 
 payload = {
     "age_infos": [{"age":60}],
-    "image_url": "https://cdn.acedata.cloud/f5687u.png"
+    "image_url": "https://cdn.xhuoapi.ai/f5687u.png"
 }
 
 response = requests.post(url, json=payload, headers=headers)

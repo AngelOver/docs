@@ -1,6 +1,6 @@
 ---
 title: "Luma Tasks API:s integration och användning"
-description: "Luma Video Generation 集成指南 - Ace Data Cloud"
+description: "Luma Video Generation 集成指南 - XHuoAPI"
 ---
 
 Luma Tasks API:s huvudfunktion är att genom att ange det uppdrag-ID som genererats av Luma Videos Generation API för att kontrollera statusen för det uppdraget.
@@ -9,27 +9,27 @@ Detta dokument kommer att detaljerat beskriva Luma Tasks API:s integrationsanvis
 
 ## Ansökningsprocess
 
-För att använda Luma Tasks API måste du först gå till ansökningssidan [Luma Videos Generation API](https://platform.acedata.cloud/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) för att ansöka om den aktuella tjänsten, och sedan kopiera Luma Videos Generation API:s uppdrag-ID, som visas i bilden nedan:
+För att använda Luma Tasks API måste du först gå till ansökningssidan [Luma Videos Generation API](https://api.xhuoapi.ai/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) för att ansöka om den aktuella tjänsten, och sedan kopiera Luma Videos Generation API:s uppdrag-ID, som visas i bilden nedan:
 
-![](https://cdn.acedata.cloud/ynk4ow.png)
+![](https://cdn.xhuoapi.ai/ynk4ow.png)
 
-Slutligen går du till Tasks API-sidan [Luma Tasks API](https://platform.acedata.cloud/documents/7d32369c-4ead-4364-a4c5-652bc768b3ff) för att ansöka om den aktuella tjänsten. När du kommer till sidan, klicka på knappen "Acquire", som visas i bilden nedan:
+Slutligen går du till Tasks API-sidan [Luma Tasks API](https://api.xhuoapi.ai/documents/7d32369c-4ead-4364-a4c5-652bc768b3ff) för att ansöka om den aktuella tjänsten. När du kommer till sidan, klicka på knappen "Acquire", som visas i bilden nedan:
 
-![Ansökningssidan](https://cdn.acedata.cloud/rci31i.png)
+![Ansökningssidan](https://cdn.xhuoapi.ai/rci31i.png)
 
-Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till [inloggningssidan](https://platform.acedata.cloud) för att registrera dig och logga in. Efter att du har loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
+Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till [inloggningssidan](https://api.xhuoapi.ai) för att registrera dig och logga in. Efter att du har loggat in eller registrerat dig kommer du automatiskt att återvända till den aktuella sidan.
 
 Vid första ansökan kommer det att finnas en gratis kvot som ges, så att du kan använda denna API gratis.
 
 ## Begärningsexempel
 
-Luma Tasks API kan användas för att kontrollera resultaten från Luma Videos Generation API. För information om hur man använder Luma Videos Generation API, se dokumentet [Luma Videos Generation API](https://platform.acedata.cloud/documents/16bb0108-1f09-45b3-97ac-16a668750a8c).
+Luma Tasks API kan användas för att kontrollera resultaten från Luma Videos Generation API. För information om hur man använder Luma Videos Generation API, se dokumentet [Luma Videos Generation API](https://api.xhuoapi.ai/documents/16bb0108-1f09-45b3-97ac-16a668750a8c).
 
 Vi tar ett exempel med ett uppdrag-ID som returnerats av Luma Videos Generation API för att demonstrera hur man använder denna API. Anta att vi har ett uppdrag-ID: 50fc6182-fa86-4c7d-ac12-2fa27ec2f151, och vi visar hur man gör detta genom att ange ett uppdrag-ID.
 
 ### Uppdragsexempelbild
 
-<p><img src="https://cdn.acedata.cloud/frcrux.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/frcrux.png" width="500" className="m-auto" /></p>
 
 ### Ställ in begärningshuvuden och begärningskropp
 
@@ -45,20 +45,20 @@ Vi tar ett exempel med ett uppdrag-ID som returnerats av Luma Videos Generation 
 
 Inställningarna visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/g6ev5b.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g6ev5b.png" width="500" className="m-auto" /></p>
 
 ### Kodexempel
 
 Det kan noteras att olika språkets kod redan har genererats automatiskt på högra sidan, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/i4fxqf.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/i4fxqf.png" width="500" className="m-auto" /></p>
 
 Några kodexempel visas nedan:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/luma/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/luma/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -73,7 +73,7 @@ curl -X POST 'https://api.acedata.cloud/luma/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/luma/tasks"
+url = "https://api.xhuoapi.ai/v1/luma/tasks"
 
 headers = {
     "accept": "application/json",
@@ -113,11 +113,11 @@ När begäran lyckas kommer API:t att returnera detaljerad information om videou
     "task_id": "50fc6182-fa86-4c7d-ac12-2fa27ec2f151",
     "video_id": "4b088fc8-2bbc-4706-80a6-a0fb118adc1a",
     "prompt": "Astronauter transporterar från rymden till vulkan",
-    "video_url": "https://platform.cdn.acedata.cloud/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.mp4",
+    "video_url": "https://platform.cdn.xhuoapi.ai/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.mp4",
     "video_height": 752,
     "video_width": 1360,
     "state": "completed",
-    "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.jpg",
+    "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.jpg",
     "thumbnail_width": 1360,
     "thumbnail_height": 752
   },
@@ -143,13 +143,13 @@ Detta är för att fråga detaljer om videouppdrag för flera uppdrag-ID:n, och 
 
 Inställningarna visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/mpcf1m.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mpcf1m.png" width="500" className="m-auto" /></p>
 
 ### Kodexempel
 
 Det kan noteras att olika språkets kod redan har genererats automatiskt på högra sidan, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/zs6y35.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/zs6y35.png" width="500" className="m-auto" /></p>
 
 Några kodexempel visas nedan:
 
@@ -177,11 +177,11 @@ När begäran lyckas kommer API:t att returnera detaljerad information om alla b
         "task_id": "50fc6182-fa86-4c7d-ac12-2fa27ec2f151",
         "video_id": "4b088fc8-2bbc-4706-80a6-a0fb118adc1a",
         "prompt": "Astronauter skjuts från rymden till vulkan",
-        "video_url": "https://platform.cdn.acedata.cloud/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.mp4",
+        "video_url": "https://platform.cdn.xhuoapi.ai/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.mp4",
         "video_height": 752,
         "video_width": 1360,
         "state": "completed",
-        "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.jpg",
+        "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/50fc6182-fa86-4c7d-ac12-2fa27ec2f151.jpg",
         "thumbnail_width": 1360,
         "thumbnail_height": 752
       },
@@ -205,11 +205,11 @@ När begäran lyckas kommer API:t att returnera detaljerad information om alla b
         "task_id": "76a05f61-68ad-4c1a-838f-a00cd08cf65b",
         "video_id": "5a638d6a-7481-4c5e-8843-36c9d1b5bcd5",
         "prompt": "la la la",
-        "video_url": "https://platform.cdn.acedata.cloud/luma/76a05f61-68ad-4c1a-838f-a00cd08cf65b.mp4",
+        "video_url": "https://platform.cdn.xhuoapi.ai/luma/76a05f61-68ad-4c1a-838f-a00cd08cf65b.mp4",
         "video_height": 752,
         "video_width": 1360,
         "state": "completed",
-        "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/76a05f61-68ad-4c1a-838f-a00cd08cf65b.jpg",
+        "thumbnail_url": "https://platform.cdn.xhuoapi.ai/luma/76a05f61-68ad-4c1a-838f-a00cd08cf65b.jpg",
         "thumbnail_width": 1360,
         "thumbnail_height": 752
       },
@@ -223,7 +223,7 @@ När begäran lyckas kommer API:t att returnera detaljerad information om alla b
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/luma/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/luma/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -238,7 +238,7 @@ curl -X POST 'https://api.acedata.cloud/luma/tasks' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/luma/tasks"
+url = "https://api.xhuoapi.ai/v1/luma/tasks"
 
 headers = {
     "accept": "application/json",

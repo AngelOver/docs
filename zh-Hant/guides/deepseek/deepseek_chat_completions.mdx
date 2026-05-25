@@ -1,6 +1,6 @@
 ---
 title: "DeepSeek Chat Completion API 申請及使用"
-description: "DeepSeek AI 集成指南 - Ace Data Cloud"
+description: "DeepSeek AI 集成指南 - XHuoAPI"
 ---
 
 DeepSeek 是一款非常強大的 AI 對話系統，只要輸入提示詞，就能在短短幾秒內生成流暢自然的回覆。DeepSeek-V3 以其出色的語言理解和生成能力在業界獨樹一幟，如今，DeepSeek-V3 早已在各個行業和領域廣泛應用，其影響力愈發顯著。無論是日常對話、創意寫作，還是專業諮詢、程式編寫，DeepSeek-V3 都能提供令人驚嘆的智能協助，極大地提高了人類的工作效率和創造力。
@@ -9,9 +9,9 @@ DeepSeek 是一款非常強大的 AI 對話系統，只要輸入提示詞，就�
 
 ## 申請流程
 
-要使用 DeepSeek Chat Completion API，首先可以到 [DeepSeek Chat Completion API](https://platform.acedata.cloud/documents/2d6a9bae-9a70-4aaa-bd72-28e5bd60fa67) 頁面點擊「Acquire」按鈕，獲取請求所需要的憑證：
+要使用 DeepSeek Chat Completion API，首先可以到 [DeepSeek Chat Completion API](https://api.xhuoapi.ai/documents/2d6a9bae-9a70-4aaa-bd72-28e5bd60fa67) 頁面點擊「Acquire」按鈕，獲取請求所需要的憑證：
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 如果你尚未登入或註冊，會自動跳轉到登入頁面邀請您來註冊和登入，登入註冊之後會自動返回當前頁面。
 
@@ -21,7 +21,7 @@ DeepSeek 是一款非常強大的 AI 對話系統，只要輸入提示詞，就�
 
 接下來就可以在介面上填寫對應的內容，如圖所示：
 
-<p><img src="https://cdn.acedata.cloud/m9kxkz.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/m9kxkz.png" width="400" className="m-auto" /></p>
 
 在第一次使用該介面時，我們至少需要填寫三個內容，一個是 `authorization`，直接在下拉列表裡面選擇即可。另一個參數是 `model`， `model` 就是我們選擇使用 DeepSeek 官網模型類別，這裡我們主要有 4 種模型，詳情可以看我們提供的模型。最後一個參數是`messages`，`messages`是我們輸入的提問詞數組，它是一個數組，表示可以同時上傳多個提問詞，每個提問詞包含了 `role` 和 `content`，其中 `role` 表示提問者的角色，我們提供了三種身份，分別為 `user` 、`assistant`、`system` 。另一個 `content` 就是我們提問的具體內容。
 
@@ -34,7 +34,7 @@ DeepSeek 是一款非常強大的 AI 對話系統，只要輸入提示詞，就�
 - `n`：一次生成多少條候選回覆。
 - `response_format`：返回格式設置。
 
-<p><img src="https://cdn.acedata.cloud/93k4xi.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/93k4xi.png" width="400" className="m-auto" /></p>
 
 調用之後，我們發現返回結果如下：
 
@@ -75,7 +75,7 @@ DeepSeek 是一款非常強大的 AI 對話系統，只要輸入提示詞，就�
 
 其中 `choices` 是包含了 DeepSeek 的回答信息，它裡面的 `choices` 是 DeepSeek的回答信息，可以發現如圖所示。
 
-<p><img src="https://cdn.acedata.cloud/0pd4q5.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0pd4q5.png" width="400" className="m-auto" /></p>
 
 可以看到，`choices` 裡面的 `content` 字段包含了 DeepSeek 回覆的具體內容。
 
@@ -87,7 +87,7 @@ DeepSeek 是一款非常強大的 AI 對話系統，只要輸入提示詞，就�
 
 修改如圖所示，不過調用代碼需要有對應的更改才能支持流式響應。
 
-<p><img src="https://cdn.acedata.cloud/dsoiqw.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dsoiqw.png" width="400" className="m-auto" /></p>
 
 將 `stream` 修改為 `true` 之後，API 將逐行返回對應的 JSON 數據，在代碼層面我們需要做相應的修改來獲得逐行的結果。
 
@@ -96,7 +96,7 @@ Python 樣例調用代碼：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/deepseek/chat/completions"
+url = "https://api.xhuoapi.ai/v1/deepseek/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -166,7 +166,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/deepseek/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/deepseek/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -182,7 +182,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/deepseek/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/deepseek/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -199,14 +199,14 @@ System.out.print(response.body!!.string())
 ## 多輪對話
 
 如果您想要對接多輪對話功能，需要對 `messages` 字段上傳多個提問詞，多個提問詞的具體示例如下圖所示：
-<p><img src="https://cdn.acedata.cloud/7yyhl4.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7yyhl4.png" width="400" className="m-auto" /></p>
 
 Python 範例調用代碼：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/deepseek/chat/completions"
+url = "https://api.xhuoapi.ai/v1/deepseek/chat/completions"
 
 headers = {
     "accept": "application/json",

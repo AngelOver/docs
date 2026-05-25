@@ -1,6 +1,6 @@
 ---
 title: "DeepSeek Chat Completion API 申请及使用"
-description: "DeepSeek AI 集成指南 - Ace Data Cloud"
+description: "DeepSeek AI 集成指南 - XHuoAPI"
 ---
 
 DeepSeek to bardzo potężny system AI do rozmów, który po wprowadzeniu podpowiedzi potrafi w ciągu kilku sekund wygenerować płynne i naturalne odpowiedzi. DeepSeek-V3 wyróżnia się w branży dzięki swoim doskonałym zdolnościom rozumienia i generowania języka, a obecnie jest szeroko stosowany w różnych branżach i dziedzinach, a jego wpływ staje się coraz bardziej znaczący. Niezależnie od tego, czy chodzi o codzienne rozmowy, kreatywne pisanie, czy profesjonalne doradztwo, programowanie kodu, DeepSeek-V3 może zapewnić zdumiewającą inteligentną pomoc, znacznie zwiększając wydajność i kreatywność ludzi.
@@ -9,9 +9,9 @@ Dokument ten głównie opisuje proces korzystania z DeepSeek Chat Completion API
 
 ## 申请流程
 
-Aby skorzystać z DeepSeek Chat Completion API, najpierw można przejść na stronę [DeepSeek Chat Completion API](https://platform.acedata.cloud/documents/2d6a9bae-9a70-4aaa-bd72-28e5bd60fa67) i kliknąć przycisk „Acquire”, aby uzyskać potrzebne poświadczenia:
+Aby skorzystać z DeepSeek Chat Completion API, najpierw można przejść na stronę [DeepSeek Chat Completion API](https://api.xhuoapi.ai/documents/2d6a9bae-9a70-4aaa-bd72-28e5bd60fa67) i kliknąć przycisk „Acquire”, aby uzyskać potrzebne poświadczenia:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Jeśli nie jesteś zalogowany lub zarejestrowany, automatycznie zostaniesz przekierowany na stronę logowania, aby zarejestrować się i zalogować, a po zalogowaniu lub rejestracji automatycznie wrócisz na bieżącą stronę.
 
@@ -21,7 +21,7 @@ Podczas pierwszej aplikacji otrzymasz darmowy limit, który pozwala na bezpłatn
 
 Następnie możesz wypełnić odpowiednie treści na interfejsie, jak pokazano na obrazku:
 
-<p><img src="https://cdn.acedata.cloud/m9kxkz.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/m9kxkz.png" width="400" className="m-auto" /></p>
 
 Podczas pierwszego korzystania z tego interfejsu musimy wypełnić co najmniej trzy pola: jedno to `authorization`, które można wybrać bezpośrednio z rozwijanej listy. Kolejnym parametrem jest `model`, `model` to kategoria modelu, którą wybieramy do użycia z oficjalnej strony DeepSeek, mamy tutaj głównie 4 rodzaje modeli, szczegóły można zobaczyć w dostarczonych modelach. Ostatnim parametrem jest `messages`, `messages` to tablica naszych pytań, jest to tablica, która pozwala na jednoczesne przesyłanie wielu pytań, każde pytanie zawiera `role` i `content`, gdzie `role` oznacza rolę pytającego, oferujemy trzy tożsamości: `user`, `assistant`, `system`. Drugim `content` jest konkretna treść naszego pytania.
 
@@ -34,7 +34,7 @@ Często używane opcjonalne parametry:
 - `n`: ile kandydatów odpowiedzi generować jednocześnie.
 - `response_format`: ustawienia formatu odpowiedzi.
 
-<p><img src="https://cdn.acedata.cloud/93k4xi.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/93k4xi.png" width="400" className="m-auto" /></p>
 
 Po wywołaniu zauważamy, że wynik zwrotny wygląda następująco:
 
@@ -75,7 +75,7 @@ Wynik zwrotny zawiera wiele pól, które są opisane poniżej:
 
 Wśród nich `choices` zawiera informacje o odpowiedziach DeepSeek, a w nim `choices` to informacje o odpowiedziach DeepSeek, co można zobaczyć na obrazku.
 
-<p><img src="https://cdn.acedata.cloud/0pd4q5.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0pd4q5.png" width="400" className="m-auto" /></p>
 
 Można zauważyć, że pole `content` w `choices` zawiera konkretną treść odpowiedzi DeepSeek.
 
@@ -87,7 +87,7 @@ Jeśli chcesz, aby odpowiedź była zwracana strumieniowo, możesz zmienić para
 
 Zmiana jak pokazano na obrazku, jednak kod wywołania musi być odpowiednio zmieniony, aby obsługiwał odpowiedzi strumieniowe.
 
-<p><img src="https://cdn.acedata.cloud/dsoiqw.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dsoiqw.png" width="400" className="m-auto" /></p>
 
 Po zmianie `stream` na `true`, API będzie zwracać odpowiednie dane JSON w wierszach, a na poziomie kodu musimy wprowadzić odpowiednie zmiany, aby uzyskać wyniki w wierszach.
 
@@ -96,7 +96,7 @@ Przykładowy kod wywołania w Pythonie:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/deepseek/chat/completions"
+url = "https://api.xhuoapi.ai/v1/deepseek/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -166,7 +166,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/deepseek/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/deepseek/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -182,7 +182,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/deepseek/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/deepseek/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -199,14 +199,14 @@ Inne języki można dostosować samodzielnie, zasada jest taka sama.
 ## Wieloetapowa rozmowa
 
 Jeśli chcesz zintegrować funkcję wieloetapowej rozmowy, musisz przesłać wiele zapytań w polu `messages`, a konkretne przykłady wielu zapytań są pokazane na poniższym obrazku:
-<p><img src="https://cdn.acedata.cloud/7yyhl4.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7yyhl4.png" width="400" className="m-auto" /></p>
 
 Przykładowy kod wywołania w Pythonie:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/deepseek/chat/completions"
+url = "https://api.xhuoapi.ai/v1/deepseek/chat/completions"
 
 headers = {
     "accept": "application/json",

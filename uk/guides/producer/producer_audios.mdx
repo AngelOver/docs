@@ -1,15 +1,15 @@
 ---
 title: "Інструкція з інтеграції API генерації аудіо продюсера"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 У цьому документі буде представлено інструкцію з інтеграції API генерації аудіо продюсера, який дозволяє генерувати офіційну музику продюсера за допомогою введення користувацьких параметрів.
 
 ## Процес подачі заявки
 
-Щоб використовувати API, спочатку потрібно перейти на сторінку [API генерації аудіо продюсера](https://platform.acedata.cloud/documents/producer-audios) та подати заявку на відповідну послугу, після переходу на сторінку натисніть кнопку «Отримати», як показано на малюнку:
+Щоб використовувати API, спочатку потрібно перейти на сторінку [API генерації аудіо продюсера](https://api.xhuoapi.ai/documents/producer-audios) та подати заявку на відповідну послугу, після переходу на сторінку натисніть кнопку «Отримати», як показано на малюнку:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Якщо ви ще не увійшли в систему або не зареєстровані, вас автоматично перенаправлять на сторінку входу, запрошуючи вас зареєструватися та увійти. Після входу або реєстрації ви автоматично повернетеся на поточну сторінку.
 
@@ -19,7 +19,7 @@ description: "Producer Music Generation 集成指南 - Ace Data Cloud"
 
 Щоб створити пісню, ви можете ввести будь-який текст, наприклад, якщо я хочу згенерувати пісню про Різдво, я можу ввести `a song for Christmas`, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/lg9bb0.png" width="600" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lg9bb0.png" width="600" className="m-auto" /></p>
 
 Ми можемо бачити, що тут ми налаштували заголовки запиту, включаючи:
 
@@ -46,7 +46,7 @@ description: "Producer Music Generation 集成指南 - Ace Data Cloud"
 
 Після вибору ви можете побачити, що праворуч також згенеровано відповідний код, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/0217zy.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/0217zy.png" width="500" className="m-auto" /></p>
 
 Натисніть кнопку «Спробувати», щоб провести тестування, як показано на малюнку, тут ми отримали наступний результат:
 
@@ -98,7 +98,7 @@ description: "Producer Music Generation 集成指南 - Ace Data Cloud"
 Крім того, якщо ви хочете згенерувати відповідний код інтеграції, ви можете просто скопіювати його, наприклад, код CURL виглядає так:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -125,16 +125,16 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 - custom: вказати `true`, що означає користувацьку генерацію, цей параметр за замовчуванням є false, що означає використання генерації за допомогою `prompt`.
 - title: заголовок пісні.
 Заповніть приклад нижче:
-<p><img src="https://cdn.acedata.cloud/ruovz5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ruovz5.png" width="500" className="m-auto" /></p>
 
 Після заповнення автоматично згенерувався код нижче:
 
-<p><img src="https://cdn.acedata.cloud/seyxxa.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seyxxa.png" width="500" className="m-auto" /></p>
 
 Відповідний код:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -180,9 +180,9 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 
 Якщо ви хочете виконати кавер на вже згенеровану пісню, ви можете ввести текст пісні, згенерований вище, для виконання каверу, далі ми повинні налаштувати генерацію пісні на основі тексту, заголовка.
 
-Якщо ви хочете продовжити виконання каверу на завантажену вами пісню, ви можете встановити параметр `action` на `upload_cover` і ввести ID пісні, на яку потрібно продовжити виконання каверу. ID пісні можна отримати за допомогою [Producer Upload API](https://platform.acedata.cloud/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447), як показано на малюнку нижче:
+Якщо ви хочете продовжити виконання каверу на завантажену вами пісню, ви можете встановити параметр `action` на `upload_cover` і ввести ID пісні, на яку потрібно продовжити виконання каверу. ID пісні можна отримати за допомогою [Producer Upload API](https://api.xhuoapi.ai/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447), як показано на малюнку нижче:
 
-<p><img src="https://cdn.acedata.cloud/z7r5fd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/z7r5fd.png" width="500" className="m-auto" /></p>
 
 Тоді можна вказати наступний вміст:
 
@@ -194,16 +194,16 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 
 Заповніть приклад нижче:
 
-<p><img src="https://cdn.acedata.cloud/6xl82z.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/6xl82z.png" width="500" className="m-auto" /></p>
 
 Після заповнення автоматично згенерувався код нижче:
 
-<p><img src="https://cdn.acedata.cloud/bxzfrw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bxzfrw.png" width="500" className="m-auto" /></p>
 
 Відповідний код:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -250,22 +250,22 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 
 Якщо хочете продовжити пісню, потрібно передати параметр `action` зі значенням: `extend`, далі ми повинні на основі тексту, заголовка, стилю налаштувати генерацію пісні.
 
-Якщо хочете продовжити пісню, яку ви завантажили, можна встановити параметр `action` на `upload_extend` і ввести ID пісні, яку потрібно продовжити. ID пісні можна отримати за допомогою [Producer Upload API](https://platform.acedata.cloud/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447), як показано на малюнку нижче:
+Якщо хочете продовжити пісню, яку ви завантажили, можна встановити параметр `action` на `upload_extend` і ввести ID пісні, яку потрібно продовжити. ID пісні можна отримати за допомогою [Producer Upload API](https://api.xhuoapi.ai/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447), як показано на малюнку нижче:
 
-<p><img src="https://cdn.acedata.cloud/z7r5fd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/z7r5fd.png" width="500" className="m-auto" /></p>
 
 Приклад заповнення:
 
-<p><img src="https://cdn.acedata.cloud/r3ux6z.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/r3ux6z.png" width="500" className="m-auto" /></p>
 
 Після заповнення автоматично згенерувався код, як показано нижче:
 
-<p><img src="https://cdn.acedata.cloud/fsww0u.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fsww0u.png" width="500" className="m-auto" /></p>
 
 Відповідний код:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -319,15 +319,15 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 
 Приклад заповнення:
 
-<p><img src="https://cdn.acedata.cloud/bxslxt.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bxslxt.png" width="500" className="m-auto" /></p>
 Заповнивши, автоматично згенерувався код наступним чином:
 
-<p><img src="https://cdn.acedata.cloud/nojowk.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/nojowk.png" width="500" className="m-auto" /></p>
 
 Відповідний код:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -374,22 +374,22 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 
 Якщо ви хочете замінити фрагмент пісні, нам потрібно передати параметр `action` зі значенням: `replace_section`, далі ми повинні на основі тексту пісні, заголовка самостійно згенерувати пісню.
 
-Якщо ви хочете продовжити заміну фрагмента для завантаженої вами пісні, ви можете встановити параметр `action` на `upload_replace_section` і ввести ID пісні, яку потрібно продовжити, ID пісні можна отримати за допомогою [Producer Upload API](https://platform.acedata.cloud/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447), як показано на малюнку нижче:
+Якщо ви хочете продовжити заміну фрагмента для завантаженої вами пісні, ви можете встановити параметр `action` на `upload_replace_section` і ввести ID пісні, яку потрібно продовжити, ID пісні можна отримати за допомогою [Producer Upload API](https://api.xhuoapi.ai/documents/7fd2cb52-772e-4cc4-a018-e2626ff6f447), як показано на малюнку нижче:
 
-<p><img src="https://cdn.acedata.cloud/z7r5fd.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/z7r5fd.png" width="500" className="m-auto" /></p>
 
 Приклад заповнення виглядає наступним чином:
 
-<p><img src="https://cdn.acedata.cloud/mzo9iw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/mzo9iw.png" width="500" className="m-auto" /></p>
 
 Заповнивши, автоматично згенерувався код наступним чином:
 
-<p><img src="https://cdn.acedata.cloud/877x6c.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/877x6c.png" width="500" className="m-auto" /></p>
 
 Відповідний код:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -439,16 +439,16 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 
 Приклад заповнення:
 
-<p><img src="https://cdn.acedata.cloud/7l6976.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/7l6976.png" width="500" className="m-auto" /></p>
 
 Після заповнення автоматично згенерувався код:
 
-<p><img src="https://cdn.acedata.cloud/pvi2n3.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pvi2n3.png" width="500" className="m-auto" /></p>
 
 Відповідний код:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -496,15 +496,15 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 
 Приклад заповнення: 
 
-<p><img src="https://cdn.acedata.cloud/bk9ino.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bk9ino.png" width="500" className="m-auto" /></p>
 
 Після заповнення автоматично згенерувався код: 
 
-<p><img src="https://cdn.acedata.cloud/p5b1vg.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/p5b1vg.png" width="500" className="m-auto" /></p>
 
 Відповідний код:
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -555,16 +555,16 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 
 Заповніть приклад нижче:
 
-<p><img src="https://cdn.acedata.cloud/fnpgvc.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/fnpgvc.png" width="500" className="m-auto" /></p>
 
 Після заповнення автоматично згенерувався код нижче:
 
-<p><img src="https://cdn.acedata.cloud/oq5iv5.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/oq5iv5.png" width="500" className="m-auto" /></p>
 
 Відповідний код:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/producer/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -585,7 +585,7 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
         {
             "title": "Прокинувся з сонцем в очах",
             "lyric": "",
-            "stems_url": "https://platform.cdn.acedata.cloud/producer/561ac695-b4aa-47cf-978d-fb7be2b9ebfc.zip",
+            "stems_url": "https://platform.cdn.xhuoapi.ai/producer/561ac695-b4aa-47cf-978d-fb7be2b9ebfc.zip",
             "model": "",
             "progress": "100%",
             "state": "succeeded"
@@ -604,13 +604,13 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 
 По-перше, Webhook зворотний виклик - це сервіс, який може приймати HTTP запити, розробники повинні замінити його на URL свого власного HTTP сервера. Тут для зручності демонстрації використовується публічний веб-сайт з прикладом Webhook [https://webhook.site/](https://webhook.site/), відкривши цей сайт, ви отримаєте URL Webhook, як показано на малюнку:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Скопіюйте цей URL, і ви зможете використовувати його як Webhook, приклад тут [https://webhook.site/#!/view/0d73431d-f833-4be4-9276-b6e1690d55c1](https://webhook.site/#!/view/0d73431d-f833-4be4-9276-b6e1690d55c1).
 
 Далі ми можемо встановити поле `callback_url` на вказаний URL Webhook, одночасно заповнивши відповідні параметри, конкретний зміст, як показано на малюнку:
 
-<p><img src="https://cdn.acedata.cloud/wuzd4y.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/wuzd4y.png" width="500" className="m-auto" /></p>
 
 Натиснувши "Запустити", ви можете виявити, що негайно отримаєте результат, як показано нижче:
 
@@ -621,7 +621,7 @@ curl -X POST 'https://api.acedata.cloud/producer/audios' \
 ```
 Зачекайте хвилинку, ми можемо спостерігати результати генерації завдання на [https://webhook.site/#!/view/0d73431d-f833-4be4-9276-b6e1690d55c1](https://webhook.site/#!/view/0d73431d-f833-4be4-9276-b6e1690d55c1), як показано на малюнку:
 
-![](https://cdn.acedata.cloud/k0kf0y.png)
+![](https://cdn.xhuoapi.ai/k0kf0y.png)
 
 Зміст такий:
 

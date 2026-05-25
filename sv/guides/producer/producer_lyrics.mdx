@@ -1,6 +1,6 @@
 ---
 title: "Producer låttextgenererings-API integration"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 Producer tillåter oss att generera låttexter genom att använda promptord. Detta dokument förklarar hur man integrerar med den relaterade API:n.
@@ -10,7 +10,7 @@ Denna API har endast en inparametrar, nämligen `prompt`, som är promptordet f�
 Här är vår inmatade `prompt`: `A song about winter`, som är promptordet för att generera låttext.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/lyrics' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/lyrics' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

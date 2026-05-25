@@ -1,15 +1,15 @@
 ---
 title: "API za promenu pola lica - Uputstvo za integraciju"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 Ovaj dokument će predstaviti API za promenu pola lica, koji može da generiše sliku sa promenjenim polom na osnovu korisnički otpremljene slike lica, koristeći algoritme za uređivanje i generisanje lica. Promena pola iz muškarca u ženu može uključivati efekat lepotice, lagani šminku, šiške i dugu kosu; dok promena iz žene u muškarca može uključivati dodavanje brade i skraćivanje kose.
 
 ## Proces prijave
 
-Da biste koristili API, prvo treba da odete na [API za promenu pola lica](https://platform.acedata.cloud/documents/0e4e5318-060e-4976-8d3a-171301240f8c) i zatražite odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
+Da biste koristili API, prvo treba da odete na [API za promenu pola lica](https://api.xhuoapi.ai/documents/0e4e5318-060e-4976-8d3a-171301240f8c) i zatražite odgovarajuću uslugu. Kada uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Ako još niste prijavljeni ili registrovani, automatski ćete biti preusmereni na stranicu za prijavu koja vas poziva da se registrujete i prijavite. Nakon prijave ili registracije, automatski ćete se vratiti na trenutnu stranicu.
 
@@ -19,11 +19,11 @@ Prilikom prve prijave dobićete besplatnu kvotu koja vam omogućava besplatno ko
 
 Prvo, potrebno je da se upoznate sa osnovnim načinom korišćenja, što podrazumeva unos linka slike i informacija o polu, kako biste dobili sliku nakon obrade. Prvo je potrebno jednostavno proslediti polje `image_url`, a slika lica je prikazana na sledećoj slici:
 
-<p><img src="https://cdn.acedata.cloud/lrbtcn.jpg" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lrbtcn.jpg" width="500" className="m-auto" /></p>
 
 Zatim treba da otpremite informacije o polu lica u parametru `gender_infos`, koji je niz i možemo proslediti više informacija. Sledeće možemo popuniti odgovarajuće sadržaje na interfejsu, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/j22eg4.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/j22eg4.png" width="500" className="m-auto" /></p>
 
 Možemo videti da smo postavili Request Headers, uključujući:
 
@@ -37,7 +37,7 @@ Takođe, postavili smo Request Body, uključujući:
 
 Nakon izbora, možete primetiti da je desno generisan odgovarajući kod, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/5kwudj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/5kwudj.png" width="500" className="m-auto" /></p>
 
 Kliknite na dugme „Try“ da biste izvršili testiranje, kao što je prikazano na slici, i dobićete sledeći rezultat:
 
@@ -49,19 +49,19 @@ Kliknite na dugme „Try“ da biste izvršili testiranje, kao što je prikazano
 
 Možete primetiti da u vraćenom rezultatu postoji polje `image_url`, koje predstavlja sliku lica nakon promene na osnovu unetih parametara pola. Informacije o promenjenom licu su prikazane na sledećoj slici:
 
-<p><img src="https://cdn.acedata.cloud/hm7w44.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/hm7w44.png" width="500" className="m-auto" /></p>
 
 Možete primetiti da se lice na slici promenilo prema unetom polu.
 
 Takođe, ako želite da generišete odgovarajući kod za integraciju, možete ga jednostavno kopirati, na primer, CURL kod je sledeći:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/change-gender' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/change-gender' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg",
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg",
   "gender_infos": [{"gender":1}]
 }'
 ```
@@ -71,7 +71,7 @@ Python kod za integraciju je sledeći:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/change-gender"
+url = "https://api.xhuoapi.ai/v1/face/change-gender"
 
 headers = {
     "accept": "application/json",
@@ -80,7 +80,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg",
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg",
     "gender_infos": [{"gender":1}]
 }
 

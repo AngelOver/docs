@@ -1,9 +1,9 @@
 ---
 title: "AI Chat v2 API 接続説明"
-description: "AI Dialogue 集成指南 - Ace Data Cloud"
+description: "AI Dialogue 集成指南 - XHuoAPI"
 ---
 
-AI Chat v2 API（`/aichat2/conversations`）は次世代の対話インターフェースであり、[AI Chat API](https://platform.acedata.cloud/documents/59fb1199-6694-4afb-a222-3554d7f7d05a) の全面的なアップグレード版です。v1 のシンプルで多回対話管理機能を基盤とし、以下の拡張を行っています：
+AI Chat v2 API（`/aichat2/conversations`）は次世代の対話インターフェースであり、[AI Chat API](https://api.xhuoapi.ai/documents/59fb1199-6694-4afb-a222-3554d7f7d05a) の全面的なアップグレード版です。v1 のシンプルで多回対話管理機能を基盤とし、以下の拡張を行っています：
 
 - **マルチモーダルユーザー入力**：構造化された `message` フィールドでテキスト＋画像＋ファイルブロックを直接送信可能で、`references` を介した間接的な添付は不要です。
 - **エージェント化ツール呼び出し**：ネット検索、ウェブスクレイピング、ファイル読み取りなどのツールを内蔵し、ユーザーが認可した MCP サーバー（Google Drive、Notion、Slack、GitHub など）もマウント可能。モデルは1回のリクエストで複数回自律的にツールを呼び出し複雑なタスクを完遂できます。
@@ -18,7 +18,7 @@ AI Chat v2 API（`/aichat2/conversations`）は次世代の対話インターフ
 
 ## 申請手順
 
-API を利用するには、まず [AI Chat v2 API](https://platform.acedata.cloud/documents/e4a7c2b9-3f1d-4e8a-9b6c-a5d2f8e1b4c7) の該当ページでサービスを申請します。ページにアクセス後、「Acquire」ボタンをクリックするとリクエストに必要な認証情報が取得できます。
+API を利用するには、まず [AI Chat v2 API](https://api.xhuoapi.ai/documents/e4a7c2b9-3f1d-4e8a-9b6c-a5d2f8e1b4c7) の該当ページでサービスを申請します。ページにアクセス後、「Acquire」ボタンをクリックするとリクエストに必要な認証情報が取得できます。
 
 未ログインまたは未登録の場合は自動的にログインページにリダイレクトされ、登録・ログイン後に元のページに戻ります。
 
@@ -31,13 +31,13 @@ API を利用するには、まず [AI Chat v2 API](https://platform.acedata.clo
 CURL の例：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
   -d '{
     "model": "gpt-5.4",
-    "question": "用一句话介绍下 AceDataCloud。"
+    "question": "用一句话介绍下 XHuoAPI。"
   }'
 ```
 
@@ -45,7 +45,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 
 ```json
 {
-  "answer": "AceDataCloud は主流の AI モデルとマルチモーダルサービスを統合した統一 API プラットフォームで、開発者は1つのキーで GPT、Claude、Gemini、Midjourney、Suno、Veo など複数サービスを呼び出せます。",
+  "answer": "XHuoAPI は主流の AI モデルとマルチモーダルサービスを統合した統一 API プラットフォームで、開発者は1つのキーで GPT、Claude、Gemini、Midjourney、Suno、Veo など複数サービスを呼び出せます。",
   "id": "f2f4b3e8-0c0a-4d3a-aaa2-7ff80c0a1c44"
 }
 ```
@@ -55,7 +55,7 @@ Python の例：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/aichat2/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat2/conversations"
 
 headers = {
     "accept": "application/json",
@@ -65,7 +65,7 @@ headers = {
 
 payload = {
     "model": "gpt-5.4",
-    "question": "用一句话介绍下 AceDataCloud。",
+    "question": "用一句话介绍下 XHuoAPI。",
 }
 
 response = requests.post(url, json=payload, headers=headers)
@@ -91,7 +91,7 @@ v1 と同様に、`stateful: true` を送信して会話保存を有効にする
 初回リクエスト例：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -114,7 +114,7 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 2回目以降のリクエストは同じ `id` を含めます：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -153,7 +153,7 @@ v2 は2種類のストリーミング形式をサポートし、`accept` ヘッ�
 import json
 import requests
 
-url = "https://api.acedata.cloud/aichat2/conversations"
+url = "https://api.xhuoapi.ai/v1/aichat2/conversations"
 
 headers = {
     "accept": "application/x-ndjson",
@@ -197,7 +197,7 @@ NDJSON の各行は構造化イベントで、最も一般的なのは `text_del
 ブラウザ側の `EventSource` はカスタムリクエストボディをサポートしないため、`fetch` と手動で `\n\n` 区切り解析を使うことを推奨します：
 
 ```javascript
-const resp = await fetch("https://api.acedata.cloud/aichat2/conversations", {
+const resp = await fetch("https://api.xhuoapi.ai/v1/aichat2/conversations", {
   method: "POST",
   headers: {
     accept: "text/event-stream",
@@ -260,7 +260,7 @@ while (true) {
   "stateful": true,
   "message": [
     { "type": "text", "text": "この画像には何匹の猫がいますか？" },
-    { "type": "image_url", "image_url": { "url": "https://cdn.acedata.cloud/cats.jpg" } }
+    { "type": "image_url", "image_url": { "url": "https://cdn.xhuoapi.ai/cats.jpg" } }
   ]
 }
 ```
@@ -289,7 +289,7 @@ v2 のコア強化点は、モデルが自律的にツールを呼び出して�
 
 - ユーザーが「最近の上海の新しい展示を調べて」と尋ねる → モデルが内蔵の web search を呼び出し → 結果をまとめて回答。
 - ユーザーが「この PDF を読んで要約を書いて」と依頼 → モデルが file_read を呼び出し → 要約を作成。
-- ユーザーが [Connections](https://platform.acedata.cloud/connections) で Google Drive / GitHub / Notion などを認可済み → モデルが対応する MCP ツールを呼び出してデータを読み書き。
+- ユーザーが [Connections](https://api.xhuoapi.ai/connections) で Google Drive / GitHub / Notion などを認可済み → モデルが対応する MCP ツールを呼び出してデータを読み書き。
 
 NDJSON / SSE ストリームでは、ツール呼び出しは `tool_use` と `tool_result` イベントで表現されます。例：
 
@@ -323,7 +323,7 @@ NDJSON / SSE ストリームでは、ツール呼び出しは `tool_use` と `to
 フロントエンドはこのイベントをカードとして表示しユーザーに選択させ、同じ `id` で次のリクエストを送り、回答を `tool_results` で返します：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: text/event-stream' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -351,7 +351,7 @@ v2 は同一エンドポイントで `action` フィールドを使った軽量�
 ### `action: retrieve` — 会話取得
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
+curl -X POST 'https://api.xhuoapi.ai/v1/aichat2/conversations' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -403,9 +403,9 @@ curl -X POST 'https://api.acedata.cloud/aichat2/conversations' \
 
 ## v1 からのスムーズな移行
 
-既に [`/aichat/conversations`](https://platform.acedata.cloud/documents/59fb1199-6694-4afb-a222-3554d7f7d05a) を利用中の場合、v2 への移行はほぼコード変更不要です：
+既に [`/aichat/conversations`](https://api.xhuoapi.ai/documents/59fb1199-6694-4afb-a222-3554d7f7d05a) を利用中の場合、v2 への移行はほぼコード変更不要です：
 
-1. URL を `https://api.acedata.cloud/aichat/conversations` から `https://api.acedata.cloud/aichat2/conversations` に変更。
+1. URL を `https://api.xhuoapi.ai/v1/aichat/conversations` から `https://api.xhuoapi.ai/v1/aichat2/conversations` に変更。
 2. 以前の v1 モデル名（例：`gpt-3.5`、`gpt-4-browsing` など）を使っていた場合は、v2 では最新モデル（例：`gpt-5.4`、`claude-opus-4-7`、`gemini-3.1-pro` など）へのアップグレードを推奨。
 3. NDJSON ストリームのフィールドは下位互換を保ち、各 `text_delta` イベントは引き続き `delta_answer` と `id` を含むため、従来の行単位で `delta_answer` を解析するクライアントは変更不要。
 

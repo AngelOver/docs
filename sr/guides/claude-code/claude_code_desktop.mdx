@@ -1,19 +1,19 @@
 ---
 title: "Claude Code Desktop Aplikacija Uputstvo"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code je alat za **Agentic Coding** koji je razvio Anthropic, takođe poznat kao jedan od najjačih programskih agenata na svetu. Claude Code desktop aplikacija pruža nezavisno grafičko sučelje, podržava Diff reviziju, paralelne sesije (izolovane putem Git Worktree), udaljene sesije i druge funkcije, bez potrebe za oslanjanjem na bilo koji IDE.
 
-Ovaj dokument uglavnom objašnjava kako da konfigurišete i koristite Claude Code desktop aplikaciju putem proxy usluge AceData Cloud.
+Ovaj dokument uglavnom objašnjava kako da konfigurišete i koristite Claude Code desktop aplikaciju putem proxy usluge XHuoAPI.
 
 > **Napomena**: Claude Code desktop aplikacija je trenutno u fazi pregleda (Preview), podržava samo macOS i Windows.
 
 ## Proces prijave
 
-Da biste koristili Claude Code, prvo možete otići na [Claude Messages uslugu](https://platform.acedata.cloud/documents/claude-messages) i kliknuti na dugme „Acquire“ da biste dobili potrebne akreditive:
+Da biste koristili Claude Code, prvo možete otići na [Claude Messages uslugu](https://api.xhuoapi.ai/documents/claude-messages) i kliknuti na dugme „Acquire“ da biste dobili potrebne akreditive:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Ako još niste prijavljeni ili registrovani, automatski ćete biti preusmereni na stranicu za prijavu koja vas poziva da se registrujete i prijavite, a nakon prijave bićete automatski vraćeni na trenutnu stranicu.
 
@@ -34,13 +34,13 @@ Posetite [Claude zvaničnu stranicu za preuzimanje](https://claude.ai) da preuzm
 - **Windows x64**: preuzmite `.exe` instalacioni paket, pratite uputstva za instalaciju
 - **Windows ARM64**: preuzmite ARM64 verziju (napomena: ARM64 ne podržava lokalne sesije, potrebno je koristiti udaljenu sesiju)
 
-![Claude desktop aplikacija stranica za preuzimanje](https://cdn.acedata.cloud/c3c8c57264.png)
+![Claude desktop aplikacija stranica za preuzimanje](https://cdn.xhuoapi.ai/c3c8c57264.png)
 
 Nakon završetka instalacije, pokrenite Claude iz Applications foldera (macOS) ili iz Start menija (Windows).
 
-## Konfiguracija AceData Cloud API
+## Konfiguracija XHuoAPI API
 
-Nakon pokretanja desktop aplikacije, potrebno je prijaviti se na Anthropic nalog. Možemo koristiti AceData Cloud proxy API konfigurisanjem promenljivih okruženja, **bez potrebe za zvaničnom pretplatom**.
+Nakon pokretanja desktop aplikacije, potrebno je prijaviti se na Anthropic nalog. Možemo koristiti XHuoAPI proxy API konfigurisanjem promenljivih okruženja, **bez potrebe za zvaničnom pretplatom**.
 
 Desktop aplikacija čita promenljive okruženja iz vašeg Shell okruženja, pa je potrebno izvršiti podešavanja u konfiguracionoj datoteci Shell-a.
 
@@ -51,9 +51,9 @@ Desktop aplikacija čita promenljive okruženja iz vašeg Shell okruženja, pa j
 Dodajte sledeći sadržaj u `~/.zshrc` (ili `~/.bashrc`), zamenjujući `{token}` vašim API tokenom:
 
 ```bash
-# AceData Cloud - Claude Code proxy konfiguracija
+# XHuoAPI - Claude Code proxy konfiguracija
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 Sačuvajte i izvršite:
@@ -69,13 +69,13 @@ Dodajte sledeće sistemske promenljive putem „Svojstva sistema → Napredno �
 | Ime promenljive            | Vrednost                           |
 | ---------------------- | --------------------------------- |
 | `ANTHROPIC_AUTH_TOKEN` | `{token}` (zamenite vašim API tokenom)     |
-| `ANTHROPIC_BASE_URL`   | `https://api.acedata.cloud` |
+| `ANTHROPIC_BASE_URL`   | `https://api.xhuoapi.ai/v1` |
 
 Ili koristite PowerShell:
 
 ```powershell
 [System.Environment]::SetEnvironmentVariable("ANTHROPIC_AUTH_TOKEN", "{token}", "User")
-[System.Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.acedata.cloud", "User")
+[System.Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.xhuoapi.ai/v1", "User")
 ```
 
 **Takođe možete konfigurirati putem settings.json**
@@ -86,12 +86,12 @@ Uredite `~/.claude/settings.json` (ako ne postoji, kreirajte):
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **Savjet**: API token možete videti na [AceData Cloud konzoli](https://platform.acedata.cloud/console). Nakon konfiguracije, potrebno je **ponovo pokrenuti desktop aplikaciju** da bi promenljive okruženja postale aktivne.
+> **Savjet**: API token možete videti na [XHuoAPI konzoli](https://api.xhuoapi.ai/console). Nakon konfiguracije, potrebno je **ponovo pokrenuti desktop aplikaciju** da bi promenljive okruženja postale aktivne.
 
 ## Osnovna upotreba
 
@@ -162,7 +162,7 @@ Obe aplikacije mogu istovremeno raditi na istom projektu, svaka održava nezavis
 
 1. Proverite da li je `~/.claude/config.json` datoteka ispravno kreirana
 2. Potvrdite da su promenljive okruženja ispravno postavljene (ponovo pokrenite desktop aplikaciju da bi postale aktivne)
-3. Proverite da li je API token važeći (možete ga videti na [konzoli](https://platform.acedata.cloud/console))
+3. Proverite da li je API token važeći (možete ga videti na [konzoli](https://api.xhuoapi.ai/console))
 4. Ako koristite `settings.json` za konfiguraciju promenljivih okruženja, proverite da li je format datoteke ispravan
 
 ### Šta ako ne mogu pronaći instalirane alate?
@@ -175,9 +175,9 @@ Ako Claude ne može da pronađe komande kao što su `npm`, `node`:
 
 ### Kako da proverim preostalu kvotu?
 
-Prijavite se na [AceData Cloud konzolu](https://platform.acedata.cloud/console) da biste videli trenutnu preostalu kvotu i korišćenje.
+Prijavite se na [XHuoAPI konzolu](https://api.xhuoapi.ai/console) da biste videli trenutnu preostalu kvotu i korišćenje.
 
 ## Saznajte više
 - 📖 [Claude Code десктоп апликација званична документација](https://code.claude.com/docs/en/desktop)
-- 🔧 [AceData Cloud Claude Code услуга](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code услуга](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 Уколико имате било каквих питања, слободно нас контактирајте преко платформе за корисничку подршку

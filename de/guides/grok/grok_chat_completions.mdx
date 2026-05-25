@@ -1,6 +1,6 @@
 ---
 title: "Grok Chat Completion API Antrag und Nutzung"
-description: "Grok 集成指南 - Ace Data Cloud"
+description: "Grok 集成指南 - XHuoAPI"
 ---
 
 xAI Grok ist ein sehr leistungsstarkes KI-Dialogsystem, das durch die Eingabe von Stichwörtern in nur wenigen Sekunden flüssige und natürliche Antworten generieren kann. Grok hebt sich durch seinen einzigartigen Humor und die Fähigkeit zur Echtzeitbeschaffung von Informationen im Internet in der Branche hervor. Heute hat Grok in mehreren innovativen Bereichen an Bedeutung gewonnen, und sein Einfluss wächst schnell. Egal, ob es sich um alltägliche Gespräche, kreatives Schreiben oder technische Analysen und Code-Debugging handelt, Grok kann intelligente Unterstützung bieten, die den Benutzern eine neue Dimension der Entscheidungsfindung und Kreativität eröffnet.
@@ -9,9 +9,9 @@ Dieses Dokument beschreibt hauptsächlich den Ablauf der Nutzung der Grok Chat C
 
 ## Antragsprozess
 
-Um die Grok Chat Completion API zu nutzen, können Sie zunächst die Seite [Grok Chat Completion API](https://platform.acedata.cloud/documents/faf08b59-36aa-4d26-b5d9-a18f113cc2be) besuchen und auf die Schaltfläche „Acquire“ klicken, um die erforderlichen Anmeldeinformationen zu erhalten:
+Um die Grok Chat Completion API zu nutzen, können Sie zunächst die Seite [Grok Chat Completion API](https://api.xhuoapi.ai/documents/faf08b59-36aa-4d26-b5d9-a18f113cc2be) besuchen und auf die Schaltfläche „Acquire“ klicken, um die erforderlichen Anmeldeinformationen zu erhalten:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur Anmeldeseite weitergeleitet, um sich zu registrieren und anzumelden. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
 
@@ -21,7 +21,7 @@ Bei der ersten Antragstellung gibt es ein kostenloses Kontingent, mit dem Sie di
 
 Als Nächstes können Sie im Interface die entsprechenden Inhalte ausfüllen, wie im Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/vunnjf.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vunnjf.png" width="400" className="m-auto" /></p>
 
 Bei der ersten Nutzung dieser Schnittstelle müssen wir mindestens drei Inhalte ausfüllen: Einer ist `authorization`, den Sie einfach aus der Dropdown-Liste auswählen können. Ein weiterer Parameter ist `model`, wobei `model` die von uns gewählte Modellkategorie von der Grok-Website ist. Hier haben wir hauptsächlich 8 Modelle zur Auswahl, die Details können Sie in den bereitgestellten Modellen einsehen. Der letzte Parameter ist `messages`, wobei `messages` das Array der von uns eingegebenen Fragen ist. Es handelt sich um ein Array, das mehrere Fragen gleichzeitig hochladen kann, wobei jede Frage `role` und `content` enthält. Dabei steht `role` für die Rolle des Fragestellers, und wir bieten drei Identitäten an: `user`, `assistant`, `system`. Das andere `content` ist der spezifische Inhalt unserer Frage.
 
@@ -33,7 +33,7 @@ Häufig verwendete optionale Parameter:
 - `temperature`: Generierungsrandomisierung, zwischen 0-2, je höher der Wert, desto divergenter.
 - `n`: Anzahl der zu generierenden Antwortvorschläge.
 
-<p><img src="https://cdn.acedata.cloud/d7iwun.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d7iwun.png" width="400" className="m-auto" /></p>
 
 Nach dem Aufruf stellen wir fest, dass das Rückgabeergebnis wie folgt aussieht:
 
@@ -84,7 +84,7 @@ Das Rückgabeergebnis hat mehrere Felder, die wie folgt beschrieben werden:
 
 Dabei enthält `choices` die Antwortinformationen von Grok, und die `choices` darin sind die spezifischen Informationen der Antwort von Grok, wie im Bild zu sehen.
 
-<p><img src="https://cdn.acedata.cloud/p8vupk.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/p8vupk.png" width="400" className="m-auto" /></p>
 
 Man kann sehen, dass das `content`-Feld in `choices` den spezifischen Inhalt der Antwort von Grok enthält.
 
@@ -96,7 +96,7 @@ Wenn Sie eine Stream-Antwort zurückgeben möchten, können Sie den `stream`-Par
 
 Die Änderung ist wie im Bild gezeigt, jedoch muss der Aufrufcode entsprechend geändert werden, um die Stream-Antwort zu unterstützen.
 
-<p><img src="https://cdn.acedata.cloud/k883qa.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/k883qa.png" width="400" className="m-auto" /></p>
 
 Nachdem Sie `stream` auf `true` geändert haben, gibt die API die entsprechenden JSON-Daten zeilenweise zurück. Auf der Code-Ebene müssen wir entsprechende Änderungen vornehmen, um die zeilenweisen Ergebnisse zu erhalten.
 
@@ -105,7 +105,7 @@ Beispielaufrufcode in Python:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/grok/chat/completions"
+url = "https://api.xhuoapi.ai/v1/grok/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -199,7 +199,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/grok/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/grok/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -215,7 +215,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/grok/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/grok/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -233,14 +233,14 @@ Andere Sprachen können entsprechend umgeschrieben werden, das Prinzip ist dasse
 
 Wenn Sie die Funktion für mehrere Runden Dialog integrieren möchten, müssen Sie mehrere Fragen im `messages`-Feld hochladen. Ein konkretes Beispiel für mehrere Fragen ist im folgenden Bild dargestellt:
 
-<p><img src="https://cdn.acedata.cloud/t8cya8.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/t8cya8.png" width="400" className="m-auto" /></p>
 
 Python Beispielaufrufcode:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/grok/chat/completions"
+url = "https://api.xhuoapi.ai/v1/grok/chat/completions"
 
 headers = {
     "accept": "application/json",

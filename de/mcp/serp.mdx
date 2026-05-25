@@ -3,7 +3,7 @@ title: "Google Search MCP Integrationsanleitung"
 description: "serp MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) ist ein von Anthropic eingeführtes Modellkontextprotokoll, das es KI-Modellen (wie Claude, GPT usw.) ermöglicht, externe Tools über standardisierte Schnittstellen aufzurufen. Über den von AceData Cloud bereitgestellten SERP MCP Server kannst du direkt in AI-Clients wie Claude Desktop, VS Code, Cursor usw. Google-Suchen durchführen und Ergebnisse wie Webseiten, Bilder, Nachrichten, Videos, Orte usw. abrufen.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) ist ein von Anthropic eingeführtes Modellkontextprotokoll, das es KI-Modellen (wie Claude, GPT usw.) ermöglicht, externe Tools über standardisierte Schnittstellen aufzurufen. Über den von XHuoAPI bereitgestellten SERP MCP Server kannst du direkt in AI-Clients wie Claude Desktop, VS Code, Cursor usw. Google-Suchen durchführen und Ergebnisse wie Webseiten, Bilder, Nachrichten, Videos, Orte usw. abrufen.
 
 ## Funktionsübersicht
 
@@ -20,10 +20,10 @@ Der SERP MCP Server bietet folgende Kernfunktionen:
 
 ## Vorbereitungen
 
-Vor der Nutzung musst du ein AceData Cloud API-Token erhalten:
+Vor der Nutzung musst du ein XHuoAPI API-Token erhalten:
 
-1. Registriere dich oder melde dich bei der [AceData Cloud Plattform](https://platform.acedata.cloud) an
-2. Gehe zur [Google SERP API](https://platform.acedata.cloud/documents/serp-google) Seite
+1. Registriere dich oder melde dich bei der [XHuoAPI Plattform](https://api.xhuoapi.ai) an
+2. Gehe zur [Google SERP API](https://api.xhuoapi.ai/documents/serp-google) Seite
 3. Klicke auf „Acquire“, um ein API-Token zu erhalten (bei der ersten Anfrage gibt es ein kostenloses Kontingent)
 
 ## Installation und Konfiguration
@@ -37,7 +37,7 @@ pip install mcp-serp
 ### Methode 2: Quellcode-Installation
 
 ```bash
-git clone https://github.com/AceDataCloud/SerpMCP.git
+git clone https://github.com/XHuoAPI/SerpMCP.git
 cd SerpMCP
 pip install -e .
 ```
@@ -59,7 +59,7 @@ Füge die folgende Konfiguration hinzu:
     "serp": {
       "command": "mcp-serp",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "dein API-Token"
+        "XHuoAPI_API_TOKEN": "dein API-Token"
       }
     }
   }
@@ -75,7 +75,7 @@ Wenn du `uvx` verwendest (keine vorherige Installation erforderlich):
       "command": "uvx",
       "args": ["mcp-serp"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "dein API-Token"
+        "XHuoAPI_API_TOKEN": "dein API-Token"
       }
     }
   }
@@ -94,7 +94,7 @@ Erstelle im Stammverzeichnis des Projekts die Datei `.vscode/mcp.json`:
     "serp": {
       "command": "mcp-serp",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "dein API-Token"
+        "XHuoAPI_API_TOKEN": "dein API-Token"
       }
     }
   }
@@ -110,7 +110,7 @@ Oder verwende `uvx`:
       "command": "uvx",
       "args": ["mcp-serp"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "dein API-Token"
+        "XHuoAPI_API_TOKEN": "dein API-Token"
       }
     }
   }
@@ -140,6 +140,6 @@ Nach der Konfiguration kannst du diese Funktionen direkt in den AI-Clients mit n
 
 ## Weitere Informationen
 
-- GitHub-Repository: [AceDataCloud/SerpMCP](https://github.com/AceDataCloud/SerpMCP)
+- GitHub-Repository: [XHuoAPI/SerpMCP](https://github.com/XHuoAPI/SerpMCP)
 - PyPI-Paket: [mcp-serp](https://pypi.org/project/mcp-serp/)
-- API-Dokumentation: [Suchmaschinen-API](https://platform.acedata.cloud/documents/serp)
+- API-Dokumentation: [Suchmaschinen-API](https://api.xhuoapi.ai/documents/serp)

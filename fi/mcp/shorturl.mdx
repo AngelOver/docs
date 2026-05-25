@@ -3,7 +3,7 @@ title: "ShortURL MCP -integrointiohjeet"
 description: "shorturl MCP 服务器集成"
 ---
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io) on Anthropicin kehittämä mallikontekstiprotokolla, joka mahdollistaa tekoälymallien, kuten Clauden ja GPT:n, kutsua ulkoisia työkaluja standardoidun rajapinnan kautta. AceData Cloudin tarjoaman ShortURL MCP Serverin avulla voit luoda lyhyitä linkkejä suoraan AI-asiakasohjelmissa kuten Claude Desktop, VS Code ja Cursor.
+[MCP (Model Context Protocol)](https://modelcontextprotocol.io) on Anthropicin kehittämä mallikontekstiprotokolla, joka mahdollistaa tekoälymallien, kuten Clauden ja GPT:n, kutsua ulkoisia työkaluja standardoidun rajapinnan kautta. XHuoAPIin tarjoaman ShortURL MCP Serverin avulla voit luoda lyhyitä linkkejä suoraan AI-asiakasohjelmissa kuten Claude Desktop, VS Code ja Cursor.
 
 ## Toimintojen yleiskatsaus
 
@@ -16,10 +16,10 @@ ShortURL MCP Server tarjoaa seuraavat keskeiset toiminnot:
 
 ## Ennen käyttöä
 
-Ennen käyttöä sinun tulee hankkia AceData Cloud API Token:
+Ennen käyttöä sinun tulee hankkia XHuoAPI API Token:
 
-1. Rekisteröidy tai kirjaudu sisään [AceData Cloud -alustalle](https://platform.acedata.cloud)
-2. Siirry [ShortURL API](https://platform.acedata.cloud/documents/short-url) -sivulle
+1. Rekisteröidy tai kirjaudu sisään [XHuoAPI -alustalle](https://api.xhuoapi.ai)
+2. Siirry [ShortURL API](https://api.xhuoapi.ai/documents/short-url) -sivulle
 3. Klikkaa "Acquire" saadaksesi API Tokenin (ensihakemuksella saat ilmaisen käyttökiintiön)
 
 ## Asennus ja konfigurointi
@@ -33,7 +33,7 @@ pip install mcp-shorturl
 ### Vaihtoehto 2: Lähdekoodin asennus
 
 ```bash
-git clone https://github.com/AceDataCloud/ShortURLMCP.git
+git clone https://github.com/XHuoAPI/ShortURLMCP.git
 cd ShortURLMCP
 pip install -e .
 ```
@@ -55,7 +55,7 @@ Lisää seuraava konfiguraatio:
     "shorturl": {
       "command": "mcp-shorturl",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "sinun API Token"
+        "XHuoAPI_API_TOKEN": "sinun API Token"
       }
     }
   }
@@ -71,7 +71,7 @@ Jos käytät `uvx`:ää (ei tarvitse asentaa paketteja etukäteen):
       "command": "uvx",
       "args": ["mcp-shorturl"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "sinun API Token"
+        "XHuoAPI_API_TOKEN": "sinun API Token"
       }
     }
   }
@@ -90,7 +90,7 @@ Luo projektin juurihakemistoon `.vscode/mcp.json`:
     "shorturl": {
       "command": "mcp-shorturl",
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "sinun API Token"
+        "XHuoAPI_API_TOKEN": "sinun API Token"
       }
     }
   }
@@ -106,7 +106,7 @@ Tai käytä `uvx`:
       "command": "uvx",
       "args": ["mcp-shorturl"],
       "env": {
-        "ACEDATACLOUD_API_TOKEN": "sinun API Token"
+        "XHuoAPI_API_TOKEN": "sinun API Token"
       }
     }
   }
@@ -132,6 +132,6 @@ Konfiguroinnin jälkeen voit kutsua toimintoja luonnollisella kielellä AI-asiak
 
 ## Lisätietoja
 
-- GitHub-repositorio: [AceDataCloud/ShortURLMCP](https://github.com/AceDataCloud/ShortURLMCP)
+- GitHub-repositorio: [XHuoAPI/ShortURLMCP](https://github.com/XHuoAPI/ShortURLMCP)
 - PyPI-paketti: [mcp-shorturl](https://pypi.org/project/mcp-shorturl/)
-- API-dokumentaatio: [Lyhyiden linkkien generointi API](https://platform.acedata.cloud/documents/short-url)
+- API-dokumentaatio: [Lyhyiden linkkien generointi API](https://api.xhuoapi.ai/documents/short-url)

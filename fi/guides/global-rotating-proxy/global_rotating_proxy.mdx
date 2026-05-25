@@ -1,15 +1,15 @@
 ---
 title: "Globaalin agentin liittämisen ohjeet"
-description: "Global Rotation Agent 集成指南 - Ace Data Cloud"
+description: "Global Rotation Agent 集成指南 - XHuoAPI"
 ---
 
-Tässä asiakirjassa esitellään Ace Data Cloudin globaalin agentin liittämisen ohjeet, mukaan lukien hakumenetelmät, käyttömenetelmät ja muita tarkkoja tietoja.
+Tässä asiakirjassa esitellään XHuoAPIin globaalin agentin liittämisen ohjeet, mukaan lukien hakumenetelmät, käyttömenetelmät ja muita tarkkoja tietoja.
 
 ## Hakumenetelmät
 
-Käyttääksesi globaaleja palveluja, voit ensin mennä "[hakusivulle](https://platform.acedata.cloud/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)" ja tehdä hakemuksen, ensimmäisessä hakemuksessa on 1 pisteen ilmainen käyttöoikeus.
+Käyttääksesi globaaleja palveluja, voit ensin mennä "[hakusivulle](https://api.xhuoapi.ai/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)" ja tehdä hakemuksen, ensimmäisessä hakemuksessa on 1 pisteen ilmainen käyttöoikeus.
 
-![](https://cdn.acedata.cloud/cyzvmz.png)
+![](https://cdn.xhuoapi.ai/cyzvmz.png)
 
 Jos et ole vielä kirjautunut sisään, sinut ohjataan automaattisesti kirjautumissivulle, kirjaudu sisään ja jatka hakemista.
 
@@ -17,13 +17,13 @@ Jos et ole vielä kirjautunut sisään, sinut ohjataan automaattisesti kirjautum
 
 Hakemuksen jälkeen voit tarkistaa hakemustuloksesi "ohjauspaneelista", kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/y9boi5.png)
+![](https://cdn.xhuoapi.ai/y9boi5.png)
 
 Napsauta "Credentials", niin voit tarkistaa globaalin agenttipalvelun käyttäjänimen ja salasanan, jotka on erotettu kaksoispisteellä, käyttäjänimi on 8 merkkiä ja salasana 32 merkkiä, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/ixwm85.png)
+![](https://cdn.xhuoapi.ai/ixwm85.png)
 
-Tämä agentti on kiertävä agentti (Rotating Proxy), joten käytettäessä tarvitset vain asettaa kiinteä agenttiosoite ja portti, agentin osoite ja portti ovat `global.proxy.acedata.cloud` ja `30007`, tämä agentti on HTTP/HTTPS/SOCKS-protokollan agentti, jota voidaan käyttää HTTP- ja HTTPS-protokollan verkkosivustojen pyyntöihin.
+Tämä agentti on kiertävä agentti (Rotating Proxy), joten käytettäessä tarvitset vain asettaa kiinteä agenttiosoite ja portti, agentin osoite ja portti ovat `global.proxy.xhuoapi.ai` ja `30007`, tämä agentti on HTTP/HTTPS/SOCKS-protokollan agentti, jota voidaan käyttää HTTP- ja HTTPS-protokollan verkkosivustojen pyyntöihin.
 
 > Huom: Tätä agenttia voidaan käyttää vain Kiinan ulkopuolella, Kiinan mantereella se ei ole käytettävissä.
 
@@ -34,7 +34,7 @@ Kun sinulla on agentin käyttäjänimi ja salasana, helpoin tapa testata on käy
 Oletetaan, että nykyinen agentin käyttäjänimi ja salasana ovat `1f78266a:eff0896726224fa2a99fe82dd1f07562`, voimme testata seuraavalla curl-komennolla:
 
 ```shell
-curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007 https://ipinfo.io
+curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007 https://ipinfo.io
 ```
 
 Tässä käytämme curlin `-x`-parametria määrittämään agenttiosoitteen, agenttiprotokolla on oletuksena HTTP/HTTPS, tässä pyydetty URL on [https://ipinfo.io](https://ipinfo.io), tämä sivusto voi palauttaa pyynnön tehneen sivuston todellisen IP-osoitteen ja IP:n sijaintialueen.
@@ -67,7 +67,7 @@ Alla on esimerkki Pythonista, joka näyttää agentin asetustavan:
 ```python
 import requests
 
-proxy = 'http://{proxy_username}:{proxy_password}@global.proxy.acedata.cloud:30007'
+proxy = 'http://{proxy_username}:{proxy_password}@global.proxy.xhuoapi.ai:30007'
 
 proxies = {
     'http': proxy,
@@ -81,7 +81,7 @@ for _ in range(3):
 
 Tässä määrittelemme ensin agentin URL-osoitteen ja määrittelemme sen proxy-muuttujaksi, protokolla on http, ja sen jälkeen seuraa tunnelin agentin käyttäjänimi ja salasana (eli ohjauspaneelissa esitetyt käyttäjänimi ja salasana, erotettuna kaksoispisteellä), sitten tulee `@`-merkki, ja sen jälkeen agentin osoite ja portti.
 
-> Huom: Sinun on vaihdettava yllä olevassa koodissa `{proxy_username}:{proxy_password}` omiin agentin käyttäjänimiisi ja salasanoihisi, lopullinen tulos on samanlainen kuin `proxy = 'http://1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007'`, huomaa, ettei `{` ja `}` merkkejä ole.
+> Huom: Sinun on vaihdettava yllä olevassa koodissa `{proxy_username}:{proxy_password}` omiin agentin käyttäjänimiisi ja salasanoihisi, lopullinen tulos on samanlainen kuin `proxy = 'http://1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007'`, huomaa, ettei `{` ja `}` merkkejä ole.
 
 Seuraavaksi määrittelemme proxies-muuttujan, joka sisältää kaksi avain-arvo-paria, avaimet ovat http ja https, ja niiden arvot ovat molemmat proxy, mikä tarkoittaa, että HTTP- ja HTTPS-protokollan verkkosivustoille käytetään proxy-muuttujaa pyyntöjen tekemiseen. Seuraavaksi määritellään kolme silmukkaa agentin testaukseen.
 
@@ -135,7 +135,7 @@ Itse asiassa yllä oleva koodi on ekvivalentti sille, että pyyntöä tehdessä 
 import requests
 import base64
 
-proxy_host = 'global.proxy.acedata.cloud'
+proxy_host = 'global.proxy.xhuoapi.ai'
 proxy_port = '30007'
 proxy_username = '{proxy_username}' # 8-merkkinen käyttäjänimi
 proxy_password = '{proxy_password}' # 32-merkkinen salasana
@@ -166,7 +166,7 @@ Muille kielille, kuten JavaScriptin axios, voidaan myös käyttää samanlaisia 
 const axios = require("axios");
 const base64 = require("base64");
 
-const proxy_host = "global.proxy.acedata.cloud";
+const proxy_host = "global.proxy.xhuoapi.ai";
 const proxy_port = "30007";
 const proxy_username = "{proxy_username}"; // 8-merkkinen käyttäjänimi
 const proxy_password = "{proxy_password}"; // 32-merkkinen salasana
@@ -199,7 +199,7 @@ Muiden kielten asetustapaa varten voit viitata edellä olevaan ja muokata sen mu
 Voimme suodattaa aluetta lisäämällä region käyttäjänimeen, esimerkiksi jos haluamme valita Yhdysvaltojen proxy, alkuperäinen käyttäjänimi on `1f78266a`, niin voimme muuttaa käyttäjänimen muotoon `1f78266a-region-us`, jolloin yllä oleva curl voidaan muuttaa seuraavasti:
 
 ```
-curl -x 1f78266a-region-us:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007 https://ipinfo.io
+curl -x 1f78266a-region-us:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007 https://ipinfo.io
 ```
 
 Aluelista:
@@ -455,11 +455,11 @@ Kuten edellä mainitussa sisällössä, voimme saavuttaa IP-kiinteyden tietyn aj
 Esimerkiksi, jos haluat saavuttaa IP-kiinteyden tietyn ajan sisällä, alkuperäinen käyttäjänimi on `1f78266a`, voit muuttaa käyttäjänimen muotoon `1f78266a-session-12345`, jossa `12345` pysyy muuttumattomana, niin IP pysyy muuttumattomana tietyn ajan. Yllä oleva curl voidaan muuttaa seuraavasti:
 
 ```
-curl -x 1f78266a-session-12345:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007 https://ipinfo.io
+curl -x 1f78266a-session-12345:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007 https://ipinfo.io
 ```
 
 ## Osta lisää
 
 Jos pakettisi on jo loppunut, sinun on ostettava lisää voidaksesi jatkaa tämän välityspalvelun käyttöä.
 
-Ostaaksesi lisää, siirry suoraan "[Hakemussivulle](https://platform.acedata.cloud/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)" ja napsauta "Osta lisää" -painiketta, niin voit valita. Yhden ostoksen hinta on sitä edullisempi, mitä enemmän ostat kerralla.
+Ostaaksesi lisää, siirry suoraan "[Hakemussivulle](https://api.xhuoapi.ai/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)" ja napsauta "Osta lisää" -painiketta, niin voit valita. Yhden ostoksen hinta on sitä edullisempi, mitä enemmän ostat kerralla.

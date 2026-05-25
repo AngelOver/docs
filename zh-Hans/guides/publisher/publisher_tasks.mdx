@@ -1,6 +1,6 @@
 ---
 title: "Publisher Tasks"
-description: "Publisher Cross-Platform Automatic Publishing 集成指南 - Ace Data Cloud"
+description: "Publisher Cross-Platform Automatic Publishing 集成指南 - XHuoAPI"
 ---
 
 ## 介绍
@@ -12,7 +12,7 @@ Publisher Tasks API 用于查询发布任务的执行状态。每个通过 Publi
 ### 查询单个任务
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/publisher/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/publisher/tasks' \
   -H 'Authorization: Bearer YOUR_TOKEN' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -47,7 +47,7 @@ curl -X POST 'https://api.acedata.cloud/publisher/tasks' \
 ### 批量查询任务
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/publisher/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/publisher/tasks' \
   -H 'Authorization: Bearer YOUR_TOKEN' \
   -H 'Content-Type: application/json' \
   -d '{

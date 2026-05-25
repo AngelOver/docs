@@ -1,6 +1,6 @@
 ---
 title: "Fish Tasks API:s integration och användning"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 Fish Tasks API:s huvudfunktion är att genom att ange det uppdrag-ID som genererats av Fish Audios Generation API för att kontrollera statusen för det uppdraget.
@@ -9,27 +9,27 @@ Detta dokument kommer att detaljerat beskriva integrationen av Fish Tasks API, f
 
 ## Ansökningsprocess
 
-För att använda Fish Tasks API måste du först gå till ansökningssidan [Fish Audios Generation API](https://platform.acedata.cloud/documents/e681b715-54fd-4464-a59a-d7f14500e095) för att ansöka om den aktuella tjänsten, och sedan kopiera uppdrag-ID:t från Fish Audios Generation API, som visas i bilden:
+För att använda Fish Tasks API måste du först gå till ansökningssidan [Fish Audios Generation API](https://api.xhuoapi.ai/documents/e681b715-54fd-4464-a59a-d7f14500e095) för att ansöka om den aktuella tjänsten, och sedan kopiera uppdrag-ID:t från Fish Audios Generation API, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/jxvue8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jxvue8.png" width="500" className="m-auto" /></p>
 
-Slutligen går du till Tasks API-sidan [Fish Tasks API](https://platform.acedata.cloud/documents/44c93949-1419-4a45-8db5-8a8335de7151) för att ansöka om den aktuella tjänsten. När du kommer till sidan klickar du på knappen "Acquire", som visas i bilden:
+Slutligen går du till Tasks API-sidan [Fish Tasks API](https://api.xhuoapi.ai/documents/44c93949-1419-4a45-8db5-8a8335de7151) för att ansöka om den aktuella tjänsten. När du kommer till sidan klickar du på knappen "Acquire", som visas i bilden:
 
-![Ansökningssidan](https://cdn.acedata.cloud/rci31i.png)
+![Ansökningssidan](https://cdn.xhuoapi.ai/rci31i.png)
 
-Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till [inloggningssidan](https://platform.acedata.cloud) för att registrera dig och logga in. Efter inloggning och registrering kommer du automatiskt att återvända till den aktuella sidan.
+Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till [inloggningssidan](https://api.xhuoapi.ai) för att registrera dig och logga in. Efter inloggning och registrering kommer du automatiskt att återvända till den aktuella sidan.
 
 Vid första ansökan kommer det att finnas en gratis kvot som ges, så att du kan använda detta API gratis.
 
 ## Begärningsexempel
 
-Fish Tasks API kan användas för att kontrollera resultaten från Fish Audios Generation API. För information om hur man använder Fish Audios Generation API, se dokumentet [Fish Videos Generation API](https://platform.acedata.cloud/documents/fish-audios-integration).
+Fish Tasks API kan användas för att kontrollera resultaten från Fish Audios Generation API. För information om hur man använder Fish Audios Generation API, se dokumentet [Fish Videos Generation API](https://api.xhuoapi.ai/documents/fish-audios-integration).
 
 Vi tar ett exempel med ett uppdrag-ID som returnerats av Fish Audios Generation API för att demonstrera hur man använder detta API. Anta att vi har ett uppdrag-ID: 2725a2d3-f87e-4905-9c53-9988d5a7b2f5, och vi visar hur man gör detta genom att ange ett uppdrag-ID.
 
 ### Uppdragsexempelbild
 
-<p><img src="https://cdn.acedata.cloud/jxvue8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jxvue8.png" width="500" className="m-auto" /></p>
 
 ### Ställ in begärningshuvuden och begärningskropp
 
@@ -45,20 +45,20 @@ Vi tar ett exempel med ett uppdrag-ID som returnerats av Fish Audios Generation 
 
 Inställningarna visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/xc5ejq.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/xc5ejq.png" width="500" className="m-auto" /></p>
 
 ### Kodexempel
 
 Det kan noteras att olika språkets kod redan har genererats automatiskt på högra sidan, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/851zv2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/851zv2.png" width="500" className="m-auto" /></p>
 
 Några kodexempel är som följer:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/fish/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -120,13 +120,13 @@ Detta är för att fråga detaljer om flera uppdrag-ID:n, och till skillnad frå
 
 Inställningarna visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/64lid9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/64lid9.png" width="500" className="m-auto" /></p>
 
 ### Kodexempel
 
 Det kan noteras att olika språkets kod redan har genererats automatiskt på högra sidan, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/ezkzmw.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ezkzmw.png" width="500" className="m-auto" /></p>
 
 Några kodexempel är som följer:
 
@@ -205,7 +205,7 @@ När begäran lyckas kommer API:t att returnera detaljerad information om alla b
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/fish/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

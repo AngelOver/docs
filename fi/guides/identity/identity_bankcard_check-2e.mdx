@@ -1,15 +1,15 @@
 ---
 title: "Pankkikortin kaksivaiheinen vahvistus API -liittymän ohjeet"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Tässä artikkelissa esitellään pankkikortin kaksivaiheinen vahvistus API -liittymän ohjeet, jota voidaan käyttää nimen ja pankkikortin numeron aitouden ja yhdenmukaisuuden tarkistamiseen.
 
 ## Hakuprosessi
 
-API:n käyttämiseksi sinun on ensin mentävä [pankkikortin kaksivaiheinen vahvistus API](https://platform.acedata.cloud/documents/06efe2aa-5443-4dcc-af2f-28236bfb2158) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
+API:n käyttämiseksi sinun on ensin mentävä [pankkikortin kaksivaiheinen vahvistus API](https://api.xhuoapi.ai/documents/06efe2aa-5443-4dcc-af2f-28236bfb2158) -sivulle ja haettava vastaavaa palvelua. Sivulle päästyäsi napsauta "Acquire" -painiketta, kuten kuvassa näkyy:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle, jossa sinua kutsutaan rekisteröitymään ja kirjautumaan sisään. Kirjautumisen ja rekisteröitymisen jälkeen palaat automaattisesti nykyiselle sivulle.
 
@@ -19,7 +19,7 @@ Ensimmäisellä hakukerralla saat ilmaisia käyttöoikeuksia, ja voit käyttää
 
 Ensinnäkin on hyvä ymmärtää peruskäyttötapa, eli syöttämällä pankkikortin numerotiedot, voit saada käsitellyn tuloskuvan. Ensimmäiseksi sinun on yksinkertaisesti välitettävä `bank_card`-kenttä. Voimme seuraavaksi täyttää vastaavat tiedot käyttöliittymässä, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/u9bugq.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/u9bugq.png" width="500" className="m-auto" /></p>
 
 Täällä olemme asettaneet Request Headers, mukaan lukien:
 
@@ -34,7 +34,7 @@ Lisäksi on asetettu Request Body, mukaan lukien:
 
 Valinnan jälkeen voit huomata, että oikealla puolella on myös luotu vastaava koodi, kuten kuvassa näkyy:
 
-<p><img src="https://cdn.acedata.cloud/yn8yxf.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/yn8yxf.png" width="500" className="m-auto" /></p>
 
 Napsauta "Try" -painiketta, niin voit testata, kuten yllä olevassa kuvassa näkyy, ja saamme seuraavan tuloksen:
 
@@ -75,7 +75,7 @@ Voimme nähdä, että tämän pankkikortin nimen ja pankkikortin numeron aitous 
 Jos haluat luoda vastaavan liittymiskoodin, voit kopioida sen suoraan, esimerkiksi CURL-koodi on seuraava:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/bankcard/check-2e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/bankcard/check-2e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -88,7 +88,7 @@ curl -X POST 'https://api.acedata.cloud/identity/bankcard/check-2e' \
 Pythonin liittymiskoodi on seuraava:
 
 ```python
-curl -X POST 'https://api.acedata.cloud/identity/bankcard/check-2e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/bankcard/check-2e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Chat Completion 4o Image API申请及使用"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI ChatGPT је веома моћан AI систем за разговор, који може генерисати текуће и природне одговоре у само неколико секунди, само уношењем упитника. ChatGPT се истиче у индустрији својом изванредном способношћу разумевања и генерисања језика, а данас се већ широко примењује у различитим индустријама и областима, а његов утицај постаје све значајнији. Без обзира на то да ли је у питању свакодневни разговор, креативно писање или стручне консултације и програмирање, ChatGPT може пружити импресивну интелигентну помоћ, значајно повећавајући људску продуктивност и креативност.
@@ -9,9 +9,9 @@ OpenAI ChatGPT је веома моћан AI систем за разговор,
 
 ## Процес пријаве
 
-Да бисте користили OpenAI Chat Completion 4o Image API, прво можете отићи на [OpenAI Chat Completion 4o Image API](https://platform.acedata.cloud/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) страницу и кликнути на дугме „Acquire“ да бисте добили акредитиве потребне за захтев:
+Да бисте користили OpenAI Chat Completion 4o Image API, прво можете отићи на [OpenAI Chat Completion 4o Image API](https://api.xhuoapi.ai/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) страницу и кликнути на дугме „Acquire“ да бисте добили акредитиве потребне за захтев:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Ако се још нисте пријавили или регистровали, аутоматски ћете бити преусмерени на страницу за пријаву која вас позива да се региструјете и пријавите, а након пријаве и регистрације аутоматски ћете се вратити на тренутну страницу.
 
@@ -23,7 +23,7 @@ OpenAI ChatGPT је веома моћан AI систем за разговор,
 
 Испод је пример генерисања слике у прилагођеном стилу на основу једне слике, прво да видимо слику коју смо унели, као што је приказано на слици испод:
 
-![](https://cdn.acedata.cloud/qzx2z1.png)
+![](https://cdn.xhuoapi.ai/qzx2z1.png)
 
 Можемо видети да је референтна слика слика стварне особе, можемо је променити у неки стил, на пример, да постане слика у аниме стилу, конкретан пример захтева:
 
@@ -41,7 +41,7 @@ OpenAI ChatGPT је веома моћан AI систем за разговор,
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]
@@ -79,7 +79,7 @@ OpenAI ChatGPT је веома моћан AI систем за разговор,
 
 Унутар `choices` поља, `message` представља комплетан резултат разговора, а резултат слике је такође укључен у резултат разговора, може се видети да је генерисана слика заиста у аниме стилу, конкретно као што је приказано на слици испод:
 
-<p><img src="https://cdn.acedata.cloud/qmr391.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qmr391.jpg" width="400" className="m-auto" /></p>
 
 ### Генерисање слике само текстом
 
@@ -99,7 +99,7 @@ OpenAI ChatGPT је веома моћан AI систем за разговор,
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]
@@ -137,15 +137,15 @@ OpenAI ChatGPT је веома моћан AI систем за разговор,
 
 Може се видети да резултат одговара упитнику, конкретно као што је приказано:
 
-<p><img src="https://cdn.acedata.cloud/q502uk.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q502uk.jpg" width="400" className="m-auto" /></p>
 
 ### Генерисање једне слике из више слика
 
 Такође можемо користити више референтних слика да генеришемо једну слику, на пример, користећи слику момка и кафе, користећи ове две слике можемо генерисати слику момка који пије кафу, испод су конкретне референтне слике:
 
-<p><img src="https://cdn.acedata.cloud/pqquv3.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pqquv3.jpg" width="400" className="m-auto" /></p>
 
-<p><img src="https://cdn.acedata.cloud/h8j2i0.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/h8j2i0.jpg" width="400" className="m-auto" /></p>
 下面 ми ћемо користити `генериши момка који држи кафу и одмах ће је попити` као пример, испод су конкретни примери:
 
 ```json
@@ -162,13 +162,13 @@ OpenAI ChatGPT је веома моћан AI систем за разговор,
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/pqquv3.jpg"
+            "url": "https://cdn.xhuoapi.ai/pqquv3.jpg"
           }
         },
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/h8j2i0.jpg"
+            "url": "https://cdn.xhuoapi.ai/h8j2i0.jpg"
           }
         }
       ]
@@ -206,7 +206,7 @@ OpenAI ChatGPT је веома моћан AI систем за разговор,
 
 Можете видети да је генерисани резултат заиста комбинован из две слике, испод је конкретан резултат:
 
-<p><img src="https://cdn.acedata.cloud/89vnpx.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/89vnpx.jpg" width="400" className="m-auto" /></p>
 
 ## Обрада грешака
 

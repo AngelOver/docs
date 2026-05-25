@@ -1,15 +1,15 @@
 ---
 title: "Short URL API 接続説明"
-description: "Short link generation 集成指南 - Ace Data Cloud"
+description: "Short link generation 集成指南 - XHuoAPI"
 ---
 
 本文では、長いURLを短いURLに変換するShort URL APIの接続説明を紹介します。
 
 ## 申請プロセス
 
-APIを使用するには、まず[Short URL API](https://platform.acedata.cloud/documents/a2303356-6672-4eb8-9778-75f55c998fe9)の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
+APIを使用するには、まず[Short URL API](https://api.xhuoapi.ai/documents/a2303356-6672-4eb8-9778-75f55c998fe9)の該当ページでサービスを申請する必要があります。ページに入ったら、「Acquire」ボタンをクリックします。以下の図のように：
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 まだログインまたは登録していない場合は、自動的にログインページにリダイレクトされ、登録とログインを促されます。ログインまたは登録後、現在のページに自動的に戻ります。
 
@@ -19,7 +19,7 @@ APIを使用するには、まず[Short URL API](https://platform.acedata.cloud/
 
 まず、基本的な使用方法を理解します。変換したい長いURLを入力することで、処理された結果を得ることができます。まず、シンプルに`content`フィールドを渡す必要があります。次に、インターフェース上で対応する内容を記入します。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/4ascb2.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4ascb2.png" width="500" className="m-auto" /></p>
 
 ここでは、Request Headersを設定しました。内容は以下の通りです：
 
@@ -32,7 +32,7 @@ APIを使用するには、まず[Short URL API](https://platform.acedata.cloud/
 
 選択後、右側にも対応するコードが生成されていることがわかります。以下の図のように：
 
-<p><img src="https://cdn.acedata.cloud/r3uakb.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/r3uakb.png" width="500" className="m-auto" /></p>
 
 「Try」ボタンをクリックするとテストが行えます。上の図のように、以下の結果が得られました：
 
@@ -50,17 +50,17 @@ APIを使用するには、まず[Short URL API](https://platform.acedata.cloud/
 - `success`：ここでのタスクが成功したかどうかの状態。
 - `data`：ここで変換されたURLを含みます。
 
-元の長いURL `https://platform.acedata.cloud/documents/a2303356-6672-4eb8-9778-75f55c998fe9` が、短いURL `https://surl.id/1uHCs01xa5` に成功裏に変換されたことがわかります。
+元の長いURL `https://api.xhuoapi.ai/documents/a2303356-6672-4eb8-9778-75f55c998fe9` が、短いURL `https://surl.id/1uHCs01xa5` に成功裏に変換されたことがわかります。
 
 また、対応する接続コードを生成したい場合は、生成されたものを直接コピーできます。例えば、CURLのコードは以下の通りです：
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/shorturl' \
+curl -X POST 'https://api.xhuoapi.ai/v1/shorturl' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "content": "https://platform.acedata.cloud/documents/a2303356-6672-4eb8-9778-75f55c998fe9"
+  "content": "https://api.xhuoapi.ai/documents/a2303356-6672-4eb8-9778-75f55c998fe9"
 }'
 ```
 
@@ -69,7 +69,7 @@ Pythonの接続コードは以下の通りです：
 ```python
 import requests
 
-url = "https://api.acedata.cloud/shorturl"
+url = "https://api.xhuoapi.ai/v1/shorturl"
 
 headers = {
     "accept": "application/json",
@@ -78,7 +78,7 @@ headers = {
 }
 
 payload = {
-    "content": "https://platform.acedata.cloud/documents/a2303356-6672-4eb8-9778-75f55c998fe9"
+    "content": "https://api.xhuoapi.ai/documents/a2303356-6672-4eb8-9778-75f55c998fe9"
 }
 
 response = requests.post(url, json=payload, headers=headers)

@@ -1,6 +1,6 @@
 ---
 title: "واجهة برمجة تطبيقات مهام المنتج (Producer Tasks API) والتكامل والاستخدام"
-description: "Producer Music Generation 集成指南 - Ace Data Cloud"
+description: "Producer Music Generation 集成指南 - XHuoAPI"
 ---
 
 الوظيفة الرئيسية لواجهة برمجة تطبيقات مهام المنتج هي استعلام حالة تنفيذ المهمة من خلال إدخال معرف المهمة الذي تم إنشاؤه بواسطة واجهة برمجة تطبيقات إنتاج الصوتيات (Producer Audios Generation API).
@@ -9,27 +9,27 @@ description: "Producer Music Generation 集成指南 - Ace Data Cloud"
 
 ## عملية التقديم
 
-لاستخدام واجهة برمجة تطبيقات مهام المنتج، يجب أولاً زيارة صفحة التقديم [واجهة برمجة تطبيقات إنتاج الصوتيات](https://platform.acedata.cloud/documents/producer-audios) لتقديم طلب الخدمة المناسبة، ثم نسخ معرف المهمة من واجهة برمجة تطبيقات إنتاج الصوتيات كما هو موضح في الصورة:
+لاستخدام واجهة برمجة تطبيقات مهام المنتج، يجب أولاً زيارة صفحة التقديم [واجهة برمجة تطبيقات إنتاج الصوتيات](https://api.xhuoapi.ai/documents/producer-audios) لتقديم طلب الخدمة المناسبة، ثم نسخ معرف المهمة من واجهة برمجة تطبيقات إنتاج الصوتيات كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
-أخيرًا، انتقل إلى صفحة واجهة برمجة تطبيقات المهام [واجهة برمجة تطبيقات مهام المنتج](https://platform.acedata.cloud/documents/622626b1-30a7-4799-a772-4946e1df3ac0) لتقديم طلب الخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire" كما هو موضح في الصورة:
+أخيرًا، انتقل إلى صفحة واجهة برمجة تطبيقات المهام [واجهة برمجة تطبيقات مهام المنتج](https://api.xhuoapi.ai/documents/622626b1-30a7-4799-a772-4946e1df3ac0) لتقديم طلب الخدمة المناسبة، بعد دخول الصفحة، انقر على زر "Acquire" كما هو موضح في الصورة:
 
-![صفحة التقديم](https://cdn.acedata.cloud/rci31i.png)
+![صفحة التقديم](https://cdn.xhuoapi.ai/rci31i.png)
 
-إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى [صفحة تسجيل الدخول](https://platform.acedata.cloud) لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول أو التسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
+إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى [صفحة تسجيل الدخول](https://api.xhuoapi.ai) لدعوتك للتسجيل وتسجيل الدخول، بعد تسجيل الدخول أو التسجيل، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
 عند التقديم لأول مرة، سيكون هناك حد مجاني متاح، يمكنك استخدام هذه الواجهة مجانًا.
 
 ## مثال على الطلب
 
-يمكن استخدام واجهة برمجة تطبيقات مهام المنتج لاستعلام نتائج واجهة برمجة تطبيقات إنتاج الصوتيات. لمزيد من المعلومات حول كيفية استخدام واجهة برمجة تطبيقات إنتاج الصوتيات، يرجى الرجوع إلى الوثيقة [واجهة برمجة تطبيقات إنتاج الصوتيات](https://platform.acedata.cloud/documents/producer-audios-integration).
+يمكن استخدام واجهة برمجة تطبيقات مهام المنتج لاستعلام نتائج واجهة برمجة تطبيقات إنتاج الصوتيات. لمزيد من المعلومات حول كيفية استخدام واجهة برمجة تطبيقات إنتاج الصوتيات، يرجى الرجوع إلى الوثيقة [واجهة برمجة تطبيقات إنتاج الصوتيات](https://api.xhuoapi.ai/documents/producer-audios-integration).
 
 سنأخذ مثالاً على معرف المهمة الذي تم إرجاعه من خدمة واجهة برمجة تطبيقات إنتاج الصوتيات، لنوضح كيفية استخدام هذه الواجهة. لنفترض أن لدينا معرف مهمة: 1a6ac2ad-10f2-4e2b-b500-66ec27fe82ad، وسنوضح كيفية تمرير معرف المهمة.
 
 ### مثال على المهمة
 
-<p><img src="https://cdn.acedata.cloud/om6p6g.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/om6p6g.png" width="500" className="m-auto" /></p>
 
 ### إعداد رأس الطلب وجسم الطلب
 
@@ -45,20 +45,20 @@ description: "Producer Music Generation 集成指南 - Ace Data Cloud"
 
 الإعداد كما هو موضح في الصورة أدناه:
 
-<p><img src="https://cdn.acedata.cloud/bfe4ww.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/bfe4ww.png" width="500" className="m-auto" /></p>
 
 ### مثال على الكود
 
 يمكن ملاحظة أنه تم إنشاء أكواد بلغات مختلفة تلقائيًا على الجانب الأيمن من الصفحة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/u4pb2f.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/u4pb2f.png" width="500" className="m-auto" /></p>
 
 بعض أمثلة الكود كما يلي:
 
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -134,13 +134,13 @@ curl -X POST 'https://api.acedata.cloud/producer/tasks' \
 
 设置如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/jlkoma.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jlkoma.png" width="500" className="m-auto" /></p>
 
 ### 代码示例
 
 可以发现，在页面右侧已经自动生成了各种语言的代码，如图所示：
 
-<p><img src="https://cdn.acedata.cloud/emw66n.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/emw66n.png" width="500" className="m-auto" /></p>
 
 部分代码示例如下：
 
@@ -251,7 +251,7 @@ curl -X POST 'https://api.acedata.cloud/producer/tasks' \
 #### CURL
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/producer/tasks' \
+curl -X POST 'https://api.xhuoapi.ai/v1/producer/tasks' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

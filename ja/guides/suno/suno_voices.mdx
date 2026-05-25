@@ -1,6 +1,6 @@
 ---
 title: "Suno 音声クローン API 接続説明"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 SUNO は任意の音声ファイルを使ってカスタム音声キャラクターを作成し、音声クローンを利用した音楽生成を可能にします。既存の Persona API（Suno 生成の `audio_id` を使用）とは異なり、本 API は公開アクセス可能な `audio_url`、すなわち自身の人声録音を受け入れます。本ドキュメントでは音声クローン API の接続方法を解説します。
@@ -15,7 +15,7 @@ SUNO は任意の音声ファイルを使ってカスタム音声キャラクタ
 - 内容：単一人物のクリアな人声、背景ノイズや音楽はできるだけ少なく
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/voices' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/voices' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -44,12 +44,12 @@ curl -X POST 'https://api.acedata.cloud/suno/voices' \
 
 ## ステップ2：音声キャラクターを使用した音楽生成
 
-音声キャラクター ID を取得したら、[Suno Audios Generation API](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) を使って音楽生成が可能です。`action` を `generate` に設定し、`persona_id` に上記で得た音声キャラクター ID を指定すると、生成される楽曲はクローンされた音声で歌唱されます。
+音声キャラクター ID を取得したら、[Suno Audios Generation API](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) を使って音楽生成が可能です。`action` を `generate` に設定し、`persona_id` に上記で得た音声キャラクター ID を指定すると、生成される楽曲はクローンされた音声で歌唱されます。
 
 > **注意：** 音声クローンは `chirp-v4-5` 以上のモデル（例：`chirp-v4-5`、`chirp-v5`、`chirp-v5-5`）のみ対応し、`chirp-v4` は非対応です。
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/audios' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/audios' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \

@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Chat Completion 4o Image API Antrag und Nutzung"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI ChatGPT ist ein sehr leistungsstarkes KI-Dialogsystem, das durch die Eingabe von Stichwörtern in nur wenigen Sekunden flüssige und natürliche Antworten generieren kann. ChatGPT hebt sich durch seine hervorragenden Sprachverständnis- und Generierungsfähigkeiten in der Branche hervor und wird mittlerweile in verschiedenen Branchen und Bereichen weit verbreitet eingesetzt, wobei sein Einfluss immer deutlicher wird. Egal ob im Alltag, beim kreativen Schreiben oder in der professionellen Beratung und Programmierung, ChatGPT kann erstaunliche intelligente Unterstützung bieten und die Effizienz und Kreativität der Menschen erheblich steigern.
@@ -9,9 +9,9 @@ Dieses Dokument beschreibt hauptsächlich den Ablauf zur Nutzung der OpenAI Chat
 
 ## Antragsprozess
 
-Um die OpenAI Chat Completion 4o Image API zu nutzen, können Sie zunächst die Seite [OpenAI Chat Completion 4o Image API](https://platform.acedata.cloud/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) besuchen und auf die Schaltfläche „Acquire“ klicken, um die benötigten Anmeldeinformationen zu erhalten:
+Um die OpenAI Chat Completion 4o Image API zu nutzen, können Sie zunächst die Seite [OpenAI Chat Completion 4o Image API](https://api.xhuoapi.ai/documents/1bcf3bba-102b-495d-9bba-47cd96717e45) besuchen und auf die Schaltfläche „Acquire“ klicken, um die benötigten Anmeldeinformationen zu erhalten:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Wenn Sie noch nicht angemeldet oder registriert sind, werden Sie automatisch zur Anmeldeseite weitergeleitet, um sich zu registrieren und anzumelden. Nach der Anmeldung werden Sie automatisch zur aktuellen Seite zurückgeleitet.
 
@@ -23,7 +23,7 @@ Bei der ersten Antragstellung gibt es ein kostenloses Kontingent, mit dem Sie di
 
 Hier ist ein Beispiel für die Generierung eines benutzerdefinierten Stils basierend auf einem Bild. Lassen Sie uns zunächst das Bild ansehen, das wir eingegeben haben, wie im folgenden Bild gezeigt:
 
-![](https://cdn.acedata.cloud/qzx2z1.png)
+![](https://cdn.xhuoapi.ai/qzx2z1.png)
 
 Das Referenzbild zeigt ein echtes Bild einer Person. Wir können es in einen bestimmten Stil ändern, zum Beispiel in einen Anime-Stil. Hier ist das spezifische Anfragebeispiel:
 
@@ -41,7 +41,7 @@ Das Referenzbild zeigt ein echtes Bild einer Person. Wir können es in einen bes
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]
@@ -79,7 +79,7 @@ Beispielergebnis:
 
 Dabei ist die `message` in `choices` das vollständige Dialogergebnis, das Bildresultat ist ebenfalls im Dialogergebnis enthalten. Man kann sehen, dass das generierte Bild tatsächlich im Anime-Stil ist, wie im folgenden Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/qmr391.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/qmr391.jpg" width="400" className="m-auto" /></p>
 
 ### Generierung von Bildern nur mit Text
 
@@ -99,7 +99,7 @@ Wir können durch ein Stichwort ein Bild generieren lassen und es in einem dialo
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/qzx2z1.png"
+            "url": "https://cdn.xhuoapi.ai/qzx2z1.png"
           }
         }
       ]
@@ -137,15 +137,15 @@ Beispielergebnis:
 
 Man kann sehen, dass das Ergebnis den Stichworten entspricht, wie im folgenden Bild gezeigt:
 
-<p><img src="https://cdn.acedata.cloud/q502uk.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/q502uk.jpg" width="400" className="m-auto" /></p>
 
 ### Generierung eines Bildes aus mehreren Bildern
 
 Wir können auch mehrere Referenzbilder verwenden, um ein Bild zu generieren. Zum Beispiel können wir ein Bild eines attraktiven Mannes und eines Kaffees verwenden, um ein Bild eines attraktiven Mannes, der Kaffee trinkt, zu generieren. Hier sind die spezifischen Referenzbilder:
 
-<p><img src="https://cdn.acedata.cloud/pqquv3.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/pqquv3.jpg" width="400" className="m-auto" /></p>
 
-<p><img src="https://cdn.acedata.cloud/h8j2i0.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/h8j2i0.jpg" width="400" className="m-auto" /></p>
 下面我们以`生成男生举着咖啡，并且马上要喝的样子`为示例，下面具体的示例：
 
 ```json
@@ -162,13 +162,13 @@ Wir können auch mehrere Referenzbilder verwenden, um ein Bild zu generieren. Zu
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/pqquv3.jpg"
+            "url": "https://cdn.xhuoapi.ai/pqquv3.jpg"
           }
         },
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://cdn.acedata.cloud/h8j2i0.jpg"
+            "url": "https://cdn.xhuoapi.ai/h8j2i0.jpg"
           }
         }
       ]
@@ -206,7 +206,7 @@ Wir können auch mehrere Referenzbilder verwenden, um ein Bild zu generieren. Zu
 
 可以看到，生成的结果确实是结合了俩张图来生成的，下面是具体的结果：
 
-<p><img src="https://cdn.acedata.cloud/89vnpx.jpg" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/89vnpx.jpg" width="400" className="m-auto" /></p>
 
 ## Fehlerbehandlung
 

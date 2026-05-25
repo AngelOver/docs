@@ -1,15 +1,15 @@
 ---
 title: "글로벌 에이전트 연동 설명"
-description: "Global Rotation Agent 集成指南 - Ace Data Cloud"
+description: "Global Rotation Agent 集成指南 - XHuoAPI"
 ---
 
-본 문서는 Ace Data Cloud 글로벌 에이전트의 연동 설명을 주로 다루며, 신청 방법, 사용 방법 등 구체적인 내용을 포함합니다.
+본 문서는 XHuoAPI 글로벌 에이전트의 연동 설명을 주로 다루며, 신청 방법, 사용 방법 등 구체적인 내용을 포함합니다.
 
 ## 신청 방법
 
-글로벌 서비스를 사용하려면 먼저「[신청 페이지](https://platform.acedata.cloud/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)」에서 신청할 수 있으며, 첫 신청 시 1 포인트 무료 한도가 제공됩니다.
+글로벌 서비스를 사용하려면 먼저「[신청 페이지](https://api.xhuoapi.ai/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)」에서 신청할 수 있으며, 첫 신청 시 1 포인트 무료 한도가 제공됩니다.
 
-![](https://cdn.acedata.cloud/cyzvmz.png)
+![](https://cdn.xhuoapi.ai/cyzvmz.png)
 
 로그인하지 않은 경우 자동으로 로그인 페이지로 이동하며, 로그인 후 계속 신청하면 됩니다.
 
@@ -17,13 +17,13 @@ description: "Global Rotation Agent 集成指南 - Ace Data Cloud"
 
 신청이 완료된 후, 「콘솔」에서 본인의 신청 결과를 확인할 수 있습니다. 아래 그림과 같습니다:
 
-![](https://cdn.acedata.cloud/y9boi5.png)
+![](https://cdn.xhuoapi.ai/y9boi5.png)
 
 「Credentials」를 클릭하면 글로벌 에이전트 서비스의 사용자 이름과 비밀번호를 확인할 수 있으며, 콜론으로 구분되어 있습니다. 사용자 이름은 8자리, 비밀번호는 32자리입니다. 아래 그림과 같습니다:
 
-![](https://cdn.acedata.cloud/ixwm85.png)
+![](https://cdn.xhuoapi.ai/ixwm85.png)
 
-이 에이전트는 회전 프록시(Rotating Proxy)로, 사용 시 고정된 프록시 주소와 포트만 설정하면 됩니다. 프록시의 주소와 포트는 각각 `global.proxy.acedata.cloud`와 `30007`입니다. 이 프록시는 HTTP/HTTPS/SOCKS 프로토콜의 프록시로, HTTP 및 HTTPS 프로토콜 웹사이트 요청에 사용할 수 있습니다.
+이 에이전트는 회전 프록시(Rotating Proxy)로, 사용 시 고정된 프록시 주소와 포트만 설정하면 됩니다. 프록시의 주소와 포트는 각각 `global.proxy.xhuoapi.ai`와 `30007`입니다. 이 프록시는 HTTP/HTTPS/SOCKS 프로토콜의 프록시로, HTTP 및 HTTPS 프로토콜 웹사이트 요청에 사용할 수 있습니다.
 
 > 주의: 이 프록시는 중국 외부 네트워크 환경에서만 사용 가능합니다. 중국 본토 지역에서는 사용할 수 없습니다.
 
@@ -34,7 +34,7 @@ description: "Global Rotation Agent 集成指南 - Ace Data Cloud"
 현재 프록시의 사용자 이름과 비밀번호가 `1f78266a:eff0896726224fa2a99fe82dd1f07562`라고 가정할 때, 다음과 같은 curl 명령어로 테스트할 수 있습니다:
 
 ```shell
-curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007 https://ipinfo.io
+curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007 https://ipinfo.io
 ```
 
 여기서 curl의 `-x` 매개변수를 사용하여 프록시 주소를 지정했습니다. 프록시 프로토콜은 기본적으로 HTTP/HTTPS이며, 요청하는 URL은 [https://ipinfo.io](https://ipinfo.io)입니다. 이 사이트는 요청한 사이트의 실제 IP 주소와 IP가 위치한 지역을 반환합니다.
@@ -67,7 +67,7 @@ curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:300
 ```python
 import requests
 
-proxy = 'http://{proxy_username}:{proxy_password}@global.proxy.acedata.cloud:30007'
+proxy = 'http://{proxy_username}:{proxy_password}@global.proxy.xhuoapi.ai:30007'
 
 proxies = {
     'http': proxy,
@@ -81,7 +81,7 @@ for _ in range(3):
 
 여기서 우리는 먼저 프록시의 URL을 선언하고 proxy 변수로 정의했습니다. 프로토콜은 http 프로토콜이며, 뒤에 터널 프록시의 사용자 이름과 비밀번호(즉, 콘솔에 표시된 사용자 이름과 비밀번호, 두 개는 콜론으로 구분됨)를 따릅니다. 그 뒤에 `@` 기호를 추가하고 프록시의 주소와 포트를 추가하면 됩니다.
 
-> 주의: 위 코드에서 `{proxy_username}:{proxy_password}`를 본인의 프록시 사용자 이름과 비밀번호로 교체해야 하며, 최종 결과는 `proxy = 'http://1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007'`와 유사해야 하며, `{`와 `}` 문자는 포함되지 않아야 합니다.
+> 주의: 위 코드에서 `{proxy_username}:{proxy_password}`를 본인의 프록시 사용자 이름과 비밀번호로 교체해야 하며, 최종 결과는 `proxy = 'http://1f78266a:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007'`와 유사해야 하며, `{`와 `}` 문자는 포함되지 않아야 합니다.
 
 그 다음 proxies 변수를 선언하고 두 개의 키-값 쌍을 구성했습니다. 키 이름은 각각 http와 https이며, 그 값은 모두 proxy로, HTTP 및 HTTPS 프로토콜 웹사이트에 대해 proxy 변수로 정의된 프록시를 사용하여 요청합니다. 이후 세 번의 루프를 정의하여 프록시 테스트를 진행합니다.
 
@@ -135,7 +135,7 @@ for _ in range(3):
 import requests
 import base64
 
-proxy_host = 'global.proxy.acedata.cloud'
+proxy_host = 'global.proxy.xhuoapi.ai'
 proxy_port = '30007'
 proxy_username = '{proxy_username}' # 8자리 사용자 이름
 proxy_password = '{proxy_password}' # 32자리 비밀번호
@@ -166,7 +166,7 @@ for _ in range(3):
 const axios = require("axios");
 const base64 = require("base64");
 
-const proxy_host = "global.proxy.acedata.cloud";
+const proxy_host = "global.proxy.xhuoapi.ai";
 const proxy_port = "30007";
 const proxy_username = "{proxy_username}"; // 8자리 사용자 이름
 const proxy_password = "{proxy_password}"; // 32자리 비밀번호
@@ -199,7 +199,7 @@ for (let i = 0; i < 3; i++) {
 우리는 username에 region을 추가하여 지역 필터링을 할 수 있습니다. 예를 들어 미국의 프록시를 선택하고 싶다면 원래의 username이 `1f78266a`라면 username을 `1f78266a-region-us`로 변경하면 위의 curl을 다음과 같이 수정할 수 있습니다:
 
 ```
-curl -x 1f78266a-region-us:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007 https://ipinfo.io
+curl -x 1f78266a-region-us:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007 https://ipinfo.io
 ```
 
 지역 목록:
@@ -455,11 +455,11 @@ curl -x 1f78266a-region-us:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata
 예를 들어 일정 시간 동안 IP 고정을 구현하려면 원래의 username이 `1f78266a`인 경우, username을 `1f78266a-session-12345`로 수정할 수 있습니다. 여기서 `12345`가 변하지 않으면 일정 시간 동안 IP는 변하지 않으며, 위의 curl은 다음과 같이 수정할 수 있습니다:
 
 ```
-curl -x 1f78266a-session-12345:eff0896726224fa2a99fe82dd1f07562@global.proxy.acedata.cloud:30007 https://ipinfo.io
+curl -x 1f78266a-session-12345:eff0896726224fa2a99fe82dd1f07562@global.proxy.xhuoapi.ai:30007 https://ipinfo.io
 ```
 
 ## 더 구매하기
 
 패키지가 이미 소진된 경우, 계속해서 해당 프록시 서비스를 사용하려면 더 구매해야 합니다.
 
-더 구매하려면 「[신청 페이지](https://platform.acedata.cloud/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)」로 가서 「더 구매하기」 버튼을 클릭하여 선택하면 되며, 단일 구매 시 단가가 더 저렴합니다.
+더 구매하려면 「[신청 페이지](https://api.xhuoapi.ai/services/87ae4a5a-59d9-4c50-86d4-c0b5d393e5af)」로 가서 「더 구매하기」 버튼을 클릭하여 선택하면 되며, 단일 구매 시 단가가 더 저렴합니다.

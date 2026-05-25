@@ -1,17 +1,17 @@
 ---
 title: "Claude Code терминал (CLI) упутство за коришћење"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code је алат за **Agentic Coding** који је представио Anthropic, и сматра се једним од најмоћнијих програмских агената на свету. Терминал CLI је основно искуство Claude Code, можете да покренете команду `claude` у било ком терминалу и да комуницирате са AI-ом на природном језику.
 
-Овај документ углавном описује како да инсталирате, конфигуришете и користите Claude Code CLI преко прокси услуге AceData Cloud у терминалу.
+Овај документ углавном описује како да инсталирате, конфигуришете и користите Claude Code CLI преко прокси услуге XHuoAPI у терминалу.
 
 ## Процес пријаве
 
-Да бисте користили Claude Code, прво можете да одете на [Claude Messages услужну страницу](https://platform.acedata.cloud/documents/claude-messages) и кликнете на дугме „Acquire“ да бисте добили потребне креденцијале:
+Да бисте користили Claude Code, прво можете да одете на [Claude Messages услужну страницу](https://api.xhuoapi.ai/documents/claude-messages) и кликнете на дугме „Acquire“ да бисте добили потребне креденцијале:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Ако нисте пријављени или регистровани, аутоматски ћете бити преусмерени на страницу за пријаву која вас позива да се региструјете и пријавите, а након пријаве и регистрације, аутоматски ћете се вратити на тренутну страницу.
 
@@ -62,9 +62,9 @@ winget install Claude.ClaudeCode
 
 Нативна инсталација ће аутоматски ажурирати у позадини, увек одржавајући најновију верзију.
 
-## Конфигурација AceData Cloud API
+## Конфигурација XHuoAPI API
 
-Након инсталације, подразумевано ће вас затражити да се пријавите на званични налог Anthropic. Можемо конфигурисати променљиве окружења да користимо AceData Cloud прокси API, **без званичне претплате**.
+Након инсталације, подразумевано ће вас затражити да се пријавите на званични налог Anthropic. Можемо конфигурисати променљиве окружења да користимо XHuoAPI прокси API, **без званичне претплате**.
 
 ### Конфигурација променљивих окружења
 
@@ -72,12 +72,12 @@ winget install Claude.ClaudeCode
 
 **Начин 1: Постављање у конфигурационом фајлу Shell (препоручено)**
 
-Додајте следећи садржај у ваш Shell конфигурациони фајл (`~/.zshrc`, `~/.bashrc` или `~/.bash_profile`), замените `{token}` са API токеном који сте добили у AceData Cloud конзоли:
+Додајте следећи садржај у ваш Shell конфигурациони фајл (`~/.zshrc`, `~/.bashrc` или `~/.bash_profile`), замените `{token}` са API токеном који сте добили у XHuoAPI конзоли:
 
 ```bash
-# AceData Cloud - Claude Code прокси конфигурација
+# XHuoAPI - Claude Code прокси конфигурација
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 Након измене, извршите следећу команду да бисте активирали конфигурацију:
@@ -94,14 +94,14 @@ source ~/.zshrc  # или source ~/.bashrc
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
 Предност овог начина је што променљиве окружења делују само на Claude Code и не утичу на друге програме.
 
-> **Напомена**: API токен можете видети у [AceData Cloud конзоли](https://platform.acedata.cloud/console). Вредност `ANTHROPIC_AUTH_TOKEN` ће бити аутоматски додата `Bearer` префикс и послата серверу.
+> **Напомена**: API токен можете видети у [XHuoAPI конзоли](https://api.xhuoapi.ai/console). Вредност `ANTHROPIC_AUTH_TOKEN` ће бити аутоматски додата `Bearer` префикс и послата серверу.
 
 ## Почните са коришћењем
 
@@ -217,7 +217,7 @@ git diff main | claude -p "ревидирај ове промене"
    echo $ANTHROPIC_AUTH_TOKEN
    echo $ANTHROPIC_BASE_URL
    ```
-3. Potvrdite da je API token važeći (možete ga proveriti na [kontrolnoj tabli](https://platform.acedata.cloud/console))
+3. Potvrdite da je API token važeći (možete ga proveriti na [kontrolnoj tabli](https://api.xhuoapi.ai/console))
 4. Pokušajte da ponovo pokrenete terminal
 
 ### komanda nije pronađena: claude
@@ -230,11 +230,11 @@ Ako se nakon instalacije pojavi poruka `komanda nije pronađena`, pokušajte:
 
 ### Kako da proverim preostalu kvotu?
 
-Prijavite se na [AceData Cloud kontrolnu tablu](https://platform.acedata.cloud/console) da biste videli trenutnu preostalu kvotu i korišćenje.
+Prijavite se na [XHuoAPI kontrolnu tablu](https://api.xhuoapi.ai/console) da biste videli trenutnu preostalu kvotu i korišćenje.
 
 ## Saznajte više
 
 - 📖 [Claude Code CLI zvanična dokumentacija](https://code.claude.com/docs/en/quickstart)
 - 📋 [CLI komande referenca](https://code.claude.com/docs/en/cli-reference)
-- 🔧 [AceData Cloud Claude Code usluga](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code usluga](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 Ako imate bilo kakvih pitanja, slobodno nas kontaktirajte putem korisničke podrške platforme

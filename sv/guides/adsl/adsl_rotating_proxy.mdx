@@ -1,6 +1,6 @@
 ---
 title: "ADSL Proxy Integration Instructions"
-description: "ADSL rotating proxy 集成指南 - Ace Data Cloud"
+description: "ADSL rotating proxy 集成指南 - XHuoAPI"
 ---
 
 I kampen mellan webcrawler och anti-webcrawler har riskkontrollen på olika webbplatser och appar blivit allt starkare, där en av åtgärderna är IP-blockering.
@@ -21,21 +21,21 @@ Denna proxyservice är baserad på en stor ADSL-proxypool som huvudsakligen täc
 
 ## Ansökningsmetod
 
-För att använda ADSL-tjänsten kan du först gå till "[ansökningssidan](https://platform.acedata.cloud/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)" för att ansöka. Första gången du ansöker får du 1 gratis poäng, vilket motsvarar cirka 17,5 MB.
+För att använda ADSL-tjänsten kan du först gå till "[ansökningssidan](https://api.xhuoapi.ai/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)" för att ansöka. Första gången du ansöker får du 1 gratis poäng, vilket motsvarar cirka 17,5 MB.
 
-![](https://cdn.acedata.cloud/a2inin.png)
+![](https://cdn.xhuoapi.ai/a2inin.png)
 
 Om du inte är inloggad kommer du automatiskt att omdirigeras till inloggningssidan. Logga in och fortsätt med ansökan.
 
 När ansökan är klar kan du gå till "kontrollpanelen" för att se resultatet av din ansökan, som visas i bilden:
 
-![](https://cdn.acedata.cloud/hc400a.png)
+![](https://cdn.xhuoapi.ai/hc400a.png)
 
 Klicka på "Credentials" för att se användarnamn och lösenord för att använda ADSL-proxyservicen, separerade med kolon, där användarnamnet är 8 tecken långt och lösenordet är 32 tecken långt, som visas i bilden:
 
-![](https://cdn.acedata.cloud/cej7m2.png)
+![](https://cdn.xhuoapi.ai/cej7m2.png)
 
-Denna ADSL-proxy är en roterande proxy, så när du använder den behöver du bara ställa in en fast proxyadress och port. Proxyadressen och porten är adsl.proxy.acedata.cloud och 30005, och det är en proxy för HTTP/HTTPS/SOCKS-protokoll som kan användas för att få åtkomst till webbplatser som använder HTTP och HTTPS-protokoll.
+Denna ADSL-proxy är en roterande proxy, så när du använder den behöver du bara ställa in en fast proxyadress och port. Proxyadressen och porten är adsl.proxy.xhuoapi.ai och 30005, och det är en proxy för HTTP/HTTPS/SOCKS-protokoll som kan användas för att få åtkomst till webbplatser som använder HTTP och HTTPS-protokoll.
 
 ## Kommandotest
 
@@ -44,7 +44,7 @@ När du har proxyanvändarnamn och lösenord är det enklaste sättet att testa 
 Om det aktuella proxyanvändarnamnet och lösenordet är `1f78266a:eff0896726224fa2a99fe82dd1f07562`, kan vi använda följande curl-kommando för att testa:
 
 ```shell
-curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@adsl.proxy.acedata.cloud:30005 https://ipinfo.io
+curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@adsl.proxy.xhuoapi.ai:30005 https://ipinfo.io
 ```
 
 Här använder vi curl:s `-x`-parameter för att specificera proxyadressen. Proxyprotokollet är som standard HTTP/HTTPS, och den begärda URL:en är [https://ipinfo.io](https://ipinfo.io), som kan returnera den verkliga IP-adressen och platsen för den IP-adress som begärde webbplatsen.
@@ -72,7 +72,7 @@ Nedan visas hur man ställer in proxyen med Python som exempel:
 ```python
 import requests
 
-proxy = 'https://{proxy_username}:{proxy_password}@adsl.proxy.acedata.cloud:30005'
+proxy = 'https://{proxy_username}:{proxy_password}@adsl.proxy.xhuoapi.ai:30005'
 
 proxies = {
     'http': proxy,
@@ -138,7 +138,7 @@ I själva verket är den ovanstående koden ekvivalent med att ställa in en ext
 import requests
 import base64
 
-proxy_host = 'adsl.proxy.acedata.cloud'
+proxy_host = 'adsl.proxy.xhuoapi.ai'
 proxy_port = '30005'
 proxy_username = '{proxy_username}' # 8 tecken användarnamn
 proxy_password = '{proxy_password}' # 32 tecken lösenord
@@ -170,7 +170,7 @@ För andra språk, som JavaScript:s axios, kan en liknande inställning också a
 const axios = require("axios");
 const base64 = require("base64");
 
-const proxy_host = "adsl.proxy.acedata.cloud";
+const proxy_host = "adsl.proxy.xhuoapi.ai";
 const proxy_port = "30005";
 const proxy_username = "{proxy_username}"; // 8 tecken användarnamn
 const proxy_password = "{proxy_password}"; // 32 tecken lösenord
@@ -202,4 +202,4 @@ För inställningsmetoder för andra språk, vänligen hänvisa till ovanståend
 
 Om ditt paket redan har tagit slut, behöver du köpa mer för att fortsätta använda denna proxyservice.
 
-För att köpa mer, gå till 「[ansökningssidan](https://platform.acedata.cloud/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)」 och klicka direkt på knappen 「Köp mer」 för att välja, ju mer du köper på en gång, desto billigare blir enhetspriset.
+För att köpa mer, gå till 「[ansökningssidan](https://api.xhuoapi.ai/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)」 och klicka direkt på knappen 「Köp mer」 för att välja, ju mer du köper på en gång, desto billigare blir enhetspriset.

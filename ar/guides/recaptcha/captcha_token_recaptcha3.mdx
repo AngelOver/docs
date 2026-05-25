@@ -1,15 +1,15 @@
 ---
 title: "واجهة برمجة التطبيقات للتعرف على بروتوكول Recaptcha3"
-description: "Recaptcha verification code recognition service 集成指南 - Ace Data Cloud"
+description: "Recaptcha verification code recognition service 集成指南 - XHuoAPI"
 ---
 
 ستقدم هذه الوثيقة شرحًا حول واجهة برمجة التطبيقات للتعرف على بروتوكول Recaptcha3، والتي تتيح للمستخدمين التحقق من الهوية دون الحاجة إلى التعرف على أو النقر على صور رمز التحقق Recaptcha3، بل يكفي تقديم مفتاح الموقع لتحقيق فك التشفير التلقائي في الخلفية وإكمال التحقق.
 
 ## عملية التقديم
 
-لاستخدام واجهة برمجة التطبيقات، يجب أولاً زيارة صفحة [واجهة برمجة التطبيقات للتعرف على بروتوكول Recaptcha3](https://platform.acedata.cloud/documents/1083df69-f2f3-4c13-901e-e5336b0dbe3d) للتقدم للحصول على الخدمة المناسبة، بعد الدخول إلى الصفحة، انقر على زر "Acquire" كما هو موضح في الصورة:
+لاستخدام واجهة برمجة التطبيقات، يجب أولاً زيارة صفحة [واجهة برمجة التطبيقات للتعرف على بروتوكول Recaptcha3](https://api.xhuoapi.ai/documents/1083df69-f2f3-4c13-901e-e5336b0dbe3d) للتقدم للحصول على الخدمة المناسبة، بعد الدخول إلى الصفحة، انقر على زر "Acquire" كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، وبعد تسجيل الدخول، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
@@ -23,11 +23,11 @@ description: "Recaptcha verification code recognition service 集成指南 - Ace
 
 افتح f12، ثم ابحث في صفحة العناصر عن `.execute(`، في منطقة الإطار الأحمر يمكننا رؤية معلمة `action`، بينما تتبع execute سلسلة من الأحرف، وهذا هو المحتوى المطلوب في الأسفل، كما هو موضح في الصورة التالية.
 
-<p><img src="https://cdn.acedata.cloud/imwlto.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/imwlto.png" width="500" className="m-auto" /></p>
 
 بعد ذلك، تحتاج أيضًا إلى إدخال عنوان URL للموقع الذي يحتاج إلى معالجة رمز التحقق، للحصول على النتيجة المعالجة، يجب أولاً تمرير حقل `website_url` ببساطة، وأخيرًا تحتاج إلى إدخال معلمة `website_key`، يمكن الحصول على هذا المحتوى في النص السابق، وهو أيضًا سلسلة من الأحرف بعد execute. يمكننا بعد ذلك ملء المحتويات المقابلة في الواجهة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/1hw2uo.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/1hw2uo.png" width="500" className="m-auto" /></p>
 
 يمكننا أن نرى هنا أننا قمنا بتعيين رؤوس الطلب، بما في ذلك:
 
@@ -42,7 +42,7 @@ description: "Recaptcha verification code recognition service 集成指南 - Ace
 
 بعد الاختيار، يمكنك أن تلاحظ أنه تم إنشاء كود مطابق على الجانب الأيمن، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/3dahem.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/3dahem.png" width="500" className="m-auto" /></p>
 
 انقر على زر "Try" لإجراء الاختبار، كما هو موضح في الصورة أعلاه، هنا حصلنا على النتيجة التالية:
 ```json
@@ -87,7 +87,7 @@ if r.status_code == 200:
 
 بالإضافة إلى ذلك، إذا كنت ترغب في توليد كود التكامل المقابل، يمكنك نسخه مباشرة، مثل كود CURL كما يلي:
 ```shell
-curl -X POST 'https://api.acedata.cloud/captcha/token/recaptcha3' \
+curl -X POST 'https://api.xhuoapi.ai/v1/captcha/token/recaptcha3' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -103,7 +103,7 @@ curl -X POST 'https://api.acedata.cloud/captcha/token/recaptcha3' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/captcha/token/recaptcha3"
+url = "https://api.xhuoapi.ai/v1/captcha/token/recaptcha3"
 
 headers = {
     "accept": "application/json",

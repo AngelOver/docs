@@ -1,15 +1,15 @@
 ---
 title: "معلومات أساسية عن واجهة برمجة التطبيقات لاستعلام بطاقة البنك"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 ستقدم هذه الوثيقة شرحًا عن واجهة برمجة التطبيقات لاستعلام معلومات بطاقة البنك الأساسية، والتي يمكن استخدامها لاستعلام معلومات بطاقة البنك الأساسية.
 
 ## عملية التقديم
 
-لاستخدام واجهة برمجة التطبيقات، يجب أولاً الذهاب إلى [واجهة برمجة التطبيقات لاستعلام معلومات بطاقة البنك الأساسية](https://platform.acedata.cloud/documents/3523988d-acba-4362-9def-105657991eb4) وتقديم طلب الخدمة المناسبة، بعد الدخول إلى الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
+لاستخدام واجهة برمجة التطبيقات، يجب أولاً الذهاب إلى [واجهة برمجة التطبيقات لاستعلام معلومات بطاقة البنك الأساسية](https://api.xhuoapi.ai/documents/3523988d-acba-4362-9def-105657991eb4) وتقديم طلب الخدمة المناسبة، بعد الدخول إلى الصفحة، انقر على زر "Acquire"، كما هو موضح في الصورة:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، سيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، وبعد تسجيل الدخول، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
@@ -19,7 +19,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 أولاً، يجب أن نفهم طريقة الاستخدام الأساسية، وهي إدخال رقم بطاقة البنك، للحصول على نتيجة التحقق بعد المعالجة، يجب أولاً تمرير حقل `bank_card` ببساطة، ثم يمكننا ملء المحتوى المقابل على الواجهة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/h41nrh.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/h41nrh.png" width="500" className="m-auto" /></p>
 
 يمكنك أن ترى هنا أننا قمنا بتعيين رؤوس الطلب، بما في ذلك:
 
@@ -33,7 +33,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 
 بعد الاختيار، يمكنك أن تلاحظ أن الجانب الأيمن قد أنشأ أيضًا كودًا مطابقًا، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/grfra7.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/grfra7.png" width="500" className="m-auto" /></p>
 
 انقر على زر "Try" لإجراء الاختبار، كما هو موضح في الصورة أعلاه، هنا حصلنا على النتيجة التالية:
 
@@ -64,7 +64,7 @@ description: "Identity Authentication 集成指南 - Ace Data Cloud"
 بالإضافة إلى ذلك، إذا كنت ترغب في إنشاء كود التكامل المقابل، يمكنك نسخه مباشرة، على سبيل المثال، كود CURL كما يلي:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/bankcard/check-1e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/bankcard/check-1e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -78,7 +78,7 @@ curl -X POST 'https://api.acedata.cloud/identity/bankcard/check-1e' \
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/bankcard/check-1e"
+url = "https://api.xhuoapi.ai/v1/identity/bankcard/check-1e"
 
 headers = {
     "accept": "application/json",

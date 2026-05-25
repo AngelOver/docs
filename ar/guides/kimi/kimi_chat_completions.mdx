@@ -1,6 +1,6 @@
 ---
 title: "Kimi Chat Completion API 申请及使用"
-description: "Kimi 集成指南 - Ace Data Cloud"
+description: "Kimi 集成指南 - XHuoAPI"
 ---
 
 Kimi هو نظام محادثة AI قوي للغاية، يكفي إدخال كلمة مفتاحية واحدة، ليتمكن من توليد ردود طبيعية وسلسة في غضون ثوانٍ قليلة. يمكن لـ Kimi تقديم مساعدة ذكية مذهلة، مما يزيد بشكل كبير من كفاءة وإبداع البشر في العمل.
@@ -9,9 +9,9 @@ Kimi هو نظام محادثة AI قوي للغاية، يكفي إدخال ك�
 
 ## 申请流程
 
-لاستخدام Gemini Chat Completion API، يمكنك أولاً زيارة صفحة [Kimi Chat Completion API](https://platform.acedata.cloud/documents/b23bbfa3-c820-47ee-b307-6c6dedc9d0cf) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة:
+لاستخدام Gemini Chat Completion API، يمكنك أولاً زيارة صفحة [Kimi Chat Completion API](https://api.xhuoapi.ai/documents/b23bbfa3-c820-47ee-b307-6c6dedc9d0cf) والنقر على زر "Acquire" للحصول على الشهادات المطلوبة:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 إذا لم تكن قد قمت بتسجيل الدخول أو التسجيل بعد، فسيتم تحويلك تلقائيًا إلى صفحة تسجيل الدخول لدعوتك للتسجيل وتسجيل الدخول، وبعد تسجيل الدخول، سيتم العودة تلقائيًا إلى الصفحة الحالية.
 
@@ -21,13 +21,13 @@ Kimi هو نظام محادثة AI قوي للغاية، يكفي إدخال ك�
 
 بعد ذلك، يمكنك ملء المحتوى المقابل في الواجهة، كما هو موضح في الصورة:
 
-<p><img src="https://cdn.acedata.cloud/ej5ozg.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ej5ozg.png" width="400" className="m-auto" /></p>
 
 عند استخدام هذه الواجهة للمرة الأولى، نحتاج على الأقل إلى ملء ثلاثة محتويات، أحدها هو `authorization`، والذي يمكن اختياره مباشرة من القائمة المنسدلة. المعامل الآخر هو `model`، حيث يمثل `model` فئة النموذج التي نختار استخدامها من موقع Kimi الرسمي، وهنا لدينا 7 نماذج رئيسية، يمكن الاطلاع على التفاصيل في النماذج التي نقدمها. المعامل الأخير هو `messages`، حيث أن `messages` هو مصفوفة كلمات الاستفسار التي ندخلها، وهي مصفوفة تمثل إمكانية تحميل عدة كلمات استفسار في نفس الوقت، كل كلمة استفسار تحتوي على `role` و `content`، حيث يمثل `role` دور المستفسر، وقد قدمنا ثلاثة أدوار، وهي `user` و `assistant` و `system`. أما `content` فهو المحتوى المحدد لاستفسارنا.
 
 يمكنك أيضًا ملاحظة وجود كود استدعاء مطابق على الجانب الأيمن، يمكنك نسخ الكود وتشغيله مباشرة، أو يمكنك النقر على زر "Try" للاختبار.
 
-<p><img src="https://cdn.acedata.cloud/six7e3.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/six7e3.png" width="400" className="m-auto" /></p>
 
 بعد الاستدعاء، نجد أن النتيجة المرجعة هي كما يلي:
 
@@ -73,7 +73,7 @@ Kimi هو نظام محادثة AI قوي للغاية، يكفي إدخال ك�
 
 حيث أن `choices` تحتوي على معلومات رد Kimi، ويمكن ملاحظة أن `choices` تحتوي على المعلومات المحددة للرد من Kimi، كما هو موضح في الصورة.
 
-<p><img src="https://cdn.acedata.cloud/tv9rul.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/tv9rul.png" width="400" className="m-auto" /></p>
 
 يمكنك أن ترى أن حقل `content` داخل `choices` يحتوي على المحتوى المحدد لرد Gemini.
 
@@ -85,7 +85,7 @@ Kimi هو نظام محادثة AI قوي للغاية، يكفي إدخال ك�
 
 التعديل كما هو موضح في الصورة، ولكن يجب أن يكون هناك تغييرات مطابقة في كود الاستدعاء لدعم الاستجابة المتدفقة.
 
-<p><img src="https://cdn.acedata.cloud/a3nzpw.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/a3nzpw.png" width="400" className="m-auto" /></p>
 
 بعد تغيير `stream` إلى `true`، ستقوم API بإرجاع بيانات JSON سطرًا بسطر، وعلى مستوى الكود، نحتاج إلى إجراء التعديلات اللازمة للحصول على النتائج سطرًا بسطر.
 
@@ -94,7 +94,7 @@ Kimi هو نظام محادثة AI قوي للغاية، يكفي إدخال ك�
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kimi/chat/completions"
+url = "https://api.xhuoapi.ai/v1/kimi/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -173,7 +173,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/kimi/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/kimi/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -189,7 +189,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/kimi/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/kimi/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -207,14 +207,14 @@ System.out.print(response.body!!.string())
 
 如果您想要对接多轮对话功能，需要对 `messages` 字段上传多个提问词，多个提问词的具体示例如下图所示：
 
-<p><img src="https://cdn.acedata.cloud/g85v2a.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/g85v2a.png" width="400" className="m-auto" /></p>
 
 Python 样例调用代码：
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/kimi/chat/completions"
+url = "https://api.xhuoapi.ai/v1/kimi/chat/completions"
 
 headers = {
     "accept": "application/json",

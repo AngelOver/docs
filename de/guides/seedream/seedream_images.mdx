@@ -1,15 +1,15 @@
 ---
 title: "SeeDream Bilderzeugungs-API Integrationsanleitung"
-description: "ByteDance Seedream Image Generation 集成指南 - Ace Data Cloud"
+description: "ByteDance Seedream Image Generation 集成指南 - XHuoAPI"
 ---
 
 Dieses Dokument beschreibt die Integration der SeeDream Images Generation API, mit der Sie Bilder von SeeDream anhand benutzerdefinierter Parameter erzeugen können.
 
 ## Antragsverfahren
 
-Um die API zu nutzen, müssen Sie zunächst die entsprechende Seite der [SeeDream Images Generation API](https://platform.acedata.cloud/documents/seedream-images) besuchen und dort eine Dienstanfrage stellen. Nach dem Aufrufen der Seite klicken Sie auf die Schaltfläche „Acquire“, wie in der Abbildung gezeigt:
+Um die API zu nutzen, müssen Sie zunächst die entsprechende Seite der [SeeDream Images Generation API](https://api.xhuoapi.ai/documents/seedream-images) besuchen und dort eine Dienstanfrage stellen. Nach dem Aufrufen der Seite klicken Sie auf die Schaltfläche „Acquire“, wie in der Abbildung gezeigt:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Wenn Sie noch nicht eingeloggt oder registriert sind, werden Sie automatisch zur Login-Seite weitergeleitet und zur Registrierung bzw. Anmeldung aufgefordert. Nach dem Login werden Sie automatisch auf die aktuelle Seite zurückgeleitet.
 
@@ -19,7 +19,7 @@ Bei der ersten Anwendung wird ein kostenloses Kontingent gewährt, das die Nutzu
 
 Zunächst ist es wichtig, die grundsätzliche Vorgehensweise zu verstehen: Sie übermitteln die Eingabewörter `prompt`, die Aktion `action` und die Bildgröße `size`, um ein bearbeitetes Ergebnis zu erhalten. Für den Einstieg setzen Sie das Feld `action` auf `generate`. Zudem müssen Sie die Prompt-Wörter angeben. Die konkrete Konfiguration ist wie folgt:
 
-<p><img src="https://cdn.acedata.cloud/seedream_request_body.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedream_request_body.png" width="500" className="m-auto" /></p>
 
 Hier sehen Sie, dass wir die Request-Header, einschließlich:
 
@@ -54,7 +54,7 @@ Zusätzlich sind im Request-Body folgende Felder enthalten:
 
 Nachdem Sie die Parameter ausgewählt haben, erscheint auf der rechten Seite der entsprechende Code, z.B.:
 
-<p><img src="https://cdn.acedata.cloud/seedream_image.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedream_image.png" width="500" className="m-auto" /></p>
 
 Mit Klick auf „Try“ können Sie die API testen. Das Ergebnis sieht wie folgt aus:
 
@@ -67,7 +67,7 @@ Mit Klick auf „Try“ können Sie die API testen. Das Ergebnis sieht wie folgt
     {
       "prompt": "a white siamese cat",
       "size": "2048x2048",
-      "image_url": "https://platform.cdn.acedata.cloud/seedream/3c060029-69b1-406f-a957-fcd55ddc9386.jpg"
+      "image_url": "https://platform.cdn.xhuoapi.ai/seedream/3c060029-69b1-406f-a957-fcd55ddc9386.jpg"
     }
   ]
 }
@@ -88,7 +88,7 @@ Sie können das erzeugte Bild anhand des `image_url`-Links abrufen.
 Zur Generierung des passenden Programmcodes, z.B. curl, siehe folgendes Beispiel:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/seedream/images' \
+curl -X POST 'https://api.xhuoapi.ai/v1/seedream/images' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer ${token}' \
 -H 'content-type: application/json' \
@@ -108,14 +108,14 @@ Möchten Sie ein Bild bearbeiten, muss im Parameter `image` die URL des Original
 
 Beispiel:
 
-<p><img src="https://cdn.acedata.cloud/seedream_edit.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/seedream_edit.png" width="500" className="m-auto" /></p>
 
 Programmierbeispiel in Python:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/flux/images"
+url = "https://api.xhuoapi.ai/v1/flux/images"
 
 headers = {
     "accept": "application/json",
@@ -146,7 +146,7 @@ Nach Ausführung erhalten Sie sofort ein Ergebnis, z.B.:
         {
             "prompt": "Keep the model pose and the liquid garment flowing shape unchanged. Change the clothing material from silver metal to completely transparent water (or glass). Through the liquid flow, the details of the model skin are visible. The light and shadow effect shifts from reflection to refraction.",
             "size": "2048x2048",
-            "image_url": "https://platform.cdn.acedata.cloud/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
+            "image_url": "https://platform.cdn.xhuoapi.ai/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
         }
     ]
 }
@@ -183,7 +183,7 @@ Callback-Beispiel:
         {
             "prompt": "Keep the model pose and the liquid garment flowing shape unchanged. Change the clothing material from silver metal to completely transparent water (or glass). Through the liquid flow, the details of the model skin are visible. The light and shadow effect shifts from reflection to refraction.",
             "size": "2048x2048",
-            "image_url": "https://platform.cdn.acedata.cloud/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
+            "image_url": "https://platform.cdn.xhuoapi.ai/seedream/3e88db7e-4771-4f6a-adbd-5ae4590c5d59.jpg"
         }
     ]
 }

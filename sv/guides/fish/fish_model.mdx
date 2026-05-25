@@ -1,6 +1,6 @@
 ---
 title: "Fish Model API Integrationsanvisningar"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 Denna artikel beskriver integrationsanvisningarna för Fish Model API, som är helt kompatibel med [Fish Audio officiella OpenAPI](https://docs.fish.audio/resources/api-reference/model) och inkluderar:
@@ -10,7 +10,7 @@ Denna artikel beskriver integrationsanvisningarna för Fish Model API, som är h
 
 ## Ansökningsprocess
 
-För att använda API:et måste du först ansöka om motsvarande tjänst på [Fish Model API](https://platform.acedata.cloud/services/caf99abc-ddcf-4714-b2a5-862d9b469509). När du går in på sidan klickar du på knappen "Acquire".
+För att använda API:et måste du först ansöka om motsvarande tjänst på [Fish Model API](https://api.xhuoapi.ai/services/caf99abc-ddcf-4714-b2a5-862d9b469509). När du går in på sidan klickar du på knappen "Acquire".
 
 Om du inte är inloggad eller registrerad kommer du automatiskt att omdirigeras till inloggningssidan för att registrera dig och logga in. Efter inloggning eller registrering återvänder du automatiskt till den aktuella sidan.
 
@@ -27,7 +27,7 @@ Vid första ansökan får du en gratis kvot som gör att du kan använda API:et 
 Minimikrav för skapande är fälten `title` och `voices`. `voices` är en lista med URL:er till ljudprov. Varje fil rekommenderas vara minst 30 sekunder lång med en samplingsfrekvens på 16 kHz eller högre.
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/model' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/model' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   -H 'content-type: application/json' \
@@ -77,7 +77,7 @@ Det returnerade `_id` kan användas som värde för fältet `reference_id` i eft
 ## Hämta röstmodell-lista (GET /fish/model)
 
 ```shell
-curl -G 'https://api.acedata.cloud/fish/model' \
+curl -G 'https://api.xhuoapi.ai/v1/fish/model' \
   -H 'accept: application/json' \
   -H 'authorization: Bearer {token}' \
   --data-urlencode 'page_size=10' \
@@ -146,4 +146,4 @@ Detta API debiterar endast vid "Skapa röstmodell" (`POST /fish/model` med `voic
 
 ## Slutsats
 
-Fish Model API är helt kompatibelt med Fish Audio officiella OpenAPI:s ModelEntity-gränssnitt och möjliggör migrering av befintlig kod för klonad rösthantering utan kodändringar. Det skapade röstmodellens `_id` kan direkt användas som `reference_id` i [Fish TTS API](https://platform.acedata.cloud/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) för talsyntes.
+Fish Model API är helt kompatibelt med Fish Audio officiella OpenAPI:s ModelEntity-gränssnitt och möjliggör migrering av befintlig kod för klonad rösthantering utan kodändringar. Det skapade röstmodellens `_id` kan direkt användas som `reference_id` i [Fish TTS API](https://api.xhuoapi.ai/documents/77adcb84-d59f-5ef9-b8a0-8b35eb42a71d) för talsyntes.

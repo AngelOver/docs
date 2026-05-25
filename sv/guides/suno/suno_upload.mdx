@@ -1,21 +1,21 @@
 ---
 title: "Suno uppladdning av referensljud API integration instruktioner"
-description: "Suno Music Generation 集成指南 - Ace Data Cloud"
+description: "Suno Music Generation 集成指南 - XHuoAPI"
 ---
 
 SUNO tillåter oss att ladda upp referensljud för vidare skapande, detta dokument förklarar hur man integrerar relaterade API:er.
 
 Detta API har endast en inparametrar, nämligen `audio_url`, som är en offentligt tillgänglig CDN-adress som stöder mp3-förlängning.
 
-Här är vår inmatade `audio_url`: `https://cdn.acedata.cloud/suno_demo.mp3`, som är en offentligt tillgänglig CDN-adress.
+Här är vår inmatade `audio_url`: `https://cdn.xhuoapi.ai/suno_demo.mp3`, som är en offentligt tillgänglig CDN-adress.
 
 ```bash
-curl -X POST 'https://api.acedata.cloud/suno/upload' \
+curl -X POST 'https://api.xhuoapi.ai/v1/suno/upload' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "audio_url": "https://cdn.acedata.cloud/suno_demo.mp3"
+  "audio_url": "https://cdn.xhuoapi.ai/suno_demo.mp3"
 }'
 ```
 
@@ -40,4 +40,4 @@ Resultatet ser ut som följer:
 
 Man kan se att `data` fältet `audio_id` är ID:t för låten efter uppladdningen.
 
-Med låtens ID kan vi använda [Suno Audios Generation API](https://platform.acedata.cloud/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) för att generera anpassade låtar, till exempel genom att skicka `action` som `upload_extend`, samtidigt som `audio_id` skickas som det returnerade låt-ID:t, så kan vi generera en ny låt baserat på referensljudet.
+Med låtens ID kan vi använda [Suno Audios Generation API](https://api.xhuoapi.ai/documents/4da95d9d-7722-4a72-857d-bf6be86036e9) för att generera anpassade låtar, till exempel genom att skicka `action` som `upload_extend`, samtidigt som `audio_id` skickas som det returnerade låt-ID:t, så kan vi generera en ny låt baserat på referensljudet.

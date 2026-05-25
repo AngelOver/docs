@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Embeddings API Ansökan och Användning"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI ordvektortjänst, som används för att generera ordvektorer som representerar inmatad text.
@@ -9,9 +9,9 @@ Detta dokument beskriver huvudsakligen användningsflödet för OpenAI Embedding
 
 ## Ansökningsprocess
 
-För att använda OpenAI Embeddings API kan du först gå till [OpenAI Embeddings API](https://platform.acedata.cloud/documents/0f2e63fa-5890-4bdd-84f0-1706b5c9a387) sidan och klicka på "Acquire"-knappen för att få de nödvändiga autentiseringsuppgifterna:
+För att använda OpenAI Embeddings API kan du först gå till [OpenAI Embeddings API](https://api.xhuoapi.ai/documents/0f2e63fa-5890-4bdd-84f0-1706b5c9a387) sidan och klicka på "Acquire"-knappen för att få de nödvändiga autentiseringsuppgifterna:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Om du inte har loggat in eller registrerat dig kommer du automatiskt att omdirigeras till inloggningssidan där du blir inbjuden att registrera dig och logga in. Efter inloggning eller registrering kommer du automatiskt att återvända till den aktuella sidan.
 
@@ -21,7 +21,7 @@ Vid första ansökan kommer det att finnas en gratis kvot som kan användas för
 
 Därefter kan du fylla i motsvarande innehåll på gränssnittet, som visas i bilden:
 
-<p><img src="https://cdn.acedata.cloud/4qtbvr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/4qtbvr.png" width="500" className="m-auto" /></p>
 
 Vid första användningen av detta gränssnitt behöver vi fylla i tre saker, en är `authorization`, som du direkt väljer från rullgardinsmenyn. Den andra parametern är `model`, `model` är den vi väljer att använda från OpenAI:s officiella modellkategorier, här har vi huvudsakligen 3 modeller, detaljer kan ses i de modeller vi tillhandahåller. Den sista parametern är `input`, `input` är den text som vi behöver konvertera till en ordvektor.
 
@@ -32,14 +32,14 @@ Valfria parametrar:
 - `dimensions`: Beskär vektorens dimensioner, standardutgången är full dimension.
 - `encoding_format`: Återvändande format, valfritt `float` eller `base64`.
 
-<p><img src="https://cdn.acedata.cloud/gqulm9.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/gqulm9.png" width="500" className="m-auto" /></p>
 
 Python exempel på anropskod:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/embeddings"
+url = "https://api.xhuoapi.ai/v1/openai/embeddings"
 
 headers = {
     "accept": "application/json",

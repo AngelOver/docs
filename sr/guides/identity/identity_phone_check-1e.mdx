@@ -1,15 +1,15 @@
 ---
 title: "API za proveru statusa mobilnog broja"
-description: "Identity Authentication 集成指南 - Ace Data Cloud"
+description: "Identity Authentication 集成指南 - XHuoAPI"
 ---
 
 Ovaj dokument će predstaviti API za proveru statusa mobilnog broja, koji se može koristiti za verifikaciju statusa mobilnog broja, možete uneti mobilni broj za proveru.
 
 ## Proces prijave
 
-Da biste koristili API, prvo idite na [API za proveru statusa mobilnog broja](https://platform.acedata.cloud/documents/037e2b5b-d0c0-425c-9e13-955ac64d1e07) i zatražite odgovarajuću uslugu, nakon što uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
+Da biste koristili API, prvo idite na [API za proveru statusa mobilnog broja](https://api.xhuoapi.ai/documents/037e2b5b-d0c0-425c-9e13-955ac64d1e07) i zatražite odgovarajuću uslugu, nakon što uđete na stranicu, kliknite na dugme „Acquire“, kao što je prikazano na slici:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Ako još niste prijavljeni ili registrovani, automatski ćete biti preusmereni na stranicu za prijavu koja vas poziva da se registrujete i prijavite, nakon prijave ili registracije automatski ćete se vratiti na trenutnu stranicu.
 
@@ -19,7 +19,7 @@ Prilikom prve prijave dobićete besplatnu kvotu, koju možete besplatno koristit
 
 Prvo se upoznajte sa osnovnim načinom korišćenja, jednostavno unesite mobilni broj i dobićete obrađeni rezultat, prvo je potrebno jednostavno proslediti polje `mobile`. Zatim možemo popuniti odgovarajući sadržaj na interfejsu, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/r17llo.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/r17llo.png" width="500" className="m-auto" /></p>
 
 Možete videti da smo postavili Request Headers, uključujući:
 
@@ -33,7 +33,7 @@ Takođe je postavljen Request Body, uključujući:
 
 Nakon izbora, možete primetiti da je sa desne strane generisan odgovarajući kod, kao što je prikazano na slici:
 
-<p><img src="https://cdn.acedata.cloud/dpun55.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dpun55.png" width="500" className="m-auto" /></p>
 
 Kliknite na dugme „Try“ da biste izvršili testiranje, kao što je prikazano na gornjoj slici, ovde smo dobili sledeći rezultat:
 
@@ -68,7 +68,7 @@ Može se primetiti da je status ovog mobilnog broja već proveren.
 Takođe, ako želite da generišete odgovarajući kod za integraciju, možete ga direktno kopirati, na primer, CURL kod je sledeći:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/identity/phone/check-1e' \
+curl -X POST 'https://api.xhuoapi.ai/v1/identity/phone/check-1e' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -82,7 +82,7 @@ Python kod za integraciju je sledeći:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/identity/phone/check-1e"
+url = "https://api.xhuoapi.ai/v1/identity/phone/check-1e"
 
 headers = {
     "accept": "application/json",

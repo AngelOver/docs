@@ -1,15 +1,15 @@
 ---
 title: "Fem kännetecken positionering API integration beskrivning"
-description: "Face Transformation 集成指南 - Ace Data Cloud"
+description: "Face Transformation 集成指南 - XHuoAPI"
 ---
 
 Denna artikel kommer att introducera en fem kännetecken positionering API integration beskrivning, som kan genom att mata in en bild, utföra fem kännetecken positionering (även kallad ansiktsnyckelpunktspositionering), beräkna 90 punkter som utgör ansiktskonturen, inklusive ögonbryn (8 punkter på vardera sidan), ögon (8 punkter på vardera sidan), näsa (13 punkter), mun (22 punkter), ansiktsform kontur (21 punkter), ögonkulor [eller pupiller] (2 punkter).
 
 ## Ansökningsprocess
 
-För att använda API:et måste du först gå till [Fem kännetecken positionering API](https://platform.acedata.cloud/documents/20945baf-b263-457b-be5f-0332c2180a57) motsvarande sida för att ansöka om den tjänst som behövs, när du kommer in på sidan, klicka på "Acquire" knappen, som visas i bilden nedan:
+För att använda API:et måste du först gå till [Fem kännetecken positionering API](https://api.xhuoapi.ai/documents/20945baf-b263-457b-be5f-0332c2180a57) motsvarande sida för att ansöka om den tjänst som behövs, när du kommer in på sidan, klicka på "Acquire" knappen, som visas i bilden nedan:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Om du inte har loggat in eller registrerat dig, kommer du automatiskt att omdirigeras till inloggningssidan som bjuder in dig att registrera och logga in, efter inloggning och registrering kommer du automatiskt att återvända till den aktuella sidan.
 
@@ -19,11 +19,11 @@ Vid första ansökan kommer det att finnas en gratis kvot som ges, så att du ka
 
 Först bör du förstå den grundläggande användningsmetoden, vilket är att mata in en bildlänk för att få den bearbetade resultatbilden, först behöver du enkelt överföra ett `image_url` fält, ansiktsbilden visas nedan:
 
-<p><img src="https://cdn.acedata.cloud/lrbtcn.jpg" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/lrbtcn.jpg" width="500" className="m-auto" /></p>
 
 Vi kan sedan fylla i motsvarande innehåll på gränssnittet, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/y3g837.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/y3g837.png" width="500" className="m-auto" /></p>
 
 Här kan vi se att vi har ställt in Request Headers, inklusive:
 
@@ -39,7 +39,7 @@ Dessutom har vi ställt in Request Body, inklusive:
 
 När du har valt kan du se att motsvarande kod också har genererats till höger, som visas i bilden nedan:
 
-<p><img src="https://cdn.acedata.cloud/2ceul8.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/2ceul8.png" width="500" className="m-auto" /></p>
 
 Klicka på "Try" knappen för att utföra testet, som visas i bilden ovan, här har vi fått följande resultat:
 ```json
@@ -470,12 +470,12 @@ Fältbeskrivningen är som följer:
 Dessutom, om du vill generera motsvarande integrationskod kan du direkt kopiera den, till exempel CURL-koden nedan:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/face/analyze' \
+curl -X POST 'https://api.xhuoapi.ai/v1/face/analyze' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
 -d '{
-  "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+  "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }'
 ```
 
@@ -484,7 +484,7 @@ Python-integrationskoden ser ut så här:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/face/analyze"
+url = "https://api.xhuoapi.ai/v1/face/analyze"
 
 headers = {
     "accept": "application/json",
@@ -493,7 +493,7 @@ headers = {
 }
 
 payload = {
-    "image_url": "https://cdn.acedata.cloud/lrbtcn.jpg"
+    "image_url": "https://cdn.xhuoapi.ai/lrbtcn.jpg"
 }
 
 response = requests.post(url, json=payload, headers=headers)

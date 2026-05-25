@@ -1,19 +1,19 @@
 ---
 title: "Claude Code 데스크탑 애플리케이션 사용 튜토리얼"
-description: "Claude Code 集成指南 - Ace Data Cloud"
+description: "Claude Code 集成指南 - XHuoAPI"
 ---
 
 Claude Code는 Anthropic이 출시한 **Agentic Coding** 도구로, 세계에서 가장 강력한 프로그래밍 에이전트 중 하나로 알려져 있습니다. Claude Code 데스크탑 애플리케이션은 독립적인 그래픽 인터페이스를 제공하며, Diff 검토, 병렬 세션(기타 Git Worktree로 격리), 원격 세션 등의 기능을 지원하여 어떤 IDE에도 의존하지 않습니다.
 
-이 문서는 AceData Cloud의 프록시 서비스를 통해 Claude Code 데스크탑 애플리케이션을 구성하고 사용하는 방법을 주로 설명합니다.
+이 문서는 XHuoAPI의 프록시 서비스를 통해 Claude Code 데스크탑 애플리케이션을 구성하고 사용하는 방법을 주로 설명합니다.
 
 > **주의**: Claude Code 데스크탑 애플리케이션은 현재 미리보기 단계(Preview)에 있으며, macOS와 Windows만 지원합니다.
 
 ## 신청 절차
 
-Claude Code를 사용하려면 먼저 [Claude Messages 서비스 페이지](https://platform.acedata.cloud/documents/claude-messages)로 가서 "Acquire" 버튼을 클릭하여 요청에 필요한 자격 증명을 얻습니다:
+Claude Code를 사용하려면 먼저 [Claude Messages 서비스 페이지](https://api.xhuoapi.ai/documents/claude-messages)로 가서 "Acquire" 버튼을 클릭하여 요청에 필요한 자격 증명을 얻습니다:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 로그인 또는 등록하지 않은 경우 자동으로 로그인 페이지로 리디렉션되어 등록 및 로그인을 요청합니다. 로그인 후에는 자동으로 현재 페이지로 돌아옵니다.
 
@@ -34,13 +34,13 @@ Claude Code를 사용하려면 먼저 [Claude Messages 서비스 페이지](http
 - **Windows x64**: `.exe` 설치 패키지를 다운로드하여 안내에 따라 설치합니다.
 - **Windows ARM64**: ARM64 버전을 다운로드합니다(주의: ARM64는 로컬 세션을 지원하지 않으며 원격 세션을 사용해야 합니다).
 
-![Claude 데스크탑 애플리케이션 다운로드 페이지](https://cdn.acedata.cloud/c3c8c57264.png)
+![Claude 데스크탑 애플리케이션 다운로드 페이지](https://cdn.xhuoapi.ai/c3c8c57264.png)
 
 설치가 완료되면 Applications 폴더(macOS) 또는 시작 메뉴(Windows)에서 Claude를 시작합니다.
 
-## AceData Cloud API 구성
+## XHuoAPI API 구성
 
-데스크탑 애플리케이션이 시작되면 Anthropic 계정에 로그인해야 합니다. 환경 변수를 구성하여 AceData Cloud의 프록시 API를 사용할 수 있으며, **공식 구독이 필요 없습니다**.
+데스크탑 애플리케이션이 시작되면 Anthropic 계정에 로그인해야 합니다. 환경 변수를 구성하여 XHuoAPI의 프록시 API를 사용할 수 있으며, **공식 구독이 필요 없습니다**.
 
 데스크탑 애플리케이션은 Shell 환경에서 환경 변수를 읽으므로 Shell 구성 파일에서 설정해야 합니다.
 
@@ -51,9 +51,9 @@ Claude Code를 사용하려면 먼저 [Claude Messages 서비스 페이지](http
 다음 내용을 `~/.zshrc`(또는 `~/.bashrc`)에 추가하고 `{token}`을 자신의 API 토큰으로 교체합니다:
 
 ```bash
-# AceData Cloud - Claude Code 프록시 구성
+# XHuoAPI - Claude Code 프록시 구성
 export ANTHROPIC_AUTH_TOKEN="{token}"
-export ANTHROPIC_BASE_URL="https://api.acedata.cloud"
+export ANTHROPIC_BASE_URL="https://api.xhuoapi.ai/v1"
 ```
 
 저장한 후 다음을 실행합니다:
@@ -69,13 +69,13 @@ source ~/.zshrc
 | 변수명                    | 값                           |
 | ---------------------- | --------------------------- |
 | `ANTHROPIC_AUTH_TOKEN` | `{token}`(자신의 API 토큰으로 교체)     |
-| `ANTHROPIC_BASE_URL`   | `https://api.acedata.cloud` |
+| `ANTHROPIC_BASE_URL`   | `https://api.xhuoapi.ai/v1` |
 
 또는 PowerShell을 사용하여:
 
 ```powershell
 [System.Environment]::SetEnvironmentVariable("ANTHROPIC_AUTH_TOKEN", "{token}", "User")
-[System.Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.acedata.cloud", "User")
+[System.Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.xhuoapi.ai/v1", "User")
 ```
 
 **settings.json을 통해 구성할 수도 있습니다**
@@ -86,12 +86,12 @@ source ~/.zshrc
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "{token}",
-    "ANTHROPIC_BASE_URL": "https://api.acedata.cloud"
+    "ANTHROPIC_BASE_URL": "https://api.xhuoapi.ai/v1"
   }
 }
 ```
 
-> **팁**: API 토큰은 [AceData Cloud 콘솔](https://platform.acedata.cloud/console)에서 확인할 수 있습니다. 구성이 완료된 후 **데스크탑 애플리케이션을 재시작**하여 환경 변수를 적용해야 합니다.
+> **팁**: API 토큰은 [XHuoAPI 콘솔](https://api.xhuoapi.ai/console)에서 확인할 수 있습니다. 구성이 완료된 후 **데스크탑 애플리케이션을 재시작**하여 환경 변수를 적용해야 합니다.
 
 ## 기본 사용
 
@@ -162,7 +162,7 @@ Claude가 파일을 수정하면 변경 통계(예: `+12 -1`)가 표시되며, �
 
 1. `~/.claude/config.json` 파일이 올바르게 생성되었는지 확인합니다.
 2. 환경 변수가 올바르게 설정되었는지 확인합니다(데스크탑 애플리케이션을 재시작하여 적용).
-3. API 토큰이 유효한지 확인합니다( [콘솔](https://platform.acedata.cloud/console)에서 확인 가능).
+3. API 토큰이 유효한지 확인합니다( [콘솔](https://api.xhuoapi.ai/console)에서 확인 가능).
 4. `settings.json`을 통해 환경 변수를 구성한 경우 파일 형식이 올바른지 확인합니다.
 
 ### 설치된 도구를 찾을 수 없나요?
@@ -175,9 +175,9 @@ Claude가 `npm`, `node` 등의 명령을 찾을 수 없는 경우:
 
 ### 잔여 크레딧을 어떻게 확인하나요?
 
-[AceData Cloud 콘솔](https://platform.acedata.cloud/console)에 로그인하면 현재 계정의 잔여 크레딧과 사용 현황을 확인할 수 있습니다.
+[XHuoAPI 콘솔](https://api.xhuoapi.ai/console)에 로그인하면 현재 계정의 잔여 크레딧과 사용 현황을 확인할 수 있습니다.
 
 ## 더 알아보기
 - 📖 [Claude Code 데스크탑 애플리케이션 공식 문서](https://code.claude.com/docs/en/desktop)
-- 🔧 [AceData Cloud Claude Code 서비스](https://platform.acedata.cloud/documents/claude-messages)
+- 🔧 [XHuoAPI Claude Code 서비스](https://api.xhuoapi.ai/documents/claude-messages)
 - 💬 문의 사항이 있으시면 플랫폼 고객 서비스에 연락해 주시기 바랍니다.

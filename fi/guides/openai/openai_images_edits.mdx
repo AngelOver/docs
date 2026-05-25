@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Images Edits API Hakeminen ja Käyttö"
-description: "OpenAI generation 集成指南 - Ace Data Cloud"
+description: "OpenAI generation 集成指南 - XHuoAPI"
 ---
 
 OpenAI:n kuvien muokkauspalvelu mahdollistaa minkä tahansa määrän kuvien ja ohjeiden syöttämisen, ja palauttaa muokatun kuvan. Tällä hetkellä rajapinta tukee samanaikaisesti `dall-e-2`-, `gpt-image-1`-, uusinta **`gpt-image-2`** -mallia sekä saman rajapinnan kautta käytettäviä **`nano-banana` / `nano-banana-2` / `nano-banana-pro`** -mallisarjoja.
@@ -9,9 +9,9 @@ Tämä dokumentti esittelee pääasiassa OpenAI Images Edits API:n käytön pros
 
 ## Hakuprosessi
 
-Käyttääksesi OpenAI Images Edits API:a, voit ensin siirtyä [OpenAI Images Edits API](https://platform.acedata.cloud/documents/251f1efa-aaa6-462e-8af4-66854b1bc94d) -sivulle ja klikata "Acquire"-painiketta saadaksesi pyynnön vaatiman tunnisteen:
+Käyttääksesi OpenAI Images Edits API:a, voit ensin siirtyä [OpenAI Images Edits API](https://api.xhuoapi.ai/documents/251f1efa-aaa6-462e-8af4-66854b1bc94d) -sivulle ja klikata "Acquire"-painiketta saadaksesi pyynnön vaatiman tunnisteen:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Jos et ole vielä kirjautunut sisään tai rekisteröitynyt, sinut ohjataan automaattisesti kirjautumissivulle rekisteröitymistä ja kirjautumista varten. Kirjautumisen jälkeen palaat automaattisesti tälle sivulle.
 
@@ -57,17 +57,17 @@ Lähetä pyyntö `application/json` -sisältönä, `image`-kenttään annetaan k
 
 Esimerkiksi alla oleva alkuperäinen kuva on `gpt-image-2`:lla luotu tietokuvitus:
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/5c9fa635-8794-4c6d-88f8-584d7f4716c6_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/5c9fa635-8794-4c6d-88f8-584d7f4716c6_0.png" width="500" className="m-auto" /></p>
 
 Haluamme muuttaa sen "yötilaksi". Kutsu tapahtuu näin:
 
 ```shell
-curl -X POST "https://api.acedata.cloud/openai/images/edits" \
+curl -X POST "https://api.xhuoapi.ai/v1/openai/images/edits" \
   -H "Authorization: Bearer {token}" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "gpt-image-2",
-    "image": "https://platform.cdn.acedata.cloud/gpt-image/5c9fa635-8794-4c6d-88f8-584d7f4716c6_0.png",
+    "image": "https://platform.cdn.xhuoapi.ai/gpt-image/5c9fa635-8794-4c6d-88f8-584d7f4716c6_0.png",
     "prompt": "Convert this infographic to dark mode: dark navy background, light cream text, deep gray rounded module cards with soft shadows. Keep all layout, structure, and module arrangement identical — only invert the color scheme.",
     "size": "1024x1536"
   }'
@@ -78,7 +78,7 @@ Tai Pythonilla:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/edits"
+url = "https://api.xhuoapi.ai/v1/openai/images/edits"
 
 headers = {
     "accept": "application/json",
@@ -88,7 +88,7 @@ headers = {
 
 payload = {
     "model": "gpt-image-2",
-    "image": "https://platform.cdn.acedata.cloud/gpt-image/5c9fa635-8794-4c6d-88f8-584d7f4716c6_0.png",
+    "image": "https://platform.cdn.xhuoapi.ai/gpt-image/5c9fa635-8794-4c6d-88f8-584d7f4716c6_0.png",
     "prompt": "Convert this infographic to dark mode: dark navy background, light cream text, deep gray rounded module cards with soft shadows. Keep all layout, structure, and module arrangement identical — only invert the color scheme.",
     "size": "1024x1536"
 }
@@ -108,7 +108,7 @@ Palautus näyttää tältä:
   "data": [
     {
       "revised_prompt": "Convert this infographic to dark mode: dark navy background, light cream text, deep gray rounded module cards with soft shadows. Keep all layout, structure, and module arrangement identical — only invert the color scheme.",
-      "url": "https://platform.cdn.acedata.cloud/gpt-image/cb104e35-af1f-45be-9fac-b62e2b256753_0.png"
+      "url": "https://platform.cdn.xhuoapi.ai/gpt-image/cb104e35-af1f-45be-9fac-b62e2b256753_0.png"
     }
   ],
   "elapsed": 83.859
@@ -117,7 +117,7 @@ Palautus näyttää tältä:
 
 Muokattu kuva:
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/cb104e35-af1f-45be-9fac-b62e2b256753_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/cb104e35-af1f-45be-9fac-b62e2b256753_0.png" width="500" className="m-auto" /></p>
 
 Näet, että moduulirakenne, tietojako ja fonttiasettelu säilyivät tarkasti, vain värimaailma käännettiin tummaksi teemaksi.
 
@@ -146,14 +146,14 @@ Toinen esimerkki: puinen kirjahylly vaihdetaan moderniksi kelluvaksi hyllyksi, m
 
 Alkuperäinen kuva (puinen kirjahylly, luotu `gpt-image-2` -mallilla):
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/141970f0-65fb-4ec8-ab7d-9be173641350_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/141970f0-65fb-4ec8-ab7d-9be173641350_0.png" width="500" className="m-auto" /></p>
 
 Kutsu:
 
 ```python
 payload = {
     "model": "gpt-image-2",
-    "image": "https://platform.cdn.acedata.cloud/gpt-image/141970f0-65fb-4ec8-ab7d-9be173641350_0.png",
+    "image": "https://platform.cdn.xhuoapi.ai/gpt-image/141970f0-65fb-4ec8-ab7d-9be173641350_0.png",
     "prompt": "Replace the wooden bookshelf with a sleek modern white floating shelf mounted on a pastel blue wall. Keep the exact same arrangement of books (1 book on top, 3 in middle, 7 on bottom). Add a small potted succulent on the top shelf next to the book. Bright airy daylight from the left.",
     "size": "1024x1024"
 }
@@ -161,7 +161,7 @@ payload = {
 
 Muokkaustulos (`task_id`: `e9544dba-727e-44a2-81e1-223d49869380`):
 
-<p><img src="https://platform.cdn.acedata.cloud/gpt-image/e9544dba-727e-44a2-81e1-223d49869380_0.png" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/gpt-image/e9544dba-727e-44a2-81e1-223d49869380_0.png" width="500" className="m-auto" /></p>
 
 Tyylit ja ympäristö vaihdettiin ohjeiden mukaisesti, mutta kirjojen määrät (1 / 3 / 7) säilyivät tarkasti ja ylähyllylle lisättiin pieni mehikasvi.
 
@@ -186,10 +186,10 @@ with open("edited.png", "wb") as f:
     f.write(image_bytes)
 ```
 
-SDK:n käyttöä varten tuo ensin kaksi ympäristömuuttujaa, aseta `OPENAI_BASE_URL` arvoksi `https://api.acedata.cloud/openai` ja `OPENAI_API_KEY` arvoksi hakemasi token:
+SDK:n käyttöä varten tuo ensin kaksi ympäristömuuttujaa, aseta `OPENAI_BASE_URL` arvoksi `https://api.xhuoapi.ai/v1/openai` ja `OPENAI_API_KEY` arvoksi hakemasi token:
 
 ```shell
-export OPENAI_BASE_URL=https://api.acedata.cloud/openai
+export OPENAI_BASE_URL=https://api.xhuoapi.ai/v1/openai
 export OPENAI_API_KEY={token}
 ```
 
@@ -214,11 +214,11 @@ export OPENAI_API_KEY={token}
 ### Lomake + kuvan URL -kutsu
 
 ```shell
-curl -X POST "https://api.acedata.cloud/openai/images/edits" \
+curl -X POST "https://api.xhuoapi.ai/v1/openai/images/edits" \
   -H "Authorization: Bearer {token}" \
   -F "model=nano-banana" \
   -F "prompt=add a green leaf on top of the apple" \
-  -F "image=https://platform.cdn.acedata.cloud/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png"
+  -F "image=https://platform.cdn.xhuoapi.ai/nanobanana/6870b330-65c4-436c-bb80-819fdae7a7a4.png"
 ```
 
 Palautus:
@@ -228,7 +228,7 @@ Palautus:
   "created": 0,
   "data": [
     {
-      "url": "https://platform.cdn.acedata.cloud/nanobanana/311e95b6-5eb1-4c4a-8ee6-0cb03ee44f61.jpeg",
+      "url": "https://platform.cdn.xhuoapi.ai/nanobanana/311e95b6-5eb1-4c4a-8ee6-0cb03ee44f61.jpeg",
       "revised_prompt": "add a green leaf on top of the apple"
     }
   ]
@@ -237,14 +237,14 @@ Palautus:
 
 Muokattu kuva:
 
-<p><img src="https://platform.cdn.acedata.cloud/nanobanana/311e95b6-5eb1-4c4a-8ee6-0cb03ee44f61.jpeg" width="500" className="m-auto" /></p>
+<p><img src="https://platform.cdn.xhuoapi.ai/nanobanana/311e95b6-5eb1-4c4a-8ee6-0cb03ee44f61.jpeg" width="500" className="m-auto" /></p>
 
 ### Lomake + paikallinen tiedosto -kutsu
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/openai/images/edits"
+url = "https://api.xhuoapi.ai/v1/openai/images/edits"
 
 headers = {
     "authorization": "Bearer {token}"
@@ -273,7 +273,7 @@ Seuraavaksi voit tehdä kutsuja koodilla. Alla esimerkki CURL-kutsusta:
 ```curl
 curl -s -D >(grep -i x-request-id >&2) \
   -o >(jq -r '.data[0].b64_json' | base64 --decode > gift-basket.png) \
-  -X POST "https://api.acedata.cloud/v1/images/edits" \
+  -X POST "https://api.xhuoapi.ai/v1/v1/images/edits" \
   -H "Authorization: Bearer {token}" \
   -F "model=gpt-image-1" \
   -F "image[]=@test.png" \
@@ -282,7 +282,7 @@ curl -s -D >(grep -i x-request-id >&2) \
 
 Ensimmäisellä käyttökerralla sinun tulee täyttää ainakin neljä asiaa: `authorization` valitaan alasvetovalikosta; `model` valitaan OpenAI:n virallisista mallivaihtoehdoista (tässä dokumentissa on yksi malli, katso tarkemmat tiedot yllä olevasta mallilistasta); `prompt` on kuvaa luova ohje; ja `image` on muokattavan kuvan tiedostopolku, kuten alla oleva kuva:
 
-<p><img src="https://cdn.acedata.cloud/jw9iwu.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/jw9iwu.png" width="500" className="m-auto" /></p>
 
 Saman kutsun Python-esimerkki:
 
@@ -313,16 +313,16 @@ with open("gift-basket.png", "wb") as f:
     f.write(image_bytes)
 ```
 
-Python-kutsua varten tuo ensin kaksi ympäristömuuttujaa: `OPENAI_BASE_URL` asetetaan arvoon `https://api.acedata.cloud/openai` ja `OPENAI_API_KEY` asetetaan hakemaasi tokeniin. Mac OS:ssa voit asettaa ne näin:
+Python-kutsua varten tuo ensin kaksi ympäristömuuttujaa: `OPENAI_BASE_URL` asetetaan arvoon `https://api.xhuoapi.ai/v1/openai` ja `OPENAI_API_KEY` asetetaan hakemaasi tokeniin. Mac OS:ssa voit asettaa ne näin:
 
 ```shell
-export OPENAI_BASE_URL=https://api.acedata.cloud/openai
+export OPENAI_BASE_URL=https://api.xhuoapi.ai/v1/openai
 export OPENAI_API_KEY={token} 
 ```
 
 Kutsun jälkeen näet, että nykyiseen hakemistoon luodaan kuva nimeltä `gift-basket.png`, tulos näyttää tältä:
 
-<p><img src="https://cdn.acedata.cloud/574s8h.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/574s8h.png" width="500" className="m-auto" /></p>
 
 Näin olemme suorittaneet kuvan muokkauksen. Edits-rajapinta tukee tällä hetkellä kolmea mallia: `dall-e-2`, `gpt-image-1` ja `gpt-image-2`, joista `gpt-image-2` on suositeltavin, katso lisää yllä [GPT-Image-2 -malli](#gpt-image-2--malli) -osiossa.
 
@@ -336,12 +336,12 @@ Seuraavassa esimerkki käytännöstä.
 
 Webhook callback on HTTP-palvelu, joka vastaanottaa pyyntöjä. Kehittäjän tulee korvata se omalla palvelimellaan. Tässä esimerkissä käytetään julkista webhook-sivustoa https://webhook.site/, josta saa webhook-URL:n, kuten alla:
 
-![](https://cdn.acedata.cloud/cjjfly.png)
+![](https://cdn.xhuoapi.ai/cjjfly.png)
 
 Kopioi tämä URL, esimerkiksi `https://webhook.site/3d32690d-6780-4187-a65c-870061e8c8ab`, ja käytä sitä callback-URL:na. Lähetä pyyntö seuraavasti:
 
 ```shell
-curl -X POST "https://api.acedata.cloud/v1/images/edits" \
+curl -X POST "https://api.xhuoapi.ai/v1/v1/images/edits" \
   -H "Authorization: Bearer {token}" \
   -F "model=gpt-image-1" \
   -F "image[]=@test.png" \

@@ -1,6 +1,6 @@
 ---
 title: "Grok Chat Completion API aplikacja i użycie"
-description: "Grok 集成指南 - Ace Data Cloud"
+description: "Grok 集成指南 - XHuoAPI"
 ---
 
 xAI Grok to bardzo potężny system AI do rozmów, który potrafi w ciągu kilku sekund wygenerować płynne i naturalne odpowiedzi na wprowadzone zapytania. Grok wyróżnia się w branży dzięki swojemu unikalnemu poczuciu humoru i zdolności do pozyskiwania informacji w czasie rzeczywistym z sieci, a obecnie Grok zyskuje na znaczeniu w wielu innowacyjnych dziedzinach, a jego wpływ szybko rośnie. Niezależnie od tego, czy chodzi o codzienne rozmowy, kreatywne pisanie, czy analizę techniczną i debugowanie kodu, Grok może zapewnić wnikliwą inteligentną pomoc, oferując użytkownikom nowe wsparcie w podejmowaniu decyzji i twórczości.
@@ -9,9 +9,9 @@ Dokument ten głównie opisuje proces korzystania z Grok Chat Completion API, dz
 
 ## Proces aplikacji
 
-Aby korzystać z Grok Chat Completion API, najpierw można przejść na stronę [Grok Chat Completion API](https://platform.acedata.cloud/documents/faf08b59-36aa-4d26-b5d9-a18f113cc2be) i kliknąć przycisk „Acquire”, aby uzyskać potrzebne poświadczenia:
+Aby korzystać z Grok Chat Completion API, najpierw można przejść na stronę [Grok Chat Completion API](https://api.xhuoapi.ai/documents/faf08b59-36aa-4d26-b5d9-a18f113cc2be) i kliknąć przycisk „Acquire”, aby uzyskać potrzebne poświadczenia:
 
-![](https://cdn.acedata.cloud/nyq0xz.png)
+![](https://cdn.xhuoapi.ai/nyq0xz.png)
 
 Jeśli nie jesteś zalogowany lub zarejestrowany, automatycznie zostaniesz przekierowany na stronę logowania, aby zarejestrować się i zalogować, a po zalogowaniu lub rejestracji automatycznie wrócisz na bieżącą stronę.
 
@@ -21,7 +21,7 @@ Podczas pierwszej aplikacji otrzymasz darmowy limit, który pozwala na bezpłatn
 
 Następnie możesz wypełnić odpowiednie treści na interfejsie, jak pokazano na obrazku:
 
-<p><img src="https://cdn.acedata.cloud/vunnjf.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/vunnjf.png" width="400" className="m-auto" /></p>
 
 Podczas pierwszego korzystania z tego interfejsu musimy wypełnić co najmniej trzy pola: jedno to `authorization`, które można wybrać bezpośrednio z rozwijanej listy. Kolejnym parametrem jest `model`, `model` to kategoria modelu, którą wybieramy z oficjalnej strony Grok, mamy tutaj głównie 8 rodzajów modeli, szczegóły można zobaczyć w dostarczonych modelach. Ostatnim parametrem jest `messages`, `messages` to tablica naszych zapytań, jest to tablica, która pozwala na jednoczesne przesyłanie wielu zapytań, każde zapytanie zawiera `role` i `content`, gdzie `role` oznacza rolę pytającego, oferujemy trzy rodzaje ról: `user`, `assistant`, `system`. Drugim `content` jest konkretna treść naszego zapytania.
 
@@ -33,7 +33,7 @@ Często używane opcjonalne parametry:
 - `temperature`: generuje losowość, w zakresie od 0 do 2, im wyższa wartość, tym bardziej rozproszone odpowiedzi.
 - `n`: ile odpowiedzi kandydatów generować jednocześnie.
 
-<p><img src="https://cdn.acedata.cloud/d7iwun.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/d7iwun.png" width="400" className="m-auto" /></p>
 
 Po wywołaniu zauważamy, że wynik zwrotny wygląda następująco:
 
@@ -84,7 +84,7 @@ Wynik zwrotny zawiera wiele pól, które są opisane poniżej:
 
 Wśród nich `choices` zawiera informacje o odpowiedziach Grok, a w nim `choices` to konkretne informacje o odpowiedziach Grok, co można zobaczyć na obrazku.
 
-<p><img src="https://cdn.acedata.cloud/p8vupk.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/p8vupk.png" width="400" className="m-auto" /></p>
 
 Można zauważyć, że pole `content` w `choices` zawiera konkretną treść odpowiedzi Grok.
 
@@ -96,7 +96,7 @@ Jeśli chcesz, aby odpowiedzi były zwracane strumieniowo, możesz zmienić para
 
 Zmiana jak na obrazku, jednak kod wywołania musi być odpowiednio zmieniony, aby obsługiwał odpowiedzi strumieniowe.
 
-<p><img src="https://cdn.acedata.cloud/k883qa.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/k883qa.png" width="400" className="m-auto" /></p>
 
 Po zmianie `stream` na `true`, API będzie zwracać dane JSON wierszami, a na poziomie kodu musimy wprowadzić odpowiednie zmiany, aby uzyskać wyniki wierszowe.
 
@@ -105,7 +105,7 @@ Przykładowy kod wywołania w Pythonie:
 ```python
 import requests
 
-url = "https://api.acedata.cloud/grok/chat/completions"
+url = "https://api.xhuoapi.ai/v1/grok/chat/completions"
 
 headers = {
     "accept": "application/json",
@@ -199,7 +199,7 @@ const options = {
   })
 };
 
-fetch("https://api.acedata.cloud/grok/chat/completions", options)
+fetch("https://api.xhuoapi.ai/v1/grok/chat/completions", options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
@@ -215,7 +215,7 @@ jsonObject.put("stream", true);
 MediaType mediaType = "application/json; charset=utf-8".toMediaType();
 RequestBody body = jsonObject.toString().toRequestBody(mediaType);
 Request request = new Request.Builder()
-  .url("https://api.acedata.cloud/grok/chat/completions")
+  .url("https://api.xhuoapi.ai/v1/grok/chat/completions")
   .post(body)
   .addHeader("accept", "application/json")
   .addHeader("authorization", "Bearer {token}")
@@ -233,14 +233,14 @@ Inne języki można przekształcić samodzielnie, zasada jest taka sama.
 
 Jeśli chcesz zintegrować funkcję wieloetapowej rozmowy, musisz przesłać wiele pytań w polu `messages`, konkretne przykłady wielu pytań są pokazane na poniższym obrazku:
 
-<p><img src="https://cdn.acedata.cloud/t8cya8.png" width="400" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/t8cya8.png" width="400" className="m-auto" /></p>
 
 Przykład kodu wywołania w Pythonie:
 
 ```python
 import requests
 
-url = "https://api.acedata.cloud/grok/chat/completions"
+url = "https://api.xhuoapi.ai/v1/grok/chat/completions"
 
 headers = {
     "accept": "application/json",

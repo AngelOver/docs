@@ -1,6 +1,6 @@
 ---
 title: "ADSL代理对接说明"
-description: "ADSL rotating proxy 集成指南 - Ace Data Cloud"
+description: "ADSL rotating proxy 集成指南 - XHuoAPI"
 ---
 
 在爬虫与反爬虫斗争愈演愈烈的情况下，各大网站和App的风控检测越来越强，其中一项就是IP封禁。
@@ -21,21 +21,21 @@ ADSL，英文全称是Asymmetric Digital Subscriber Line，即非对称数字用
 
 ## 申请方法
 
-要使用ADSL服务，可以首先到「[申请页面](https://platform.acedata.cloud/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)」进行申请，首次申请有1积分免费额度，约17.5MB。
+要使用ADSL服务，可以首先到「[申请页面](https://api.xhuoapi.ai/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)」进行申请，首次申请有1积分免费额度，约17.5MB。
 
-![](https://cdn.acedata.cloud/a2inin.png)
+![](https://cdn.xhuoapi.ai/a2inin.png)
 
 如果您尚未登录，则会自动跳转到登录页面，登录之后继续申请即可。
 
 申请完毕之后，可以到「控制台」中查看本人的申请结果，如图所示：
 
-![](https://cdn.acedata.cloud/hc400a.png)
+![](https://cdn.xhuoapi.ai/hc400a.png)
 
 点击「Credentials」，即可查看使用ADSL代理服务的用户名及密码，以冒号分隔，其中用户名是8位，密码是32位，如图所示：
 
-![](https://cdn.acedata.cloud/cej7m2.png)
+![](https://cdn.xhuoapi.ai/cej7m2.png)
 
-本ADSL代理是一种轮换代理，因此使用的时候只需要设置一个固定的代理地址和端口即可，代理的地址和端口分别是adsl.proxy.acedata.cloud和30005，是HTTP/HTTPS/SOCKS协议的代理，可以用于访问HTTP和HTTPS协议的网站。
+本ADSL代理是一种轮换代理，因此使用的时候只需要设置一个固定的代理地址和端口即可，代理的地址和端口分别是adsl.proxy.xhuoapi.ai和30005，是HTTP/HTTPS/SOCKS协议的代理，可以用于访问HTTP和HTTPS协议的网站。
 
 ## 命令测试
 
@@ -44,7 +44,7 @@ ADSL，英文全称是Asymmetric Digital Subscriber Line，即非对称数字用
 假如当前代理的用户名密码是`1f78266a:eff0896726224fa2a99fe82dd1f07562`，我们可以用如下curl命令进行测试：
 
 ```shell
-curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@adsl.proxy.acedata.cloud:30005 https://ipinfo.io
+curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@adsl.proxy.xhuoapi.ai:30005 https://ipinfo.io
 ```
 
 这里我们使用curl的`-x`参数指定了代理地址，代理协议默认是HTTP/HTTPS，这里请求的URL是[https://ipinfo.io](https://ipinfo.io)，这个站点可以返回请求该站点的真实IP地址和IP所在地域。
@@ -72,7 +72,7 @@ curl -x 1f78266a:eff0896726224fa2a99fe82dd1f07562@adsl.proxy.acedata.cloud:30005
 ```python
 import requests
 
-proxy = 'https://{proxy_username}:{proxy_password}@adsl.proxy.acedata.cloud:30005'
+proxy = 'https://{proxy_username}:{proxy_password}@adsl.proxy.xhuoapi.ai:30005'
 
 proxies = {
     'http': proxy,
@@ -138,7 +138,7 @@ for _ in range(3):
 import requests
 import base64
 
-proxy_host = 'adsl.proxy.acedata.cloud'
+proxy_host = 'adsl.proxy.xhuoapi.ai'
 proxy_port = '30005'
 proxy_username = '{proxy_username}' # 8-значное имя пользователя
 proxy_password = '{proxy_password}' # 32-значный пароль
@@ -170,7 +170,7 @@ for _ in range(3):
 const axios = require("axios");
 const base64 = require("base64");
 
-const proxy_host = "adsl.proxy.acedata.cloud";
+const proxy_host = "adsl.proxy.xhuoapi.ai";
 const proxy_port = "30005";
 const proxy_username = "{proxy_username}"; // 8-значное имя пользователя
 const proxy_password = "{proxy_password}"; // 32-значный пароль
@@ -202,4 +202,4 @@ for (let i = 0; i < 3; i++) {
 
 Если ваш пакет уже исчерпан, вам необходимо купить больше, чтобы продолжить использовать эту прокси-службу.
 
-Чтобы купить больше, перейдите на «[страницу заявки](https://platform.acedata.cloud/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)» и просто нажмите кнопку «Купить больше», чтобы выбрать, чем больше вы покупаете за раз, тем дешевле цена за единицу.
+Чтобы купить больше, перейдите на «[страницу заявки](https://api.xhuoapi.ai/services/0cbf38f1-b89f-49fe-849c-e2ebbeb25604)» и просто нажмите кнопку «Купить больше», чтобы выбрать, чем больше вы покупаете за раз, тем дешевле цена за единицу.

@@ -3,12 +3,12 @@
   "info": {
     "title": "TikTok Information",
     "version": "1.0.0",
-    "description": "API reference for TikTok Information on Ace Data Cloud."
+    "description": "API reference for TikTok Information on XHuoAPI."
   },
   "servers": [
     {
-      "url": "https://api.acedata.cloud",
-      "description": "Ace Data Cloud API"
+      "url": "https://api.xhuoapi.ai/v1",
+      "description": "XHuoAPI API"
     }
   ],
   "components": {
@@ -16,7 +16,7 @@
       "bearerAuth": {
         "type": "http",
         "scheme": "bearer",
-        "description": "API token from https://platform.acedata.cloud"
+        "description": "API token from https://api.xhuoapi.ai"
       }
     }
   },

@@ -1,15 +1,15 @@
 ---
 title: "Generación de Voces de Pescado API Integración"
-description: "Fish music generation 集成指南 - Ace Data Cloud"
+description: "Fish music generation 集成指南 - XHuoAPI"
 ---
 
 Este documento presentará una descripción de la integración de la API de Generación de Voces de Pescado, que permite crear su propio tono a través de un enlace de audio de entrada.
 
 ## Proceso de Solicitud
 
-Para utilizar la API, primero debe ir a la página correspondiente de [API de Generación de Voces de Pescado](https://platform.acedata.cloud/documents/55e61b64-ac7d-4710-a7f1-57a4ba786b17) para solicitar el servicio correspondiente. Una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
+Para utilizar la API, primero debe ir a la página correspondiente de [API de Generación de Voces de Pescado](https://api.xhuoapi.ai/documents/55e61b64-ac7d-4710-a7f1-57a4ba786b17) para solicitar el servicio correspondiente. Una vez en la página, haga clic en el botón "Acquire", como se muestra en la imagen:
 
-![](https://cdn.acedata.cloud/q6ytrc.png)
+![](https://cdn.xhuoapi.ai/q6ytrc.png)
 
 Si aún no ha iniciado sesión o registrado, será redirigido automáticamente a la página de inicio de sesión que lo invita a registrarse e iniciar sesión. Después de iniciar sesión o registrarse, será redirigido automáticamente a la página actual.
 
@@ -19,7 +19,7 @@ En la primera solicitud, se otorgará un límite gratuito que permite usar la AP
 
 Primero, comprenda la forma básica de uso, que consiste en ingresar el enlace de audio del tono `voice_url`, y podrá obtener el resultado procesado. El contenido específico es el siguiente:
 
-<p><img src="https://cdn.acedata.cloud/278ikr.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/278ikr.png" width="500" className="m-auto" /></p>
 
 Aquí podemos ver que hemos configurado los Encabezados de Solicitud, que incluyen:
 
@@ -36,7 +36,7 @@ Además, se configuró el Cuerpo de Solicitud, que incluye:
 
 Después de seleccionar, se puede observar que también se generó el código correspondiente a la derecha, como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/dkdfyj.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/dkdfyj.png" width="500" className="m-auto" /></p>
 
 Haga clic en el botón "Try" para realizar la prueba, como se muestra en la imagen anterior, y aquí obtuvimos el siguiente resultado:
 
@@ -103,7 +103,7 @@ Podemos ver que hemos obtenido información de tono satisfactoria, y solo necesi
 Además, si desea generar el código de integración correspondiente, puede copiarlo directamente, por ejemplo, el código de CURL es el siguiente:
 
 ```shell
-curl -X POST 'https://api.acedata.cloud/fish/voices' \
+curl -X POST 'https://api.xhuoapi.ai/v1/fish/voices' \
 -H 'accept: application/json' \
 -H 'authorization: Bearer {token}' \
 -H 'content-type: application/json' \
@@ -124,13 +124,13 @@ A continuación, utilizaremos un ejemplo para comprender cómo operar específic
 
 Primero, el callback de Webhook es un servicio que puede recibir solicitudes HTTP, y el desarrollador debe reemplazarlo con la URL de su propio servidor HTTP. Aquí, para facilitar la demostración, utilizamos un sitio web de ejemplo de Webhook público https://webhook.site/, al abrir este sitio se obtiene una URL de Webhook, como se muestra en la imagen:
 
-![](https://cdn.acedata.cloud/tbcnai.png)
+![](https://cdn.xhuoapi.ai/tbcnai.png)
 
 Copie esta URL y podrá usarla como Webhook, el ejemplo aquí es `https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34`.
 
 A continuación, podemos establecer el campo `callback_url` como la URL de Webhook mencionada anteriormente, al mismo tiempo que ingresamos los parámetros correspondientes, el contenido específico es como se muestra en la imagen:
 
-<p><img src="https://cdn.acedata.cloud/ecbq1s.png" width="500" className="m-auto" /></p>
+<p><img src="https://cdn.xhuoapi.ai/ecbq1s.png" width="500" className="m-auto" /></p>
 
 Haga clic en ejecutar, y podrá ver que se obtiene inmediatamente un resultado, como el siguiente:
 
@@ -141,7 +141,7 @@ Haga clic en ejecutar, y podrá ver que se obtiene inmediatamente un resultado, 
 ```
 稍等片刻，我们可以在 `https://webhook.site/4815f79f-a40f-4078-ac85-1cc126b6bb34` 上观察到生成任务的结果，如图所示：
 
-![](https://cdn.acedata.cloud/dxlupe.png)
+![](https://cdn.xhuoapi.ai/dxlupe.png)
 
 内容如下：
 
